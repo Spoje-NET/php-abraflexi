@@ -1,18 +1,18 @@
 # FlexiBeeHP
-![FlexiBeeHP Logo](https://github.com/Spoje-NET/FlexiPeeHP/raw/master/project_logo.png "Project Logo")
+![FlexiBeeHP Logo](https://github.com/Spoje-NET/php-flexibee/raw/master/project_logo.png "Project Logo")
 
 PHP7.1+ Based Library for easy interaction with Czech accounting system FlexiBee.
 
 CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [FlexiBee](https://www.flexibee.eu/)
 
-[![Source Code](http://img.shields.io/badge/source/Spoje-NET/FlexiPeeHP-blue.svg?style=flat-square)](https://github.com/Spoje-NET/FlexiPeeHP)
-[![Latest Version](https://img.shields.io/github/release/Spoje-NET/FlexiPeeHP.svg?style=flat-square)](https://github.com/Spoje-NET/FlexiPeeHP/releases)
-[![Software License](https://img.shields.io/badge/license-GNU-brightgreen.svg?style=flat-square)](https://github.com/Spoje-NET/FlexiPeeHP/blob/master/LICENSE)
-[![Build Status](https://img.shields.io/travis/Spoje-NET/FlexiPeeHP/master.svg?style=flat-square)](https://travis-ci.org/Spoje-NET/FlexiPeeHP)
-[![Code Coverage](https://scrutinizer-ci.com/g/Spoje-NET/FlexiPeeHP/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Spoje-NET/FlexiPeeHP/?branch=master)
+[![Source Code](http://img.shields.io/badge/source/Spoje-NET/php-flexibee-blue.svg?style=flat-square)](https://github.com/Spoje-NET/php-flexibee)
+[![Latest Version](https://img.shields.io/github/release/Spoje-NET/php-flexibee.svg?style=flat-square)](https://github.com/Spoje-NET/php-flexibee/releases)
+[![Software License](https://img.shields.io/badge/license-GNU-brightgreen.svg?style=flat-square)](https://github.com/Spoje-NET/php-flexibee/blob/master/LICENSE)
+[![Build Status](https://img.shields.io/travis/Spoje-NET/php-flexibee/master.svg?style=flat-square)](https://travis-ci.org/Spoje-NET/php-flexibee)
+[![Code Coverage](https://scrutinizer-ci.com/g/Spoje-NET/php-flexibee/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Spoje-NET/php-flexibee/?branch=master)
 [![Docker pulls](https://img.shields.io/docker/pulls/vitexsoftware/flexipeehp.svg)](https://hub.docker.com/r/vitexsoftware/flexipeehp/)
-[![Total Downloads](https://img.shields.io/packagist/dt/spoje.net/flexipeehp.svg?style=flat-square)](https://packagist.org/packages/spoje.net/flexipeehp)
-[![Latest stable](https://img.shields.io/packagist/v/spoje.net/flexipeehp.svg?style=flat-square)](https://packagist.org/packages/spoje.net/flexipeehp)
+[![Total Downloads](https://img.shields.io/packagist/dt/spoje.net/php-flexibee.svg?style=flat-square)](https://packagist.org/packages/spoje.net/php-flexibee)
+[![Latest stable](https://img.shields.io/packagist/v/spoje.net/php-flexibee.svg?style=flat-square)](https://packagist.org/packages/spoje.net/php-flexibee)
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4/big.png)](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4)
 
@@ -20,16 +20,17 @@ CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [FlexiBee]
 Vznik této knihovny by nebyl možný bez laskavé podpory společnosti [Spoje.Net](http://www.spoje.net), 
 která hradila vývoj řešení pro propojení LMS / FlexiBee a importu skladu. :+1:
 
-![Spoje.Net](https://github.com/Spoje-NET/FlexiPeeHP/raw/master/spoje-net_logo.gif "Spoje.Net")
+![Spoje.Net](https://github.com/Spoje-NET/php-flexibee/raw/master/spoje-net_logo.gif "Spoje.Net")
 
 **Dále chci poděkovat technické podpoře společnosti [ABRA Flexi s.r.o.](https://www.flexibee.eu/podpora/) za jejich svatou trpělivost
 při reakcích na mé ne vždy bystré otázky a bugreporty.**
 
 Parsování výsledků pro účely GDPR logování bylo dopracováno za laskavé podpory [&lt;PureHTML&gt;](https://purehtml.cz/) 
+
 Instalace
 ---------
 
-    composer require spoje.net/flexipeehp
+    composer require spoje.net/flexibee
 
 
 pokud váš výsledný composer.json bude vypadat  zhruba takto: 
@@ -40,7 +41,7 @@ pokud váš výsledný composer.json bude vypadat  zhruba takto:
     "description": "Test",
     "type": "project",
     "require": {
-        "spoje.net/flexipeehp": "*"
+        "spoje.net/flexibee": "*"
     },
     "license": "MIT",
     "authors": [
@@ -55,7 +56,7 @@ pokud váš výsledný composer.json bude vypadat  zhruba takto:
 
 spustí se příkazem **composer install** instalace:
 
-![Compser Install](https://github.com/Spoje-NET/FlexiPeeHP/raw/master/Examples/flexipeehp-composer-install.png "Installation")
+![Compser Install](https://github.com/Spoje-NET/php-flexibee/raw/master/Examples/flexipeehp-composer-install.png "Installation")
 
 
 
@@ -103,8 +104,8 @@ nebo je možné přihlašovací údaje zadávat při vytváření instance tří
 ```
 
 Tento způsob nastavení má vyšší prioritu než výše uvedené definovaní konstant.
-```php
 
+```php
     $order = new \FlexiPeeHP\ObjednavkaPrijata('code:OBP0034/2019',['companyUrl'=> $_GET['companyUrl'], 'authSessionId'=>$_GET['authSessionId'] ])
 
 ```
@@ -257,9 +258,9 @@ Přidejte do vašeho composer.json i cesty k původním testům:
 
     "autoload-dev": {
         "psr-4": {
-            "Test\\": "vendor/spoje.net/flexipeehp/testing/src/FlexiPeeHP/testing/",
+            "Test\\": "vendor/spoje.net/php-flexibee/testing/src/FlexiPeeHP/testing/",
             "Test\\Ease\\": "vendor/vitexsoftware/ease-framework/tests/src/Ease",
-            "Test\\FlexiPeeHP\\": "vendor/spoje.net/flexipeehp/testing/src/FlexiPeeHP/",
+            "Test\\FlexiPeeHP\\": "vendor/spoje.net/php-flexibee/testing/src/FlexiPeeHP/",
          }
     }
 
@@ -338,7 +339,7 @@ V tomto případě je potřeba do souboru composer.json vaší aplikace přidat:
 ```json
     "require": {
         "deb/ease-core": "*",
-        "deb/flexipeehp": "*"
+        "deb/flexibee": "*"
     },
     "repositories": [
         {
@@ -372,7 +373,7 @@ A aktualizaci bude možné dělat globálně pro celý systém prostřednictvím
 
 Generujeme také balíček **flexipeehp-doc**, obsahující vývojářskou dokumentaci
 generovanou pomcí programu ApiGen. Dokumnentace je online k nahlédnutí na adrese
-http://flexibee-dev.spoje.net/flexipeehp/
+http://flexibee-dev.spoje.net/php-flexibee/
 
 Testování:
 
@@ -381,7 +382,7 @@ Testování:
      php -f flexibeeping.php
 
 
-![Debian Test](https://github.com/Spoje-NET/FlexiPeeHP/raw/master/Examples/flexipeehp-debian-test.png "Test")
+![Debian Test](https://github.com/Spoje-NET/php-flexibee/raw/master/Examples/flexipeehp-debian-test.png "Test")
     
 
 Sestavení
