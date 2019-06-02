@@ -1,0 +1,7 @@
+{                                                                                                                                          
+    "EASE_APPNAME": "FlexiPeeHPDebianTest",                                                                                                      
+    "EASE_LOGGER": "syslog|console",                                                                                                       
+    "FLEXIBEE_URL": "https://demo.flexibee.eu",
+    "FLEXIBEE_LOGIN": "winstrom",
+    "FLEXIBEE_PASSWORD": "winstrom"
+}

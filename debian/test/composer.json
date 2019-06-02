@@ -1,0 +1,36 @@
+{
+    "name": "vitexsoftware/flexibeedebiantest",
+    "description": "FlexiBeeHP debian package test",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Vítězslav Dvořák",
+            "email": "info@vitexsoftware.cz"
+        }
+    ],
+    "minimum-stability": "dev",
+    "config": {
+	"vendor-dir": "/tmp/flexibeehpdebiantest"
+    },
+    "require": {
+        "deb/flexibee": "*",
+        "deb/ease-core": "*"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/usr/share/php/Ease",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "/usr/share/php/FlexiPeeHP",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
+
+}

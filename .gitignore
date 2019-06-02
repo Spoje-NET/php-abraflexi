@@ -1,0 +1,11 @@
+composer.phar
+/vendor/
+composer.lock
+/nbproject/private/
+/docs/
+/.vagrant/
+/debian/php-flexibee-doc.debhelper.log
+/debian/debhelper-build-stamp
+/debian/php-flexibee
+/debian/php-flexibee-doc
+/deb/

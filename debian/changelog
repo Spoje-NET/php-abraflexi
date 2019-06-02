@@ -1,0 +1,73 @@
+php-flexibee (1.20.4) UNRELEASED; urgency=medium
+
+  * ease-core based
+  * package renamed
+  * new branch 
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Fri, 15 Mar 2019 02:10:25 +0100
+
+flexipeehp (1.12) experimental; urgency=medium
+
+  * Static Files Update
+  * Tests & Fixes
+
+ -- Vítězslav Dvořák <vitex@develoid.jinonice.czf>  Thu, 07 Jun 2018 18:54:03 +0200
+
+flexipeehp (1.11) experimental; urgency=medium
+
+  * php5.3 - php7.2 
+
+ -- Vítězslav Dvořák <vitex@develoid.jinonice.czf>  Tue, 29 May 2018 13:33:35 +0200
+
+flexipeehp (1.9.7.1) experimental; urgency=low
+
+  [ Vítězslav Vitex Dvořák ]
+
+  [ Cybervitexus ]
+  * Debian package build update
+  * Přidán další parametr adresní řádky pro směr řazení výpisu Přidána
+    třída pro cenník
+  * Doplněna funkce pro získání GlobalVersion Přidána třída položky
+    faktury vydané
+
+
+  [ vitex ]
+  * TODOs
+  * Debian package buld update
+  * Debian package version fix Links to other libraries added to Readme
+  * added public $this->rowCount to hold @rowCount value if obtained
+  * Debian package v1.3
+  * Added class Structure that hold structure of all evidencies added
+    tool update_structure_clas.php for generating class Structure Added
+    class DodavatelskaSmlouva Version grow to 1.4
+  * Added methods for managing used company Unit tests for obtaining
+    evidence structure
+  * Added methods for managing used company Unit tests for obtaining
+    evidence structure
+  * Added methods for managing used company Unit tests for obtaining
+    evidence structure
+  * Fixed support for Evidence Actions
+  * Release 1.6 Evidence names moved from Structure to EvidenceList
+    class Class Structure renamed to Relations Class generating scripts
+    moved to "tools" folder Added generated class Relations
+  * Added method for generating invoices to Provider Contract class
+    Added login-logout URL prefix to list allowed prefixes
+  * Added method for generating invoices to Provider Contract class
+    Added login-logout URL prefix to list allowed prefixes
+
+  [ Vítězslav Dvořák ]
+  * UnitTest for FlexiBeeRW update Added missing PHPDoc comments
+  * Added debian package for ApiGen documentation Static version as
+    FlexiPeeHP::$libVersion
+  * Merge origin/master
+
+  [ vitex ]
+  * Additonal control for relations in debug mode
+  * __ToString returns allways string now
+  * Updated Generated classes
+
+
+  [ Vítězslav Dvořák ]
+  * 
+
+ -- Vítězslav Dvořák <vitex@develoid.jinonice.czf>  Tue, 29 May 2018 13:11:03 +0200

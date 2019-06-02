@@ -1,0 +1,37 @@
+{
+    "name": "deb/flexibee",
+    "description": "PHP Based Library for easy interaction with czech accounting system Flexibee.",
+    "homepage": "https://github.com/Spoje-NET/FlexiPeeHP",
+    "license": "GPL-2.0+",
+    "version": "1.21",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Vítězslav Dvořák",
+            "email": "vitex@arachne.cz"
+        }
+    ],
+    "require": {
+        "php": ">= 7",
+        "ext-curl": "*",
+        "deb/ease-core": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "FlexiPeeHP\\": "."
+        }
+    },
+    "require": {
+        "php": ">=7.1",
+        "ext-curl": "*"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/usr/share/php/Ease",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
+}

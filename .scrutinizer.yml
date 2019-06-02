@@ -1,0 +1,49 @@
+checks:
+    php:
+        code_rating: true
+        duplication: true
+
+build:
+    environment:
+        php: 7.3
+    nodes:
+        flexipeehp:
+            override:
+                -
+                    idle_timeout: 5000
+                    command: 'php -d memory_limit=2048M -f ./vendor/bin/phpunit -- --coverage-clover=clover'
+                    coverage:
+                        file: 'clover'
+                        format: 'php-clover'
+            dependencies:
+                before:
+                    - composer self-update
+                    - composer install --no-interaction
+
+            tests:
+                override:
+                    - php-scrutinizer-run
+
+            coverage:
+              tests:
+                override:
+                  - command: './vendor/bin/phpunit --coverage-clover=/home/scrutinizer/build/coverage.xml'
+                    coverage:
+                      file: coverage.xml
+                      format: clover
+
+filter:
+    excluded_paths:
+        - 'testing/*'
+        - 'vendor/*'
+        - 'Examples/*'
+tools:
+    php_code_sniffer:
+        config:
+            standard: "PSR2"
+
+checks:
+    php:
+        code_rating: true
+        duplication: true
+            

@@ -1,0 +1,4 @@
+docs/*                      usr/share/doc/FlexiPeeHP/html
+docs/resources/*            usr/share/doc/FlexiPeeHP/html/resources
+debian/php-flexibee-doc.conf  usr/share/doc/flexipeehp-doc/apache
+README.md                   usr/share/doc/FlexiPeeHP/

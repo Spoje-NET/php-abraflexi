@@ -1,0 +1,27 @@
+language: php
+
+php:
+  - 7.1
+  - 7.2
+  - 7.3
+
+sudo: false
+
+before_script:
+  - travis_retry composer self-update
+  - travis_retry composer install --no-interaction --prefer-source
+  - travis_retry composer require --dev php-coveralls/php-coveralls
+  - travis_retry composer require --dev jakub-onderka/php-parallel-lint
+  - travis_retry composer require --dev jakub-onderka/php-console-highlighter
+  - travis_retry echo 'date.timezone = "Europe/Prague"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  - travis_retry echo 'memory_limit = "2048M"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  
+script:
+  - ./vendor/bin/parallel-lint src testing
+  - ./vendor/bin/phpunit --coverage-text --coverage-clover clover --bootstrap testing/bootstrap.php
+  - php -i | grep memory_limit
+  - "! (composer outdated --direct | grep ^)"
+ 
+after_script:
+  - ./vendor/bin/coveralls
+

@@ -1,0 +1,14 @@
+Format-Specification: http://wiki.debian.org/Proposals/CopyrightFormat?action=recall&rev=143
+Upstream-Name: FlexiPeeHP
+Upstream-Source: https://github.com/Spoje-NET/FlexiPeeHP/archive/master.zip
+
+Files: *
+Homepage: https://github.com/Spoje-NET/FlexiPeeHP/
+Copyright:
+  (c) 2016 Spoje.Net s.r.o. (spoje.net)
+License: GPL-2 
+
+License: GPL-2
+ On Debian systems the full text of the GNU General Public License can be found
+ in the `/usr/share/common-licenses/GPL-2' file.
+

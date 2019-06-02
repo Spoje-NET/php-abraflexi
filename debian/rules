@@ -1,0 +1,12 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_test:
+	echo tests temporarly skipped for now in rules file
+
+override_dh_install:
+	dh_install	
+	sed -i -e  "s/__DIR__.'\/..\/..\//'\\/usr\/share\/php\/FlexiPeeHP\//g" debian/php-flexibee/usr/share/php/flexibee/FlexiBeeRO.php
+	./debian/fixversion.sh
