@@ -2,7 +2,7 @@
 /**
  * FlexiPeeHP - List of Evidencies.
  *
- * Generated: Mon, 11 Mar 2019 21:36:22 +0100 
+ * Generated: Wed, 05 Jun 2019 14:31:29 +0200 
  * From:      https://vitexsoftware.flexibee.eu:5434
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -46,7 +46,7 @@ class EvidenceList extends FlexiBeeRO
      *
      * @var string
      */
- static public $version = '2019.2.0.2';
+ static public $version = '2019.2.2.1';
 
     /**
      * Evidences Path/Name listing.
@@ -61,8 +61,8 @@ class EvidenceList extends FlexiBeeRO
   'atribut' => 'Atributy',
   'banka' => 'Banka',
   'format-elektronickeho-bankovnictvi' => 'Bankovní formáty',
-  'mzdy-bankovni-spojeni' => 'Bankovní spojení',
   'adresar-bankovni-ucet' => 'Bankovní spojení',
+  'mzdy-bankovni-spojeni' => 'Bankovní spojení',
   'cenova-uroven' => 'Cenové úrovně',
   'odberatel' => 'Ceny pro odběratele/skupiny odběratelů, speciální kódy',
   'cenik' => 'Ceník',
@@ -232,10 +232,10 @@ class EvidenceList extends FlexiBeeRO
   'majetek-udalost' => 'Události',
   'udalost' => 'Události, aktivity',
   'umisteni' => 'Umístění',
-  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
-  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
-  'umisteni-ve-skladu-police' => 'Umístění ve skladu',
   'umisteni-ve-skladu' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-police' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
   'sablona-upominky' => 'Upomínky',
   'strom' => 'Uzel stromu',
   'uzivatelsky-dotaz' => 'Uživatelské dotazy',
@@ -268,8 +268,8 @@ class EvidenceList extends FlexiBeeRO
   'ucet' => 'Účtový rozvrh',
   'cinnost' => 'Činnost',
   'ciselnik-mzdovych-slozek' => 'Číselník mzdových složek',
-  'stav-ceniku' => 'Číselník stavů položek ceníku',
   'typ-stavu-ceniku' => 'Číselník stavů položek ceníku',
+  'stav-ceniku' => 'Číselník stavů položek ceníku',
   'cislo-baliku' => 'Čísla balíků',
   'cleneni-kontrolni-hlaseni' => 'Řádky kontrolního hlášení DPH',
   'cleneni-dph' => 'Řádky přiznání DPH',
@@ -283,6 +283,24 @@ class EvidenceList extends FlexiBeeRO
      * @var array
      */
  static public $evidences = array (
+  'nastaveni' => 
+  array (
+    'evidenceType' => 'NASTAVENI',
+    'evidenceName' => 'Nastavení',
+    'evidencePath' => 'nastaveni',
+    'importStatus' => 'NOT_DOCUMENTED',
+    'className' => 'cz.winstrom.vo.nast.Nastaveni',
+    'formCode' => 'nNastav',
+  ),
+  'uzivatel' => 
+  array (
+    'evidenceType' => 'UZIVATELE',
+    'evidenceName' => 'Osoby a uživatelé',
+    'evidencePath' => 'uzivatel',
+    'importStatus' => 'NOT_DOCUMENTED',
+    'className' => 'cz.winstrom.vo.w.Uzivatel',
+    'formCode' => 'cisOsoby',
+  ),
   'analyza-nakupu' => 
   array (
     'evidenceType' => 'ANALYZA_NAKUPU',
@@ -383,16 +401,6 @@ class EvidenceList extends FlexiBeeRO
     'formCode' => 'perAktualMzdy',
     'extIdSupported' => 'false',
   ),
-        'nastaveni' =>
-        array(
-            'evidenceType' => 'NASTAVENI',
-            'evidenceName' => 'Nastavení',
-            'evidencePath' => 'nastaveni',
-            'importStatus' => 'NOT_DOCUMENTED',
-            'className' => 'cz.winstrom.vo.nast.Nastaveni',
-            'formCode' => 'nNastav',
-            'extIdSupported' => NULL,
-        ),
   'obratova-predvaha' => 
   array (
     'evidenceType' => 'OBRATOVA_PREDVAHA',
@@ -493,16 +501,6 @@ class EvidenceList extends FlexiBeeRO
     'formCode' => 'vykazUcetniDenik',
     'extIdSupported' => 'false',
   ),
-        'uzivatel' =>
-        array(
-            'evidenceType' => 'UZIVATELE',
-            'evidenceName' => 'Osoby a uživatelé',
-            'evidencePath' => 'uzivatel',
-            'importStatus' => 'NOT_DOCUMENTED',
-            'className' => 'cz.winstrom.vo.w.Uzivatel',
-            'formCode' => 'cisOsoby',
-            'extIdSupported' => NULL,
-        ),
   'vykaz-hospodareni' => 
   array (
     'evidenceType' => 'VYKAZ_HOSPODARENI',

@@ -984,9 +984,9 @@ class FlexiBeeRO extends \Ease\Sand
             }
         } else {
             if ($this->debug) {
-            $this->addStatusMessage('JSON Decoder: '.$decodeError, 'error');
-            $this->addStatusMessage($rawJson, 'debug');
-        }
+                $this->addStatusMessage('JSON Decoder: '.$decodeError, 'error');
+                $this->addStatusMessage($rawJson, 'debug');
+            }
         }
         return $responseDecoded;
     }
@@ -1777,7 +1777,7 @@ class FlexiBeeRO extends \Ease\Sand
             $resultData = $this->lastResult;
         }
         if (isset($url)) {
-            $this->logger->addStatusMessage($this->lastResponseCode.':'.urldecode($url));
+            \Ease\Shared::logger()->addStatusMessage($this->lastResponseCode.':'.urldecode($url));
         }
 
         if (isset($resultData['results'])) {
@@ -1919,7 +1919,7 @@ class FlexiBeeRO extends \Ease\Sand
                                 case 'between':
                                 case 'ends':
                                     if (count($condParts) == 1) {
-                                    $parts[$column] = $column         .= ' '.$value;
+                                        $parts[$column] = $column         .= ' '.$value;
                                     } else {
                                         $parts[$column] = $column         .= ' '.$condParts[0]." '".$condParts[1]."'";
                                     }

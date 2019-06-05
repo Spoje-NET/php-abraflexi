@@ -21,7 +21,7 @@ class Actions
      *
      * @var string
      */
- static public $version = '2019.2.0.2';
+ static public $version = '2019.2.2.1';
 
     /**
      * Evidence adresar (Adresy firem) Actions.
@@ -379,11 +379,11 @@ class Actions
   ),
 );
     /**
-     * Evidence mzdy-bankovni-spojeni (Bankovní spojení) Actions.
+     * Evidence adresar-bankovni-ucet (Bankovní spojení) Actions.
      *
      * @var array
      */
- static public $mzdyBankovniSpojeni = array (
+ static public $adresarBankovniUcet = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -422,11 +422,11 @@ class Actions
   ),
 );
     /**
-     * Evidence adresar-bankovni-ucet (Bankovní spojení) Actions.
+     * Evidence mzdy-bankovni-spojeni (Bankovní spojení) Actions.
      *
      * @var array
      */
- static public $adresarBankovniUcet = array (
+ static public $mzdyBankovniSpojeni = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -8242,11 +8242,11 @@ class Actions
   ),
 );
     /**
-     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Actions.
+     * Evidence umisteni-ve-skladu (Umístění ve skladu) Actions.
      *
      * @var array
      */
- static public $umisteniVeSkladuRegal = array (
+ static public $umisteniVeSkladu = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -8285,11 +8285,11 @@ class Actions
   ),
 );
     /**
-     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Actions.
+     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Actions.
      *
      * @var array
      */
- static public $umisteniVeSkladuMistnost = array (
+ static public $umisteniVeSkladuRegal = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -8371,11 +8371,11 @@ class Actions
   ),
 );
     /**
-     * Evidence umisteni-ve-skladu (Umístění ve skladu) Actions.
+     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Actions.
      *
      * @var array
      */
- static public $umisteniVeSkladu = array (
+ static public $umisteniVeSkladuMistnost = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -10042,11 +10042,11 @@ class Actions
   ),
 );
     /**
-     * Evidence stav-ceniku (Číselník stavů položek ceníku) Actions.
+     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Actions.
      *
      * @var array
      */
- static public $stavCeniku = array (
+ static public $typStavuCeniku = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -10085,11 +10085,11 @@ class Actions
   ),
 );
     /**
-     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Actions.
+     * Evidence stav-ceniku (Číselník stavů položek ceníku) Actions.
      *
      * @var array
      */
- static public $typStavuCeniku = array (
+ static public $stavCeniku = array (
   'new' => 
   array (
     'actionId' => 'new',
