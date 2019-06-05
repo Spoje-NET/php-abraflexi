@@ -1,10 +1,11 @@
-php-flexibee (1.20.4) UNRELEASED; urgency=medium
+php-flexibee (1.29) UNRELEASED; urgency=medium
 
   * ease-core based
   * package renamed
   * new branch 
 
- -- Vítězslav Dvořák <info@vitexsoftware.cz>  Fri, 15 Mar 2019 02:10:25 +0100
+
+ -- Vítězslav Dvořák <vitex@develoid.jinonice.czf>  Wed, 05 Jun 2019 13:48:20 +0200
 
 flexipeehp (1.12) experimental; urgency=medium
 
