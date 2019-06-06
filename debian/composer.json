@@ -3,7 +3,7 @@
     "description": "PHP Based Library for easy interaction with czech accounting system Flexibee.",
     "homepage": "https://github.com/Spoje-NET/FlexiPeeHP",
     "license": "GPL-2.0+",
-    "version": "1.28",
+    "version": "1.31",
     "type": "library",
     "authors": [
         {

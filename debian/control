@@ -4,10 +4,10 @@ Standards-Version: 3.9.8
 Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
 Uploaders: Vitex <vitex@hippy.cz>
 Priority: optional
-Homepage: https://github.com/Spoje-NET/FlexiPeeHP
+Homepage: https://github.com/Spoje-NET/php-flexibee
 
 Package: php-flexibee
-Depends: ${misc:Depends}, php-curl|php7.1-curl|php7.2-curl|php7.3-curl,ease-core (>= 0.5), composer
+Depends: ${misc:Depends}, php-curl|php7.1-curl|php7.2-curl|php7.3-curl,php-ease-core, composer
 Conflicts: flexipeehp
 Architecture: all
 Section: web

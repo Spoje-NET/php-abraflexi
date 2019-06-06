@@ -28,6 +28,10 @@
         <exec command="vendor/bin/phpunit --bootstrap testing/bootstrap.php"/>
     </target>
 
+    <target name="clean" >
+        <exec command="rm -rf vendor/* composer.lock debian/php-flexibee"/>
+    </target>
+
     <!-- ============================================  -->
     <!-- (DEFAULT)  Target: dist                       -->
     <!-- ============================================  -->
