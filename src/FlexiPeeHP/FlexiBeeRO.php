@@ -2862,7 +2862,6 @@ class FlexiBeeRO extends \Ease\Sand
      */
     public function __wakeup()
     {
-        parent::__wakeup();
         $this->curlInit();
     }
 }
