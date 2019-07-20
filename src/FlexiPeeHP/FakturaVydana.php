@@ -146,63 +146,46 @@ class FakturaVydana extends FlexiBeeRW
     /**
      * add link to advance tax document
      * 
+     * @link https://www.flexibee.eu/api/dokumentace/ref/vazby-zdd/ vazby-zdd
+     * 
      * @param Banka|PokladniPohyb $income Income payment document
      * 
      * @return boolean success
-     * 
-     * @throws Exception
      */
     public function vytvorVazbuZDD($income)
     {
-        switch (get_class($income)) {
-            case 'FlexiPeeHP\\Banka':
-                $modul = 'banka';
-                break;
-            case 'FlexiPeeHP\\PokladniPohyb':
-                $modul = 'pokladna';
-                break;
-            default :
-                throw new \Ease\Exception(_('Unsupported $income parameter type'));
+        $classHelper = explode('\\', get_class($income));
+        $bondRequest = [
+            'id' => $this->getRecordIdent(),
+            'vytvor-vazbu-zdd' => [
+                'uhrada' => $income->getRecordIdent(),
+                'uhrada@type' => strtolower(end($classHelper))
+            ]
+        ];
+        $this->insertToFlexiBee($bondRequest);
+        return $this->lastResponseCode == 201;
         }
 
-        $incomeId = $income->getRecordID();
-        $myId     = $this->getRecordID();
+    /**
+     * Remove Advance tax document bondig
+     * 
+     * @link https://www.flexibee.eu/api/dokumentace/ref/vazby-zdd/ vazby-zdd
+     * 
+     * @param int|string $id Invoice record identifier
+     * 
+     * @return boolean operation success
+     */
+    public function zrusVazbuZdd( $id = null )
+    {
+        $unbondRequest = [
+            'id' => is_null($id) ? $this->getRecordIent() : $id , 
+            'zrus-vazbu-zdd'
+        ];
 
-        $headersBackup = $this->defaultHttpHeaders;
-
-        $this->defaultHttpHeaders['Accept'] = 'text/html';
-        $this->setPostFields(http_build_query(['modul' => $modul,
-            'submit' => 'OK']));
-        $this->performRequest($myId.'/vytvor-vazbu-zdd/'.$incomeId, 'GET',
-            'json');
-
-        $responseArr = explode("\n", $this->lastCurlResponse);
-        $result      = true;
-        $message     = '';
-        foreach ($responseArr as $lineNo => $responseLine) {
-            if (strstr($responseLine, '<ul class = "flexibee-errors">')) {
-                $message = trim($responseArr[$lineNo + 1]);
-                $result  = false;
+        $this->insertToFlexiBee($unbondRequest);
+        return $this->lastResponseCode == 201;
             }
-            if (strstr($responseLine, '<div class = "alert alert-success">')) {
-                $message = strip_tags(html_entity_decode(trim($responseArr[$lineNo
-                            + 1])));
-                $result  = true;
-            }
-        }
 
-        if ($result === true) {
-            $this->addStatusMessage(empty($message) ? $this->getDataValue('kod').'/vytvor-vazbu-zdd/'.$income->getRecordCode()
-                        : $message, 'success');
-        } else {
-            $this->addStatusMessage($this->getDataValue('kod').'/vytvor-vazbu-zdd/'.$incomeId,
-                'warning');
-        }
-
-        $this->defaultHttpHeaders = $headersBackup;
-
-        return $result;
-    }
 
     /**
      * 
