@@ -2446,7 +2446,7 @@ class FlexiBeeRO extends \Ease\Sand
                     $extIds);
             }
         } else {
-            $res = parent::setMyKey($myKeyValue);
+            $res =  $this->setDataValue($this->getMyKey(), $myKeyValue);
         }
         $this->updateApiURL();
         return $res;
