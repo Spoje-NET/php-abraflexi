@@ -2577,7 +2577,7 @@ class FlexiBeeRO extends \Ease\Sand
             if (!empty($reportName)) {
                 $urlParams['report-name'] = $reportName;
             }
-            if (($this->doCurlRequest(\Ease\Shared::addUrlParams($this->apiURL,
+            if (($this->doCurlRequest(\Ease\Functions::addUrlParams($this->apiURL,
                         $urlParams), 'GET') == 200)) {
                 $response = $this->lastCurlResponse;
             }
@@ -2602,7 +2602,7 @@ class FlexiBeeRO extends \Ease\Sand
         $formatBackup = $this->format;
         if ($this->setFormat($format)) {
             $downloadTo = $destDir.$this->getEvidence().'_'.$this->getMyKey().'.'.$format;
-            if (($this->doCurlRequest(empty($reportName) ? $this->apiURL : \Ease\Shared::addUrlParams($this->apiURL,
+            if (($this->doCurlRequest(empty($reportName) ? $this->apiURL : \Ease\Functions::addUrlParams($this->apiURL,
                             ['report-name' => $reportName]), 'GET') == 200) && (file_put_contents($downloadTo,
                     $this->lastCurlResponse) !== false)) {
                 $fileOnDisk = $downloadTo;
