@@ -1716,10 +1716,10 @@ class FlexiBeeRO extends \Ease\Sand
         } else {
             if (isset($data[$this->nameColumn])) {
                 $kod = preg_replace('/[^a-zA-Z0-9]/', '',
-                    \Ease\Sand::rip($data[$this->nameColumn]));
+                    \Ease\Functions::rip($data[$this->nameColumn]));
             } else {
                 if (isset($data[$this->keyColumn])) {
-                    $kod = \Ease\Sand::rip($data[$this->keyColumn]);
+                    $kod = \Ease\Functions::rip($data[$this->keyColumn]);
                 }
             }
             $kod = substr($kod, 0, 20);
