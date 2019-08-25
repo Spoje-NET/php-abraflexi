@@ -15,6 +15,7 @@ namespace FlexiPeeHP;
  */
 class FlexiBeeRO extends \Ease\Sand
 {
+    use \Ease\RecordKey;
     /**
      * Where to get JSON files with evidence stricture etc.
      * @var string
@@ -401,7 +402,6 @@ class FlexiBeeRO extends \Ease\Sand
     {
         $this->init = $init;
 
-        parent::__construct();
         $this->setUp($options);
         $this->curlInit();
         if (!empty($init)) {
@@ -905,7 +905,7 @@ class FlexiBeeRO extends \Ease\Sand
 
     public function addDefaultUrlParams($urlRaw)
     {
-        return \Ease\Shared::addUrlParams($urlRaw, $this->defaultUrlParams,
+        return \Ease\Functions::addUrlParams($urlRaw, $this->defaultUrlParams,
                 false);
     }
 
@@ -1296,7 +1296,7 @@ class FlexiBeeRO extends \Ease\Sand
     {
         foreach ($this->urlParams as $urlParam) {
             if (isset($conditions[$urlParam])) {
-                \Ease\Sand::divDataArray($conditions, $urlParams, $urlParam);
+                \Ease\Functions::divDataArray($conditions, $urlParams, $urlParam);
             }
         }
     }
@@ -2221,7 +2221,9 @@ class FlexiBeeRO extends \Ease\Sand
             foreach ($flexinfo['properties']['property'] as $evidenceProperty) {
                 $key                      = $evidenceProperty['propertyName'];
                 $properties[$key]         = $evidenceProperty;
-                $properties[$key]['name'] = $evidenceProperty['name'];
+                if(array_key_exists('name', $evidenceProperty)){
+                   $proerties[$key]['name'] = $evidenceProperty['name'];
+                }
                 $properties[$key]['type'] = $evidenceProperty['type'];
                 if (array_key_exists('url', $evidenceProperty)) {
                     $properties[$key]['url'] = str_replace('?limit=0', '',
