@@ -123,7 +123,7 @@ $evidenceFormats .= '
      */
     static public function byContentType()
     {
-        return \Ease\Sand::reindexArrayBy(self::$formats, \'content-type\');
+        return \Ease\Functions::reindexArrayBy(self::$formats, \'content-type\');
     }
 
     /**
@@ -133,7 +133,7 @@ $evidenceFormats .= '
      */
     static public function bySuffix()
     {
-        return \Ease\Sand::reindexArrayBy(self::$formats, \'suffix\');
+        return \Ease\Functions::reindexArrayBy(self::$formats, \'suffix\');
     }
 
     /**

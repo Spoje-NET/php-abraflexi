@@ -60,7 +60,7 @@ function getEvidenceActions($evidence, FlexiBeeRO $syncer)
     $flexinfo = $syncer->performRequest($evidence.'/actions.json');
     if (count($flexinfo) && array_key_exists('actions', $flexinfo)) {
         if (isset($flexinfo['actions']['action'])) {
-            if (\Ease\Sand::isAssoc($flexinfo['actions']['action'])) {
+            if (\Ease\Functions::isAssoc($flexinfo['actions']['action'])) {
                 $key           = $flexinfo['actions']['action']['actionId'];
                 $actions[$key] = $flexinfo['actions']['action'];
             } else {
