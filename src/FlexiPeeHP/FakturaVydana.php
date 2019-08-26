@@ -164,7 +164,7 @@ class FakturaVydana extends FlexiBeeRW
         ];
         $this->insertToFlexiBee($bondRequest);
         return $this->lastResponseCode == 201;
-        }
+    }
 
     /**
      * Remove Advance tax document bondig
@@ -175,17 +175,16 @@ class FakturaVydana extends FlexiBeeRW
      * 
      * @return boolean operation success
      */
-    public function zrusVazbuZdd( $id = null )
+    public function zrusVazbuZdd($id = null)
     {
         $unbondRequest = [
-            'id' => is_null($id) ? $this->getRecordIent() : $id , 
+            'id' => is_null($id) ? $this->getRecordIent() : $id,
             'zrus-vazbu-zdd'
         ];
 
         $this->insertToFlexiBee($unbondRequest);
         return $this->lastResponseCode == 201;
-            }
-
+    }
 
     /**
      * 
@@ -232,5 +231,22 @@ class FakturaVydana extends FlexiBeeRW
         }
 
         return $ddif;
+    }
+
+    /**
+     * Add Data to invoice subItem
+     *
+     * @see Relations
+     *
+     * @param array   $data pole dat
+     * @param string  $relationPath path evidence (relation) pro vkládaná data
+     * @param boolean $removeAll
+     *
+     * @return boolean Operation success
+     */
+    public function addArrayToBranch($data, $relationPath = 'polozkyFaktury',
+                                     $removeAll = false)
+    {
+        return parent::addArrayToBranch($data, $relationPath, $removeAll);
     }
 }

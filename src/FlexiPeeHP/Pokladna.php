@@ -22,5 +22,22 @@ class Pokladna extends FlexiBeeRW
      * @var string
      */
     public $evidence = 'pokladna';
+    
+    /**
+     * Add Data to invoice subItem
+     *
+     * @see Relations
+     *
+     * @param array   $data pole dat
+     * @param string  $relationPath path evidence (relation) pro vkládaná data
+     * @param boolean $removeAll
+     *
+     * @return boolean Operation success
+     */
+    public function addArrayToBranch($data, $relationPath = 'polozkyIntDokladu',
+                                     $removeAll = false)
+    {
+        return parent::addArrayToBranch($data, $relationPath, $removeAll);
+    }    
 
 }
