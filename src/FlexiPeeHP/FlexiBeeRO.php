@@ -15,6 +15,7 @@ namespace FlexiPeeHP;
  */
 class FlexiBeeRO extends \Ease\Sand
 {
+    use \Ease\RecordKey;
     /**
      * Where to get JSON files with evidence stricture etc.
      * @var string
@@ -401,7 +402,6 @@ class FlexiBeeRO extends \Ease\Sand
     {
         $this->init = $init;
 
-        parent::__construct();
         $this->setUp($options);
         $this->curlInit();
         if (!empty($init)) {
@@ -905,7 +905,7 @@ class FlexiBeeRO extends \Ease\Sand
 
     public function addDefaultUrlParams($urlRaw)
     {
-        return \Ease\Shared::addUrlParams($urlRaw, $this->defaultUrlParams,
+        return \Ease\Functions::addUrlParams($urlRaw, $this->defaultUrlParams,
                 false);
     }
 
@@ -1298,7 +1298,7 @@ class FlexiBeeRO extends \Ease\Sand
     {
         foreach ($this->urlParams as $urlParam) {
             if (isset($conditions[$urlParam])) {
-                \Ease\Sand::divDataArray($conditions, $urlParams, $urlParam);
+                \Ease\Functions::divDataArray($conditions, $urlParams, $urlParam);
             }
         }
     }
@@ -1718,10 +1718,10 @@ class FlexiBeeRO extends \Ease\Sand
         } else {
             if (isset($data[$this->nameColumn])) {
                 $kod = preg_replace('/[^a-zA-Z0-9]/', '',
-                    \Ease\Sand::rip($data[$this->nameColumn]));
+                    \Ease\Functions::rip($data[$this->nameColumn]));
             } else {
                 if (isset($data[$this->keyColumn])) {
-                    $kod = \Ease\Sand::rip($data[$this->keyColumn]);
+                    $kod = \Ease\Functions::rip($data[$this->keyColumn]);
                 }
             }
             $kod = substr($kod, 0, 20);
@@ -2223,7 +2223,9 @@ class FlexiBeeRO extends \Ease\Sand
             foreach ($flexinfo['properties']['property'] as $evidenceProperty) {
                 $key                      = $evidenceProperty['propertyName'];
                 $properties[$key]         = $evidenceProperty;
-                $properties[$key]['name'] = $evidenceProperty['name'];
+                if(array_key_exists('name', $evidenceProperty)){
+                   $proerties[$key]['name'] = $evidenceProperty['name'];
+                }
                 $properties[$key]['type'] = $evidenceProperty['type'];
                 if (array_key_exists('url', $evidenceProperty)) {
                     $properties[$key]['url'] = str_replace('?limit=0', '',
@@ -2446,7 +2448,7 @@ class FlexiBeeRO extends \Ease\Sand
                     $extIds);
             }
         } else {
-            $res = parent::setMyKey($myKeyValue);
+            $res =  $this->setDataValue($this->getMyKey(), $myKeyValue);
         }
         $this->updateApiURL();
         return $res;
@@ -2577,7 +2579,7 @@ class FlexiBeeRO extends \Ease\Sand
             if (!empty($reportName)) {
                 $urlParams['report-name'] = $reportName;
             }
-            if (($this->doCurlRequest(\Ease\Shared::addUrlParams($this->apiURL,
+            if (($this->doCurlRequest(\Ease\Functions::addUrlParams($this->apiURL,
                         $urlParams), 'GET') == 200)) {
                 $response = $this->lastCurlResponse;
             }
@@ -2602,7 +2604,7 @@ class FlexiBeeRO extends \Ease\Sand
         $formatBackup = $this->format;
         if ($this->setFormat($format)) {
             $downloadTo = $destDir.$this->getEvidence().'_'.$this->getMyKey().'.'.$format;
-            if (($this->doCurlRequest(empty($reportName) ? $this->apiURL : \Ease\Shared::addUrlParams($this->apiURL,
+            if (($this->doCurlRequest(empty($reportName) ? $this->apiURL : \Ease\Functions::addUrlParams($this->apiURL,
                             ['report-name' => $reportName]), 'GET') == 200) && (file_put_contents($downloadTo,
                     $this->lastCurlResponse) !== false)) {
                 $fileOnDisk = $downloadTo;

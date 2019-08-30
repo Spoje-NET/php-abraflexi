@@ -19,19 +19,18 @@ $info    = $company->getAllFromFlexibee();
 
 if (isset($info) && count($info)) {
     foreach ($info as $companyInfo) {
-        echo constant('FLEXIBEE_URL').'/c/'.$companyInfo['dbNazev'],$companyInfo['nazev']."\n";
+        echo constant('FLEXIBEE_URL').'/c/'.$companyInfo['dbNazev'], $companyInfo['nazev']."\n";
     }
 } else {
-    echo constant('FLEXIBEE_URL') . ' ' . _('Communication error')."\n";
+    echo constant('FLEXIBEE_URL').' '._('Communication error')."\n";
 }
 
 $changer = new Changes();
 $changer->enable();
 
 if ($changer->getStatus()) {
-    $changer->addStatusMessage(_('ChangesApi Povoleno'));
-    $container->addItem(new \Ease\TWB\Label('success', _('ChangesAPI povoleno')));
+    echo _('ChangesAPI enabled');
 } else {
-    $container->addItem(new \Ease\TWB\Label('warning', _('ChangesAPI zakázáno')));
+    echo _('ChangesAPI disabled');
 }
 
