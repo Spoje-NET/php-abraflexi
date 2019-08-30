@@ -1018,6 +1018,7 @@ class FlexiBeeRO extends \Ease\Sand
             case 201: //Success Write
                 break;
             case 200: //Success Read
+
                 if (is_array($responseDecoded)) {
                     if (isset($responseDecoded['@rowCount'])) {
                         $this->rowCount = (int) $responseDecoded['@rowCount'];
@@ -1027,31 +1028,32 @@ class FlexiBeeRO extends \Ease\Sand
                     }
 
                     $mainResult = $this->unifyResponseFormat($responseDecoded);
+
+                    if (array_key_exists('stats', $responseDecoded)) {
+                        $this->responseStats = $responseDecoded['stats'];
+                    } elseif (!empty($mainResult)) {
+                        if (array_key_exists('success', $mainResult) && ($mainResult['success']
+                            == 'false')) {
+                            $this->responseStats = ['read' => 0];
+                        } elseif (array_key_exists('properties', $mainResult)) {
+                            $this->responseStats = ['read' => 1];
+                        } else {
+                            $responseEvidence = $this->getResponseEvidence();
+                            if (!empty($this->rowCount)) {
+                                $this->responseStats = ['read' => $this->rowCount];
+                            } elseif (array_key_exists($responseEvidence,
+                                    $mainResult)) {
+                                $this->responseStats = ['read' => count($mainResult[$responseEvidence])];
+                            } else {
+                                $this->responseStats = ['read' => count($mainResult)];
+                            }
+                        }
+                    }
                 } else {
                     $mainResult = $responseDecoded;
                 }
 
                 $this->lastResult = $mainResult;
-                if (array_key_exists('stats', $responseDecoded)) {
-                    $this->responseStats = $responseDecoded['stats'];
-                } elseif (!empty($mainResult)) {
-                    if (array_key_exists('success', $mainResult) && ($mainResult['success']
-                        == 'false')) {
-                        $this->responseStats = ['read' => 0];
-                    } elseif (array_key_exists('properties', $mainResult)) {
-                        $this->responseStats = ['read' => 1];
-                    } else {
-                        $responseEvidence = $this->getResponseEvidence();
-                        if (!empty($this->rowCount)) {
-                            $this->responseStats = ['read' => $this->rowCount];
-                        } elseif (array_key_exists($responseEvidence,
-                                $mainResult)) {
-                            $this->responseStats = ['read' => count($mainResult[$responseEvidence])];
-                        } else {
-                            $this->responseStats = ['read' => count($mainResult)];
-                        }
-                    }
-                }
                 break;
 
             case 500: // Internal Server Error
