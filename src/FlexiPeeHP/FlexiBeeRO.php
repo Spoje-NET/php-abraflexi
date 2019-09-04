@@ -1875,9 +1875,11 @@ class FlexiBeeRO extends \Ease\Sand
                     $parts[$column] = $column." is null";
                 } elseif (is_array($data[$column])) {
                     $parts[$column] = $column." in (".implode(',',
-                            array_map(function($a) {
-                                return "'$a'";
-                            }, $data[$column])).")";
+                            array_map(function($a, $column) {
+                                return $column == 'stitky' ? "'".self::code($a)."'"
+                                        : "'$a'";
+                            }, $data[$column],
+                                array_fill(0, count($data[$column]), $column))).")";
                 } elseif (is_object($data[$column])) {
                     switch (get_class($data[$column])) {
                         case 'DatePeriod':
