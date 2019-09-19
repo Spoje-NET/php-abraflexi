@@ -1768,11 +1768,8 @@ class FlexiBeeRO extends \Ease\Sand
     {
         $logResult = false;
         if (isset($resultData['success']) && ($resultData['success'] == 'false')) {
-            if (isset($resultData['message'])) {
-                $this->addStatusMessage($resultData['message'], 'warning');
-            }
-            $this->addStatusMessage('Error '.$this->lastResponseCode.': '.urldecode($url),
-                'warning');
+            $this->addStatusMessage('Error '.$this->lastResponseCode.': '.urldecode($url) . (array_key_exists('message',
+                    $resultData) ? ' ' . $resultData['message'] : '') , 'warning');
             unset($url);
         }
         if (is_null($resultData)) {

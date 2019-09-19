@@ -42,9 +42,20 @@ class Evidence extends \Ease\Sand
     /**
      * Array of objects in eveidence
      * 
+     * @return array
+     */
+    public function getEvidenceData()
+    {
+        return $this->engine->getColumnsFromFlexibee(array_key_exists('detail',
+                $this->conditions) ? $this->conditions['detail'] : 'full', $this->conditions);
+    }
+
+    /**
+     * Array of objects in eveidence
+     * 
      * @return FlexiBeeRO[]
      */
-    public function getEvidenceContent()
+    public function getEvidenceObjects()
     {
         $contents = [];
         foreach ($this->engine->getColumnsFromFlexibee(array_key_exists('detail',
