@@ -1820,10 +1820,11 @@ class FlexiBeeRO extends \Ease\Sand
         $fname    = $this->evidence.'-'.$this->curlInfo['when'].'.'.$this->format;
         $reqname  = $tmpdir.'/request-'.$fname;
         $respname = $tmpdir.'/response-'.$fname;
-        if (file_put_contents($reqname, $this->postFields)) {
+        $header   = '# '. (new \DateTime())->format('Y-m-d\TH:i:s.u') .' '. $this->curlInfo['url']. ' ('.urldecode($this->curlInfo['url']).')'; 
+        if (file_put_contents($reqname, $header . "\n".$this->postFields)) {
             $this->addStatusMessage($reqname, 'debug');
         }
-        if (file_put_contents($respname, $this->lastCurlResponse)) {
+        if (file_put_contents($respname, $header . "\n".$this->lastCurlResponse)) {
             $this->addStatusMessage($respname, 'debug');
         }
     }
