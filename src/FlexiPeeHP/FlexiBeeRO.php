@@ -883,7 +883,7 @@ class FlexiBeeRO extends \Ease\Sand
     public function updateApiURL()
     {
         $this->apiURL  = $this->getEvidenceURL();
-        $rowIdentifier = $this->getRecordIent();
+        $rowIdentifier = $this->getRecordIdent();
         if (empty($rowIdentifier)) {
             $rowIdentifier = $this->getRecordCode();
             if (empty($rowIdentifier)) {
