@@ -34,7 +34,7 @@ trait Stitky
      */
     public function setLabel($label)
     {
-        $this->insertToFlexiBee(['id' => $this->getRecordID(), 'stitky' => $label]);
+        $this->insertToFlexiBee(['id' => $this->getRecordIdent(), 'stitky' => $label]);
         return $this->lastResponseCode == 201;
     }
 
@@ -47,7 +47,7 @@ trait Stitky
      */
     public function unsetLabel($labelsToRemove)
     {
-        $this->insertToFlexiBee(['id' => $this->getMyKey(), 'stitky@removeAll' => 'true',
+        $this->insertToFlexiBee(['id' => $this->getRecordIdent(), 'stitky@removeAll' => 'true',
             'stitky' => array_diff_key($this->getLabels($this),
                 Stitek::listToArray($labelsToRemove))]);
         return $this->lastResponseCode == 201;
@@ -60,7 +60,7 @@ trait Stitky
      */
     public function unsetLabels()
     {
-        $this->insertToFlexiBee(['id' => $this->getMyKey(), 'stitky@removeAll' => 'true']);
+        $this->insertToFlexiBee(['id' => $this->getRecordIdent(), 'stitky@removeAll' => 'true']);
         return $this->lastResponseCode == 201;
     }
 }
