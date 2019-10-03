@@ -27,7 +27,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @var string
      */
-    public static $libVersion = '1.30.1';
+    public static $libVersion = '1.32';
 
     /**
      * Základní namespace pro komunikaci s FlexiBee.
@@ -1638,7 +1638,7 @@ class FlexiBeeRO extends \Ease\Sand
         $flexiData = $this->getFlexiData('', $conditions);
 
         if (!is_null($indexBy)) {
-            $flexiData = $this->reindexArrayBy($flexiData);
+            $flexiData = \Ease\Functions::reindexArrayBy($flexiData);
         }
 
         return $flexiData;
@@ -1687,7 +1687,7 @@ class FlexiBeeRO extends \Ease\Sand
 
         if (is_string($indexBy) && is_array($flexiData) && array_key_exists(0,
                 $flexiData) && array_key_exists($indexBy, $flexiData[0])) {
-            $flexiData = $this->reindexArrayBy($flexiData, $indexBy);
+            $flexiData = \Ease\Functions::reindexArrayBy($flexiData, $indexBy);
         }
 
         return $flexiData;
@@ -2661,7 +2661,7 @@ class FlexiBeeRO extends \Ease\Sand
             if (\Ease\jQuery\Part::isAssoc($reportsRaw['reports']['report'])) {
                 $reports = [$reportsRaw['reports']['report']['reportId'] => $reportsRaw['reports']['report']];
             } else {
-                $reports = self::reindexArrayBy($reportsRaw['reports']['report'],
+                $reports = \Ease\Functions::reindexArrayBy($reportsRaw['reports']['report'],
                         'reportId');
             }
         }
