@@ -16,6 +16,15 @@ CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [FlexiBee]
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4/big.png)](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4)
 
+[![Latest Stable Version](https://poser.pugx.org/spoje.net/flexibee/v/stable)](https://packagist.org/packages/spoje.net/flexibee)
+[![Total Downloads](https://poser.pugx.org/spoje.net/flexibee/downloads)](https://packagist.org/packages/spoje.net/flexibee)
+[![Latest Unstable Version](https://poser.pugx.org/spoje.net/flexibee/v/unstable)](https://packagist.org/packages/spoje.net/flexibee)
+[![License](https://poser.pugx.org/spoje.net/flexibee/license)](https://packagist.org/packages/spoje.net/flexibee)
+[![Monthly Downloads](https://poser.pugx.org/spoje.net/flexibee/d/monthly)](https://packagist.org/packages/spoje.net/flexibee)
+[![Daily Downloads](https://poser.pugx.org/spoje.net/flexibee/d/daily)](https://packagist.org/packages/spoje.net/flexibee)
+
+
+
 # Poděkování 
 Vznik této knihovny by nebyl možný bez laskavé podpory společnosti [Spoje.Net](http://www.spoje.net), 
 která hradila vývoj řešení pro propojení LMS / FlexiBee a importu skladu. :+1:
