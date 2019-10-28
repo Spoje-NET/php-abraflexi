@@ -1,5 +1,5 @@
 # FlexiBeeHP
-![FlexiBeeHP Logo](https://github.com/Spoje-NET/php-flexibee/raw/master/project_logo.png "Project Logo")
+![FlexiBeeHP Logo](https://github.com/Spoje-NET/php-flexibee/blob/master/project-logo.png "Project Logo")
 
 PHP7.1+ Based Library for easy interaction with Czech accounting system FlexiBee.
 
