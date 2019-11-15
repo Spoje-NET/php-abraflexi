@@ -1,5 +1,5 @@
 # FlexiBeeHP
-![FlexiBeeHP Logo](https://github.com/Spoje-NET/php-flexibee/raw/master/project_logo.png "Project Logo")
+![FlexiBeeHP Logo](https://github.com/Spoje-NET/php-flexibee/blob/master/project-logo.png "Project Logo")
 
 PHP7.1+ Based Library for easy interaction with Czech accounting system FlexiBee.
 
@@ -15,6 +15,15 @@ CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [FlexiBee]
 [![Latest stable](https://img.shields.io/packagist/v/spoje.net/php-flexibee.svg?style=flat-square)](https://packagist.org/packages/spoje.net/php-flexibee)
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4/big.png)](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4)
+
+[![Latest Stable Version](https://poser.pugx.org/spoje.net/flexibee/v/stable)](https://packagist.org/packages/spoje.net/flexibee)
+[![Total Downloads](https://poser.pugx.org/spoje.net/flexibee/downloads)](https://packagist.org/packages/spoje.net/flexibee)
+[![Latest Unstable Version](https://poser.pugx.org/spoje.net/flexibee/v/unstable)](https://packagist.org/packages/spoje.net/flexibee)
+[![License](https://poser.pugx.org/spoje.net/flexibee/license)](https://packagist.org/packages/spoje.net/flexibee)
+[![Monthly Downloads](https://poser.pugx.org/spoje.net/flexibee/d/monthly)](https://packagist.org/packages/spoje.net/flexibee)
+[![Daily Downloads](https://poser.pugx.org/spoje.net/flexibee/d/daily)](https://packagist.org/packages/spoje.net/flexibee)
+
+
 
 # Poděkování 
 Vznik této knihovny by nebyl možný bez laskavé podpory společnosti [Spoje.Net](http://www.spoje.net), 
