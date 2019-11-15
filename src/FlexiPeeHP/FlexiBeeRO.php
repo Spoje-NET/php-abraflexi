@@ -1963,7 +1963,7 @@ class FlexiBeeRO extends \Ease\Sand
     public function getRecordID()
     {
         $id = $this->getDataValue('id');
-        return is_null($id) ? null : is_numeric($id) ? intval($id) : $id;
+        return is_null($id) ? null : (is_numeric($id) ? intval($id) : $id);
     }
 
     /**
