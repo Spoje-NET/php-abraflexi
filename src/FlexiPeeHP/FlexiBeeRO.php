@@ -15,6 +15,7 @@ namespace FlexiPeeHP;
  */
 class FlexiBeeRO extends \Ease\Sand
 {
+
     use \Ease\RecordKey;
     /**
      * Where to get JSON files with evidence stricture etc.
@@ -109,7 +110,7 @@ class FlexiBeeRO extends \Ease\Sand
     public $company = null;
 
     /**
-     * Server[:port]
+     * [protocol://]Server[:port]
      * @var string
      */
     public $url = null;
@@ -275,43 +276,43 @@ class FlexiBeeRO extends \Ease\Sand
      * @var array
      */
     public $urlParams = [
-        'add-global-version',
-        'add-row-count',
-        'as-gui',
-        'auth',
-        'authSessionId',
-        'code-as-id',
-        'code-in-response',
-        'delimeter',
-        'detail', //See: https://www.flexibee.eu/api/dokumentace/ref/detail-levels
-        'dir',
-        'dry-run', // See: https://www.flexibee.eu/api/dokumentace/ref/dry-run/
-        'encoding',
-        'export-settings',
-        'fail-on-warning',
-        'filter',
-        'format',
-        'idUcetniObdobi',
-        'includes',
-        'inDesktopApp', // Note: Undocumented function (html only)
-        'limit',
-        'mode',
-        'no-ext-ids',
-        'no-http-errors',
-        'no-ids',
-        'only-ext-ids',
-        'order',
-        'relations',
-        'report-lang',
-        'report-name',
-        'report-sign',
-        'skupina-stitku',
-        'sort',
-        'start',
-        'stitky-as-ids',
-        'use-ext-id',
-        'use-internal-id',
-        'xpath', // See: https://www.flexibee.eu/api/dokumentace/ref/xpath/
+        'add-global-version' => 'boolean',
+        'add-row-count' => 'boolean',
+        'as-gui' => 'boolean',
+        'auth' => 'string',
+        'authSessionId' => 'string',
+        'code-as-id' => 'boolean',
+        'code-in-response' => 'boolean',
+        'delimeter' => 'string',
+        'detail' => 'string', //See: https://www.flexibee.eu/api/dokumentace/ref/detail-levels
+        'dir' => 'string',
+        'dry-run' => 'boolean', // See: https://www.flexibee.eu/api/dokumentace/ref/dry-run/
+        'encoding' => 'string',
+        'export-settings' => 'boolean',
+        'fail-on-warning' => 'boolean',
+        'filter' => 'string',
+        'format' => 'string',
+        'idUcetniObdobi' => 'string', //See: https://www.flexibee.eu/api/dokumentace/ref/stavy-uctu/
+        'includes' => 'string',
+        'inDesktopApp' => 'boolean', // Note: Undocumented function (html only)
+        'limit' => 'integer',
+        'mode' => 'string',
+        'no-ext-ids' => 'boolean',
+        'no-http-errors' => 'boolean',
+        'no-ids' => 'boolean',
+        'only-ext-ids' => 'boolean',
+        'order' => 'string',
+        'relations' => 'string',
+        'report-lang' => 'string',
+        'report-name' => 'string',
+        'report-sign' => 'string',
+        'skupina-stitku' => 'string',
+        'sort' => 'string',
+        'start' => 'integer',
+        'stitky-as-ids' => 'boolean',
+        'use-ext-id' => 'boolean',
+        'use-internal-id' => 'boolean',
+        'xpath' => 'string', // See: https://www.flexibee.eu/api/dokumentace/ref/xpath/
     ];
 
     /**
@@ -1296,7 +1297,7 @@ class FlexiBeeRO extends \Ease\Sand
      */
     public function extractUrlParams(&$conditions, &$urlParams)
     {
-        foreach ($this->urlParams as $urlParam) {
+        foreach (array_keys($this->urlParams) as $urlParam) {
             if (isset($conditions[$urlParam])) {
                 \Ease\Functions::divDataArray($conditions, $urlParams, $urlParam);
             }
@@ -1768,8 +1769,8 @@ class FlexiBeeRO extends \Ease\Sand
     {
         $logResult = false;
         if (isset($resultData['success']) && ($resultData['success'] == 'false')) {
-            $this->addStatusMessage('Error '.$this->lastResponseCode.': '.urldecode($url) . (array_key_exists('message',
-                    $resultData) ? ' ' . $resultData['message'] : '') , 'warning');
+            $this->addStatusMessage('Error '.$this->lastResponseCode.': '.urldecode($url).(array_key_exists('message',
+                    $resultData) ? ' '.$resultData['message'] : ''), 'warning');
             unset($url);
         }
         if (is_null($resultData)) {
@@ -1820,11 +1821,11 @@ class FlexiBeeRO extends \Ease\Sand
         $fname    = $this->evidence.'-'.$this->curlInfo['when'].'.'.$this->format;
         $reqname  = $tmpdir.'/request-'.$fname;
         $respname = $tmpdir.'/response-'.$fname;
-        $header   = '# '. (new \DateTime())->format('Y-m-d\TH:i:s.u') .' '. $this->curlInfo['url']. ' ('.urldecode($this->curlInfo['url']).')'; 
-        if (file_put_contents($reqname, $header . "\n".$this->postFields)) {
+        $header   = '# '.(new \DateTime())->format('Y-m-d\TH:i:s.u').' '.$this->curlInfo['url'].' ('.urldecode($this->curlInfo['url']).')';
+        if (file_put_contents($reqname, $header."\n".$this->postFields)) {
             $this->addStatusMessage($reqname, 'debug');
         }
-        if (file_put_contents($respname, $header . "\n".$this->lastCurlResponse)) {
+        if (file_put_contents($respname, $header."\n".$this->lastCurlResponse)) {
             $this->addStatusMessage($respname, 'debug');
         }
     }
@@ -2221,10 +2222,10 @@ class FlexiBeeRO extends \Ease\Sand
         $flexinfo   = $this->performRequest('/c/'.$this->company.'/'.$evidence.'/properties.json');
         if (!empty($flexinfo) && array_key_exists('properties', $flexinfo)) {
             foreach ($flexinfo['properties']['property'] as $evidenceProperty) {
-                $key                      = $evidenceProperty['propertyName'];
-                $properties[$key]         = $evidenceProperty;
-                if(array_key_exists('name', $evidenceProperty)){
-                   $proerties[$key]['name'] = $evidenceProperty['name'];
+                $key              = $evidenceProperty['propertyName'];
+                $properties[$key] = $evidenceProperty;
+                if (array_key_exists('name', $evidenceProperty)) {
+                    $proerties[$key]['name'] = $evidenceProperty['name'];
                 }
                 $properties[$key]['type'] = $evidenceProperty['type'];
                 if (array_key_exists('url', $evidenceProperty)) {
@@ -2448,7 +2449,7 @@ class FlexiBeeRO extends \Ease\Sand
                     $extIds);
             }
         } else {
-            $res =  $this->setDataValue($this->getMyKey(), $myKeyValue);
+            $res = $this->setDataValue($this->getMyKey(), $myKeyValue);
         }
         $this->updateApiURL();
         return $res;
