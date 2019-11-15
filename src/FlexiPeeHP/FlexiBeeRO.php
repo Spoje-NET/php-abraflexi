@@ -276,43 +276,49 @@ class FlexiBeeRO extends \Ease\Sand
      * @var array
      */
     public $urlParams = [
-        'add-global-version' => 'boolean',
-        'add-row-count' => 'boolean',
-        'as-gui' => 'boolean',
-        'auth' => 'string',
-        'authSessionId' => 'string',
-        'code-as-id' => 'boolean',
-        'code-in-response' => 'boolean',
-        'delimeter' => 'string',
-        'detail' => 'string', //See: https://www.flexibee.eu/api/dokumentace/ref/detail-levels
-        'dir' => 'string',
-        'dry-run' => 'boolean', // See: https://www.flexibee.eu/api/dokumentace/ref/dry-run/
-        'encoding' => 'string',
-        'export-settings' => 'boolean',
-        'fail-on-warning' => 'boolean',
-        'filter' => 'string',
-        'format' => 'string',
-        'idUcetniObdobi' => 'string', //See: https://www.flexibee.eu/api/dokumentace/ref/stavy-uctu/
-        'includes' => 'string',
-        'inDesktopApp' => 'boolean', // Note: Undocumented function (html only)
-        'limit' => 'integer',
-        'mode' => 'string',
-        'no-ext-ids' => 'boolean',
-        'no-http-errors' => 'boolean',
-        'no-ids' => 'boolean',
-        'only-ext-ids' => 'boolean',
-        'order' => 'string',
-        'relations' => 'string',
-        'report-lang' => 'string',
-        'report-name' => 'string',
-        'report-sign' => 'string',
-        'skupina-stitku' => 'string',
-        'sort' => 'string',
-        'start' => 'integer',
-        'stitky-as-ids' => 'boolean',
-        'use-ext-id' => 'boolean',
-        'use-internal-id' => 'boolean',
-        'xpath' => 'string', // See: https://www.flexibee.eu/api/dokumentace/ref/xpath/
+        'add-global-version' => ['type' => 'boolean', 'description' => 'The response will contain the global version number of the current export'],
+        'add-row-count' => ['type' => 'boolean', 'description' => 'Adding Total Records to Output (Pagination)'],
+        'as-gui' => ['type' => 'boolean', 'description' => 'Turns on functions that complement the GUI processing outputs'],
+        'auth' => ['type' => 'string', 'description' => 'http: Forces login using HTTP authentication, for example, to change the default WUI login method. html: Force HTML form authentication. This can be useful to suppress automatic SSO authentication.'],
+        'authSessionId' => ['type' => 'string', 'description' => 'Authentification Session ID'],
+        'code-as-id' => ['type' => 'boolean', 'description' => 'If an object has unique code, it is also exported (except for the <code> element) as <id> code: ... </id>'],
+        'code-in-response' => ['type' => 'boolean', 'description' => 'The response will contain not only ID and URL for each object, but also code.'],
+        'delimeter' => ['type' => 'string', 'description' => 'Specifies the input / output file separator in CSV format.',
+            'example' => ';'],
+        'detail' => ['type' => 'string', 'description' => 'Definition of the level of detail'], //See: https://www.flexibee.eu/api/dokumentace/ref/detail-levels
+        'dir' => ['type' => 'string', 'description' => 'Sorting direction.', 'example' => 'desc'],
+        'dry-run' => ['type' => 'boolean', 'description' => 'Test run (dry-run)'], // See: https://www.flexibee.eu/api/dokumentace/ref/dry-run/
+        'encoding' => ['type' => 'string', 'description' => 'Specifies the encoding of the input / output file in CSV format.'],
+        'export-settings' => ['type' => 'boolean', 'description' => 'Export one extra entry with current settings at the beginning'],
+        'fail-on-warning' => ['type' => 'boolean', 'description' => 'If a warning occurs, do not save a record (Data Validation)'],
+        'filter' => ['type' => 'string', 'description' => 'filter results by this param'],
+        'format' => ['type' => 'string', 'description' => 'One of the compiled XSL transforms will be applied to the output XML.'],
+        'idUcetniObdobi' => ['type' => 'string', 'description' => ''], //See: https://www.flexibee.eu/api/dokumentace/ref/stavy-uctu/
+        'includes' => ['type' => 'string', 'description' => 'Include related detail level object ',
+            'example' => 'faktura-vydana/stredisko'],
+        'inDesktopApp' => ['type' => 'boolean', 'description' => 'Hide menu and navigation in html format'], // Note: Undocumented function (html only)
+        'limit' => ['type' => 'integer', 'description' => 'number of requested results'],
+        'mode' => ['type' => 'string', 'description' => 'Support for RubyOnRails',
+            'example' => 'ruby'],
+        'no-ext-ids' => ['type' => 'boolean', 'description' => 'The answer will not contain external identifiers (performance optimization)'],
+        'no-http-errors' => ['type' => 'boolean', 'description' => 'If a 4xx error occurs while processing a request, the server sends 200 OK anyway'],
+        'no-ids' => ['type' => 'boolean', 'description' => 'The response will not contain any primary identifiers (performance optimization). It only affects the main records.'],
+        'only-ext-ids' => ['type' => 'boolean', 'description' => 'The primary key will not be exported, the <id> elements will only contain the external ID. Similar no-ids, but also affects subevidencies.'],
+        'order' => ['type' => 'string', 'description' => 'Sorting records', 'example' => 'nazev@A'],
+        'relations' => ['type' => 'string', 'description' => 'Adding session data (see detail levels) A session overview can be obtained for each record (/ relations).'],
+        'report-lang' => ['type' => 'string', 'description' => 'The language in which to print the output when exporting to PDF',
+            'example' => 'en'],
+        'report-name' => ['type' => 'string', 'description' => 'The name of the printout when exporting to PDF',
+            'example' => 'invoice'],
+        'report-sign' => ['type' => 'string', 'description' => 'Whether the PDF should be exported electronically signed'],
+        'skupina-stitku' => ['type' => 'string', 'description' => 'Enables grouping of labels when exporting by group (multiple labels)'],
+        'sort' => ['type' => 'string', 'description' => 'Sorting records for ExtJS'],
+        'start' => ['type' => 'integer', 'description' => 'Pagination'],
+        'stitky-as-ids' => ['type' => 'boolean', 'description' => 'Labels will be exported and imported not as a code list but as a list of numeric IDs'],
+        'use-ext-id' => ['type' => 'boolean', 'description' => 'If the object contains an external ESHOP or MY ID, use it as a bind.'],
+        'use-internal-id' => ['type' => 'boolean', 'description' => 'In addition to the ref and showAs for objects, it also supplies an internalId attribute that contains the internal record ID'],
+        'xpath' => ['type' => 'string', 'description' => 'Apply XPATH to result',
+            'example' => '//winstrom/adresar/email/text()'] // See: https://www.flexibee.eu/api/dokumentace/ref/xpath/
     ];
 
     /**
