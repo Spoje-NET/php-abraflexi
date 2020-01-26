@@ -1022,7 +1022,7 @@ class FlexiBeeRO extends \Ease\Sand
     {
         $mainResult = null;
         switch ($responseCode) {
-            case 201: //Success Write
+            case 201: //We do not care about Success Write here
                 break;
             case 200: //Success Read
 
