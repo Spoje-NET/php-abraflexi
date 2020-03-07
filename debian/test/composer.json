@@ -19,17 +19,11 @@
     "repositories": [
         {
             "type": "path",
-            "url": "/usr/share/php/Ease",
-            "options": {
-                "symlink": true
-            }
+            "url": "/usr/share/php/Ease"
         },
         {
             "type": "path",
-            "url": "/usr/share/php/FlexiPeeHP",
-            "options": {
-                "symlink": true
-            }
+            "url": "/usr/share/php/FlexiPeeHP"
         }
     ]
 
