@@ -1,4 +1,5 @@
 <?php
+
 /**
  * FlexiPeeHP - Read Only Access to FlexiBee class.
  *
@@ -13,15 +14,15 @@ namespace FlexiPeeHP;
  *
  * @url https://demo.flexibee.eu/devdoc/
  */
-class FlexiBeeRO extends \Ease\Sand
-{
+class FlexiBeeRO extends \Ease\Sand {
 
     use \Ease\RecordKey;
+
     /**
      * Where to get JSON files with evidence stricture etc.
      * @var string
      */
-    public static $infoDir = __DIR__.'/../../static';
+    public static $infoDir = __DIR__ . '/../../static';
 
     /**
      * Version of FlexiPeeHP library
@@ -400,13 +401,18 @@ class FlexiBeeRO extends \Ease\Sand
     private $columnsInfo = [];
 
     /**
+     * Throw Exception in case of FlexiBee error
+     * @var boolean 
+     */
+    public $throwException = false;
+
+    /**
      * Class for read only interaction with FlexiBee.
      *
      * @param mixed $init default record id or initial data. See processInit()
      * @param array $options Connection settings and other options override
      */
-    public function __construct($init = null, $options = [])
-    {
+    public function __construct($init = null, $options = []) {
         $this->init = $init;
 
         $this->setUp($options);
@@ -423,11 +429,8 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string Jméno objektu
      */
-    public function setObjectName($objectName = null)
-    {
-        return parent::setObjectName(is_null($objectName) ? ( empty($this->getRecordIdent())
-                    ? $this->getObjectName() : $this->getRecordIdent().'@'.$this->getObjectName() )
-                    : $objectName);
+    public function setObjectName($objectName = null) {
+        return parent::setObjectName(is_null($objectName) ? ( empty($this->getRecordIdent()) ? $this->getObjectName() : $this->getRecordIdent() . '@' . $this->getObjectName() ) : $objectName);
     }
 
     /**
@@ -437,17 +440,16 @@ class FlexiBeeRO extends \Ease\Sand
      *                                        company,url,evidence,
      *                                        prefix,defaultUrlParams,debug,
      *                                        detail,offline,filter,ignore404
-     *                                        timeout,companyUrl,ver
+     *                                        timeout,companyUrl,ver,throwException
      */
-    public function setUp($options = [])
-    {
+    public function setUp($options = []) {
         if (array_key_exists('ver', $options)) {
             $this->protoVersion = $options['ver'];
-            $this->prefix       = 'v'.round($this->protoVersion).'/c/';
+            $this->prefix = 'v' . round($this->protoVersion) . '/c/';
         }
         if (array_key_exists('companyUrl', $options)) {
             $options = array_merge(self::companyUrlToOptions($options['companyUrl']),
-                $options);
+                    $options);
         }
 
         $this->setupProperty($options, 'company', 'FLEXIBEE_COMPANY');
@@ -478,6 +480,7 @@ class FlexiBeeRO extends \Ease\Sand
             $this->ignore404($options['ignore404']);
         }
 
+        $this->setupProperty($options, 'throwException', 'FLEXIBEE_EXCEPTIONS');
         $this->setupProperty($options, 'debug');
         $this->updateApiURL();
     }
@@ -489,8 +492,7 @@ class FlexiBeeRO extends \Ease\Sand
      * @param string $name     name of property to process
      * @param string $constant load default property value from constant
      */
-    public function setupProperty($options, $name, $constant = null)
-    {
+    public function setupProperty($options, $name, $constant = null) {
         if (array_key_exists($name, $options)) {
             $this->$name = $options[$name];
         } elseif (array_key_exists($constant, $options)) {
@@ -509,16 +511,15 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return array Options
      */
-    public static function companyUrlToOptions($companyUrl)
-    {
+    public static function companyUrlToOptions($companyUrl) {
         $urlParts = parse_url($companyUrl);
-        $scheme   = isset($urlParts['scheme']) ? $urlParts['scheme'].'://' : '';
-        $host     = isset($urlParts['host']) ? $urlParts['host'] : '';
-        $port     = isset($urlParts['port']) ? ':'.$urlParts['port'] : '';
-        $path     = isset($urlParts['path']) ? $urlParts['path'] : '';
+        $scheme = isset($urlParts['scheme']) ? $urlParts['scheme'] . '://' : '';
+        $host = isset($urlParts['host']) ? $urlParts['host'] : '';
+        $port = isset($urlParts['port']) ? ':' . $urlParts['port'] : '';
+        $path = isset($urlParts['path']) ? $urlParts['path'] : '';
 
         $options['company'] = basename($path);
-        $options['url']     = $scheme.$host.$port;
+        $options['url'] = $scheme . $host . $port;
         return $options;
     }
 
@@ -527,11 +528,10 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return array usable as second constructor parameter
      */
-    public function getConnectionOptions()
-    {
+    public function getConnectionOptions() {
         $conOpts = ['url' => $this->url];
         if (empty($this->authSessionId)) {
-            $conOpts ['user']    = $this->user;
+            $conOpts ['user'] = $this->user;
             $conOpts['password'] = $this->password;
         } else {
             $conOpts['authSessionId'] = $this->authSessionId;
@@ -551,8 +551,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return boolean Online Status
      */
-    public function curlInit()
-    {
+    public function curlInit() {
         if ($this->offline === false) {
             $this->curl = \curl_init(); // create curl resource
             curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true); // return content as a string from curl_exec
@@ -563,7 +562,7 @@ class FlexiBeeRO extends \Ease\Sand
             curl_setopt($this->curl, CURLOPT_VERBOSE, ($this->debug === true)); // For debugging
             if (empty($this->authSessionId)) {
                 curl_setopt($this->curl, CURLOPT_USERPWD,
-                    $this->user.':'.$this->password); // set username and password
+                        $this->user . ':' . $this->password); // set username and password
             }
             if (!is_null($this->timeout)) {
                 curl_setopt($this->curl, CURLOPT_TIMEOUT, $this->timeout);
@@ -583,15 +582,13 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @param mixed $init číslo/"(code:)kód"/(část)URI záznamu k načtení | pole hodnot k předvyplnění
      */
-    public function processInit($init)
-    {
+    public function processInit($init) {
         if (is_integer($init)) {
             $this->loadFromFlexiBee($init);
         } elseif (is_array($init)) {
             $this->takeData($init);
         } elseif (preg_match('/\.(json|xml|csv)/', $init)) {
-            $this->takeData($this->getFlexiData((($init[0] != '/') ? $this->evidenceUrlWithSuffix($init)
-                            : $init)));
+            $this->takeData($this->getFlexiData((($init[0] != '/') ? $this->evidenceUrlWithSuffix($init) : $init)));
         } else {
             $this->loadFromFlexiBee($init);
         }
@@ -605,8 +602,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return bool Success
      */
-    public function setDataValue($columnName, $value)
-    {
+    public function setDataValue($columnName, $value) {
         switch ($columnName) {
             case 'kod':
                 $value = self::uncode($value); //Alwyas uncode "kod" column
@@ -638,8 +634,7 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @param \DateTime $date
      */
-    public static function dateToFlexiDate($date)
-    {
+    public static function dateToFlexiDate($date) {
         return $date->format(self::$DateFormat);
     }
 
@@ -648,8 +643,7 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @param \DateTime $dateTime
      */
-    public static function dateToFlexiDateTime($dateTime)
-    {
+    public static function dateToFlexiDateTime($dateTime) {
         return $dateTime->format(self::$DateTimeFormat);
     }
 
@@ -658,8 +652,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @param string $prefix
      */
-    public function setPrefix($prefix)
-    {
+    public function setPrefix($prefix) {
         switch ($prefix) {
             case 'a': //Access
             case 'c': //Company
@@ -668,7 +661,7 @@ class FlexiBeeRO extends \Ease\Sand
             case 'admin':
             case 'status':
             case 'login-logout':
-                $this->prefix = '/'.$prefix.'/';
+                $this->prefix = '/' . $prefix . '/';
                 break;
             case null:
             case '':
@@ -688,12 +681,10 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return boolean format is availble
      */
-    public function setFormat($format)
-    {
+    public function setFormat($format) {
         $result = true;
         if (($this->debug === true) && !empty($this->evidence) && isset(Formats::$$this->evidence)) {
-            if (array_key_exists($format, array_flip(Formats::$$this->evidence))
-                === false) {
+            if (array_key_exists($format, array_flip(Formats::$$this->evidence)) === false) {
                 $result = false;
             }
         }
@@ -712,26 +703,25 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return boolean evidence switching status
      */
-    public function setEvidence($evidence)
-    {
+    public function setEvidence($evidence) {
         switch ($this->prefix) {
             case '/c/':
                 if ($this->debug === true) {
                     if (array_key_exists($evidence, EvidenceList::$name)) {
                         $this->evidence = $evidence;
-                        $result         = true;
+                        $result = true;
                     } else {
                         throw new \Exception(sprintf('Try to set unsupported evidence %s',
-                                $evidence));
+                                        $evidence));
                     }
                 } else {
                     $this->evidence = $evidence;
-                    $result         = true;
+                    $result = true;
                 }
                 break;
             default:
                 $this->evidence = $evidence;
-                $result         = true;
+                $result = true;
                 break;
         }
         $this->updateApiURL();
@@ -745,8 +735,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string
      */
-    public function getEvidence()
-    {
+    public function getEvidence() {
         return $this->evidence;
     }
 
@@ -756,8 +745,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @param string $company
      */
-    public function setCompany($company)
-    {
+    public function setCompany($company) {
         $this->company = $company;
     }
 
@@ -767,8 +755,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string
      */
-    public function getCompany()
-    {
+    public function getCompany() {
         return $this->company;
     }
 
@@ -777,8 +764,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string
      */
-    public function getResponseEvidence()
-    {
+    public function getResponseEvidence() {
         switch ($this->evidence) {
             case 'c':
                 $evidence = 'company';
@@ -800,8 +786,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return array
      */
-    public static function object2array($object)
-    {
+    public static function object2array($object) {
         $result = null;
         if (is_object($object)) {
             $objectData = get_object_vars($object);
@@ -828,8 +813,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return array
      */
-    public static function objectToID($object)
-    {
+    public static function objectToID($object) {
         $resultID = null;
         if (is_object($object) && method_exists($object, '__toString')
         ) {
@@ -854,12 +838,11 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string Evidence URL
      */
-    public function getEvidenceURL()
-    {
-        $evidenceUrl = $this->url.$this->prefix.$this->company;
-        $evidence    = $this->getEvidence();
+    public function getEvidenceURL() {
+        $evidenceUrl = $this->url . $this->prefix . $this->company;
+        $evidence = $this->getEvidence();
         if (!empty($evidence)) {
-            $evidenceUrl .= '/'.$evidence;
+            $evidenceUrl .= '/' . $evidence;
         }
         return $evidenceUrl;
     }
@@ -871,12 +854,10 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string
      */
-    public function evidenceUrlWithSuffix($urlSuffix)
-    {
+    public function evidenceUrlWithSuffix($urlSuffix) {
         $evidenceUrl = $this->getEvidenceUrl();
         if (!empty($urlSuffix)) {
-            if (($urlSuffix[0] != '/') && ($urlSuffix[0] != ';') && ($urlSuffix[0]
-                != '?')) {
+            if (($urlSuffix[0] != '/') && ($urlSuffix[0] != ';') && ($urlSuffix[0] != '?')) {
                 $evidenceUrl .= '/';
             }
             $evidenceUrl .= $urlSuffix;
@@ -887,9 +868,8 @@ class FlexiBeeRO extends \Ease\Sand
     /**
      * Update $this->apiURL
      */
-    public function updateApiURL()
-    {
-        $this->apiURL  = $this->getEvidenceURL();
+    public function updateApiURL() {
+        $this->apiURL = $this->getEvidenceURL();
         $rowIdentifier = $this->getRecordIdent();
         if (empty($rowIdentifier)) {
             $rowIdentifier = $this->getRecordCode();
@@ -898,10 +878,11 @@ class FlexiBeeRO extends \Ease\Sand
             }
         }
         if (!empty($rowIdentifier)) {
-            $this->apiURL .= '/'.self::urlEncode($rowIdentifier);
+            $this->apiURL .= '/' . self::urlEncode($rowIdentifier);
         }
-        $this->apiURL .= '.'.$this->format;
+        $this->apiURL .= '.' . $this->format;
     }
+
     /*
      * Add Default Url params to given url if not overrided
      *
@@ -910,10 +891,9 @@ class FlexiBeeRO extends \Ease\Sand
      * @return string url with default params added
      */
 
-    public function addDefaultUrlParams($urlRaw)
-    {
+    public function addDefaultUrlParams($urlRaw) {
         return \Ease\Functions::addUrlParams($urlRaw, $this->defaultUrlParams,
-                false);
+                        false);
     }
 
     /**
@@ -926,25 +906,24 @@ class FlexiBeeRO extends \Ease\Sand
      * @return array|boolean Výsledek operace
      */
     public function performRequest($urlSuffix = null, $method = 'GET',
-                                   $format = null)
-    {
-        $this->rowCount      = null;
+            $format = null) {
+        $this->rowCount = null;
         $this->responseStats = [];
-        $this->errors        = [];
+        $this->errors = [];
 
         if (preg_match('/^http/', $urlSuffix)) {
             $url = $urlSuffix;
         } elseif (strlen($urlSuffix) && ($urlSuffix[0] == '/')) {
-            $url = $this->url.$urlSuffix;
+            $url = $this->url . $urlSuffix;
         } else {
             $url = $this->evidenceUrlWithSuffix($urlSuffix);
         }
 
         $responseCode = $this->doCurlRequest($this->addDefaultUrlParams($url),
-            $method, $format);
+                $method, $format);
 
         return $this->parseResponse($this->rawResponseToArray($this->lastCurlResponse,
-                    $this->responseFormat), $responseCode);
+                                $this->responseFormat), $responseCode);
     }
 
     /**
@@ -955,8 +934,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return array
      */
-    public function rawResponseToArray($responseRaw, $format)
-    {
+    public function rawResponseToArray($responseRaw, $format) {
         $responseDecoded = [];
         if (!empty(trim($responseRaw))) {
             switch ($format) {
@@ -982,17 +960,16 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return array
      */
-    public function rawJsonToArray($rawJson)
-    {
+    public function rawJsonToArray($rawJson) {
         $responseDecoded = json_decode($rawJson, true, 10);
-        $decodeError     = json_last_error_msg();
+        $decodeError = json_last_error_msg();
         if ($decodeError == 'No error') {
             if (array_key_exists($this->nameSpace, $responseDecoded)) {
                 $responseDecoded = $responseDecoded[$this->nameSpace];
             }
         } else {
             if ($this->debug) {
-                $this->addStatusMessage('JSON Decoder: '.$decodeError, 'error');
+                $this->addStatusMessage('JSON Decoder: ' . $decodeError, 'error');
                 $this->addStatusMessage($rawJson, 'debug');
             }
         }
@@ -1006,8 +983,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return array
      */
-    public function rawXmlToArray($rawXML)
-    {
+    public function rawXmlToArray($rawXML) {
         return self::xml2array($rawXML);
     }
 
@@ -1019,8 +995,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return array main data part of response
      */
-    public function parseResponse($responseDecoded, $responseCode)
-    {
+    public function parseResponse($responseDecoded, $responseCode) {
         $mainResult = null;
         switch ($responseCode) {
             case 201: //We do not care about Success Write here
@@ -1040,8 +1015,7 @@ class FlexiBeeRO extends \Ease\Sand
                     if (array_key_exists('stats', $responseDecoded)) {
                         $this->responseStats = $responseDecoded['stats'];
                     } elseif (!empty($mainResult)) {
-                        if (array_key_exists('success', $mainResult) && ($mainResult['success']
-                            == 'false')) {
+                        if (array_key_exists('success', $mainResult) && ($mainResult['success'] == 'false')) {
                             $this->responseStats = ['read' => 0];
                         } elseif (array_key_exists('properties', $mainResult)) {
                             $this->responseStats = ['read' => 1];
@@ -1050,7 +1024,7 @@ class FlexiBeeRO extends \Ease\Sand
                             if (!empty($this->rowCount)) {
                                 $this->responseStats = ['read' => $this->rowCount];
                             } elseif (array_key_exists($responseEvidence,
-                                    $mainResult)) {
+                                            $mainResult)) {
                                 $this->responseStats = ['read' => count($mainResult[$responseEvidence])];
                             } else {
                                 $this->responseStats = ['read' => count($mainResult)];
@@ -1074,12 +1048,17 @@ class FlexiBeeRO extends \Ease\Sand
                 }
             case 400: //Bad Request parameters
             default: //Something goes wrong
-                $this->addStatusMessage($this->lastResponseCode.': '.$this->curlInfo['url'],
-                    'warning');
                 if (is_array($responseDecoded)) {
                     $this->parseError($responseDecoded);
                 }
-                $this->logResult($responseDecoded, $this->curlInfo['url']);
+
+                if ($this->throwException === true) {
+                    throw new \Ease\Exception(json_encode($this->getErrors()), $this->lastResponseCode);
+                } else {
+                    $this->addStatusMessage($this->lastResponseCode . ': ' . $this->curlInfo['url'],
+                            'warning');
+                    $this->logResult($responseDecoded, $this->curlInfo['url']);
+                }
                 break;
         }
         return $mainResult;
@@ -1092,8 +1071,7 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return int number of errors processed
      */
-    public function parseError(array $responseDecoded)
-    {
+    public function parseError(array $responseDecoded) {
         if (array_key_exists('results', $responseDecoded)) {
             $this->errors = $responseDecoded['results'][0]['errors'];
             foreach ($this->errors as $errorInfo) {
@@ -1121,8 +1099,7 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return int HTTP Response CODE
      */
-    public function doCurlRequest($url, $method, $format = null)
-    {
+    public function doCurlRequest($url, $method, $format = null) {
         if (is_null($format)) {
             $format = $this->format;
         }
@@ -1145,25 +1122,25 @@ class FlexiBeeRO extends \Ease\Sand
         $httpHeadersFinal = [];
         foreach ($httpHeaders as $key => $value) {
             if (($key == 'User-Agent') && ($value == 'FlexiPeeHP')) {
-                $value .= ' v'.self::$libVersion;
+                $value .= ' v' . self::$libVersion;
             }
-            $httpHeadersFinal[] = $key.': '.$value;
+            $httpHeadersFinal[] = $key . ': ' . $value;
         }
 
         curl_setopt($this->curl, CURLOPT_HTTPHEADER, $httpHeadersFinal);
 
 // Proveď samotnou operaci
-        $this->lastCurlResponse            = curl_exec($this->curl);
-        $this->curlInfo                    = curl_getinfo($this->curl);
-        $this->curlInfo['when']            = microtime();
+        $this->lastCurlResponse = curl_exec($this->curl);
+        $this->curlInfo = curl_getinfo($this->curl);
+        $this->curlInfo['when'] = microtime();
         $this->curlInfo['request_headers'] = $httpHeadersFinal;
-        $this->responseFormat              = $this->contentTypeToResponseFormat($this->curlInfo['content_type'],
-            $url);
-        $this->lastResponseCode            = $this->curlInfo['http_code'];
-        $this->lastCurlError               = curl_error($this->curl);
+        $this->responseFormat = $this->contentTypeToResponseFormat($this->curlInfo['content_type'],
+                $url);
+        $this->lastResponseCode = $this->curlInfo['http_code'];
+        $this->lastCurlError = curl_error($this->curl);
         if (strlen($this->lastCurlError)) {
             $this->addStatusMessage(sprintf('Curl Error (HTTP %d): %s',
-                    $this->lastResponseCode, $this->lastCurlError), 'error');
+                            $this->lastResponseCode, $this->lastCurlError), 'error');
         }
 
         if ($this->debug === true) {
@@ -1181,14 +1158,13 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return string response format
      */
-    public function contentTypeToResponseFormat($contentType, $url = null)
-    {
+    public function contentTypeToResponseFormat($contentType, $url = null) {
         if (!empty($url)) {
             $url = parse_url($url, PHP_URL_PATH);
         }
 
         $contentTypeClean = strstr($contentType, ';') ? substr($contentType, 0,
-                strpos($contentType, ';')) : $contentType;
+                        strpos($contentType, ';')) : $contentType;
 
         switch ($url) {
             case '/login-logout/login';
@@ -1218,14 +1194,13 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return boolean
      */
-    public function setAction($action)
-    {
-        $result           = false;
+    public function setAction($action) {
+        $result = false;
         $actionsAvailable = $this->getActionsInfo();
         if (is_array($actionsAvailable) && array_key_exists($action,
-                $actionsAvailable)) {
+                        $actionsAvailable)) {
             $this->action = $action;
-            $result       = true;
+            $result = true;
         }
         return $result;
     }
@@ -1237,15 +1212,14 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return array
      */
-    public static function xml2array($xml)
-    {
+    public static function xml2array($xml) {
         $arr = [];
         if (!empty($xml)) {
             if (is_string($xml)) {
                 $xml = simplexml_load_string($xml);
             }
             foreach ($xml->attributes() as $a) {
-                $arr['@'.$a->getName()] = strval($a);
+                $arr['@' . $a->getName()] = strval($a);
             }
             foreach ($xml->children() as $r) {
                 if (count($r->children()) == 0) {
@@ -1261,8 +1235,7 @@ class FlexiBeeRO extends \Ease\Sand
     /**
      * Odpojení od FlexiBee.
      */
-    public function disconnect()
-    {
+    public function disconnect() {
         if (is_resource($this->curl)) {
             curl_close($this->curl);
         }
@@ -1272,8 +1245,7 @@ class FlexiBeeRO extends \Ease\Sand
     /**
      * Disconnect CURL befere pass away
      */
-    public function __destruct()
-    {
+    public function __destruct() {
         $this->disconnect();
     }
 
@@ -1284,10 +1256,9 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return array
      */
-    public function getFlexiRow($recordID)
-    {
-        $record   = null;
-        $response = $this->performRequest($this->evidence.'/'.$recordID.'.json');
+    public function getFlexiRow($recordID) {
+        $record = null;
+        $response = $this->performRequest($this->evidence . '/' . $recordID . '.json');
         if (isset($response[$this->evidence])) {
             $record = $response[$this->evidence][0];
         }
@@ -1302,8 +1273,7 @@ class FlexiBeeRO extends \Ease\Sand
      * @param array $conditions pole podmínek   - rendrují se do ()
      * @param array $urlParams  pole parametrů  - rendrují za ?
      */
-    public function extractUrlParams(&$conditions, &$urlParams)
-    {
+    public function extractUrlParams(&$conditions, &$urlParams) {
         foreach (array_keys($this->urlParams) as $urlParam) {
             if (isset($conditions[$urlParam])) {
                 \Ease\Functions::divDataArray($conditions, $urlParams, $urlParam);
@@ -1318,8 +1288,7 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return string
      */
-    public static function urlEncode($urlRaw)
-    {
+    public static function urlEncode($urlRaw) {
         return str_replace(['%27', '%3A'], ["'", ':'], rawurlencode($urlRaw));
     }
 
@@ -1331,11 +1300,10 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return array Data obtained
      */
-    public function getFlexiData($suffix = null, $conditions = null)
-    {
-        $finalUrl          = '';
+    public function getFlexiData($suffix = null, $conditions = null) {
+        $finalUrl = '';
         $evidenceToRestore = null;
-        $urlParams         = $this->defaultUrlParams;
+        $urlParams = $this->defaultUrlParams;
 
         if (!empty($conditions)) {
             if (is_array($conditions)) {
@@ -1349,7 +1317,7 @@ class FlexiBeeRO extends \Ease\Sand
             }
 
             if (strlen($conditions) && ($conditions[0] != '/')) {
-                $conditions = '('.self::urlEncode($conditions).')';
+                $conditions = '(' . self::urlEncode($conditions) . ')';
             }
         }
 
@@ -1378,14 +1346,14 @@ class FlexiBeeRO extends \Ease\Sand
                 $finalUrl .= '?';
             }
             $finalUrl .= http_build_query(array_map(function($a) {
-                    return is_bool($a) ? ($a ? 'true' : 'false' ) : $a;
-                }, $urlParams), null, '&', PHP_QUERY_RFC3986);
+                        return is_bool($a) ? ($a ? 'true' : 'false' ) : $a;
+                    }, $urlParams), null, '&', PHP_QUERY_RFC3986);
         }
 
-        $transactions     = $this->performRequest($finalUrl, 'GET');
+        $transactions = $this->performRequest($finalUrl, 'GET');
         $responseEvidence = $this->getResponseEvidence();
         if (is_array($transactions) && array_key_exists($responseEvidence,
-                $transactions)) {
+                        $transactions)) {
             $result = $transactions[$responseEvidence];
             if ((count($result) == 1) && empty(current($result))) {
                 $result = []; // Response is empty Array
@@ -1407,13 +1375,12 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return int počet načtených položek
      */
-    public function loadFromFlexiBee($id = null)
-    {
+    public function loadFromFlexiBee($id = null) {
         $data = [];
         if (is_null($id)) {
             $id = $this->getMyKey();
         }
-        $flexidata = $this->getFlexiData($this->getEvidenceUrl().'/'.self::urlizeId($id));
+        $flexidata = $this->getFlexiData($this->getEvidenceUrl() . '/' . self::urlizeId($id));
         if ($this->lastResponseCode == 200) {
             $this->apiURL = $this->curlInfo['url'];
             if (is_array($flexidata) && (count($flexidata) == 1) && is_array(current($flexidata))) {
@@ -1428,8 +1395,7 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return boolean 
      */
-    public function reload()
-    {
+    public function reload() {
         $id = $this->getRecordIdent();
         $this->dataReset();
         $this->loadFromFlexiBee($id);
@@ -1445,8 +1411,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string Filter code
      */
-    public function setFilter($filter)
-    {
+    public function setFilter($filter) {
         return $this->filter = is_array($filter) ? self::flexiUrl($filter) : $filter;
     }
 
@@ -1462,16 +1427,15 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string
      */
-    public function getJsonizedData($data = null, $options = 0)
-    {
+    public function getJsonizedData($data = null, $options = 0) {
         if (is_null($data)) {
             $data = $this->getData();
         }
 
         $dataToJsonize = array_merge(['@version' => $this->protoVersion],
-            $this->getDataForJSON($data));
-        $jsonRaw       = json_encode([$this->nameSpace => $dataToJsonize],
-            $options);
+                $this->getDataForJSON($data));
+        $jsonRaw = json_encode([$this->nameSpace => $dataToJsonize],
+                $options);
 
         return $jsonRaw;
     }
@@ -1483,8 +1447,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return array
      */
-    public function getDataForJSON($data = null)
-    {
+    public function getDataForJSON($data = null) {
         if (is_null($data)) {
             $data = $this->getData();
         }
@@ -1492,12 +1455,12 @@ class FlexiBeeRO extends \Ease\Sand
         $dataForJson = [$this->getEvidence() => $this->objectToID($data)];
 
         if (!is_null($this->action)) {
-            $dataForJson[$this->evidence.'@action'] = $this->action;
-            $this->action                           = null;
+            $dataForJson[$this->evidence . '@action'] = $this->action;
+            $this->action = null;
         }
 
         if (!is_null($this->filter)) {
-            $dataForJson[$this->evidence.'@filter'] = $this->filter;
+            $dataForJson[$this->evidence . '@filter'] = $this->filter;
         }
 
 
@@ -1506,8 +1469,8 @@ class FlexiBeeRO extends \Ease\Sand
             foreach ($chainedData as $chainedItemEvidence => $chainedItemData) {
                 if (array_key_exists($chainedItemEvidence, $dataForJson)) {
                     if (is_string(key($dataForJson[$chainedItemEvidence]))) {
-                        $dataBackup                          = $dataForJson[$chainedItemEvidence];
-                        $dataForJson[$chainedItemEvidence]   = [];
+                        $dataBackup = $dataForJson[$chainedItemEvidence];
+                        $dataForJson[$chainedItemEvidence] = [];
                         $dataForJson[$chainedItemEvidence][] = $dataBackup;
                     }
                     if (array_key_exists(0, $chainedItemData)) {
@@ -1534,8 +1497,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return boolean adding to stack success
      */
-    public function join(&$object)
-    {
+    public function join(&$object) {
         $result = true;
         if (method_exists($object, 'getDataForJSON')) {
             $this->chained[] = $object;
@@ -1553,10 +1515,9 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return string id ready for use in URL
      */
-    public static function urlizeId($id)
-    {
+    public static function urlizeId($id) {
         if (is_array($id)) {
-            $id = rawurlencode('('.self::flexiUrl($id).')');
+            $id = rawurlencode('(' . self::flexiUrl($id) . ')');
         } else if (preg_match('/^ext:/', $id)) {
             $id = self::urlEncode($id);
         } else if (preg_match('/^code:/', $id)) {
@@ -1572,17 +1533,16 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return boolean
      */
-    public function idExists($identifer = null)
-    {
+    public function idExists($identifer = null) {
         if (is_null($identifer)) {
             $identifer = $this->getMyKey();
         }
         $ignorestate = $this->ignore404();
         $this->ignore404(true);
-        $cands       = $this->getFlexiData(null,
-            [
-                'detail' => 'custom:'.$this->getKeyColumn(),
-                $this->getKeyColumn() => $identifer
+        $cands = $this->getFlexiData(null,
+                [
+                    'detail' => 'custom:' . $this->getKeyColumn(),
+                    $this->getKeyColumn() => $identifer
         ]);
         $this->ignore404($ignorestate);
         return ($this->lastResponseCode == 200) && !empty($cands);
@@ -1595,20 +1555,18 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return boolean Record presence status
      */
-    public function recordExists($data = [])
-    {
+    public function recordExists($data = []) {
 
         if (empty($data)) {
             $data = $this->getData();
         }
         $ignorestate = $this->ignore404();
         $this->ignore404(true);
-        $keyColumn   = $this->getKeyColumn();
-        $res         = $this->getColumnsFromFlexibee([$keyColumn],
-            is_array($data) ? $data : [$keyColumn => $data]);
+        $keyColumn = $this->getKeyColumn();
+        $res = $this->getColumnsFromFlexibee([$keyColumn],
+                is_array($data) ? $data : [$keyColumn => $data]);
 
-        if (empty($res) || (isset($res['success']) && ($res['success'] == 'false'))
-            || ((isset($res) && is_array($res)) && !isset($res[0]) )) {
+        if (empty($res) || (isset($res['success']) && ($res['success'] == 'false')) || ((isset($res) && is_array($res)) && !isset($res[0]) )) {
             $found = false;
         } else {
             $found = true;
@@ -1622,11 +1580,8 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return array of document items or null
      */
-    public function getSubItems()
-    {
-        return array_key_exists('polozkyFaktury', $this->getData()) ? $this->getDataValue('polozkyFaktury')
-                : (array_key_exists('polozkyDokladu', $this->getData()) ? $this->getDataValue('polozkyDokladu')
-                : null);
+    public function getSubItems() {
+        return array_key_exists('polozkyFaktury', $this->getData()) ? $this->getDataValue('polozkyFaktury') : (array_key_exists('polozkyDokladu', $this->getData()) ? $this->getDataValue('polozkyDokladu') : null);
     }
 
     /**
@@ -1637,8 +1592,7 @@ class FlexiBeeRO extends \Ease\Sand
      *                                     sloupečku
      * @return array
      */
-    public function getAllFromFlexibee($conditions = null, $indexBy = null)
-    {
+    public function getAllFromFlexibee($conditions = null, $indexBy = null) {
         if (is_int($conditions)) {
             $conditions = [$this->getmyKeyColumn() => $conditions];
         }
@@ -1662,19 +1616,18 @@ class FlexiBeeRO extends \Ease\Sand
      * @return array
      */
     public function getColumnsFromFlexibee($columnsList, $conditions = [],
-                                           $indexBy = null)
-    {
+            $indexBy = null) {
         $detail = 'full';
         switch (gettype($columnsList)) {
             case 'integer': //Record ID
                 $conditions = [$this->getmyKeyColumn() => $conditions];
             case 'array': //Few Conditions
                 if (!is_null($indexBy) && !array_key_exists($indexBy,
-                        $columnsList)) {
+                                $columnsList)) {
                     $columnsList[] = $indexBy;
                 }
                 $columns = implode(',', array_unique($columnsList));
-                $detail  = 'custom:'.$columns;
+                $detail = 'custom:' . $columns;
             default:
                 switch ($columnsList) {
                     case 'id':
@@ -1694,7 +1647,7 @@ class FlexiBeeRO extends \Ease\Sand
         $flexiData = $this->getFlexiData(null, $conditions);
 
         if (is_string($indexBy) && is_array($flexiData) && array_key_exists(0,
-                $flexiData) && array_key_exists($indexBy, $flexiData[0])) {
+                        $flexiData) && array_key_exists($indexBy, $flexiData[0])) {
             $flexiData = \Ease\Functions::reindexArrayBy($flexiData, $indexBy);
         }
 
@@ -1709,8 +1662,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string
      */
-    public function getKod($data = null, $unique = true)
-    {
+    public function getKod($data = null, $unique = true) {
         $kod = null;
 
         if (is_null($data)) {
@@ -1726,7 +1678,7 @@ class FlexiBeeRO extends \Ease\Sand
         } else {
             if (isset($data[$this->nameColumn])) {
                 $kod = preg_replace('/[^a-zA-Z0-9]/', '',
-                    \Ease\Functions::rip($data[$this->nameColumn]));
+                        \Ease\Functions::rip($data[$this->nameColumn]));
             } else {
                 if (isset($data[$this->keyColumn])) {
                     $kod = \Ease\Functions::rip($data[$this->keyColumn]);
@@ -1755,7 +1707,7 @@ class FlexiBeeRO extends \Ease\Sand
                 }
             }
             if ($counter) {
-                $kodfinal = $kodfinal.$counter;
+                $kodfinal = $kodfinal . $counter;
             }
 
             $this->codes[$kodfinal] = $kod;
@@ -1772,19 +1724,18 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return boolean Log save success
      */
-    public function logResult($resultData = null, $url = null)
-    {
+    public function logResult($resultData = null, $url = null) {
         $logResult = false;
         if (isset($resultData['success']) && ($resultData['success'] == 'false')) {
-            $this->addStatusMessage('Error '.$this->lastResponseCode.': '.urldecode($url).(array_key_exists('message',
-                    $resultData) ? ' '.$resultData['message'] : ''), 'warning');
+            $this->addStatusMessage('Error ' . $this->lastResponseCode . ': ' . urldecode($url) . (array_key_exists('message',
+                            $resultData) ? ' ' . $resultData['message'] : ''), 'warning');
             unset($url);
         }
         if (is_null($resultData)) {
             $resultData = $this->lastResult;
         }
         if (isset($url)) {
-            \Ease\Shared::logger()->addStatusMessage($this->lastResponseCode.':'.urldecode($url));
+            \Ease\Shared::logger()->addStatusMessage($this->lastResponseCode . ':' . urldecode($url));
         }
 
         if (isset($resultData['results'])) {
@@ -1803,15 +1754,15 @@ class FlexiBeeRO extends \Ease\Sand
                     foreach ($result['errors'] as $error) {
                         $message = $error['message'];
                         if (isset($error['for'])) {
-                            $message .= ' for: '.$error['for'];
+                            $message .= ' for: ' . $error['for'];
                         }
                         if (isset($error['value'])) {
-                            $message .= ' value:'.$error['value'];
+                            $message .= ' value:' . $error['value'];
                         }
                         if (isset($error['code'])) {
-                            $message .= ' code:'.$error['code'];
+                            $message .= ' code:' . $error['code'];
                         }
-                        $this->addStatusMessage($rid.': '.$message, $status);
+                        $this->addStatusMessage($rid . ': ' . $message, $status);
                     }
                 }
             }
@@ -1822,17 +1773,16 @@ class FlexiBeeRO extends \Ease\Sand
     /**
      * Save RAW Curl Request & Response to files in Temp directory
      */
-    public function saveDebugFiles()
-    {
-        $tmpdir   = sys_get_temp_dir();
-        $fname    = $this->evidence.'-'.$this->curlInfo['when'].'.'.$this->format;
-        $reqname  = $tmpdir.'/request-'.$fname;
-        $respname = $tmpdir.'/response-'.$fname;
-        $header   = '# '.(new \DateTime())->format('Y-m-d\TH:i:s.u').' '.$this->curlInfo['url'].' ('.urldecode($this->curlInfo['url']).')';
-        if (file_put_contents($reqname, $header."\n".$this->postFields)) {
+    public function saveDebugFiles() {
+        $tmpdir = sys_get_temp_dir();
+        $fname = $this->evidence . '-' . $this->curlInfo['when'] . '.' . $this->format;
+        $reqname = $tmpdir . '/request-' . $fname;
+        $respname = $tmpdir . '/response-' . $fname;
+        $header = '# ' . (new \DateTime())->format('Y-m-d\TH:i:s.u') . ' ' . $this->curlInfo['url'] . ' (' . urldecode($this->curlInfo['url']) . ')';
+        if (file_put_contents($reqname, $header . "\n" . $this->postFields)) {
             $this->addStatusMessage($reqname, 'debug');
         }
-        if (file_put_contents($respname, $header."\n".$this->lastCurlResponse)) {
+        if (file_put_contents($respname, $header . "\n" . $this->lastCurlResponse)) {
             $this->addStatusMessage($respname, 'debug');
         }
     }
@@ -1842,8 +1792,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @param string $data
      */
-    public function setPostFields($data)
-    {
+    public function setPostFields($data) {
         $this->postFields = $data;
     }
 
@@ -1851,8 +1800,7 @@ class FlexiBeeRO extends \Ease\Sand
      * Get Content ready to be send as POST body
      * @return string
      */
-    public function getPostFields()
-    {
+    public function getPostFields() {
         return $this->postFields;
     }
 
@@ -1867,50 +1815,48 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string
      */
-    public static function flexiUrl(array $data, $joiner = 'and', $defop = 'eq')
-    {
+    public static function flexiUrl(array $data, $joiner = 'and', $defop = 'eq') {
         $parts = [];
 
         foreach ($data as $column => $value) {
             if (!is_numeric($column)) {
                 if (is_integer($data[$column]) || is_float($data[$column])) {
-                    $parts[$column] = $column.' eq \''.$data[$column].'\'';
+                    $parts[$column] = $column . ' eq \'' . $data[$column] . '\'';
                 } elseif (is_bool($data[$column])) {
-                    $parts[$column] = $data[$column] ? $column.' eq true' : $column.' eq false';
+                    $parts[$column] = $data[$column] ? $column . ' eq true' : $column . ' eq false';
                 } elseif (is_null($data[$column])) {
-                    $parts[$column] = $column." is null";
+                    $parts[$column] = $column . " is null";
                 } elseif (is_array($data[$column])) {
-                    $parts[$column] = $column." in (".implode(',',
-                            array_map(function($a, $column) {
-                                return $column == 'stitky' ? "'".self::code($a)."'"
-                                        : "'$a'";
-                            }, $data[$column],
-                                array_fill(0, count($data[$column]), $column))).")";
+                    $parts[$column] = $column . " in (" . implode(',',
+                                    array_map(function($a, $column) {
+                                        return $column == 'stitky' ? "'" . self::code($a) . "'" : "'$a'";
+                                    }, $data[$column],
+                                            array_fill(0, count($data[$column]), $column))) . ")";
                 } elseif (is_object($data[$column])) {
                     switch (get_class($data[$column])) {
                         case 'DatePeriod':
-                            $parts[$column] = $column." between '".$data[$column]->getStartDate()->format(self::$DateFormat)."' '".$data[$column]->getEndDate()->format(self::$DateFormat)."'";
+                            $parts[$column] = $column . " between '" . $data[$column]->getStartDate()->format(self::$DateFormat) . "' '" . $data[$column]->getEndDate()->format(self::$DateFormat) . "'";
                             break;
                         case 'DateTime':
-                            $parts[$column] = $column." eq '".$data[$column]->format(self::$DateFormat)."'";
+                            $parts[$column] = $column . " eq '" . $data[$column]->format(self::$DateFormat) . "'";
                             break;
                         default:
-                            $parts[$column] = $column." $defop '".$data[$column]."'";
+                            $parts[$column] = $column . " $defop '" . $data[$column] . "'";
                             break;
                     }
                 } else {
                     switch ($value) {
                         case '!null':
-                            $parts[$column] = $column." is not null";
+                            $parts[$column] = $column . " is not null";
                             break;
                         case 'is empty':
                         case 'is not empty':
                         case 'is true':
                         case 'is false':
-                            $parts[$column] = $column.' '.$value;
+                            $parts[$column] = $column . ' ' . $value;
                             break;
                         default:
-                            $condParts      = explode(' ', trim($value));
+                            $condParts = explode(' ', trim($value));
                             switch ($condParts[0]) {
                                 case '<>':
                                 case '!=':
@@ -1929,16 +1875,16 @@ class FlexiBeeRO extends \Ease\Sand
                                 case 'between':
                                 case 'ends':
                                     if (count($condParts) == 1) {
-                                        $parts[$column] = $column         .= ' '.$value;
+                                        $parts[$column] = $column .= ' ' . $value;
                                     } else {
-                                        $parts[$column] = $column         .= ' '.$condParts[0]." '".$condParts[1]."'";
+                                        $parts[$column] = $column .= ' ' . $condParts[0] . " '" . $condParts[1] . "'";
                                     }
                                     break;
                                 default:
                                     if ($column == 'stitky') {
-                                        $parts[$column] = $column."='".self::code($data[$column])."'";
+                                        $parts[$column] = $column . "='" . self::code($data[$column]) . "'";
                                     } else {
-                                        $parts[$column] = $column." $defop '".$data[$column]."'";
+                                        $parts[$column] = $column . " $defop '" . $data[$column] . "'";
                                     }
                                     break;
                             }
@@ -1950,7 +1896,7 @@ class FlexiBeeRO extends \Ease\Sand
                 $parts[] = $value;
             }
         }
-        return implode(' '.$joiner.' ', $parts);
+        return implode(' ' . $joiner . ' ', $parts);
     }
 
     /**
@@ -1961,8 +1907,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return null|int indentifikátor záznamu reprezentovaného objektem
      */
-    public function getRecordID()
-    {
+    public function getRecordID() {
         $id = $this->getDataValue('id');
         return is_null($id) ? null : (is_numeric($id) ? intval($id) : $id);
     }
@@ -1975,8 +1920,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string record code identifier
      */
-    public function getRecordCode()
-    {
+    public function getRecordCode() {
         return empty($this->getDataValue('kod')) ? null : self::code($this->getDataValue('kod'));
     }
 
@@ -1988,8 +1932,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string|int|null record code identifier
      */
-    public function getRecordIdent()
-    {
+    public function getRecordIdent() {
         $ident = $this->getExternalID();
         if (empty($ident)) {
             $ident = $this->getRecordCode();
@@ -2008,8 +1951,7 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return string indentifikátor záznamu reprezentovaného objektem
      */
-    public function __toString()
-    {
+    public function __toString() {
         return strval($this->getRecordIdent());
     }
 
@@ -2020,8 +1962,7 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return string Class name
      */
-    public static function evidenceToClassName($evidence)
-    {
+    public static function evidenceToClassName($evidence) {
         return str_replace(' ', '', ucwords(str_replace('-', ' ', $evidence)));
     }
 
@@ -2030,12 +1971,11 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string|null id or null if no records
      */
-    public function getFirstRecordID()
-    {
-        $firstID    = null;
-        $keyColumn  = $this->getKeyColumn();
+    public function getFirstRecordID() {
+        $firstID = null;
+        $keyColumn = $this->getKeyColumn();
         $firstIdRaw = $this->getColumnsFromFlexibee([$keyColumn],
-            ['limit' => 1, 'order' => $keyColumn], $keyColumn);
+                ['limit' => 1, 'order' => $keyColumn], $keyColumn);
         if (!empty($firstIdRaw) && isset(current($firstIdRaw)[$keyColumn])) {
             $firstID = current($firstIdRaw)[$keyColumn];
         }
@@ -2049,14 +1989,13 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return int|null
      */
-    public function getNextRecordID($conditions = [])
-    {
+    public function getNextRecordID($conditions = []) {
         $conditions['order'] = 'id@D';
         $conditions['limit'] = 1;
-        $conditions[]        = 'id gt '.$this->getRecordID();
-        $next                = $this->getColumnsFromFlexibee(['id'], $conditions);
+        $conditions[] = 'id gt ' . $this->getRecordID();
+        $next = $this->getColumnsFromFlexibee(['id'], $conditions);
         return (is_array($next) && array_key_exists(0, $next) && array_key_exists('id',
-                $next[0])) ? intval($next[0]['id']) : null;
+                        $next[0])) ? intval($next[0]['id']) : null;
     }
 
     /**
@@ -2066,14 +2005,13 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return int|null
      */
-    public function getPrevRecordID($conditions = [])
-    {
+    public function getPrevRecordID($conditions = []) {
         $conditions['order'] = 'id@A';
         $conditions['limit'] = 1;
-        $conditions[]        = 'id lt '.$this->getRecordID();
-        $prev                = $this->getColumnsFromFlexibee(['id'], $conditions);
+        $conditions[] = 'id lt ' . $this->getRecordID();
+        $prev = $this->getColumnsFromFlexibee(['id'], $conditions);
         return (is_array($prev) && array_key_exists(0, $prev) && array_key_exists('id',
-                $prev[0])) ? intval($prev[0]['id']) : null;
+                        $prev[0])) ? intval($prev[0]['id']) : null;
     }
 
     /**
@@ -2083,10 +2021,9 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return string|array one id or array if multiplete
      */
-    public function getExternalID($want = null)
-    {
+    public function getExternalID($want = null) {
         $extid = null;
-        $ids   = $this->getExternalIDs();
+        $ids = $this->getExternalIDs();
         if (is_null($want)) {
             if (!empty($ids)) {
                 $extid = current($ids);
@@ -2094,15 +2031,15 @@ class FlexiBeeRO extends \Ease\Sand
         } else {
             if (!is_null($ids) && is_array($ids)) {
                 foreach ($ids as $id) {
-                    if (strstr($id, 'ext:'.$want)) {
+                    if (strstr($id, 'ext:' . $want)) {
                         if (is_null($extid)) {
-                            $extid = str_replace('ext:'.$want.':', '', $id);
+                            $extid = str_replace('ext:' . $want . ':', '', $id);
                         } else {
                             if (is_array($extid)) {
-                                $extid[] = str_replace('ext:'.$want.':', '', $id);
+                                $extid[] = str_replace('ext:' . $want . ':', '', $id);
                             } else {
-                                $extid = [$extid, str_replace('ext:'.$want.':',
-                                        '', $id)];
+                                $extid = [$extid, str_replace('ext:' . $want . ':',
+                                            '', $id)];
                             }
                         }
                     }
@@ -2117,8 +2054,7 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return array
      */
-    public function getExternalIDs()
-    {
+    public function getExternalIDs() {
         return $this->getDataValue('external-ids');
     }
 
@@ -2130,8 +2066,7 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return int
      */
-    public function getGlobalVersion()
-    {
+    public function getGlobalVersion() {
         $this->getFlexiData(null, ['add-global-version' => 'true', 'limit' => 1]);
 
         return $this->globalVersion;
@@ -2144,10 +2079,9 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return string API URL for current record or object/evidence
      */
-    public function getApiURL($format = null)
-    {
-        $apiUrl = str_replace(['.'.$this->format, '?limit=0'], '', $this->apiURL);
-        return $apiUrl.(empty($format) ? '' : '.'.$format );
+    public function getApiURL($format = null) {
+        $apiUrl = str_replace(['.' . $this->format, '?limit=0'], '', $this->apiURL);
+        return $apiUrl . (empty($format) ? '' : '.' . $format );
     }
 
     /**
@@ -2155,8 +2089,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string
      */
-    public function getResponseFormat()
-    {
+    public function getResponseFormat() {
         return $this->responseFormat;
     }
 
@@ -2167,15 +2100,14 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return array
      */
-    public function unifyResponseFormat($responseBody)
-    {
+    public function unifyResponseFormat($responseBody) {
         if (!is_array($responseBody) || array_key_exists('message',
-                $responseBody)) { //Unifi response format
+                        $responseBody)) { //Unifi response format
             $response = $responseBody;
         } else {
             $evidence = $this->getResponseEvidence();
             if (array_key_exists($evidence, $responseBody)) {
-                $response        = [];
+                $response = [];
                 $evidenceContent = $responseBody[$evidence];
                 if (array_key_exists(0, $evidenceContent)) {
                     $response[$evidence] = $evidenceContent; //Multiplete Results
@@ -2204,11 +2136,9 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return array Evidence structure
      */
-    public function getOfflineColumnsInfo($evidence = null)
-    {
+    public function getOfflineColumnsInfo($evidence = null) {
         $columnsInfo = null;
-        $infoSource  = self::$infoDir.'/Properties.'.(empty($evidence) ? $this->getEvidence()
-                : $evidence).'.json';
+        $infoSource = self::$infoDir . '/Properties.' . (empty($evidence) ? $this->getEvidence() : $evidence) . '.json';
         if (file_exists($infoSource)) {
             $columnsInfo = json_decode(file_get_contents($infoSource), true);
         }
@@ -2222,14 +2152,13 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return array structure
      */
-    public function getOnlineColumnsInfo($evidence = null)
-    {
+    public function getOnlineColumnsInfo($evidence = null) {
         $properties = [];
-        $evidence   = is_null($evidence) ? $this->getEvidence() : $evidence;
-        $flexinfo   = $this->performRequest('/c/'.$this->company.'/'.$evidence.'/properties.json');
+        $evidence = is_null($evidence) ? $this->getEvidence() : $evidence;
+        $flexinfo = $this->performRequest('/c/' . $this->company . '/' . $evidence . '/properties.json');
         if (!empty($flexinfo) && array_key_exists('properties', $flexinfo)) {
             foreach ($flexinfo['properties']['property'] as $evidenceProperty) {
-                $key              = $evidenceProperty['propertyName'];
+                $key = $evidenceProperty['propertyName'];
                 $properties[$key] = $evidenceProperty;
                 if (array_key_exists('name', $evidenceProperty)) {
                     $proerties[$key]['name'] = $evidenceProperty['name'];
@@ -2237,7 +2166,7 @@ class FlexiBeeRO extends \Ease\Sand
                 $properties[$key]['type'] = $evidenceProperty['type'];
                 if (array_key_exists('url', $evidenceProperty)) {
                     $properties[$key]['url'] = str_replace('?limit=0', '',
-                        $evidenceProperty['url']);
+                            $evidenceProperty['url']);
                 }
             }
         }
@@ -2250,12 +2179,10 @@ class FlexiBeeRO extends \Ease\Sand
      * @param array  $columnsInfo
      * @param string $evidence
      */
-    public function updateColumnsInfo($columnsInfo = null, $evidence = null)
-    {
+    public function updateColumnsInfo($columnsInfo = null, $evidence = null) {
         $evidence = is_null($evidence) ? $this->getEvidence() : $evidence;
         if (is_null($columnsInfo)) {
-            $this->columnsInfo[$evidence] = $this->offline ? $this->getOfflineColumnsInfo($evidence)
-                    : $this->getOnlineColumnsInfo($evidence);
+            $this->columnsInfo[$evidence] = $this->offline ? $this->getOfflineColumnsInfo($evidence) : $this->getOnlineColumnsInfo($evidence);
         } else {
             $this->columnsInfo[$evidence] = $columnsInfo;
         }
@@ -2269,12 +2196,11 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return array
      */
-    public function getColumnsInfo($evidence = null)
-    {
+    public function getColumnsInfo($evidence = null) {
         $evidence = is_null($evidence) ? $this->getEvidence() : $evidence;
         if (!array_key_exists($evidence, $this->columnsInfo)) {
             $this->updateColumnsInfo($this->getOfflineColumnsInfo($evidence),
-                $evidence);
+                    $evidence);
         }
         return $this->columnsInfo[$evidence];
     }
@@ -2287,13 +2213,9 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return array column properties or null if column not exits
      */
-    public function getColumnInfo($column, $evidence = null)
-    {
-        $columnsInfo = $this->getColumnsInfo(empty($evidence) ? $this->getEvidence()
-                : $evidence);
-        return (empty($column) || empty($columnsInfo) || !is_array($columnsInfo))
-                ? null : array_key_exists($column, $columnsInfo) ? $columnsInfo[$column]
-                : null;
+    public function getColumnInfo($column, $evidence = null) {
+        $columnsInfo = $this->getColumnsInfo(empty($evidence) ? $this->getEvidence() : $evidence);
+        return (empty($column) || empty($columnsInfo) || !is_array($columnsInfo)) ? null : array_key_exists($column, $columnsInfo) ? $columnsInfo[$column] : null;
     }
 
     /**
@@ -2303,8 +2225,7 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return array Evidence structure
      */
-    public function getActionsInfo($evidence = null)
-    {
+    public function getActionsInfo($evidence = null) {
         $actionsInfo = null;
         if (is_null($evidence)) {
             $evidence = $this->getEvidence();
@@ -2323,8 +2244,7 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return array Evidence structure
      */
-    public function getRelationsInfo($evidence = null)
-    {
+    public function getRelationsInfo($evidence = null) {
         $relationsInfo = null;
         if (is_null($evidence)) {
             $evidence = $this->getEvidence();
@@ -2343,15 +2263,14 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return array Evidence info
      */
-    public function getEvidenceInfo($evidence = null)
-    {
+    public function getEvidenceInfo($evidence = null) {
         $evidencesInfo = null;
         if (is_null($evidence)) {
             $evidence = $this->getEvidence();
         }
         if (isset(EvidenceList::$evidences[$evidence])) {
             $evidencesInfo = EvidenceList::$evidences[$evidence];
-            $propsName     = lcfirst(FlexiBeeRO::evidenceToClassName($evidence));
+            $propsName = lcfirst(FlexiBeeRO::evidenceToClassName($evidence));
             if (isset(Formats::$$propsName)) {
                 $evidencesInfo['formats'] = Formats::$$propsName;
             }
@@ -2366,8 +2285,7 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return array Evidence info
      */
-    public function getEvidenceName($evidence = null)
-    {
+    public function getEvidenceName($evidence = null) {
         $evidenceName = null;
         if (is_null($evidence)) {
             $evidence = $this->getEvidence();
@@ -2383,8 +2301,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @param string $destfile path to file
      */
-    public function saveResponseToFile($destfile)
-    {
+    public function saveResponseToFile($destfile) {
         if (strlen($this->lastCurlResponse)) {
             $this->doCurlRequest($this->apiURL, 'GET', $this->format);
         }
@@ -2396,16 +2313,14 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return array Null or Relations
      */
-    public function getVazby($id = null)
-    {
+    public function getVazby($id = null) {
         if (is_null($id)) {
             $id = $this->getRecordID();
         }
         if (!empty($id)) {
             $vazbyRaw = $this->getColumnsFromFlexibee(['vazby'],
-                ['relations' => 'vazby', 'id' => $id]);
-            $vazby    = array_key_exists('vazby', $vazbyRaw[0]) ? $vazbyRaw[0]['vazby']
-                    : null;
+                    ['relations' => 'vazby', 'id' => $id]);
+            $vazby = array_key_exists('vazby', $vazbyRaw[0]) ? $vazbyRaw[0]['vazby'] : null;
         } else {
             throw new \Exception(_('ID requied to get record relations '));
         }
@@ -2417,18 +2332,16 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string url
      */
-    public function getFlexiBeeURL()
-    {
-        $parsed_url = parse_url(str_replace('.'.$this->format, '', $this->apiURL));
-        $scheme     = isset($parsed_url['scheme']) ? $parsed_url['scheme'].'://'
-                : '';
-        $host       = isset($parsed_url['host']) ? $parsed_url['host'] : '';
-        $port       = isset($parsed_url['port']) ? ':'.$parsed_url['port'] : '';
-        $user       = isset($parsed_url['user']) ? $parsed_url['user'] : '';
-        $pass       = isset($parsed_url['pass']) ? ':'.$parsed_url['pass'] : '';
-        $pass       = ($user || $pass) ? "$pass@" : '';
-        $path       = isset($parsed_url['path']) ? $parsed_url['path'] : '';
-        return $scheme.$user.$pass.$host.$port.$path;
+    public function getFlexiBeeURL() {
+        $parsed_url = parse_url(str_replace('.' . $this->format, '', $this->apiURL));
+        $scheme = isset($parsed_url['scheme']) ? $parsed_url['scheme'] . '://' : '';
+        $host = isset($parsed_url['host']) ? $parsed_url['host'] : '';
+        $port = isset($parsed_url['port']) ? ':' . $parsed_url['port'] : '';
+        $user = isset($parsed_url['user']) ? $parsed_url['user'] : '';
+        $pass = isset($parsed_url['pass']) ? ':' . $parsed_url['pass'] : '';
+        $pass = ($user || $pass) ? "$pass@" : '';
+        $path = isset($parsed_url['path']) ? $parsed_url['path'] : '';
+        return $scheme . $user . $pass . $host . $port . $path;
     }
 
     /**
@@ -2438,12 +2351,11 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return boolean
      */
-    public function setMyKey($myKeyValue)
-    {
+    public function setMyKey($myKeyValue) {
         if (substr($myKeyValue, 0, 4) == 'ext:') {
             if ($this->evidenceInfo['extIdSupported'] == 'false') {
                 $this->addStatusMessage(sprintf(_('Evidence %s does not support extIDs'),
-                        $this->getEvidence()), 'warning');
+                                $this->getEvidence()), 'warning');
                 $res = false;
             } else {
                 $extIds = $this->getDataValue('external-ids');
@@ -2452,8 +2364,8 @@ class FlexiBeeRO extends \Ease\Sand
                 }
 
                 $extIds[$myKeyValue] = $myKeyValue;
-                $res                 = $this->setDataValue('external-ids',
-                    $extIds);
+                $res = $this->setDataValue('external-ids',
+                        $extIds);
             }
         } else {
             $res = $this->setDataValue($this->getMyKey(), $myKeyValue);
@@ -2469,8 +2381,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return boolean get flag state
      */
-    public function ignore404($ignore = null)
-    {
+    public function ignore404($ignore = null) {
         if (!is_null($ignore)) {
             $this->ignoreNotFound = $ignore;
         }
@@ -2488,12 +2399,11 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return boolean mail sent status
      */
-    public function sendByMail($to, $subject, $body, $cc = null)
-    {
+    public function sendByMail($to, $subject, $body, $cc = null) {
         $this->setPostFields($body);
 
-        $this->performRequest(rawurlencode($this->getRecordID()).'/odeslani-dokladu?to='.$to.'&subject='.urlencode($subject).'&cc='.$cc
-            , 'PUT', 'xml');
+        $this->performRequest(rawurlencode($this->getRecordID()) . '/odeslani-dokladu?to=' . $to . '&subject=' . urlencode($subject) . '&cc=' . $cc
+                , 'PUT', 'xml');
 
         return $this->lastResponseCode == 200;
     }
@@ -2505,10 +2415,9 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return int http response code
      */
-    public function sendUnsent()
-    {
+    public function sendUnsent() {
         return $this->doCurlRequest('automaticky-odeslat-neodeslane', 'PUT',
-                'xml');
+                        'xml');
     }
 
     /**
@@ -2518,10 +2427,8 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return \DateTime | false
      */
-    public static function flexiDateToDateTime($flexidate)
-    {
-        return \DateTime::createFromFormat(strstr($flexidate, '+') ? self::$DateFormat.'O'
-                    : self::$DateFormat, $flexidate)->setTime(0, 0);
+    public static function flexiDateToDateTime($flexidate) {
+        return \DateTime::createFromFormat(strstr($flexidate, '+') ? self::$DateFormat . 'O' : self::$DateFormat, $flexidate)->setTime(0, 0);
     }
 
     /**
@@ -2531,8 +2438,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return \DateTime | false
      */
-    public static function flexiDateTimeToDateTime($flexidatetime)
-    {
+    public static function flexiDateTimeToDateTime($flexidatetime) {
         if (strchr($flexidatetime, '.')) { //NewFormat
             $format = self::$DateTimeFormat;
         } else { // Old format
@@ -2555,8 +2461,7 @@ class FlexiBeeRO extends \Ease\Sand
      * @return string|null filename downloaded or none
      */
     public function getInFormat($format, $reportName = null, $lang = null,
-                                $sign = false)
-    {
+            $sign = false) {
         $response = null;
         if ($this->setFormat($format)) {
             $urlParams = [];
@@ -2573,7 +2478,7 @@ class FlexiBeeRO extends \Ease\Sand
                         case '':
                             break;
                         default:
-                            throw new \Ease\Exception('Unknown language '.$lang.' for PDF export');
+                            throw new \Ease\Exception('Unknown language ' . $lang . ' for PDF export');
                             break;
                     }
                     if (boolval($sign) === true) {
@@ -2588,7 +2493,7 @@ class FlexiBeeRO extends \Ease\Sand
                 $urlParams['report-name'] = $reportName;
             }
             if (($this->doCurlRequest(\Ease\Functions::addUrlParams($this->apiURL,
-                        $urlParams), 'GET') == 200)) {
+                                    $urlParams), 'GET') == 200)) {
                 $response = $this->lastCurlResponse;
             }
         }
@@ -2606,15 +2511,14 @@ class FlexiBeeRO extends \Ease\Sand
      * @return string|null filename downloaded or none
      */
     public function downloadInFormat($format, $destDir = './',
-                                     $reportName = null)
-    {
-        $fileOnDisk   = null;
+            $reportName = null) {
+        $fileOnDisk = null;
         $formatBackup = $this->format;
         if ($this->setFormat($format)) {
-            $downloadTo = $destDir.$this->getEvidence().'_'.$this->getMyKey().'.'.$format;
+            $downloadTo = $destDir . $this->getEvidence() . '_' . $this->getMyKey() . '.' . $format;
             if (($this->doCurlRequest(empty($reportName) ? $this->apiURL : \Ease\Functions::addUrlParams($this->apiURL,
-                            ['report-name' => $reportName]), 'GET') == 200) && (file_put_contents($downloadTo,
-                    $this->lastCurlResponse) !== false)) {
+                                            ['report-name' => $reportName]), 'GET') == 200) && (file_put_contents($downloadTo,
+                            $this->lastCurlResponse) !== false)) {
                 $fileOnDisk = $downloadTo;
             }
             $this->setFormat($formatBackup);
@@ -2629,8 +2533,7 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return int number of records taken
      */
-    public function takeData($data)
-    {
+    public function takeData($data) {
         $keyColumn = $this->getKeyColumn();
         if (array_key_exists($keyColumn, $data) && is_array($data[$keyColumn])) {
             foreach ($data[$keyColumn] as $recPos => $recordKey) {
@@ -2659,18 +2562,16 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return array
      */
-    public function getReportsInfo()
-    {
-        $reports    = [];
-        $reportsRaw = $this->getFlexiData($this->getEvidenceURL().'/reports');
-        if (!empty($reportsRaw) && array_key_exists('reports', $reportsRaw) && !empty($reportsRaw['reports'])
-            && array_key_exists('report', $reportsRaw['reports']) &&
-            !empty($reportsRaw['reports']['report'])) {
+    public function getReportsInfo() {
+        $reports = [];
+        $reportsRaw = $this->getFlexiData($this->getEvidenceURL() . '/reports');
+        if (!empty($reportsRaw) && array_key_exists('reports', $reportsRaw) && !empty($reportsRaw['reports']) && array_key_exists('report', $reportsRaw['reports']) &&
+                !empty($reportsRaw['reports']['report'])) {
             if (\Ease\jQuery\Part::isAssoc($reportsRaw['reports']['report'])) {
                 $reports = [$reportsRaw['reports']['report']['reportId'] => $reportsRaw['reports']['report']];
             } else {
                 $reports = \Ease\Functions::reindexArrayBy($reportsRaw['reports']['report'],
-                        'reportId');
+                                'reportId');
             }
         }
         return $reports;
@@ -2687,20 +2588,18 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return string authUserId or null in case of problems
      */
-    public function requestAuthSessionID($username, $password, $otp = null)
-    {
+    public function requestAuthSessionID($username, $password, $otp = null) {
         $this->postFields = http_build_query(is_null($otp) ? ['username' => $username,
             'password' => $password] : ['username' => $username, 'password' => $password,
             'otp' => $otp]);
-        $response         = $this->performRequest('/login-logout/login', 'POST',
-            'json');
+        $response = $this->performRequest('/login-logout/login', 'POST',
+                'json');
         if (array_key_exists('refreshToken', $response)) {
             $this->refreshToken = $response['refreshToken'];
         } else {
             $this->refreshToken = null;
         }
-        return array_key_exists('authSessionId', $response) ? $response['authSessionId']
-                : null;
+        return array_key_exists('authSessionId', $response) ? $response['authSessionId'] : null;
     }
 
     /**
@@ -2708,10 +2607,9 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return boolean sign in success
      */
-    public function login()
-    {
+    public function login() {
         $this->authSessionId = $this->requestAuthSessionID($this->user,
-            $this->password);
+                $this->password);
         return $this->lastResponseCode == 200;
     }
 
@@ -2725,10 +2623,8 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return array server response
      */
-    public function logout($username = null)
-    {
-        return $this->performRequest('/status/user/'.(is_null($username) ? $this->user
-                    : $username).'/logout', 'POST');
+    public function logout($username = null) {
+        return $this->performRequest('/status/user/' . (is_null($username) ? $this->user : $username) . '/logout', 'POST');
     }
 
     /**
@@ -2737,39 +2633,38 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @param array $errorResponse result of parseError();
      */
-    public function error500Reporter($errorResponse)
-    {
-        $ur = str_replace('/c/'.$this->company, '',
-            str_replace($this->url, '', $this->curlInfo['url']));
+    public function error500Reporter($errorResponse) {
+        $ur = str_replace('/c/' . $this->company, '',
+                str_replace($this->url, '', $this->curlInfo['url']));
         if (!array_key_exists($ur, $this->reports)) {
-            $tmpdir   = sys_get_temp_dir();
-            $myTime   = $this->curlInfo['when'];
-            $curlname = $tmpdir.'/curl-'.$this->evidence.'-'.$myTime.'.json';
+            $tmpdir = sys_get_temp_dir();
+            $myTime = $this->curlInfo['when'];
+            $curlname = $tmpdir . '/curl-' . $this->evidence . '-' . $myTime . '.json';
             file_put_contents($curlname,
-                json_encode($this->curlInfo, JSON_PRETTY_PRINT));
+                    json_encode($this->curlInfo, JSON_PRETTY_PRINT));
 
             $report = new \Ease\Mailer($this->reportRecipient,
-                'Error report 500 - '.$ur);
+                    'Error report 500 - ' . $ur);
 
-            $d     = dir($tmpdir);
+            $d = dir($tmpdir);
             while (false !== ($entry = $d->read())) {
                 if (strstr($entry, $myTime)) {
-                    $ext  = pathinfo($tmpdir.'/'.$entry, PATHINFO_EXTENSION);
+                    $ext = pathinfo($tmpdir . '/' . $entry, PATHINFO_EXTENSION);
                     $mime = Formats::suffixToContentType($ext);
-                    $report->addFile($tmpdir.'/'.$entry,
-                        empty($mime) ? 'text/plain' : $mime);
+                    $report->addFile($tmpdir . '/' . $entry,
+                            empty($mime) ? 'text/plain' : $mime);
                 }
             }
             $d->close();
 
             if ((strstr($this->url, '://localhost') || strstr($this->url,
-                    '://127.')) && file_exists('/var/log/flexibee.log')) {
+                            '://127.')) && file_exists('/var/log/flexibee.log')) {
 
-                $fl = fopen('/var/log/'.'flexibee.log', 'r');
+                $fl = fopen('/var/log/' . 'flexibee.log', 'r');
                 if ($fl) {
                     $tracelog = [];
                     for ($x_pos = 0, $ln = 0, $output = array(); fseek($fl,
-                            $x_pos, SEEK_END) !== -1; $x_pos--) {
+                                    $x_pos, SEEK_END) !== -1; $x_pos--) {
                         $char = fgetc($fl);
                         if ($char === "\n") {
                             $tracelog[] = $output[$ln];
@@ -2779,24 +2674,23 @@ class FlexiBeeRO extends \Ease\Sand
                             $ln++;
                             continue;
                         }
-                        $output[$ln] = $char.((array_key_exists($ln, $output)) ? $output[$ln]
-                                : '');
+                        $output[$ln] = $char . ((array_key_exists($ln, $output)) ? $output[$ln] : '');
                     }
 
-                    $trace     = implode("\n", array_reverse($tracelog));
-                    $tracefile = $tmpdir.'/trace-'.$this->evidence.'-'.$myTime.'.log';
+                    $trace = implode("\n", array_reverse($tracelog));
+                    $tracefile = $tmpdir . '/trace-' . $this->evidence . '-' . $myTime . '.log';
                     file_put_contents($tracefile, $trace);
-                    $report->addItem("\n\n".$trace);
+                    $report->addItem("\n\n" . $trace);
                     fclose($fl);
                 }
             } else {
                 $report->addItem($errorResponse['message']);
             }
 
-            $licenseInfo = $this->performRequest($this->url.'/default-license.json');
+            $licenseInfo = $this->performRequest($this->url . '/default-license.json');
 
-            $report->addItem("\n\n".json_encode($licenseInfo['license'],
-                    JSON_PRETTY_PRINT));
+            $report->addItem("\n\n" . json_encode($licenseInfo['license'],
+                            JSON_PRETTY_PRINT));
 
             if ($report->send()) {
                 $this->reports[$ur] = $myTime;
@@ -2811,9 +2705,8 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string
      */
-    public static function code($code)
-    {
-        return ((substr($code, 0, 4) == 'ext:') ? $code : 'code:'.strtoupper(self::uncode($code)));
+    public static function code($code) {
+        return ((substr($code, 0, 4) == 'ext:') ? $code : 'code:' . strtoupper(self::uncode($code)));
     }
 
     /**
@@ -2823,8 +2716,7 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return string
      */
-    public static function uncode($code)
-    {
+    public static function uncode($code) {
         return str_replace(['code:', 'code%3A'], '', $code);
     }
 
@@ -2835,11 +2727,10 @@ class FlexiBeeRO extends \Ease\Sand
      *
      * @return array data without @ columns
      */
-    public static function arrayCleanUP($data)
-    {
+    public static function arrayCleanUP($data) {
         return array_filter(
-            $data,
-            function ($key) {
+                $data,
+                function ($key) {
             return !strchr($key, '@');
         }, ARRAY_FILTER_USE_KEY);
     }
@@ -2850,12 +2741,11 @@ class FlexiBeeRO extends \Ease\Sand
      * @param string $prefix banner prefix text
      * @param string $suffix banner suffix text
      */
-    public function logBanner($prefix = null, $suffix = null)
-    {
+    public function logBanner($prefix = null, $suffix = null) {
         parent::logBanner($prefix,
-            ' FlexiBee '.str_replace('://', '://'.$this->user.'@',
-                $this->getApiUrl()).' FlexiBeeHP v'.self::$libVersion.' (FlexiBee '.EvidenceList::$version.') EasePHP Framework v'.\Ease\Atom::$frameworkVersion.' '.
-            $suffix
+                ' FlexiBee ' . str_replace('://', '://' . $this->user . '@',
+                        $this->getApiUrl()) . ' FlexiBeeHP v' . self::$libVersion . ' (FlexiBee ' . EvidenceList::$version . ') EasePHP Framework v' . \Ease\Atom::$frameworkVersion . ' ' .
+                $suffix
         );
     }
 
@@ -2864,8 +2754,7 @@ class FlexiBeeRO extends \Ease\Sand
      * 
      * @return string create|read|update|delete or update,insert for some inserted and updated in one transaction
      */
-    public function getLastOperationType()
-    {
+    public function getLastOperationType() {
         return implode(',', array_keys(array_filter($this->responseStats)));
     }
 
@@ -2877,12 +2766,12 @@ class FlexiBeeRO extends \Ease\Sand
     public function getErrors() {
         return $this->errors;
     }
-    
+
     /**
      * Reconnect After unserialization
      */
-    public function __wakeup()
-    {
+    public function __wakeup() {
         $this->curlInit();
     }
+
 }

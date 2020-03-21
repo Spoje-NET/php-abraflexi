@@ -99,6 +99,10 @@ Konfigurace se provádí nastavením následujících konstant:
     * Pomalý server, velká databáze a přes modem k tomu
     */
     define('FLEXIBEE_TIMEOUT', 60); //Volitelné
+   /*
+    * Pomalý server, velká databáze a přes modem k tomu
+    */
+    define('FLEXIBEE_EXCEPTIONS', true); //Vracet PHP vyjímku v případě že FlexiBee vrátí chybu
 ```
 
 nebo je možné přihlašovací údaje zadávat při vytváření instance třídy.
