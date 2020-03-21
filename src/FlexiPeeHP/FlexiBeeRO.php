@@ -402,7 +402,7 @@ class FlexiBeeRO extends \Ease\Sand
     /**
      * Class for read only interaction with FlexiBee.
      *
-     * @param mixed $init default record id or initial data
+     * @param mixed $init default record id or initial data. See processInit()
      * @param array $options Connection settings and other options override
      */
     public function __construct($init = null, $options = [])
@@ -930,6 +930,7 @@ class FlexiBeeRO extends \Ease\Sand
     {
         $this->rowCount      = null;
         $this->responseStats = [];
+        $this->errors        = [];
 
         if (preg_match('/^http/', $urlSuffix)) {
             $url = $urlSuffix;
@@ -2868,6 +2869,15 @@ class FlexiBeeRO extends \Ease\Sand
         return implode(',', array_keys(array_filter($this->responseStats)));
     }
 
+    /**
+     * Last operation errors 
+     * 
+     * @return array FlexiBee error meassages
+     */
+    public function getErrors() {
+        return $this->errors;
+    }
+    
     /**
      * Reconnect After unserialization
      */
