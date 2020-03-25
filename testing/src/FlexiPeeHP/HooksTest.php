@@ -31,7 +31,7 @@ class HooksTest extends FlexiBeeRWTest
                                 $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
-        $this->testHookName = 'http://localhost/'.\Ease\Sand::randomString().'webhook.php';
+        $this->testHookName = 'http://localhost/'.\Ease\Functions::randomString().'webhook.php';
     }
 
     /**

@@ -59,7 +59,7 @@ class ChangesTest extends FlexiBeeROTest
          * Make Some Changes First ...
          */
         $address = new \FlexiPeeHP\Adresar();
-        $address->setDataValue('nazev', \Ease\Sand::randomString());
+        $address->setDataValue('nazev', \Ease\Functions::randomString());
         $address->setDataValue('poznam', 'Unit Test Random Record');
         $address->insertToFlexiBee();
 

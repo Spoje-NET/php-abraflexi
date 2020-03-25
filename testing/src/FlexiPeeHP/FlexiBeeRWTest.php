@@ -130,7 +130,7 @@ class FlexiBeeRWTest extends FlexiBeeROTest
      */
     public function testObjectToID()
     {
-        $id = \Ease\Sand::randomNumber(1, 9999);
+        $id = \Ease\Functions::randomNumber(1, 9999);
         $this->object->setMyKey($id);
         $this->assertEquals([$id], $this->object->objectToID([$this->object]));
         parent::testObjectToID();
@@ -186,7 +186,7 @@ class FlexiBeeRWTest extends FlexiBeeROTest
      */
     public function testVazbaAdd()
     {
-        $this->object->vazbaAdd(\Ease\Sand::randomNumber());
+        $this->object->vazbaAdd(\Ease\Functions::randomNumber());
     }
 
     /**
@@ -194,7 +194,7 @@ class FlexiBeeRWTest extends FlexiBeeROTest
      */
     public function testVazbaDel()
     {
-        $this->object->vazbaDel(\Ease\Sand::randomNumber());
+        $this->object->vazbaDel(\Ease\Functions::randomNumber());
     }
 
     /**
@@ -202,7 +202,7 @@ class FlexiBeeRWTest extends FlexiBeeROTest
      */
     public function testGetJsonizedData()
     {
-        $this->object->setData(['id' => time(), 'nazev' => \Ease\Sand::randomString(),
+        $this->object->setData(['id' => time(), 'nazev' => \Ease\Functions::randomString(),
             'stitky' => ['TEST', 'TESTING']]);
         $this->object->getJsonizedData();
     }
@@ -369,7 +369,7 @@ class FlexiBeeRWTest extends FlexiBeeROTest
      */
     public function testTakeData()
     {
-        $this->object->takeData(['id' => \Ease\Sand::randomNumber()]);
+        $this->object->takeData(['id' => \Ease\Functions::randomNumber()]);
     }
 
     /**
@@ -390,7 +390,7 @@ class FlexiBeeRWTest extends FlexiBeeROTest
         if (empty($this->object->getEvidence())) {
             $this->object->setEvidence('banka');
         }
-        $this->object->addExternalID('ext:test:'.\Ease\Sand::randomNumber());
+        $this->object->addExternalID('ext:test:'.\Ease\Functions::randomNumber());
     }
 
     /**
@@ -398,8 +398,8 @@ class FlexiBeeRWTest extends FlexiBeeROTest
      */
     public function testChangeExternalID()
     {
-        $this->object->changeExternalID('test', \Ease\Sand::randomNumber(),
-            \Ease\Sand::randomNumber());
+        $this->object->changeExternalID('test', \Ease\Functions::randomNumber(),
+            \Ease\Functions::randomNumber());
     }
 
     /**
@@ -407,7 +407,7 @@ class FlexiBeeRWTest extends FlexiBeeROTest
      */
     public function testSync()
     {
-        $code = \Ease\Sand::randomString();
+        $code = \Ease\Functions::randomString();
         $this->assertFalse($this->object->sync(['kod' => $code.'X']));
         if ($this->object->getEvidence()) {
             $syncResult = $this->object->sync($this->getDataForInsert($code));

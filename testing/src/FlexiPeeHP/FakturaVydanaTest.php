@@ -36,8 +36,8 @@ class FakturaVydanaTest extends FlexiBeeRWTest
         
         $invoice->takeData(array_merge([
             'kod' => $testCode,
-            'varSym' => \Ease\Sand::randomNumber(1111, 9999),
-            'specSym' => \Ease\Sand::randomNumber(111, 999),
+            'varSym' => \Ease\Functions::randomNumber(1111, 9999),
+            'specSym' => \Ease\Functions::randomNumber(111, 999),
             'bezPolozek' => true,
             'popis' => 'FlexiPeeHP Test invoice',
             'datVyst' => \FlexiPeeHP\FlexiBeeRO::dateToFlexiDate($yesterday),
@@ -84,7 +84,7 @@ class FakturaVydanaTest extends FlexiBeeRWTest
         $adresar                     = new \FlexiPeeHP\Adresar();
         $candidates                  = $adresar->getColumnsFromFlexibee('id');
         $dataForInsert['firma']      = $candidates[array_rand($candidates)]['id'];
-        $dataForInsert['sumZklZakl'] = \Ease\Sand::randomNumber(1000, 9999);
+        $dataForInsert['sumZklZakl'] = \Ease\Functions::randomNumber(1000, 9999);
         $dataForInsert['varSym']     = $dataForInsert['kod']        = time();
         $dataForInsert['bezPolozek'] = true;
         return $dataForInsert;
@@ -162,7 +162,7 @@ class FakturaVydanaTest extends FlexiBeeRWTest
             $invoiceData['kod'] = 'PeeHP'.time();
         }
         if (!isset($invoiceData['varSym'])) {
-            $invoiceData['varSym'] = \Ease\Sand::randomNumber(1000, 99999);
+            $invoiceData['varSym'] = \Ease\Functions::randomNumber(1000, 99999);
         }
         if (!isset($invoiceData['datVyst'])) {
             $invoiceData['datVyst'] = date("Y-m-d", time() - 60 * 60 * 24);
@@ -209,7 +209,7 @@ class FakturaVydanaTest extends FlexiBeeRWTest
                  * Make Some Address First ...
                  */
                 $address              = new \FlexiPeeHP\Adresar();
-                $address->setDataValue('nazev', \Ease\Sand::randomString());
+                $address->setDataValue('nazev', \Ease\Functions::randomString());
                 $address->setDataValue('poznam', 'Generated Unit Test Customer');
                 $address->setDataValue('typVztahuK', 'typVztahu.odberatel');
                 $address->insertToFlexiBee();
@@ -279,7 +279,7 @@ class FakturaVydanaTest extends FlexiBeeRWTest
      */
     public function testodpocetZalohy()
     {
-        $itemName = \Ease\Sand::randomString();
+        $itemName = \Ease\Functions::randomString();
 
         $polozka = [
             "typCenyDphK" => "typCeny.bezDph",
@@ -341,7 +341,7 @@ class FakturaVydanaTest extends FlexiBeeRWTest
      */
     public function testVytvorVazbuZDD()
     {
-        $vs     = \Ease\Sand::randomNumber();
+        $vs     = \Ease\Functions::randomNumber();
         $this->object->setDataValue('typDokl', 'code:ZÁLOHA');
         $this->object->setDataValue('varSym', $vs);
         $this->object->setDataValue('duzpPuv', '2018-02-10T23:47:10.510+01:00');

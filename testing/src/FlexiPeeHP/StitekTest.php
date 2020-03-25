@@ -89,7 +89,7 @@ class StitekTest extends FlexiBeeRWTest
         $this->assertFalse($this->object->createNew('Without Invoice',
                 ['pokladna']));
 
-        $testCode = \Ease\Sand::randomString();
+        $testCode = \Ease\Functions::randomString();
 
         $this->assertTrue($this->object->createNew('Example Label',
                 ['faktura-vydana', 'faktura-prijata'], ['kod' => $testCode]));
