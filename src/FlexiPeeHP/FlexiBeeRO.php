@@ -2368,7 +2368,7 @@ class FlexiBeeRO extends \Ease\Sand {
                         $extIds);
             }
         } else {
-            $res = $this->setDataValue($this->getMyKey(), $myKeyValue);
+            $res = $this->setDataValue($this->getKeyColumn(), $myKeyValue);
         }
         $this->updateApiURL();
         return $res;
