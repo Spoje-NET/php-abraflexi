@@ -8,5 +8,5 @@ override_dh_auto_test:
 
 override_dh_install:
 	dh_install	
-	sed -i -e  "s/__DIR__.'\/..\/..\//'\\/usr\/share\/php\/FlexiPeeHP\//g" debian/php-flexibee/usr/share/php/flexibee/FlexiBeeRO.php
+	sed -i -e  "s/__DIR__.'\/..\/..\//'\\/usr\/share\/php\/FlexiPeeHP\//g" debian/php-flexibee/usr/share/php/FlexiPeeHP/FlexiBeeRO.php
 	./debian/fixversion.sh
