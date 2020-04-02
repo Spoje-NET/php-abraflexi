@@ -302,7 +302,7 @@ Ve složce Examples jsou tyto ukázky použití:
 | [InvoiceCopy.php](Examples/InvoiceCopy.php)                   | vytvoření daňového dokladu ze zálohy
 | [LoginLogout](Examples/LoginLogout.php)                       | přihlášení uživatele a jeho odhlášení
 | [NajdiDanovyDokladKzalohovemu.php](Examples/NajdiDanovyDokladKzalohovemu.php) | dohledání dokladu
-| [Naskladnění.php](Examples/Naskladnění.php)                   | Naskladní produkt se sériovými čísly
+| [Naskladnění.php](Examples/Naskladneni.php)                   | Naskladní produkt se sériovými čísly
 | [NewInvoice.php](Examples/NewInvoice.php)                     | Nová faktura se splatností vypsaná jako json
 | [ObjectChaining.php](Examples/ObjectChaining.php)             | Řetězení objektů pro více operací v jenom pořadavku
 | [ObjectCooperation.php](Examples/ObjectsCooperation.php)      | Sdílení data a parametrů připojení mezi objekty
