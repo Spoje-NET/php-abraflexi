@@ -497,6 +497,8 @@ class FlexiBeeRO extends \Ease\Sand {
             $this->$name = $options[$name];
         } elseif (array_key_exists($constant, $options)) {
             $this->$name = $options[$constant];
+        } elseif (property_exists($this, $name) && ($env = getenv($constant)) && !empty($env)) {
+            $this->$name = getenv($constant);
         } else {
             if (property_exists($this, $name) && !empty($constant) && defined($constant)) {
                 $this->$name = constant($constant);
