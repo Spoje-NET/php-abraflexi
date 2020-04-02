@@ -486,27 +486,6 @@ class FlexiBeeRO extends \Ease\Sand {
     }
 
     /**
-     * Set up one of properties
-     *
-     * @param array  $options  array of given properties
-     * @param string $name     name of property to process
-     * @param string $constant load default property value from constant
-     */
-    public function setupProperty($options, $name, $constant = null) {
-        if (array_key_exists($name, $options)) {
-            $this->$name = $options[$name];
-        } elseif (array_key_exists($constant, $options)) {
-            $this->$name = $options[$constant];
-        } elseif (property_exists($this, $name) && ($env = getenv($constant)) && !empty($env)) {
-            $this->$name = getenv($constant);
-        } else {
-            if (property_exists($this, $name) && !empty($constant) && defined($constant)) {
-                $this->$name = constant($constant);
-            }
-        }
-    }
-
-    /**
      * Convert companyUrl provided by CustomButton to options array
      * 
      * @param string $companyUrl
