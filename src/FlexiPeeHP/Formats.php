@@ -19,7 +19,7 @@ class Formats
  *
  * @var string
  */
- static public $version = '2020.1.0.9';
+ static public $version = '2020.2.0.4';
 
 
     /**
@@ -460,6 +460,17 @@ class Formats
   'CSV' => 'csv',
 );
     /**
+     * Evidence doklad-k-uhrade (Doklady k úhradě) Formats.
+     *
+     * @var array
+     */
+ static public $dokladKUhrade = array (
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+);
+    /**
      * Evidence intrastat-druh-dopravy (Druh dopravy) Formats.
      *
      * @var array
@@ -762,6 +773,17 @@ class Formats
      * @var array
      */
  static public $nastaveni = array (
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+);
+    /**
+     * Evidence vazebni-doklad (Navázané doklady) Formats.
+     *
+     * @var array
+     */
+ static public $vazebniDoklad = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1219,22 +1241,22 @@ class Formats
   'CSV' => 'csv',
 );
     /**
-     * Evidence pracovni-pomer-hlavicka (Pracovní poměr) Formats.
+     * Evidence pracovni-pomer (Pracovní poměr) Formats.
      *
      * @var array
      */
- static public $pracovniPomerHlavicka = array (
+ static public $pracovniPomer = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
   'CSV' => 'csv',
 );
     /**
-     * Evidence pracovni-pomer (Pracovní poměr) Formats.
+     * Evidence pracovni-pomer-hlavicka (Pracovní poměr) Formats.
      *
      * @var array
      */
- static public $pracovniPomer = array (
+ static public $pracovniPomerHlavicka = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1252,22 +1274,22 @@ class Formats
   'CSV' => 'csv',
 );
     /**
-     * Evidence prace (Práce pro střediska) Formats.
+     * Evidence prace-mesic (Práce pro střediska) Formats.
      *
      * @var array
      */
- static public $prace = array (
+ static public $praceMesic = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
   'CSV' => 'csv',
 );
     /**
-     * Evidence prace-mesic (Práce pro střediska) Formats.
+     * Evidence prace (Práce pro střediska) Formats.
      *
      * @var array
      */
- static public $praceMesic = array (
+ static public $prace = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2066,6 +2088,17 @@ class Formats
   'CSV' => 'csv',
 );
     /**
+     * Evidence radek-priznani-dph (Uložené řádky přiznání DPH) Formats.
+     *
+     * @var array
+     */
+ static public $radekPriznaniDph = array (
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+);
+    /**
      * Evidence umisteni (Umístění) Formats.
      *
      * @var array
@@ -2088,22 +2121,22 @@ class Formats
   'CSV' => 'csv',
 );
     /**
-     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Formats.
+     * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladuRegal = array (
+ static public $umisteniVeSkladuPolice = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
   'CSV' => 'csv',
 );
     /**
-     * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Formats.
+     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladuPolice = array (
+ static public $umisteniVeSkladuRegal = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2297,17 +2330,6 @@ class Formats
   'CSV' => 'csv',
 );
     /**
-     * Evidence danova-evidence (Výkaz daňové evidence) Formats.
-     *
-     * @var array
-     */
- static public $danovaEvidence = array (
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-);
-    /**
      * Evidence vykaz-hospodareni (Výkaz hospodaření za měsíc) Formats.
      *
      * @var array
@@ -2473,22 +2495,22 @@ class Formats
   'CSV' => 'csv',
 );
     /**
-     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Formats.
+     * Evidence stav-ceniku (Číselník stavů položek ceníku) Formats.
      *
      * @var array
      */
- static public $typStavuCeniku = array (
+ static public $stavCeniku = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
   'CSV' => 'csv',
 );
     /**
-     * Evidence stav-ceniku (Číselník stavů položek ceníku) Formats.
+     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Formats.
      *
      * @var array
      */
- static public $stavCeniku = array (
+ static public $typStavuCeniku = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',

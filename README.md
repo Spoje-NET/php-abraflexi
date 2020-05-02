@@ -105,7 +105,9 @@ Konfigurace se provádí nastavením následujících konstant:
     define('FLEXIBEE_EXCEPTIONS', true); //Vracet PHP vyjímku v případě že FlexiBee vrátí chybu
 ```
 
-nebo je možné přihlašovací údaje zadávat při vytváření instance třídy.
+Pokud nejsou konstanty nastaveny, pouší se třídy také o konfiguraci ze stejnojmených proměnných prostředí. např getenv('FLEXIBEE_URL')
+
+Taktéž je možné přihlašovací údaje zadávat při vytváření instance třídy.
 
 ```php
     $invoicer = new \FlexiPeeHP\FakturaVydana(null,[

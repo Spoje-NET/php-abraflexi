@@ -2,7 +2,7 @@
 /**
  * FlexiPeeHP - List of Evidencies.
  *
- * Generated: Fri, 27 Mar 2020 21:33:58 +0100 
+ * Generated: Sat, 02 May 2020 22:47:48 +0200 
  * From:      https://vitexsoftware.flexibee.eu:5434
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -46,7 +46,7 @@ class EvidenceList extends FlexiBeeRO
      *
      * @var string
      */
- static public $version = '2020.1.0.9';
+ static public $version = '2020.2.0.4';
 
     /**
      * Evidences Path/Name listing.
@@ -85,6 +85,7 @@ class EvidenceList extends FlexiBeeRO
   'rada-objednavky-vydane' => 'Dokladové řady - vydané objednávky',
   'rada-poptavky-vydane' => 'Dokladové řady - vydané poptávky',
   'rada-zavazku' => 'Dokladové řady - závazky',
+  'doklad-k-uhrade' => 'Doklady k úhradě',
   'intrastat-druh-dopravy' => 'Druh dopravy',
   'dite' => 'Dítě',
   'eet-komunikace' => 'EET komunikace',
@@ -113,6 +114,7 @@ class EvidenceList extends FlexiBeeRO
   'intrastat-merna-jednotka' => 'Měrné jednotky',
   'merna-jednotka' => 'Měrné jednotky ',
   'nastaveni' => 'Nastavení',
+  'vazebni-doklad' => 'Navázané doklady',
   'nepritomnost' => 'Nepřítomnost',
   'naklad' => 'Náklady na události / aktivity',
   'cenikovy-pohyb-nakup' => 'Nákupní, prodejní a skladové pohyby',
@@ -154,11 +156,11 @@ class EvidenceList extends FlexiBeeRO
   'banka-polozka' => 'Položky vzájemných zápočtů',
   'poplatek' => 'Poplatky',
   'psc' => 'Poštovní směrovací čísla',
-  'pracovni-pomer-hlavicka' => 'Pracovní poměr',
   'pracovni-pomer' => 'Pracovní poměr',
+  'pracovni-pomer-hlavicka' => 'Pracovní poměr',
   'prodejka' => 'Prodejní kasa',
-  'prace' => 'Práce pro střediska',
   'prace-mesic' => 'Práce pro střediska',
+  'prace' => 'Práce pro střediska',
   'pravo-viditelnosti' => 'Práva viditelnosti dat',
   'text' => 'Předdefinované texty',
   'predpis-zauctovani' => 'Předpisy zaúčtování',
@@ -231,10 +233,11 @@ class EvidenceList extends FlexiBeeRO
   'typ-vzajemnych-zapoctu' => 'Typy zápočtů',
   'majetek-udalost' => 'Události',
   'udalost' => 'Události, aktivity',
+  'radek-priznani-dph' => 'Uložené řádky přiznání DPH',
   'umisteni' => 'Umístění',
   'umisteni-ve-skladu' => 'Umístění ve skladu',
-  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
   'umisteni-ve-skladu-police' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
   'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
   'sablona-upominky' => 'Upomínky',
   'strom' => 'Uzel stromu',
@@ -252,7 +255,6 @@ class EvidenceList extends FlexiBeeRO
   'poptavka-vydana' => 'Vydané poptávky',
   'hodnoceni-zakazky' => 'Vyhodnocení zakázek',
   'vzajemny-zapocet' => 'Vzájemné zápočty',
-  'danova-evidence' => 'Výkaz daňové evidence',
   'vykaz-hospodareni' => 'Výkaz hospodaření za měsíc',
   'vyrobni-cislo' => 'Výrobní čísla',
   'zakazka' => 'Zakázky',
@@ -268,8 +270,8 @@ class EvidenceList extends FlexiBeeRO
   'ucet' => 'Účtový rozvrh',
   'cinnost' => 'Činnost',
   'ciselnik-mzdovych-slozek' => 'Číselník mzdových složek',
-  'typ-stavu-ceniku' => 'Číselník stavů položek ceníku',
   'stav-ceniku' => 'Číselník stavů položek ceníku',
+  'typ-stavu-ceniku' => 'Číselník stavů položek ceníku',
   'cislo-baliku' => 'Čísla balíků',
   'cleneni-kontrolni-hlaseni' => 'Řádky kontrolního hlášení DPH',
   'cleneni-dph' => 'Řádky přiznání DPH',
@@ -349,16 +351,6 @@ class EvidenceList extends FlexiBeeRO
     'importStatus' => 'DISALLOWED',
     'className' => 'cz.winstrom.vo.vyk.CenikovePohyby',
     'formCode' => 'vykazCenPohyby',
-    'extIdSupported' => 'false',
-  ),
-  'danova-evidence' => 
-  array (
-    'evidenceType' => 'DAN_EVID',
-    'evidenceName' => 'Výkaz daňové evidence',
-    'evidencePath' => 'danova-evidence',
-    'importStatus' => 'DISALLOWED',
-    'className' => 'cz.winstrom.vo.vyk.DanovaEvidence',
-    'formCode' => 'vykazDanEvid',
     'extIdSupported' => 'false',
   ),
   'eet-komunikace' => 
@@ -499,6 +491,16 @@ class EvidenceList extends FlexiBeeRO
     'importStatus' => 'DISALLOWED',
     'className' => 'cz.winstrom.vo.vyk.UcetniDenik',
     'formCode' => 'vykazUcetniDenik',
+    'extIdSupported' => 'false',
+  ),
+  'vazebni-doklad' => 
+  array (
+    'evidenceType' => 'VAZEBNI_DOKLAD',
+    'evidenceName' => 'Navázané doklady',
+    'evidencePath' => 'vazebni-doklad',
+    'importStatus' => 'DISALLOWED',
+    'className' => 'cz.winstrom.vo.vyk.VazebniDoklad',
+    'formCode' => 'vykazVazbyDokladu',
     'extIdSupported' => 'false',
   ),
   'vykaz-hospodareni' => 
@@ -972,6 +974,17 @@ class EvidenceList extends FlexiBeeRO
     'formCode' => 'cisPsc',
     'extIdSupported' => 'false',
     'dbName' => 'aPsc',
+  ),
+  'radek-priznani-dph' => 
+  array (
+    'evidenceType' => 'RADEK_PRIZNANI_DPH',
+    'evidenceName' => 'Uložené řádky přiznání DPH',
+    'evidencePath' => 'radek-priznani-dph',
+    'importStatus' => 'DISALLOWED',
+    'className' => 'cz.winstrom.vo.ucto.RadekPriznaniDph',
+    'formCode' => 'vykazRadekPriznaniDph',
+    'extIdSupported' => 'false',
+    'dbName' => 'uRadekPriznaniDph',
   ),
   'rezervace' => 
   array (
@@ -1455,7 +1468,7 @@ class EvidenceList extends FlexiBeeRO
     'importStatus' => 'SUPPORTED',
     'className' => 'cz.winstrom.vo.dok.SmlouvaView',
     'formCode' => 'adrSmlDodavAktView',
-    'extIdSupported' => 'false',
+    'extIdSupported' => 'true',
     'dbName' => 'dSmlouvy',
     'evidenceFilter' => 'TypPohybuK = \'typPohybu.vydej\'',
   ),
@@ -1470,6 +1483,18 @@ class EvidenceList extends FlexiBeeRO
     'extIdSupported' => 'true',
     'dbName' => 'dTypSml',
     'evidenceFilter' => 'TypPohybuK = \'typPohybu.vydej\' AND (PlatiOd <= 2020 AND PlatiDo >= 2020)',
+  ),
+  'doklad-k-uhrade' => 
+  array (
+    'evidenceType' => 'DOKLAD_K_UHRADE',
+    'evidenceName' => 'Doklady k úhradě',
+    'evidencePath' => 'doklad-k-uhrade',
+    'importStatus' => 'DISALLOWED',
+    'className' => 'cz.winstrom.vo.dok.DoklFak',
+    'formCode' => 'doklFakUhrady',
+    'extIdSupported' => 'true',
+    'dbName' => 'dDoklFak',
+    'evidenceFilter' => 'Prodejka = \'false\'',
   ),
   'faktura-prijata' => 
   array (
@@ -2523,7 +2548,7 @@ class EvidenceList extends FlexiBeeRO
     'importStatus' => 'SUPPORTED',
     'className' => 'cz.winstrom.vo.dok.SmlouvaView',
     'formCode' => 'adrSmlAktView',
-    'extIdSupported' => 'false',
+    'extIdSupported' => 'true',
     'dbName' => 'dSmlouvy',
     'evidenceFilter' => 'TypPohybuK = \'typPohybu.prijem\'',
   ),

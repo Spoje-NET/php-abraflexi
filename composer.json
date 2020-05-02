@@ -1,7 +1,7 @@
 {
-    "name": "spoje.net/flexibee",
-    "description": "PHP Based Library for easy interaction with czech accounting system FlexiBee.",
-    "license": "GPL-2.0",
+    "name": "spojenet/flexibee",
+    "description": "Library for easy interaction with czech accounting system FlexiBee.",
+    "license": "MIT",
     "authors": [
         {
             "name": "Vítězslav Dvořák",
@@ -10,7 +10,7 @@
     ],
     "require": {
         "ext-curl": "*",
-        "vitexsoftware/ease-core": "dev-master"
+        "vitexsoftware/ease-core": ">=0.37"
     },
     "autoload": {
         "psr-4": {
@@ -27,5 +27,8 @@
     "require-dev": {
         "phpunit/phpunit": "*",
 	"phing/phing": "*"
+    },
+    "replace": {
+	"spoje.net/flexipeehp": ">1.32"
     }
 }
