@@ -23,6 +23,7 @@
 ./src/FlexiPeeHP/Priloha.php
 ./src/FlexiPeeHP/RadaPokladniPohyb.php
 ./src/FlexiPeeHP/Relations.php
+./src/FlexiPeeHP/Report.php
 ./src/FlexiPeeHP/SkladovaKarta.php
 ./src/FlexiPeeHP/SkladovyPohyb.php
 ./src/FlexiPeeHP/SkladovyPohybPolozka.php
@@ -75,6 +76,7 @@
 ./static/Properties.dodavatel.json
 ./static/Properties.dodavatelska-smlouva.json
 ./static/Properties.dodavatelsky-typ-smlouvy.json
+./static/Properties.doklad-k-uhrade.json
 ./static/Properties.eet-komunikace.json
 ./static/Properties.faktura-prijata-polozka.json
 ./static/Properties.faktura-prijata.json
@@ -179,6 +181,7 @@
 ./static/Properties.rada-skladovy-pohyb.json
 ./static/Properties.rada-zavazku.json
 ./static/Properties.rada.json
+./static/Properties.radek-priznani-dph.json
 ./static/Properties.rezervace.json
 ./static/Properties.rocni-rada.json
 ./static/Properties.rozvaha-po-uctech.json
@@ -258,6 +261,7 @@
 ./static/Properties.uzivatelsky-dotaz-vlastnost.json
 ./static/Properties.uzivatelsky-dotaz.json
 ./static/Properties.vazba.json
+./static/Properties.vazebni-doklad.json
 ./static/Properties.vykaz-hospodareni.json
 ./static/Properties.vyrobni-cislo.json
 ./static/Properties.vzajemny-zapocet.json

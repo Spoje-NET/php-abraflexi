@@ -366,7 +366,7 @@ V tomto případě je potřeba do souboru composer.json vaší aplikace přidat:
         },
         {
             "type": "path",
-            "url": "/usr/share/php/Ease",
+            "url": "/usr/share/php/EaseCore",
             "options": {
                 "symlink": true
             }
