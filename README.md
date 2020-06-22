@@ -8,6 +8,7 @@ CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [FlexiBee]
 [![Source Code](http://img.shields.io/badge/source/Spoje-NET/php-flexibee-blue.svg?style=flat-square)](https://github.com/Spoje-NET/php-flexibee)
 [![Latest Version](https://img.shields.io/github/release/Spoje-NET/php-flexibee.svg?style=flat-square)](https://github.com/Spoje-NET/php-flexibee/releases)
 [![Software License](https://img.shields.io/badge/license-GNU-brightgreen.svg?style=flat-square)](https://github.com/Spoje-NET/php-flexibee/blob/master/LICENSE)
+[![time tracker](https://wakatime.com/badge/github/Spoje-NET/php-flexibee.svg)](https://wakatime.com/badge/github/Spoje-NET/php-flexibee)
 [![Build Status](https://img.shields.io/travis/Spoje-NET/php-flexibee/master.svg?style=flat-square)](https://travis-ci.org/Spoje-NET/php-flexibee)
 [![Code Coverage](https://scrutinizer-ci.com/g/Spoje-NET/php-flexibee/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Spoje-NET/php-flexibee/?branch=master)
 [![Docker pulls](https://img.shields.io/docker/pulls/vitexsoftware/flexipeehp.svg)](https://hub.docker.com/r/vitexsoftware/flexipeehp/)
