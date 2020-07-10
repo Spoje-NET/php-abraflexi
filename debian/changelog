@@ -1,4 +1,4 @@
-php-flexibee (1.35) UNRELEASED; urgency=medium
+php-flexibee (1.36) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -10,8 +10,11 @@ php-flexibee (1.35) UNRELEASED; urgency=medium
   * Update for 2020.1.0.9
   * Ability to configure from ENV
   * composer.json updated
+  * Update for FlexiBee 2020.2.2
+  * Update for FlexiBee 2020.2.2
+  * Update for FlexiBee 2020.2.2
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Sat, 02 May 2020 22:46:12 +0200
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Sat, 11 Jul 2020 00:52:05 +0200
 
 flexipeehp (1.12) experimental; urgency=medium
 

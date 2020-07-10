@@ -8,3 +8,7 @@ composer.lock
 /debian/php-flexibee
 /debian/php-flexibee-doc
 /deb/
+/debian/php-spojenet-flexibee/
+/debian/php-spojenet-flexibee.debhelper.log
+/debian/php-spojenet-flexibee.substvars
+/debian/php-flexibee.substvars

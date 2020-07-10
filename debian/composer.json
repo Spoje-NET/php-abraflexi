@@ -1,32 +1,29 @@
 {
-    "name": "deb/flexibee",
-    "description": "Library for easy interaction with czech accounting system Flexibee.",
-    "homepage": "https://github.com/Spoje-NET/FlexiPeeHP",
-    "license": "GPL-2.0+",
-    "version": "1.38",
-    "type": "library",
-    "authors": [
-        {
-            "name": "Vítězslav Dvořák",
-            "email": "vitex@arachne.cz"
-        }
-    ],
-    "require": {
-        "ext-curl": "*",
-        "deb/ease-core": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "FlexiPeeHP\\": "."
-        }
-    },
-    "require": {
-        "ext-curl": "*"
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "/usr/share/php/EaseCore"
-        }
-    ]
+  "name": "deb/flexibee",
+  "description": "Library for easy interaction with czech accounting system Flexibee.",
+  "homepage": "https://github.com/Spoje-NET/FlexiPeeHP",
+  "license": "GPL-2.0+",
+  "version": "1.38",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Vítězslav Dvořák",
+      "email": "vitex@arachne.cz"
+    }
+  ],
+  "require": {
+    "ext-curl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "FlexiPeeHP\\": "."
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/usr/share/php/EaseCore"
+    }
+  ],
+  "address": "1.36"
 }

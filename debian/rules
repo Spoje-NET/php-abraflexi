@@ -7,6 +7,8 @@ override_dh_auto_test:
 	echo tests temporarly skipped for now in rules file
 
 override_dh_install:
+	jq '.address = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'`'"' debian/composer.json |sponge debian/composer.json
+	composer update
 	dh_install	
-	sed -i -e  "s/__DIR__.'\/..\/..\//'\\/usr\/share\/php\/FlexiPeeHP\//g" debian/php-flexibee/usr/share/php/FlexiPeeHP/FlexiBeeRO.php
+	sed -i -e  "s/\/\.\.\/\.\.\///g" debian/php-spojenet-flexibee/usr/share/php/FlexiPeeHP/FlexiBeeRO.php
 	./debian/fixversion.sh

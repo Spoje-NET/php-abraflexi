@@ -21,7 +21,7 @@ class Relations
      *
      * @var string
      */
- static public $version = '2020.2.0.4';
+ static public $version = '2020.2.2';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
@@ -709,6 +709,16 @@ class Relations
      * @var array
      */
  static public $dite = array (
+  0 => 'uzivatelske-vazby',
+  1 => 'VAZBA',
+  2 => 'Uživatelské vazby',
+);
+    /**
+     * Evidence certifikat-eet (EET certifikáty) Relations.
+     *
+     * @var array
+     */
+ static public $certifikatEet = array (
   0 => 'uzivatelske-vazby',
   1 => 'VAZBA',
   2 => 'Uživatelské vazby',
@@ -1673,21 +1683,21 @@ class Relations
   ),
 );
     /**
-     * Evidence prace-mesic (Práce pro střediska) Relations.
-     *
-     * @var array
-     */
- static public $praceMesic = array (
-  0 => 'uzivatelske-vazby',
-  1 => 'VAZBA',
-  2 => 'Uživatelské vazby',
-);
-    /**
      * Evidence prace (Práce pro střediska) Relations.
      *
      * @var array
      */
  static public $prace = array (
+  0 => 'uzivatelske-vazby',
+  1 => 'VAZBA',
+  2 => 'Uživatelské vazby',
+);
+    /**
+     * Evidence prace-mesic (Práce pro střediska) Relations.
+     *
+     * @var array
+     */
+ static public $praceMesic = array (
   0 => 'uzivatelske-vazby',
   1 => 'VAZBA',
   2 => 'Uživatelské vazby',
@@ -2566,26 +2576,6 @@ class Relations
   2 => 'Uživatelské vazby',
 );
     /**
-     * Evidence umisteni-ve-skladu (Umístění ve skladu) Relations.
-     *
-     * @var array
-     */
- static public $umisteniVeSkladu = array (
-  0 => 'uzivatelske-vazby',
-  1 => 'VAZBA',
-  2 => 'Uživatelské vazby',
-);
-    /**
-     * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Relations.
-     *
-     * @var array
-     */
- static public $umisteniVeSkladuPolice = array (
-  0 => 'uzivatelske-vazby',
-  1 => 'VAZBA',
-  2 => 'Uživatelské vazby',
-);
-    /**
      * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Relations.
      *
      * @var array
@@ -2601,6 +2591,26 @@ class Relations
      * @var array
      */
  static public $umisteniVeSkladuMistnost = array (
+  0 => 'uzivatelske-vazby',
+  1 => 'VAZBA',
+  2 => 'Uživatelské vazby',
+);
+    /**
+     * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Relations.
+     *
+     * @var array
+     */
+ static public $umisteniVeSkladuPolice = array (
+  0 => 'uzivatelske-vazby',
+  1 => 'VAZBA',
+  2 => 'Uživatelské vazby',
+);
+    /**
+     * Evidence umisteni-ve-skladu (Umístění ve skladu) Relations.
+     *
+     * @var array
+     */
+ static public $umisteniVeSkladu = array (
   0 => 'uzivatelske-vazby',
   1 => 'VAZBA',
   2 => 'Uživatelské vazby',
@@ -3020,21 +3030,21 @@ class Relations
   2 => 'Uživatelské vazby',
 );
     /**
-     * Evidence stav-ceniku (Číselník stavů položek ceníku) Relations.
-     *
-     * @var array
-     */
- static public $stavCeniku = array (
-  0 => 'uzivatelske-vazby',
-  1 => 'VAZBA',
-  2 => 'Uživatelské vazby',
-);
-    /**
      * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Relations.
      *
      * @var array
      */
  static public $typStavuCeniku = array (
+  0 => 'uzivatelske-vazby',
+  1 => 'VAZBA',
+  2 => 'Uživatelské vazby',
+);
+    /**
+     * Evidence stav-ceniku (Číselník stavů položek ceníku) Relations.
+     *
+     * @var array
+     */
+ static public $stavCeniku = array (
   0 => 'uzivatelske-vazby',
   1 => 'VAZBA',
   2 => 'Uživatelské vazby',

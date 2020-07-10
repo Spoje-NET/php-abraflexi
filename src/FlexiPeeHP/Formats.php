@@ -19,7 +19,7 @@ class Formats
  *
  * @var string
  */
- static public $version = '2020.2.0.4';
+ static public $version = '2020.2.2';
 
 
     /**
@@ -487,6 +487,17 @@ class Formats
      * @var array
      */
  static public $dite = array (
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+);
+    /**
+     * Evidence certifikat-eet (EET certifikáty) Formats.
+     *
+     * @var array
+     */
+ static public $certifikatEet = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1274,22 +1285,22 @@ class Formats
   'CSV' => 'csv',
 );
     /**
-     * Evidence prace-mesic (Práce pro střediska) Formats.
+     * Evidence prace (Práce pro střediska) Formats.
      *
      * @var array
      */
- static public $praceMesic = array (
+ static public $prace = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
   'CSV' => 'csv',
 );
     /**
-     * Evidence prace (Práce pro střediska) Formats.
+     * Evidence prace-mesic (Práce pro střediska) Formats.
      *
      * @var array
      */
- static public $prace = array (
+ static public $praceMesic = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2110,11 +2121,22 @@ class Formats
   'CSV' => 'csv',
 );
     /**
-     * Evidence umisteni-ve-skladu (Umístění ve skladu) Formats.
+     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladu = array (
+ static public $umisteniVeSkladuRegal = array (
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+);
+    /**
+     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Formats.
+     *
+     * @var array
+     */
+ static public $umisteniVeSkladuMistnost = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2132,22 +2154,11 @@ class Formats
   'CSV' => 'csv',
 );
     /**
-     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Formats.
+     * Evidence umisteni-ve-skladu (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladuRegal = array (
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-);
-    /**
-     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Formats.
-     *
-     * @var array
-     */
- static public $umisteniVeSkladuMistnost = array (
+ static public $umisteniVeSkladu = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2495,22 +2506,22 @@ class Formats
   'CSV' => 'csv',
 );
     /**
-     * Evidence stav-ceniku (Číselník stavů položek ceníku) Formats.
+     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Formats.
      *
      * @var array
      */
- static public $stavCeniku = array (
+ static public $typStavuCeniku = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
   'CSV' => 'csv',
 );
     /**
-     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Formats.
+     * Evidence stav-ceniku (Číselník stavů položek ceníku) Formats.
      *
      * @var array
      */
- static public $typStavuCeniku = array (
+ static public $stavCeniku = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',

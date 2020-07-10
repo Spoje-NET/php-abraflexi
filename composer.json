@@ -30,5 +30,16 @@
     },
     "replace": {
 	"spoje.net/flexipeehp": ">1.32"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "cd tools/ ; ./update_all.sh ; cd .."
+        ],
+        "post-update-cmd": [
+            "cd tools/ ; ./update_all.sh ; cd .."
+        ]
     }
+    
 }
+
+	

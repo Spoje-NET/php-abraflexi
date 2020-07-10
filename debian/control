@@ -1,17 +1,28 @@
 Source: php-flexibee
-Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends: debhelper (>= 7.0.50~), composer
 Standards-Version: 3.9.8
 Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
 Uploaders: Vitex <vitex@hippy.cz>
 Priority: optional
 Homepage: https://github.com/Spoje-NET/php-flexibee
 
-Package: php-flexibee
-Depends: ${misc:Depends}, php-curl|php7.1-curl|php7.2-curl|php7.3-curl,php-ease-core, composer
+Package: php-spojenet-flexibee
+Depends: ${misc:Depends}, php-curl,php-ease-core, composer
 Conflicts: flexipeehp
+Recommends: php-flexibee-config
+Suggests: flexibee-client,flexibee-contract-invoices,flexibee-dark-gui,flexibee-digest,flexibee-matcher,flexibee-reminder,flexibee-server,flexibee-server-backup,flexibee-tools,multi-flexibee-setup,php-vitexsoftware-ease-bootstrap4-widgets-flexibee,php-vitexsoftware-flexibee-bricks
 Architecture: all
+Replaces: php-flexibee
 Section: web
 Priority: optional
 Description: PHP Based FlexiBee RestAPI/Json library
  Allow you read and write operations on czech accounting system FlexiBee
+
+Package: php-flexibee
+Depends: ${misc:Depends}, php-spojenet-flexibee
+Architecture: all
+Section: web
+Priority: optional
+Description: PHP Based FlexiBee RestAPI/Json library metapackage
+ Backward compatibility package for spojenet/flexibee PHP library
 

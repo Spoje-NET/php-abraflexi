@@ -1,19 +1,17 @@
-all: build install
+repoversion=$(shell LANG=C aptitude show php-flexibee | grep Version: | awk '{print $$2}')
+nextversion=$(shell echo $(repoversion) | perl -ne 'chomp; print join(".", splice(@{[split/\./,$$_]}, 0, -1), map {++$$_} pop @{[split/\./,$$_]}), "\n";')
+
+
 
 fresh:
 	git pull
 	composer install
 
-install: build
-#	cp -rvf src/FlexiPeeHP /usr/share/php/FlexiPeeHP
-	
-static: 
+static:
 	composer update
 	echo rm -rf static/*
 	echo "STATIC  #######################
 	cd tools/ ; ./update_all.sh ; cd ..
-
-build: static
 
 clean:
 	rm -rf debian/php-flexibee
@@ -48,8 +46,17 @@ verup:
 	git commit debian/composer.json debian/version debian/revision  -m "`cat debian/version`-`cat debian/revision`"
 	git push origin master
 
+release:
+	echo Release v$(nextversion)
+	dch -v $(nextversion) `git log -1 --pretty=%B | head -n 1`
+	debuild -i -us -uc -b
+	git commit -a -m "Release v$(nextversion)"
+	git tag -a $(nextversion) -m "version $(nextversion)"
+
+
+
 dimage:
 	docker build -t vitexsoftware/flexipeehp .
 
-.PHONY : install
-	
+.PHONY: all pretest clean static release verup deb
+

@@ -21,7 +21,7 @@ class Actions
      *
      * @var string
      */
- static public $version = '2020.2.0.4';
+ static public $version = '2020.2.2';
 
     /**
      * Evidence adresar (Adresy firem) Actions.
@@ -1565,6 +1565,49 @@ class Actions
      * @var array
      */
  static public $dite = array (
+  'new' => 
+  array (
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ),
+  'copy' => 
+  array (
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+  ),
+  'edit' => 
+  array (
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ),
+  'delete' => 
+  array (
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ),
+);
+    /**
+     * Evidence certifikat-eet (EET certifikáty) Actions.
+     *
+     * @var array
+     */
+ static public $certifikatEet = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -4930,11 +4973,11 @@ class Actions
   ),
 );
     /**
-     * Evidence prace-mesic (Práce pro střediska) Actions.
+     * Evidence prace (Práce pro střediska) Actions.
      *
      * @var array
      */
- static public $praceMesic = array (
+ static public $prace = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -4973,11 +5016,11 @@ class Actions
   ),
 );
     /**
-     * Evidence prace (Práce pro střediska) Actions.
+     * Evidence prace-mesic (Práce pro střediska) Actions.
      *
      * @var array
      */
- static public $prace = array (
+ static public $praceMesic = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -8425,11 +8468,54 @@ class Actions
   ),
 );
     /**
-     * Evidence umisteni-ve-skladu (Umístění ve skladu) Actions.
+     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Actions.
      *
      * @var array
      */
- static public $umisteniVeSkladu = array (
+ static public $umisteniVeSkladuRegal = array (
+  'new' => 
+  array (
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ),
+  'copy' => 
+  array (
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+  ),
+  'edit' => 
+  array (
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ),
+  'delete' => 
+  array (
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ),
+);
+    /**
+     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Actions.
+     *
+     * @var array
+     */
+ static public $umisteniVeSkladuMistnost = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -8511,54 +8597,11 @@ class Actions
   ),
 );
     /**
-     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Actions.
+     * Evidence umisteni-ve-skladu (Umístění ve skladu) Actions.
      *
      * @var array
      */
- static public $umisteniVeSkladuRegal = array (
-  'new' => 
-  array (
-    'actionId' => 'new',
-    'actionName' => 'Přidat',
-    'needInstance' => 'false',
-    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
-    'isRealAction' => 'false',
-    'isService' => 'NO',
-  ),
-  'copy' => 
-  array (
-    'actionId' => 'copy',
-    'actionName' => 'Vytvořit kopii',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'false',
-    'isService' => 'ON_MOBILE',
-  ),
-  'edit' => 
-  array (
-    'actionId' => 'edit',
-    'actionName' => 'Změnit',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'false',
-    'isService' => 'NO',
-  ),
-  'delete' => 
-  array (
-    'actionId' => 'delete',
-    'actionName' => 'Smazat',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'false',
-    'isService' => 'NO',
-  ),
-);
-    /**
-     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Actions.
-     *
-     * @var array
-     */
- static public $umisteniVeSkladuMistnost = array (
+ static public $umisteniVeSkladu = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -10182,11 +10225,11 @@ class Actions
   ),
 );
     /**
-     * Evidence stav-ceniku (Číselník stavů položek ceníku) Actions.
+     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Actions.
      *
      * @var array
      */
- static public $stavCeniku = array (
+ static public $typStavuCeniku = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -10225,11 +10268,11 @@ class Actions
   ),
 );
     /**
-     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Actions.
+     * Evidence stav-ceniku (Číselník stavů položek ceníku) Actions.
      *
      * @var array
      */
- static public $typStavuCeniku = array (
+ static public $stavCeniku = array (
   'new' => 
   array (
     'actionId' => 'new',
