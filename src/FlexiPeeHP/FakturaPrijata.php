@@ -1,4 +1,5 @@
 <?php
+
 /**
  * FlexiPeeHP - Invoice Incomed.
  *
@@ -13,11 +14,13 @@ namespace FlexiPeeHP;
  *
  * @link https://demo.flexibee.eu/c/demo/faktura-prijata/properties
  */
-class FakturaPrijata extends FlexiBeeRW
-{
+class FakturaPrijata extends FlexiBeeRW {
+
     use Stitky;
     use Firma;
     use Sum;
+    use SubItems;
+
     /**
      * Evidence použitá třídou.
      *

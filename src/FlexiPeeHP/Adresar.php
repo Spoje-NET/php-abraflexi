@@ -16,6 +16,8 @@ namespace FlexiPeeHP;
 class Adresar extends FlexiBeeRW
 {
     use Stitky;
+    use SubItems;
+    use Firma;
     
     /**
      * Evidence užitá objektem.

@@ -1580,15 +1580,6 @@ class FlexiBeeRO extends \Ease\Sand {
     }
 
     /**
-     * Subitems - ex. items of invoice
-     * 
-     * @return array of document items or null
-     */
-    public function getSubItems() {
-        return array_key_exists('polozkyFaktury', $this->getData()) ? $this->getDataValue('polozkyFaktury') : (array_key_exists('polozkyDokladu', $this->getData()) ? $this->getDataValue('polozkyDokladu') : null);
-    }
-
-    /**
      * Vrací z FlexiBee sloupečky podle podmínek.
      *
      * @param array|int|string $conditions pole podmínek nebo ID záznamu

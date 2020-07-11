@@ -19,6 +19,8 @@ class FakturaVydana extends FlexiBeeRW
     use Stitky;
     use Firma;
     use Sum;
+    use SubItems;
+
     /**
      * Evidence užitá objektem.
      *
