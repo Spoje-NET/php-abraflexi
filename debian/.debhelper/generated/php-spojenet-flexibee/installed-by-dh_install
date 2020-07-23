@@ -34,6 +34,7 @@
 ./src/FlexiPeeHP/Stitky.php
 ./src/FlexiPeeHP/Strom.php
 ./src/FlexiPeeHP/StromCenik.php
+./src/FlexiPeeHP/SubItems.php
 ./src/FlexiPeeHP/Sum.php
 ./src/FlexiPeeHP/UcetniObdobi.php
 ./src/FlexiPeeHP/VyrobniCislo.php

@@ -2,7 +2,7 @@
 /**
  * FlexiPeeHP - List of Evidencies.
  *
- * Generated: Fri, 10 Jul 2020 23:52:30 +0200 
+ * Generated: Thu, 23 Jul 2020 12:53:14 +0200 
  * From:      https://vitexsoftware.flexibee.eu:5434
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -46,7 +46,7 @@ class EvidenceList extends FlexiBeeRO
      *
      * @var string
      */
- static public $version = '2020.2.2';
+ static public $version = '2020.2.3.1';
 
     /**
      * Evidences Path/Name listing.
@@ -54,6 +54,7 @@ class EvidenceList extends FlexiBeeRO
      * @var array
      */
  static public $name = array (
+  'doklad' => '#dokladView',
   'adresar' => 'Adresy firem',
   'mzda' => 'Aktualizace mezd',
   'analyza-nakupu' => 'Analýza nákupu',
@@ -61,8 +62,8 @@ class EvidenceList extends FlexiBeeRO
   'atribut' => 'Atributy',
   'banka' => 'Banka',
   'format-elektronickeho-bankovnictvi' => 'Bankovní formáty',
-  'adresar-bankovni-ucet' => 'Bankovní spojení',
   'mzdy-bankovni-spojeni' => 'Bankovní spojení',
+  'adresar-bankovni-ucet' => 'Bankovní spojení',
   'cenova-uroven' => 'Cenové úrovně',
   'odberatel' => 'Ceny pro odběratele/skupiny odběratelů, speciální kódy',
   'cenik' => 'Ceník',
@@ -160,8 +161,8 @@ class EvidenceList extends FlexiBeeRO
   'pracovni-pomer' => 'Pracovní poměr',
   'pracovni-pomer-hlavicka' => 'Pracovní poměr',
   'prodejka' => 'Prodejní kasa',
-  'prace' => 'Práce pro střediska',
   'prace-mesic' => 'Práce pro střediska',
+  'prace' => 'Práce pro střediska',
   'pravo-viditelnosti' => 'Práva viditelnosti dat',
   'text' => 'Předdefinované texty',
   'predpis-zauctovani' => 'Předpisy zaúčtování',
@@ -236,9 +237,9 @@ class EvidenceList extends FlexiBeeRO
   'udalost' => 'Události, aktivity',
   'radek-priznani-dph' => 'Uložené řádky přiznání DPH',
   'umisteni' => 'Umístění',
-  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
-  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
   'umisteni-ve-skladu-police' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
   'umisteni-ve-skladu' => 'Umístění ve skladu',
   'sablona-upominky' => 'Upomínky',
   'strom' => 'Uzel stromu',
@@ -352,6 +353,16 @@ class EvidenceList extends FlexiBeeRO
     'importStatus' => 'DISALLOWED',
     'className' => 'cz.winstrom.vo.vyk.CenikovePohyby',
     'formCode' => 'vykazCenPohyby',
+    'extIdSupported' => 'false',
+  ),
+  'doklad' => 
+  array (
+    'evidenceType' => 'DOKLAD_VIEW',
+    'evidenceName' => '#dokladView',
+    'evidencePath' => 'doklad',
+    'importStatus' => 'DISALLOWED',
+    'className' => 'cz.winstrom.vo.vyk.DokladView',
+    'formCode' => 'dokladView',
     'extIdSupported' => 'false',
   ),
   'eet-komunikace' => 
