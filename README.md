@@ -1,5 +1,5 @@
 # FlexiBeeHP
-![FlexiBeeHP Logo](https://github.com/Spoje-NET/php-flexibee/blob/master/project-logo.png "Project Logo")
+![FlexiBeeHP Logo](project-logo.png?raw=true "Project Logo")
 
 PHP7.1+ Based Library for easy interaction with Czech accounting system FlexiBee.
 
@@ -17,13 +17,14 @@ CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [FlexiBee]
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4/big.png)](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4)
 
-[![Latest Stable Version](https://poser.pugx.org/spoje.net/flexibee/v/stable)](https://packagist.org/packages/spoje.net/flexibee)
-[![Total Downloads](https://poser.pugx.org/spoje.net/flexibee/downloads)](https://packagist.org/packages/spoje.net/flexibee)
-[![Latest Unstable Version](https://poser.pugx.org/spoje.net/flexibee/v/unstable)](https://packagist.org/packages/spoje.net/flexibee)
-[![License](https://poser.pugx.org/spoje.net/flexibee/license)](https://packagist.org/packages/spoje.net/flexibee)
-[![Monthly Downloads](https://poser.pugx.org/spoje.net/flexibee/d/monthly)](https://packagist.org/packages/spoje.net/flexibee)
-[![Daily Downloads](https://poser.pugx.org/spoje.net/flexibee/d/daily)](https://packagist.org/packages/spoje.net/flexibee)
+[![Latest Stable Version](https://poser.pugx.org/spojenet/flexibee/v/stable)](https://packagist.org/packages/spojenet/flexibee)
+[![Total Downloads](https://poser.pugx.org/spojenet/flexibee/downloads)](https://packagist.org/packages/spojenet/flexibee)
+[![Latest Unstable Version](https://poser.pugx.org/spojenet/flexibee/v/unstable)](https://packagist.org/packages/spojenet/flexibee)
+[![License](https://poser.pugx.org/spojenet/flexibee/license)](https://packagist.org/packages/spojenet/flexibee)
+[![Monthly Downloads](https://poser.pugx.org/spojenet/flexibee/d/monthly)](https://packagist.org/packages/spojenet/flexibee)
+[![Daily Downloads](https://poser.pugx.org/spojenet/flexibee/d/daily)](https://packagist.org/packages/spojenet/flexibee)
 
+ :exclamation: Tato knihovna byla z důvodu požadavků composeru 2.0+  přejmenována na **spojenet/flexibee**  :exclamation:
 
 
 # Poděkování 
@@ -40,7 +41,7 @@ Parsování výsledků pro účely GDPR logování bylo dopracováno za laskavé
 Instalace
 ---------
 
-    composer require spoje.net/flexibee
+    composer require spojenet/flexibee
 
 
 pokud váš výsledný composer.json bude vypadat  zhruba takto: 
@@ -51,7 +52,7 @@ pokud váš výsledný composer.json bude vypadat  zhruba takto:
     "description": "Test",
     "type": "project",
     "require": {
-        "spoje.net/flexibee": "*"
+        "spojenet/flexibee": "*"
     },
     "license": "MIT",
     "authors": [
@@ -66,8 +67,7 @@ pokud váš výsledný composer.json bude vypadat  zhruba takto:
 
 spustí se příkazem **composer install** instalace:
 
-![Compser Install](https://github.com/Spoje-NET/php-flexibee/raw/master/Examples/flexipeehp-composer-install.png "Installation")
-
+![Compser Install](flexipeehp-composer-install.png?raw=true "Installation")
 
 
 Konfigurace

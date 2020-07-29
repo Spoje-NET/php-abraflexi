@@ -1,4 +1,4 @@
-php-flexibee (1.36) UNRELEASED; urgency=medium
+php-flexibee (1.37) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -13,8 +13,9 @@ php-flexibee (1.36) UNRELEASED; urgency=medium
   * Update for FlexiBee 2020.2.2
   * Update for FlexiBee 2020.2.2
   * Update for FlexiBee 2020.2.2
+  * Better parsing error response for XSLT based imports
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Sat, 11 Jul 2020 00:52:05 +0200
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Wed, 29 Jul 2020 17:07:31 +0200
 
 flexipeehp (1.12) experimental; urgency=medium
 
