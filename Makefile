@@ -10,7 +10,7 @@ fresh:
 static:
 	composer update
 	echo rm -rf static/*
-	echo "STATIC  #######################
+	echo "STATIC  #######################"
 	cd tools/ ; ./update_all.sh ; cd ..
 
 clean:

@@ -29,7 +29,8 @@
 	"phing/phing": "*"
     },
     "replace": {
-	"spoje.net/flexipeehp": "*"
+	"spoje.net/flexipeehp": "*",
+	"spoje.net/flexibee": "*"
     },
     "scripts": {
         "post-install-cmd": [

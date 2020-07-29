@@ -1077,9 +1077,17 @@ class FlexiBeeRO extends \Ease\Sand {
      */
     public function parseError(array $responseDecoded) {
         if (array_key_exists('results', $responseDecoded)) {
-            $this->errors = $responseDecoded['results'][0]['errors'];
+
+            foreach ($responseDecoded['results'][0]['result'] as $result) {
+                if (array_key_exists('errors', $result)) {
+                    foreach ($result as $error) {
+                        $this->errors[] = current($error);
+                    }
+                }
+            }
+
             foreach ($this->errors as $errorInfo) {
-                $this->addStatusMessage($errorInfo['message'], 'error');
+                $this->addStatusMessage(array_key_exists('error',$errorInfo) ? $errorInfo['error'] : $errorInfo['message'], 'error');
                 if (array_key_exists('for', $errorInfo)) {
                     unset($errorInfo['message']);
                     $this->addStatusMessage(json_encode($errorInfo), 'debug');
