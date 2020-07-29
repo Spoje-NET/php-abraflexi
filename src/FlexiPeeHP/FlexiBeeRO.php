@@ -1738,7 +1738,7 @@ class FlexiBeeRO extends \Ease\Sand {
             $resultData = $this->lastResult;
         }
         if (isset($url)) {
-            \Ease\Shared::logger()->addStatusMessage($this->lastResponseCode . ':' . urldecode($url));
+            \Ease\Shared::logger()->addToLog($this,$this->lastResponseCode . ':' . urldecode($url));
         }
 
         if (isset($resultData['results'])) {
