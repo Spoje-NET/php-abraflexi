@@ -79,6 +79,7 @@
 ./static/Properties.dodavatelska-smlouva.json
 ./static/Properties.dodavatelsky-typ-smlouvy.json
 ./static/Properties.doklad-k-uhrade.json
+./static/Properties.doklad.json
 ./static/Properties.eet-komunikace.json
 ./static/Properties.faktura-prijata-polozka.json
 ./static/Properties.faktura-prijata.json

@@ -14,8 +14,9 @@ php-flexibee (1.37) UNRELEASED; urgency=medium
   * Update for FlexiBee 2020.2.2
   * Update for FlexiBee 2020.2.2
   * Better parsing error response for XSLT based imports
+  * Package renamed on Packagist
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Wed, 29 Jul 2020 17:07:31 +0200
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Wed, 29 Jul 2020 17:27:15 +0200
 
 flexipeehp (1.12) experimental; urgency=medium
 
