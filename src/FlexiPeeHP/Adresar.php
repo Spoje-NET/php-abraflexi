@@ -8,6 +8,11 @@
 
 namespace FlexiPeeHP;
 
+use FlexiPeeHP\Adresar;
+use FlexiPeeHP\Firma;
+use FlexiPeeHP\FlexiBeeRW;
+use FlexiPeeHP\Stitky;
+use FlexiPeeHP\SubItems;
 /**
  * Adresář
  *

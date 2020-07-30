@@ -1,4 +1,5 @@
 <?php
+
 /**
  * FlexiPeeHP - Objekt dodavatelské smlouvy.
  *
@@ -7,6 +8,10 @@
  */
 
 namespace FlexiPeeHP;
+
+use FlexiPeeHP\Firma;
+use FlexiPeeHP\FlexiBeeRW;
+use FlexiPeeHP\Stitky;
 
 /**
  * Dodavatelská smlouva

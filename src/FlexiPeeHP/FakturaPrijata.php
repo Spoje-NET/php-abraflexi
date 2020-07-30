@@ -4,10 +4,16 @@
  * FlexiPeeHP - Invoice Incomed.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * @copyright  (C) 2015-2020 Spoje.Net
  */
 
 namespace FlexiPeeHP;
+
+use FlexiPeeHP\Firma;
+use FlexiPeeHP\FlexiBeeRW;
+use FlexiPeeHP\Stitky;
+use FlexiPeeHP\SubItems;
+use FlexiPeeHP\Sum;
 
 /**
  * Incoming invoice

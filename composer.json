@@ -10,7 +10,7 @@
     ],
     "require": {
         "ext-curl": "*",
-        "vitexsoftware/ease-core": "^0.42.0"
+        "vitexsoftware/ease-core": "^1"
     },
     "autoload": {
         "psr-4": {
@@ -19,14 +19,14 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Test\\Ease\\": "vendor/vitexsoftware/ease-framework/tests/src/Ease",
+            "Test\\Ease\\": "vendor/vitexsoftware/ease-core/tests/src/Ease",
             "Test\\FlexiPeeHP\\": "testing/src/FlexiPeeHP/",
             "Test\\": "testing/"
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "*",
-	"phing/phing": "*"
+        "phpunit/phpunit": "^8",
+	"phing/phing": "^2"
     },
     "replace": {
 	"spoje.net/flexipeehp": "*",

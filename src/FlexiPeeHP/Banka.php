@@ -1,4 +1,5 @@
 <?php
+
 /**
  * FlexiPeeHP - Bank Class.
  *              Objekt Banky.
@@ -8,6 +9,10 @@
  */
 
 namespace FlexiPeeHP;
+
+use FlexiPeeHP\Firma;
+use FlexiPeeHP\FlexiBeeRW;
+use FlexiPeeHP\Stitky;
 
 /**
  * Banka

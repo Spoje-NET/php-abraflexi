@@ -1,4 +1,5 @@
 <?php
+
 /**
  * FlexiPeeHP - Objekt štítku.
  *
@@ -7,6 +8,9 @@
  */
 
 namespace FlexiPeeHP;
+
+use FlexiPeeHP\FlexiBeeRO;
+use FlexiPeeHP\FlexiBeeRW;
 
 /**
  * Štítek

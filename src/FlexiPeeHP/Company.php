@@ -1,4 +1,5 @@
 <?php
+
 /**
  * FlexiPeeHP - Objekt Společnosti.
  *
@@ -7,6 +8,8 @@
  */
 
 namespace FlexiPeeHP;
+
+use FlexiPeeHP\FlexiBeeRW;
 
 /**
  * Firmy/účetní jednotky
@@ -246,7 +249,7 @@ class Company extends FlexiBeeRW
      */
     public function getVazby($id = null)
     {
-        throw new \Exception(_('Company has no relations'));
+        throw new Exception(__('Company has no relations'));
     }
 
     /**

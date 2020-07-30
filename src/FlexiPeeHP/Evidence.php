@@ -1,4 +1,5 @@
 <?php
+
 /**
  * FlexiPeeHP - Evidence Full actions.
  *
@@ -8,12 +9,15 @@
 
 namespace FlexiPeeHP;
 
+use Ease\Sand;
+use FlexiPeeHP\FlexiBeeRO;
+
 /**
  * Helper class for work with multiplete documents
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-class Evidence extends \Ease\Sand
+class Evidence extends Sand
 {
     /**
      *
@@ -29,7 +33,7 @@ class Evidence extends \Ease\Sand
 
     /**
      * 
-     * @param \FlexiPeeHP\FlexiBeeRO $engine
+     * @param FlexiBeeRO $engine
      * 
      * @param array $conditions
      */

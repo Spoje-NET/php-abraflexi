@@ -1,4 +1,5 @@
 <?php
+
 /**
  * FlexiPeeHP - Objekt kontaktu.
  *
@@ -7,6 +8,10 @@
  */
 
 namespace FlexiPeeHP;
+
+use FlexiPeeHP\Firma;
+use FlexiPeeHP\FlexiBeeRW;
+use FlexiPeeHP\Stitky;
 
 /**
  * Kontakt adresáře

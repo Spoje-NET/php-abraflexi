@@ -1,4 +1,5 @@
 <?php
+
 /**
  * FlexiPeeHP - Pricelist class.
  *              Objekt ceníku.
@@ -8,6 +9,11 @@
  */
 
 namespace FlexiPeeHP;
+
+use FlexiPeeHP\FlexiBeeRW;
+use FlexiPeeHP\Stitky;
+use FlexiPeeHP\SubItems;
+
 
 /**
  * Ceník - Pricelist
