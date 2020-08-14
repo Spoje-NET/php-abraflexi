@@ -2,7 +2,7 @@
 /**
  * FlexiPeeHP - List of Evidencies.
  *
- * Generated: Thu, 30 Jul 2020 18:38:37 +0200 
+ * Generated: Fri, 14 Aug 2020 15:28:17 +0200 
  * From:      https://vitexsoftware.flexibee.eu:5434
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -46,7 +46,7 @@ class EvidenceList extends FlexiBeeRO
      *
      * @var string
      */
- static public $version = '2020.2.3.2';
+ static public $version = '2020.2.5';
 
     /**
      * Evidences Path/Name listing.
@@ -62,8 +62,8 @@ class EvidenceList extends FlexiBeeRO
   'atribut' => 'Atributy',
   'banka' => 'Banka',
   'format-elektronickeho-bankovnictvi' => 'Bankovní formáty',
-  'mzdy-bankovni-spojeni' => 'Bankovní spojení',
   'adresar-bankovni-ucet' => 'Bankovní spojení',
+  'mzdy-bankovni-spojeni' => 'Bankovní spojení',
   'cenova-uroven' => 'Cenové úrovně',
   'odberatel' => 'Ceny pro odběratele/skupiny odběratelů, speciální kódy',
   'cenik' => 'Ceník',
@@ -106,6 +106,7 @@ class EvidenceList extends FlexiBeeRO
   'kurz' => 'Kurzy',
   'intrastat-kurz' => 'Kurzy pro Intrastat',
   'kurz-pro-cenotvorbu' => 'Kurzy pro cenotvorbu',
+  'kusovnik' => 'Kusovník',
   'intrastat-kod-nomenklatury' => 'Kódy nomenklatury',
   'leasing' => 'Leasing',
   'majetek' => 'Majetek',
@@ -119,8 +120,8 @@ class EvidenceList extends FlexiBeeRO
   'vazebni-doklad' => 'Navázané doklady',
   'nepritomnost' => 'Nepřítomnost',
   'naklad' => 'Náklady na události / aktivity',
-  'cenikovy-pohyb-nakup' => 'Nákupní, prodejní a skladové pohyby',
   'cenikovy-pohyb-prodej' => 'Nákupní, prodejní a skladové pohyby',
+  'cenikovy-pohyb-nakup' => 'Nákupní, prodejní a skladové pohyby',
   'intrastat-obchodni-transakce' => 'Obchodní transakce',
   'strom-koren' => 'Obecný strom',
   'obratova-predvaha' => 'Obratová předvaha',
@@ -161,8 +162,8 @@ class EvidenceList extends FlexiBeeRO
   'pracovni-pomer' => 'Pracovní poměr',
   'pracovni-pomer-hlavicka' => 'Pracovní poměr',
   'prodejka' => 'Prodejní kasa',
-  'prace-mesic' => 'Práce pro střediska',
   'prace' => 'Práce pro střediska',
+  'prace-mesic' => 'Práce pro střediska',
   'pravo-viditelnosti' => 'Práva viditelnosti dat',
   'text' => 'Předdefinované texty',
   'predpis-zauctovani' => 'Předpisy zaúčtování',
@@ -237,9 +238,9 @@ class EvidenceList extends FlexiBeeRO
   'udalost' => 'Události, aktivity',
   'radek-priznani-dph' => 'Uložené řádky přiznání DPH',
   'umisteni' => 'Umístění',
-  'umisteni-ve-skladu-police' => 'Umístění ve skladu',
-  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
   'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-police' => 'Umístění ve skladu',
   'umisteni-ve-skladu' => 'Umístění ve skladu',
   'sablona-upominky' => 'Upomínky',
   'strom' => 'Uzel stromu',
@@ -722,6 +723,17 @@ class EvidenceList extends FlexiBeeRO
     'formCode' => 'sklInventuraPol',
     'extIdSupported' => 'false',
     'dbName' => 'sPolInventura',
+  ),
+  'kusovnik' => 
+  array (
+    'evidenceType' => 'KUSOVNIK',
+    'evidenceName' => 'Kusovník',
+    'evidencePath' => 'kusovnik',
+    'importStatus' => 'NOT_DOCUMENTED',
+    'className' => 'cz.winstrom.vo.cen.Kusovnik',
+    'formCode' => 'kusovnik',
+    'extIdSupported' => 'true',
+    'dbName' => 'cKusovnik',
   ),
   'majetek-udalost' => 
   array (

@@ -41,9 +41,6 @@
 ./src/FlexiPeeHP/Zavazek.php
 ./src/FlexiPeeHP/Zurnal.php
 ./debian/composer.json
-./debian/test/composer.json
-./debian/test/config.json
-./debian/test/flexibeeping.php
 ./static/Actions.json
 ./static/EvidenceFullList.json
 ./static/EvidenceList.json

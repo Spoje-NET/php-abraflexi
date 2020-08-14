@@ -21,7 +21,7 @@ class Relations
      *
      * @var string
      */
- static public $version = '2020.2.3.2';
+ static public $version = '2020.2.5';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
@@ -156,21 +156,21 @@ class Relations
   ),
 );
     /**
-     * Evidence mzdy-bankovni-spojeni (Bankovní spojení) Relations.
-     *
-     * @var array
-     */
- static public $mzdyBankovniSpojeni = array (
-  0 => 'uzivatelske-vazby',
-  1 => 'VAZBA',
-  2 => 'Uživatelské vazby',
-);
-    /**
      * Evidence adresar-bankovni-ucet (Bankovní spojení) Relations.
      *
      * @var array
      */
  static public $adresarBankovniUcet = array (
+  0 => 'uzivatelske-vazby',
+  1 => 'VAZBA',
+  2 => 'Uživatelské vazby',
+);
+    /**
+     * Evidence mzdy-bankovni-spojeni (Bankovní spojení) Relations.
+     *
+     * @var array
+     */
+ static public $mzdyBankovniSpojeni = array (
   0 => 'uzivatelske-vazby',
   1 => 'VAZBA',
   2 => 'Uživatelské vazby',
@@ -236,77 +236,83 @@ class Relations
   ),
   1 => 
   array (
+    'url' => 'cenik-obaly',
+    'evidenceType' => 'CENIK_OBAL',
+    'name' => 'Evidence obalů EkoKom',
+  ),
+  2 => 
+  array (
     'url' => 'atributy',
     'evidenceType' => 'ATRIBUT',
     'name' => 'Atributy',
   ),
-  2 => 
+  3 => 
   array (
     'url' => 'sklad-karty',
     'evidenceType' => 'SKLADOVA_KARTA',
     'name' => 'Skladová karta',
   ),
-  3 => 
+  4 => 
   array (
     'url' => 'sady-a-komplety',
     'evidenceType' => 'SADY_A_KOMPLETY',
     'name' => 'Sady a komplety',
   ),
-  4 => 
+  5 => 
   array (
     'url' => 'prislustenstvi',
     'evidenceType' => 'PRISLUSENSTVI',
     'name' => 'Příslušenství',
   ),
-  5 => 
+  6 => 
   array (
     'url' => 'prilohy',
     'evidenceType' => 'PRILOHA',
     'name' => 'Přílohy',
   ),
-  6 => 
+  7 => 
   array (
     'url' => 'poplatky',
     'evidenceType' => 'POPLATKY',
     'name' => 'Poplatky',
   ),
-  7 => 
+  8 => 
   array (
     'url' => 'dodavatele',
     'evidenceType' => 'DODAVATEL',
     'name' => 'Nákupní ceny',
   ),
-  8 => 
+  9 => 
   array (
     'url' => 'vyrobni-cisla',
     'evidenceType' => 'VYROBNI_CISLA',
     'name' => 'Výrobní čísla',
   ),
-  9 => 
+  10 => 
   array (
     'url' => 'udalosti',
     'evidenceType' => 'ADR_UDALOST',
     'name' => 'Události',
   ),
-  10 => 
+  11 => 
   array (
     'url' => 'podobne-zbozi',
     'evidenceType' => 'PODOBNE_ZBOZI',
     'name' => 'Podobné zboží',
   ),
-  11 => 
+  12 => 
   array (
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
     'name' => 'Uživatelské vazby',
   ),
-  12 => 
+  13 => 
   array (
     'url' => 'cenHladiny',
     'evidenceType' => 'CENOVA_UROVEN',
     'name' => 'Cenové úrovně',
   ),
-  13 => 
+  14 => 
   array (
     'url' => 'rezervace',
     'evidenceType' => 'REZERVACE',
@@ -924,6 +930,16 @@ class Relations
      * @var array
      */
  static public $kurzProCenotvorbu = array (
+  0 => 'uzivatelske-vazby',
+  1 => 'VAZBA',
+  2 => 'Uživatelské vazby',
+);
+    /**
+     * Evidence kusovnik (Kusovník) Relations.
+     *
+     * @var array
+     */
+ static public $kusovnik = array (
   0 => 'uzivatelske-vazby',
   1 => 'VAZBA',
   2 => 'Uživatelské vazby',
@@ -1683,21 +1699,21 @@ class Relations
   ),
 );
     /**
-     * Evidence prace-mesic (Práce pro střediska) Relations.
-     *
-     * @var array
-     */
- static public $praceMesic = array (
-  0 => 'uzivatelske-vazby',
-  1 => 'VAZBA',
-  2 => 'Uživatelské vazby',
-);
-    /**
      * Evidence prace (Práce pro střediska) Relations.
      *
      * @var array
      */
  static public $prace = array (
+  0 => 'uzivatelske-vazby',
+  1 => 'VAZBA',
+  2 => 'Uživatelské vazby',
+);
+    /**
+     * Evidence prace-mesic (Práce pro střediska) Relations.
+     *
+     * @var array
+     */
+ static public $praceMesic = array (
   0 => 'uzivatelske-vazby',
   1 => 'VAZBA',
   2 => 'Uživatelské vazby',
@@ -2576,11 +2592,11 @@ class Relations
   2 => 'Uživatelské vazby',
 );
     /**
-     * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Relations.
+     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Relations.
      *
      * @var array
      */
- static public $umisteniVeSkladuPolice = array (
+ static public $umisteniVeSkladuRegal = array (
   0 => 'uzivatelske-vazby',
   1 => 'VAZBA',
   2 => 'Uživatelské vazby',
@@ -2596,11 +2612,11 @@ class Relations
   2 => 'Uživatelské vazby',
 );
     /**
-     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Relations.
+     * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Relations.
      *
      * @var array
      */
- static public $umisteniVeSkladuRegal = array (
+ static public $umisteniVeSkladuPolice = array (
   0 => 'uzivatelske-vazby',
   1 => 'VAZBA',
   2 => 'Uživatelské vazby',

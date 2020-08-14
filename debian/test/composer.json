@@ -8,13 +8,20 @@
             "email": "info@vitexsoftware.cz"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "config": {
 	"vendor-dir": "/tmp/flexibeehpdebiantest"
     },
     "require": {
         "deb/flexibee": "*",
         "deb/ease-core": "*"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\Ease\\": "../EaseCoreTests",
+            "Test\\FlexiPeeHP\\": "./",
+            "Test\\": "testing/"
+        }
     },
     "repositories": [
         {
