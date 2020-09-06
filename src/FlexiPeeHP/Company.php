@@ -249,7 +249,8 @@ class Company extends FlexiBeeRW
      */
     public function getVazby($id = null)
     {
-        throw new Exception(__('Company has no relations'));
+        throw new Exception(_
+                ('Company has no relations'));
     }
 
     /**

@@ -14,3 +14,4 @@ composer.lock
 /debian/php-flexibee.substvars
 /debian/php-flexibee.debhelper.log
 /debian/php-spojenet-flexibee-dev.substvars
+/debian/php-spojenet-flexibee-dev/

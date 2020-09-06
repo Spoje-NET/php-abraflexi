@@ -96,7 +96,7 @@ class Changes extends FlexiBeeRO {
      * @return null
      */
     public function getVazby($id = null) {
-        throw new Exception(__('Changes has no relations'));
+        throw new Exception(_('Changes has no relations'));
     }
 
 }

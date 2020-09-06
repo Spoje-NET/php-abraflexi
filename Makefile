@@ -25,7 +25,7 @@ clean:
 
 apigen:
 	VERSION=`cat debian/composer.json | grep version | awk -F'"' '{print $4}'`; \
-	apigen generate --source src --destination docs --title "FlexiPeeHP ${VERSION}" --charset UTF-8 --access-levels public --access-levels protected --php --tree
+	apigen generate --destination=docs -- src
 
 pretest:
 	composer --ansi --no-interaction update

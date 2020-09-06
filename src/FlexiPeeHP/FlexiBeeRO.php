@@ -533,23 +533,23 @@ class FlexiBeeRO extends \Ease\Sand {
      */
     public function configToEnv($opts = null) {
         $options = is_null($opts) ? $this->getConnectionOptions() : $opts;
-        if(array_key_exists('url', $options)){
-            putenv('FLEXIBEE_URL='.$options['URL']);
+        if (array_key_exists('url', $options)) {
+            putenv('FLEXIBEE_URL=' . $options['URL']);
         }
-        if(array_key_exists('user', $options)){
-            putenv('FLEXIBEE_LOGIN='.$options['user']);
+        if (array_key_exists('user', $options)) {
+            putenv('FLEXIBEE_LOGIN=' . $options['user']);
         }
-        if(array_key_exists('password', $options)){
-            putenv('FLEXIBEE_PASSWORD='.$options['password']);
+        if (array_key_exists('password', $options)) {
+            putenv('FLEXIBEE_PASSWORD=' . $options['password']);
         }
-        if(array_key_exists('company', $options)){
-            putenv('FLEXIBEE_COMPANY='.$options['company']);
+        if (array_key_exists('company', $options)) {
+            putenv('FLEXIBEE_COMPANY=' . $options['company']);
         }
-        if(array_key_exists('authSessionId', $options)){
-            putenv('FLEXIBEE_AUTHSESSID='.$options['authSessionId']);
+        if (array_key_exists('authSessionId', $options)) {
+            putenv('FLEXIBEE_AUTHSESSID=' . $options['authSessionId']);
         }
     }
-    
+
     /**
      * Inicializace CURL
      *
@@ -1087,7 +1087,7 @@ class FlexiBeeRO extends \Ease\Sand {
             }
 
             foreach ($this->errors as $errorInfo) {
-                $this->addStatusMessage(array_key_exists('error',$errorInfo) ? $errorInfo['error'] : $errorInfo['message'], 'error');
+                $this->addStatusMessage(array_key_exists('error', $errorInfo) ? $errorInfo['error'] : $errorInfo['message'], 'error');
                 if (array_key_exists('for', $errorInfo)) {
                     unset($errorInfo['message']);
                     $this->addStatusMessage(json_encode($errorInfo), 'debug');
@@ -1738,7 +1738,7 @@ class FlexiBeeRO extends \Ease\Sand {
             $resultData = $this->lastResult;
         }
         if (isset($url)) {
-            \Ease\Shared::logger()->addToLog($this,$this->lastResponseCode . ':' . urldecode($url));
+            \Ease\Shared::logger()->addToLog($this, $this->lastResponseCode . ':' . urldecode($url));
         }
 
         if (isset($resultData['results'])) {
@@ -2416,11 +2416,10 @@ class FlexiBeeRO extends \Ease\Sand {
      *
      * @url https://www.flexibee.eu/api/dokumentace/ref/odesilani-mailem/
      * 
-     * @return int http response code
+     * @return boolean
      */
     public function sendUnsent() {
-        return $this->doCurlRequest('automaticky-odeslat-neodeslane', 'PUT',
-                        'xml');
+        return $this->performRequest('automaticky-odeslat-neodeslane', 'PUT', 'xml') == 202;
     }
 
     /**
