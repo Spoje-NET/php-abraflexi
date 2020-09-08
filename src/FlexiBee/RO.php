@@ -2735,7 +2735,7 @@ class RO extends \Ease\Sand {
     public function logBanner($prefix = null, $suffix = null) {
         parent::logBanner($prefix,
                 ' FlexiBee ' . str_replace('://', '://' . $this->user . '@',
-                        $this->getApiUrl()) . ' FlexiBeeHP v' . self::$libVersion . ' (FlexiBee ' . EvidenceList::$version . ') EasePHP Framework v' . \Ease\Atom::$frameworkVersion . ' ' .
+                        $this->getApiUrl()) . ' FlexiBee v' . self::$libVersion . ' (PHP FlexiBee ' . EvidenceList::$version . ') EasePHP Framework v' . \Ease\Atom::$frameworkVersion . ' ' .
                 $suffix
         );
     }
