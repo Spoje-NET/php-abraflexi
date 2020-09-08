@@ -357,6 +357,14 @@ class FlexiBeeRWTest extends FlexiBeeROTest
     }
 
     /**
+     * @covers FlexiPeeHP\FlexiBeeRW::sendUnsent
+     */
+    public function testSendUnsent()
+    {
+        $this->object->sendUnsent();
+    }
+
+    /**
      * @covers FlexiPeeHP\FlexiBeeRW::deleteFromFlexiBee
      */
     public function testDeleteFromFlexiBee()

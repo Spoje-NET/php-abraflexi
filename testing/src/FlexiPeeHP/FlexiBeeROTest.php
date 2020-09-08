@@ -1336,14 +1336,6 @@ class FlexiBeeROTest extends \Test\Ease\SandTest
     }
 
     /**
-     * @covers FlexiPeeHP\FlexiBeeRO::sendUnsent
-     */
-    public function testSendUnsent()
-    {
-        $this->object->sendUnsent();
-    }
-
-    /**
      * @expectedException        Ease\Exception
      * @expectedExceptionMessage Unknown language ua for PDF export
      * @covers FlexiPeeHP\FlexiBeeRO::getInFormat
