@@ -3,6 +3,12 @@
 %:
 	dh $@
 
+#override_dh_prep:
+#	composer update
+#	apigen generate --destination=docs -- src
+#	dh_prep
+
+
 override_dh_auto_test:
 	echo tests temporarly skipped for now in rules file
 

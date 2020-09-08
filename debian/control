@@ -1,5 +1,5 @@
 Source: php-flexibee
-Build-Depends: debhelper (>= 7.0.50~), composer
+Build-Depends: debhelper (>= 7.0.50~), composer,moreutils, jq, php-apigen
 Standards-Version: 3.9.8
 Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
 Uploaders: Vitex <vitex@hippy.cz>
@@ -25,5 +25,14 @@ Section: web
 Priority: optional
 Description: PHP Based FlexiBee RestAPI/Json library development files
  PHPUnit classes used for testing php-flexibee functionality
+
+Package: php-spojenet-flexibee-doc
+Depends: ${misc:Depends}
+Architecture: all
+Section: dev
+Priority: optional
+Description: PHP Based FlexiBee RestAPI/Json library documentation
+ Develpoment documentation fo php-flexibee generated using apigen
+
 
 

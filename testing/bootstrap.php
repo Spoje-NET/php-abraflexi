@@ -1,6 +1,6 @@
 <?php
 /**
- * FlexiPeeHP - nastavení testů.
+ * FlexiBee - nastavení testů.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  2015 Spoje.Net
@@ -24,7 +24,7 @@ if (file_exists('../vendor/autoload.php')) {
  * Write logs as:
  */
 if (!defined('EASE_APPNAME')) {
-    define('EASE_APPNAME', 'FlexiPeeHPtest');
+    define('EASE_APPNAME', 'FlexiBeetest');
 }
 if (!defined('EASE_LOGGER')) {
     define('EASE_LOGGER', 'syslog');
@@ -68,7 +68,7 @@ switch ($testServer) {
         /*
          * Uživatel FlexiBee API
          */
-        define('FLEXIBEE_LOGIN', 'flexipeehp');
+        define('FLEXIBEE_LOGIN', 'FlexiBee');
         /*
          * Heslo FlexiBee API
          */
@@ -76,7 +76,7 @@ switch ($testServer) {
         /*
          * Společnost v FlexiBee
          */
-        define('FLEXIBEE_COMPANY', 'flexipeehp');
+        define('FLEXIBEE_COMPANY', 'FlexiBee');
 
 
         break;
