@@ -1,5 +1,5 @@
-# FlexiBeeHP
-![FlexiBeeHP Logo](project-logo.png?raw=true "Project Logo")
+# PHP FlexiBee
+![PHP FlexiBee Logo](project-logo.png?raw=true "Project Logo")
 
 PHP7.1+ Based Library for easy interaction with Czech accounting system FlexiBee.
 
@@ -111,7 +111,7 @@ Pokud nejsou konstanty nastaveny, pouší se třídy také o konfiguraci ze stej
 Taktéž je možné přihlašovací údaje zadávat při vytváření instance třídy.
 
 ```php
-    $invoicer = new \FlexiPeeHP\FakturaVydana(null,[
+    $invoicer = new \FlexiBee\FakturaVydana(null,[
                 'company' => 'Firma_s_r_o_',
                 'url' => 'https://flexibee.firma.cz/',
                 'user' => 'rest',
@@ -122,7 +122,7 @@ Taktéž je možné přihlašovací údaje zadávat při vytváření instance t
 Tento způsob nastavení má vyšší prioritu než výše uvedené definovaní konstant.
 
 ```php
-    $order = new \FlexiPeeHP\ObjednavkaPrijata('code:OBP0034/2019',['companyUrl'=> $_GET['companyUrl'], 'authSessionId'=>$_GET['authSessionId'] ])
+    $order = new \FlexiBee\ObjednavkaPrijata('code:OBP0034/2019',['companyUrl'=> $_GET['companyUrl'], 'authSessionId'=>$_GET['authSessionId'] ])
 
 ```
 Takto se ke flexibee a konrétní objednávce může připojit aplikace vyvolaná uživatelským tlačítkem předávajícím hodnoty **companyUrl** a **authSessionId**
@@ -154,7 +154,7 @@ novou třídu pro evidenci "Měrné jednotky" bude vypadat takto:
     /**
      * @link https://demo.flexibee.eu/c/demo/merna-jednotka/properties Vlastnosti evidence
      */
-    class MernaJednotka extends /FlexiPeeHP/FlexiBee
+    class MernaJednotka extends /FlexiBee/FlexiBee
     {
         /**
          * Evidence užitá objektem.
@@ -176,7 +176,7 @@ Pokud chceme aby nově vytvořená třída uměla do flexibee i zapisovat, je t�
 odvodit od předka FlexiBeeRW.
 
 
-Více příkladů použití je možné najít [v samostatném projektu](https://github.com/VitexSoftware/FlexiPeeHP-Examples/tree/master/Examples)
+Více příkladů použití je možné najít [v samostatném projektu](https://github.com/VitexSoftware/FlexiBee-Examples/tree/master/Examples)
 
 Struktura Evidencí, Akcí a vztahů
 ---------------------------------
@@ -186,7 +186,7 @@ struktura evidence. Tyto informace je možno získat voláním
 https://demo.flexibee.eu/c/demo/*/properties.json 
 respektive https://demo.flexibee.eu/c/demo/*/actions.json 
 avšak jedná se o relativně časově náročné operace. Jelikož se struktura 
-evidencí a Akce či vztahy mezi evidencemi FlexiBee často nemění FlexiPeeHP 
+evidencí a Akce či vztahy mezi evidencemi FlexiBee často nemění FlexiBee 
 disponuje mechanizmem který umožní pracovat s těmito údaji bez nutnosti 
 dotazovat se na ně serveru. 
 
@@ -198,7 +198,7 @@ Položku v seznamu evidencí https://demo.flexibee.eu/c/demo/evidence-list je pa
 možné kdykoliv snadno ukázat:
 
 ```php
-    echo \FlexiPeeHP\Structure::$evidence['faktura-vydana'];
+    echo \FlexiBee\Structure::$evidence['faktura-vydana'];
 ```
 
 Sturktury jednotlivých evidencí jsou pak uloženy ve statických proměnných.
@@ -206,7 +206,7 @@ Jejich jméno se řídí stejnými pravidly jako jsou pro vytváření jména no
 jen s tím rozdílem, že první písmeno je malé. Tzn.:
 
 ```php
-    lcfirst(\FlexiPeeHP\FlexiBeeRO::evidenceToClassName($evidence))
+    lcfirst(\FlexiBee\FlexiBeeRO::evidenceToClassName($evidence))
 ```
 
 V případě potřeby je možné tyto třídy pak možné vygenerovat s aktuálním obsahem 
@@ -220,12 +220,12 @@ následujícím příkazem:
 Operace trvá několik minut. Zobrazit průběh můžeme takto:
 
   ```
-  tail -f /var/log/syslog | grep  FlexiPeeHPtest
+  tail -f /var/log/syslog | grep  FlexiBeetest
   ```
 Ladicí režim
 ------------
 
-Pokud v objektech FlexiPeeHP nastavíte $this->debug na true, budou se před odesláním
+Pokud v objektech FlexiBee nastavíte $this->debug na true, budou se před odesláním
 dat do FlexiBee provedeny dodatečné testy. Kontrolují se tyto možné chyby:
 
  * Existuje vkládané políčko definované pro evidenci ?
@@ -265,21 +265,22 @@ administrátora zadaný při instalaci FlexiBee.)
 Upozornění: testování proti firmě s množstvím faktur a připojenou bankou může 
 trvat nějakou dobu, jelikož se testuje i zavolání automatického párování dokladů.
 
-Pokud se ve vašem projektu rozhodnete podědit FlexiPeeHP a k těmto třídám napíšete 
-testy také  poděděné z FlexiPeeHP např:
+Pokud se ve vašem projektu rozhodnete podědit FlexiBee a k těmto třídám napíšete 
+testy také  poděděné z FlexiBee např:
 
-class HookRecieverTest extends \Test\FlexiPeeHP\ChangesTest
+class HookRecieverTest extends \Test\FlexiBee\ChangesTest
 
 Přidejte do vašeho composer.json i cesty k původním testům:
 
+```json
     "autoload-dev": {
         "psr-4": {
-            "Test\\": "vendor/spoje.net/php-flexibee/testing/src/FlexiPeeHP/testing/",
-            "Test\\Ease\\": "vendor/vitexsoftware/ease-framework/tests/src/Ease",
-            "Test\\FlexiPeeHP\\": "vendor/spoje.net/php-flexibee/testing/src/FlexiPeeHP/",
+            "Test\\": "vendor/spoje.net/php-flexibee/testing/src/FlexiBee/testing/",
+            "Test\\Ease\\": "vendor/vitexsoftware/ease-core/tests/src/Ease",
+            "Test\\FlexiBee\\": "vendor/spoje.net/php-flexibee/testing/src/FlexiBee/",
          }
     }
-
+```
 
 
 Ukázka
@@ -386,7 +387,7 @@ Takže při instalaci závislostí bude vypadat nějak takto:
         Symlinked from /usr/share/php/Ease
 
       - Installing flexipeehp (0.2.1)
-        Symlinked from /usr/share/php/FlexiPeeHP
+        Symlinked from /usr/share/php/FlexiBee
 
 A aktualizaci bude možné dělat globálně pro celý systém prostřednictvím apt-get.
 
@@ -396,7 +397,7 @@ http://flexibee-dev.spoje.net/php-flexibee/
 
 Testování:
 
-     cd /usr/share/doc/FlexiPeeHP/
+     cd /usr/share/doc/FlexiBee/
      composer install
      php -f flexibeeping.php
 
