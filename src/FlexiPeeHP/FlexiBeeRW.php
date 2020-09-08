@@ -564,4 +564,17 @@ class FlexiBeeRW extends FlexiBeeRO
             'ext:'.$selector.':'.$newValue];
         return $this->insertToFlexiBee($change);
     }
+    
+    /**
+     * Send all unsent Documents by eMail
+     *
+     * @url https://www.flexibee.eu/api/dokumentace/ref/odesilani-mailem/
+     * 
+     * @return int http response code
+     */
+    public function sendUnsent() {
+        $this->performRequest('automaticky-odeslat-neodeslane', 'PUT', 'xml');
+        return $this->lastResponseCode  == 202;
+    }
+    
 }

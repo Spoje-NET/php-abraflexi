@@ -2412,17 +2412,6 @@ class FlexiBeeRO extends \Ease\Sand {
     }
 
     /**
-     * Send all unsent Documents by eMail
-     *
-     * @url https://www.flexibee.eu/api/dokumentace/ref/odesilani-mailem/
-     * 
-     * @return boolean
-     */
-    public function sendUnsent() {
-        return $this->performRequest('automaticky-odeslat-neodeslane', 'PUT', 'xml') == 202;
-    }
-
-    /**
      * FlexiBee date to PHP DateTime conversion
      *
      * @param string $flexidate 2017-05-26 or 2017-05-26+02:00

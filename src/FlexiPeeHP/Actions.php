@@ -21,7 +21,7 @@ class Actions
      *
      * @var string
      */
- static public $version = '2020.2.5';
+ static public $version = '2020.2.5.3';
 
     /**
      * Evidence doklad (#dokladView) Actions.
