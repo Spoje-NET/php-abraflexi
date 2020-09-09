@@ -1,4 +1,5 @@
 <?php
+
 /**
  * FlexiPeeHP - Třída pro zápis do FlexiBee.
  *
@@ -13,8 +14,8 @@ namespace FlexiPeeHP;
  *
  * @url https://demo.flexibee.eu/devdoc/http-operations
  */
-class FlexiBeeRW extends FlexiBeeRO
-{
+class FlexiBeeRW extends FlexiBeeRO {
+
     /**
      * Sloupeček obsahující datum vložení záznamu do shopu.
      *
@@ -58,7 +59,6 @@ class FlexiBeeRW extends FlexiBeeRO
      */
     private $sourceId = null;
 
-
     /**
      * SetUp Object to be ready for work
      *
@@ -67,8 +67,7 @@ class FlexiBeeRW extends FlexiBeeRO
      *                                       prefix,defaultUrlParams,debug,ver
      *                                       detail,offline,atomic,filter,ignore404
      */
-    public function setUp($options = array())
-    {
+    public function setUp($options = array()) {
         if (array_key_exists('atomic', $options)) {
             $this->atomic = (boolean) $options['atomic'];
         }
@@ -84,13 +83,12 @@ class FlexiBeeRW extends FlexiBeeRO
      *
      * @return array odpověď
      */
-    public function insertToFlexiBee($data = null)
-    {
+    public function insertToFlexiBee($data = null) {
         if (is_null($data)) {
             $data = $this->getData();
         }
         $this->postFields = $this->getJsonizedData($data,
-            $this->debug ? JSON_PRETTY_PRINT : 0);
+                $this->debug ? JSON_PRETTY_PRINT : 0);
         return $this->performRequest(null, 'PUT');
     }
 
@@ -102,29 +100,72 @@ class FlexiBeeRW extends FlexiBeeRO
      *
      * @return array main data part of response
      */
-    public function parseResponse($responseDecoded, $responseCode)
-    {
+    public function parseResponse($responseDecoded, $responseCode) {
         $parsedData = parent::parseResponse($responseDecoded, $responseCode);
         switch ($responseCode) {
             case 201: //Success Write
                 if (is_array($responseDecoded)) {
                     $this->responseStats = array_key_exists('stats',
-                            $responseDecoded) ? (isset($responseDecoded['stats'][0])
-                            ? array_map('intval', $responseDecoded['stats'][0]) : array_map('intval',  $responseDecoded['stats']))
-                            : null;
-                if (isset($responseDecoded[$this->resultField][0]['id'])) {
-                    $this->lastInsertedID = $responseDecoded[$this->resultField][0]['id'];
-                    $this->setMyKey($this->lastInsertedID);
-                } else {
-                    $this->lastInsertedID = null;
+                                    $responseDecoded) ? (isset($responseDecoded['stats'][0]) ? array_map('intval', $responseDecoded['stats'][0]) : array_map('intval', $responseDecoded['stats'])) : null;
+                    if (isset($responseDecoded[$this->resultField][0]['id'])) {
+                        $this->lastInsertedID = $responseDecoded[$this->resultField][0]['id'];
+                        $this->setMyKey($this->lastInsertedID);
+                    } else {
+                        $this->lastInsertedID = null;
+                    }
+                    if (count($this->chained)) {
+                        $this->assignResultIDs($this->extractResultIDs($responseDecoded[$this->resultField]));
+                    }
                 }
-                if (count($this->chained)) {
-                    $this->assignResultIDs($this->extractResultIDs($responseDecoded[$this->resultField]));
-                }
-        }
                 $parsedData = $responseDecoded['results'];
         }
         return $parsedData;
+    }
+
+    /**
+     * Parse error message response
+     *
+     * @param array $responseDecoded
+     * 
+     * @return int number of errors processed
+     */
+    public function parseError(array $responseDecoded) {
+        if (array_key_exists('results', $responseDecoded)) {
+
+            if (array_key_exists(0, $responseDecoded['results'])) {
+                foreach ($responseDecoded['results'] as $result) {
+                    
+                    if (array_key_exists('request-id', $result)) {
+                        unset($result['request-id']);
+                    }
+                    
+                    if (array_key_exists('errors', $result)) {
+                        foreach ($result as $error) {
+                            $this->errors[] = current($error);
+                        }
+                    }
+                }
+            } else {
+                foreach ($responseDecoded['results'][0]['result'] as $result) {
+                    if (array_key_exists('errors', $result)) {
+                        foreach ($result as $error) {
+                            $this->errors[] = current($error);
+                        }
+                    }
+                }
+            }
+
+            foreach ($this->errors as $errorInfo) {
+                $this->addStatusMessage(array_key_exists('error', $errorInfo) ? $errorInfo['error'] : $errorInfo['message'], 'error');
+                if ($this->debug && array_key_exists('for', $errorInfo)) {
+                    unset($errorInfo['message']);
+                    $this->addStatusMessage(json_encode($errorInfo), 'debug');
+                }
+            }
+        } else {
+            parent::parseError($responseDecoded);
+        }
+        return count($this->errors);
     }
 
     /**
@@ -132,11 +173,10 @@ class FlexiBeeRW extends FlexiBeeRO
      * 
      * @param array $candidates FlexiBee insert IDs  prepared by extractResultIDs()
      */
-    public function assignResultIDs($candidates)
-    {
+    public function assignResultIDs($candidates) {
         foreach ($this->chained as $chid => $chained) {
             $chainedEvidence = $chained->getEvidence();
-            $chainedExtid    = $chained->getRecordID();
+            $chainedExtid = $chained->getRecordID();
             if (is_array($chainedExtid)) { //if there are more IDs
                 foreach ($chainedExtid as $extId) { //find external ID in format ext:.....
                     if (stripos($extId, 'ext:') === 0) {
@@ -163,8 +203,7 @@ class FlexiBeeRW extends FlexiBeeRO
      * 
      * @return array List of [ 'evidence1'=>[ 'original-id'=>numericID,'original-id2'=>numericID2 ], 'evidence2'=> ... ]
      */
-    public function extractResultIDs($resultInfo)
-    {
+    public function extractResultIDs($resultInfo) {
         $candidates = [];
         foreach ($resultInfo as $insertResult) {
             $newID = $insertResult['id'];
@@ -173,7 +212,7 @@ class FlexiBeeRW extends FlexiBeeRO
             } else {
                 $extid = null;
             }
-            $evidence                      = explode('/', $insertResult['ref'])[3];
+            $evidence = explode('/', $insertResult['ref'])[3];
             $candidates[$evidence][$extid] = $newID;
         }
         return $candidates;
@@ -184,8 +223,7 @@ class FlexiBeeRW extends FlexiBeeRO
      * 
      * @return int
      */
-    public function getLastInsertedId()
-    {
+    public function getLastInsertedId() {
         return $this->lastInsertedID;
     }
 
@@ -197,14 +235,13 @@ class FlexiBeeRW extends FlexiBeeRO
      * 
      * @return boolean Response code is 200 ?
      */
-    public function deleteFromFlexiBee($id = null)
-    {
+    public function deleteFromFlexiBee($id = null) {
         if (is_null($id)) {
             $id = $this->getMyKey();
         }
 
-        $this->performRequest($this->getEvidenceUrl().'/'.self::urlizeId($id),
-            'DELETE');
+        $this->performRequest($this->getEvidenceUrl() . '/' . self::urlizeId($id),
+                'DELETE');
         return $this->lastResponseCode == 200;
     }
 
@@ -215,11 +252,10 @@ class FlexiBeeRW extends FlexiBeeRO
      * 
      * @return int number of records taken
      */
-    public function takeData($data)
-    {
+    public function takeData($data) {
         if ($this->debug === true) {
             $fbRelations = [];
-            $fbColumns   = $this->getColumnsInfo();
+            $fbColumns = $this->getColumnsInfo();
             foreach ($this->getRelationsInfo() as $relation) {
                 if (is_array($relation) && isset($relation['url'])) {
                     $fbRelations[$relation['url']] = $relation['url'];
@@ -231,11 +267,11 @@ class FlexiBeeRW extends FlexiBeeRO
 
                         if (!array_key_exists($key, $fbRelations)) {
                             $this->addStatusMessage(sprintf('unknown column %s for evidence %s',
-                                    $key, $this->getEvidence()), 'warning');
+                                            $key, $this->getEvidence()), 'warning');
                         } else {
                             if (!is_array($value)) {
                                 $this->addStatusMessage(sprintf('subevidence %s in evidence %s must bee an array',
-                                        $key, $this->getEvidence()), 'warning');
+                                                $key, $this->getEvidence()), 'warning');
                             }
                         }
                     }
@@ -254,8 +290,7 @@ class FlexiBeeRW extends FlexiBeeRO
      * 
      * @return array List of missing columns. Empty if all is ok
      */
-    public function controlMandatoryColumns($data = null)
-    {
+    public function controlMandatoryColumns($data = null) {
         if (is_null($data)) {
             $data = $this->getData();
         }
@@ -281,8 +316,7 @@ class FlexiBeeRW extends FlexiBeeRO
      * 
      * @return array List of ReadOnly columns. Empty if all is ok
      */
-    public function controlReadOnlyColumns($data = null)
-    {
+    public function controlReadOnlyColumns($data = null) {
         if (is_null($data)) {
             $data = $this->getData();
         }
@@ -308,11 +342,10 @@ class FlexiBeeRW extends FlexiBeeRO
      *
      * @return string FlexiBee Date or NULL
      */
-    public static function timestampToFlexiDate($timpestamp = null)
-    {
+    public static function timestampToFlexiDate($timpestamp = null) {
         $flexiDate = null;
         if (!is_null($timpestamp)) {
-            $date      = new \DateTime();
+            $date = new \DateTime();
             $date->setTimestamp($timpestamp);
             $flexiDate = $date->format('Y-m-d');
         }
@@ -326,11 +359,10 @@ class FlexiBeeRW extends FlexiBeeRO
      *
      * @return string FlexiBee DateTime or NULL
      */
-    public static function timestampToFlexiDateTime($timpestamp = null)
-    {
+    public static function timestampToFlexiDateTime($timpestamp = null) {
         $flexiDateTime = null;
         if (!is_null($timpestamp)) {
-            $date          = new \DateTime();
+            $date = new \DateTime();
             $date->setTimestamp($timpestamp);
             $flexiDateTime = $date->format('Y-m-dTH:i:s');
         }
@@ -352,17 +384,16 @@ class FlexiBeeRW extends FlexiBeeRO
      * @return boolean Operation success
      */
     public function addArrayToBranch($data, $relationPath = 'polozkyDokladu',
-                                     $removeAll = false)
-    {
+            $removeAll = false) {
         $currentBranchData = $this->getDataValue($relationPath);
-        $branchData        = $currentBranchData;
-        $branchData[]      = $data;
+        $branchData = $currentBranchData;
+        $branchData[] = $data;
         if (is_array($this->getEvidence()) && array_key_exists('bezPolozek',
-                $this->getColumnsInfo())) {
+                        $this->getColumnsInfo())) {
             $this->setDataValue('bezPolozek', false);
         }
         if ($removeAll === true) {
-            $this->setDataValue($relationPath.'@removeAll', true);
+            $this->setDataValue($relationPath . '@removeAll', true);
         }
         return $this->setDataValue($relationPath, $branchData);
     }
@@ -373,10 +404,9 @@ class FlexiBeeRW extends FlexiBeeRO
      * @param FlexiBeeRO $object    objekt evidence
      * @param boolean    $removeAll flush older items 
      */
-    public function addObjectToBranch($object, $removeAll = false)
-    {
+    public function addObjectToBranch($object, $removeAll = false) {
         $this->addArrayToBranch([$object->getEvidence() => $object->getData()],
-            'polozkyDokladu', $removeAll);
+                'polozkyDokladu', $removeAll);
     }
 
     /**
@@ -385,10 +415,9 @@ class FlexiBeeRW extends FlexiBeeRO
      * @see https://www.flexibee.eu/api/dokumentace/ref/uzivatelske-vazby/
      * @param string $vazba
      */
-    public function vazbaAdd($vazba)
-    {
+    public function vazbaAdd($vazba) {
         $this->addArrayToBranch(['uzivatelska-vazba' => $vazba],
-            'uzivatelske-vazby');
+                'uzivatelske-vazby');
     }
 
     /**
@@ -397,11 +426,10 @@ class FlexiBeeRW extends FlexiBeeRO
      * @see https://www.flexibee.eu/api/dokumentace/ref/uzivatelske-vazby/
      * @param string $vazba
      */
-    public function vazbaDel($vazba)
-    {
+    public function vazbaDel($vazba) {
         $this->setDataValue('uzivatelska-vazba@action', 'delete');
         $this->addArrayToBranch(['uzivatelska-vazba' => $vazba],
-            'uzivatelske-vazby');
+                'uzivatelske-vazby');
     }
 
     /**
@@ -415,8 +443,7 @@ class FlexiBeeRW extends FlexiBeeRO
      *
      * @return string
      */
-    public function getJsonizedData($data = null, $options = 0)
-    {
+    public function getJsonizedData($data = null, $options = 0) {
         if (is_null($data)) {
             $data = $this->getData();
         }
@@ -437,8 +464,7 @@ class FlexiBeeRW extends FlexiBeeRO
      * 
      * @return array
      */
-    public function getDataForJSON($data = null)
-    {
+    public function getDataForJSON($data = null) {
         if (is_null($data)) {
             $data = $this->getData();
         }
@@ -460,8 +486,7 @@ class FlexiBeeRW extends FlexiBeeRO
      * 
      * @return boolean Operation success
      */
-    public function sync($data = null)
-    {
+    public function sync($data = null) {
         $this->insertToFlexiBee($data);
         $insertResult = $this->lastResponseCode;
         if ($insertResult == 201) {
@@ -481,8 +506,7 @@ class FlexiBeeRW extends FlexiBeeRO
      * 
      * @return FlexiBeeRW|null copied record object or null in case of failure
      */
-    public function copy($source, $overrides = [])
-    {
+    public function copy($source, $overrides = []) {
         $this->sourceId = $source;
         return $this->sync($overrides) ? $this : null;
     }
@@ -497,20 +521,19 @@ class FlexiBeeRW extends FlexiBeeRO
      *
      * @return boolean operation success
      */
-    public function performAction($action, $method = 'int')
-    {
+    public function performAction($action, $method = 'int') {
         $actionsAvailble = $this->getActionsInfo();
 
         if (is_array($actionsAvailble) && array_key_exists($action,
-                $actionsAvailble)) {
+                        $actionsAvailble)) {
             switch ($actionsAvailble[$action]['actionMakesSense']) {
                 case 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT':
                 case 'ONLY_WITH_INSTANCE': //Add instance
-                    $urlSuffix = '/'.$this->__toString().'/'.$action;
+                    $urlSuffix = '/' . $this->__toString() . '/' . $action;
                     break;
 
                 default:
-                    $urlSuffix = '/'.$action;
+                    $urlSuffix = '/' . $action;
                     break;
             }
 
@@ -524,12 +547,12 @@ class FlexiBeeRW extends FlexiBeeRO
 
                 default:
                     $result = $this->performRequest($this->evidenceUrlWithSuffix($urlSuffix),
-                        'GET');
+                            'GET');
                     break;
             }
         } else {
             throw new \Exception(sprintf(_('Unsupported action %s for evidence %s'),
-                    $action, $this->getEvidence()));
+                            $action, $this->getEvidence()));
         }
 
         return $result;
@@ -542,10 +565,9 @@ class FlexiBeeRW extends FlexiBeeRO
      * 
      * @return array Insert result
      */
-    public function addExternalID($extId)
-    {
-        return $this->insertToFlexiBee(['id' => [$this->getRecordID(), 'ext:'.preg_replace('/^ext:/',
-                        '', $extId)]]);
+    public function addExternalID($extId) {
+        return $this->insertToFlexiBee(['id' => [$this->getRecordID(), 'ext:' . preg_replace('/^ext:/',
+                                '', $extId)]]);
     }
 
     /**
@@ -557,14 +579,13 @@ class FlexiBeeRW extends FlexiBeeRO
      * 
      * @return array operation result
      */
-    public function changeExternalID($selector, $newValue, $forID = null)
-    {
-        $change['@removeExternalIds'] = 'ext:'.$selector.':';
-        $change['id']                 = [is_null($forID) ? $this->getRecordID() : $forID,
-            'ext:'.$selector.':'.$newValue];
+    public function changeExternalID($selector, $newValue, $forID = null) {
+        $change['@removeExternalIds'] = 'ext:' . $selector . ':';
+        $change['id'] = [is_null($forID) ? $this->getRecordID() : $forID,
+            'ext:' . $selector . ':' . $newValue];
         return $this->insertToFlexiBee($change);
     }
-    
+
     /**
      * Send all unsent Documents by eMail
      *
@@ -574,7 +595,7 @@ class FlexiBeeRW extends FlexiBeeRO
      */
     public function sendUnsent() {
         $this->performRequest('automaticky-odeslat-neodeslane', 'PUT', 'xml');
-        return $this->lastResponseCode  == 202;
+        return $this->lastResponseCode == 202;
     }
-    
+
 }
