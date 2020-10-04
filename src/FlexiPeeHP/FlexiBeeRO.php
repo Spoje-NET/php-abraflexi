@@ -4,7 +4,7 @@
  * FlexiPeeHP - Read Only Access to FlexiBee class.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2019 Spoje.Net
+ * @copyright  (C) 2015-2020 Spoje.Net
  */
 
 namespace FlexiPeeHP;
@@ -32,7 +32,6 @@ class FlexiBeeRO extends \Ease\Sand {
     public static $libVersion = '1.37';
 
     /**
-     * Základní namespace pro komunikaci s FlexiBee.
      * Basic namespace for communication with FlexiBee
      *
      * @var string Jmený prostor datového bloku odpovědi
@@ -46,7 +45,6 @@ class FlexiBeeRO extends \Ease\Sand {
     public $apiURL = null;
 
     /**
-     * Datový blok v poli odpovědi.
      * Data block in response field.
      *
      * @var string
@@ -54,7 +52,6 @@ class FlexiBeeRO extends \Ease\Sand {
     public $resultField = 'results';
 
     /**
-     * Verze protokolu použitého pro komunikaci.
      * Communication protocol version used.
      *
      * @var string Verze použitého API
@@ -62,10 +59,10 @@ class FlexiBeeRO extends \Ease\Sand {
     public $protoVersion = '1.0';
 
     /**
-     * Evidence užitá objektem.
      * Evidence used by object
      *
      * @link https://demo.flexibee.eu/c/demo/evidence-list Přehled evidencí
+     * 
      * @var string
      */
     public $evidence = null;
@@ -78,7 +75,6 @@ class FlexiBeeRO extends \Ease\Sand {
     public $evidenceInfo = [];
 
     /**
-     * Výchozí formát pro komunikaci.
      * Default communication format.
      *
      * @link https://www.flexibee.eu/api/dokumentace/ref/format-types Přehled možných formátů
@@ -88,8 +84,7 @@ class FlexiBeeRO extends \Ease\Sand {
     public $format = 'json';
 
     /**
-     * formát příchozí odpovědi
-     * response format
+     * requested response format
      *
      * @link https://www.flexibee.eu/api/dokumentace/ref/format-types Přehled možných formátů
      *
@@ -131,7 +126,7 @@ class FlexiBeeRO extends \Ease\Sand {
     /**
      * @var array Pole HTTP hlaviček odesílaných s každým požadavkem
      */
-    public $defaultHttpHeaders = ['User-Agent' => 'FlexiPeeHP'];
+    public $defaultHttpHeaders = [];
 
     /**
      * Default additional request url parameters after question mark
@@ -231,7 +226,7 @@ class FlexiBeeRO extends \Ease\Sand {
      *
      * @var string
      */
-    protected $postFields = null;
+    public $postFields = null;
 
     /**
      * Last operation result data or message(s)
@@ -344,7 +339,7 @@ class FlexiBeeRO extends \Ease\Sand {
      * Array of errors caused by last request
      * @var array
      */
-    private $errors = [];
+    protected $errors = [];
 
     /**
      * List of Error500 reports sent
@@ -560,25 +555,27 @@ class FlexiBeeRO extends \Ease\Sand {
     public function curlInit() {
         if ($this->offline === false) {
             $this->curl = \curl_init(); // create curl resource
-            curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true); // return content as a string from curl_exec
-            curl_setopt($this->curl, CURLOPT_FOLLOWLOCATION, true); // follow redirects (compatibility for future changes in FlexiBee)
-            curl_setopt($this->curl, CURLOPT_HTTPAUTH, true);       // HTTP authentication
-            curl_setopt($this->curl, CURLOPT_SSL_VERIFYPEER, false); // FlexiBee by default uses Self-Signed certificates
-            curl_setopt($this->curl, CURLOPT_SSL_VERIFYHOST, false);
-            curl_setopt($this->curl, CURLOPT_VERBOSE, ($this->debug === true)); // For debugging
+            \curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true); // return content as a string from curl_exec
+            \curl_setopt($this->curl, CURLOPT_FOLLOWLOCATION, true); // follow redirects (compatibility for future changes in FlexiBee)
+            \curl_setopt($this->curl, CURLOPT_HTTPAUTH, true);       // HTTP authentication
+            \curl_setopt($this->curl, CURLOPT_SSL_VERIFYPEER, false); // FlexiBee by default uses Self-Signed certificates
+            \curl_setopt($this->curl, CURLOPT_SSL_VERIFYHOST, false);
+            \curl_setopt($this->curl, CURLOPT_VERBOSE, ($this->debug === true)); // For debugging
             if (empty($this->authSessionId)) {
-                curl_setopt($this->curl, CURLOPT_USERPWD,
+                \curl_setopt($this->curl, CURLOPT_USERPWD,
                         $this->user . ':' . $this->password); // set username and password
             }
             if (!is_null($this->timeout)) {
-                curl_setopt($this->curl, CURLOPT_TIMEOUT, $this->timeout);
+                \curl_setopt($this->curl, CURLOPT_TIMEOUT, $this->timeout);
             }
+
+            \curl_setopt($this->curl, CURLOPT_USERAGENT, 'phpFlexiBee  v' . self::$libVersion . ' https://github.com/Spoje-NET/php-flexibee');
         }
         return !$this->offline;
     }
 
     /**
-     * Zinicializuje objekt dle daných dat. Možné hodnoty:
+     * Initialise object with given data. Availble value types:
      *
      *  * 234                              - interní číslo záznamu k načtení
      *  * code:LOPATA                      - kód záznamu
@@ -1078,27 +1075,10 @@ class FlexiBeeRO extends \Ease\Sand {
      * @return int number of errors processed
      */
     public function parseError(array $responseDecoded) {
-        if (array_key_exists('results', $responseDecoded)) {
-
-            foreach ($responseDecoded['results'][0]['result'] as $result) {
-                if (array_key_exists('errors', $result)) {
-                    foreach ($result as $error) {
-                        $this->errors[] = current($error);
-                    }
-                }
-            }
-
-            foreach ($this->errors as $errorInfo) {
-                $this->addStatusMessage(array_key_exists('error', $errorInfo) ? $errorInfo['error'] : $errorInfo['message'], 'error');
-                if (array_key_exists('for', $errorInfo)) {
-                    unset($errorInfo['message']);
-                    $this->addStatusMessage(json_encode($errorInfo), 'debug');
-                }
-            }
+        if (array_key_exists('success', $responseDecoded)) {
+            $this->errors = [['message' => array_key_exists('message', $responseDecoded) ? $responseDecoded['message'] : '']];
         } else {
-            if (array_key_exists('message', $responseDecoded)) {
-                $this->errors = [['message' => $responseDecoded['message']]];
-            }
+            throw new \Ease\Exception('Unparsed error: ' . $this->lastCurlResponse);
         }
         return count($this->errors);
     }
@@ -1133,21 +1113,15 @@ class FlexiBeeRO extends \Ease\Sand {
         if (!isset($httpHeaders['Content-Type'])) {
             $httpHeaders['Content-Type'] = $formats[$format]['content-type'];
         }
-        $httpHeadersFinal = [];
-        foreach ($httpHeaders as $key => $value) {
-            if (($key == 'User-Agent') && ($value == 'FlexiPeeHP')) {
-                $value .= ' v' . self::$libVersion;
-            }
-            $httpHeadersFinal[] = $key . ': ' . $value;
-        }
 
-        curl_setopt($this->curl, CURLOPT_HTTPHEADER, $httpHeadersFinal);
+        array_walk($httpHeaders, function (&$value,$header) { $value = $header .': '.$value; } );
+        curl_setopt($this->curl, CURLOPT_HTTPHEADER, $httpHeaders);
 
 // Proveď samotnou operaci
         $this->lastCurlResponse = curl_exec($this->curl);
         $this->curlInfo = curl_getinfo($this->curl);
         $this->curlInfo['when'] = microtime();
-        $this->curlInfo['request_headers'] = $httpHeadersFinal;
+        $this->curlInfo['request_headers'] = $httpHeaders;
         $this->responseFormat = $this->contentTypeToResponseFormat($this->curlInfo['content_type'],
                 $url);
         $this->lastResponseCode = $this->curlInfo['http_code'];
@@ -1160,7 +1134,6 @@ class FlexiBeeRO extends \Ease\Sand {
         if ($this->debug === true) {
             $this->saveDebugFiles();
         }
-
         return $this->lastResponseCode;
     }
 
@@ -2358,7 +2331,7 @@ class FlexiBeeRO extends \Ease\Sand {
      */
     public function setMyKey($myKeyValue) {
         if (substr($myKeyValue, 0, 4) == 'ext:') {
-            if ($this->evidenceInfo['extIdSupported'] == 'false') {
+            if (empty($this->evidenceInfo) || ($this->evidenceInfo['extIdSupported'] == 'false')) {
                 $this->addStatusMessage(sprintf(_('Evidence %s does not support extIDs'),
                                 $this->getEvidence()), 'warning');
                 $res = false;
