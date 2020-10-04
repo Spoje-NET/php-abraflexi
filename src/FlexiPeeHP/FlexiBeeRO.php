@@ -464,7 +464,9 @@ class FlexiBeeRO extends \Ease\Sand {
         if (isset($options['evidence'])) {
             $this->setEvidence($options['evidence']);
         }
-        $this->setupProperty($options, 'defaultUrlParams');
+        if(array_key_exists('defaultUrlParams',$options)){
+            $this->defaultUrlParams = $options['defaultUrlParams'];
+        }
         if (isset($options['prefix'])) {
             $this->setPrefix($options['prefix']);
         }
