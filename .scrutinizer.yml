@@ -36,3 +36,10 @@ tools:
     php_pdepend: true
     php_sim: true
     
+build:
+  nodes:
+    analysis:
+      tests:
+        override:
+          - php-scrutinizer-run
+          
