@@ -1,4 +1,14 @@
-docs/*				usr/share/doc/php-spojenet-flexibee/html
-docs/resources/*		usr/share/doc/php-spojenet-flexibee/html/resources
+docs/classes/*		usr/share/doc/php-spojenet-flexibee/html/classes
+docs/css/*		usr/share/doc/php-spojenet-flexibee/html/css
+docs/files/*		usr/share/doc/php-spojenet-flexibee/html/files
+docs/graphs/*		usr/share/doc/php-spojenet-flexibee/html/graphs
+docs/index.html		usr/share/doc/php-spojenet-flexibee/html/
+docs/indices/*		usr/share/doc/php-spojenet-flexibee/html/indices
+docs/js/*		usr/share/doc/php-spojenet-flexibee/html/js
+docs/namespaces/*		usr/share/doc/php-spojenet-flexibee/html/namespaces
+docs/packages/*		usr/share/doc/php-spojenet-flexibee/html/packages
+docs/reports/*		usr/share/doc/php-spojenet-flexibee/html/reports
+
+
 debian/php-spojenet-flexibee-doc.conf	usr/share/doc/php-spojenet-flexibee-doc/apache
 README.md			usr/share/doc/php-spojenet-flexibee
