@@ -15,3 +15,10 @@ composer.lock
 /debian/php-flexibee.debhelper.log
 /debian/php-spojenet-flexibee-dev.substvars
 /debian/php-spojenet-flexibee-dev/
+/debian/php-spojenet-flexibee-doc/
+/debian/php-spojenet-flexibee-dev.debhelper.log
+/debian/php-spojenet-flexibee-doc.debhelper.log
+/debian/php-spojenet-flexibee-doc.substvars
+/debian/files
+/debian/.debhelper/
+/.phpdoc/

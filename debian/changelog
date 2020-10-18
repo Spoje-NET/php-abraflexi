@@ -16,8 +16,9 @@ php-flexibee (1.37) UNRELEASED; urgency=medium
   * Better parsing error response for XSLT based imports
   * Package renamed on Packagist
   * More Uses
+  * Scrutinizer - new PHP Analysis
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Thu, 30 Jul 2020 18:56:43 +0200
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Sun, 18 Oct 2020 23:10:10 +0200
 
 flexipeehp (1.12) experimental; urgency=medium
 
