@@ -10,7 +10,7 @@ require_once '../testing/bootstrap.php';
 
 $outFile = 'Formats.php';
 $outJson = 'Formats.json';
-$ok      = 0;
+$ok = 0;
 
 /**
  * Obtain Formats for given evidence
@@ -19,15 +19,21 @@ $ok      = 0;
  * @param FlexiBeeRO $syncer Class to read from FlexiBee
  * @return array     Formats structure
  */
-function getEvidenceFormats($evidence, FlexiBeeRO $syncer)
-{
-
+function getEvidenceFormats($evidence, FlexiBeeRO $syncer) {
+    $formats = [];
     $syncer->setEvidence($evidence);
+    $syncer->setFormat('json');
     $flexinfo = $syncer->getColumnsFromFlexibee(['id'], ['limit' => 1]);
-    if (is_array($flexinfo) && is_array($flexinfo[0]) && array_key_exists('id', $flexinfo[0])) {
+    if (!empty($flexinfo) && is_array($flexinfo) && is_array($flexinfo[0]) && array_key_exists('id', $flexinfo[0])) {
         $id = is_numeric($flexinfo[0]['id']) ? intval($flexinfo[0]['id']) : $flexinfo[0]['id'];
         $formats = [];
-        foreach (Formats::$formats as $cancode => $candidate) {
+        $sensibleFormats = Formats::$formats;
+        unset($sensibleFormats['TTF']);
+        unset($sensibleFormats['TEXT']);
+        unset($sensibleFormats['JS']);
+        unset($sensibleFormats['PNG']);
+        unset($sensibleFormats['CSS']);
+        foreach ($sensibleFormats as $cancode => $candidate) {
             $syncer->setFormat($candidate['suffix']);
             $syncer->loadFromFlexiBee($id);
             if ($syncer->lastResponseCode == 200) {
@@ -36,17 +42,18 @@ function getEvidenceFormats($evidence, FlexiBeeRO $syncer)
         }
     } else {
         $syncer->addStatusMessage(sprintf('Missing formats for %s', $evidence),
-            'warning');
+                'warning');
         $formats = ['HTML' => 'html', 'XML' => 'xml', 'JSON' => 'json', 'CSV' => 'csv'];
     }
     return $formats;
 }
+
 $evidenceFormats = '<?php
 /**
  * FlexiPeeHP - Evidence Formats.
  *
  * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  (C) 2015-'.date('Y').' Spoje.Net
+ * @copyright  (C) 2015-' . date('Y') . ' Spoje.Net
  */
 namespace FlexiPeeHP;
 
@@ -58,14 +65,14 @@ namespace FlexiPeeHP;
 class Formats
 {
 ';
-$statuser        = new Status();
+$statuser = new Status();
 $evidenceFormats .= ' /**
  * Source FlexiBee server version.
  *
  * @var string
  */
 ';
-$evidenceFormats .= ' static public $version = \''.$statuser->getDataValue('version').'\';
+$evidenceFormats .= ' static public $version = \'' . $statuser->getDataValue('version') . '\';
 
 ';
 
@@ -77,7 +84,7 @@ $evidenceFormats .= '
      * @var array formats known to flexibee
      */
     static public $formats = [
-        \'JS\' => [\'desc\' => \'JavaScropt\',
+        \'JS\' => [\'desc\' => \'JavaScript\',
             \'suffix\' => \'js\', \'content-type\' => \'application/javascript\', \'import\' => false],
         \'PNG\' => [\'desc\' => \'Portable Network Graphics\',
             \'suffix\' => \'png\', \'content-type\' => \'image/png\', \'import\' => false],
@@ -162,7 +169,7 @@ $evidenceFormats .= '
 
     ';
 
-$syncer = new FlexiBeeRO();
+$syncer = new FlexiBeeRO(null, ['ignore404' => true]);
 $syncer->setObjectName('FlexiBee Evidence Formats');
 $syncer->addStatusMessage('Updating Evidences Formats');
 
@@ -177,27 +184,27 @@ foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
 
     if (count($structure)) {
         $evidenceFormats .= '    /**
-     * Evidence '.$evidencePath.' ('.$evidenceName.') Formats.
+     * Evidence ' . $evidencePath . ' (' . $evidenceName . ') Formats.
      *
      * @var array
      */
 ';
-        $evidenceFormats .= ' static public $'.lcfirst(FlexiBeeRO::evidenceToClassName($evidencePath)).' = '.var_export($structure,
-                true).';
+        $evidenceFormats .= ' static public $' . lcfirst(FlexiBeeRO::evidenceToClassName($evidencePath)) . ' = ' . var_export($structure,
+                        true) . ';
 ';
-        $syncer->addStatusMessage($pos.' of '.count(EvidenceList::$name).' '.$evidencePath.': formats: '.implode(',',$structure), 'success');
+        $syncer->addStatusMessage($pos . ' of ' . count(EvidenceList::$name) . ' ' . $evidencePath . ': formats: ' . implode(',', $structure), 'success');
         $ok++;
     } else {
-        $syncer->addStatusMessage($pos.' of '.count(EvidenceList::$name).' '.$evidencePath.': obtaining formats problem',
-            'error');
+        $syncer->addStatusMessage($pos . ' of ' . count(EvidenceList::$name) . ' ' . $evidencePath . ': obtaining formats problem',
+                'error');
     }
 }
 
 $evidenceFormats .= '}
 ';
 
-$syncer->addStatusMessage('Updating of '.$ok.' Evidences Formats done',
-    'success');
+$syncer->addStatusMessage('Updating of ' . $ok . ' Evidences Formats done',
+        'success');
 file_put_contents($outFile, $evidenceFormats);
 
 file_put_contents($outJson, json_encode($formats));

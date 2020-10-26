@@ -2,7 +2,7 @@
 /**
  * FlexiPeeHP - List of Evidencies.
  *
- * Generated: Tue, 08 Sep 2020 14:53:20 +0200 
+ * Generated: Sat, 24 Oct 2020 18:13:41 +0200 
  * From:      https://vitexsoftware.flexibee.eu:5434
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -46,7 +46,7 @@ class EvidenceList extends FlexiBeeRO
      *
      * @var string
      */
- static public $version = '2020.2.5.3';
+ static public $version = '2020.3.0-rc-3';
 
     /**
      * Evidences Path/Name listing.
@@ -238,13 +238,14 @@ class EvidenceList extends FlexiBeeRO
   'udalost' => 'Události, aktivity',
   'radek-priznani-dph' => 'Uložené řádky přiznání DPH',
   'umisteni' => 'Umístění',
-  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
-  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
   'umisteni-ve-skladu-police' => 'Umístění ve skladu',
   'umisteni-ve-skladu' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
   'sablona-upominky' => 'Upomínky',
   'strom' => 'Uzel stromu',
   'uzivatelsky-dotaz' => 'Uživatelské dotazy',
+  'sablona-mail' => 'Uživatelské e-mailové šablony',
   'filtr' => 'Uživatelské filtry',
   'custom-button' => 'Uživatelské tlačítko',
   'xslt' => 'Uživatelské transformace',
@@ -1031,6 +1032,17 @@ class EvidenceList extends FlexiBeeRO
     'formCode' => 'nezRadyRok',
     'extIdSupported' => 'false',
     'dbName' => 'dRadyRok',
+  ),
+  'sablona-mail' => 
+  array (
+    'evidenceType' => 'SABLONA_MAIL',
+    'evidenceName' => 'Uživatelské e-mailové šablony',
+    'evidencePath' => 'sablona-mail',
+    'importStatus' => 'NOT_DOCUMENTED',
+    'className' => 'cz.winstrom.vo.w.SablonaMail',
+    'formCode' => 'sablonaMail',
+    'extIdSupported' => 'false',
+    'dbName' => 'wSablonaMail',
   ),
   'sady-a-komplety' => 
   array (
@@ -2446,7 +2458,7 @@ class EvidenceList extends FlexiBeeRO
   ),
   'setting-store' => 
   array (
-    'evidenceType' => 'SETTTING',
+    'evidenceType' => 'SETTING',
     'evidenceName' => 'Úložiště nastavení',
     'evidencePath' => 'setting-store',
     'importStatus' => 'NOT_DOCUMENTED',

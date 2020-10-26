@@ -10,7 +10,7 @@
     ],
     "require": {
         "ext-curl": "*",
-        "vitexsoftware/ease-core": "^1"
+        "vitexsoftware/ease-core": ">=1.9"
     },
     "autoload": {
         "psr-4": {

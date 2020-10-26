@@ -1,4 +1,4 @@
-php-flexibee (1.37) UNRELEASED; urgency=medium
+php-flexibee (1.39) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -18,7 +18,7 @@ php-flexibee (1.37) UNRELEASED; urgency=medium
   * More Uses
   * Scrutinizer - new PHP Analysis
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Sun, 18 Oct 2020 23:10:10 +0200
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Sun, 18 Oct 2020 23:11:00 +0200
 
 flexipeehp (1.12) experimental; urgency=medium
 

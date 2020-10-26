@@ -9,8 +9,8 @@ require_once '../testing/bootstrap.php';
 
 
 
-$outFile     = 'EvidenceList.php';
-$outJson     = 'EvidenceList.json';
+$outFile = 'EvidenceList.php';
+$outJson = 'EvidenceList.json';
 $outFullJson = 'EvidenceFullList.json';
 
 /**
@@ -20,20 +20,20 @@ $outFullJson = 'EvidenceFullList.json';
  * @param FlexiBeeRO $syncer Class to read from FlexiBee
  * @return array     Evidence structure
  */
-function getColumnsInfo($evidence, FlexiBeeRO $syncer)
-{
+function getColumnsInfo($evidence, FlexiBeeRO $syncer) {
     $useKeywords = [];
-    $flexinfo    = $syncer->performRequest($evidence.'/properties.json');
+    $flexinfo = $syncer->performRequest($evidence . '/properties.json');
     if (count($flexinfo) && array_key_exists('properties', $flexinfo)) {
         foreach ($flexinfo['properties']['property'] as $evidenceProperty) {
-            $key                       = $evidenceProperty['propertyName'];
-            $useKeywords[$key]         = $evidenceProperty;
+            $key = $evidenceProperty['propertyName'];
+            $useKeywords[$key] = $evidenceProperty;
             $useKeywords[$key]['name'] = $evidenceProperty['name'];
             $useKeywords[$key]['type'] = $evidenceProperty['type'];
         }
     }
     return $useKeywords;
 }
+
 $statuser = new Status();
 
 
@@ -41,8 +41,8 @@ $evidenceList = '<?php
 /**
  * FlexiPeeHP - List of Evidencies.
  *
- * Generated: '.date(DATE_RFC2822).' 
- * From:      '.$statuser->url.'
+ * Generated: ' . date(DATE_RFC2822) . ' 
+ * From:      ' . $statuser->url . '
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2016-2017 Spoje.Net
@@ -88,7 +88,7 @@ $evidenceList .= '    /**
      * @var string
      */
 ';
-$evidenceList .= ' static public $version = \''.$statuser->getDataValue('version').'\';
+$evidenceList .= ' static public $version = \'' . $statuser->getDataValue('version') . '\';
 
 ';
 
@@ -120,7 +120,7 @@ $evidencies[] = [
 $evlist = [];
 foreach ($evidencies as $evidenceID => $evidence) {
     if (array_key_exists('evidencePath', $evidence)) {
-        $evlist[$evidence['evidencePath']]   = $evidence['evidenceName'];
+        $evlist[$evidence['evidencePath']] = $evidence['evidenceName'];
         $fullList[$evidence['evidencePath']] = $evidence;
     }
 }
@@ -134,7 +134,7 @@ $evidenceList .= '    /**
      * @var array
      */
 ';
-$evidenceList .= ' static public $name = '.var_export($evlist, true).';
+$evidenceList .= ' static public $name = ' . var_export($evlist, true) . ';
 
 ';
 $evidenceList .= '    /**
@@ -143,7 +143,7 @@ $evidenceList .= '    /**
      * @var array
      */
 ';
-$evidenceList .= ' static public $evidences = '.var_export($fullList, true).';
+$evidenceList .= ' static public $evidences = ' . var_export($fullList, true) . ';
 
 ';
 
@@ -163,8 +163,8 @@ $evidenceList .= '
 $evidenceList .= '}
 ';
 
-$syncer->addStatusMessage('Updating of '.count($fullList).' Evidences Infos done',
-    'success');
+$syncer->addStatusMessage('Updating of ' . count($fullList) . ' Evidences Infos done',
+        'success');
 file_put_contents($outFile, $evidenceList);
 
 file_put_contents($outJson, json_encode($evlist));

@@ -10,7 +10,7 @@ require_once '../testing/bootstrap.php';
 
 $outFile = 'Relations.php';
 $outJson = 'Relations.json';
-$ok      = 0;
+$ok = 0;
 
 /**
  * Obtain Relations for given evidence
@@ -19,10 +19,9 @@ $ok      = 0;
  * @param FlexiBeeRO $syncer Class to read from FlexiBee
  * @return array     Relations structure
  */
-function getEvidenceRelations($evidence, FlexiBeeRO $syncer)
-{
+function getEvidenceRelations($evidence, FlexiBeeRO $syncer) {
     $relations = [];
-    $flexinfo  = $syncer->performRequest($evidence.'/relations.json');
+    $flexinfo = $syncer->performRequest($evidence . '/relations.json');
     if (count($flexinfo) && array_key_exists('relations', $flexinfo)) {
         if (isset($flexinfo['relations']['relation'])) {
             foreach ($flexinfo['relations']['relation'] as $evidenceRelations) {
@@ -30,11 +29,12 @@ function getEvidenceRelations($evidence, FlexiBeeRO $syncer)
             }
         } else {
             $syncer->addStatusMessage(sprintf('Missing relations for %s',
-                    $evidence), 'warning');
+                            $evidence), 'warning');
         }
     }
     return $relations;
 }
+
 $evidenceRels = '<?php
 /**
  * FlexiPeeHP - Evidence Relations.
@@ -61,7 +61,7 @@ $evidenceRels .= '    /**
      * @var string
      */
 ';
-$evidenceRels .= ' static public $version = \''.$statuser->getDataValue('version').'\';
+$evidenceRels .= ' static public $version = \'' . $statuser->getDataValue('version') . '\';
 
 ';
 
@@ -81,29 +81,29 @@ foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
 
     if (count($structure)) {
         $evidenceRels .= '    /**
-     * Evidence '.$evidencePath.' ('.$evidenceName.') Relations.
+     * Evidence ' . $evidencePath . ' (' . $evidenceName . ') Relations.
      *
      * @var array
      */
 ';
-        $evidenceRels .= ' static public $'.lcfirst(FlexiBeeRO::evidenceToClassName($evidencePath)).' = '.var_export($structure,
-                true).';
+        $evidenceRels .= ' static public $' . lcfirst(FlexiBeeRO::evidenceToClassName($evidencePath)) . ' = ' . var_export($structure,
+                        true) . ';
 ';
 
-        $syncer->addStatusMessage($pos.' of '.count(EvidenceList::$name).' '.$evidencePath.': relations obtained',
-            'success');
+        $syncer->addStatusMessage($pos . ' of ' . count(EvidenceList::$name) . ' ' . $evidencePath . ': relations obtained',
+                'success');
         $ok++;
     } else {
-        $syncer->addStatusMessage($pos.' of '.count(EvidenceList::$name).' '.$evidencePath.': obtaining relations problem',
-            'error');
+        $syncer->addStatusMessage($pos . ' of ' . count(EvidenceList::$name) . ' ' . $evidencePath . ': obtaining relations problem',
+                'error');
     }
 }
 
 $evidenceRels .= '}
 ';
 
-$syncer->addStatusMessage('Updating of '.$ok.' Evidences Properties done',
-    'success');
+$syncer->addStatusMessage('Updating of ' . $ok . ' Evidences Properties done',
+        'success');
 file_put_contents($outFile, $evidenceRels);
 
 file_put_contents($outJson, json_encode($relations));

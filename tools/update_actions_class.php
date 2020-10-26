@@ -13,7 +13,7 @@ require_once '../testing/bootstrap.php';
 
 $outFile = 'Actions.php';
 $outJson = 'Actions.json';
-$ok      = 0;
+$ok = 0;
 
 /**
  * Obtain Actions for given evidence
@@ -22,12 +22,11 @@ $ok      = 0;
  * @param FlexiBeeRO $syncer Class to read from FlexiBee
  * @return array Actions structure
  */
-function getEvidenceActions($evidence, FlexiBeeRO $syncer)
-{
+function getEvidenceActions($evidence, FlexiBeeRO $syncer) {
     $columns = $syncer->getColumnsInfo($evidence);
     if (array_key_exists('zamekK', $columns)) {
-        $syncer->addStatusMessage('Adding LOCK actions to evidence '.$evidence,
-            'debug');
+        $syncer->addStatusMessage('Adding LOCK actions to evidence ' . $evidence,
+                'debug');
         $actions = [
             'lock' => [
                 'actionId' => 'lock',
@@ -57,37 +56,38 @@ function getEvidenceActions($evidence, FlexiBeeRO $syncer)
     } else {
         $actions = [];
     }
-    $flexinfo = $syncer->performRequest($evidence.'/actions.json');
+    $flexinfo = $syncer->performRequest($evidence . '/actions.json');
     if (count($flexinfo) && array_key_exists('actions', $flexinfo)) {
         if (isset($flexinfo['actions']['action'])) {
             if (\Ease\Functions::isAssoc($flexinfo['actions']['action'])) {
-                $key           = $flexinfo['actions']['action']['actionId'];
+                $key = $flexinfo['actions']['action']['actionId'];
                 $actions[$key] = $flexinfo['actions']['action'];
             } else {
                 foreach ($flexinfo['actions']['action'] as $evidenceActions) {
                     if (array_key_exists('actionId', $evidenceActions)) {
-                        $key           = $evidenceActions['actionId'];
+                        $key = $evidenceActions['actionId'];
                         $actions[$key] = $evidenceActions;
                     } else {
                         $syncer->addStatusMessage(sprintf('actionId not set for %s',
-                                $evidence.' / '.$evidenceActions['actionName']),
-                            'warning');
+                                        $evidence . ' / ' . $evidenceActions['actionName']),
+                                'warning');
                     }
                 }
             }
         } else {
             $syncer->addStatusMessage(sprintf('Missing actions for %s',
-                    $evidence), 'warning');
+                            $evidence), 'warning');
         }
     }
     return $actions;
 }
+
 $evidenceActions = '<?php
 /**
  * FlexiPeeHP - Evidence Actions.
  *
  * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  (C) 2015-'.date('Y').' Spoje.Net
+ * @copyright  (C) 2015-' . date('Y') . ' Spoje.Net
  */
 
 namespace FlexiPeeHP;
@@ -102,14 +102,14 @@ class Actions
 {
 ';
 
-$statuser        = new Status();
+$statuser = new Status();
 $evidenceActions .= '    /**
      * Source FlexiBee server version.
      *
      * @var string
      */
 ';
-$evidenceActions .= ' static public $version = \''.$statuser->getDataValue('version').'\';
+$evidenceActions .= ' static public $version = \'' . $statuser->getDataValue('version') . '\';
 
 ';
 
@@ -122,33 +122,33 @@ $structures = [];
 $pos = 0;
 foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
     $pos++;
-    $structure                 = getEvidenceActions($evidencePath, $syncer);
+    $structure = getEvidenceActions($evidencePath, $syncer);
     $structures[$evidencePath] = $structure;
     if (count($structure)) {
         $evidenceActions .= '    /**
-     * Evidence '.$evidencePath.' ('.$evidenceName.') Actions.
+     * Evidence ' . $evidencePath . ' (' . $evidenceName . ') Actions.
      *
      * @var array
      */
 ';
-        $evidenceActions .= ' static public $'.lcfirst(FlexiBeeRO::evidenceToClassName($evidencePath)).' = '.var_export($structure,
-                true).';
+        $evidenceActions .= ' static public $' . lcfirst(FlexiBeeRO::evidenceToClassName($evidencePath)) . ' = ' . var_export($structure,
+                        true) . ';
 ';
 
-        $syncer->addStatusMessage($pos.' of '.count(EvidenceList::$name).' '.$evidencePath.': '.implode(',',
-                array_keys($structure)), 'success');
+        $syncer->addStatusMessage($pos . ' of ' . count(EvidenceList::$name) . ' ' . $evidencePath . ': ' . implode(',',
+                        array_keys($structure)), 'success');
         $ok++;
     } else {
-        $syncer->addStatusMessage($pos.' of '.count(EvidenceList::$name).' '.$evidencePath.': obtaining actions problem',
-            'error');
+        $syncer->addStatusMessage($pos . ' of ' . count(EvidenceList::$name) . ' ' . $evidencePath . ': obtaining actions problem',
+                'error');
     }
 }
 
 $evidenceActions .= '}
 ';
 
-$syncer->addStatusMessage('Updating of '.$ok.' Evidences Actions done',
-    'success');
+$syncer->addStatusMessage('Updating of ' . $ok . ' Evidences Actions done',
+        'success');
 file_put_contents($outFile, $evidenceActions);
 
 file_put_contents($outJson, json_encode($structures));

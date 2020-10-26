@@ -29,7 +29,7 @@ class Formats
      * @var array formats known to flexibee
      */
     static public $formats = [
-        'JS' => ['desc' => 'JavaScropt',
+        'JS' => ['desc' => 'JavaScript',
             'suffix' => 'js', 'content-type' => 'application/javascript', 'import' => false],
         'PNG' => ['desc' => 'Portable Network Graphics',
             'suffix' => 'png', 'content-type' => 'image/png', 'import' => false],

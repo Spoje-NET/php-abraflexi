@@ -459,7 +459,7 @@ class FlexiBeeRO extends \Ease\Sand {
         if (isset($options['evidence'])) {
             $this->setEvidence($options['evidence']);
         }
-        if(array_key_exists('defaultUrlParams',$options)){
+        if (array_key_exists('defaultUrlParams', $options)) {
             $this->defaultUrlParams = $options['defaultUrlParams'];
         }
         if (isset($options['prefix'])) {
@@ -1051,16 +1051,15 @@ class FlexiBeeRO extends \Ease\Sand {
                 }
             case 400: //Bad Request parameters
             default: //Something goes wrong
-                if (is_array($responseDecoded)) {
+                if (!empty($responseDecoded) && is_array($responseDecoded) && array_key_exists(0,$responseDecoded)) {
                     $this->parseError($responseDecoded);
                 }
 
                 if ($this->throwException === true) {
                     throw new \Ease\Exception(json_encode($this->getErrors()), $this->lastResponseCode);
                 } else {
-                    $this->addStatusMessage($this->lastResponseCode . ': ' . $this->curlInfo['url'],
+                    $this->addStatusMessage($this->lastResponseCode . ': ' . $this->curlInfo['url'] . ' (' . $this->format . ')',
                             'warning');
-                    $this->logResult($responseDecoded, $this->curlInfo['url']);
                 }
                 break;
         }
@@ -1078,7 +1077,11 @@ class FlexiBeeRO extends \Ease\Sand {
         if (array_key_exists('success', $responseDecoded)) {
             $this->errors = [['message' => array_key_exists('message', $responseDecoded) ? $responseDecoded['message'] : '']];
         } else {
-            throw new \Ease\Exception('Unparsed error: ' . $this->lastCurlResponse);
+            if ($this->throwException === true) {
+                throw new \Ease\Exception('Unparsed error: ' . $this->lastCurlResponse);
+            } else {
+                $this->addStatusMessage('Unparsed error: ' . $this->lastCurlResponse, 'debug');
+            }
         }
         return count($this->errors);
     }
@@ -1114,7 +1117,9 @@ class FlexiBeeRO extends \Ease\Sand {
             $httpHeaders['Content-Type'] = $formats[$format]['content-type'];
         }
 
-        array_walk($httpHeaders, function (&$value,$header) { $value = $header .': '.$value; } );
+        array_walk($httpHeaders, function (&$value, $header) {
+            $value = $header . ': ' . $value;
+        });
         curl_setopt($this->curl, CURLOPT_HTTPHEADER, $httpHeaders);
 
 // Proveď samotnou operaci
@@ -1692,60 +1697,6 @@ class FlexiBeeRO extends \Ease\Sand {
         }
 
         return self::code($kodfinal);
-    }
-
-    /**
-     * Write Operation Result.
-     *
-     * @param array  $resultData
-     * @param string $url        URL
-     * 
-     * @return boolean Log save success
-     */
-    public function logResult($resultData = null, $url = null) {
-        $logResult = false;
-        if (isset($resultData['success']) && ($resultData['success'] == 'false')) {
-            $this->addStatusMessage('Error ' . $this->lastResponseCode . ': ' . urldecode($url) . (array_key_exists('message',
-                            $resultData) ? ' ' . $resultData['message'] : ''), 'warning');
-            unset($url);
-        }
-        if (is_null($resultData)) {
-            $resultData = $this->lastResult;
-        }
-        if (isset($url)) {
-            \Ease\Shared::logger()->addToLog($this, $this->lastResponseCode . ':' . urldecode($url));
-        }
-
-        if (isset($resultData['results'])) {
-            if ($resultData['success'] == 'false') {
-                $status = 'error';
-            } else {
-                $status = 'success';
-            }
-            foreach ($resultData['results'] as $result) {
-                if (isset($result['request-id'])) {
-                    $rid = $result['request-id'];
-                } else {
-                    $rid = '';
-                }
-                if (isset($result['errors'])) {
-                    foreach ($result['errors'] as $error) {
-                        $message = $error['message'];
-                        if (isset($error['for'])) {
-                            $message .= ' for: ' . $error['for'];
-                        }
-                        if (isset($error['value'])) {
-                            $message .= ' value:' . $error['value'];
-                        }
-                        if (isset($error['code'])) {
-                            $message .= ' code:' . $error['code'];
-                        }
-                        $this->addStatusMessage($rid . ': ' . $message, $status);
-                    }
-                }
-            }
-        }
-        return $logResult;
     }
 
     /**
