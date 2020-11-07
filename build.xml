@@ -28,8 +28,18 @@
         <exec command="vendor/bin/phpunit --bootstrap testing/bootstrap.php"/>
     </target>
 
+
+    <phpunit bootstrap="testing/bootstrap.php" codecoverage="true" haltonfailure="true" haltonerror="true" >
+        <formatter type="plain" usefile="false"/>
+        <batchtest>
+            <fileset dir="testing">
+                <include name="**/*Test*.php"/>
+            </fileset>
+        </batchtest>
+    </phpunit>
+
     <target name="clean" >
-        <exec command="rm -rf vendor/* composer.lock debian/php-flexibee"/>
+        <exec command="rm -rf vendor/* composer.lock debian/php-abraflexi"/>
     </target>
 
     <!-- ============================================  -->

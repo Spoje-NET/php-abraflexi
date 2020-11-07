@@ -1,4 +1,4 @@
-repoversion=$(shell LANG=C aptitude show php-flexibee | grep Version: | awk '{print $$2}')
+repoversion=$(shell LANG=C aptitude show php-abraflexi | grep Version: | awk '{print $$2}')
 nextversion=$(shell echo $(repoversion) | perl -ne 'chomp; print join(".", splice(@{[split/\./,$$_]}, 0, -1), map {++$$_} pop @{[split/\./,$$_]}), "\n";')
 
 all:
@@ -14,7 +14,7 @@ static:
 	cd tools/ ; ./update_all.sh ; cd ..
 
 clean:
-	rm -rf debian/php-flexibee
+	rm -rf debian/php-abraflexi
 	rm -rf debian/flexipeehp .phpunit.result.cache debian/flexipeehp.debhelper.log
 	rm -rf debian/flexipeehp-doc
 	rm -rf debian/*.log

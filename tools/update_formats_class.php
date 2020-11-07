@@ -1,8 +1,8 @@
 <?php
 
-namespace FlexiPeeHP;
+namespace AbraFlexi;
 
-define('EASE_APPNAME', 'FlexiPeeHP Formats');
+define('EASE_APPNAME', 'AbraFlexi Formats');
 define('EASE_LOGGER', 'console|syslog');
 
 require_once '../testing/bootstrap.php';
@@ -43,12 +43,12 @@ function getEvidenceFormats($evidence, FlexiBeeRO $syncer)
 }
 $evidenceFormats = '<?php
 /**
- * FlexiPeeHP - Evidence Formats.
+ * AbraFlexi - Evidence Formats.
  *
  * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
  * @copyright  (C) 2015-'.date('Y').' Spoje.Net
  */
-namespace FlexiPeeHP;
+namespace AbraFlexi;
 
 /**
  * Evidence Formats

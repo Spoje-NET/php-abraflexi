@@ -20,7 +20,7 @@ include_once '../vendor/autoload.php';
  */
 function poSplatnosti($dueDate)
 {
-    return intval(date_diff(\FlexiPeeHP\FlexiBeeRO::flexiDateToDateTime($dueDate),
+    return intval(date_diff(\FlexiPeeHP\RO::flexiDateToDateTime($dueDate),
             new \DateTime())->format('%a'));
 }
 

@@ -1,11 +1,11 @@
 <?php
+
 /**
- * FlexiBee - nastavení testů.
+ * AbraFlexi - nastavení testů.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2015 Spoje.Net
+ * @copyright  2015-2020 Spoje.Net
  */
-
 /**
  * Predefined server:One of:
  *
@@ -13,18 +13,13 @@
  */
 $testServer = 'vitexsoftware';
 
-if (file_exists('../vendor/autoload.php')) {
-    include_once '../vendor/autoload.php';
-} else {
-    if (file_exists('vendor/autoload.php')) { //For Test Generator
-        include_once 'vendor/autoload.php';
-    }
-}
+include_once file_exists('../vendor/autoload.php') ? '../vendor/autoload.php' : 'vendor/autoload.php';
+
 /**
  * Write logs as:
  */
 if (!defined('EASE_APPNAME')) {
-    define('EASE_APPNAME', 'FlexiBeetest');
+    define('EASE_APPNAME', 'AbraFlexiTest');
 }
 if (!defined('EASE_LOGGER')) {
     define('EASE_LOGGER', 'syslog');
@@ -38,21 +33,21 @@ switch ($testServer) {
 ////
 
         /*
-         * URL Flexibee API
+         * URL AbraFlexi API
          */
-        define('FLEXIBEE_URL', 'https://demo.flexibee.eu');
+        define('ABRAFLEXI_URL', 'https://demo.flexibee.eu');
         /*
-         * Uživatel FlexiBee API
+         * Uživatel AbraFlexi API
          */
-        define('FLEXIBEE_LOGIN', 'winstrom');
+        define('ABRAFLEXI_LOGIN', 'winstrom');
         /*
-         * Heslo FlexiBee API
+         * Heslo AbraFlexi API
          */
-        define('FLEXIBEE_PASSWORD', 'winstrom');
+        define('ABRAFLEXI_PASSWORD', 'winstrom');
         /*
-         * Společnost v FlexiBee
+         * Společnost v AbraFlexi
          */
-        define('FLEXIBEE_COMPANY', 'demo');
+        define('ABRAFLEXI_COMPANY', 'demo');
 
 
         break;
@@ -62,21 +57,21 @@ switch ($testServer) {
 //
 
         /*
-         * URL Flexibee API
+         * URL AbraFlexi API
          */
-        define('FLEXIBEE_URL', 'https://vitexsoftware.flexibee.eu:5434');
+        define('ABRAFLEXI_URL', 'https://vitexsoftware.flexibee.eu:5434');
         /*
-         * Uživatel FlexiBee API
+         * Uživatel AbraFlexi API
          */
-        define('FLEXIBEE_LOGIN', 'FlexiBee');
+        define('ABRAFLEXI_LOGIN', 'flexipeehp');
         /*
-         * Heslo FlexiBee API
+         * Heslo AbraFlexi API
          */
-        define('FLEXIBEE_PASSWORD', '8Ojeton_');
+        define('ABRAFLEXI_PASSWORD', '8Ojeton_');
         /*
-         * Společnost v FlexiBee
+         * Společnost v AbraFlexi
          */
-        define('FLEXIBEE_COMPANY', 'FlexiBee');
+        define('ABRAFLEXI_COMPANY', 'flexipeehp');
 
 
         break;
@@ -87,21 +82,21 @@ switch ($testServer) {
 //
 
         /*
-         * URL Flexibee API
+         * URL AbraFlexi API
          */
-        define('FLEXIBEE_URL', 'https://localhost:5434');
+        define('ABRAFLEXI_URL', 'https://localhost:5434');
         /*
-         * Uživatel FlexiBee API
+         * Uživatel AbraFlexi API
          */
-        define('FLEXIBEE_LOGIN', 'admin');
+        define('ABRAFLEXI_LOGIN', 'admin');
         /*
-         * Heslo FlexiBee API
+         * Heslo AbraFlexi API
          */
-        define('FLEXIBEE_PASSWORD', 'admin123');
+        define('ABRAFLEXI_PASSWORD', 'admin123');
         /*
-         * Společnost v FlexiBee
+         * Společnost v AbraFlexi
          */
-        define('FLEXIBEE_COMPANY', 'testing_s_r_o_');
+        define('ABRAFLEXI_COMPANY', 'testing_s_r_o_');
 
         break;
 }

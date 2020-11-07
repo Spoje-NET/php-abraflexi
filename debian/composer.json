@@ -1,9 +1,9 @@
 {
-  "name": "deb/flexibee",
-  "description": "Library for easy interaction with czech accounting system Flexibee.",
+  "name": "deb/abraflexi",
+  "description": "Library for easy interaction with czech accounting system abraflexi.",
   "homepage": "https://github.com/Spoje-NET/FlexiPeeHP",
   "license": "GPL-2.0+",
-  "version": "1.38",
+  "version": "2.0",
   "type": "library",
   "authors": [
     {
@@ -24,6 +24,5 @@
       "type": "path",
       "url": "/usr/share/php/EaseCore"
     }
-  ],
-  "address": "1.37"
+  ]
 }

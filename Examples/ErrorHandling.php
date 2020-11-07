@@ -1,7 +1,7 @@
 #!/usr/bin/php -f
 <?php
 /**
- * php-flexibee - Example how to create Invoice
+ * php-abraflexi - Example how to create Invoice
  *
  * @author     Vítězslav Dvořák <info@vitexsofware.cz>
  * @copyright  (G) 2020 Vitex Software

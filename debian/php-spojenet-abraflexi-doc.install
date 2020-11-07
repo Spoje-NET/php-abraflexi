@@ -1,0 +1,14 @@
+docs/classes/*		usr/share/doc/php-spojenet-abraflexi/html/classes
+docs/css/*		usr/share/doc/php-spojenet-abraflexi/html/css
+docs/files/*		usr/share/doc/php-spojenet-abraflexi/html/files
+docs/graphs/*		usr/share/doc/php-spojenet-abraflexi/html/graphs
+docs/index.html		usr/share/doc/php-spojenet-abraflexi/html/
+docs/indices/*		usr/share/doc/php-spojenet-abraflexi/html/indices
+docs/js/*		usr/share/doc/php-spojenet-abraflexi/html/js
+docs/namespaces/*		usr/share/doc/php-spojenet-abraflexi/html/namespaces
+docs/packages/*		usr/share/doc/php-spojenet-abraflexi/html/packages
+docs/reports/*		usr/share/doc/php-spojenet-abraflexi/html/reports
+
+
+debian/php-spojenet-abraflexi-doc.conf	usr/share/doc/php-spojenet-abraflexi-doc/apache
+README.md			usr/share/doc/php-spojenet-abraflexi

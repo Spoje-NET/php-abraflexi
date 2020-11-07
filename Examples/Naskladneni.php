@@ -41,24 +41,24 @@ $product->insertToFlexiBee([
 //with storage card for at least current accounting period
 $storageCard = new \FlexiPeeHP\SkladovaKarta();
 $storageCard->insertToFlexiBee([
-    'sklad' => \FlexiPeeHP\FlexiBeeRO::code($storage),
-    'cenik' => \FlexiPeeHP\FlexiBeeRO::code($productCode),
-    'ucetObdobi' => \FlexiPeeHP\FlexiBeeRO::code(date('Y'))
+    'sklad' => \FlexiPeeHP\RO::code($storage),
+    'cenik' => \FlexiPeeHP\RO::code($productCode),
+    'ucetObdobi' => \FlexiPeeHP\RO::code(date('Y'))
 ]);
 
 /** Preparation End * */
 $skladovyPohyb = new \FlexiPeeHP\SkladovyPohyb([
     'id' => 'ext:PRIJEMKA:'.time(),
-    'typDokl' => \FlexiPeeHP\FlexiBeeRO::code('STANDARD'),
-    'sklad' => \FlexiPeeHP\FlexiBeeRO::code($storage),
-    'cenik' => \FlexiPeeHP\FlexiBeeRO::code($productCode),
+    'typDokl' => \FlexiPeeHP\RO::code('STANDARD'),
+    'sklad' => \FlexiPeeHP\RO::code($storage),
+    'cenik' => \FlexiPeeHP\RO::code($productCode),
     'typPohybuK' => 'typPohybu.prijem',
     ],['debug'=>true]);
 
 // We Need
 $productModel = new \FlexiPeeHP\SkladovyPohybPolozka([
-    'sklad' => \FlexiPeeHP\FlexiBeeRO::code($storage),
-    'cenik' => \FlexiPeeHP\FlexiBeeRO::code($productCode)
+    'sklad' => \FlexiPeeHP\RO::code($storage),
+    'cenik' => \FlexiPeeHP\RO::code($productCode)
     ], ['offline' => true]);
 
 //Add Serial numbers one by one

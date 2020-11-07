@@ -16,7 +16,7 @@ include_once '../vendor/autoload.php';
  * @var \FlexiPeeHP\FakturaVydana With initial type code:FAKTURA, connected to 
  *                                default constatnt('FLEXIBEE_URL')
  */
-$originalInvoice = new \FlexiPeeHP\FakturaVydana(['typDokl' => \FlexiPeeHP\FlexiBeeRO::code('FAKTURA')]);
+$originalInvoice = new \FlexiPeeHP\FakturaVydana(['typDokl' => \FlexiPeeHP\RO::code('FAKTURA')]);
 
 /**
  * @var \FlexiPeeHP\FakturaVydana 

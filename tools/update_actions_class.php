@@ -1,9 +1,9 @@
 <?php
 
-namespace FlexiPeeHP;
+namespace AbraFlexi;
 
 if (!defined('EASE_APPNAME')) {
-    define('EASE_APPNAME', 'FlexiPeeHP Actions');
+    define('EASE_APPNAME', 'AbraFlexi Actions');
 }
 if (!defined('EASE_LOGGER')) {
     define('EASE_LOGGER', 'console|syslog');
@@ -84,13 +84,13 @@ function getEvidenceActions($evidence, FlexiBeeRO $syncer)
 }
 $evidenceActions = '<?php
 /**
- * FlexiPeeHP - Evidence Actions.
+ * AbraFlexi - Evidence Actions.
  *
  * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
  * @copyright  (C) 2015-'.date('Y').' Spoje.Net
  */
 
-namespace FlexiPeeHP;
+namespace AbraFlexi;
 
 /**
  * EvidenceActions
@@ -104,7 +104,7 @@ class Actions
 
 $statuser        = new Status();
 $evidenceActions .= '    /**
-     * Source FlexiBee server version.
+     * Source AbraFlexi server version.
      *
      * @var string
      */
@@ -113,7 +113,7 @@ $evidenceActions .= ' static public $version = \''.$statuser->getDataValue('vers
 
 ';
 
-$syncer = new FlexiBeeRO();
+$syncer = new RO();
 $syncer->setObjectName('FlexiBee Evidence Actions');
 $syncer->addStatusMessage('Updating Evidences Actions');
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace FlexiPeeHP;
+namespace AbraFlexi;
 
 require_once '../testing/bootstrap.php';
 

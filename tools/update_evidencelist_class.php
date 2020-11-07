@@ -1,8 +1,8 @@
 <?php
 
-namespace FlexiPeeHP;
+namespace AbraFlexi;
 
-define('EASE_APPNAME', 'FlexiPeehUP');
+define('EASE_APPNAME', 'AbraFlexiStaticEvidenceListGenerator');
 define('EASE_LOGGER', 'console|syslog');
 
 require_once '../testing/bootstrap.php';
@@ -39,7 +39,7 @@ $statuser = new Status();
 
 $evidenceList = '<?php
 /**
- * FlexiPeeHP - List of Evidencies.
+ * AbraFlexi - List of Evidencies.
  *
  * Generated: '.date(DATE_RFC2822).' 
  * From:      '.$statuser->url.'
@@ -48,7 +48,7 @@ $evidenceList = '<?php
  * @copyright  (C) 2016-2017 Spoje.Net
  */
 
-namespace FlexiPeeHP;
+namespace AbraFlexi;
 
 /**
  * Evidencies listing and its properties

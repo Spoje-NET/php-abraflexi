@@ -1,6 +1,6 @@
 <?php
 
-namespace FlexiPeeHP;
+namespace AbraFlexi;
 
 define('EASE_APPNAME', 'FlexiPeehUP');
 define('EASE_LOGGER', 'console|syslog');
@@ -16,7 +16,8 @@ $ok      = 0;
  * Obtain Relations for given evidence
  *
  * @param string     $evidence
- * @param FlexiBeeRO $syncer Class to read from FlexiBee
+ * @param RO $syncer Class to read from FlexiBee
+ * 
  * @return array     Relations structure
  */
 function getEvidenceRelations($evidence, FlexiBeeRO $syncer)
@@ -37,13 +38,13 @@ function getEvidenceRelations($evidence, FlexiBeeRO $syncer)
 }
 $evidenceRels = '<?php
 /**
- * FlexiPeeHP - Evidence Relations.
+ * AbraFlexi - Evidence Relations.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * @copyright  (C) 2015-2020 Spoje.Net
  */
 
-namespace FlexiPeeHP;
+namespace AbraFlexi;
 
 /**
  * Evidence Relations
@@ -66,7 +67,7 @@ $evidenceRels .= ' static public $version = \''.$statuser->getDataValue('version
 ';
 
 
-$syncer = new FlexiBeeRO();
+$syncer = new RO();
 $syncer->setObjectName('FlexiBee Evidence Relations');
 $syncer->addStatusMessage('Updating Evidences Relations');
 

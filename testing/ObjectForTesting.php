@@ -5,8 +5,8 @@ namespace Test;
 /**
  * Class used to test Object To Array Conversion
  */
-class ObjectForTesting extends \stdClass
-{
+class ObjectForTesting extends \stdClass {
+
     /**
      * Simple Item
      * @var integer
@@ -24,8 +24,8 @@ class ObjectForTesting extends \stdClass
      *
      * @return boolean
      */
-    public function method()
-    {
+    public function method() {
         return true;
     }
+
 }

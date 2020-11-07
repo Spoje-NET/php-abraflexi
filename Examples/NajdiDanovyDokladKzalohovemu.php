@@ -27,7 +27,7 @@ $invoice = new \FlexiPeeHP\FakturaVydana($invoiceID);
 
 $vazby = $invoice->reindexArrayBy($invoice->getVazby(), 'typVazbyK');
 
-$polozka = new \FlexiPeeHP\FlexiBeeRO(intval($vazby['typVazbyDokl.odpocetZALOHY']['a']),
+$polozka = new \FlexiPeeHP\RO(intval($vazby['typVazbyDokl.odpocetZALOHY']['a']),
     ['evidence' => 'faktura-vydana-polozka']);
 
 $faktura = new \FlexiPeeHP\FakturaVydana($polozka->getDataValue('doklFak'));

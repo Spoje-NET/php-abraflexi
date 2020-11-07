@@ -14,13 +14,13 @@
     },
     "autoload": {
         "psr-4": {
-            "FlexiPeeHP\\": "src/FlexiPeeHP/"
+            "AbraFlexi\\": "src/AbraFlexi/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "Test\\Ease\\": "vendor/vitexsoftware/ease-core/tests/src/Ease",
-            "Test\\FlexiPeeHP\\": "testing/src/FlexiPeeHP/",
+            "Test\\AbraFlexi\\": "testing/src/AbraFlexi/",
             "Test\\": "testing/"
         }
     },

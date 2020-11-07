@@ -13,7 +13,7 @@ include_once './config.php';
 include_once '../vendor/autoload.php';
 
 
-$prober = new \FlexiPeeHP\FlexiBeeRO();
+$prober = new \FlexiPeeHP\RO();
 
 $prober->login();
 

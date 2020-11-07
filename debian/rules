@@ -3,17 +3,15 @@
 %:
 	dh $@
 
-#override_dh_prep:
-#	composer update
-#	apigen generate --destination=docs -- src
-#	dh_prep
-
-
 override_dh_auto_test:
 	echo tests temporarly skipped for now in rules file
 
+override_dh_prep:
+	phpdoc -d src
+	mkdir -p docs ; mv .phpdoc/build/* docs
+	dh_prep
+
 override_dh_install:
-	jq '.address = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'`'"' debian/composer.json |sponge debian/composer.json
+	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'`'"' debian/composer.json |sponge debian/composer.json
 	dh_install	
-	sed -i -e  "s/\/\.\.\/\.\.\//\//g" debian/php-spojenet-flexibee/usr/share/php/FlexiPeeHP/FlexiBeeRO.php
-	./debian/fixversion.sh
+	sed -i -e  "s/\/\.\.\/\.\.\//\//g" debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/RO.php

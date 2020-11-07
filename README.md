@@ -1,39 +1,39 @@
-# PHP FlexiBee
-![PHP FlexiBee Logo](project-logo.png?raw=true "Project Logo")
+# PHP AbraFlexi
+![PHP AbraFlexi Logo](project-logo.png?raw=true "Project Logo")
 
-PHP7.1+ Based Library for easy interaction with Czech accounting system FlexiBee.
+PHP7.1+ Based Library for easy interaction with Czech accounting system AbraFlexi.
 
-CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [FlexiBee](https://www.flexibee.eu/)
+CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [AbraFlexi](https://www.abraflexi.eu/)
 
-[![Source Code](http://img.shields.io/badge/source/Spoje-NET/php-flexibee-blue.svg?style=flat-square)](https://github.com/Spoje-NET/php-flexibee)
-[![Latest Version](https://img.shields.io/github/release/Spoje-NET/php-flexibee.svg?style=flat-square)](https://github.com/Spoje-NET/php-flexibee/releases)
-[![Software License](https://img.shields.io/badge/license-GNU-brightgreen.svg?style=flat-square)](https://github.com/Spoje-NET/php-flexibee/blob/master/LICENSE)
-[![time tracker](https://wakatime.com/badge/github/Spoje-NET/php-flexibee.svg)](https://wakatime.com/badge/github/Spoje-NET/php-flexibee)
-[![Build Status](https://img.shields.io/travis/Spoje-NET/php-flexibee/master.svg?style=flat-square)](https://travis-ci.org/Spoje-NET/php-flexibee)
-[![Code Coverage](https://scrutinizer-ci.com/g/Spoje-NET/php-flexibee/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Spoje-NET/php-flexibee/?branch=master)
+[![Source Code](http://img.shields.io/badge/source/Spoje-NET/php-abraflexi-blue.svg?style=flat-square)](https://github.com/Spoje-NET/php-abraflexi)
+[![Latest Version](https://img.shields.io/github/release/Spoje-NET/php-abraflexi.svg?style=flat-square)](https://github.com/Spoje-NET/php-abraflexi/releases)
+[![Software License](https://img.shields.io/badge/license-GNU-brightgreen.svg?style=flat-square)](https://github.com/Spoje-NET/php-abraflexi/blob/master/LICENSE)
+[![time tracker](https://wakatime.com/badge/github/Spoje-NET/php-abraflexi.svg)](https://wakatime.com/badge/github/Spoje-NET/php-abraflexi)
+[![Build Status](https://img.shields.io/travis/Spoje-NET/php-abraflexi/master.svg?style=flat-square)](https://travis-ci.org/Spoje-NET/php-abraflexi)
+[![Code Coverage](https://scrutinizer-ci.com/g/Spoje-NET/php-abraflexi/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Spoje-NET/php-abraflexi/?branch=master)
 [![Docker pulls](https://img.shields.io/docker/pulls/vitexsoftware/flexipeehp.svg)](https://hub.docker.com/r/vitexsoftware/flexipeehp/)
-[![Total Downloads](https://img.shields.io/packagist/dt/spoje.net/php-flexibee.svg?style=flat-square)](https://packagist.org/packages/spoje.net/php-flexibee)
-[![Latest stable](https://img.shields.io/packagist/v/spoje.net/php-flexibee.svg?style=flat-square)](https://packagist.org/packages/spoje.net/php-flexibee)
+[![Total Downloads](https://img.shields.io/packagist/dt/spoje.net/php-abraflexi.svg?style=flat-square)](https://packagist.org/packages/spoje.net/php-abraflexi)
+[![Latest stable](https://img.shields.io/packagist/v/spoje.net/php-abraflexi.svg?style=flat-square)](https://packagist.org/packages/spoje.net/php-abraflexi)
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4/big.png)](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4)
 
-[![Latest Stable Version](https://poser.pugx.org/spojenet/flexibee/v/stable)](https://packagist.org/packages/spojenet/flexibee)
-[![Total Downloads](https://poser.pugx.org/spojenet/flexibee/downloads)](https://packagist.org/packages/spojenet/flexibee)
-[![Latest Unstable Version](https://poser.pugx.org/spojenet/flexibee/v/unstable)](https://packagist.org/packages/spojenet/flexibee)
-[![License](https://poser.pugx.org/spojenet/flexibee/license)](https://packagist.org/packages/spojenet/flexibee)
-[![Monthly Downloads](https://poser.pugx.org/spojenet/flexibee/d/monthly)](https://packagist.org/packages/spojenet/flexibee)
-[![Daily Downloads](https://poser.pugx.org/spojenet/flexibee/d/daily)](https://packagist.org/packages/spojenet/flexibee)
+[![Latest Stable Version](https://poser.pugx.org/spojenet/abraflexi/v/stable)](https://packagist.org/packages/spojenet/abraflexi)
+[![Total Downloads](https://poser.pugx.org/spojenet/abraflexi/downloads)](https://packagist.org/packages/spojenet/abraflexi)
+[![Latest Unstable Version](https://poser.pugx.org/spojenet/abraflexi/v/unstable)](https://packagist.org/packages/spojenet/abraflexi)
+[![License](https://poser.pugx.org/spojenet/abraflexi/license)](https://packagist.org/packages/spojenet/abraflexi)
+[![Monthly Downloads](https://poser.pugx.org/spojenet/abraflexi/d/monthly)](https://packagist.org/packages/spojenet/abraflexi)
+[![Daily Downloads](https://poser.pugx.org/spojenet/abraflexi/d/daily)](https://packagist.org/packages/spojenet/abraflexi)
 
- :exclamation: Tato knihovna byla z důvodu požadavků composeru 2.0+  přejmenována na **spojenet/flexibee**  :exclamation:
+ :exclamation: Tato knihovna byla z důvodu požadavků composeru 2.0+  přejmenována na **spojenet/abraflexi**  :exclamation:
 
 
 # Poděkování 
 Vznik této knihovny by nebyl možný bez laskavé podpory společnosti [Spoje.Net](http://www.spoje.net), 
-která hradila vývoj řešení pro propojení LMS / FlexiBee a importu skladu. :+1:
+která hradila vývoj řešení pro propojení LMS / AbraFlexi a importu skladu. :+1:
 
-![Spoje.Net](https://github.com/Spoje-NET/php-flexibee/raw/master/spoje-net_logo.gif "Spoje.Net")
+![Spoje.Net](https://github.com/Spoje-NET/php-abraflexi/raw/master/spoje-net_logo.gif "Spoje.Net")
 
-**Dále chci poděkovat technické podpoře společnosti [ABRA Flexi s.r.o.](https://www.flexibee.eu/podpora/) za jejich svatou trpělivost
+**Dále chci poděkovat technické podpoře společnosti [ABRA Flexi s.r.o.](https://www.abraflexi.eu/podpora/) za jejich svatou trpělivost
 při reakcích na mé ne vždy bystré otázky a bugreporty.**
 
 Parsování výsledků pro účely GDPR logování bylo dopracováno za laskavé podpory [&lt;PureHTML&gt;](https://purehtml.cz/) 
@@ -41,7 +41,7 @@ Parsování výsledků pro účely GDPR logování bylo dopracováno za laskavé
 Instalace
 ---------
 
-    composer require spojenet/flexibee
+    composer require spojenet/abraflexi
 
 
 pokud váš výsledný composer.json bude vypadat  zhruba takto: 
@@ -52,7 +52,7 @@ pokud váš výsledný composer.json bude vypadat  zhruba takto:
     "description": "Test",
     "type": "project",
     "require": {
-        "spojenet/flexibee": "*"
+        "spojenet/abraflexi": "*"
     },
     "license": "MIT",
     "authors": [
@@ -77,43 +77,43 @@ Konfigurace se provádí nastavením následujících konstant:
 
 ```php
    /*
-    * URL Flexibee API
+    * URL AbraFlexi API
     */
-    define('FLEXIBEE_URL', 'https://flexibee-dev.spoje.net:5434');
+    define('ABRAFLEXI_URL', 'https://abraflexi-dev.spoje.net:5434');
    /*
-    * Uživatel FlexiBee API
+    * Uživatel AbraFlexi API
     */
-    define('FLEXIBEE_LOGIN', 'apiuser');
+    define('ABRAFLEXI_LOGIN', 'apiuser');
    /*
-    * Heslo FlexiBee API
+    * Heslo AbraFlexi API
     */
-    define('FLEXIBEE_PASSWORD', 'apipass');
+    define('ABRAFLEXI_PASSWORD', 'apipass');
    /*
-    * Společnost v FlexiBee
+    * Společnost v AbraFlexi
     */
-    define('FLEXIBEE_COMPANY', 'test_s_r_o_');
+    define('ABRAFLEXI_COMPANY', 'test_s_r_o_');
    /*
     * Nebo pokud nechceme používat jméno a heslo 
     */
-    define('FLEXIBEE_AUTHSESSID', '6QuifebMits'); //Volitelné
+    define('ABRAFLEXI_AUTHSESSID', '6QuifebMits'); //Volitelné
    /*
     * Pomalý server, velká databáze a přes modem k tomu
     */
-    define('FLEXIBEE_TIMEOUT', 60); //Volitelné
+    define('ABRAFLEXI_TIMEOUT', 60); //Volitelné
    /*
     * Pomalý server, velká databáze a přes modem k tomu
     */
-    define('FLEXIBEE_EXCEPTIONS', true); //Vracet PHP vyjímku v případě že FlexiBee vrátí chybu
+    define('ABRAFLEXI_EXCEPTIONS', true); //Vracet PHP vyjímku v případě že AbraFlexi vrátí chybu
 ```
 
-Pokud nejsou konstanty nastaveny, pouší se třídy také o konfiguraci ze stejnojmených proměnných prostředí. např getenv('FLEXIBEE_URL')
+Pokud nejsou konstanty nastaveny, pouší se třídy také o konfiguraci ze stejnojmených proměnných prostředí. např getenv('ABRAFLEXI_URL')
 
 Taktéž je možné přihlašovací údaje zadávat při vytváření instance třídy.
 
 ```php
-    $invoicer = new \FlexiBee\FakturaVydana(null,[
+    $invoicer = new \AbraFlexi\FakturaVydana(null,[
                 'company' => 'Firma_s_r_o_',
-                'url' => 'https://flexibee.firma.cz/',
+                'url' => 'https://abraflexi.firma.cz/',
                 'user' => 'rest',
                 'password' => '-dj3x21xaA_'
             ]);
@@ -122,16 +122,16 @@ Taktéž je možné přihlašovací údaje zadávat při vytváření instance t
 Tento způsob nastavení má vyšší prioritu než výše uvedené definovaní konstant.
 
 ```php
-    $order = new \FlexiBee\ObjednavkaPrijata('code:OBP0034/2019',['companyUrl'=> $_GET['companyUrl'], 'authSessionId'=>$_GET['authSessionId'] ])
+    $order = new \AbraFlexi\ObjednavkaPrijata('code:OBP0034/2019',['companyUrl'=> $_GET['companyUrl'], 'authSessionId'=>$_GET['authSessionId'] ])
 
 ```
-Takto se ke flexibee a konrétní objednávce může připojit aplikace vyvolaná uživatelským tlačítkem předávajícím hodnoty **companyUrl** a **authSessionId**
+Takto se ke abraflexi a konrétní objednávce může připojit aplikace vyvolaná uživatelským tlačítkem předávajícím hodnoty **companyUrl** a **authSessionId**
 
 Jak to celé funguje ?
 ---------------------
 
-Ústřední komponentou celé knihovny je Třída FlexiBeeRO, která je schopna pomocí 
-PHP rozšíření curl komunikovat s REST Api FlexiBee.
+Ústřední komponentou celé knihovny je Třída RO, která je schopna pomocí 
+PHP rozšíření curl komunikovat s REST Api AbraFlexi.
 
 Z ní jsou pak odvozeny třídy pro jednotlivé evidence, obsahující metody pro 
 často používané operace, například "Zaplať" v případě přijatých faktur.
@@ -152,9 +152,9 @@ novou třídu pro evidenci "Měrné jednotky" bude vypadat takto:
 ```php
     <?php
     /**
-     * @link https://demo.flexibee.eu/c/demo/merna-jednotka/properties Vlastnosti evidence
+     * @link https://demo.abraflexi.eu/c/demo/merna-jednotka/properties Vlastnosti evidence
      */
-    class MernaJednotka extends /FlexiBee/FlexiBee
+    class MernaJednotka extends /AbraFlexi/AbraFlexi
     {
         /**
          * Evidence užitá objektem.
@@ -169,36 +169,36 @@ A poté je již snadné si vypsat měrné jednotky na 2 řádky:
     
 ```php
     $jednotky = new MernaJednotka();
-    print_r( $jednotky->getAllFromFlexiBee() );
+    print_r( $jednotky->getAllFromAbraFlexi() );
 ```
 
-Pokud chceme aby nově vytvořená třída uměla do flexibee i zapisovat, je třeba jí 
-odvodit od předka FlexiBeeRW.
+Pokud chceme aby nově vytvořená třída uměla do abraflexi i zapisovat, je třeba jí 
+odvodit od předka AbraFlexiRW.
 
 
-Více příkladů použití je možné najít [v samostatném projektu](https://github.com/VitexSoftware/FlexiBee-Examples/tree/master/Examples)
+Více příkladů použití je možné najít [v samostatném projektu](https://github.com/VitexSoftware/AbraFlexi-Examples/tree/master/Examples)
 
 Struktura Evidencí, Akcí a vztahů
 ---------------------------------
 
 V některých případech je dobré znát jaké můžeme provádět akce, či jáká je 
 struktura evidence. Tyto informace je možno získat voláním 
-https://demo.flexibee.eu/c/demo/*/properties.json 
-respektive https://demo.flexibee.eu/c/demo/*/actions.json 
+https://demo.abraflexi.eu/c/demo/*/properties.json 
+respektive https://demo.abraflexi.eu/c/demo/*/actions.json 
 avšak jedná se o relativně časově náročné operace. Jelikož se struktura 
-evidencí a Akce či vztahy mezi evidencemi FlexiBee často nemění FlexiBee 
+evidencí a Akce či vztahy mezi evidencemi AbraFlexi často nemění AbraFlexi 
 disponuje mechanizmem který umožní pracovat s těmito údaji bez nutnosti 
 dotazovat se na ně serveru. 
 
 Struktura je uložena ve třídě Structure (Actions,Relations) která obsahuje 
 staticky definované pole obsahující informace které by jinak bylo nutné získat
-z FlexiBee.
+z AbraFlexi.
 
-Položku v seznamu evidencí https://demo.flexibee.eu/c/demo/evidence-list je pak 
+Položku v seznamu evidencí https://demo.abraflexi.eu/c/demo/evidence-list je pak 
 možné kdykoliv snadno ukázat:
 
 ```php
-    echo \FlexiBee\Structure::$evidence['faktura-vydana'];
+    echo \AbraFlexi\Structure::$evidence['faktura-vydana'];
 ```
 
 Sturktury jednotlivých evidencí jsou pak uloženy ve statických proměnných.
@@ -206,7 +206,7 @@ Jejich jméno se řídí stejnými pravidly jako jsou pro vytváření jména no
 jen s tím rozdílem, že první písmeno je malé. Tzn.:
 
 ```php
-    lcfirst(\FlexiBee\FlexiBeeRO::evidenceToClassName($evidence))
+    lcfirst(\AbraFlexi\RO::evidenceToClassName($evidence))
 ```
 
 V případě potřeby je možné tyto třídy pak možné vygenerovat s aktuálním obsahem 
@@ -220,25 +220,25 @@ následujícím příkazem:
 Operace trvá několik minut. Zobrazit průběh můžeme takto:
 
   ```
-  tail -f /var/log/syslog | grep  FlexiBeetest
+  tail -f /var/log/syslog | grep  AbraFlexitest
   ```
 Ladicí režim
 ------------
 
-Pokud v objektech FlexiBee nastavíte $this->debug na true, budou se před odesláním
-dat do FlexiBee provedeny dodatečné testy. Kontrolují se tyto možné chyby:
+Pokud v objektech AbraFlexi nastavíte $this->debug na true, budou se před odesláním
+dat do AbraFlexi provedeny dodatečné testy. Kontrolují se tyto možné chyby:
 
  * Existuje vkládané políčko definované pro evidenci ?
  * Je vkládané políčko Pouze pro čtení ?
  * Pokud je vkládané políčko vazbou, je i polem ?
 
-V ladícím režimu se také ukládají do složky /tmp všechny požadavky na flexibee a jejich odpovědi
+V ladícím režimu se také ukládají do složky /tmp všechny požadavky na abraflexi a jejich odpovědi
 
-Knihovna obsahuje mechanizmus pro odesílání zaznamenaných chyb při běhu FlexiBee vývojářům:
+Knihovna obsahuje mechanizmus pro odesílání zaznamenaných chyb při běhu AbraFlexi vývojářům:
 
-Pokud FlexiBee vrátí Internal Server Error 500, je odeslán vývojářům email obsahující chybovou zprávu.
+Pokud AbraFlexi vrátí Internal Server Error 500, je odeslán vývojářům email obsahující chybovou zprávu.
 
-V případě že je použito FlexiBee běžící na stejném serveru a je možné číst chybové logy je z nich vypreparován patřičný fragment a i ten je přidán do těla mailu.
+V případě že je použito AbraFlexi běžící na stejném serveru a je možné číst chybové logy je z nich vypreparován patřičný fragment a i ten je přidán do těla mailu.
 
 Email obsahuje také dodatečné informace o licenci a povolených modulech.
 
@@ -251,7 +251,7 @@ Testování
 ---------
 
 PHPUnit testy se nachází ve složce **testing**. Pokud chcete testovat proti jinému
-serveru než je oficální http://demo.flexibee.eu/ , je třeba změnit nastavení v 
+serveru než je oficální http://demo.abraflexi.eu/ , je třeba změnit nastavení v 
 souboru **bootstrap.php**. 
 
 Obsah proměnné $testServer určuje která z předvolených nastavení budou použita.
@@ -260,24 +260,24 @@ server spoje.net.
 
 Pro testování vytvořte prosím nejprve testovací firmu TESTING s.r.o. a nastavte
 přístupové údaje uživatele s oprávněním používat REST API. (Což je uživatel 
-administrátora zadaný při instalaci FlexiBee.)
+administrátora zadaný při instalaci AbraFlexi.)
 
 Upozornění: testování proti firmě s množstvím faktur a připojenou bankou může 
 trvat nějakou dobu, jelikož se testuje i zavolání automatického párování dokladů.
 
-Pokud se ve vašem projektu rozhodnete podědit FlexiBee a k těmto třídám napíšete 
-testy také  poděděné z FlexiBee např:
+Pokud se ve vašem projektu rozhodnete podědit AbraFlexi a k těmto třídám napíšete 
+testy také  poděděné z AbraFlexi např:
 
-class HookRecieverTest extends \Test\FlexiBee\ChangesTest
+class HookRecieverTest extends \Test\AbraFlexi\ChangesTest
 
 Přidejte do vašeho composer.json i cesty k původním testům:
 
 ```json
     "autoload-dev": {
         "psr-4": {
-            "Test\\": "vendor/spoje.net/php-flexibee/testing/src/FlexiBee/testing/",
+            "Test\\": "vendor/spoje.net/php-abraflexi/testing/src/AbraFlexi/testing/",
             "Test\\Ease\\": "vendor/vitexsoftware/ease-core/tests/src/Ease",
-            "Test\\FlexiBee\\": "vendor/spoje.net/php-flexibee/testing/src/FlexiBee/",
+            "Test\\AbraFlexi\\": "vendor/spoje.net/php-abraflexi/testing/src/AbraFlexi/",
          }
     }
 ```
@@ -322,24 +322,19 @@ Příklady použití:
 -----------------
 
   * [Flexplorer](https://github.com/VitexSoftware/Flexplorer) Vývojářský nástoj a editor záznamů
-  * [FlexiProXY](https://github.com/VitexSoftware/FlexiProxy) Modifikátor webového rozhraní FlexiBee
-  * [Upomínač](https://github.com/VitexSoftware/php-flexibee-reminder) Odesílač upomínek
-  * [Matcher](https://github.com/VitexSoftware/php-flexibee-matcher) Párovač fakur
-  * [Redmine2FlexiBee](https://github.com/VitexSoftware/Redmine2FlexiBee) Generuje faktury z odpracovaného času v Redmine
-  * [FlexiPeeHP-Bricks](https://github.com/VitexSoftware/FlexiPeeHP-Bricks) Příklady a často požívaní třídy při práci s FlexiBee
-  * [TestingTools](https://github.com/VitexSoftware/FlexiBee-TestingTools) Nástroje pro testování FlexiBee aplikací
+  * [FlexiProXY](https://github.com/VitexSoftware/FlexiProxy) Modifikátor webového rozhraní AbraFlexi
+  * [Upomínač](https://github.com/VitexSoftware/php-abraflexi-reminder) Odesílač upomínek
+  * [Matcher](https://github.com/VitexSoftware/php-abraflexi-matcher) Párovač fakur
+  * [Redmine2AbraFlexi](https://github.com/VitexSoftware/Redmine2AbraFlexi) Generuje faktury z odpracovaného času v Redmine
+  * [FlexiPeeHP-Bricks](https://github.com/VitexSoftware/FlexiPeeHP-Bricks) Příklady a často požívaní třídy při práci s AbraFlexi
+  * [TestingTools](https://github.com/VitexSoftware/AbraFlexi-TestingTools) Nástroje pro testování AbraFlexi aplikací
 
 
 Reference:
 ----------
 
-  * [Import dat z FAPI do FlexiBee](https://flexibee.info/fapi2flexibee/)  - blahasoft.cz
-  * [Import dat z iDokladu do FlexiBee](https://flexibee.info/idoklad2flexibee/) - blahasoft.cz
-
-Docker
-------
-
-    docker pull vitexsoftware/flexipeehp
+  * [Import dat z FAPI do AbraFlexi](https://abraflexi.info/fapi2abraflexi/)  - blahasoft.cz
+  * [Import dat z iDokladu do AbraFlexi](https://abraflexi.info/idoklad2abraflexi/) - blahasoft.cz
 
 Debian/Ubuntu
 -------------
@@ -351,7 +346,7 @@ sudo apt install lsb-release wget
 echo "deb http://repo.vitexsoftware.cz $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/vitexsoftware.list
 sudo wget -O /etc/apt/trusted.gpg.d/vitexsoftware.gpg http://repo.vitexsoftware.cz/keyring.gpg
 sudo apt update
-sudo apt install php-spojenet-flexibee
+sudo apt install php-spojenet-abraflexi
 ```
 
 V tomto případě je potřeba do souboru composer.json vaší aplikace přidat:
@@ -359,12 +354,12 @@ V tomto případě je potřeba do souboru composer.json vaší aplikace přidat:
 ```json
     "require": {
         "deb/ease-core": "*",
-        "deb/flexibee": "*"
+        "deb/abraflexi": "*"
     },
     "repositories": [
         {
             "type": "path",
-            "url": "/usr/share/php/flexibee",
+            "url": "/usr/share/php/AbraFlexi",
             "options": {
                 "symlink": true
             }
@@ -387,35 +382,25 @@ Takže při instalaci závislostí bude vypadat nějak takto:
         Symlinked from /usr/share/php/Ease
 
       - Installing flexipeehp (0.2.1)
-        Symlinked from /usr/share/php/FlexiBee
+        Symlinked from /usr/share/php/AbraFlexi
 
 A aktualizaci bude možné dělat globálně pro celý systém prostřednictvím apt-get.
 
-Generujeme také balíček **flexipeehp-doc**, obsahující vývojářskou dokumentaci
+Generujeme také balíček **php-spojenet-abraflexi-doc**, obsahující vývojářskou dokumentaci
 generovanou pomcí programu ApiGen. Dokumnentace je online k nahlédnutí na adrese
-http://flexibee-dev.spoje.net/php-flexibee/
+http://abraflexi-dev.spoje.net/php-abraflexi/
 
 Testování:
 
-     cd /usr/share/doc/FlexiBee/
+     cd /usr/share/doc/AbraFlexi/
      composer install
-     php -f flexibeeping.php
+     php -f abraflexiping.php
 
 
-![Debian Test](https://github.com/Spoje-NET/php-flexibee/raw/master/Examples/flexipeehp-debian-test.png "Test")
+![Debian Test](https://github.com/Spoje-NET/php-abraflexi/raw/master/Examples/flexipeehp-debian-test.png "Test")
     
 
-Sestavení
----------
-
-Debianí balíček vytvoříme spuštěním **make deb**
-
-Obraz pro Docker:
-
-    docker build -t vitexsoftware/flexipeehp
-
-
-FlexiBee knihovny pro další jazky:
+AbraFlexi knihovny pro další jazky:
 ----------------------------------
 
  * [Flexipy](https://github.com/JakubJecminek/flexipy)  (Python) [Dokumentace](http://pythonhosted.org/flexipy/index.html)

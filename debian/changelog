@@ -1,4 +1,4 @@
-php-flexibee (1.37) UNRELEASED; urgency=medium
+php-abraflexi (2.0) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -16,8 +16,10 @@ php-flexibee (1.37) UNRELEASED; urgency=medium
   * Better parsing error response for XSLT based imports
   * Package renamed on Packagist
   * More Uses
+  * Scrutinizer - new PHP Analysis
+  * Update fro AbraFlexi 2020.3.0.1
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Thu, 30 Jul 2020 18:56:43 +0200
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Sun, 18 Oct 2020 23:11:00 +0200
 
 flexipeehp (1.12) experimental; urgency=medium
 

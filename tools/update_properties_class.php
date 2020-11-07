@@ -1,6 +1,6 @@
 <?php
 
-namespace FlexiPeeHP;
+namespace AbraFlexi;
 
 define('EASE_APPNAME', 'FlexiPeehUP');
 define('EASE_LOGGER', 'console|syslog');
@@ -16,13 +16,13 @@ $ok      = 0;
 
 $evidenceProps = '<?php
 /**
- * FlexiPeeHP - Evidence Properties.
+ * AbraFlexi - Evidence Properties.
  *
  * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
  * @copyright  (C) 2015-'.date('Y').' Spoje.Net
  */
 
-namespace FlexiPeeHP;
+namespace AbraFlexi;
 
 /**
  * Evidence Properties
@@ -64,7 +64,7 @@ foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
         json_encode($structure));
 
     $evidenceClass     = evidenceToClass($evidencePath);
-    $evidenceClassFile = '../src/FlexiPeeHP/'.$evidenceClass.'.php';
+    $evidenceClassFile = '../src/AbraFlexi/'.$evidenceClass.'.php';
     if (file_exists($evidenceClassFile)) {
         $evidenceClassBody = file_get_contents($evidenceClassFile);
 
