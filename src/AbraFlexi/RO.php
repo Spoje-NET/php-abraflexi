@@ -1000,6 +1000,7 @@ class RO extends \Ease\Sand {
         $mainResult = null;
         switch ($responseCode) {
             case 201: //We do not care about Success Write here
+            case 202: //Accept eg. unsent mails sent    
                 break;
             case 200: //Success Read
 
