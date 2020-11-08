@@ -1002,6 +1002,7 @@ class FlexiBeeRO extends \Ease\Sand {
         $mainResult = null;
         switch ($responseCode) {
             case 201: //We do not care about Success Write here
+            case 202: //Accept eg. unsent mails sent    
                 break;
             case 200: //Success Read
 
@@ -1126,7 +1127,6 @@ class FlexiBeeRO extends \Ease\Sand {
         $this->lastCurlResponse = curl_exec($this->curl);
         $this->curlInfo = curl_getinfo($this->curl);
         $this->curlInfo['when'] = microtime();
-        $this->curlInfo['request_headers'] = $httpHeaders;
         $this->responseFormat = $this->contentTypeToResponseFormat($this->curlInfo['content_type'],
                 $url);
         $this->lastResponseCode = $this->curlInfo['http_code'];
