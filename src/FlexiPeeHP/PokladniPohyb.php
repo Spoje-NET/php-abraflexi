@@ -13,7 +13,7 @@ namespace FlexiPeeHP;
  *
  * @link https://demo.flexibee.eu/c/demo/pokladni-pohyb/properties položky evidence
  */
-class PokladniPohyb extends FlexiBeeRW
+class PokladniPohyb extends RW
 {
     use Stitky;
     use Firma;

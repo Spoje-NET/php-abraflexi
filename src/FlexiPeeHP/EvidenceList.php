@@ -17,7 +17,7 @@ namespace FlexiPeeHP;
  *
  * @link https://demo.flexibee.eu/c/demo/evidence-list Přehled evidencí
  */
-class EvidenceList extends FlexiBeeRO
+class EvidenceList extends RO
 {
     /**
      * Evidence užitá objektem.

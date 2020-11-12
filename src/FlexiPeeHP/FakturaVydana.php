@@ -13,7 +13,7 @@ namespace FlexiPeeHP;
  *
  * @link https://demo.flexibee.eu/c/demo/faktura-vydana/properties položky evidence
  */
-class FakturaVydana extends FlexiBeeRW
+class FakturaVydana extends RW
 {
 
     use Stitky;
@@ -224,7 +224,7 @@ class FakturaVydana extends FlexiBeeRW
      */
     static public function overdueDays($dueDate)
     {
-        $dateDiff = date_diff(is_object($dueDate) ? $dueDate : FlexiBeeRO::flexiDateToDateTime($dueDate),
+        $dateDiff = date_diff(is_object($dueDate) ? $dueDate : RO::flexiDateToDateTime($dueDate),
             new \DateTime());
         if ($dateDiff->invert == 1) {
             $ddif = $dateDiff->days * -1;

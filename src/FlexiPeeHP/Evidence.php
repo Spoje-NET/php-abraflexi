@@ -10,7 +10,7 @@
 namespace FlexiPeeHP;
 
 use Ease\Sand;
-use FlexiPeeHP\FlexiBeeRO;
+use FlexiPeeHP\RO;
 
 /**
  * Helper class for work with multiplete documents
@@ -21,7 +21,7 @@ class Evidence extends Sand
 {
     /**
      *
-     * @var FlexiBeeRO 
+     * @var RO 
      */
     public $engine = null;
 
@@ -33,11 +33,11 @@ class Evidence extends Sand
 
     /**
      * 
-     * @param FlexiBeeRO $engine
+     * @param RO $engine
      * 
      * @param array $conditions
      */
-    public function __construct(FlexiBeeRO $engine, array $conditions = [])
+    public function __construct(RO $engine, array $conditions = [])
     {
         $this->engine     = $engine;
         $this->conditions = $conditions;
@@ -57,7 +57,7 @@ class Evidence extends Sand
     /**
      * Array of objects in eveidence
      * 
-     * @return FlexiBeeRO[]
+     * @return RO[]
      */
     public function getEvidenceObjects()
     {

@@ -11,7 +11,7 @@
 namespace FlexiPeeHP;
 
 use FlexiPeeHP\Firma;
-use FlexiPeeHP\FlexiBeeRW;
+use FlexiPeeHP\RW;
 use FlexiPeeHP\Stitky;
 
 /**
@@ -19,7 +19,7 @@ use FlexiPeeHP\Stitky;
  * 
  * @link https://demo.flexibee.eu/c/demo/banka/properties Vlastnosti evidence
  */
-class Banka extends FlexiBeeRW
+class Banka extends RW
 {
     use Stitky;
     use Firma;

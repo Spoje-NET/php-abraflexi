@@ -3,7 +3,7 @@
  * FlexiPeeHP - Internal Document.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2019 Spoje.Net
+ * @copyright  (C) 2015-2020 Spoje.Net
  */
 
 namespace FlexiPeeHP;
@@ -13,7 +13,7 @@ namespace FlexiPeeHP;
  *
  * @link https://demo.flexibee.eu/c/demo/interni-doklad/properties
  */
-class InterniDoklad extends FlexiBeeRW
+class InterniDoklad extends RW
 {
 
     use Stitky;

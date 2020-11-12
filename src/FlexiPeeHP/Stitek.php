@@ -9,15 +9,15 @@
 
 namespace FlexiPeeHP;
 
-use FlexiPeeHP\FlexiBeeRO;
-use FlexiPeeHP\FlexiBeeRW;
+use FlexiPeeHP\RO;
+use FlexiPeeHP\RW;
 
 /**
  * Štítek
  *
  * @link https://demo.flexibee.eu/c/demo/stitek/properties Vlastnosti evidence
  */
-class Stitek extends FlexiBeeRW
+class Stitek extends RW
 {
     /**
      * Evidence Path for vsb supported by label
@@ -58,7 +58,7 @@ class Stitek extends FlexiBeeRW
      *
      * @deprecated since version 1.21
      * 
-     * @param FlexiBeeRO $object data source
+     * @param RO $object data source
      * @return array labels
      */
     public static function getLabels($object)
@@ -97,7 +97,7 @@ class Stitek extends FlexiBeeRW
     /**
      * Obtain list of availble labels for given object
      *
-     * @param FlexiBeeRO $object
+     * @param RO $object
      * 
      * @return array
      */
@@ -128,7 +128,7 @@ class Stitek extends FlexiBeeRW
      * @deprecated since version 1.21
      * 
      * @param string     $label
-     * @param FlexiBeeRW $object
+     * @param RW $object
      *
      * @return boolean   success result ?
      */
@@ -143,7 +143,7 @@ class Stitek extends FlexiBeeRW
      * @deprecated since version 1.21
      * 
      * @param string     $label
-     * @param FlexiBeeRW $object
+     * @param RW $object
      *
      * @return boolean   success result ?
      */

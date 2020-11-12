@@ -10,7 +10,7 @@
 namespace FlexiPeeHP;
 
 use FlexiPeeHP\Firma;
-use FlexiPeeHP\FlexiBeeRW;
+use FlexiPeeHP\RW;
 use FlexiPeeHP\Stitky;
 
 /**
@@ -18,7 +18,7 @@ use FlexiPeeHP\Stitky;
  *
  * @link https://demo.flexibee.eu/c/demo/dodavatelska-smlouva/properties
  */
-class DodavatelskaSmlouva extends FlexiBeeRW
+class DodavatelskaSmlouva extends RW
 {
 
     use Stitky;

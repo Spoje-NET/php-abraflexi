@@ -10,7 +10,7 @@
 namespace FlexiPeeHP;
 
 use FlexiPeeHP\Firma;
-use FlexiPeeHP\FlexiBeeRW;
+use FlexiPeeHP\RW;
 use FlexiPeeHP\Stitky;
 
 /**
@@ -18,7 +18,7 @@ use FlexiPeeHP\Stitky;
  *
  * @link https://demo.flexibee.eu/c/demo/kontakt/properties
  */
-class Kontakt extends FlexiBeeRW
+class Kontakt extends RW
 {
 
     use Stitky;

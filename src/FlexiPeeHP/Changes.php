@@ -9,14 +9,14 @@
 
 namespace FlexiPeeHP;
 
-use FlexiPeeHP\FlexiBeeRO;
+use FlexiPeeHP\RO;
 
 /**
  * Log změn v evidencích
  *
  * @link https://www.flexibee.eu/api/dokumentace/ref/changes-api/ Dokumentace
  */
-class Changes extends FlexiBeeRO {
+class Changes extends RO {
 
     /**
      * Evidence užitá objektem.

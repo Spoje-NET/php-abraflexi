@@ -13,7 +13,7 @@ namespace FlexiPeeHP;
  *
  * @author vitex
  */
-class Status extends FlexiBeeRO
+class Status extends RO
 {
     /**
      * Evidence užitá objektem.

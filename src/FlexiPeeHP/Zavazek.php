@@ -3,7 +3,7 @@
  * FlexiPeeHP - Objekt závazky.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2019 Spoje.Net
+ * @copyright  (C) 2015-2020 Spoje.Net
  */
 
 namespace FlexiPeeHP;
@@ -12,7 +12,7 @@ namespace FlexiPeeHP;
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-class Zavazek extends \FlexiPeeHP\FlexiBeeRW
+class Zavazek extends \FlexiPeeHP\RW
 {
     use Stitky;
     use Firma;

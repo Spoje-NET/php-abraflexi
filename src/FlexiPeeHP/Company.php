@@ -9,14 +9,14 @@
 
 namespace FlexiPeeHP;
 
-use FlexiPeeHP\FlexiBeeRW;
+use FlexiPeeHP\RW;
 
 /**
  * Firmy/účetní jednotky
  *
  * @note Tato položka nemá dostupné položky evidence
  */
-class Company extends FlexiBeeRW
+class Company extends RW
 {
     /**
      * Základní namespace pro komunikaci s FlexiBEE.

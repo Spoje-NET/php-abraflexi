@@ -14,7 +14,7 @@ namespace FlexiPeeHP;
  * 
  * @link https://demo.flexibee.eu/c/demo/smlouva/properties Vlastnosti evidence
  */
-class Smlouva extends FlexiBeeRW
+class Smlouva extends RW
 {
 
     use Stitky;

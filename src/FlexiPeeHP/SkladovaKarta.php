@@ -14,7 +14,7 @@ namespace FlexiPeeHP;
  *
  * @link https://demo.flexibee.eu/c/demo/skladova-karta/properties položky evidence
  */
-class SkladovaKarta extends FlexiBeeRW
+class SkladovaKarta extends RW
 {
     /**
      * Evidence užitá objektem.

@@ -10,7 +10,7 @@
 namespace FlexiPeeHP;
 
 use FlexiPeeHP\Firma;
-use FlexiPeeHP\FlexiBeeRW;
+use FlexiPeeHP\RW;
 use FlexiPeeHP\Stitky;
 use FlexiPeeHP\SubItems;
 use FlexiPeeHP\Sum;
@@ -20,7 +20,7 @@ use FlexiPeeHP\Sum;
  *
  * @link https://demo.flexibee.eu/c/demo/faktura-prijata/properties
  */
-class FakturaPrijata extends FlexiBeeRW {
+class FakturaPrijata extends RW {
 
     use Stitky;
     use Firma;

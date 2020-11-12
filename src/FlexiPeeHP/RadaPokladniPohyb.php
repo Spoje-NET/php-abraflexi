@@ -11,7 +11,7 @@ namespace FlexiPeeHP;
 /**
  * Číselná řada pokladního pohybu
  */
-class RadaPokladniPohyb extends FlexiBeeRW
+class RadaPokladniPohyb extends RW
 {
     /**
      * Evidence užitá objektem.

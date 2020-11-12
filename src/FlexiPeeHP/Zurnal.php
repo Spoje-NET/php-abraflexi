@@ -14,7 +14,7 @@ namespace FlexiPeeHP;
  *
  * @link https://demo.flexibee.eu/c/demo/adresar/properties položky evidence
  */
-class Zurnal extends FlexiBeeRO
+class Zurnal extends RO
 {
     /**
      * Evidence užitá objektem.
@@ -56,7 +56,7 @@ class Zurnal extends FlexiBeeRO
      *       CREATE INDEX CONCURRENTLY tname_index ON wzurnal (tabulka);
      *       CREATE INDEX CONCURRENTLY rid_index ON wzurnal (idZaznamu);
      *
-     * @param FlexiBeeRO $object
+     * @param RO $object
      * @return array changes history
      */
     public function getAllChanges($object)
@@ -79,7 +79,7 @@ class Zurnal extends FlexiBeeRO
     /**
      * obtain last change array
      *
-     * @param FlexiBeeRO $object
+     * @param RO $object
      * @return array Old/New values pairs
      */
     public function getLastChange($object)

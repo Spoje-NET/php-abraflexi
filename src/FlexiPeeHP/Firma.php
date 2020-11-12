@@ -3,7 +3,7 @@
  * FlexiPeeHP - Document Default Address support
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2018-2019 Spoje.Net
+ * @copyright  (C) 2018-2020 Spoje.Net
  */
 
 namespace FlexiPeeHP;

@@ -15,7 +15,7 @@ namespace FlexiPeeHP;
  * @link https://www.flexibee.eu/api/dokumentace/ref/attachments/
  * @link https://demo.flexibee.eu/c/demo/priloha/properties
  */
-class Priloha extends FlexiBeeRW {
+class Priloha extends RW {
 
     /**
      * Evidence užitá objektem.
@@ -69,7 +69,7 @@ class Priloha extends FlexiBeeRW {
     /**
      * Obtain url for Attachment Download
      *
-     * @param FlexiBeeRO $object Source object
+     * @param RO $object Source object
      * @return string url
      */
     public static function getDownloadUrl($object) {
@@ -81,7 +81,7 @@ class Priloha extends FlexiBeeRW {
     /**
      * Obtain first attachment for given object
      *
-     * @param  FlexiBeeRO $object
+     * @param  RO $object
      * @return array
      */
     public static function getFirstAttachment($object) {
@@ -113,7 +113,7 @@ class Priloha extends FlexiBeeRW {
     /**
      * Send "download" headers first and then file itself
      *
-     * @param FlexiBeeRO $object
+     * @param RO $object
      * @param int|string $attachmentID
      */
     public static function download($object, $format = 'pdf',
@@ -166,7 +166,7 @@ class Priloha extends FlexiBeeRW {
     /**
      * Add Attachment from File
      *
-     * @param FlexiBeeRW $object
+     * @param RW $object
      * @param string     $filename
      *
      * @return Priloha attached file object
@@ -179,7 +179,7 @@ class Priloha extends FlexiBeeRW {
     /**
      * Add Attachment related to current $object content
      *
-     * @param FlexiBeeRW $object
+     * @param RW $object
      * @param string $filename
      * @param string $attachment Body
      * @param string $contentType Attachment Content-Type
@@ -208,7 +208,7 @@ class Priloha extends FlexiBeeRW {
     /**
      * Obtain Record related attachments list
      *
-     * @param FlexiBeeRO $object
+     * @param RO $object
      * 
      * @return array
      */

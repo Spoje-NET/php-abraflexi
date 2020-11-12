@@ -14,7 +14,7 @@ namespace FlexiPeeHP;
  *
  * @author vitex
  */
-class Report extends FlexiBeeRW {
+class Report extends RW {
 
     /**
      * Evidence užitá objektem.
@@ -35,8 +35,8 @@ class Report extends FlexiBeeRW {
     public function loadFromFlexiBee($id = null) {
         if (strstr($id, 'code:')) { //Dirty Hack ⚠ Error 400: Entita 'Report' neobsahuje kód nebo ho nelze použít jako ID (není unikátní)
             $candidates = $this->getColumnsFromFlexibee(['id', 'kod'], null, 'kod');
-            if (array_key_exists(\FlexiPeeHP\FlexiBeeRO::uncode($id), $candidates)) {
-                $id = intval($candidates[\FlexiPeeHP\FlexiBeeRO::uncode($id)]['id']);
+            if (array_key_exists(\FlexiPeeHP\RO::uncode($id), $candidates)) {
+                $id = intval($candidates[\FlexiPeeHP\RO::uncode($id)]['id']);
             }
         }
         return parent::loadFromFlexiBee($id);

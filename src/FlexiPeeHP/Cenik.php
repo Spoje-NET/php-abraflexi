@@ -10,7 +10,7 @@
 
 namespace FlexiPeeHP;
 
-use FlexiPeeHP\FlexiBeeRW;
+use FlexiPeeHP\RW;
 use FlexiPeeHP\Stitky;
 use FlexiPeeHP\SubItems;
 
@@ -20,7 +20,7 @@ use FlexiPeeHP\SubItems;
  *
  * @link https://demo.flexibee.eu/c/demo/cenik/properties Vlastnosti evidence
  */
-class Cenik extends FlexiBeeRW
+class Cenik extends RW
 {
     use Stitky;
     use SubItems;

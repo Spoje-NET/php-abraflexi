@@ -13,7 +13,7 @@ namespace FlexiPeeHP;
  *
  * @link https://demo.flexibee.eu/c/demo/pokladna/properties
  */
-class Pokladna extends FlexiBeeRW
+class Pokladna extends RW
 {
     use Stitky;
     /**

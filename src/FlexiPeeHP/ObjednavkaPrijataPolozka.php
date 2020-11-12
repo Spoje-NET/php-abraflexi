@@ -8,9 +8,9 @@ namespace FlexiPeeHP;
  *
  * @link https://demo.flexibee.eu/c/demo/objednavka-prijata-polozka/properties
  */
-class ObjednavkaPrijataPolozka extends FlexiBeeRW
+class ObjednavkaPrijataPolozka extends RW
 {
-
+    use Stitky;
     /**
      * Evidence užitá objektem.
      *

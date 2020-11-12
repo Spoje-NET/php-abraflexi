@@ -13,7 +13,7 @@ namespace FlexiPeeHP;
  *
  * @link https://demo.flexibee.eu/c/demo/skladovy-pohyb-polozka/properties
  */
-class SkladovyPohybPolozka extends FlexiBeeRW
+class SkladovyPohybPolozka extends RW
 {
 
     use Stitky;

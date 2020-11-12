@@ -13,7 +13,7 @@ namespace FlexiPeeHP;
  *
  * @link https://demo.flexibee.eu/c/demo/faktura-vydana-polozka/properties položky evidence
  */
-class FakturaVydanaPolozka extends FlexiBeeRW
+class FakturaVydanaPolozka extends RW
 {
     use Stitky;
     /**

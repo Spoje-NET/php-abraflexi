@@ -10,7 +10,7 @@ namespace FlexiPeeHP;
 
 use FlexiPeeHP\Adresar;
 use FlexiPeeHP\Firma;
-use FlexiPeeHP\FlexiBeeRW;
+use FlexiPeeHP\RW;
 use FlexiPeeHP\Stitky;
 use FlexiPeeHP\SubItems;
 /**
@@ -18,7 +18,7 @@ use FlexiPeeHP\SubItems;
  *
  * @link https://demo.flexibee.eu/c/demo/adresar/properties položky evidence
  */
-class Adresar extends FlexiBeeRW
+class Adresar extends RW
 {
     use Stitky;
     use SubItems;

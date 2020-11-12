@@ -14,7 +14,7 @@ namespace FlexiPeeHP;
  * @link https://demo.flexibee.eu/c/demo/ucetni-obdobi/properties Položky evidence
  * @author vitex
  */
-class UcetniObdobi extends FlexiBeeRW
+class UcetniObdobi extends RW
 {
     /**
      * Evidence FlexiBee

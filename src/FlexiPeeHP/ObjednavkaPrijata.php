@@ -8,7 +8,7 @@ namespace FlexiPeeHP;
  *
  * @link https://demo.flexibee.eu/c/demo/objednavka-prijata/properties
  */
-class ObjednavkaPrijata extends FlexiBeeRW
+class ObjednavkaPrijata extends RW
 {
     use Stitky;
     use Firma;

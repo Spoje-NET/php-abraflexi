@@ -14,7 +14,7 @@ namespace FlexiPeeHP;
  *
  * @author vitex
  */
-class Root extends FlexiBeeRW {
+class Root extends RW {
 
     /**
      * Update HTTPS certificate
