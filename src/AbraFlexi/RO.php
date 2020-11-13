@@ -2674,10 +2674,8 @@ class RO extends \Ease\Sand {
      */
     public function logBanner($prefix = null, $suffix = null) {
         parent::logBanner($prefix,
-                ' AbraFlexi ' . str_replace('://', '://' . $this->user . '@',
-                        $this->getApiUrl()) . ' AbraFlexi v' . self::$libVersion . ' (PHP AbraFlexi ' . EvidenceList::$version . ') EasePHP Framework v' . \Ease\Atom::$frameworkVersion . ' ' .
-                $suffix
-        );
+                'ServerURL ' . str_replace('://', '://' . $this->user . '@',
+                        $this->getApiUrl()) . ' library v' . self::$libVersion . ' (AbraFlexi ' . EvidenceList::$version . ')', $suffix);
     }
 
     /**
