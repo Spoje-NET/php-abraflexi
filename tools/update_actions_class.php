@@ -19,10 +19,10 @@ $ok      = 0;
  * Obtain Actions for given evidence
  *
  * @param string     $evidence
- * @param FlexiBeeRO $syncer Class to read from FlexiBee
+ * @param RO $syncer Class to read from FlexiBee
  * @return array Actions structure
  */
-function getEvidenceActions($evidence, FlexiBeeRO $syncer)
+function getEvidenceActions($evidence, RO $syncer)
 {
     $columns = $syncer->getColumnsInfo($evidence);
     if (array_key_exists('zamekK', $columns)) {
@@ -131,7 +131,7 @@ foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
      * @var array
      */
 ';
-        $evidenceActions .= ' static public $'.lcfirst(FlexiBeeRO::evidenceToClassName($evidencePath)).' = '.var_export($structure,
+        $evidenceActions .= ' static public $'.lcfirst(RO::evidenceToClassName($evidencePath)).' = '.var_export($structure,
                 true).';
 ';
 

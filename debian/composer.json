@@ -3,7 +3,7 @@
   "description": "Library for easy interaction with czech accounting system abraflexi.",
   "homepage": "https://github.com/Spoje-NET/FlexiPeeHP",
   "license": "GPL-2.0+",
-  "version": "2.0",
+  "version": "2.1",
   "type": "library",
   "authors": [
     {
@@ -12,11 +12,13 @@
     }
   ],
   "require": {
-    "ext-curl": "*"
+    "ext-json": "*",
+    "ext-curl": "*",
+    "deb/ease-core": "*"
   },
   "autoload": {
     "psr-4": {
-      "FlexiPeeHP\\": "."
+      "AbraFlexi\\": "."
     }
   },
   "repositories": [

@@ -8,10 +8,10 @@ require_once '../testing/bootstrap.php';
  * Obtain structure for given evidence
  *
  * @param string     $evidence
- * @param FlexiBeeRO $syncer Class to read from FlexiBee
+ * @param RO $syncer Class to read from FlexiBee
  * @return array     Evidence structure
  */
-function getColumnsInfo($evidence, FlexiBeeRO $syncer)
+function getColumnsInfo($evidence, RO $syncer)
 {
     $useKeywords = [];
     $flexinfo    = $syncer->performRequest($evidence.'/properties.json');

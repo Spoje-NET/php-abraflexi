@@ -17,10 +17,10 @@ $outFullJson = 'EvidenceFullList.json';
  * Obtain structure for given evidence
  *
  * @param string     $evidence
- * @param FlexiBeeRO $syncer Class to read from FlexiBee
+ * @param RO $syncer Class to read from FlexiBee
  * @return array     Evidence structure
  */
-function getColumnsInfo($evidence, FlexiBeeRO $syncer)
+function getColumnsInfo($evidence, RO $syncer)
 {
     $useKeywords = [];
     $flexinfo    = $syncer->performRequest($evidence.'/properties.json');
@@ -56,7 +56,7 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/evidence-list Přehled evidencí
  */
-class EvidenceList extends FlexiBeeRO
+class EvidenceList extends RO
 {
     /**
      * Evidence užitá objektem.

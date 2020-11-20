@@ -20,7 +20,7 @@ $ok      = 0;
  * 
  * @return array     Relations structure
  */
-function getEvidenceRelations($evidence, FlexiBeeRO $syncer)
+function getEvidenceRelations($evidence, RO $syncer)
 {
     $relations = [];
     $flexinfo  = $syncer->performRequest($evidence.'/relations.json');
@@ -87,7 +87,7 @@ foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
      * @var array
      */
 ';
-        $evidenceRels .= ' static public $'.lcfirst(FlexiBeeRO::evidenceToClassName($evidencePath)).' = '.var_export($structure,
+        $evidenceRels .= ' static public $'.lcfirst(RO::evidenceToClassName($evidencePath)).' = '.var_export($structure,
                 true).';
 ';
 

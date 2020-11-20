@@ -27,7 +27,7 @@ $kontakter->insertToFlexiBee();
 
 if ($kontakter->lastResponseCode == 201) {
     $kontakter->addStatusMessage('Password set', 'success');
-    $kontakter->loadFromFlexiBee();
+    $kontakter->loadFromAbraFlexi();
 } else {
     $kontakter->addStatusMessage('Password set failed', 'warning');
 }

@@ -16,10 +16,10 @@ $ok      = 0;
  * Obtain Formats for given evidence
  *
  * @param string     $evidence
- * @param FlexiBeeRO $syncer Class to read from FlexiBee
+ * @param RO $syncer Class to read from FlexiBee
  * @return array     Formats structure
  */
-function getEvidenceFormats($evidence, FlexiBeeRO $syncer)
+function getEvidenceFormats($evidence, RO $syncer)
 {
 
     $syncer->setEvidence($evidence);
@@ -29,7 +29,7 @@ function getEvidenceFormats($evidence, FlexiBeeRO $syncer)
         $formats = [];
         foreach (Formats::$formats as $cancode => $candidate) {
             $syncer->setFormat($candidate['suffix']);
-            $syncer->loadFromFlexiBee($id);
+            $syncer->loadFromAbraFlexi($id);
             if ($syncer->lastResponseCode == 200) {
                 $formats[$cancode] = $candidate['suffix'];
             }
@@ -162,7 +162,7 @@ $evidenceFormats .= '
 
     ';
 
-$syncer = new FlexiBeeRO();
+$syncer = new RO();
 $syncer->setObjectName('FlexiBee Evidence Formats');
 $syncer->addStatusMessage('Updating Evidences Formats');
 
@@ -182,7 +182,7 @@ foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
      * @var array
      */
 ';
-        $evidenceFormats .= ' static public $'.lcfirst(FlexiBeeRO::evidenceToClassName($evidencePath)).' = '.var_export($structure,
+        $evidenceFormats .= ' static public $'.lcfirst(RO::evidenceToClassName($evidencePath)).' = '.var_export($structure,
                 true).';
 ';
         $syncer->addStatusMessage($pos.' of '.count(EvidenceList::$name).' '.$evidencePath.': formats: '.implode(',',$structure), 'success');

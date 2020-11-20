@@ -37,7 +37,7 @@ class Properties
 $statuser = new Status();
 
 
-$syncer = new FlexiBeeRO();
+$syncer = new RO();
 $syncer->setObjectName('FlexiBee Evidence Properties');
 $syncer->addStatusMessage('Updating Evidences Properties');
 
