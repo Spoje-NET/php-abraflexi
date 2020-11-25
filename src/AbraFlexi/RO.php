@@ -635,7 +635,7 @@ class RO extends \Ease\Sand {
      * 
      * @param \DateTime $date
      */
-    public static function dateToFlexiDate($date) {
+    public static function dateToFlexiDate(\DateTime $date) {
         return $date->format(self::$DateFormat);
     }
 
@@ -644,7 +644,7 @@ class RO extends \Ease\Sand {
      * 
      * @param \DateTime $dateTime
      */
-    public static function dateToFlexiDateTime($dateTime) {
+    public static function dateToFlexiDateTime(\DateTime $dateTime) {
         return $dateTime->format(self::$DateTimeFormat);
     }
 
