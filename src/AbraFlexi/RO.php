@@ -1050,7 +1050,7 @@ class RO extends \Ease\Sand {
                 }
             case 400: //Bad Request parameters
             default: //Something goes wrong
-                if (!empty($responseDecoded) && is_array($responseDecoded) && array_key_exists(0, $responseDecoded)) {
+                if (!empty($responseDecoded) && is_array($responseDecoded) && (array_key_exists(0, $responseDecoded) || (array_key_exists('stats', $responseDecoded) && intval($responseDecoded['stats']['failed'])))) {
                     $this->parseError($responseDecoded);
                 }
 
