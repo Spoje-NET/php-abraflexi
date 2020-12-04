@@ -564,6 +564,12 @@ class RO extends \Ease\Sand {
                         $this->user . ':' . $this->password); // set username and password
             }
             if (!is_null($this->timeout)) {
+
+                \curl_setopt($this->curl, CURLOPT_HTTPHEADER, [
+                    'Connection: Keep-Alive',
+                    'Keep-Alive: ' . $this->timeout
+                ]);
+
                 \curl_setopt($this->curl, CURLOPT_TIMEOUT, $this->timeout);
             }
 
