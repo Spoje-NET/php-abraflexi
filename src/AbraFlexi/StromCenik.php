@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * AbraFlexi - Objekt přiřazení položek ceníku ku stromu.
  *

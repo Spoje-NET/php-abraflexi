@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Abra Flexi - Read Only Access to AbraFlexi class.
  *

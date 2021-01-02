@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace AbraFlexi;
 
@@ -8,11 +9,12 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/objednavka-prijata/properties
  */
-class ObjednavkaPrijata extends RW
-{
+class ObjednavkaPrijata extends RW {
+
     use Stitky;
     use Firma;
     use Sum;
+
     /**
      * Evidence použitá třídou.
      *

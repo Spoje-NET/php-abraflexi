@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * AbraFlexi - Objekt vydané faktury.
  *
@@ -20,6 +22,7 @@ class FakturaVydana extends RW {
     use Firma;
     use Sum;
     use SubItems;
+    use Email;
 
     /**
      * Evidence užitá objektem.

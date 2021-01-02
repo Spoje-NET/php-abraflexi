@@ -1,7 +1,7 @@
 {
   "name": "deb/abraflexi",
-  "description": "Library for easy interaction with czech accounting system abraflexi.",
-  "homepage": "https://github.com/Spoje-NET/FlexiPeeHP",
+  "description": "Library for easy interaction with czech accounting system AbraFlexi.",
+  "homepage": "https://github.com/Spoje-NET/php-abraflexi",
   "license": "GPL-2.0+",
   "version": "2.1",
   "type": "library",
