@@ -21,7 +21,8 @@ class Zavazek extends \AbraFlexi\RW {
     use Stitky;
     use Firma;
     use Sum;
-
+    use Email;
+    
     public $evidence = 'zavazek';
 
 }

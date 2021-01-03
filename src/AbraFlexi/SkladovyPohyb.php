@@ -21,6 +21,7 @@ class SkladovyPohyb extends RW {
     use Stitky;
     use Firma;
     use Sum;
+    use Email;
 
     /**
      * Evidence užitá objektem.

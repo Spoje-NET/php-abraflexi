@@ -25,6 +25,7 @@ class Banka extends RW {
 
     use Stitky;
     use Firma;
+    use Email;
 
     /**
      * Evidence užitá objektem.

@@ -14,6 +14,7 @@ class ObjednavkaPrijata extends RW {
     use Stitky;
     use Firma;
     use Sum;
+    use Email;
 
     /**
      * Evidence použitá třídou.

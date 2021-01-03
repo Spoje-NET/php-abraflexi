@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * AbraFlexi - Document Email support
  *
@@ -13,12 +11,58 @@ namespace AbraFlexi;
 
 /**
  * Add functions to use with "email" data column
+ * 
+ * Please use with:
+ * 
+ * faktura-prijata
+ * prodejka
+ * doklad-k-uhrade
+ * objednavka-vydana
+ * vzajemny-zapocet
+ * banka
+ * pokladni-pohyb
+ * faktura-vydana
+ * skladovy-pohyb
+ * pohledavka
+ * zavazek
+ * nabidka-prijata
+ * poptavka-vydana
+ * nabidka-vydana
+ * poptavka-prijata
+ * interni-doklad
+ * objednavka-prijata
+ * 
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
 trait Email {
 
+    /**
+     * Get recipient for documnet.
+     * 
+     * 1. try Document's "kontaktEmail" field
+     * 2. try Document's company email
+     * 3. try Document's primary contact mail
+     * 4. try Document's any contact mail
+     * 
+     * @return string
+     */
     public function getEmail() {
-        return $this->getDataValue('email');
+        if (empty($this->getDataValue('kontaktEmail'))) {
+            $addresser = new Adresar($this->getDataValue('firma'), array_merge(['detail' => 'custom:email'], $this->getConnectionOptions()));
+            if (empty($addresser->getDataValue('email'))) {
+                $contacter = new Kontakt(null, $this->getConnectionOptions());
+                $candidates = $contacter->getColumnsFromAbraFlexi(['email'], ['firma' => $addresser, 'order' => 'primarni', 'email' => 'not empty']);
+                if ($candidates) {
+                    $email = $candidates[0]['email'];
+                }
+            } else {
+                $email = $addresser->getDataValue('email');
+            }
+        } else {
+            $email = $this->getDataValue('kontaktEmail');
+        }
+
+        return;
     }
 
 }
