@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Document Default Address support
+ * AbraFlexi - Document Email support
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2018-2019 Spoje.Net
@@ -12,28 +12,13 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Add for Objects use with "firma" data column
+ * Add functions to use with "email" data column
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-trait Firma {
+trait Email {
 
-    /**
-     * Here Customer's or Provider's comany object live
-     * @var \AbraFlexi\Adresar
-     */
-    public $firma = null;
-
-    /**
-     * Instance of Adresar( $this->getDataValue('firma') ) 
-     * 
-     * @return Adresar
-     */
-    public function getFirmaObject() {
-        if (is_null($this->firma)) {
-            $this->firma = new Adresar($this->getDataValue('firma'),
-                    ['details' => 'id']);
-        }
-        return $this->firma;
+    public function getEmail() {
+        return $this->getDataValue('email');
     }
 
 }
