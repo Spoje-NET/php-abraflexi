@@ -50,11 +50,7 @@ trait Email {
         if (empty($this->getDataValue('kontaktEmail'))) {
             $addresser = new Adresar($this->getDataValue('firma'), array_merge(['detail' => 'custom:email'], $this->getConnectionOptions()));
             if (empty($addresser->getDataValue('email'))) {
-                $contacter = new Kontakt(null, $this->getConnectionOptions());
-                $candidates = $contacter->getColumnsFromAbraFlexi(['email'], ['firma' => $addresser, 'order' => 'primarni', 'email' => 'not empty']);
-                if ($candidates) {
-                    $email = $candidates[0]['email'];
-                }
+                $email = $addresser->getNotificationEmailAddress();
             } else {
                 $email = $addresser->getDataValue('email');
             }
@@ -62,7 +58,7 @@ trait Email {
             $email = $this->getDataValue('kontaktEmail');
         }
 
-        return;
+        return $email;
     }
 
 }

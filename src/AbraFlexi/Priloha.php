@@ -221,10 +221,10 @@ class Priloha extends RW {
         $object->setFormat('json');
         $atch = $object->getFlexiData($fburl . '/prilohy' . (count($object->defaultUrlParams) ? '?' . http_build_query($object->defaultUrlParams) : ''));
         $object->setFormat($oFormat);
-        if (count($atch) && ($object->lastResponseCode == 200)) {
-            foreach ($atch as $attachmentID => $attachmentData) {
-                $attachments[$attachmentID] = $attachmentData;
-                $attachments[$attachmentID]['url'] = $object->url . '/c/' . $object->company . '/priloha/' . $attachmentData['id'];
+        if (!empty($atch) && ($object->lastResponseCode == 200)) {
+            foreach ($atch as $attachmentData) {
+                $attachments[$attachmentData['id']] = $attachmentData;
+                $attachments[$attachmentData['id']]['url'] = $object->url . '/c/' . $object->company . '/priloha/' . $attachmentData['id'];
             }
         }
         return $attachments;
