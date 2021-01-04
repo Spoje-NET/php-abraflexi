@@ -1286,7 +1286,7 @@ class RO extends \Ease\Sand {
      * 
      * @return string
      */
-    public static function urlEncode($urlRaw) {
+    public static function urlEncode(string $urlRaw) {
         return str_replace(['%27', '%3A'], ["'", ':'], rawurlencode($urlRaw));
     }
 
