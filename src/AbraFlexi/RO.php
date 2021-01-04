@@ -6,7 +6,7 @@ declare(strict_types=1);
  * AbraFlexi - Read Only Access to AbraFlexi class.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2020 Spoje.Net
+ * @copyright  (C) 2015-2021 Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -1298,7 +1298,7 @@ class RO extends \Ease\Sand {
      *
      * @return array Data obtained
      */
-    public function getFlexiData($suffix = null, $conditions = null) {
+    public function getFlexiData(string $suffix = '', $conditions = null) {
         $finalUrl = '';
         $evidenceToRestore = null;
         $urlParams = $this->defaultUrlParams;
@@ -1345,7 +1345,7 @@ class RO extends \Ease\Sand {
             }
             $finalUrl .= http_build_query(array_map(function($a) {
                         return is_bool($a) ? ($a ? 'true' : 'false' ) : $a;
-                    }, $urlParams), null, '&', PHP_QUERY_RFC3986);
+                    }, $urlParams), '', '&', PHP_QUERY_RFC3986);
         }
 
         $transactions = $this->performRequest($finalUrl, 'GET');
@@ -1516,6 +1516,8 @@ class RO extends \Ease\Sand {
     public static function urlizeId($id) {
         if (is_array($id)) {
             $id = rawurlencode('(' . self::flexiUrl($id) . ')');
+        } elseif (is_numeric($id)) {
+            $id = strval($id);
         } else if (preg_match('/^ext:/', $id)) {
             $id = self::urlEncode($id);
         } else if (preg_match('/^code:/', $id)) {
@@ -1649,7 +1651,7 @@ class RO extends \Ease\Sand {
 
         $conditions['detail'] = $detail;
 
-        $flexiData = $this->getFlexiData(null, $conditions);
+        $flexiData = $this->getFlexiData('', $conditions);
 
         if (is_string($indexBy) && is_array($flexiData) && array_key_exists(0,
                         $flexiData) && array_key_exists($indexBy, $flexiData[0])) {
