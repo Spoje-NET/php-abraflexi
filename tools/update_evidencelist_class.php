@@ -7,10 +7,8 @@ define('EASE_LOGGER', 'console|syslog');
 
 require_once '../testing/bootstrap.php';
 
-
-
-$outFile     = 'EvidenceList.php';
-$outJson     = 'EvidenceList.json';
+$outFile = 'EvidenceList.php';
+$outJson = 'EvidenceList.json';
 $outFullJson = 'EvidenceFullList.json';
 
 /**
@@ -20,29 +18,28 @@ $outFullJson = 'EvidenceFullList.json';
  * @param RO $syncer Class to read from FlexiBee
  * @return array     Evidence structure
  */
-function getColumnsInfo($evidence, RO $syncer)
-{
+function getColumnsInfo($evidence, RO $syncer) {
     $useKeywords = [];
-    $flexinfo    = $syncer->performRequest($evidence.'/properties.json');
+    $flexinfo = $syncer->performRequest($evidence . '/properties.json');
     if (count($flexinfo) && array_key_exists('properties', $flexinfo)) {
         foreach ($flexinfo['properties']['property'] as $evidenceProperty) {
-            $key                       = $evidenceProperty['propertyName'];
-            $useKeywords[$key]         = $evidenceProperty;
+            $key = $evidenceProperty['propertyName'];
+            $useKeywords[$key] = $evidenceProperty;
             $useKeywords[$key]['name'] = $evidenceProperty['name'];
             $useKeywords[$key]['type'] = $evidenceProperty['type'];
         }
     }
     return $useKeywords;
 }
-$statuser = new Status();
 
+$statuser = new Status();
 
 $evidenceList = '<?php
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: '.date(DATE_RFC2822).' 
- * From:      '.$statuser->url.'
+ * Generated: ' . date(DATE_RFC2822) . ' 
+ * From:      ' . $statuser->url . '
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2016-2017 Spoje.Net
@@ -88,14 +85,14 @@ $evidenceList .= '    /**
      * @var string
      */
 ';
-$evidenceList .= ' static public $version = \''.$statuser->getDataValue('version').'\';
+$evidenceList .= ' static public $version = \'' . $statuser->getDataValue('version') . '\';
 
 ';
 
 $syncer = new EvidenceList();
 $syncer->addStatusMessage('Updating Evidences List');
 
-$evidencies = $syncer->getColumnsFromFlexibee(['evidencePath', 'evidenceName']);
+$evidencies = $syncer->getColumnsFromAbraFlexi(['evidencePath', 'evidenceName']);
 
 //Add Evidencies Forbidden on demo.FlexiBee.eu
 $evidencies[] = [
@@ -116,11 +113,10 @@ $evidencies[] = [
     "formCode" => "cisOsoby"
 ];
 
-
 $evlist = [];
 foreach ($evidencies as $evidenceID => $evidence) {
     if (array_key_exists('evidencePath', $evidence)) {
-        $evlist[$evidence['evidencePath']]   = $evidence['evidenceName'];
+        $evlist[$evidence['evidencePath']] = $evidence['evidenceName'];
         $fullList[$evidence['evidencePath']] = $evidence;
     }
 }
@@ -134,7 +130,7 @@ $evidenceList .= '    /**
      * @var array
      */
 ';
-$evidenceList .= ' static public $name = '.var_export($evlist, true).';
+$evidenceList .= ' static public $name = ' . var_export($evlist, true) . ';
 
 ';
 $evidenceList .= '    /**
@@ -143,7 +139,7 @@ $evidenceList .= '    /**
      * @var array
      */
 ';
-$evidenceList .= ' static public $evidences = '.var_export($fullList, true).';
+$evidenceList .= ' static public $evidences = ' . var_export($fullList, true) . ';
 
 ';
 
@@ -159,12 +155,11 @@ $evidenceList .= '
     }
     ';
 
-
 $evidenceList .= '}
 ';
 
-$syncer->addStatusMessage('Updating of '.count($fullList).' Evidences Infos done',
-    'success');
+$syncer->addStatusMessage('Updating of ' . count($fullList) . ' Evidences Infos done',
+        'success');
 file_put_contents($outFile, $evidenceList);
 
 file_put_contents($outJson, json_encode($evlist));

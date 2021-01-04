@@ -1,4 +1,4 @@
-php-abraflexi (2.1) UNRELEASED; urgency=medium
+php-abraflexi (2.2) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -19,8 +19,9 @@ php-abraflexi (2.1) UNRELEASED; urgency=medium
   * Scrutinizer - new PHP Analysis
   * Update fro AbraFlexi 2020.3.0.1
   * Update for FlexiBee 2020.3.0.3
+  * Update for AbraFlexi 2020.3.0.10
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Fri, 20 Nov 2020 06:31:46 +0100
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Mon, 04 Jan 2021 03:44:26 +0100
 
 flexipeehp (1.12) experimental; urgency=medium
 
