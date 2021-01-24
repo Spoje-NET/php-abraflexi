@@ -91,7 +91,7 @@ class RW extends RO {
         }
         $this->postFields = $this->getJsonizedData($data,
                 $this->debug ? JSON_PRETTY_PRINT : 0);
-        return $this->performRequest(null, 'PUT');
+        return $this->performRequest('', 'PUT');
     }
 
     /**

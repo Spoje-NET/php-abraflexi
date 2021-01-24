@@ -887,7 +887,7 @@ class RO extends \Ease\Sand {
             }
         }
         if (!empty($rowIdentifier)) {
-            $this->apiURL .= '/' . self::urlEncode($rowIdentifier);
+            $this->apiURL .= '/' . self::urlEncode(strval($rowIdentifier));
         }
         $this->apiURL .= '.' . $this->format;
     }
@@ -914,7 +914,7 @@ class RO extends \Ease\Sand {
      * 
      * @return array|boolean Výsledek operace
      */
-    public function performRequest($urlSuffix = null, $method = 'GET',
+    public function performRequest($urlSuffix = '', $method = 'GET',
             $format = null) {
         $this->rowCount = null;
         $this->responseStats = [];
@@ -1047,6 +1047,9 @@ class RO extends \Ease\Sand {
 
                 $this->lastResult = $mainResult;
                 break;
+            case 304:
+                // Záznam nebyl modifikován (v kombinaci s hlavičkou If-Modified-Since).
+                break;
 
             case 500: // Internal Server Error
                 if ($this->debug === true) {
@@ -1057,6 +1060,10 @@ class RO extends \Ease\Sand {
                     break;
                 }
             case 400: //Bad Request parameters
+            case 401: //unauthorized    
+            case 402: //Cílový systém nemá aktivované REST API pro zápis. U čtecích operací se vrací 404. 
+            case 403: //   Uživatel na tuto operaci nemá oprávnění. Tato chyba se zobrazí i v případě, že danou operaci neumožňuje licence.
+            case 406: //
             default: //Something goes wrong
                 if (!empty($responseDecoded) && is_array($responseDecoded) && (array_key_exists(0, $responseDecoded) || (array_key_exists('stats', $responseDecoded) && intval($responseDecoded['stats']['failed'])))) {
                     $this->parseError($responseDecoded);
@@ -1157,28 +1164,33 @@ class RO extends \Ease\Sand {
      * @return string response format
      */
     public function contentTypeToResponseFormat($contentType, $url = null) {
-        if (!empty($url)) {
-            $url = parse_url($url, PHP_URL_PATH);
-        }
 
-        $contentTypeClean = strstr($contentType, ';') ? substr($contentType, 0,
-                        strpos($contentType, ';')) : $contentType;
+        if ($contentType) {
+            if (!empty($url)) {
+                $url = parse_url($url, PHP_URL_PATH);
+            }
 
-        switch ($url) {
-            case '/login-logout/login';
-                $responseFormat = 'json';
-                break;
-            default :
-                switch ($contentTypeClean) {
-                    case 'text/javascript':
-                        $responseFormat = 'js';
-                        break;
+            $contentTypeClean = strstr($contentType, ';') ? substr($contentType, 0,
+                            strpos($contentType, ';')) : $contentType;
 
-                    default:
-                        $responseFormat = Formats::contentTypeToSuffix($contentTypeClean);
-                        break;
-                }
-                break;
+            switch ($url) {
+                case '/login-logout/login';
+                    $responseFormat = 'json';
+                    break;
+                default :
+                    switch ($contentTypeClean) {
+                        case 'text/javascript':
+                            $responseFormat = 'js';
+                            break;
+
+                        default:
+                            $responseFormat = Formats::contentTypeToSuffix($contentTypeClean);
+                            break;
+                    }
+                    break;
+            }
+        } else {
+            $responseFormat = null;
         }
 
         return $responseFormat;
@@ -1343,7 +1355,7 @@ class RO extends \Ease\Sand {
             } else {
                 $finalUrl .= '?';
             }
-            $finalUrl .= http_build_query(array_map(function($a) {
+            $finalUrl .= http_build_query(array_map(function ($a) {
                         return is_bool($a) ? ($a ? 'true' : 'false' ) : $a;
                     }, $urlParams), '', '&', PHP_QUERY_RFC3986);
         }
@@ -1378,7 +1390,7 @@ class RO extends \Ease\Sand {
         if (is_null($id)) {
             $id = $this->getMyKey();
         }
-        $flexidata = $this->getFlexiData($this->getEvidenceUrl() . '/' . self::urlizeId($id));
+        $flexidata = $this->getFlexiData($this->getEvidenceUrl() . '/' . is_string($id) ? self::urlizeId($id) : $id);
         if ($this->lastResponseCode == 200) {
             $this->apiURL = $this->curlInfo['url'];
             if (is_array($flexidata) && (count($flexidata) == 1) && is_array(current($flexidata))) {
@@ -1781,7 +1793,7 @@ class RO extends \Ease\Sand {
                     $parts[$column] = $column . " is null";
                 } elseif (is_array($data[$column])) {
                     $parts[$column] = $column . " in (" . implode(',',
-                                    array_map(function($a, $column) {
+                                    array_map(function ($a, $column) {
                                         return $column == 'stitky' ? "'" . self::code($a) . "'" : "'$a'";
                                     }, $data[$column],
                                             array_fill(0, count($data[$column]), $column))) . ")";
