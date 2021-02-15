@@ -146,21 +146,17 @@ class Priloha extends RW {
      *
      * @param int $attachmentID
      * @param string $destination directory or filename with path
-     * @return int
+     * 
+     * @return int saved attachment length in bytes
      */
-    public static function saveToFile($attachmentID, $destination) {
+    public static function saveToFile(int $attachmentID, $destination) {
         $result = 0;
-        $downloader = new Priloha($attachmentID);
+        $downloader = new Priloha($attachmentID, ['autoload' => true]);
         if ($downloader->lastResponseCode == 200) {
-
-            $downloader->doCurlRequest(self::getDownloadURL($downloader), 'GET');
-            if ($downloader->lastResponseCode == 200) {
-                if (is_dir($destination)) {
-                    $destination .= '/' . $downloader->getDataValue('nazSoub');
-                }
-                $result = file_put_contents($destination,
-                        $downloader->lastCurlResponse);
+            if (is_dir($destination)) {
+                $destination .= '/' . $downloader->getDataValue('nazSoub');
             }
+            $result = file_put_contents($destination, $downloader->getDataValue('content'));
         }
         return $result;
     }
