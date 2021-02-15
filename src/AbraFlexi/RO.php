@@ -887,7 +887,7 @@ class RO extends \Ease\Sand {
             }
         }
         if (!empty($rowIdentifier)) {
-            $this->apiURL .= '/' . self::urlEncode(strval($rowIdentifier));
+            $this->apiURL .= '/' . self::urlEncode($rowIdentifier);
         }
         $this->apiURL .= '.' . $this->format;
     }
@@ -914,7 +914,7 @@ class RO extends \Ease\Sand {
      * 
      * @return array|boolean Výsledek operace
      */
-    public function performRequest($urlSuffix = '', $method = 'GET',
+    public function performRequest($urlSuffix = null, $method = 'GET',
             $format = null) {
         $this->rowCount = null;
         $this->responseStats = [];
@@ -963,6 +963,73 @@ class RO extends \Ease\Sand {
     }
 
     /**
+     * Fix field types in AbraFlexi server response
+     * 
+     * @param array $response raw response
+     * 
+     * @return array types resolved
+     */
+    public function fixResponseTypes(array $response) {
+        foreach ($response as $evidence => $records) {
+            if (array_key_exists($evidence, EvidenceList::$evidences)) {
+                foreach ($records as $recordId => $record) {
+                    $response[$evidence][$recordId] = $this->fixRecordTypes($record, $evidence);
+                }
+            }
+        }
+        return $response;
+    }
+
+    /**
+     * Fix AbraFlexi record field types
+     * 
+     * @param array $record
+     * 
+     * @param string $evidence force other than current
+     *  
+     * @return array with items typed
+     * 
+     * @throws \Ease\Exception
+     */
+    public function fixRecordTypes(array $record, $evidence = null) {
+        foreach ($record as $column => $value) {
+            if ($column && !strstr($column, '@')) {
+                $columnInfo = $this->getColumnInfo($column, $evidence);
+                if (is_null($columnInfo)) {
+                    $this->addStatusMessage(sprintf(_('Unknown response field %s. (Please update library or static definitions)'), $column . '@' . $evidence, $columnInfo['type']), 'debug');
+                } else {
+                    switch ($columnInfo['type']) {
+                        case 'logic':
+                            $record[$column] = boolval($value);
+                            break;
+                        case 'relation':
+                        case 'select':
+                        case 'string':
+                            $record[$column] = strval($value);
+                            break;
+                        case 'integer':
+                            $record[$column] = intval($value);
+                            break;
+                        case 'numeric':
+                            $record[$column] = floatval($value);
+                            break;
+                        case 'datetime':
+                            $record[$column] = empty($value) ? null : self::flexiDateTimeToDateTime($value);
+                            break;
+                        case 'date':
+                            $record[$column] = empty($value) ? null : self::flexiDateToDateTime($value);
+                            break;
+                        default:
+                            throw new \Ease\Exception(sprintf(_('Unknown response field %s type: %s. (Please update library or static definitions)'), $column . '@' . $evidence, $columnInfo['type']));
+                            break;
+                    }
+                }
+            }
+        }
+        return $record;
+    }
+
+    /**
      * Convert AbraFlexi Response JSON to Array
      *
      * @param string $rawJson
@@ -974,7 +1041,7 @@ class RO extends \Ease\Sand {
         $decodeError = json_last_error_msg();
         if ($decodeError == 'No error') {
             if (array_key_exists($this->nameSpace, $responseDecoded)) {
-                $responseDecoded = $responseDecoded[$this->nameSpace];
+                $responseDecoded = $this->fixResponseTypes($responseDecoded[$this->nameSpace]);
             }
         } else {
             if ($this->debug) {
@@ -993,7 +1060,7 @@ class RO extends \Ease\Sand {
      * @return array
      */
     public function rawXmlToArray($rawXML) {
-        return self::xml2array($rawXML);
+        return $this->fixResponseTypes(self::xml2array($rawXML));
     }
 
     /**
@@ -1047,9 +1114,6 @@ class RO extends \Ease\Sand {
 
                 $this->lastResult = $mainResult;
                 break;
-            case 304:
-                // Záznam nebyl modifikován (v kombinaci s hlavičkou If-Modified-Since).
-                break;
 
             case 500: // Internal Server Error
                 if ($this->debug === true) {
@@ -1060,10 +1124,6 @@ class RO extends \Ease\Sand {
                     break;
                 }
             case 400: //Bad Request parameters
-            case 401: //unauthorized    
-            case 402: //Cílový systém nemá aktivované REST API pro zápis. U čtecích operací se vrací 404. 
-            case 403: //   Uživatel na tuto operaci nemá oprávnění. Tato chyba se zobrazí i v případě, že danou operaci neumožňuje licence.
-            case 406: //
             default: //Something goes wrong
                 if (!empty($responseDecoded) && is_array($responseDecoded) && (array_key_exists(0, $responseDecoded) || (array_key_exists('stats', $responseDecoded) && intval($responseDecoded['stats']['failed'])))) {
                     $this->parseError($responseDecoded);
@@ -1164,33 +1224,28 @@ class RO extends \Ease\Sand {
      * @return string response format
      */
     public function contentTypeToResponseFormat($contentType, $url = null) {
+        if (!empty($url)) {
+            $url = parse_url($url, PHP_URL_PATH);
+        }
 
-        if ($contentType) {
-            if (!empty($url)) {
-                $url = parse_url($url, PHP_URL_PATH);
-            }
+        $contentTypeClean = strstr($contentType, ';') ? substr($contentType, 0,
+                        strpos($contentType, ';')) : $contentType;
 
-            $contentTypeClean = strstr($contentType, ';') ? substr($contentType, 0,
-                            strpos($contentType, ';')) : $contentType;
+        switch ($url) {
+            case '/login-logout/login';
+                $responseFormat = 'json';
+                break;
+            default :
+                switch ($contentTypeClean) {
+                    case 'text/javascript':
+                        $responseFormat = 'js';
+                        break;
 
-            switch ($url) {
-                case '/login-logout/login';
-                    $responseFormat = 'json';
-                    break;
-                default :
-                    switch ($contentTypeClean) {
-                        case 'text/javascript':
-                            $responseFormat = 'js';
-                            break;
-
-                        default:
-                            $responseFormat = Formats::contentTypeToSuffix($contentTypeClean);
-                            break;
-                    }
-                    break;
-            }
-        } else {
-            $responseFormat = null;
+                    default:
+                        $responseFormat = Formats::contentTypeToSuffix($contentTypeClean);
+                        break;
+                }
+                break;
         }
 
         return $responseFormat;
@@ -1390,7 +1445,7 @@ class RO extends \Ease\Sand {
         if (is_null($id)) {
             $id = $this->getMyKey();
         }
-        $flexidata = $this->getFlexiData($this->getEvidenceUrl() . '/' . is_string($id) ? self::urlizeId($id) : $id);
+        $flexidata = $this->getFlexiData($this->getEvidenceUrl() . '/' . self::urlizeId($id));
         if ($this->lastResponseCode == 200) {
             $this->apiURL = $this->curlInfo['url'];
             if (is_array($flexidata) && (count($flexidata) == 1) && is_array(current($flexidata))) {
@@ -2684,8 +2739,8 @@ class RO extends \Ease\Sand {
         return array_filter(
                 $data,
                 function ($key) {
-            return !strchr($key, '@');
-        }, ARRAY_FILTER_USE_KEY);
+                    return !strchr($key, '@');
+                }, ARRAY_FILTER_USE_KEY);
     }
 
     /**
