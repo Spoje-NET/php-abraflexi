@@ -887,7 +887,7 @@ class RO extends \Ease\Sand {
             }
         }
         if (!empty($rowIdentifier)) {
-            $this->apiURL .= '/' . self::urlEncode($rowIdentifier);
+            $this->apiURL .= '/' . self::urlEncode(strval($rowIdentifier));
         }
         $this->apiURL .= '.' . $this->format;
     }
@@ -914,7 +914,7 @@ class RO extends \Ease\Sand {
      * 
      * @return array|boolean Výsledek operace
      */
-    public function performRequest($urlSuffix = null, $method = 'GET',
+    public function performRequest(string $urlSuffix = '', $method = 'GET',
             $format = null) {
         $this->rowCount = null;
         $this->responseStats = [];
@@ -996,7 +996,7 @@ class RO extends \Ease\Sand {
             if ($column && !strstr($column, '@')) {
                 $columnInfo = $this->getColumnInfo($column, $evidence);
                 if (is_null($columnInfo)) {
-                    $this->addStatusMessage(sprintf(_('Unknown response field %s. (Please update library or static definitions)'), $column . '@' . $evidence, $columnInfo['type']), 'debug');
+                    $this->addStatusMessage(sprintf(_('Unknown response field %s. (Please update library or static definitions)'), $column . '@' . $evidence), 'debug');
                 } else {
                     switch ($columnInfo['type']) {
                         case 'logic':
@@ -1018,6 +1018,8 @@ class RO extends \Ease\Sand {
                             break;
                         case 'date':
                             $record[$column] = empty($value) ? null : self::flexiDateToDateTime($value);
+                            break;
+                        case 'blob':
                             break;
                         default:
                             throw new \Ease\Exception(sprintf(_('Unknown response field %s type: %s. (Please update library or static definitions)'), $column . '@' . $evidence, $columnInfo['type']));

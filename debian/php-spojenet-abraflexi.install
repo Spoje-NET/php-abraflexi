@@ -1,3 +1,5 @@
 src/AbraFlexi/*.php             /usr/share/php/AbraFlexi
-debian/composer.json		 /usr/share/php/AbraFlexi
-static/*                         /usr/share/php/AbraFlexi/static
+debian/composer.json		/usr/share/php/AbraFlexi
+static/*                        /usr/share/php/AbraFlexi/static
+tools/*                         /usr/share/php/AbraFlexi/tools
+debian/bootstrap.php            /usr/share/php/AbraFlexi/tools

@@ -2,7 +2,7 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Mon, 04 Jan 2021 01:07:19 +0100 
+ * Generated: Mon, 15 Feb 2021 18:51:13 +0100 
  * From:      https://vitexsoftware.flexibee.eu:5434
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -46,7 +46,7 @@ class EvidenceList extends RO
      *
      * @var string
      */
- static public $version = '2020.3.0.10';
+ static public $version = '2021.1.3';
 
     /**
      * Evidences Path/Name listing.
@@ -62,8 +62,8 @@ class EvidenceList extends RO
   'atribut' => 'Atributy',
   'banka' => 'Banka',
   'format-elektronickeho-bankovnictvi' => 'Bankovní formáty',
-  'adresar-bankovni-ucet' => 'Bankovní spojení',
   'mzdy-bankovni-spojeni' => 'Bankovní spojení',
+  'adresar-bankovni-ucet' => 'Bankovní spojení',
   'cenova-uroven' => 'Cenové úrovně',
   'odberatel' => 'Ceny pro odběratele/skupiny odběratelů, speciální kódy',
   'cenik' => 'Ceník',
@@ -119,9 +119,10 @@ class EvidenceList extends RO
   'nastaveni' => 'Nastavení',
   'vazebni-doklad' => 'Navázané doklady',
   'nepritomnost' => 'Nepřítomnost',
+  'po-splatnosti' => 'Neuhrazené pohledávky/závazky po splatnosti',
   'naklad' => 'Náklady na události / aktivity',
-  'cenikovy-pohyb-prodej' => 'Nákupní, prodejní a skladové pohyby',
   'cenikovy-pohyb-nakup' => 'Nákupní, prodejní a skladové pohyby',
+  'cenikovy-pohyb-prodej' => 'Nákupní, prodejní a skladové pohyby',
   'intrastat-obchodni-transakce' => 'Obchodní transakce',
   'strom-koren' => 'Obecný strom',
   'obratova-predvaha' => 'Obratová předvaha',
@@ -162,8 +163,8 @@ class EvidenceList extends RO
   'pracovni-pomer' => 'Pracovní poměr',
   'pracovni-pomer-hlavicka' => 'Pracovní poměr',
   'prodejka' => 'Prodejní kasa',
-  'prace' => 'Práce pro střediska',
   'prace-mesic' => 'Práce pro střediska',
+  'prace' => 'Práce pro střediska',
   'pravo-viditelnosti' => 'Práva viditelnosti dat',
   'text' => 'Předdefinované texty',
   'predpis-zauctovani' => 'Předpisy zaúčtování',
@@ -186,6 +187,7 @@ class EvidenceList extends RO
   'bankovni-ucet' => 'Seznam bankovních účtů',
   'pokladna' => 'Seznam pokladen',
   'typ-prodejky' => 'Seznam prodejních kas',
+  'sestava' => 'Seznam sestav',
   'sklad' => 'Seznam skladů',
   'preneseni-dph' => 'Seznam zboží v režimu přenesení DPH',
   'skladova-karta' => 'Skladové karty',
@@ -195,7 +197,9 @@ class EvidenceList extends RO
   'skupina-zbozi' => 'Skupiny zboží a materiálu',
   'skupina-stitku' => 'Skupiny štítků',
   'smena' => 'Směny',
+  'souhrnne-hlaseni-dph' => 'Souhrnné hlášení k DPH',
   'rozvaha-po-uctech' => 'Soupis aktiv a pasiv',
+  'vysledovka-po-uctech' => 'Soupis nákladů a výnosů',
   'dashboard-panel' => 'Správa přehledů',
   'srazka' => 'Srážka',
   'ucetni-osnova' => 'Standardní účetní osnova',
@@ -240,8 +244,8 @@ class EvidenceList extends RO
   'umisteni' => 'Umístění',
   'umisteni-ve-skladu-police' => 'Umístění ve skladu',
   'umisteni-ve-skladu' => 'Umístění ve skladu',
-  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
   'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
   'sablona-upominky' => 'Upomínky',
   'strom' => 'Uzel stromu',
   'uzivatelsky-dotaz' => 'Uživatelské dotazy',
@@ -277,6 +281,7 @@ class EvidenceList extends RO
   'typ-stavu-ceniku' => 'Číselník stavů položek ceníku',
   'stav-ceniku' => 'Číselník stavů položek ceníku',
   'cislo-baliku' => 'Čísla balíků',
+  'radek-sestavy' => 'Řádek sestavy',
   'cleneni-kontrolni-hlaseni' => 'Řádky kontrolního hlášení DPH',
   'cleneni-dph' => 'Řádky přiznání DPH',
   'stitek' => 'Štítky',
@@ -437,6 +442,16 @@ class EvidenceList extends RO
     'formCode' => 'vykazPohybyNaUctech',
     'extIdSupported' => 'false',
   ),
+  'po-splatnosti' => 
+  array (
+    'evidenceType' => 'PO_SPLATNOSTI',
+    'evidenceName' => 'Neuhrazené pohledávky/závazky po splatnosti',
+    'evidencePath' => 'po-splatnosti',
+    'importStatus' => 'DISALLOWED',
+    'className' => 'cz.winstrom.vo.vyk.PoSplatnosti',
+    'formCode' => 'vykazPoSplatnostiWizard',
+    'extIdSupported' => 'false',
+  ),
   'prehled-zamestnancu' => 
   array (
     'evidenceType' => 'PREHLED_ZAMESTNANCU',
@@ -475,6 +490,16 @@ class EvidenceList extends RO
     'importStatus' => 'DISALLOWED',
     'className' => 'cz.winstrom.vo.vyk.SaldoKdatu',
     'formCode' => 'vykazSaldoKdatu',
+    'extIdSupported' => 'false',
+  ),
+  'souhrnne-hlaseni-dph' => 
+  array (
+    'evidenceType' => 'SOUHRNNE_HLASENI',
+    'evidenceName' => 'Souhrnné hlášení k DPH',
+    'evidencePath' => 'souhrnne-hlaseni-dph',
+    'importStatus' => 'DISALLOWED',
+    'className' => 'cz.winstrom.vo.vyk.SouhrnneHlaseni',
+    'formCode' => 'vykazSouhrnneHlaseni',
     'extIdSupported' => 'false',
   ),
   'stav-skladu-k-datu' => 
@@ -525,6 +550,16 @@ class EvidenceList extends RO
     'importStatus' => 'DISALLOWED',
     'className' => 'cz.winstrom.vo.vyk.StavyUctu',
     'formCode' => 'vykazVykazHospodareni',
+    'extIdSupported' => 'false',
+  ),
+  'vysledovka-po-uctech' => 
+  array (
+    'evidenceType' => 'VYSLEDOVKA_PO_UCTECH',
+    'evidenceName' => 'Soupis nákladů a výnosů',
+    'evidencePath' => 'vysledovka-po-uctech',
+    'importStatus' => 'DISALLOWED',
+    'className' => 'cz.winstrom.vo.vyk.StavyUctu',
+    'formCode' => 'vykazVysledovkaPoUctech',
     'extIdSupported' => 'false',
   ),
   'adresar-bankovni-ucet' => 
@@ -1010,6 +1045,17 @@ class EvidenceList extends RO
     'formCode' => 'vykazRadekPriznaniDph',
     'extIdSupported' => 'false',
     'dbName' => 'uRadekPriznaniDph',
+  ),
+  'radek-sestavy' => 
+  array (
+    'evidenceType' => 'RADEK_SESTAVY',
+    'evidenceName' => 'Řádek sestavy',
+    'evidencePath' => 'radek-sestavy',
+    'importStatus' => 'DISALLOWED',
+    'className' => 'cz.winstrom.vo.uses.Radek',
+    'formCode' => 'uSesRadky',
+    'extIdSupported' => 'false',
+    'dbName' => 'uSesRadky',
   ),
   'rezervace' => 
   array (
@@ -2455,6 +2501,18 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => 'PlatiOd <= 2021 AND PlatiDo >= 2021',
+  ),
+  'sestava' => 
+  array (
+    'evidenceType' => 'SESTAVA',
+    'evidenceName' => 'Seznam sestav',
+    'evidencePath' => 'sestava',
+    'importStatus' => 'DISALLOWED',
+    'className' => 'cz.winstrom.vo.uses.Sestava',
+    'formCode' => 'uSestavy',
+    'extIdSupported' => 'false',
+    'dbName' => 'uSestavy',
+    'evidenceFilter' => '(PlatiOd <= 2021 AND PlatiDo >= 2021) AND (TypSesK NOT IN (\'typSestavy.rozvahaIfrs\',\'typSestavy.vysledovIfrs\') OR Standard = false)',
   ),
   'setting-store' => 
   array (

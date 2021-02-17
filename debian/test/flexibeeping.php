@@ -1,10 +1,11 @@
 #!/usr/bin/env php
 <?php
+
 /**
  * FlexiPeeHP - Test in Debian.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2017 Spoje.Net
+ * @copyright  2017-2021 Spoje.Net
  */
 $autoload = '/tmp/flexipeehpdebiantest/autoload.php';
 if (file_exists($autoload)) {
@@ -20,7 +21,7 @@ if (file_exists('/usr/share/doc/FlexiPeeHP/config.json')) {
     $config = './config.json';
 }
 
-\Ease\Shared::instanced()->loadConfig($config,true);
+\Ease\Shared::instanced()->loadConfig($config, true);
 
 $tester = new \FlexiPeeHP\Company();
 

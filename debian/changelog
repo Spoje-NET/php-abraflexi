@@ -1,4 +1,4 @@
-php-abraflexi (2.2) UNRELEASED; urgency=medium
+php-abraflexi (2.3) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -20,8 +20,9 @@ php-abraflexi (2.2) UNRELEASED; urgency=medium
   * Update fro AbraFlexi 2020.3.0.1
   * Update for FlexiBee 2020.3.0.3
   * Update for AbraFlexi 2020.3.0.10
+  * Attachment saving optimization
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Mon, 04 Jan 2021 03:44:26 +0100
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Wed, 17 Feb 2021 08:19:44 +0100
 
 flexipeehp (1.12) experimental; urgency=medium
 

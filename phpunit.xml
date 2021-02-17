@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit colors="true" bootstrap="./testing/bootstrap.php">
-    <testsuites>
-        <testsuite name="all">
-            <directory>./testing</directory>
-        </testsuite>
-    </testsuites>
-
-    <filter>
-        <whitelist>
-            <directory suffix=".php">src/AbraFlexi</directory>
-        </whitelist>
-    </filter>
-
-    <!-- logging>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" colors="true" bootstrap="./testing/bootstrap.php" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <coverage>
+    <include>
+      <directory suffix=".php">src/AbraFlexi</directory>
+    </include>
+  </coverage>
+  <testsuites>
+    <testsuite name="all">
+      <directory>./testing</directory>
+    </testsuite>
+  </testsuites>
+  <!-- logging>
         <log type="tap" target="build/report.tap"/>
         <log type="junit" target="build/report.junit.xml"/>
         <log type="coverage-text" target="php://stdout"/>
