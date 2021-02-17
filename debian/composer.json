@@ -22,7 +22,7 @@
     }
   },
   "config": {
-    "vendor-dir": "/var/lib/php-abraflexi"
+    "vendor-dir": "/var/lib/php-spojenet-abraflexi"
   },
   "repositories": [
     {

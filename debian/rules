@@ -16,3 +16,5 @@ override_dh_install:
 	dh_install	
 	sed -i -e  "s/\/\.\.\/\.\.\//\//g" debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/RO.php
 	sed -i -e  "s/\.\.\/testing\//\/usr\/share\/php\/AbraFlexi\/tools\//g" debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/tools/*.php
+	sed -i '/git/d' debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/tools/force_update_all.sh
+	sed -i -e  "s/src\/AbraFlexi\///g" debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/tools/force_update_all.sh

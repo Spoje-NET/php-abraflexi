@@ -31,7 +31,7 @@ CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [AbraFlexi
 Vznik této knihovny by nebyl možný bez laskavé podpory společnosti [Spoje.Net](http://www.spoje.net), 
 která hradila vývoj řešení pro propojení LMS / AbraFlexi a importu skladu. :+1:
 
-![Spoje.Net](https://github.com/Spoje-NET/php-abraflexi/raw/master/spoje-net_logo.gif "Spoje.Net")
+![Spoje.Net](spoje-net_logo.gif?raw=true "Spoje.Net")
 
 **Dále chci poděkovat technické podpoře společnosti [ABRA Flexi s.r.o.](https://www.abraflexi.eu/podpora/) za jejich svatou trpělivost
 při reakcích na mé ne vždy bystré otázky a bugreporty.**
@@ -41,8 +41,9 @@ Parsování výsledků pro účely GDPR logování bylo dopracováno za laskavé
 Instalace
 ---------
 
+```shell
     composer require spojenet/abraflexi
-
+```
 
 pokud váš výsledný composer.json bude vypadat  zhruba takto: 
 
@@ -378,10 +379,10 @@ Takže při instalaci závislostí bude vypadat nějak takto:
 
     Loading composer repositories with package information
     Installing dependencies from lock file
-      - Installing ease-framework (1.1.3.3)
+      - Installing ease-core (2.0)
         Symlinked from /usr/share/php/Ease
 
-      - Installing flexipeehp (0.2.1)
+      - Installing abraflexi (2.3)
         Symlinked from /usr/share/php/AbraFlexi
 
 A aktualizaci bude možné dělat globálně pro celý systém prostřednictvím apt-get.
@@ -397,8 +398,22 @@ Testování:
      php -f abraflexiping.php
 
 
-![Debian Test](https://github.com/Spoje-NET/php-abraflexi/raw/master/Examples/flexipeehp-debian-test.png "Test")
+![Debian Test](Examples/flexipeehp-debian-test.png?raw=true "Test")
     
+Soubory tříd jsou v Debianu instalovány do složky /usr/share/php/AbraFlexi a
+měl by se spouštět občerstvovací skript pokaždé když je AbaraFlexi server
+aktualizován na novou verzi:
+
+```shell
+cd /usr/share/php/AbraFlexi/tools && sudo ./update_all.sh
+```
+
+Server ze kterého se struktura získává se nastavuje v souboru /etc/abraflexi/client.json 
+nebo proměnnými prostředí definovanými zpravidla v /etc/profile.d/abraflexi-client.sh
+
+Nainstalujte balíček php-abraflexi-config pro snadnou změnu těchto nastavení 
+
+
 
 AbraFlexi knihovny pro další jazky:
 ----------------------------------
