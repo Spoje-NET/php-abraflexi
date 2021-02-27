@@ -943,7 +943,7 @@ class RO extends \Ease\Sand {
      *
      * @return array
      */
-    public function rawResponseToArray($responseRaw, $format) {
+    public function rawResponseToArray(string $responseRaw, string $format) {
         $responseDecoded = [];
         if (!empty(trim($responseRaw))) {
             switch ($format) {
@@ -1127,7 +1127,7 @@ class RO extends \Ease\Sand {
                 }
             case 400: //Bad Request parameters
             default: //Something goes wrong
-                if (!empty($responseDecoded) && is_array($responseDecoded) && (array_key_exists(0, $responseDecoded) || (array_key_exists('stats', $responseDecoded) && intval($responseDecoded['stats']['failed'])))) {
+                if (!empty($responseDecoded) && is_array($responseDecoded)) {
                     $this->parseError($responseDecoded);
                 }
 
@@ -1202,8 +1202,7 @@ class RO extends \Ease\Sand {
         $this->lastCurlResponse = curl_exec($this->curl);
         $this->curlInfo = curl_getinfo($this->curl);
         $this->curlInfo['when'] = microtime();
-        $this->responseFormat = $this->contentTypeToResponseFormat($this->curlInfo['content_type'],
-                $url);
+        $this->responseFormat = $this->contentTypeToResponseFormat(strval($this->curlInfo['content_type']), $url);
         $this->lastResponseCode = $this->curlInfo['http_code'];
         $this->lastCurlError = curl_error($this->curl);
         if (strlen($this->lastCurlError)) {
@@ -1225,7 +1224,7 @@ class RO extends \Ease\Sand {
      * 
      * @return string response format
      */
-    public function contentTypeToResponseFormat($contentType, $url = null) {
+    public function contentTypeToResponseFormat(string $contentType, $url = null) {
         if (!empty($url)) {
             $url = parse_url($url, PHP_URL_PATH);
         }
