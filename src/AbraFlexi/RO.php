@@ -386,6 +386,14 @@ class RO extends \Ease\Sand {
     public $offline = false;
 
     /**
+     * Convert server data to its native types ? eg. nubmers to integer
+     * You can disable it using setUp
+     * 
+     * @var boolean
+     */
+    public $nativeTypes = true;
+
+    /**
      * Override cURL timeout
      * @var int seconds
      */
@@ -436,7 +444,7 @@ class RO extends \Ease\Sand {
      * @param array $options Object Options ( user,password,authSessionId
      *                                        company,url,evidence,
      *                                        prefix,defaultUrlParams,debug,
-     *                                        detail,offline,filter,ignore404
+     *                                        detail,offline,filter,ignore404,nativeTypes
      *                                        timeout,companyUrl,ver,throwException
      */
     public function setUp($options = []) {
@@ -455,6 +463,8 @@ class RO extends \Ease\Sand {
         $this->setupProperty($options, 'password', 'ABRAFLEXI_PASSWORD');
         $this->setupProperty($options, 'authSessionId', 'ABRAFLEXI_AUTHSESSID');
         $this->setupProperty($options, 'timeout', 'ABRAFLEXI_TIMEOUT');
+        $this->setupProperty($options, 'nativeTypes', 'ABRAFLEXI_NATIVE_TYPES');
+
         if (!empty($this->authSessionId)) {
             $this->defaultHttpHeaders['X-authSessionId'] = $this->authSessionId;
         }
@@ -1005,7 +1015,7 @@ class RO extends \Ease\Sand {
                         case 'relation':
                         case 'select':
                         case 'string':
-                            $record[$column] = strval($value);
+                            $record[$column] = is_array($value) ? implode("\n", $value) : strval($value);
                             break;
                         case 'integer':
                             $record[$column] = intval($value);
@@ -1043,7 +1053,7 @@ class RO extends \Ease\Sand {
         $decodeError = json_last_error_msg();
         if ($decodeError == 'No error') {
             if (array_key_exists($this->nameSpace, $responseDecoded)) {
-                $responseDecoded = $this->fixResponseTypes($responseDecoded[$this->nameSpace]);
+                $responseDecoded = $this->nativeTypes ? $this->fixResponseTypes($responseDecoded[$this->nameSpace]) : $responseDecoded[$this->nameSpace];
             }
         } else {
             if ($this->debug) {
