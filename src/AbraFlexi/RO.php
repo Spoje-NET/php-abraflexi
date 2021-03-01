@@ -447,7 +447,7 @@ class RO extends \Ease\Sand {
      *                                        detail,offline,filter,ignore404,nativeTypes
      *                                        timeout,companyUrl,ver,throwException
      */
-    public function setUp($options = []) {
+    public function setUp(array $options = []) {
         if (array_key_exists('ver', $options)) {
             $this->protoVersion = $options['ver'];
             $this->prefix = 'v' . round($this->protoVersion) . '/c/';
@@ -499,7 +499,7 @@ class RO extends \Ease\Sand {
      * 
      * @return array Options
      */
-    public static function companyUrlToOptions($companyUrl) {
+    public static function companyUrlToOptions(string $companyUrl) {
         $urlParts = parse_url($companyUrl);
         $scheme = isset($urlParts['scheme']) ? $urlParts['scheme'] . '://' : '';
         $host = isset($urlParts['host']) ? $urlParts['host'] : '';
@@ -538,8 +538,8 @@ class RO extends \Ease\Sand {
      * Export current/given configutation into Environment  
      * @param array $opts
      */
-    public function configToEnv($opts = null) {
-        $options = is_null($opts) ? $this->getConnectionOptions() : $opts;
+    public function configToEnv(array $opts = []) {
+        $options = empty($opts) ? $this->getConnectionOptions() : $opts;
         if (array_key_exists('url', $options)) {
             putenv('ABRAFLEXI_URL=' . $options['URL']);
         }
@@ -621,7 +621,7 @@ class RO extends \Ease\Sand {
      *
      * @return bool Success
      */
-    public function setDataValue($columnName, $value) {
+    public function setDataValue(string $columnName, $value) {
         switch ($columnName) {
             case 'kod':
                 $value = self::uncode($value); //Alwyas uncode "kod" column
@@ -671,7 +671,7 @@ class RO extends \Ease\Sand {
      *
      * @param string $prefix
      */
-    public function setPrefix($prefix) {
+    public function setPrefix(string $prefix) {
         switch ($prefix) {
             case 'a': //Access
             case 'c': //Company
@@ -700,7 +700,7 @@ class RO extends \Ease\Sand {
      * 
      * @return boolean format is availble
      */
-    public function setFormat($format) {
+    public function setFormat(string $format) {
         $result = true;
         if (($this->debug === true) && !empty($this->evidence) && isset(Formats::$$this->evidence)) {
             if (array_key_exists($format, array_flip(Formats::$$this->evidence)) === false) {
@@ -722,7 +722,7 @@ class RO extends \Ease\Sand {
      * 
      * @return boolean evidence switching status
      */
-    public function setEvidence($evidence) {
+    public function setEvidence(string $evidence) {
         switch ($this->prefix) {
             case '/c/':
                 if ($this->debug === true) {
@@ -909,8 +909,7 @@ class RO extends \Ease\Sand {
      *
      * @return string url with default params added
      */
-
-    public function addDefaultUrlParams($urlRaw) {
+    public function addDefaultUrlParams(string $urlRaw) {
         return \Ease\Functions::addUrlParams($urlRaw, $this->defaultUrlParams,
                         false);
     }
@@ -924,7 +923,7 @@ class RO extends \Ease\Sand {
      * 
      * @return array|boolean Výsledek operace
      */
-    public function performRequest(string $urlSuffix = '', $method = 'GET',
+    public function performRequest(string $urlSuffix = '', string $method = 'GET',
             $format = null) {
         $this->rowCount = null;
         $this->responseStats = [];
@@ -2436,7 +2435,7 @@ class RO extends \Ease\Sand {
      *
      * @return \DateTime | false
      */
-    public static function flexiDateToDateTime($flexidate) {
+    public static function flexiDateToDateTime(string $flexidate) {
         return \DateTime::createFromFormat(strstr($flexidate, '+') ? self::$DateFormat . 'O' : self::$DateFormat, $flexidate)->setTime(0, 0);
     }
 
@@ -2447,7 +2446,7 @@ class RO extends \Ease\Sand {
      *
      * @return \DateTime | false
      */
-    public static function flexiDateTimeToDateTime($flexidatetime) {
+    public static function flexiDateTimeToDateTime(string $flexidatetime) {
         if (strchr($flexidatetime, '.')) { //NewFormat
             $format = self::$DateTimeFormat;
         } else { // Old format
@@ -2469,7 +2468,7 @@ class RO extends \Ease\Sand {
      *
      * @return string|null filename downloaded or none
      */
-    public function getInFormat($format, $reportName = null, $lang = null,
+    public function getInFormat(string $format, $reportName = null, $lang = null,
             $sign = false) {
         $response = null;
         if ($this->setFormat($format)) {
@@ -2519,7 +2518,7 @@ class RO extends \Ease\Sand {
      *
      * @return string|null filename downloaded or none
      */
-    public function downloadInFormat($format, $destDir = './',
+    public function downloadInFormat(string $format, $destDir = './',
             $reportName = null) {
         $fileOnDisk = null;
         $formatBackup = $this->format;
@@ -2597,7 +2596,7 @@ class RO extends \Ease\Sand {
      * 
      * @return string authUserId or null in case of problems
      */
-    public function requestAuthSessionID($username, $password, $otp = null) {
+    public function requestAuthSessionID(string $username, string $password, $otp = null) {
         $this->postFields = http_build_query(is_null($otp) ? ['username' => $username,
             'password' => $password] : ['username' => $username, 'password' => $password,
             'otp' => $otp]);
@@ -2714,7 +2713,7 @@ class RO extends \Ease\Sand {
      *
      * @return string
      */
-    public static function code($code) {
+    public static function code(string $code) {
         return ((substr($code, 0, 4) == 'ext:') ? $code : 'code:' . strtoupper(self::uncode($code)));
     }
 
@@ -2725,7 +2724,7 @@ class RO extends \Ease\Sand {
      *
      * @return string
      */
-    public static function uncode($code) {
+    public static function uncode(string $code) {
         return str_replace(['code:', 'code%3A'], '', $code);
     }
 
@@ -2736,7 +2735,7 @@ class RO extends \Ease\Sand {
      *
      * @return array data without @ columns
      */
-    public static function arrayCleanUP($data) {
+    public static function arrayCleanUP(array $data) {
         return array_filter(
                 $data,
                 function ($key) {
@@ -2788,7 +2787,7 @@ class RO extends \Ease\Sand {
         if (($this->throwException === true) && (($type == 'warning') || ($type == 'error') )) {
             throw new Exception($type . ': ' . $message . "\n" . 'caller:' . is_object($caller) ? get_class($caller) : $caller );
         } else {
-            parent::_addStatusMessage($message, $type, is_null($caller) ? $this : $caller );
+            parent::addStatusMessage($message, $type, is_null($caller) ? $this : $caller );
         }
     }
 
