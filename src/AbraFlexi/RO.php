@@ -1140,13 +1140,7 @@ class RO extends \Ease\Sand {
                 if (!empty($responseDecoded) && is_array($responseDecoded)) {
                     $this->parseError($responseDecoded);
                 }
-
-                if ($this->throwException === true) {
-                    throw new \Ease\Exception(json_encode($this->getErrors()), $this->lastResponseCode);
-                } else {
-                    $this->addStatusMessage($this->lastResponseCode . ': ' . $this->curlInfo['url'] . ' (' . $this->format . ')',
-                            'warning');
-                }
+                $this->addStatusMessage($this->lastResponseCode . ': ' . $this->curlInfo['url'] . ' (' . $this->format . ') ' . json_encode($this->getErrors()), 'warning');
                 break;
         }
         return $mainResult;
@@ -1163,11 +1157,7 @@ class RO extends \Ease\Sand {
         if (array_key_exists('success', $responseDecoded)) {
             $this->errors = [['message' => array_key_exists('message', $responseDecoded) ? $responseDecoded['message'] : '']];
         } else {
-            if ($this->throwException === true) {
-                throw new \Ease\Exception('Unparsed error: ' . $this->lastCurlResponse);
-            } else {
-                $this->addStatusMessage('Unparsed error: ' . $this->lastCurlResponse, 'debug');
-            }
+            $this->addStatusMessage('Unparsed error: ' . $this->lastCurlResponse, 'error');
         }
         return count($this->errors);
     }
@@ -2383,7 +2373,7 @@ class RO extends \Ease\Sand {
      * @return boolean
      */
     public function setMyKey($myKeyValue) {
-        if (substr($myKeyValue, 0, 4) == 'ext:') {
+        if (is_string($myKeyValue) && substr($myKeyValue, 0, 4) == 'ext:') {
             if (empty($this->evidenceInfo) || ($this->evidenceInfo['extIdSupported'] == 'false')) {
                 $this->addStatusMessage(sprintf(_('Evidence %s does not support extIDs'),
                                 $this->getEvidence()), 'warning');
@@ -2782,6 +2772,24 @@ class RO extends \Ease\Sand {
      */
     public function getErrors() {
         return $this->errors;
+    }
+
+    /**
+     * Add message to stack to show or write to file
+     * Přidá zprávu do zásobníku pro zobrazení uživateli inbo do logu.
+     *
+     * @param string $message text zpravy
+     * @param string $type    fronta
+     * @param string $caller  Message source name
+     * 
+     * @return boolean message added
+     */
+    public function addStatusMessage($message, $type = 'info', $caller = null) {
+        if (($this->throwException === true) && (($type == 'warning') || ($type == 'error') )) {
+            throw new Exception($type . ': ' . $message . "\n" . 'caller:' . is_object($caller) ? get_class($caller) : $caller );
+        } else {
+            parent::_addStatusMessage($message, $type, is_null($caller) ? $this : $caller );
+        }
     }
 
     /**
