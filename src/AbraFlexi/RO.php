@@ -2556,7 +2556,7 @@ class RO extends \Ease\Sand {
         }
         $result = parent::takeData($data);
 
-        if (array_key_exists($keyColumn, $data) || array_key_exists('kod', $data)) {
+        if ($result && (array_key_exists($keyColumn, $data) || array_key_exists('kod', $data))) {
             $this->updateApiURL();
         }
 
