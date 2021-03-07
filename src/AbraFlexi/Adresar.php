@@ -11,12 +11,6 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
-use AbraFlexi\Adresar;
-use AbraFlexi\Firma;
-use AbraFlexi\RW;
-use AbraFlexi\Stitky;
-use AbraFlexi\SubItems;
-
 /**
  * Adresář
  *
@@ -123,7 +117,7 @@ class Adresar extends RW {
     }
 
     /**
-     * 
+     * Obtain Bank number 
      * 
      * @param Adresar|string|int $address
      * 
