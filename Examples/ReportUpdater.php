@@ -1,12 +1,12 @@
 <?php
 /**
- * FlexiPeeHP - Example how to upload new version of custom Report
+ * AbraFlexi - Example how to upload new version of custom Report
  *
  * @author     Vítězslav Dvořák <info@vitexsofware.cz>
  * @copyright  (G) 2020 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
@@ -38,9 +38,9 @@ if ($argc < 3) {
 
     if (file_exists($reportFile)) {
 
-        $reporter = new \FlexiPeeHP\Report($reportID);
+        $reporter = new \AbraFlexi\Report($reportID);
         $oldReportId = intval($reporter->getDataValue('hlavniReport'));
-        $attachment = \FlexiPeeHP\Priloha::addAttachmentFromFile($reporter, $reportFile);
+        $attachment = \AbraFlexi\Priloha::addAttachmentFromFile($reporter, $reportFile);
         if ($reporter->sync(['hlavniReport' => $attachment->getRecordID(), 'id' => $reporter->getRecordID()])) {
             if ($oldReportId) {
                 $attachment->deleteFromFlexiBee($oldReportId);

@@ -1,13 +1,13 @@
 #!/usr/bin/php -f
 <?php
 /**
- * FlexiPeeHP - Example how to find overdue invoices
+ * AbraFlexi - Example how to find overdue invoices
  *
  * @author     Vítězslav Dvořák <info@vitexsofware.cz>
  * @copyright  (G) 2017 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
@@ -20,14 +20,14 @@ include_once '../vendor/autoload.php';
  */
 function poSplatnosti($dueDate)
 {
-    return intval(date_diff(\FlexiPeeHP\RO::flexiDateToDateTime($dueDate),
+    return intval(date_diff(\AbraFlexi\RO::flexiDateToDateTime($dueDate),
             new \DateTime())->format('%a'));
 }
 
 /**
  * Vrať faktury po splatnosti
  *
- * @param \FlexiPeeHP\FakturaVydana $invoicer
+ * @param \AbraFlexi\FakturaVydana $invoicer
  * @return array
  */
 function getOverdueInvoices($invoicer)
@@ -55,9 +55,9 @@ function getOverdueInvoices($invoicer)
     }
     return $result;
 }
-$statuser = new \FlexiPeeHP\Status();
-$invoicer = new \FlexiPeeHP\FakturaVydana();
-$firmer   = new \FlexiPeeHP\Adresar();
+$statuser = new \AbraFlexi\Status();
+$invoicer = new \AbraFlexi\FakturaVydana();
+$firmer   = new \AbraFlexi\Adresar();
 
 foreach (getOverdueInvoices($invoicer) as $invoice) {
     $kontakt = $firmer->getColumnsFromFlexibee(['nazev', 'email'],

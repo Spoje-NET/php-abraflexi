@@ -1,19 +1,19 @@
 #!/usr/bin/php -f
 <?php
 /**
- * FlexiPeeHP - Example how to create Invoice
+ * AbraFlexi - Example how to create Invoice
  *
  * @author     Vítězslav Dvořák <info@vitexsofware.cz>
  * @copyright  (G) 2018 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
 
 
-$prober = new \FlexiPeeHP\RO();
+$prober = new \AbraFlexi\RO();
 
 $prober->login();
 

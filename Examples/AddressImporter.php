@@ -1,6 +1,6 @@
 <?php
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
@@ -43,12 +43,12 @@ if ($customerData['phone'] ?? null) {
 echo (sprintf("Inserting: %s", $data['nazev']));
 
 
-$adresar = new \FlexiPeeHP\Adresar($data);
+$adresar = new \AbraFlexi\Adresar($data);
 
 if ($customerData['bankAccount'] ?? null) {
     $kodBanky = substr($customerData['bankAccount'], 4, 4);
 
-    $adresarBankovniUcet = new \FlexiPeeHP\Adresar([
+    $adresarBankovniUcet = new \AbraFlexi\Adresar([
         'iban' => $customerData['bankAccount'],
 //                'bic' => 'XXXX',
         'smerKod' => 'code:0300',

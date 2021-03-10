@@ -2,7 +2,7 @@
 <?php
 
 /**
- * FlexiPeeHP - Test in Debian.
+ * AbraFlexi - Test in Debian.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  2017-2021 Spoje.Net
@@ -15,15 +15,15 @@ if (file_exists($autoload)) {
     exit(2);
 }
 
-if (file_exists('/usr/share/doc/FlexiPeeHP/config.json')) {
-    $config = '/usr/share/doc/FlexiPeeHP/config.json';
+if (file_exists('/usr/share/doc/AbraFlexi/config.json')) {
+    $config = '/usr/share/doc/AbraFlexi/config.json';
 } else {
     $config = './config.json';
 }
 
 \Ease\Shared::instanced()->loadConfig($config, true);
 
-$tester = new \FlexiPeeHP\Company();
+$tester = new \AbraFlexi\Company();
 
 $records = $tester->getAllFromFlexibee();
 

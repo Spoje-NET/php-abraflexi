@@ -1,18 +1,18 @@
 #!/usr/bin/php -f
 <?php
 /**
- * FlexiPeeHP - Odeslat Upomínky ?
+ * AbraFlexi - Odeslat Upomínky ?
  *
  * @author     Vítězslav Dvořák <info@vitexsofware.cz>
  * @copyright  (G) 2017-2019 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
 
-$invoicer = new \FlexiPeeHP\FakturaVydana();
+$invoicer = new \AbraFlexi\FakturaVydana();
 
 function getOverdueInvoices($invoicer)
 {
@@ -40,7 +40,7 @@ function getOverdueInvoices($invoicer)
     }
     return $result;
 }
-$firmer = new \FlexiPeeHP\Adresar();
+$firmer = new \AbraFlexi\Adresar();
 
 foreach (getOverdueInvoices($invoicer) as $invoice) {
     $invoicer->setData($invoice, true);
@@ -52,9 +52,9 @@ foreach (getOverdueInvoices($invoicer) as $invoice) {
         sprintf(_('Please pay %s,-'), $invoice['sumCelkem']));
 
     $mail->addFile($invoicer->downloadInFormat('pdf', '/tmp/'),
-        \FlexiPeeHP\Formats::$formats['PDF']['content-type']);
+        \AbraFlexi\Formats::$formats['PDF']['content-type']);
     $mail->addFile($invoicer->downloadInFormat('isdocx', '/tmp/'),
-        \FlexiPeeHP\Formats::$formats['ISDOCx']['content-type']);
+        \AbraFlexi\Formats::$formats['ISDOCx']['content-type']);
 
     $mail->send();
 }

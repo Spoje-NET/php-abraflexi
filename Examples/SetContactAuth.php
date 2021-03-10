@@ -1,18 +1,18 @@
 #!/usr/bin/php -f
 <?php
 /**
- * FlexiPeeHP - Example how to set up authentification
+ * AbraFlexi - Example how to set up authentification
  *
  * @author     Vítězslav Dvořák <info@vitexsofware.cz>
  * @copyright  (G) 2017 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
 
-$kontakter = new \FlexiPeeHP\Kontakt();
+$kontakter = new \AbraFlexi\Kontakt();
 $first     = $kontakter->getColumnsFromFlexibee(['id'], ['limit' => 1]);
 $kontakter->setData([
     'id' => $first[0]['id'],

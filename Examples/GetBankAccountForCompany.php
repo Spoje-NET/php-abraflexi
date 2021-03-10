@@ -1,13 +1,13 @@
 #!/usr/bin/php -f
 <?php
 /**
- * FlexiPeeHP - Example how to get bank account for company
+ * AbraFlexi - Example how to get bank account for company
  *
  * @author     Vítězslav Dvořák <info@vitexsofware.cz>
  * @copyright  (G) 2018 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
@@ -17,7 +17,7 @@ include_once './common.php';
 $companyID = askForFlexiBeeID();
 
 
-$firma = new \FlexiPeeHP\Adresar($companyID);
+$firma = new \AbraFlexi\Adresar($companyID);
 if ($firma->getMyKey()) {
     var_dump($firma->getBankAccountNumber());
     

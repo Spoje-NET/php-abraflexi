@@ -7,10 +7,10 @@
  * @copyright  (G) 2018 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
-use \FlexiPeeHP\RO;
-use \FlexiPeeHP\FakturaVydana;
+use \AbraFlexi\RO;
+use \AbraFlexi\FakturaVydana;
 
 define('EASE_LOGGER', 'syslog|console');
 include_once './config.php';

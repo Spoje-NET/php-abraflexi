@@ -1,13 +1,13 @@
 #!/usr/bin/php -f
 <?php
 /**
- * FlexiPeeHP - Naskaladnění včetně sériových čísel
+ * AbraFlexi - Naskaladnění včetně sériových čísel
  *
  * @author     Vítězslav Dvořák <info@vitexsofware.cz>
  * @copyright  (G) 2018 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
@@ -28,7 +28,7 @@ $defaultSerialNumber = \Ease\Sand::randomString();
 
 /** Preparation * */
 //We need an exising item
-$product = new \FlexiPeeHP\Cenik();
+$product = new \AbraFlexi\Cenik();
 $product->insertToFlexiBee([
     'kod' => $productCode,
     'nazev' => $productCode,
@@ -39,26 +39,26 @@ $product->insertToFlexiBee([
 ]);
 
 //with storage card for at least current accounting period
-$storageCard = new \FlexiPeeHP\SkladovaKarta();
+$storageCard = new \AbraFlexi\SkladovaKarta();
 $storageCard->insertToFlexiBee([
-    'sklad' => \FlexiPeeHP\RO::code($storage),
-    'cenik' => \FlexiPeeHP\RO::code($productCode),
-    'ucetObdobi' => \FlexiPeeHP\RO::code(date('Y'))
+    'sklad' => \AbraFlexi\RO::code($storage),
+    'cenik' => \AbraFlexi\RO::code($productCode),
+    'ucetObdobi' => \AbraFlexi\RO::code(date('Y'))
 ]);
 
 /** Preparation End * */
-$skladovyPohyb = new \FlexiPeeHP\SkladovyPohyb([
+$skladovyPohyb = new \AbraFlexi\SkladovyPohyb([
     'id' => 'ext:PRIJEMKA:'.time(),
-    'typDokl' => \FlexiPeeHP\RO::code('STANDARD'),
-    'sklad' => \FlexiPeeHP\RO::code($storage),
-    'cenik' => \FlexiPeeHP\RO::code($productCode),
+    'typDokl' => \AbraFlexi\RO::code('STANDARD'),
+    'sklad' => \AbraFlexi\RO::code($storage),
+    'cenik' => \AbraFlexi\RO::code($productCode),
     'typPohybuK' => 'typPohybu.prijem',
     ],['debug'=>true]);
 
 // We Need
-$productModel = new \FlexiPeeHP\SkladovyPohybPolozka([
-    'sklad' => \FlexiPeeHP\RO::code($storage),
-    'cenik' => \FlexiPeeHP\RO::code($productCode)
+$productModel = new \AbraFlexi\SkladovyPohybPolozka([
+    'sklad' => \AbraFlexi\RO::code($storage),
+    'cenik' => \AbraFlexi\RO::code($productCode)
     ], ['offline' => true]);
 
 //Add Serial numbers one by one

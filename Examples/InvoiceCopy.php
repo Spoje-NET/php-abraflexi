@@ -1,13 +1,13 @@
 #!/usr/bin/php -f
 <?php
 /**
- * FlexiPeeHP - Example how to copy Invoice
+ * AbraFlexi - Example how to copy Invoice
  *
  * @author     Vítězslav Dvořák <info@vitexsofware.cz>
  * @copyright  (G) 2017 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
@@ -15,14 +15,14 @@ include_once '../vendor/autoload.php';
 /**
  * Copy an invoice to new one
  *
- * @param \FlexiPeeHP\FakturaVydana $invoice
+ * @param \AbraFlexi\FakturaVydana $invoice
  * @param array                     $extraValues Extra values for invoice Copy
  *
- * @return \FlexiPeeHP\FakturaVydana
+ * @return \AbraFlexi\FakturaVydana
  */
-function invoiceCopy(\FlexiPeeHP\FakturaVydana $invoice, $extraValues = [])
+function invoiceCopy(\AbraFlexi\FakturaVydana $invoice, $extraValues = [])
 {
-    $invoice2 = new \FlexiPeeHP\FakturaVydana(array_merge(
+    $invoice2 = new \AbraFlexi\FakturaVydana(array_merge(
             $extraValues, $invoice->getData()));
     $invoice2->unsetDataValue('id');
     $invoice2->unsetDataValue('kod');
@@ -62,17 +62,17 @@ include_once './common.php';
 $invoiceID = askForFlexiBeeID();
 
 /*
- * FlexiPeeHP Classes accept this form of initial identifier:
+ * AbraFlexi Classes accept this form of initial identifier:
  *
  * (int) 2588
  * (string) ext:ESHOP:oi1978
  * (array) ['varSym'=>'20080015']
  */
 
-$originalInvoice = new \FlexiPeeHP\FakturaVydana($invoiceID);
+$originalInvoice = new \AbraFlexi\FakturaVydana($invoiceID);
 if ($originalInvoice->getMyKey()) {
     $invoiceCopy = invoiceCopy($originalInvoice,
-        ['poznam' => 'FlexiPeeHP php library example - this is copy of '.$invoiceID]);
+        ['poznam' => 'AbraFlexi php library example - this is copy of '.$invoiceID]);
 
     if ($invoiceCopy->lastResponseCode == 201) {
         echo $invoiceCopy->getEvidenceURL().'/'.(string) $invoiceCopy;

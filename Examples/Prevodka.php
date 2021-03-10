@@ -1,19 +1,19 @@
 #!/usr/bin/php -f
 <?php
 /**
- * FlexiPeeHP - Převodka
+ * AbraFlexi - Převodka
  *
  * @link https://charlieblog.eu/clanek-flexibee-api-prevodka 
  * @author     Vítězslav Dvořák <info@vitexsofware.cz>
  * @copyright  (G) 2018 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
 
-$skladovyPohyb = new \FlexiPeeHP\SkladovyPohyb(    [
+$skladovyPohyb = new \AbraFlexi\SkladovyPohyb(    [
         'id'=> 'ext:PREVODKA:1', //Vytvoříme záznam s tímto ID
         'typDokl'=> 'code:PŘEVODKA', 
         'sklad'=> 'code:SKLAD-1', //Zdrojový sklad

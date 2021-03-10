@@ -1,7 +1,7 @@
 #!/usr/bin/php -f
 <?php
 /**
- * FlexiPeeHP - Example how to read columns
+ * AbraFlexi - Example how to read columns
  *
  *              Z evidence Adresáře odběratelů vytáhni 3 sloupečky
  *
@@ -9,12 +9,12 @@
  * @copyright  (G) 2017 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
 
-$banker = new \FlexiPeeHP\Banka();
+$banker = new \AbraFlexi\Banka();
 $first  = $banker->getColumnsFromFlexibee(['id'], ['limit' => 1]);
 
 

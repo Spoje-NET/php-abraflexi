@@ -1,6 +1,6 @@
 <?php
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
@@ -14,7 +14,7 @@ $save = array(
     'eanKod' => 12233587868
 );
 
-$addr = new \FlexiPeeHP\Adresar($save);
+$addr = new \AbraFlexi\Adresar($save);
 
 $addr->getExternalIDs(); // [ 0=> 'ext:evid:2434', 1 => 'ext:another:753' ]
 $addr->getMyKey(); // 1000

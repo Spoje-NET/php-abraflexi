@@ -1,27 +1,27 @@
 #!/usr/bin/php -f
 <?php
 /**
- * FlexiPeeHP - Sharing data and connection options between objects
+ * AbraFlexi - Sharing data and connection options between objects
  *
  * @author     Vítězslav Dvořák <info@vitexsofware.cz>
  * @copyright  (G) 2017 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
 
 /**
- * @var \FlexiPeeHP\FakturaVydana With initial type code:FAKTURA, connected to 
+ * @var \AbraFlexi\FakturaVydana With initial type code:FAKTURA, connected to 
  *                                default constatnt('FLEXIBEE_URL')
  */
-$originalInvoice = new \FlexiPeeHP\FakturaVydana(['typDokl' => \FlexiPeeHP\RO::code('FAKTURA')]);
+$originalInvoice = new \AbraFlexi\FakturaVydana(['typDokl' => \AbraFlexi\RO::code('FAKTURA')]);
 
 /**
- * @var \FlexiPeeHP\FakturaVydana 
+ * @var \AbraFlexi\FakturaVydana 
  */
-$invoice = new \FlexiPeeHP\FakturaVydana($originalInvoice->getData(),
+$invoice = new \AbraFlexi\FakturaVydana($originalInvoice->getData(),
     $originalInvoice->getConnectionOptions());
 
 /**

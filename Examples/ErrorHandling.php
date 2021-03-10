@@ -7,9 +7,9 @@
  * @copyright  (G) 2020 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
-use \FlexiPeeHP\FakturaVydana;
+use \AbraFlexi\FakturaVydana;
 
 define('EASE_LOGGER', 'syslog|console');
 include_once './config.php';
@@ -47,16 +47,16 @@ if ($invoicer->sync() === false) {
 
 /* EASE_LOGGER "syslog" add this to /var/log/syslog
 
-  Mar 21 03:29:47 exiv FlexiPeeHPtest: ` `  400: https://vitexsoftware.flexibee.eu:5434/c/flexipeehp/faktura-vydana
-  Mar 21 03:29:47 exiv FlexiPeeHPtest:
-  Mar 21 03:29:47 exiv FlexiPeeHPtest: ` `  Je očekáváno číselné ID, ale 'FAKTURA' není číslo
-  Mar 21 03:29:47 exiv FlexiPeeHPtest:
-  Mar 21 03:29:47 exiv FlexiPeeHPtest: ` ` @@ {"for":"typDokl","path":"faktura-vydana[temporary-id=null].typDokl","value":"FAKTURA","code":"PROP"}
-  Mar 21 03:29:47 exiv FlexiPeeHPtest:
-  Mar 21 03:29:47 exiv FlexiPeeHPtest: ` `  Error 400: https://vitexsoftware.flexibee.eu:5434/c/flexipeehp/faktura-vydana
-  Mar 21 03:29:47 exiv FlexiPeeHPtest:
-  Mar 21 03:29:47 exiv FlexiPeeHPtest: ` `  : Je očekáváno číselné ID, ale 'FAKTURA' není číslo for: typDokl value:FAKTURA code:PROP
-  Mar 21 03:29:47 exiv FlexiPeeHPtest:
+  Mar 21 03:29:47 exiv AbraFlexitest: ` `  400: https://vitexsoftware.flexibee.eu:5434/c/flexipeehp/faktura-vydana
+  Mar 21 03:29:47 exiv AbraFlexitest:
+  Mar 21 03:29:47 exiv AbraFlexitest: ` `  Je očekáváno číselné ID, ale 'FAKTURA' není číslo
+  Mar 21 03:29:47 exiv AbraFlexitest:
+  Mar 21 03:29:47 exiv AbraFlexitest: ` ` @@ {"for":"typDokl","path":"faktura-vydana[temporary-id=null].typDokl","value":"FAKTURA","code":"PROP"}
+  Mar 21 03:29:47 exiv AbraFlexitest:
+  Mar 21 03:29:47 exiv AbraFlexitest: ` `  Error 400: https://vitexsoftware.flexibee.eu:5434/c/flexipeehp/faktura-vydana
+  Mar 21 03:29:47 exiv AbraFlexitest:
+  Mar 21 03:29:47 exiv AbraFlexitest: ` `  : Je očekáváno číselné ID, ale 'FAKTURA' není číslo for: typDokl value:FAKTURA code:PROP
+  Mar 21 03:29:47 exiv AbraFlexitest:
 
  */
 

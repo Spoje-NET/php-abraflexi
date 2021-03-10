@@ -1,7 +1,7 @@
 #!/usr/bin/php -f
 <?php
 /**
- * FlexiPeeHP - Example how to read columns
+ * AbraFlexi - Example how to read columns
  *
  *              Z evidence Adresáře odběratelů vytáhni 3 sloupečky
  *
@@ -9,11 +9,11 @@
  * @copyright  (G) 2017 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
 
-$adreser   = new \FlexiPeeHP\Adresar();
+$adreser   = new \AbraFlexi\Adresar();
 $addresses = $adreser->getColumnsFromFlexibee(['id', 'nazev', 'email'],
     ['typVztahuK' => 'typVztahu.odberatel'], 'nazev');

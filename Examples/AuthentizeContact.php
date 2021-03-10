@@ -1,18 +1,18 @@
 #!/ur/bin/php -f
 <?php
 /**
- * FlexiPeeHP - Example how to use authentification
+ * AbraFlexi - Example how to use authentification
  *
  * @author     Vítězslav Dvořák <info@vitexsofware.cz>
  * @copyright  (G) 2017 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
 
-$kontakter = new \FlexiPeeHP\Kontakt();
+$kontakter = new \AbraFlexi\Kontakt();
 
 if ($kontakter->authenticate('login', 'heslo') === true) {
     $kontakter->addStatusMessage('User Authenticated', 'success');

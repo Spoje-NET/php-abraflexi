@@ -1,12 +1,12 @@
 <?php
 /**
- * FlexiPeeHP - Shared functions
+ * AbraFlexi - Shared functions
  *
  * @author     Vítězslav Dvořák <info@vitexsofware.cz>
  * @copyright  (G) 2017 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 /**
  * Ask For Invoice ID

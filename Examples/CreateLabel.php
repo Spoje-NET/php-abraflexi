@@ -1,20 +1,20 @@
 #!/usr/bin/php -f
 <?php
 /**
- * FlexiPeeHP - Example how to create FlexiBee label
+ * AbraFlexi - Example how to create FlexiBee label
  *
  * @author     Vítězslav Dvořák <info@vitexsofware.cz>
  * @copyright  (G) 2017 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
 /**
- * @var \FlexiPeeHP\Stitek Label Object
+ * @var \AbraFlexi\Stitek Label Object
  */
-$stitek = new \FlexiPeeHP\Stitek();
+$stitek = new \AbraFlexi\Stitek();
 
 $stitek->createNew('Without Invoice', ['pokladna']);
 
@@ -22,7 +22,7 @@ $stitek->createNew('Example Label', ['faktura-vydana', 'faktura-prijata'],
     ['kod' => 'EXAMPLE']);
 
 
-$banker = new \FlexiPeeHP\Banka();
+$banker = new \AbraFlexi\Banka();
 $stitek->createNew('Unidentified', [$banker->getEvidence()]);
 
-$labelsDefinedForBank = \FlexiPeeHP\Stitek::getAvailbleLabels($banker);
+$labelsDefinedForBank = \AbraFlexi\Stitek::getAvailbleLabels($banker);

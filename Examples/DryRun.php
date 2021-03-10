@@ -1,19 +1,19 @@
 #!/usr/bin/php -f
 <?php
 /**
- * FlexiPeeHP - Example how to dry-run request
+ * AbraFlexi - Example how to dry-run request
  *
  * @author     Vítězslav Dvořák <info@vitexsofware.cz>
  * @copyright  (G) 2018 Vitex Software
  */
 
-namespace Example\FlexiPeeHP;
+namespace Example\AbraFlexi;
 
 include_once './config.php';
 include_once '../vendor/autoload.php';
 
 
-$invoice = new \FlexiPeeHP\FakturaVydana();
+$invoice = new \AbraFlexi\FakturaVydana();
 
 $invoice->defaultUrlParams['dry-run'] = 'true';
 
