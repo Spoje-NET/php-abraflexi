@@ -136,7 +136,7 @@ class Company extends RW {
      *
      * @return array
      */
-    public function rawResponseToArray($responseRaw, $format) {
+    public function rawResponseToArray(string $responseRaw, string $format) {
         if (strstr($responseRaw, 'winstrom')) {
             $nsbackup = $this->nameSpace;
             $this->nameSpace = 'winstrom';
