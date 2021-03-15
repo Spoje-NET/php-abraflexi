@@ -2,7 +2,7 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Wed, 10 Mar 2021 12:30:30 +0100 
+ * Generated: Mon, 15 Mar 2021 17:31:48 +0100 
  * From:      https://vitexsoftware.flexibee.eu:5434
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -46,7 +46,7 @@ class EvidenceList extends RO
      *
      * @var string
      */
- static public $version = '2021.3.0';
+ static public $version = '2021.3.1';
 
     /**
      * Evidences Path/Name listing.
@@ -62,8 +62,8 @@ class EvidenceList extends RO
   'atribut' => 'Atributy',
   'banka' => 'Banka',
   'format-elektronickeho-bankovnictvi' => 'Bankovní formáty',
-  'adresar-bankovni-ucet' => 'Bankovní spojení',
   'mzdy-bankovni-spojeni' => 'Bankovní spojení',
+  'adresar-bankovni-ucet' => 'Bankovní spojení',
   'cenova-uroven' => 'Cenové úrovně',
   'odberatel' => 'Ceny pro odběratele/skupiny odběratelů, speciální kódy',
   'cenik' => 'Ceník',
@@ -163,8 +163,8 @@ class EvidenceList extends RO
   'pracovni-pomer' => 'Pracovní poměr',
   'pracovni-pomer-hlavicka' => 'Pracovní poměr',
   'prodejka' => 'Prodejní kasa',
-  'prace' => 'Práce pro střediska',
   'prace-mesic' => 'Práce pro střediska',
+  'prace' => 'Práce pro střediska',
   'pravo-viditelnosti' => 'Práva viditelnosti dat',
   'text' => 'Předdefinované texty',
   'predpis-zauctovani' => 'Předpisy zaúčtování',
@@ -242,10 +242,10 @@ class EvidenceList extends RO
   'udalost' => 'Události, aktivity',
   'radek-priznani-dph' => 'Uložené řádky přiznání DPH',
   'umisteni' => 'Umístění',
-  'umisteni-ve-skladu' => 'Umístění ve skladu',
-  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
   'umisteni-ve-skladu-police' => 'Umístění ve skladu',
+  'umisteni-ve-skladu' => 'Umístění ve skladu',
   'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
   'sablona-upominky' => 'Upomínky',
   'strom' => 'Uzel stromu',
   'uzivatelsky-dotaz' => 'Uživatelské dotazy',

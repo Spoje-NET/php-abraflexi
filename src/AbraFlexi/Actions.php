@@ -21,7 +21,7 @@ class Actions
      *
      * @var string
      */
- static public $version = '2021.3.0';
+ static public $version = '2021.3.1';
 
     /**
      * Evidence doklad (#dokladView) Actions.
@@ -422,11 +422,11 @@ class Actions
   ),
 );
     /**
-     * Evidence adresar-bankovni-ucet (Bankovní spojení) Actions.
+     * Evidence mzdy-bankovni-spojeni (Bankovní spojení) Actions.
      *
      * @var array
      */
- static public $adresarBankovniUcet = array (
+ static public $mzdyBankovniSpojeni = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -465,11 +465,11 @@ class Actions
   ),
 );
     /**
-     * Evidence mzdy-bankovni-spojeni (Bankovní spojení) Actions.
+     * Evidence adresar-bankovni-ucet (Bankovní spojení) Actions.
      *
      * @var array
      */
- static public $mzdyBankovniSpojeni = array (
+ static public $adresarBankovniUcet = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -5102,11 +5102,11 @@ class Actions
   ),
 );
     /**
-     * Evidence prace (Práce pro střediska) Actions.
+     * Evidence prace-mesic (Práce pro střediska) Actions.
      *
      * @var array
      */
- static public $prace = array (
+ static public $praceMesic = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -5145,11 +5145,11 @@ class Actions
   ),
 );
     /**
-     * Evidence prace-mesic (Práce pro střediska) Actions.
+     * Evidence prace (Práce pro střediska) Actions.
      *
      * @var array
      */
- static public $praceMesic = array (
+ static public $prace = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -8726,92 +8726,6 @@ class Actions
   ),
 );
     /**
-     * Evidence umisteni-ve-skladu (Umístění ve skladu) Actions.
-     *
-     * @var array
-     */
- static public $umisteniVeSkladu = array (
-  'new' => 
-  array (
-    'actionId' => 'new',
-    'actionName' => 'Přidat',
-    'needInstance' => 'false',
-    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
-    'isRealAction' => 'false',
-    'isService' => 'NO',
-  ),
-  'copy' => 
-  array (
-    'actionId' => 'copy',
-    'actionName' => 'Vytvořit kopii',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'false',
-    'isService' => 'ON_MOBILE',
-  ),
-  'edit' => 
-  array (
-    'actionId' => 'edit',
-    'actionName' => 'Změnit',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'false',
-    'isService' => 'NO',
-  ),
-  'delete' => 
-  array (
-    'actionId' => 'delete',
-    'actionName' => 'Smazat',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'false',
-    'isService' => 'NO',
-  ),
-);
-    /**
-     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Actions.
-     *
-     * @var array
-     */
- static public $umisteniVeSkladuRegal = array (
-  'new' => 
-  array (
-    'actionId' => 'new',
-    'actionName' => 'Přidat',
-    'needInstance' => 'false',
-    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
-    'isRealAction' => 'false',
-    'isService' => 'NO',
-  ),
-  'copy' => 
-  array (
-    'actionId' => 'copy',
-    'actionName' => 'Vytvořit kopii',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'false',
-    'isService' => 'ON_MOBILE',
-  ),
-  'edit' => 
-  array (
-    'actionId' => 'edit',
-    'actionName' => 'Změnit',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'false',
-    'isService' => 'NO',
-  ),
-  'delete' => 
-  array (
-    'actionId' => 'delete',
-    'actionName' => 'Smazat',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'false',
-    'isService' => 'NO',
-  ),
-);
-    /**
      * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Actions.
      *
      * @var array
@@ -8855,11 +8769,97 @@ class Actions
   ),
 );
     /**
+     * Evidence umisteni-ve-skladu (Umístění ve skladu) Actions.
+     *
+     * @var array
+     */
+ static public $umisteniVeSkladu = array (
+  'new' => 
+  array (
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ),
+  'copy' => 
+  array (
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+  ),
+  'edit' => 
+  array (
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ),
+  'delete' => 
+  array (
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ),
+);
+    /**
      * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Actions.
      *
      * @var array
      */
  static public $umisteniVeSkladuMistnost = array (
+  'new' => 
+  array (
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ),
+  'copy' => 
+  array (
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+  ),
+  'edit' => 
+  array (
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ),
+  'delete' => 
+  array (
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ),
+);
+    /**
+     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Actions.
+     *
+     * @var array
+     */
+ static public $umisteniVeSkladuRegal = array (
   'new' => 
   array (
     'actionId' => 'new',
