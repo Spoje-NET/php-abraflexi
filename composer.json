@@ -11,6 +11,7 @@
     "require": {
         "ext-json": "*",
         "ext-curl": "*",
+        "ext-gettext": "*",
         "vitexsoftware/ease-core": ">=1.9"
     },
     "autoload": {
