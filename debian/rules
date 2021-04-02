@@ -7,6 +7,8 @@ override_dh_auto_test:
 	echo tests temporarly skipped for now in rules file
 
 override_dh_prep:
+	composer install
+	cd tools; ./update_all.sh ; cd ..
 	phpdoc -d src
 	mkdir -p docs ; mv .phpdoc/build/* docs
 	dh_prep

@@ -2,7 +2,7 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Mon, 15 Mar 2021 17:31:48 +0100 
+ * Generated: Fri, 02 Apr 2021 11:19:34 +0200 
  * From:      https://vitexsoftware.flexibee.eu:5434
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -46,7 +46,7 @@ class EvidenceList extends RO
      *
      * @var string
      */
- static public $version = '2021.3.1';
+ static public $version = '2021.4.0';
 
     /**
      * Evidences Path/Name listing.
@@ -55,15 +55,17 @@ class EvidenceList extends RO
      */
  static public $name = array (
   'doklad' => '#dokladView',
+  'global-store' => '#settingsAll',
   'adresar' => 'Adresy firem',
   'mzda' => 'Aktualizace mezd',
   'analyza-nakupu' => 'Analýza nákupu',
   'analyza-prodeje' => 'Analýza prodeje',
   'atribut' => 'Atributy',
+  'autotisk' => 'Automatický tisk',
   'banka' => 'Banka',
   'format-elektronickeho-bankovnictvi' => 'Bankovní formáty',
-  'mzdy-bankovni-spojeni' => 'Bankovní spojení',
   'adresar-bankovni-ucet' => 'Bankovní spojení',
+  'mzdy-bankovni-spojeni' => 'Bankovní spojení',
   'cenova-uroven' => 'Cenové úrovně',
   'odberatel' => 'Ceny pro odběratele/skupiny odběratelů, speciální kódy',
   'cenik' => 'Ceník',
@@ -163,8 +165,8 @@ class EvidenceList extends RO
   'pracovni-pomer' => 'Pracovní poměr',
   'pracovni-pomer-hlavicka' => 'Pracovní poměr',
   'prodejka' => 'Prodejní kasa',
-  'prace-mesic' => 'Práce pro střediska',
   'prace' => 'Práce pro střediska',
+  'prace-mesic' => 'Práce pro střediska',
   'pravo-viditelnosti' => 'Práva viditelnosti dat',
   'text' => 'Předdefinované texty',
   'predpis-zauctovani' => 'Předpisy zaúčtování',
@@ -242,10 +244,10 @@ class EvidenceList extends RO
   'udalost' => 'Události, aktivity',
   'radek-priznani-dph' => 'Uložené řádky přiznání DPH',
   'umisteni' => 'Umístění',
-  'umisteni-ve-skladu-police' => 'Umístění ve skladu',
   'umisteni-ve-skladu' => 'Umístění ve skladu',
-  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
   'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-police' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
   'sablona-upominky' => 'Upomínky',
   'strom' => 'Uzel stromu',
   'uzivatelsky-dotaz' => 'Uživatelské dotazy',
@@ -605,6 +607,17 @@ class EvidenceList extends RO
     'formCode' => 'cenAtribut',
     'extIdSupported' => 'false',
     'dbName' => 'cAtribut',
+  ),
+  'autotisk' => 
+  array (
+    'evidenceType' => 'AUTOTISK',
+    'evidenceName' => 'Automatický tisk',
+    'evidencePath' => 'autotisk',
+    'importStatus' => 'NOT_DOCUMENTED',
+    'className' => 'cz.winstrom.vo.dok.AutoTisk',
+    'formCode' => 'autoTisk',
+    'extIdSupported' => 'false',
+    'dbName' => 'dAutoTisk',
   ),
   'cenikova-skupina' => 
   array (
@@ -1721,6 +1734,18 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dFormaUhradyCis',
     'evidenceFilter' => 'PlatiOd <= 2021 AND PlatiDo >= 2021',
+  ),
+  'global-store' => 
+  array (
+    'evidenceType' => 'GLOBAL_SETTING',
+    'evidenceName' => '#settingsAll',
+    'evidencePath' => 'global-store',
+    'importStatus' => 'NOT_DOCUMENTED',
+    'className' => 'cz.winstrom.vo.WSSetting',
+    'formCode' => 'settingsAll',
+    'extIdSupported' => 'false',
+    'dbName' => 'wSetting',
+    'evidenceFilter' => 'IdUzivatel = -1',
   ),
   'hodnoceni-zakazky' => 
   array (

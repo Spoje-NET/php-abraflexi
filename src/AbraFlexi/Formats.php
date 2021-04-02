@@ -19,7 +19,7 @@ class Formats
  *
  * @var string
  */
- static public $version = '2021.3.1';
+ static public $version = '2021.4.0';
 
 
     /**
@@ -121,6 +121,17 @@ class Formats
   'HTML' => 'html',
 );
     /**
+     * Evidence global-store (#settingsAll) Formats.
+     *
+     * @var array
+     */
+ static public $globalStore = array (
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+);
+    /**
      * Evidence adresar (Adresy firem) Formats.
      *
      * @var array
@@ -176,6 +187,17 @@ class Formats
   'CSV' => 'csv',
 );
     /**
+     * Evidence autotisk (Automatický tisk) Formats.
+     *
+     * @var array
+     */
+ static public $autotisk = array (
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+);
+    /**
      * Evidence banka (Banka) Formats.
      *
      * @var array
@@ -198,22 +220,22 @@ class Formats
   'CSV' => 'csv',
 );
     /**
-     * Evidence mzdy-bankovni-spojeni (Bankovní spojení) Formats.
+     * Evidence adresar-bankovni-ucet (Bankovní spojení) Formats.
      *
      * @var array
      */
- static public $mzdyBankovniSpojeni = array (
+ static public $adresarBankovniUcet = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
   'CSV' => 'csv',
 );
     /**
-     * Evidence adresar-bankovni-ucet (Bankovní spojení) Formats.
+     * Evidence mzdy-bankovni-spojeni (Bankovní spojení) Formats.
      *
      * @var array
      */
- static public $adresarBankovniUcet = array (
+ static public $mzdyBankovniSpojeni = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1309,22 +1331,22 @@ class Formats
   'CSV' => 'csv',
 );
     /**
-     * Evidence prace-mesic (Práce pro střediska) Formats.
+     * Evidence prace (Práce pro střediska) Formats.
      *
      * @var array
      */
- static public $praceMesic = array (
+ static public $prace = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
   'CSV' => 'csv',
 );
     /**
-     * Evidence prace (Práce pro střediska) Formats.
+     * Evidence prace-mesic (Práce pro střediska) Formats.
      *
      * @var array
      */
- static public $prace = array (
+ static public $praceMesic = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2178,17 +2200,6 @@ class Formats
   'CSV' => 'csv',
 );
     /**
-     * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Formats.
-     *
-     * @var array
-     */
- static public $umisteniVeSkladuPolice = array (
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-);
-    /**
      * Evidence umisteni-ve-skladu (Umístění ve skladu) Formats.
      *
      * @var array
@@ -2200,22 +2211,33 @@ class Formats
   'CSV' => 'csv',
 );
     /**
-     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Formats.
+     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladuMistnost = array (
+ static public $umisteniVeSkladuRegal = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
   'CSV' => 'csv',
 );
     /**
-     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Formats.
+     * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladuRegal = array (
+ static public $umisteniVeSkladuPolice = array (
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+);
+    /**
+     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Formats.
+     *
+     * @var array
+     */
+ static public $umisteniVeSkladuMistnost = array (
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
