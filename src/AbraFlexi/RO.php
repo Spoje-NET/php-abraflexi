@@ -1259,7 +1259,7 @@ class RO extends \Ease\Sand {
      * 
      * @return boolean
      */
-    public function setAction($action) {
+    public function setAction(string $action) {
         $result = false;
         $actionsAvailable = $this->getActionsInfo();
         if (is_array($actionsAvailable) && array_key_exists($action,

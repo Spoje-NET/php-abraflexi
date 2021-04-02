@@ -523,7 +523,7 @@ class RW extends RO {
      *
      * @return boolean operation success
      */
-    public function performAction($action, $method = 'int') {
+    public function performAction(string $action, $method = 'int') {
         $actionsAvailble = $this->getActionsInfo();
 
         if (is_array($actionsAvailble) && array_key_exists($action,
@@ -543,7 +543,7 @@ class RW extends RO {
                 case 'int':
                     $this->setAction($action);
                     $this->setPostFields($this->getJsonizedData(['id' => $this]));
-                    $this->performRequest(null, 'POST');
+                    $this->performRequest('', 'POST');
                     $result = $this->lastResponseCode == 201;
                     break;
 
