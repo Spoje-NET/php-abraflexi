@@ -6,7 +6,7 @@ declare(strict_types=1);
  * AbraFlexi - Document Default Address support
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2018-2019 Spoje.Net
+ * @copyright  (C) 2018-2021 Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -26,12 +26,13 @@ trait Firma {
     /**
      * Instance of Adresar( $this->getDataValue('firma') ) 
      * 
+     * @param array $options for new Object
+     * 
      * @return Adresar
      */
-    public function getFirmaObject() {
+    public function getFirmaObject($options = ['details' => 'id']) {
         if (is_null($this->firma)) {
-            $this->firma = new Adresar($this->getDataValue('firma'),
-                    ['details' => 'id']);
+            $this->firma = new Adresar($this->getDataValue('firma'), $options);
         }
         return $this->firma;
     }
