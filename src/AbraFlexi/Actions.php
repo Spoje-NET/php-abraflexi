@@ -21,7 +21,7 @@ class Actions
      *
      * @var string
      */
- static public $version = '2021.4.0';
+ static public $version = '2021.5.1';
 
     /**
      * Evidence doklad (#dokladView) Actions.
@@ -508,11 +508,11 @@ class Actions
   ),
 );
     /**
-     * Evidence adresar-bankovni-ucet (Bankovní spojení) Actions.
+     * Evidence mzdy-bankovni-spojeni (Bankovní spojení) Actions.
      *
      * @var array
      */
- static public $adresarBankovniUcet = array (
+ static public $mzdyBankovniSpojeni = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -551,11 +551,11 @@ class Actions
   ),
 );
     /**
-     * Evidence mzdy-bankovni-spojeni (Bankovní spojení) Actions.
+     * Evidence adresar-bankovni-ucet (Bankovní spojení) Actions.
      *
      * @var array
      */
- static public $mzdyBankovniSpojeni = array (
+ static public $adresarBankovniUcet = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -5188,11 +5188,11 @@ class Actions
   ),
 );
     /**
-     * Evidence prace (Práce pro střediska) Actions.
+     * Evidence prace-mesic (Práce pro střediska) Actions.
      *
      * @var array
      */
- static public $prace = array (
+ static public $praceMesic = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -5231,11 +5231,11 @@ class Actions
   ),
 );
     /**
-     * Evidence prace-mesic (Práce pro střediska) Actions.
+     * Evidence prace (Práce pro střediska) Actions.
      *
      * @var array
      */
- static public $praceMesic = array (
+ static public $prace = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -8855,11 +8855,11 @@ class Actions
   ),
 );
     /**
-     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Actions.
+     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Actions.
      *
      * @var array
      */
- static public $umisteniVeSkladuRegal = array (
+ static public $umisteniVeSkladuMistnost = array (
   'new' => 
   array (
     'actionId' => 'new',
@@ -8941,11 +8941,11 @@ class Actions
   ),
 );
     /**
-     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Actions.
+     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Actions.
      *
      * @var array
      */
- static public $umisteniVeSkladuMistnost = array (
+ static public $umisteniVeSkladuRegal = array (
   'new' => 
   array (
     'actionId' => 'new',

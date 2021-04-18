@@ -909,6 +909,7 @@ class RO extends \Ease\Sand {
      *
      * @return string url with default params added
      */
+
     public function addDefaultUrlParams(string $urlRaw) {
         return \Ease\Functions::addUrlParams($urlRaw, $this->defaultUrlParams,
                         false);
@@ -1585,9 +1586,9 @@ class RO extends \Ease\Sand {
             $id = rawurlencode('(' . self::flexiUrl($id) . ')');
         } elseif (is_numeric($id)) {
             $id = strval($id);
-        } else if (preg_match('/^ext:/', $id)) {
+        } else if (preg_match('/^ext:/', strval($id))) {
             $id = self::urlEncode($id);
-        } else if (preg_match('/^code:/', $id)) {
+        } else if (preg_match('/^code:/', strval($id))) {
             $id = self::code(self::urlEncode(self::uncode($id)));
         }
         return $id;
