@@ -27,6 +27,7 @@
         }
     },
     "require-dev": {
+	"ext-iconv": "*",
         "phpunit/phpunit": "^9",
 	"phing/phing": "^2"
     },
