@@ -2,7 +2,7 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Sun, 18 Apr 2021 15:05:08 +0200 
+ * Generated: Thu, 29 Apr 2021 16:59:23 +0200 
  * From:      https://vitexsoftware.flexibee.eu:5434
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -46,7 +46,7 @@ class EvidenceList extends RO
      *
      * @var string
      */
- static public $version = '2021.5.1';
+ static public $version = '2021.5.2';
 
     /**
      * Evidences Path/Name listing.
