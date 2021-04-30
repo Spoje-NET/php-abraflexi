@@ -409,7 +409,7 @@ class RO extends \Ease\Sand {
      * Throw Exception in case of AbraFlexi error
      * @var boolean 
      */
-    public $throwException = false;
+    public $throwException = true;
 
     /**
      * Class for read only interaction with AbraFlexi.
