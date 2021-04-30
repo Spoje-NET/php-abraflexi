@@ -247,6 +247,54 @@ Jako přílohy jsou také připojeny soubory obsahující tělo dotazu na server
 
 Během života objektu se chyby evidují a odesílá se pouze první každého druhu. 
 
+Aktualizace na verzi 2.0
+------------------------
+
+Oproti 1.x se změnilo následující:
+
+ * Zmizely Třídy FlexiBeeRO a FlexiBeeRW (nově RO a RW) 
+ * Data z AbraFlexi jsou typovaná (už ne jenom strig)
+ * Všechno FlexiBee bylo přejmenováno na AbraFlexi
+ * Při chybě ze serveru se vyhodí Exeption (předtím se pouze zalogovalo)
+ * Požadavky nespecifikují počet výsledků, (je třeba explicitně požadovat limit 0 pro všechny výsledky požadavku na api)
+
+ 
+Výchozí **Nativní typy** se projevují tak že ze serveru ve chlívečku obsahující datum obdržíte php objekt DateTime. ve sloupečku 'id' integer a pod. 
+Toto chování je možné vypnout pomocí parametru konstruktoru ```['nativeTypes' = false]```
+
+
+```php
+    new \AbraFlexi\FakturaVydaná( 'code:VF2-12345', ['nativeTypes'=>false,'debug'=>true,'ignore404'=>false] );
+```
+Viz.: [constructor RO](https://github.com/Spoje-NET/php-abraflexi/blob/cd829fcb05939ab54ed99aaa63d01b63700cbb83/src/AbraFlexi/RO.php#L450)
+
+Je možno zadat některé z těchto parametrů:
+
+     * user,password,authSessionId - autentifikace
+     * company,url,evidence - vynucení parametrů přístupu
+     * prefix - pro url začínající jinak než  '/c/' pro  company
+     * defaultUrlParams - pole vlastností pak automaticky přidávané
+     * debug - pro zapnutí ladícího režimu
+     * detail - pro specifikaci požadované [úrovně detailů](https://www.flexibee.eu/api/dokumentace/ref/detail-levels/). 
+     * offline - nevykonávají se žádné síťové operace ( nepřiřipojit se při instancování objektu ) 
+     * filter - viz [Filtrování](https://www.flexibee.eu/api/dokumentace/ref/filters}
+     * ignore404 - v případě že nevím zdali požadovaný záznam existuje nastavte na true aby to nevyhodilo chybu
+     * nativeTypes - pokud chci všecho ze serveru vracet jako stringy 
+     * timeout - trpělivost než se vyhodí chyba síťové komunikace (předáváno do cURL)
+     * companyUrl - načte si z řetězce všechny náležitosti k připojení (heslo pro API atd..)
+     * ver - vynucení verze api (pokud chcete volat funkce určené pro nové webové rozhraní)
+     * throwException - vyhodit vyjímku při každé vhodné příležitosti
+
+
+
+Autoloading dat
+---------------
+
+Pokud se konstruktoru objektu předá ID typu int nebo kódem  (code:..) záznamu zavolá tento funkci loadFromAbraFlexi(id) 
+Poté je možné k načteným hodnotám se dostat za použití metod $this->getData() a RO::getDataValue('nazev')
+
+
+
 
 Testování
 ---------
