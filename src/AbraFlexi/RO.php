@@ -31,7 +31,7 @@ class RO extends \Ease\Sand {
      *
      * @var string
      */
-    public static $libVersion = '2.5';
+    public static $libVersion = '2.6';
 
     /**
      * Basic namespace for communication with AbraFlexi
