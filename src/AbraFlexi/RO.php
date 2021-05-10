@@ -31,7 +31,7 @@ class RO extends \Ease\Sand {
      *
      * @var string
      */
-    public static $libVersion = '1.37';
+    public static $libVersion = '2.5';
 
     /**
      * Basic namespace for communication with AbraFlexi
@@ -505,7 +505,12 @@ class RO extends \Ease\Sand {
         $host = isset($urlParts['host']) ? $urlParts['host'] : '';
         $port = isset($urlParts['port']) ? ':' . $urlParts['port'] : '';
         $path = isset($urlParts['path']) ? $urlParts['path'] : '';
-
+        if (array_key_exists('user', $urlParts)) {
+            $options['user'] = $urlParts['user'];
+        }
+        if (array_key_exists('pass', $urlParts)) {
+            $options['password'] = $urlParts['pass'];
+        }
         $options['company'] = basename($path);
         $options['url'] = $scheme . $host . $port;
         return $options;
@@ -1131,6 +1136,14 @@ class RO extends \Ease\Sand {
                 if ($this->debug === true) {
                     $this->error500Reporter($responseDecoded);
                 }
+            case 401:
+                $msg = $responseDecoded[key($responseDecoded)]['message'] . ' for ' . $this->getApiURL();
+                if ($this->throwException) {
+                    throw new Exception($msg);
+                } else {
+                    $this->addStatusMessage($msg, 'error');
+                }
+                break;
             case 404: // Page not found
                 if ($this->ignoreNotFound === true) {
                     break;
@@ -2785,10 +2798,11 @@ class RO extends \Ease\Sand {
      * @return boolean message added
      */
     public function addStatusMessage($message, $type = 'info', $caller = null) {
+        $callerFinal = empty($caller) ? $this : $caller;
         if (($this->throwException === true) && (($type == 'warning') || ($type == 'error') )) {
-            throw new Exception($type . ': ' . $message . "\n" . 'caller:' . is_object($caller) ? get_class($caller) : $caller );
+            throw new Exception($type . ': ' . $message . "\n" . 'caller:' . is_object($callerFinal) ? get_class($callerFinal) : $callerFinal );
         } else {
-            parent::addStatusMessage($message, $type, is_null($caller) ? $this : $caller );
+            parent::addStatusMessage($message, $type, $callerFinal);
         }
     }
 

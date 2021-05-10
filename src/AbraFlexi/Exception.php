@@ -17,6 +17,8 @@ namespace AbraFlexi;
  *
  * @author vitex
  */
-class Exception extends \Ease\Exeption {
-    
+class Exception extends \Ease\Exception {
+    public function __construct($message, $code = 0, \Ease\Exception $previous = null) {
+        parent::__construct($message, $code, $previous);
+    }
 }
