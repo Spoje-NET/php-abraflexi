@@ -2489,19 +2489,8 @@ class RO extends \Ease\Sand {
             $urlParams = [];
             switch ($format) {
                 case 'pdf':
-                    switch ($lang) {
-                        case 'cs':
-                        case 'sk':
-                        case 'en':
-                        case 'de':
-                            $urlParams['report-lang'] = $lang;
-                            break;
-                        case null:
-                        case '':
-                            break;
-                        default:
-                            throw new \Ease\Exception('Unknown language ' . $lang . ' for PDF export');
-                            break;
+                    if(empty($lang) === false){
+                        $urlParams['report-lang'] = $lang;
                     }
                     if (boolval($sign) === true) {
                         $urlParams['report-sign'] = 'true';
