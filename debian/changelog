@@ -1,4 +1,4 @@
-php-abraflexi (2.7) UNRELEASED; urgency=medium
+php-abraflexi (2.8) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -26,8 +26,9 @@ php-abraflexi (2.7) UNRELEASED; urgency=medium
   * version up
   * version up
   * #13 Work with Relations fixed
+  * Release v2.7
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Fri, 14 May 2021 14:40:47 +0200
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Fri, 14 May 2021 14:48:29 +0200
 
 flexipeehp (1.12) experimental; urgency=medium
 
