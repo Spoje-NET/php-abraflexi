@@ -12,7 +12,7 @@ CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [AbraFlexi
 [![Build Status](https://img.shields.io/travis/Spoje-NET/php-abraflexi/master.svg?style=flat-square)](https://travis-ci.org/Spoje-NET/php-abraflexi)
 [![Code Coverage](https://scrutinizer-ci.com/g/Spoje-NET/php-abraflexi/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Spoje-NET/php-abraflexi/?branch=master)
 [![Docker pulls](https://img.shields.io/docker/pulls/vitexsoftware/flexipeehp.svg)](https://hub.docker.com/r/vitexsoftware/flexipeehp/)
-[![Total Downloads](https://img.shields.io/packagist/dt/spoje.net/php-abraflexi.svg?style=flat-square)](https://packagist.org/packages/spoje.net/php-abraflexi)
+[![Total Downloads](https://img.shields.io/packagist/dt/spojenet/php-abraflexi.svg?style=flat-square)](https://packagist.org/packages/spojenet/php-abraflexi)
 [![Latest stable](https://img.shields.io/packagist/v/spoje.net/php-abraflexi.svg?style=flat-square)](https://packagist.org/packages/spoje.net/php-abraflexi)
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4/big.png)](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4)
