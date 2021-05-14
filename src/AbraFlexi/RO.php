@@ -1018,6 +1018,8 @@ class RO extends \Ease\Sand {
                             $record[$column] = boolval($value);
                             break;
                         case 'relation':
+                            $record[$column] = is_array($value) ? $value : [$value];
+                            break;
                         case 'select':
                         case 'string':
                             $record[$column] = is_array($value) ? implode("\n", $value) : strval($value);
@@ -2139,10 +2141,10 @@ class RO extends \Ease\Sand {
                         $responseBody)) { //Unifi response format
             $response = $responseBody;
         } else {
-            $evidence = $this->getResponseEvidence();
+            $evidence = array_key_exists('relations', $responseBody) ? 'relations' : $this->getResponseEvidence();
             if (array_key_exists($evidence, $responseBody)) {
                 $response = [];
-                $evidenceContent = $responseBody[$evidence];
+                $evidenceContent = (array) $responseBody[$evidence];
                 if (array_key_exists(0, $evidenceContent)) {
                     $response[$evidence] = $evidenceContent; //Multiplete Results
                 } else {
@@ -2176,6 +2178,14 @@ class RO extends \Ease\Sand {
         if (file_exists($infoSource)) {
             $columnsInfo = json_decode(file_get_contents($infoSource), true);
         }
+
+        if (property_exists('\AbraFlexi\Relations', $evidence)) {
+            foreach (Relations::$$evidence as $url => $properties) {
+                $properties['type'] = 'relation';
+                $columnsInfo[$url] = $properties;
+            }
+        }
+
         return $columnsInfo;
     }
 
@@ -2489,7 +2499,7 @@ class RO extends \Ease\Sand {
             $urlParams = [];
             switch ($format) {
                 case 'pdf':
-                    if(empty($lang) === false){
+                    if (empty($lang) === false) {
                         $urlParams['report-lang'] = $lang;
                     }
                     if (boolval($sign) === true) {

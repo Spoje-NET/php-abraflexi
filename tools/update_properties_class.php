@@ -6,6 +6,7 @@ define('EASE_APPNAME', 'FlexiPeehUP');
 define('EASE_LOGGER', 'console|syslog');
 
 require_once '../testing/bootstrap.php';
+require_once  __DIR__ . '/common.php';
 
 function evidenceToClass($evidence) {
     return str_replace(' ', '', ucwords(str_replace('-', ' ', $evidence)));
@@ -36,7 +37,7 @@ class Properties
 
 $statuser = new Status();
 
-$syncer = new RO();
+$syncer = new RO(null, ['throwException' => false]);
 $syncer->setObjectName('FlexiBee Evidence Properties');
 $syncer->addStatusMessage('Updating Evidences Properties');
 

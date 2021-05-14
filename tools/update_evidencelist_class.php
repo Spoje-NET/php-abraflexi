@@ -6,6 +6,7 @@ define('EASE_APPNAME', 'AbraFlexiStaticEvidenceListGenerator');
 define('EASE_LOGGER', 'console|syslog');
 
 require_once '../testing/bootstrap.php';
+require_once  __DIR__ . '/common.php';
 
 $outFile = 'EvidenceList.php';
 $outJson = 'EvidenceList.json';
@@ -130,7 +131,7 @@ $evidenceList .= '    /**
      * @var array
      */
 ';
-$evidenceList .= ' static public $name = ' . var_export($evlist, true) . ';
+$evidenceList .= ' static public $name = ' . varexport($evlist, true) . ';
 
 ';
 $evidenceList .= '    /**
@@ -139,7 +140,7 @@ $evidenceList .= '    /**
      * @var array
      */
 ';
-$evidenceList .= ' static public $evidences = ' . var_export($fullList, true) . ';
+$evidenceList .= ' static public $evidences = ' . varexport($fullList, true) . ';
 
 ';
 

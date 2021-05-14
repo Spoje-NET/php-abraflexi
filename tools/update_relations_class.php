@@ -6,11 +6,11 @@ define('EASE_APPNAME', 'FlexiPeehUP');
 define('EASE_LOGGER', 'console|syslog');
 
 require_once '../testing/bootstrap.php';
-
+require_once  __DIR__ . '/common.php';
 
 $outFile = 'Relations.php';
 $outJson = 'Relations.json';
-$ok      = 0;
+$ok = 0;
 
 /**
  * Obtain Relations for given evidence
@@ -20,28 +20,36 @@ $ok      = 0;
  * 
  * @return array     Relations structure
  */
-function getEvidenceRelations($evidence, RO $syncer)
-{
+function getEvidenceRelations($evidence, RO $syncer) {
     $relations = [];
-    $flexinfo  = $syncer->performRequest($evidence.'/relations.json');
+
+    if ($evidence == 'atribut') {
+        echo '';
+    }
+
+    $flexinfo = $syncer->performRequest($evidence . '/relations.json');
     if (count($flexinfo) && array_key_exists('relations', $flexinfo)) {
-        if (isset($flexinfo['relations']['relation'])) {
-            foreach ($flexinfo['relations']['relation'] as $evidenceRelations) {
-                $relations[] = $evidenceRelations;
+
+        if (array_key_exists('relations', $flexinfo)) {
+            foreach ($flexinfo['relations'] as $evidenceRelations) {
+                if (count($evidenceRelations) && array_key_exists('relation', $evidenceRelations)) {
+                    $relations = \Ease\Functions::reindexArrayBy(array_key_exists('url', $evidenceRelations['relation']) ? [$evidenceRelations['relation']] : $evidenceRelations['relation'], 'url');
+                }
             }
         } else {
             $syncer->addStatusMessage(sprintf('Missing relations for %s',
-                    $evidence), 'warning');
+                            $evidence), 'warning');
         }
     }
     return $relations;
 }
+
 $evidenceRels = '<?php
 /**
  * AbraFlexi - Evidence Relations.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2020 Spoje.Net
+ * @copyright  (C) 2015-2021 Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -62,12 +70,11 @@ $evidenceRels .= '    /**
      * @var string
      */
 ';
-$evidenceRels .= ' static public $version = \''.$statuser->getDataValue('version').'\';
+$evidenceRels .= ' static public $version = \'' . $statuser->getDataValue('version') . '\';
 
 ';
 
-
-$syncer = new RO();
+$syncer = new RO(null, ['throwException' => false]);
 $syncer->setObjectName('FlexiBee Evidence Relations');
 $syncer->addStatusMessage('Updating Evidences Relations');
 
@@ -82,29 +89,29 @@ foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
 
     if (count($structure)) {
         $evidenceRels .= '    /**
-     * Evidence '.$evidencePath.' ('.$evidenceName.') Relations.
+     * Evidence ' . $evidencePath . ' (' . $evidenceName . ') Relations.
      *
      * @var array
      */
 ';
-        $evidenceRels .= ' static public $'.lcfirst(RO::evidenceToClassName($evidencePath)).' = '.var_export($structure,
-                true).';
+        $evidenceRels .= ' static public $' . lcfirst(RO::evidenceToClassName($evidencePath)) . ' = ' . varexport($structure,
+                        true) . ';
 ';
 
-        $syncer->addStatusMessage($pos.' of '.count(EvidenceList::$name).' '.$evidencePath.': relations obtained',
-            'success');
+        $syncer->addStatusMessage($pos . ' of ' . count(EvidenceList::$name) . ' ' . $evidencePath . ': relations obtained',
+                'success');
         $ok++;
     } else {
-        $syncer->addStatusMessage($pos.' of '.count(EvidenceList::$name).' '.$evidencePath.': obtaining relations problem',
-            'error');
+        $syncer->addStatusMessage($pos . ' of ' . count(EvidenceList::$name) . ' ' . $evidencePath . ': obtaining relations problem',
+                'error');
     }
 }
 
 $evidenceRels .= '}
 ';
 
-$syncer->addStatusMessage('Updating of '.$ok.' Evidences Properties done',
-    'success');
+$syncer->addStatusMessage('Updating of ' . $ok . ' Evidences Properties done',
+        'success');
 file_put_contents($outFile, $evidenceRels);
 
 file_put_contents($outJson, json_encode($relations));

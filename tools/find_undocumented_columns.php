@@ -11,14 +11,13 @@ require_once '../testing/bootstrap.php';
  * @param RO $syncer Class to read from FlexiBee
  * @return array     Evidence structure
  */
-function getColumnsInfo($evidence, RO $syncer)
-{
+function getColumnsInfo($evidence, RO $syncer) {
     $useKeywords = [];
-    $flexinfo    = $syncer->performRequest($evidence.'/properties.json');
+    $flexinfo = $syncer->performRequest($evidence . '/properties.json');
     if (count($flexinfo) && array_key_exists('properties', $flexinfo)) {
         foreach ($flexinfo['properties']['property'] as $evidenceProperty) {
-            $key                       = $evidenceProperty['propertyName'];
-            $useKeywords[$key]         = $evidenceProperty;
+            $key = $evidenceProperty['propertyName'];
+            $useKeywords[$key] = $evidenceProperty;
             $useKeywords[$key]['name'] = $evidenceProperty['name'];
             $useKeywords[$key]['type'] = $evidenceProperty['type'];
         }
@@ -26,8 +25,7 @@ function getColumnsInfo($evidence, RO $syncer)
     return $useKeywords;
 }
 
-function controlData($data, $fbColumns, $fbRelations)
-{
+function controlData($data, $fbColumns, $fbRelations) {
     $controlResult = [];
     if (count($fbColumns)) {
         foreach ($data as $key => $value) {
@@ -39,14 +37,14 @@ function controlData($data, $fbColumns, $fbRelations)
                 $baseKey = substr($key, 0, strrpos($key, '@'));
                 if (!array_key_exists($baseKey, $fbColumns)) {
                     $controlResult[$key][] = sprintf('unknown column property %s',
-                        $key);
+                            $key);
                 }
                 continue;
             }
 
             if (!array_key_exists($key, $fbColumns)) {
                 if (is_array($fbRelations) && !array_key_exists($key,
-                        $fbRelations)) {
+                                $fbRelations)) {
                     $controlResult[$key][] = sprintf('unknown column %s', $key);
                 }
             }
@@ -54,10 +52,10 @@ function controlData($data, $fbColumns, $fbRelations)
     }
     return $controlResult;
 }
+
 $syncer = new EvidenceList();
 
 $evidencies = $syncer->getColumnsFromFlexibee(['evidencePath', 'evidenceName']);
-
 
 $controlResult = [];
 foreach ($evidencies['evidences']['evidence'] as $evidenceID => $evidence) {
@@ -67,7 +65,7 @@ foreach ($evidencies['evidences']['evidence'] as $evidenceID => $evidence) {
     $firstRecord = $syncer->getFlexiData(null, ['limit' => 1]);
     if (count($firstRecord) && isset($firstRecord[0]) && count($firstRecord[0])) {
         $controlled = controlData($firstRecord[0], $syncer->getColumnsInfo(),
-            $syncer->getRelationsInfo());
+                $syncer->getRelationsInfo());
         if (count($controlled)) {
             $controlResult[$evidence['evidencePath']] = $controlled;
         }
@@ -75,5 +73,4 @@ foreach ($evidencies['evidences']['evidence'] as $evidenceID => $evidence) {
 }
 
 echo json_encode($controlResult, JSON_PRETTY_PRINT);
-
 
