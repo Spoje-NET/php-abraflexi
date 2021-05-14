@@ -11,7 +11,7 @@
  *
  * official|vitexsoftware|localhost
  */
-$testServer = 'vitexsoftware';
+$testServer = 'official';
 
 include_once file_exists('../vendor/autoload.php') ? '../vendor/autoload.php' : 'vendor/autoload.php';
 
