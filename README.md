@@ -24,7 +24,7 @@ CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [AbraFlexi
 [![Monthly Downloads](https://poser.pugx.org/spojenet/abraflexi/d/monthly)](https://packagist.org/packages/spojenet/abraflexi)
 [![Daily Downloads](https://poser.pugx.org/spojenet/abraflexi/d/daily)](https://packagist.org/packages/spojenet/abraflexi)
 
- :exclamation: Tato knihovna byla z důvodu požadavků composeru 2.0+  přejmenována na **spojenet/abraflexi**  :exclamation:
+ :exclamation:  Byla změněna výchozí větev z **master** na **2.0**  :exclamation:
 
 
 # Poděkování 
