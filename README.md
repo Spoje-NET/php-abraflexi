@@ -17,12 +17,12 @@ CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [AbraFlexi
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4/big.png)](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4)
 
-[![Latest Stable Version](https://poser.pugx.org/spojenet/abraflexi/v/stable)](https://packagist.org/packages/spojenet/abraflexi)
-[![Total Downloads](https://poser.pugx.org/spojenet/abraflexi/downloads)](https://packagist.org/packages/spojenet/abraflexi)
-[![Latest Unstable Version](https://poser.pugx.org/spojenet/abraflexi/v/unstable)](https://packagist.org/packages/spojenet/abraflexi)
-[![License](https://poser.pugx.org/spojenet/abraflexi/license)](https://packagist.org/packages/spojenet/abraflexi)
-[![Monthly Downloads](https://poser.pugx.org/spojenet/abraflexi/d/monthly)](https://packagist.org/packages/spojenet/abraflexi)
-[![Daily Downloads](https://poser.pugx.org/spojenet/abraflexi/d/daily)](https://packagist.org/packages/spojenet/abraflexi)
+[![Latest Stable Version](https://poser.pugx.org/spojenet/flexibee/v/stable)](https://packagist.org/packages/spojenet/flexibee)
+[![Total Downloads](https://poser.pugx.org/spojenet/flexibee/downloads)](https://packagist.org/packages/spojenet/flexibee)
+[![Latest Unstable Version](https://poser.pugx.org/spojenet/flexibee/v/unstable)](https://packagist.org/packages/spojenet/flexibee)
+[![License](https://poser.pugx.org/spojenet/flexibee/license)](https://packagist.org/packages/spojenet/flexibee)
+[![Monthly Downloads](https://poser.pugx.org/spojenet/flexibee/d/monthly)](https://packagist.org/packages/spojenet/flexibee)
+[![Daily Downloads](https://poser.pugx.org/spojenet/flexibee/d/daily)](https://packagist.org/packages/spojenet/flexibee)
 
  :exclamation:  Byla změněna výchozí větev z **master** na **2.0**  :exclamation:
 
@@ -42,7 +42,7 @@ Instalace
 ---------
 
 ```shell
-    composer require spojenet/abraflexi
+    composer require spojenet/flexibee
 ```
 
 pokud váš výsledný composer.json bude vypadat  zhruba takto: 
@@ -53,7 +53,7 @@ pokud váš výsledný composer.json bude vypadat  zhruba takto:
     "description": "Test",
     "type": "project",
     "require": {
-        "spojenet/abraflexi": "*"
+        "spojenet/flexibee": "*"
     },
     "license": "MIT",
     "authors": [
