@@ -257,6 +257,7 @@ Oproti 1.x se změnilo následující:
  * Všechno FlexiBee bylo přejmenováno na AbraFlexi
  * Při chybě ze serveru se vyhodí Exeption (předtím se pouze zalogovalo)
  * Požadavky nespecifikují počet výsledků, (je třeba explicitně požadovat limit 0 pro všechny výsledky požadavku na api)
+ * již se nepužívá starý zápis polí array()
 
  
 Výchozí **Nativní typy** se projevují tak že ze serveru ve chlívečku obsahující datum obdržíte php objekt DateTime. ve sloupečku 'id' integer a pod. 
