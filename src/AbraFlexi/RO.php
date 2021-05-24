@@ -1139,7 +1139,7 @@ class RO extends \Ease\Sand {
                     $this->error500Reporter($responseDecoded);
                 }
             case 401:
-                $msg = $responseDecoded[key($responseDecoded)]['message'] . ' for ' . $this->getApiURL();
+                $msg = (array_key_exists('message', $responseDecoded) ? $responseDecoded['message'] : $responseDecoded[key($responseDecoded)]['message']) . ' for ' . $this->getApiURL();
                 if ($this->throwException) {
                     throw new Exception($msg);
                 } else {
