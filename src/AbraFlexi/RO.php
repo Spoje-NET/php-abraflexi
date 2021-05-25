@@ -2799,7 +2799,7 @@ class RO extends \Ease\Sand {
     public function addStatusMessage($message, $type = 'info', $caller = null) {
         $callerFinal = empty($caller) ? $this : $caller;
         if (($this->throwException === true) && (($type == 'warning') || ($type == 'error') )) {
-            throw new Exception($type . ': ' . $message . "\n" . 'caller:' . is_object($callerFinal) ? get_class($callerFinal) : $callerFinal );
+            throw new Exception($type . ': ' . $message . "\n" . 'caller:' . (is_object($callerFinal) ? get_class($callerFinal) : $callerFinal ));
         } else {
             parent::addStatusMessage($message, $type, $callerFinal);
         }
