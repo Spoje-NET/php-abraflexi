@@ -27,14 +27,6 @@ set -e
 case "$1" in
     configure)
 
-        db_get composer/WEB_USER
-        WEBUSER=$RET
-        mkdir -p /var/lib/php-spojenet-abraflexi /var/lib/composer
-        chown $WEBUSER /var/lib/php-spojenet-abraflexi /var/lib/composer -R
-        echo '{}' > /usr/share/php/AbraFlexi/composer.lock
-        chown $WEBUSER /usr/share/php/AbraFlexi/composer.lock
-        su - $WEBUSER -s /bin/bash -c 'COMPOSER_HOME="/var/lib/composer" composer -o install -d /usr/share/php/AbraFlexi'
-
         composer-global-update deb/abraflexi
 
     ;;
