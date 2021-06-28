@@ -2,7 +2,7 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Mon, 14 Jun 2021 09:02:55 +0200 
+ * Generated: Mon, 28 Jun 2021 03:33:51 +0200 
  * From:      https://demo.flexibee.eu
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -46,7 +46,7 @@ class EvidenceList extends RO
      *
      * @var string
      */
- static public $version = '2021.5.5';
+ static public $version = '2021.6.0-rc-1';
 
     /**
      * Evidences Path/Name listing.
@@ -113,8 +113,8 @@ class EvidenceList extends RO
   'vazebni-doklad' => 'Navázané doklady',
   'po-splatnosti' => 'Neuhrazené pohledávky/závazky po splatnosti',
   'naklad' => 'Náklady na události / aktivity',
-  'cenikovy-pohyb-nakup' => 'Nákupní, prodejní a skladové pohyby',
   'cenikovy-pohyb-prodej' => 'Nákupní, prodejní a skladové pohyby',
+  'cenikovy-pohyb-nakup' => 'Nákupní, prodejní a skladové pohyby',
   'intrastat-obchodni-transakce' => 'Obchodní transakce',
   'strom-koren' => 'Obecný strom',
   'obratova-predvaha' => 'Obratová předvaha',
@@ -224,6 +224,8 @@ class EvidenceList extends RO
   'udalost' => 'Události, aktivity',
   'radek-priznani-dph' => 'Uložené řádky přiznání DPH',
   'umisteni' => 'Umístění',
+  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-police' => 'Umístění ve skladu',
   'umisteni-ve-skladu' => 'Umístění ve skladu',
   'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
   'sablona-upominky' => 'Upomínky',
@@ -258,8 +260,8 @@ class EvidenceList extends RO
   'ucetni-obdobi' => 'Účetní období',
   'ucet' => 'Účtový rozvrh',
   'cinnost' => 'Činnost',
-  'typ-stavu-ceniku' => 'Číselník stavů položek ceníku',
   'stav-ceniku' => 'Číselník stavů položek ceníku',
+  'typ-stavu-ceniku' => 'Číselník stavů položek ceníku',
   'cislo-baliku' => 'Čísla balíků',
   'radek-sestavy' => 'Řádek sestavy',
   'cleneni-kontrolni-hlaseni' => 'Řádky kontrolního hlášení DPH',
