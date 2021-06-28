@@ -21,7 +21,7 @@ override_dh_prep:
 
 
 override_dh_install:
-	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'`'"' debian/composer.json |sponge debian/composer.json
+	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//' `'"'  debian/composer.json |sponge debian/composer.json
 	dh_install	
 	sed -i -e  "s/\/\.\.\/\.\.\//\//g" debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/RO.php
 	sed -i -e  "s/\.\.\/testing\//\/usr\/share\/php\/AbraFlexi\/tools\//g" debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/tools/*.php
