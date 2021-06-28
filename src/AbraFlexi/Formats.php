@@ -19,7 +19,7 @@ class Formats
  *
  * @var string
  */
- static public $version = '2021.5.2';
+ static public $version = '2021.5.5';
 
 
     /**
@@ -113,25 +113,6 @@ class Formats
     }
 
         /**
-     * Evidence doklad (#dokladView) Formats.
-     *
-     * @var array
-     */
- static public $doklad = [
-  'HTML' => 'html',
-];
-    /**
-     * Evidence global-store (#settingsAll) Formats.
-     *
-     * @var array
-     */
- static public $globalStore = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
      * Evidence adresar (Adresy firem) Formats.
      *
      * @var array
@@ -141,39 +122,12 @@ class Formats
   'XML' => 'xml',
   'JSON' => 'json',
   'CSV' => 'csv',
-];
-    /**
-     * Evidence mzda (Aktualizace mezd) Formats.
-     *
-     * @var array
-     */
- static public $mzda = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence analyza-nakupu (Analýza nákupu) Formats.
-     *
-     * @var array
-     */
- static public $analyzaNakupu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence analyza-prodeje (Analýza prodeje) Formats.
-     *
-     * @var array
-     */
- static public $analyzaProdeje = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
+  'DBF' => 'dbf',
+  'XLS' => 'xls',
+  'ISDOC' => 'isdoc',
+  'ISDOCx' => 'isdocx',
+  'PDF' => 'pdf',
+  'vCard' => 'vcf',
 ];
     /**
      * Evidence atribut (Atributy) Formats.
@@ -214,17 +168,6 @@ class Formats
      * @var array
      */
  static public $formatElektronickehoBankovnictvi = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence mzdy-bankovni-spojeni (Bankovní spojení) Formats.
-     *
-     * @var array
-     */
- static public $mzdyBankovniSpojeni = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -506,17 +449,6 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence dite (Dítě) Formats.
-     *
-     * @var array
-     */
- static public $dite = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
      * Evidence certifikat-eet (EET certifikáty) Formats.
      *
      * @var array
@@ -566,17 +498,6 @@ class Formats
      * @var array
      */
  static public $formaUhrady = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence osoba-hlavicka (Hlavičky osob) Formats.
-     *
-     * @var array
-     */
- static public $osobaHlavicka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -759,17 +680,6 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence mzdova-slozka (Mzdové složky - vstup a výběry) Formats.
-     *
-     * @var array
-     */
- static public $mzdovaSlozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
      * Evidence misto-urceni (Místa určení) Formats.
      *
      * @var array
@@ -830,17 +740,6 @@ class Formats
      * @var array
      */
  static public $vazebniDoklad = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence nepritomnost (Nepřítomnost) Formats.
-     *
-     * @var array
-     */
- static public $nepritomnost = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1006,17 +905,6 @@ class Formats
      * @var array
      */
  static public $penezniUstav = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence osoba (Personalistika) Formats.
-     *
-     * @var array
-     */
- static public $osoba = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1298,55 +1186,11 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence pracovni-pomer (Pracovní poměr) Formats.
-     *
-     * @var array
-     */
- static public $pracovniPomer = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence pracovni-pomer-hlavicka (Pracovní poměr) Formats.
-     *
-     * @var array
-     */
- static public $pracovniPomerHlavicka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
      * Evidence prodejka (Prodejní kasa) Formats.
      *
      * @var array
      */
  static public $prodejka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence prace-mesic (Práce pro střediska) Formats.
-     *
-     * @var array
-     */
- static public $praceMesic = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence prace (Práce pro střediska) Formats.
-     *
-     * @var array
-     */
- static public $prace = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1386,11 +1230,11 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence prehled-zamestnancu (Přehled zaměstnanců) Formats.
+     * Evidence doklad (Přehled všech dokladů) Formats.
      *
      * @var array
      */
- static public $prehledZamestnancu = [
+ static public $doklad = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1661,17 +1505,6 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence skupina-osob (Skupiny osob) Formats.
-     *
-     * @var array
-     */
- static public $skupinaOsob = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
      * Evidence skupina-zbozi (Skupiny zboží a materiálu) Formats.
      *
      * @var array
@@ -1688,17 +1521,6 @@ class Formats
      * @var array
      */
  static public $skupinaStitku = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence smena (Směny) Formats.
-     *
-     * @var array
-     */
- static public $smena = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1743,17 +1565,6 @@ class Formats
      * @var array
      */
  static public $dashboardPanel = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence srazka (Srážka) Formats.
-     *
-     * @var array
-     */
- static public $srazka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1826,17 +1637,6 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence stala-mzdova-slozka (Stálá mzdová složka) Formats.
-     *
-     * @var array
-     */
- static public $stalaMzdovaSlozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
      * Evidence stat (Státy) Formats.
      *
      * @var array
@@ -1875,17 +1675,6 @@ class Formats
      * @var array
      */
  static public $typOrganizace = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence typ-pracovniho-pomeru (Typ pracovního poměru) Formats.
-     *
-     * @var array
-     */
- static public $typPracovnihoPomeru = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2211,11 +2000,11 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Formats.
+     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladuMistnost = [
+ static public $umisteniVeSkladuRegal = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2233,11 +2022,11 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Formats.
+     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladuRegal = [
+ static public $umisteniVeSkladuMistnost = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2519,6 +2308,17 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
+     * Evidence global-store (Úložiště globálního nastavení) Formats.
+     *
+     * @var array
+     */
+ static public $globalStore = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
      * Evidence setting-store (Úložiště nastavení) Formats.
      *
      * @var array
@@ -2579,17 +2379,6 @@ class Formats
      * @var array
      */
  static public $cinnost = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence ciselnik-mzdovych-slozek (Číselník mzdových složek) Formats.
-     *
-     * @var array
-     */
- static public $ciselnikMzdovychSlozek = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',

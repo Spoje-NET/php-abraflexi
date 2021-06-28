@@ -2,7 +2,7 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Fri, 14 May 2021 19:27:59 +0200 
+ * Generated: Mon, 14 Jun 2021 09:02:55 +0200 
  * From:      https://demo.flexibee.eu
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -46,7 +46,7 @@ class EvidenceList extends RO
      *
      * @var string
      */
- static public $version = '2021.5.2';
+ static public $version = '2021.5.5';
 
     /**
      * Evidences Path/Name listing.
@@ -54,8 +54,6 @@ class EvidenceList extends RO
      * @var array
      */
  static public $name = [
-  'doklad' => '#dokladView',
-  'global-store' => '#settingsAll',
   'adresar' => 'Adresy firem',
   'atribut' => 'Atributy',
   'autotisk' => 'Automatický tisk',
@@ -157,6 +155,7 @@ class EvidenceList extends RO
   'pravo-viditelnosti' => 'Práva viditelnosti dat',
   'text' => 'Předdefinované texty',
   'predpis-zauctovani' => 'Předpisy zaúčtování',
+  'doklad' => 'Přehled všech dokladů',
   'faktura-prijata' => 'Přijaté faktury',
   'nabidka-prijata' => 'Přijaté nabídky',
   'objednavka-prijata' => 'Přijaté objednávky',
@@ -225,10 +224,8 @@ class EvidenceList extends RO
   'udalost' => 'Události, aktivity',
   'radek-priznani-dph' => 'Uložené řádky přiznání DPH',
   'umisteni' => 'Umístění',
-  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
   'umisteni-ve-skladu' => 'Umístění ve skladu',
-  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
-  'umisteni-ve-skladu-police' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
   'sablona-upominky' => 'Upomínky',
   'strom' => 'Uzel stromu',
   'uzivatelsky-dotaz' => 'Uživatelské dotazy',
@@ -254,14 +251,15 @@ class EvidenceList extends RO
   'zapujcka' => 'Zápůjčky',
   'rada' => 'dokladové řady',
   'prodejka-platba' => 'Úhrada',
+  'global-store' => 'Úložiště globálního nastavení',
   'setting-store' => 'Úložiště nastavení',
   'analyza-zakazky' => 'Účetní analýza zakázky',
   'ucetni-denik' => 'Účetní deník',
   'ucetni-obdobi' => 'Účetní období',
   'ucet' => 'Účtový rozvrh',
   'cinnost' => 'Činnost',
-  'stav-ceniku' => 'Číselník stavů položek ceníku',
   'typ-stavu-ceniku' => 'Číselník stavů položek ceníku',
+  'stav-ceniku' => 'Číselník stavů položek ceníku',
   'cislo-baliku' => 'Čísla balíků',
   'radek-sestavy' => 'Řádek sestavy',
   'cleneni-kontrolni-hlaseni' => 'Řádky kontrolního hlášení DPH',
@@ -321,7 +319,7 @@ class EvidenceList extends RO
   ],
   'doklad' => [
     'evidenceType' => 'DOKLAD_VIEW',
-    'evidenceName' => '#dokladView',
+    'evidenceName' => 'Přehled všech dokladů',
     'evidencePath' => 'doklad',
     'importStatus' => 'DISALLOWED',
     'className' => 'cz.winstrom.vo.vyk.DokladView',
@@ -1184,7 +1182,7 @@ class EvidenceList extends RO
     'formCode' => 'banTyp',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'BAN\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'BAN\'',
   ],
   'bankovni-ucet' => [
     'evidenceType' => 'BANKOVNI_UCET',
@@ -1195,7 +1193,7 @@ class EvidenceList extends RO
     'formCode' => 'banBsp',
     'extIdSupported' => 'true',
     'dbName' => 'dBsp',
-    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND IdTypOrg = 1 AND Modul = \'BAN\'',
+    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND IdTypOrg = 1 AND Modul = \'BAN\'',
   ],
   'cenik' => [
     'evidenceType' => 'CENIK',
@@ -1338,7 +1336,7 @@ class EvidenceList extends RO
     'formCode' => 'fapTyp',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'FAP\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'FAP\'',
   ],
   'faktura-vydana' => [
     'evidenceType' => 'FAKTURA_OUT',
@@ -1382,7 +1380,7 @@ class EvidenceList extends RO
     'formCode' => 'favTyp',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'FAV\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'FAV\'',
   ],
   'format-elektronickeho-bankovnictvi' => [
     'evidenceType' => 'FORMAT_ELEKTRONICKEHO_BANKOVNICTVI',
@@ -1419,7 +1417,7 @@ class EvidenceList extends RO
   ],
   'global-store' => [
     'evidenceType' => 'GLOBAL_SETTING',
-    'evidenceName' => '#settingsAll',
+    'evidenceName' => 'Úložiště globálního nastavení',
     'evidencePath' => 'global-store',
     'importStatus' => 'NOT_DOCUMENTED',
     'className' => 'cz.winstrom.vo.WSSetting',
@@ -1481,7 +1479,7 @@ class EvidenceList extends RO
     'formCode' => 'intTyp',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'INT\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'INT\'',
   ],
   'intrastat-dodaci-podminky' => [
     'evidenceType' => 'INTRASTAT_DODACI_PODMINKY',
@@ -1624,7 +1622,7 @@ class EvidenceList extends RO
     'formCode' => 'majTypLeas',
     'extIdSupported' => 'true',
     'dbName' => 'mTypLeas',
-    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND IdTypOrg = 1',
+    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND IdTypOrg = 1',
   ],
   'majetek' => [
     'evidenceType' => 'MAJETEK',
@@ -1646,7 +1644,7 @@ class EvidenceList extends RO
     'formCode' => 'majTypMaj',
     'extIdSupported' => 'true',
     'dbName' => 'mTypMaj',
-    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND IdTypOrg = 1',
+    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND IdTypOrg = 1',
   ],
   'mena' => [
     'evidenceType' => 'MENA',
@@ -1712,7 +1710,7 @@ class EvidenceList extends RO
     'formCode' => 'obchodNapTyp',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'NAP\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'NAP\'',
   ],
   'nabidka-vydana' => [
     'evidenceType' => 'NABIDKA_OUT',
@@ -1756,7 +1754,7 @@ class EvidenceList extends RO
     'formCode' => 'obchodNavTyp',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'NAV\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'NAV\'',
   ],
   'objednavka-prijata' => [
     'evidenceType' => 'OBJEDNAVKA_IN',
@@ -1800,7 +1798,7 @@ class EvidenceList extends RO
     'formCode' => 'obchodObpTyp',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'OBP\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'OBP\'',
   ],
   'objednavka-vydana' => [
     'evidenceType' => 'OBJEDNAVKA_OUT',
@@ -1844,7 +1842,7 @@ class EvidenceList extends RO
     'formCode' => 'obchodObvTyp',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'OBV\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'OBV\'',
   ],
   'odpisova-skupina' => [
     'evidenceType' => 'ODPISOVE_SKUPINY',
@@ -1910,7 +1908,7 @@ class EvidenceList extends RO
     'formCode' => 'phlTyp',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'PHL\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'PHL\'',
   ],
   'pokladna' => [
     'evidenceType' => 'POKLADNA',
@@ -1921,7 +1919,7 @@ class EvidenceList extends RO
     'formCode' => 'pokBsp',
     'extIdSupported' => 'true',
     'dbName' => 'dBsp',
-    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND IdTypOrg = 1 AND Modul = \'POK\'',
+    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND IdTypOrg = 1 AND Modul = \'POK\'',
   ],
   'pokladni-pohyb' => [
     'evidenceType' => 'POKLADNI_POHYB',
@@ -1965,7 +1963,7 @@ class EvidenceList extends RO
     'formCode' => 'pokTyp',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'POK\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'POK\'',
   ],
   'poptavka-prijata' => [
     'evidenceType' => 'POPTAVKA_IN',
@@ -2009,7 +2007,7 @@ class EvidenceList extends RO
     'formCode' => 'obchodPppTyp',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'PPP\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'PPP\'',
   ],
   'poptavka-vydana' => [
     'evidenceType' => 'POPTAVKA_OUT',
@@ -2053,7 +2051,7 @@ class EvidenceList extends RO
     'formCode' => 'obchodPpvTyp',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'PPV\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'PPV\'',
   ],
   'predpis-zauctovani' => [
     'evidenceType' => 'PREDPIS_ZAUCTOVANI',
@@ -2064,7 +2062,7 @@ class EvidenceList extends RO
     'formCode' => 'cisTypUcOp',
     'extIdSupported' => 'true',
     'dbName' => 'uTypUcOp',
-    'evidenceFilter' => '(IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))',
+    'evidenceFilter' => '(IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))',
   ],
   'preneseni-dph' => [
     'evidenceType' => 'PRENESENI_DPH',
@@ -2119,7 +2117,7 @@ class EvidenceList extends RO
     'formCode' => 'favTypProdejky',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = true AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'FAV\'',
+    'evidenceFilter' => 'Prodejka = true AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'FAV\'',
   ],
   'rada' => [
     'evidenceType' => 'RADA',
@@ -2163,7 +2161,7 @@ class EvidenceList extends RO
     'formCode' => 'sklBsp',
     'extIdSupported' => 'true',
     'dbName' => 'dBsp',
-    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND IdTypOrg = 1 AND Modul = \'SKL\'',
+    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND IdTypOrg = 1 AND Modul = \'SKL\'',
   ],
   'skladovy-pohyb' => [
     'evidenceType' => 'SKLADOVY_POHYB',
@@ -2207,7 +2205,7 @@ class EvidenceList extends RO
     'formCode' => 'sklTyp',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'SKL\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'SKL\'',
   ],
   'skupina-atributu' => [
     'evidenceType' => 'SKUPINA_ATRIBUTU',
@@ -2372,7 +2370,7 @@ class EvidenceList extends RO
     'formCode' => 'ucDoklUcty',
     'extIdSupported' => 'true',
     'dbName' => 'uUcty',
-    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND IdTypOrg = 1',
+    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND IdTypOrg = 1',
   ],
   'ucetni-osnova' => [
     'evidenceType' => 'UCETNI_OSNOVA',
@@ -2460,7 +2458,7 @@ class EvidenceList extends RO
     'formCode' => 'banTypZapocty',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = true AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'BAN\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = true AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'BAN\'',
   ],
   'zakazka' => [
     'evidenceType' => 'ZAKAZKA',
@@ -2515,7 +2513,7 @@ class EvidenceList extends RO
     'formCode' => 'zavTyp',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'ZAV\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (18,17,16,15,14,13,12,11,9,8,7,6,5,4,2))) AND PlatiOd <= 2021 AND PlatiDo >= 2021) AND IdTypOrg = 1 AND Modul = \'ZAV\'',
   ],
 ];
 
