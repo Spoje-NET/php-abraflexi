@@ -13,6 +13,13 @@ override_dh_prep:
 	mkdir -p docs ; mv .phpdoc/build/* docs
 	dh_prep
 
+#override_dh_auto_test:
+#	composer update --no-ansi --no-interaction --no-progress --no-scripts --optimize-autoloader
+#	./vendor/bin/phpunit --bootstrap tests/Bootstrap.php 
+#	dh_auto_test
+
+
+
 override_dh_install:
 	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'`'"' debian/composer.json |sponge debian/composer.json
 	dh_install	
