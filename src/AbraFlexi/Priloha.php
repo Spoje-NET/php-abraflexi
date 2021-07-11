@@ -124,8 +124,11 @@ class Priloha extends RW {
 
         if (isset($attachmentID) && !array_key_exists($attachmentID,
                         $attachments)) {
-            $object->addStatusMessage(sprintf(_('Attagment %s does no exist'),
-                            $attachmentID), 'warning');
+            $object->addStatusMessage(sprintf(_('Attachment %s does no exist'),$attachmentID), 'warning');
+            if ($this->throwException == true) {
+                throw new Exception(sprintf(_('Attachment %s does no exist'),$attachmentID), $this);
+            }
+            
         }
 
         $attachmentBody = $object->doCurlRequest(self::getDownloadUrl($object),

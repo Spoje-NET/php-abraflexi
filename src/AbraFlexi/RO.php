@@ -1063,7 +1063,9 @@ class RO extends \Ease\Sand {
                 $responseDecoded = $this->nativeTypes ? $this->fixResponseTypes($responseDecoded[$this->nameSpace]) : $responseDecoded[$this->nameSpace];
             }
         } else {
-            if ($this->debug) {
+            if ($this->throwException == true) {
+                throw new Exception('JSON Decoder: ' . $decodeError, $this);
+            } else {
                 $this->addStatusMessage('JSON Decoder: ' . $decodeError, 'error');
                 $this->addStatusMessage($rawJson, 'debug');
             }
@@ -1140,10 +1142,9 @@ class RO extends \Ease\Sand {
                 }
             case 401:
                 $msg = (array_key_exists('message', $responseDecoded) ? $responseDecoded['message'] : $responseDecoded[key($responseDecoded)]['message']) . ' for ' . $this->getApiURL();
+                $this->addStatusMessage($msg, 'error');
                 if ($this->throwException) {
-                    throw new Exception($msg);
-                } else {
-                    $this->addStatusMessage($msg, 'error');
+                    throw new Exception($msg, $this);
                 }
                 break;
             case 404: // Page not found
@@ -1156,6 +1157,9 @@ class RO extends \Ease\Sand {
                     $this->parseError($responseDecoded);
                 }
                 $this->addStatusMessage($this->lastResponseCode . ': ' . $this->curlInfo['url'] . ' (' . $this->format . ') ' . json_encode($this->getErrors()), 'warning');
+                if ($this->throwException) {
+                    throw new Exception('Problem', $this);
+                }
                 break;
         }
         return $mainResult;
@@ -1221,8 +1225,11 @@ class RO extends \Ease\Sand {
         $this->lastResponseCode = $this->curlInfo['http_code'];
         $this->lastCurlError = curl_error($this->curl);
         if (strlen($this->lastCurlError)) {
-            $this->addStatusMessage(sprintf('Curl Error (HTTP %d): %s',
-                            $this->lastResponseCode, $this->lastCurlError), 'error');
+            $msg = sprintf('Curl Error (HTTP %d): %s', $this->lastResponseCode, $this->lastCurlError);
+            $this->addStatusMessage($msg, 'error');
+            if ($this->throwException) {
+                throw new Exception($msg, $this);
+            }
         }
 
         if ($this->debug === true) {
@@ -2398,18 +2405,19 @@ class RO extends \Ease\Sand {
     public function setMyKey($myKeyValue) {
         if (is_string($myKeyValue) && substr($myKeyValue, 0, 4) == 'ext:') {
             if (empty($this->evidenceInfo) || ($this->evidenceInfo['extIdSupported'] == 'false')) {
-                $this->addStatusMessage(sprintf(_('Evidence %s does not support extIDs'),
-                                $this->getEvidence()), 'warning');
+                $msg = sprintf(_('Evidence %s does not support extIDs'), $this->getEvidence());
+                $this->addStatusMessage($msg, 'warning');
+                if ($this->throwException) {
+                    throw new Exception($msg, $this);
+                }
                 $res = false;
             } else {
                 $extIds = $this->getDataValue('external-ids');
                 if (!empty($extIds) && count($extIds)) {
                     $extIds = array_combine($extIds, $extIds);
                 }
-
                 $extIds[$myKeyValue] = $myKeyValue;
-                $res = $this->setDataValue('external-ids',
-                        $extIds);
+                $res = $this->setDataValue('external-ids', $extIds);
             }
         } else {
             $res = $this->setDataValue($this->getKeyColumn(), $myKeyValue);
@@ -2784,25 +2792,6 @@ class RO extends \Ease\Sand {
      */
     public function getErrors() {
         return $this->errors;
-    }
-
-    /**
-     * Add message to stack to show or write to file
-     * Přidá zprávu do zásobníku pro zobrazení uživateli inbo do logu.
-     *
-     * @param string $message text zpravy
-     * @param string $type    fronta
-     * @param string $caller  Message source name
-     * 
-     * @return boolean message added
-     */
-    public function addStatusMessage($message, $type = 'info', $caller = null) {
-        $callerFinal = empty($caller) ? $this : $caller;
-        if (($this->throwException === true) && (($type == 'warning') || ($type == 'error') )) {
-            throw new Exception($type . ': ' . $message . "\n" . 'caller:' . (is_object($callerFinal) ? get_class($callerFinal) : $callerFinal ));
-        } else {
-            parent::addStatusMessage($message, $type, $callerFinal);
-        }
     }
 
     /**

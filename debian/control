@@ -10,7 +10,7 @@ Package: php-spojenet-abraflexi
 Depends: ${misc:Depends}, php-curl,php-vitexsoftware-ease-core, composer
 Provides: php-abraflexi
 Conflicts: flexipeehp
-Suggests: php-abraflexi-config,abraflexi-client,abraflexi-contract-invoices,abraflexi-dark-gui,abraflexi-digest,abraflexi-matcher,abraflexi-reminder,abraflexi-server,abraflexi-server-backup,abraflexi-tools,multi-abraflexi-setup,abraflexi-mailer,php-vitexsoftware-ease-bootstrap4-widgets-abraflexi,php-vitexsoftware-abraflexi-bricks
+Suggests: abraflexi-client-config,abraflexi-client,abraflexi-contract-invoices,abraflexi-dark-gui,abraflexi-digest,abraflexi-matcher,abraflexi-reminder,abraflexi-server,abraflexi-server-backup,abraflexi-tools,multi-abraflexi-setup,abraflexi-mailer,php-vitexsoftware-ease-bootstrap4-widgets-abraflexi,php-vitexsoftware-abraflexi-bricks
 Architecture: all
 Section: web
 Priority: optional

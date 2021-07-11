@@ -49,8 +49,10 @@ class Kontakt extends RW {
                 'POST', 'xml');
         $this->defaultHttpHeaders = $defaultHttpHeaders;
         if (!empty($result['message'])) {
-            $this->addStatusMessage($result['message'],
-                    $result['success'] == 'true' ? 'success' : 'warning' );
+            $this->addStatusMessage($result['message'], $result['success'] == 'true' ? 'success' : 'warning' );
+            if ($this->throwException == true && $result['success'] != 'true') {
+                throw new Exception($result['message'], $this);
+            }
         }
         return array_key_exists('success', $result) && $result['success'] == 'true';
     }

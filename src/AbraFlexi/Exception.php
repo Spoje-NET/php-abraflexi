@@ -18,7 +18,52 @@ namespace AbraFlexi;
  * @author vitex
  */
 class Exception extends \Ease\Exception {
-    public function __construct($message, $code = 0, \Ease\Exception $previous = null) {
-        parent::__construct($message, $code, $previous);
+
+    /**
+     * Original server response
+     * @var string
+     */
+    private $serverResponse = '';
+
+    /**
+     * Error messages sit here
+     * @var array
+     */
+    private $errorMessages = [];
+
+    /**
+     * AbraFlexi response as Exception
+     * 
+     * @param string $message good to know
+     * 
+     * @param RO $caller AbraFlexi Object
+     * 
+     * @param \Ease\Exception $previous 
+     */
+    public function __construct($message, RO $caller, \Ease\Exception $previous = null) {
+        $this->errorMessages = $caller->getErrors();
+        $this->serverResponse = $caller->lastCurlResponse;
+        parent::__construct(get_class($caller) . ': ' . $message, $caller->lastResponseCode, $previous);
     }
+
+    /**
+     * Get (first) error message
+     * 
+     * @param int $index which message
+     * 
+     * @return string
+     */
+    public function getErrorMessage($index = 0) {
+        return $this->errorMessages[$index];
+    }
+
+    /**
+     * All stored Error messages
+     * 
+     * @return array
+     */
+    public function getErrorMessages() {
+        return $this->errorMessages;
+    }
+
 }

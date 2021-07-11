@@ -266,16 +266,12 @@ class RW extends RO {
             if (count($fbColumns)) {
                 foreach ($data as $key => $value) {
                     if (!array_key_exists($key, $fbColumns)) {
-
-                        if (!array_key_exists($key, $fbRelations)) {
-                            $this->addStatusMessage(sprintf('unknown column %s for evidence %s',
-                                            $key, $this->getEvidence()), 'warning');
+                        if (array_key_exists($key, $fbRelations) && !is_array($value)) {
+                            $msg = sprintf('subevidence %s in evidence %s must bee an array', $key, $this->getEvidence());
                         } else {
-                            if (!is_array($value)) {
-                                $this->addStatusMessage(sprintf('subevidence %s in evidence %s must bee an array',
-                                                $key, $this->getEvidence()), 'warning');
-                            }
+                            $msg = sprintf('unknown column %s for evidence %s', $key, $this->getEvidence());
                         }
+                        $this->addStatusMessage($msg, 'debug');
                     }
                 }
             }

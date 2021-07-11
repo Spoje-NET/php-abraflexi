@@ -43,8 +43,7 @@ class Hooks extends RW {
             foreach ($hooks as $hook) {
                 if (is_array($hook) && array_key_exists('url', $hook)) {
                     if ($hook['url'] == $url) {
-                        $this->addStatusMessage(_('Url allready registered'),
-                                'warning');
+                        $this->addStatusMessage(sprintf(_('Url %s allready registered'), $url)  , 'debug');
                         return false;
                     }
                 }

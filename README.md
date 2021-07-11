@@ -460,7 +460,7 @@ cd /usr/share/php/AbraFlexi/tools && sudo ./update_all.sh
 Server ze kterého se struktura získává se nastavuje v souboru /etc/abraflexi/client.json 
 nebo proměnnými prostředí definovanými zpravidla v /etc/profile.d/abraflexi-client.sh
 
-Nainstalujte balíček php-abraflexi-config pro snadnou změnu těchto nastavení 
+Nainstalujte balíček abraflexi-client-config pro snadnou změnu těchto nastavení 
 
 
 
