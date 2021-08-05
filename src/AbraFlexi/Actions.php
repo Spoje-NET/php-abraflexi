@@ -21,7 +21,7 @@ class Actions
      *
      * @var string
      */
- static public $version = '2021.5.5';
+ static public $version = '2021.6.3';
 
     /**
      * Evidence adresar (Adresy firem) Actions.
@@ -2438,11 +2438,11 @@ class Actions
   ],
 ];
     /**
-     * Evidence cenikovy-pohyb-nakup (Nákupní, prodejní a skladové pohyby) Actions.
+     * Evidence cenikovy-pohyb-prodej (Nákupní, prodejní a skladové pohyby) Actions.
      *
      * @var array
      */
- static public $cenikovyPohybNakup = [
+ static public $cenikovyPohybProdej = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2477,11 +2477,11 @@ class Actions
   ],
 ];
     /**
-     * Evidence cenikovy-pohyb-prodej (Nákupní, prodejní a skladové pohyby) Actions.
+     * Evidence cenikovy-pohyb-nakup (Nákupní, prodejní a skladové pohyby) Actions.
      *
      * @var array
      */
- static public $cenikovyPohybProdej = [
+ static public $cenikovyPohybNakup = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7211,45 +7211,6 @@ class Actions
   ],
 ];
     /**
-     * Evidence umisteni-ve-skladu (Umístění ve skladu) Actions.
-     *
-     * @var array
-     */
- static public $umisteniVeSkladu = [
-  'new' => [
-    'actionId' => 'new',
-    'actionName' => 'Přidat',
-    'needInstance' => 'false',
-    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
-    'isRealAction' => 'false',
-    'isService' => 'NO',
-  ],
-  'copy' => [
-    'actionId' => 'copy',
-    'actionName' => 'Vytvořit kopii',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'false',
-    'isService' => 'ON_MOBILE',
-  ],
-  'edit' => [
-    'actionId' => 'edit',
-    'actionName' => 'Změnit',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'false',
-    'isService' => 'NO',
-  ],
-  'delete' => [
-    'actionId' => 'delete',
-    'actionName' => 'Smazat',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'false',
-    'isService' => 'NO',
-  ],
-];
-    /**
      * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Actions.
      *
      * @var array
@@ -7294,6 +7255,45 @@ class Actions
      * @var array
      */
  static public $umisteniVeSkladuPolice = [
+  'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ],
+  'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+  ],
+  'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ],
+  'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ],
+];
+    /**
+     * Evidence umisteni-ve-skladu (Umístění ve skladu) Actions.
+     *
+     * @var array
+     */
+ static public $umisteniVeSkladu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8855,11 +8855,11 @@ class Actions
   ],
 ];
     /**
-     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Actions.
+     * Evidence stav-ceniku (Číselník stavů položek ceníku) Actions.
      *
      * @var array
      */
- static public $typStavuCeniku = [
+ static public $stavCeniku = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8894,11 +8894,11 @@ class Actions
   ],
 ];
     /**
-     * Evidence stav-ceniku (Číselník stavů položek ceníku) Actions.
+     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Actions.
      *
      * @var array
      */
- static public $stavCeniku = [
+ static public $typStavuCeniku = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
