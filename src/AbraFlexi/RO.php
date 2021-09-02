@@ -2454,7 +2454,7 @@ class RO extends \Ease\Sand {
     public function sendByMail($to, $subject, $body, $cc = null) {
         $this->setPostFields($body);
 
-        $this->performRequest(rawurlencode($this->getRecordID()) . '/odeslani-dokladu?to=' . $to . '&subject=' . urlencode($subject) . '&cc=' . $cc
+        $this->performRequest(rawurlencode((string)$this->getRecordID()) . '/odeslani-dokladu?to=' . $to . '&subject=' . urlencode($subject) . '&cc=' . $cc
                 , 'PUT', 'xml');
 
         return $this->lastResponseCode == 200;
