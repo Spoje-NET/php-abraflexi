@@ -2463,12 +2463,20 @@ class RO extends \Ease\Sand {
     /**
      * AbraFlexi date to PHP DateTime conversion
      *
-     * @param string $flexidate 2017-05-26 or 2017-05-26+02:00
+     * @param string $flexidate 2017-05-26 or 2017-05-26Z or 2017-05-26+02:00
      *
      * @return \DateTime | false
      */
     public static function flexiDateToDateTime(string $flexidate) {
-        return \DateTime::createFromFormat(strstr($flexidate, '+') ? self::$DateFormat . 'O' : self::$DateFormat, $flexidate)->setTime(0, 0);
+        if (strstr($flexidate, '+')) {
+            $format = self::$DateFormat . 'O';
+        } elseif (strstr($flexidate, 'Z')) {
+            $format = self::$DateFormat . 'Z';
+        } else {
+            $format = self::$DateFormat;
+        }
+            
+        return \DateTime::createFromFormat($format, $flexidate)->setTime(0, 0);
     }
 
     /**
