@@ -1469,7 +1469,7 @@ class RO extends \Ease\Sand {
             $id = $this->getMyKey();
         }
 
-        $flexidata = $this->getFlexiData($this->getEvidenceUrl() . '/' . (is_array($id) ? '' : self::urlizeId($id)), (is_array($id) ? $id : []));
+        $flexidata = $this->getFlexiData($this->getEvidenceUrl() . '/' . (is_array($id) ? '' : self::urlizeId($id)), (is_array($id) ? $id : ''));
         if ($this->lastResponseCode == 200) {
             $this->apiURL = $this->curlInfo['url'];
             if (is_array($flexidata) && (count($flexidata) == 1) && is_array(current($flexidata))) {
