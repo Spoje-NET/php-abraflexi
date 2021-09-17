@@ -1459,7 +1459,7 @@ class RO extends \Ease\Sand {
      * Načte záznam z AbraFlexi a uloží v sobě jeho data
      * Read AbraFlexi record and store it inside od object
      *
-     * @param int|string $id ID or conditions
+     * @param int|string|array $id ID or conditions
      *
      * @return int počet načtených položek
      */
@@ -1468,7 +1468,8 @@ class RO extends \Ease\Sand {
         if (is_null($id)) {
             $id = $this->getMyKey();
         }
-        $flexidata = $this->getFlexiData($this->getEvidenceUrl() . '/' . self::urlizeId($id));
+
+        $flexidata = $this->getFlexiData($this->getEvidenceUrl() . '/' . (is_array($id) ? '' : self::urlizeId($id)), (is_array($id) ? $id : []));
         if ($this->lastResponseCode == 200) {
             $this->apiURL = $this->curlInfo['url'];
             if (is_array($flexidata) && (count($flexidata) == 1) && is_array(current($flexidata))) {
@@ -2454,7 +2455,7 @@ class RO extends \Ease\Sand {
     public function sendByMail($to, $subject, $body, $cc = null) {
         $this->setPostFields($body);
 
-        $this->performRequest(rawurlencode((string)$this->getRecordID()) . '/odeslani-dokladu?to=' . $to . '&subject=' . urlencode($subject) . '&cc=' . $cc
+        $this->performRequest(rawurlencode((string) $this->getRecordID()) . '/odeslani-dokladu?to=' . $to . '&subject=' . urlencode($subject) . '&cc=' . $cc
                 , 'PUT', 'xml');
 
         return $this->lastResponseCode == 200;
@@ -2475,7 +2476,7 @@ class RO extends \Ease\Sand {
         } else {
             $format = self::$DateFormat;
         }
-            
+
         return \DateTime::createFromFormat($format, $flexidate)->setTime(0, 0);
     }
 
