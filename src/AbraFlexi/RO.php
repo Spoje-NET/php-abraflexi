@@ -1015,7 +1015,7 @@ class RO extends \Ease\Sand {
                 } else {
                     switch ($columnInfo['type']) {
                         case 'logic':
-                            $record[$column] = boolval($value);
+                            $record[$column] = is_bool($value) ? $value : $value === 'true';
                             break;
                         case 'relation':
                             $record[$column] = is_array($value) ? $value : [$value];
