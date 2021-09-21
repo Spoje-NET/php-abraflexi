@@ -19,7 +19,7 @@ class Formats
  *
  * @var string
  */
- static public $version = '2021.6.3';
+ static public $version = '2021.7.5';
 
 
     /**
@@ -1675,6 +1675,17 @@ class Formats
      * @var array
      */
  static public $typOrganizace = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
+     * Evidence cenik-typ-sazby-dph (Typ sazby DPH) Formats.
+     *
+     * @var array
+     */
+ static public $cenikTypSazbyDph = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',

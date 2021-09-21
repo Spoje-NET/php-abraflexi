@@ -2,11 +2,11 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Fri, 06 Aug 2021 00:38:32 +0200 
+ * Generated: Tue, 21 Sep 2021 23:54:35 +0200 
  * From:      https://demo.flexibee.eu
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2016-2017 Spoje.Net
+ * @copyright  (C) 2016-2021 Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -46,7 +46,7 @@ class EvidenceList extends RO
      *
      * @var string
      */
- static public $version = '2021.6.3';
+ static public $version = '2021.7.5';
 
     /**
      * Evidences Path/Name listing.
@@ -196,6 +196,7 @@ class EvidenceList extends RO
   'stredisko' => 'Střediska',
   'subjekt' => 'Subjekt',
   'typ-organizace' => 'Typ organizace',
+  'cenik-typ-sazby-dph' => 'Typ sazby DPH',
   'typ-atributu' => 'Typy atributů',
   'typ-banka' => 'Typy bankovních dokladů',
   'dodavatelsky-typ-smlouvy' => 'Typy dodavatelských smluv',
@@ -1000,6 +1001,16 @@ class EvidenceList extends RO
     'formCode' => 'adrTypNaklAkt',
     'extIdSupported' => 'true',
     'dbName' => 'aTypNaklAkt',
+  ],
+  'cenik-typ-sazby-dph' => [
+    'evidenceType' => 'TYP_SAZBY_DPH',
+    'evidenceName' => 'Typ sazby DPH',
+    'evidencePath' => 'cenik-typ-sazby-dph',
+    'importStatus' => 'SUPPORTED',
+    'className' => 'cz.winstrom.vo.cen.TypSazbyDph',
+    'formCode' => 'typSazbyDph',
+    'extIdSupported' => 'true',
+    'dbName' => 'cTypSazbyDph',
   ],
   'typ-stavu-ceniku' => [
     'evidenceType' => 'TYP_STAVU_CENIKU',

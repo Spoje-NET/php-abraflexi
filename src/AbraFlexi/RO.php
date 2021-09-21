@@ -1753,6 +1753,23 @@ class RO extends \Ease\Sand {
     }
 
     /**
+     * Gives you requested value
+     *
+     * @param string $columnName column of interest
+     *
+     * @return mixed relation eg. firma as string and relation contacts as array
+     */
+    public function getDataValue($columnName) {
+        $dataRaw = parent::getDataValue($columnName);
+        if (is_array($dataRaw) && ($this->getColumnInfo($columnName, $this->getEvidence())['type'] == 'relation') && (count($dataRaw) == 1)) {
+            $data = current($dataRaw); 
+        } else {
+            $data = $dataRaw;
+        }
+        return $data;
+    }
+
+    /**
      * Vrací kód záznamu.
      * Obtain record CODE
      *

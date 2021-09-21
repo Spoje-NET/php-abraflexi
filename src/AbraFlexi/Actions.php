@@ -21,7 +21,7 @@ class Actions
      *
      * @var string
      */
- static public $version = '2021.6.3';
+ static public $version = '2021.7.5';
 
     /**
      * Evidence adresar (Adresy firem) Actions.
@@ -6085,6 +6085,45 @@ class Actions
      * @var array
      */
  static public $typOrganizace = [
+  'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ],
+  'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+  ],
+  'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ],
+  'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ],
+];
+    /**
+     * Evidence cenik-typ-sazby-dph (Typ sazby DPH) Actions.
+     *
+     * @var array
+     */
+ static public $cenikTypSazbyDph = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',

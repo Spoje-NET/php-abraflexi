@@ -21,7 +21,7 @@ class Relations
      *
      * @var string
      */
- static public $version = '2021.6.3';
+ static public $version = '2021.7.5';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
@@ -257,6 +257,11 @@ class Relations
     'url' => 'dodavatele',
     'evidenceType' => 'DODAVATEL',
     'name' => 'Nákupní ceny',
+  ],
+  'cenik-typy-sazeb-dph' => [
+    'url' => 'cenik-typy-sazeb-dph',
+    'evidenceType' => 'TYP_SAZBY_DPH',
+    'name' => 'Typy sazeb DPH',
   ],
   'vyrobni-cisla' => [
     'url' => 'vyrobni-cisla',
@@ -2123,6 +2128,18 @@ class Relations
      * @var array
      */
  static public $subjekt = [
+  'uzivatelske-vazby' => [
+    'url' => 'uzivatelske-vazby',
+    'evidenceType' => 'VAZBA',
+    'name' => 'Uživatelské vazby',
+  ],
+];
+    /**
+     * Evidence cenik-typ-sazby-dph (Typ sazby DPH) Relations.
+     *
+     * @var array
+     */
+ static public $cenikTypSazbyDph = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',

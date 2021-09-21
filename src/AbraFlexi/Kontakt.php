@@ -20,7 +20,7 @@ use AbraFlexi\Stitky;
  *
  * @link https://demo.flexibee.eu/c/demo/kontakt/properties
  */
-class Kontakt extends RW {
+class Kontakt extends RW {  
 
     use Stitky;
     use Firma;
