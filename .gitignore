@@ -22,3 +22,10 @@ composer.lock
 /debian/php-spojenet-abraflexi-doc/
 /debian/php-spojenet-abraflexi-dev/
 /debian/.debhelper/
+/debian/php-spojenet-abraflexi-dev.debhelper.log
+/debian/php-spojenet-abraflexi-dev.substvars
+/debian/files
+/debian/php-spojenet-abraflexi-doc.debhelper.log
+/debian/php-spojenet-abraflexi-doc.substvars
+/debian/php-spojenet-abraflexi.debhelper.log
+/debian/php-spojenet-abraflexi.substvars

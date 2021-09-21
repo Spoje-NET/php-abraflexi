@@ -43,7 +43,7 @@ $evidenceList = '<?php
  * From:      ' . $statuser->url . '
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2016-2017 Spoje.Net
+ * @copyright  (C) 2016-'.date('Y').' Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -119,6 +119,12 @@ foreach ($evidencies as $evidenceID => $evidence) {
     if (array_key_exists('evidencePath', $evidence)) {
         $evlist[$evidence['evidencePath']] = $evidence['evidenceName'];
         $fullList[$evidence['evidencePath']] = $evidence;
+    }
+    
+    if (array_key_exists('extIdSupported', $evidence)) {
+        $evidencies[$evidenceID]['extIdSupported'] = ($evidencies[$evidenceID]['extIdSupported'] == 'true');
+    } else {
+        $evidencies[$evidenceID]['extIdSupported'] = false;
     }
 }
 

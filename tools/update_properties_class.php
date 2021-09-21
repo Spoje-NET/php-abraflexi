@@ -6,7 +6,7 @@ define('EASE_APPNAME', 'FlexiPeehUP');
 define('EASE_LOGGER', 'console|syslog');
 
 require_once '../testing/bootstrap.php';
-require_once  __DIR__ . '/common.php';
+require_once __DIR__ . '/common.php';
 
 function evidenceToClass($evidence) {
     return str_replace(' ', '', ucwords(str_replace('-', ' ', $evidence)));
@@ -44,12 +44,38 @@ $syncer->addStatusMessage('Updating Evidences Properties');
 $pos = 0;
 foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
     $pos++;
+    $evidenceInfo = EvidenceList::$evidences[$evidencePath];
     if ($evidencePath == 'nastaveni') {
         $info = json_decode(file_get_contents('nastaveni-properties.json'),
                 true);
         $structure = \Ease\Functions::reindexArrayBy($info['properties']['property'], 'propertyName');
     } else {
         $structure = $syncer->getOnlineColumnsInfo($evidencePath);
+    }
+
+    if (array_key_exists('extIdSupported', $evidenceInfo) && ($evidenceInfo['extIdSupported'] == true)) {
+        $structure['external-ids'] = [
+            "showToUser" => "false",
+            "propertyName" => "external-ids",
+            "dbName" => "extid",
+            "name" => "external-ids",
+            "title" => "extIDs",
+            "type" => "relation",
+            "isVisible" => "true",
+            "isSortable" => "false",
+            "isHighlight" => "false",
+            "inId" => "true",
+            "inSummary" => "true",
+            "inDetail" => "true",
+            "inExpensive" => "false",
+            "mandatory" => "false",
+            "isWritable" => "true",
+            "isOverWritable" => "true",
+            "hasBusinessLogic" => "false",
+            "isUpperCase" => "false",
+            "isLowerCase" => "false",
+            "links" => null
+        ];
     }
 
     if (count($structure)) {
