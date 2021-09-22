@@ -1,4 +1,4 @@
-php-spojenet-abraflexi (2.10) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (2.12) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -32,8 +32,9 @@ php-spojenet-abraflexi (2.10) UNRELEASED; urgency=medium
   * Total downloads moved
   * Update .travis.yml
   * Release v2.9
+  * v2.13 release
 
- -- vitex <vitex@hosting.vitexsoftware.cz>  Mon, 14 Jun 2021 09:01:44 +0200
+ -- vitex <info@vitexsoftware.cz>  Wed, 22 Sep 2021 08:52:50 +0200
 
 flexipeehp (1.12) experimental; urgency=medium
 
