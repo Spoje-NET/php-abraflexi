@@ -1031,10 +1031,10 @@ class RO extends \Ease\Sand {
                             $record[$column] = floatval($value);
                             break;
                         case 'datetime':
-                            $record[$column] = empty($value) ? null : self::flexiDateTimeToDateTime($value);
+                            $record[$column] = empty($value) ? "" : self::flexiDateTimeToDateTime($value);
                             break;
                         case 'date':
-                            $record[$column] = empty($value) ? null : self::flexiDateToDateTime($value);
+                            $record[$column] = empty($value) ? "" : self::flexiDateToDateTime($value);
                             break;
                         case 'blob':
                             break;
