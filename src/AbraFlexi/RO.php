@@ -2087,7 +2087,7 @@ class RO extends \Ease\Sand {
         $ids = $this->getExternalIDs();
         if (is_null($want)) {
             if (!empty($ids)) {
-                $extid = current($ids);
+                $extid = is_array($ids) ? current($ids) : $ids;
             }
         } else {
             if (!is_null($ids) && is_array($ids)) {
