@@ -20,26 +20,6 @@ pipeline {
     
     stages {
 
-        stage('debian-stretch') {
-            agent {
-                docker { image 'vitexsoftware/debian:lts' }
-            }
-            steps {
-                dir('build/debian/package') {
-                    checkout scm
-		            buildPackage()
-		            installPackages()
-                }
-                stash includes: 'dist/**', name: 'dist-stretch'
-            }
-            post {
-                success {
-                    archiveArtifacts 'dist/debian/'
-                    copyArtifact()
-                }
-            }
-        }
-
         stage('debian-buster') {
             agent {
                 docker { image 'vitexsoftware/debian:oldstable' }
