@@ -10,23 +10,23 @@ namespace AbraFlexi;
 /**
  * Evidence Formats
  *
- * @link https://demo.flexibee.eu/devdoc/formats Provádění akcí
+ * @link https://demo.abraflexi.eu/devdoc/formats Provádění akcí
  */
 class Formats
 {
  /**
- * Source FlexiBee server version.
+ * Source AbraFlexi server version.
  *
  * @var string
  */
- static public $version = '2021.7.5';
+ static public $version = '2021.7.6';
 
 
     /**
      * Availble Formats.
      *
-     * @see https://www.flexibee.eu/api/dokumentace/ref/format-types/
-     * @var array formats known to flexibee
+     * @see https://www.abraflexi.eu/api/dokumentace/ref/format-types/
+     * @var array formats known to abraflexi
      */
     static public $formats = [
         'JS' => ['desc' => 'JavaScropt',

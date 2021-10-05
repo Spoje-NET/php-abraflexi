@@ -18,7 +18,7 @@ use AbraFlexi\Stitky;
 /**
  * Kontakt adresáře
  *
- * @link https://demo.flexibee.eu/c/demo/kontakt/properties
+ * @link https://demo.abraflexi.eu/c/demo/kontakt/properties
  */
 class Kontakt extends RW {  
 

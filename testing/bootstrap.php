@@ -35,7 +35,7 @@ switch ($testServer) {
         /*
          * URL AbraFlexi API
          */
-        define('ABRAFLEXI_URL', 'https://demo.flexibee.eu');
+        define('ABRAFLEXI_URL', 'https://demo.abraflexi.eu');
         /*
          * Uživatel AbraFlexi API
          */
@@ -59,7 +59,7 @@ switch ($testServer) {
         /*
          * URL AbraFlexi API
          */
-        define('ABRAFLEXI_URL', 'https://vitexsoftware.flexibee.eu:5434');
+        define('ABRAFLEXI_URL', 'https://vitexsoftware.abraflexi.eu:5434');
         /*
          * Uživatel AbraFlexi API
          */

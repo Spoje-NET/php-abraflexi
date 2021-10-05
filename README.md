@@ -24,7 +24,7 @@ CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [AbraFlexi
 [![Monthly Downloads](https://poser.pugx.org/spojenet/flexibee/d/monthly)](https://packagist.org/packages/spojenet/flexibee)
 [![Daily Downloads](https://poser.pugx.org/spojenet/flexibee/d/daily)](https://packagist.org/packages/spojenet/flexibee)
 
- :exclamation:  Byla změněna výchozí větev z **master** na **2.0**  :exclamation:
+ :exclamation:  Byla změněna výchozí větev z **2.0** na **main**  :exclamation:
 
 
 # Poděkování 
@@ -295,6 +295,21 @@ Pokud se konstruktoru objektu předá ID typu int nebo kódem  (code:..) záznam
 Poté je možné k načteným hodnotám se dostat za použití metod $this->getData() a RO::getDataValue('nazev')
 
 
+Datové typy
+-----------
+
+Jelikož API vrací vše víceméně jako řetězec, knihovna provádí automatické konverze datových typů:
+
+| Strojový název | Název           | Poznámka    | Ukázka       | PHP Typ  |
+| -------------- | :-------------- | ----------- | :----------: | :------- |
+| string         | Řetězec         | Kódování je unicode. Lze tedy použít libovolný znak. | šílený koníček こちらは田中さんです | string |
+| integer        | Celé číslo      | Musí být bez mezer. Jde o znaménkový 4bajtový integer, ovšem rozsah může být omezený (viz přehled položek dané evidence) | 12 | integer |
+| numeric        | Desetinné číslo | Musí být bez mezer, oddělovačem desetinných míst je tečka. Jde o 8bajtový double, ovšem rozsah může být omezený (viz přehled položek dané evidence) | 12.5 | float |
+| date           | Datum           | Datum ve formátu YYYY-MM-DD; lze zadat i časovou zónu (YYYY-MM-DDZZZ), ale ta bude ignorována. ZZZ je označení časové zóny (Z nebo +HH:MM nebo -HH:MM). | 1980‑05‑06 2015‑01‑30Z 2008‑09‑01+02:00 | \Date() |
+| datetime       | Datum + čas     | Datum a čas ve formátu YYYY-MM-DD'T'HH:MM:SS.SSS; lze zadat i časovou zónu (YYYY-MM-DD'T'HH:MM:SS.SSSZZZ), ale ta bude ignorována. | 1980‑05‑06 1980‑05‑06T12:30:12 2015‑01‑30T22:55:33Z 2008‑09‑01T17:18:14+02:00  2008‑09‑01T17:18:14.075+02:00 | \DateTime() |
+| logic          | Logická hod.    | boolean     | true false | boolean |
+| select         | Výběr jedné z hodnot | Výběr jedné z hodnot. Je reprezentován jako řetězec.  | typVztahu.odberDodav | string |
+| relation       | Vazba mezi daty | Vstupem je záznam z jiné evidence (přehled typů identifikátorů)  | 123 code:CZK ext:DB:232 | \AbraFlexi\Relation |
 
 
 Testování

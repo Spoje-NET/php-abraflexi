@@ -11,7 +11,7 @@ namespace AbraFlexi;
 /**
  * EvidenceActions
  *
- * @link https://demo.flexibee.eu/devdoc/actions Provádění akcí
+ * @link https://demo.abraflexi.eu/devdoc/actions Provádění akcí
  */
 
 class Actions
@@ -21,7 +21,7 @@ class Actions
      *
      * @var string
      */
- static public $version = '2021.7.5';
+ static public $version = '2021.7.6';
 
     /**
      * Evidence adresar (Adresy firem) Actions.

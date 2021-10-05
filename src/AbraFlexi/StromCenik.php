@@ -14,7 +14,7 @@ namespace AbraFlexi;
 /**
  * Strom Položek ceníku
  *
- * @link https://demo.flexibee.eu/c/demo/strom-cenik/properties Vlastnosti evidence
+ * @link https://demo.abraflexi.eu/c/demo/strom-cenik/properties Vlastnosti evidence
  */
 class StromCenik extends RW {
 

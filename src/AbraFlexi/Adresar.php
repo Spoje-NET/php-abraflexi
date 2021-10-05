@@ -14,7 +14,7 @@ namespace AbraFlexi;
 /**
  * Adresář
  *
- * @link https://demo.flexibee.eu/c/demo/adresar/properties položky evidence
+ * @link https://demo.abraflexi.eu/c/demo/adresar/properties položky evidence
  */
 class Adresar extends RW {
 

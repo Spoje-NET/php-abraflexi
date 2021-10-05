@@ -14,7 +14,7 @@ namespace AbraFlexi;
 /**
  * Class for Accounting period handling.
  *
- * @link https://demo.flexibee.eu/c/demo/ucetni-obdobi/properties Položky evidence
+ * @link https://demo.abraflexi.eu/c/demo/ucetni-obdobi/properties Položky evidence
  * @author vitex
  */
 class UcetniObdobi extends RW {

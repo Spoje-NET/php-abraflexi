@@ -57,6 +57,7 @@ foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
         $structure['external-ids'] = [
             "showToUser" => "false",
             "propertyName" => "external-ids",
+            "fkEvidencePath" => 'external-ids',
             "dbName" => "extid",
             "name" => "external-ids",
             "title" => "extIDs",

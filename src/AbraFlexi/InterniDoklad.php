@@ -14,7 +14,7 @@ namespace AbraFlexi;
 /**
  * Internal Document
  *
- * @link https://demo.flexibee.eu/c/demo/interni-doklad/properties
+ * @link https://demo.abraflexi.eu/c/demo/interni-doklad/properties
  */
 class InterniDoklad extends RW {
 

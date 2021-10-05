@@ -14,7 +14,7 @@ namespace AbraFlexi;
 /**
  * Faktura vydaná
  *
- * @link https://demo.flexibee.eu/c/demo/faktura-vydana/properties položky evidence
+ * @link https://demo.abraflexi.eu/c/demo/faktura-vydana/properties položky evidence
  */
 class FakturaVydana extends RW {
 
@@ -34,7 +34,7 @@ class FakturaVydana extends RW {
     /**
      * Provede spárování platby s dokladem
      *
-     * @link https://demo.flexibee.eu/devdoc/parovani-plateb Párování plateb
+     * @link https://demo.abraflexi.eu/devdoc/parovani-plateb Párování plateb
      * 
      * @param $doklad Banka|PokladniPohyb|InterniDoklad S jakým dokladem spárovat ?
      * @param $zbytek string ne|zauctovat|ignorovat|castecnaUhrada|castecnaUhradaNeboZauctovat|castecnaUhradaNeboIgnorovat
@@ -52,9 +52,9 @@ class FakturaVydana extends RW {
     /**
      *  Hotovostní platba faktury.
      *
-     * @link https://demo.flexibee.eu/devdoc/hotovostni-uhrada/ Hotovostní úhrada
-     * @link https://demo.flexibee.eu/c/demo/pokladna Pokladny
-     * @link https://demo.flexibee.eu/c/demo/typ-pokladni-pohyb Typy dokladů
+     * @link https://demo.abraflexi.eu/devdoc/hotovostni-uhrada/ Hotovostní úhrada
+     * @link https://demo.abraflexi.eu/c/demo/pokladna Pokladny
+     * @link https://demo.abraflexi.eu/c/demo/typ-pokladni-pohyb Typy dokladů
      * @param float $value částka k úhradě
      * @param array $uhrada pole nepoviných vlastností úhrady s těmito možnými položkami:
      *        string|Pokladna  'pokladna' identifikátor pokladny
@@ -95,7 +95,7 @@ class FakturaVydana extends RW {
     /**
      * Odpočet zálohy (vystavení daňového dokladu k platbě)
      * 
-     * @link https://demo.flexibee.eu/devdoc/odpocet-zaloh Odpočet záloh a ZDD
+     * @link https://demo.abraflexi.eu/devdoc/odpocet-zaloh Odpočet záloh a ZDD
      * @param FakturaVydana $invoice zálohová faktura
      * @param array $odpocet Vlastnosti odpočtu
      * 
@@ -115,7 +115,7 @@ class FakturaVydana extends RW {
     /**
      * Odpočet ZDD
      *
-     * @link https://demo.flexibee.eu/devdoc/odpocet-zaloh Odpočet záloh a ZDD
+     * @link https://demo.abraflexi.eu/devdoc/odpocet-zaloh Odpočet záloh a ZDD
      * @param FakturaVydana $invoice zálohová faktura
      * @param array $odpocet Vlastnosti odpočtu
      * 

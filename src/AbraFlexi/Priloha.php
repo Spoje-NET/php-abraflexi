@@ -15,7 +15,7 @@ namespace AbraFlexi;
  * Příloha
  *
  * @link https://www.abraflexi.eu/api/dokumentace/ref/attachments/
- * @link https://demo.flexibee.eu/c/demo/priloha/properties
+ * @link https://demo.abraflexi.eu/c/demo/priloha/properties
  */
 class Priloha extends RW {
 

@@ -11,17 +11,17 @@ namespace AbraFlexi;
 /**
  * Evidence Relations
  *
- * @link https://demo.flexibee.eu/devdoc/relations Provádění akcí
+ * @link https://demo.abraflexi.eu/devdoc/relations Provádění akcí
  */
 
 class Relations
 {
     /**
-     * Source FlexiBee server version.
+     * Source AbraFlexi server version.
      *
      * @var string
      */
- static public $version = '2021.7.5';
+ static public $version = '2021.7.6';
 
     /**
      * Evidence adresar (Adresy firem) Relations.

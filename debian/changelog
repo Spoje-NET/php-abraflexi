@@ -1,4 +1,4 @@
-php-spojenet-abraflexi (2.14) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (2.15) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -35,8 +35,9 @@ php-spojenet-abraflexi (2.14) UNRELEASED; urgency=medium
   * v2.13 release
   * v2.13 release
   * v2.14 release
+  * Relation class introduced
 
- -- vitex <info@vitexsoftware.cz>  Wed, 22 Sep 2021 12:16:30 +0200
+ -- vitex <info@vitexsoftware.cz>  Tue, 05 Oct 2021 11:17:03 +0200
 
 flexipeehp (1.12) experimental; urgency=medium
 

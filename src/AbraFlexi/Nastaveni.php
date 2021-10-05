@@ -15,7 +15,7 @@ namespace AbraFlexi;
  * Nastavení firmy
  *
  * @note Tato položka nemá dostupné položky evidence
- * @note Tato evidence není veřejně dostupná na demo.flexibee.eu
+ * @note Tato evidence není veřejně dostupná na demo.abraflexi.eu
  */
 class Nastaveni extends RO {
 

@@ -12,7 +12,7 @@
         "ext-json": "*",
         "ext-curl": "*",
         "ext-gettext": "*",
-        "vitexsoftware/ease-core": ">=1.9"
+        "vitexsoftware/ease-core": ">=1.12"
     },
     "autoload": {
         "psr-4": {

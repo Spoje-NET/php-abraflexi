@@ -1018,7 +1018,12 @@ class RO extends \Ease\Sand {
                             $record[$column] = is_bool($value) ? $value : $value === 'true';
                             break;
                         case 'relation':
-                            $record[$column] = is_array($value) ? $value : [$value];
+                            $record[$column] = new Relation($value,
+                                    array_key_exists('fkEvidencePath', $columnInfo) && !is_null($columnInfo['fkEvidencePath']) ? $columnInfo['fkEvidencePath'] : $column,
+                                    array_key_exists($column . '@ref', $record) ? $record[$column . '@ref'] : null,
+                                    array_key_exists($column . '@showAs', $record) ? $record[$column . '@showAs'] : null);
+                            unset($record[$column . '@ref']);
+                            unset($record[$column . '@showAs']);
                             break;
                         case 'select':
                         case 'string':
@@ -1699,7 +1704,7 @@ class RO extends \Ease\Sand {
      *
      * @return array
      */
-    public function getColumnsFromFlexiBee($columnsList, $conditions = [],
+    public function getColumnsFromAbraFlexi($columnsList, $conditions = [],
             $indexBy = null) {
         return $this->getColumnsFromAbraFlexi($columnsList, $conditions, $indexBy);
     }
@@ -1750,23 +1755,6 @@ class RO extends \Ease\Sand {
         }
 
         return $flexiData;
-    }
-
-    /**
-     * Gives you requested value
-     *
-     * @param string $columnName column of interest
-     *
-     * @return mixed relation eg. firma as string and relation contacts as array
-     */
-    public function getDataValue($columnName) {
-        $dataRaw = parent::getDataValue($columnName);
-        if (is_array($dataRaw) && ($this->getColumnInfo($columnName, $this->getEvidence())['type'] == 'relation') && (count($dataRaw) == 1)) {
-            $data = current($dataRaw); 
-        } else {
-            $data = $dataRaw;
-        }
-        return $data;
     }
 
     /**

@@ -7,7 +7,7 @@ namespace AbraFlexi;
 /**
  * Položka skladového pohybu
  *
- * @link https://demo.flexibee.eu/c/demo/objednavka-prijata-polozka/properties
+ * @link https://demo.abraflexi.eu/c/demo/objednavka-prijata-polozka/properties
  */
 class ObjednavkaPrijataPolozka extends RW {
 

@@ -18,7 +18,7 @@ use AbraFlexi\Stitky;
 /**
  * Dodavatelská smlouva
  *
- * @link https://demo.flexibee.eu/c/demo/dodavatelska-smlouva/properties
+ * @link https://demo.abraflexi.eu/c/demo/dodavatelska-smlouva/properties
  */
 class DodavatelskaSmlouva extends RW {
 

@@ -19,7 +19,7 @@ use AbraFlexi\Stitky;
 /**
  * Banka
  * 
- * @link https://demo.flexibee.eu/c/demo/banka/properties Vlastnosti evidence
+ * @link https://demo.abraflexi.eu/c/demo/banka/properties Vlastnosti evidence
  */
 class Banka extends RW {
 
@@ -48,7 +48,7 @@ class Banka extends RW {
      * Start invoice automatic matching process ( it takes longer time )
      * Spustí proces automatického párování plateb. ( trvá delší dobu )
      *
-     * @link https://demo.flexibee.eu/devdoc/parovani-plateb Interní dokumentace
+     * @link https://demo.abraflexi.eu/devdoc/parovani-plateb Interní dokumentace
      * 
      * @param boolean $advanced Use Advanced matching method ?
      * @param string $filter Filter bank records before pairing ?

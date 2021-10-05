@@ -2,8 +2,8 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Wed, 22 Sep 2021 00:10:36 +0200 
- * From:      https://demo.flexibee.eu
+ * Generated: Fri, 01 Oct 2021 15:22:11 +0200 
+ * From:      https://demo.abraflexi.eu
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2016-2021 Spoje.Net
@@ -15,7 +15,7 @@ namespace AbraFlexi;
  * Evidencies listing and its properties
  * Seznam Evidencí a jejich vlastnosti
  *
- * @link https://demo.flexibee.eu/c/demo/evidence-list Přehled evidencí
+ * @link https://demo.abraflexi.eu/c/demo/evidence-list Přehled evidencí
  */
 class EvidenceList extends RO
 {
@@ -27,8 +27,8 @@ class EvidenceList extends RO
     public $evidence = 'evidence-list';
 
     /**
-     * Základní namespace pro komunikaci s FlexiBee.
-     * Basic namespace for communication with FlexiBee
+     * Základní namespace pro komunikaci s AbraFlexi.
+     * Basic namespace for communication with AbraFlexi
      *
      * @var string Jmený prostor datového bloku odpovědi
      */
@@ -42,11 +42,11 @@ class EvidenceList extends RO
     public $keyColumn = 'evidencePath';
 
     /**
-     * Source FlexiBee server version.
+     * Source AbraFlexi server version.
      *
      * @var string
      */
- static public $version = '2021.7.5';
+ static public $version = '2021.7.6';
 
     /**
      * Evidences Path/Name listing.
