@@ -1694,22 +1694,6 @@ class RO extends \Ease\Sand {
     }
 
     /**
-     * Temporary Backward compatibility
-     * 
-     * @deprecated since version 2.0
-     *
-     * @param string|string[] $columnsList seznam položek nebo úrověň detailu: id|summary|full
-     * @param array           $conditions  pole podmínek nebo ID záznamu
-     * @param string          $indexBy     Sloupeček podle kterého indexovat záznamy
-     *
-     * @return array
-     */
-    public function getColumnsFromAbraFlexi($columnsList, $conditions = [],
-            $indexBy = null) {
-        return $this->getColumnsFromAbraFlexi($columnsList, $conditions, $indexBy);
-    }
-
-    /**
      * Vrací z AbraFlexi sloupečky podle podmínek.
      *
      * @param string|string[] $columnsList seznam položek nebo úrověň detailu: id|summary|full
