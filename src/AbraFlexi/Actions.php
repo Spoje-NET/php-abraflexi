@@ -11,7 +11,7 @@ namespace AbraFlexi;
 /**
  * EvidenceActions
  *
- * @link https://demo.abraflexi.eu/devdoc/actions Provádění akcí
+ * @link https://demo.flexibee.eu/devdoc/actions Provádění akcí
  */
 
 class Actions

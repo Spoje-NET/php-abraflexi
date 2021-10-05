@@ -14,7 +14,7 @@ namespace AbraFlexi;
 /**
  * Základní třída pro zápis do AbraFlexi
  *
- * @url https://demo.abraflexi.eu/devdoc/http-operations
+ * @url https://demo.flexibee.eu/devdoc/http-operations
  */
 class RW extends RO {
 
@@ -511,7 +511,7 @@ class RW extends RO {
 
     /**
      * Perform given action (if availble) on current evidence/record
-     * @url https://demo.abraflexi.eu/devdoc/actions
+     * @url https://demo.flexibee.eu/devdoc/actions
      *
      * @param string $action one of evidence actions
      * @param string $method ext|int External method call operation in URL.

@@ -14,7 +14,7 @@ namespace AbraFlexi;
 /**
  * Výrobní číslo
  *
- * @link https://demo.abraflexi.eu/c/demo/vyrobni-cislo/properties položky evidence
+ * @link https://demo.flexibee.eu/c/demo/vyrobni-cislo/properties položky evidence
  */
 class VyrobniCislo extends RW {
 

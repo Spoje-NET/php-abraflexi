@@ -10,7 +10,7 @@ namespace AbraFlexi;
 /**
  * Evidence Formats
  *
- * @link https://demo.abraflexi.eu/devdoc/formats Provádění akcí
+ * @link https://demo.flexibee.eu/devdoc/formats Provádění akcí
  */
 class Formats
 {

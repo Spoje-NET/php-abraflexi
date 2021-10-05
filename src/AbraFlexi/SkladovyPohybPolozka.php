@@ -14,7 +14,7 @@ namespace AbraFlexi;
 /**
  * Položka skladového pohybu
  *
- * @link https://demo.abraflexi.eu/c/demo/skladovy-pohyb-polozka/properties
+ * @link https://demo.flexibee.eu/c/demo/skladovy-pohyb-polozka/properties
  */
 class SkladovyPohybPolozka extends RW {
 

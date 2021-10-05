@@ -22,13 +22,13 @@ class Status extends RO {
      * Evidence užitá objektem.
      * Evidence used by object
      *
-     * @link https://demo.abraflexi.eu/c/demo/evidence-list Přehled evidencí
+     * @link https://demo.flexibee.eu/c/demo/evidence-list Přehled evidencí
      * @var string
      */
     public $evidence = 'status';
 
     /**
-     * @link https://demo.abraflexi.eu/devdoc/company-identifier Identifikátor firmy
+     * @link https://demo.flexibee.eu/devdoc/company-identifier Identifikátor firmy
      * @var string
      */
     public $company = '';

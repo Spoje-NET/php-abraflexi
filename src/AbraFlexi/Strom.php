@@ -14,7 +14,7 @@ namespace AbraFlexi;
 /**
  * Obecný Strom
  *
- * @link https://demo.abraflexi.eu/c/demo/strom/properties vlastnosti evidence
+ * @link https://demo.flexibee.eu/c/demo/strom/properties vlastnosti evidence
  */
 class Strom extends RW {
 

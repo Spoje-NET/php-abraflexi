@@ -19,7 +19,7 @@ use AbraFlexi\SubItems;
 /**
  * Ceník - Pricelist
  *
- * @link https://demo.abraflexi.eu/c/demo/cenik/properties Vlastnosti evidence
+ * @link https://demo.flexibee.eu/c/demo/cenik/properties Vlastnosti evidence
  */
 class Cenik extends RW {
 

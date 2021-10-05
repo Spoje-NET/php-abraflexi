@@ -35,7 +35,7 @@ switch ($testServer) {
         /*
          * URL AbraFlexi API
          */
-        define('ABRAFLEXI_URL', 'https://demo.abraflexi.eu');
+        define('ABRAFLEXI_URL', 'https://demo.flexibee.eu');
         /*
          * Uživatel AbraFlexi API
          */

@@ -14,7 +14,7 @@ namespace AbraFlexi;
 /**
  * Pokladna
  *
- * @link https://demo.abraflexi.eu/c/demo/pokladna/properties
+ * @link https://demo.flexibee.eu/c/demo/pokladna/properties
  */
 class Pokladna extends RW {
 

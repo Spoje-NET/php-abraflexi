@@ -34,7 +34,7 @@ class NastaveniTest extends ROTest {
      * @covers AbraFlexi\Nastaveni::getFlexiData
      */
     public function testGetFlexiData() {
-        if ($this->object->url == 'https://demo.abraflexi.eu') {
+        if ($this->object->url == 'https://demo.flexibee.eu') {
             $this->markTestSkipped('Public demo site does not allow read here');
         } else {
             $flexidata = $this->object->getFlexiData();

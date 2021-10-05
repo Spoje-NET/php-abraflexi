@@ -17,7 +17,7 @@ use AbraFlexi\RW;
 /**
  * Štítek
  *
- * @link https://demo.abraflexi.eu/c/demo/stitek/properties Vlastnosti evidence
+ * @link https://demo.flexibee.eu/c/demo/stitek/properties Vlastnosti evidence
  */
 class Stitek extends RW {
 

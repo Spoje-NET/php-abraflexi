@@ -14,7 +14,7 @@ namespace AbraFlexi;
 /**
  * Pokladní pohyb
  *
- * @link https://demo.abraflexi.eu/c/demo/pokladni-pohyb/properties položky evidence
+ * @link https://demo.flexibee.eu/c/demo/pokladni-pohyb/properties položky evidence
  */
 class PokladniPohyb extends RW {
 

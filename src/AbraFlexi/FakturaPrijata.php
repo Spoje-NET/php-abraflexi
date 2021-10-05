@@ -20,7 +20,7 @@ use AbraFlexi\Sum;
 /**
  * Incoming invoice
  *
- * @link https://demo.abraflexi.eu/c/demo/faktura-prijata/properties
+ * @link https://demo.flexibee.eu/c/demo/faktura-prijata/properties
  */
 class FakturaPrijata extends RW {
 

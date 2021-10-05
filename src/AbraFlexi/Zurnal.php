@@ -15,7 +15,7 @@ namespace AbraFlexi;
  * Žurnál změn
  * Journal of Changes
  *
- * @link https://demo.abraflexi.eu/c/demo/adresar/properties položky evidence
+ * @link https://demo.flexibee.eu/c/demo/adresar/properties položky evidence
  */
 class Zurnal extends RO {
 

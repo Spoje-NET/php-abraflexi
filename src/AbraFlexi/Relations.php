@@ -11,7 +11,7 @@ namespace AbraFlexi;
 /**
  * Evidence Relations
  *
- * @link https://demo.abraflexi.eu/devdoc/relations Provádění akcí
+ * @link https://demo.flexibee.eu/devdoc/relations Provádění akcí
  */
 
 class Relations

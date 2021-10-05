@@ -14,7 +14,7 @@ namespace AbraFlexi;
 /**
  * Skupina Firem
  *
- * @link https://demo.abraflexi.eu/c/demo/skupina-firem/properties
+ * @link https://demo.flexibee.eu/c/demo/skupina-firem/properties
  */
 class SkupinaFirem extends RW {
 

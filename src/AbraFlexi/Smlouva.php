@@ -15,7 +15,7 @@ namespace AbraFlexi;
 /**
  * Smlouva
  * 
- * @link https://demo.abraflexi.eu/c/demo/smlouva/properties Vlastnosti evidence
+ * @link https://demo.flexibee.eu/c/demo/smlouva/properties Vlastnosti evidence
  */
 class Smlouva extends RW {
 

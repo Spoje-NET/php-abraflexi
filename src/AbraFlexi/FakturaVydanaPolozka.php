@@ -14,7 +14,7 @@ namespace AbraFlexi;
 /**
  * Polozka Faktury vydané
  *
- * @link https://demo.abraflexi.eu/c/demo/faktura-vydana-polozka/properties položky evidence
+ * @link https://demo.flexibee.eu/c/demo/faktura-vydana-polozka/properties položky evidence
  */
 class FakturaVydanaPolozka extends RW {
 

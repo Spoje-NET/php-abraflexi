@@ -3,7 +3,7 @@
  * AbraFlexi - List of Evidencies.
  *
  * Generated: Fri, 01 Oct 2021 15:22:11 +0200 
- * From:      https://demo.abraflexi.eu
+ * From:      https://demo.flexibee.eu
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2016-2021 Spoje.Net
@@ -15,7 +15,7 @@ namespace AbraFlexi;
  * Evidencies listing and its properties
  * Seznam Evidencí a jejich vlastnosti
  *
- * @link https://demo.abraflexi.eu/c/demo/evidence-list Přehled evidencí
+ * @link https://demo.flexibee.eu/c/demo/evidence-list Přehled evidencí
  */
 class EvidenceList extends RO
 {

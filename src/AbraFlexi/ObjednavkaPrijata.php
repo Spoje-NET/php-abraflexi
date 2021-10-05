@@ -7,7 +7,7 @@ namespace AbraFlexi;
 /**
  * Incoming order
  *
- * @link https://demo.abraflexi.eu/c/demo/objednavka-prijata/properties
+ * @link https://demo.flexibee.eu/c/demo/objednavka-prijata/properties
  */
 class ObjednavkaPrijata extends RW {
 
