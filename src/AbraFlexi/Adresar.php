@@ -45,7 +45,7 @@ class Adresar extends RW {
             }
             if (array_key_exists('kontakty', $emails) && !empty($emails['kontakty'])) {
                 foreach ($emails['kontakty'] as $kontakt) {
-                    if (($kontakt['primarni'] == 'true') && strlen(trim($kontakt['email']))) {
+                    if (array_key_exists('primarni', $kontakt) && ($kontakt['primarni'] == 'true') && strlen(trim($kontakt['email']))) {
                         $email = $kontakt['email'];
                         break;
                     }
