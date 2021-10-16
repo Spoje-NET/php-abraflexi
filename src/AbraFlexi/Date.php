@@ -39,6 +39,9 @@ class Date extends \DateTime {
         } elseif ( !empty ($flexidate) && ($flexidate != 'NOW')) {
             $format = RO::$DateFormat;
         }
+        if(strstr($flexidate, ':')){ // ?!?!?
+            $flexidate = substr($flexidate,0, -6);
+        }
         parent::__construct(empty($format) ? null : \DateTime::createFromFormat($format, $flexidate)->setTime(0, 0)->format(\DateTimeInterface::ATOM));
     }
 

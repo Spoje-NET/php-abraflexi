@@ -34,7 +34,7 @@ class DateTime extends \DateTime {
         $format = '';
         if (strchr($flexidatetime, '.')) { //NewFormat
             $format = RO::$DateTimeFormat;
-        } elseif ($flexidatetime != 'NOW') { // Old format
+        } elseif ( !empty ($flexidatetime) && ($flexidatetime != 'NOW')) { // Old format
             $format = 'Y-m-d\TH:i:s+P';
         }
         parent::__construct(empty($format) ? null : \DateTime::createFromFormat($format, $flexidatetime)->format(\DateTimeInterface::ATOM));
