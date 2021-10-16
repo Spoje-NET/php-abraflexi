@@ -1036,10 +1036,10 @@ class RO extends \Ease\Sand {
                             $record[$column] = floatval($value);
                             break;
                         case 'datetime':
-                            $record[$column] = empty($value) ? "" : new DateTime($value);
+                            $record[$column] = new DateTime($value);
                             break;
                         case 'date':
-                            $record[$column] = empty($value) ? "" : new Date($value);
+                            $record[$column] = new Date($value);
                             break;
                         case 'blob':
                             break;

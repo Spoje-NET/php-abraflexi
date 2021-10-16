@@ -25,18 +25,18 @@ class Date extends \DateTime {
     /**
      * AbraFlexi date to PHP DateTime conversion
      *
-     * @param string $flexidate 2017-05-26 or 2017-05-26Z or 2017-05-26+02:00
+     * @param string $flexidate 2017-05-26 or 2017-05-26Z or 2017-05-26+02:00 or "NOW"
      *
      * @return \DateTime | false
      */
     public function __construct(string $flexidate = 'NOW') {
-        $this->isNull = is_null($flexidate);
+        $this->isNull = empty($flexidate);
         $format = '';
         if (strstr($flexidate, '+')) {
             $format = RO::$DateFormat . 'O';
         } elseif (strstr($flexidate, 'Z')) {
             $format = RO::$DateFormat . 'Z';
-        } elseif ($flexidate != 'NOW') {
+        } elseif ( !empty ($flexidate) && ($flexidate != 'NOW')) {
             $format = RO::$DateFormat;
         }
         parent::__construct(empty($format) ? null : \DateTime::createFromFormat($format, $flexidate)->setTime(0, 0)->format(\DateTimeInterface::ATOM));
