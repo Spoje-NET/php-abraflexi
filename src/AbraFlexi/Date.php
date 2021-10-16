@@ -17,6 +17,12 @@ namespace AbraFlexi;
 class Date extends \DateTime {
 
     /**
+     * Support for Null values
+     * @var bool
+     */
+    public bool $isNull = false;
+
+    /**
      * AbraFlexi date to PHP DateTime conversion
      *
      * @param string $flexidate 2017-05-26 or 2017-05-26Z or 2017-05-26+02:00
@@ -24,6 +30,7 @@ class Date extends \DateTime {
      * @return \DateTime | false
      */
     public function __construct(string $flexidate = 'NOW') {
+        $this->isNull = is_null($flexidate);
         $format = '';
         if (strstr($flexidate, '+')) {
             $format = RO::$DateFormat . 'O';
@@ -41,7 +48,7 @@ class Date extends \DateTime {
      * @return string
      */
     public function __toString() {
-        return $this->format(RO::$DateFormat);
+        return $this->isNull ? null : $this->format(RO::$DateFormat);
     }
 
 }
