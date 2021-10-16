@@ -23,15 +23,16 @@ class Date extends \DateTime {
      *
      * @return \DateTime | false
      */
-    public function __construct(string $flexidate) {
+    public function __construct(string $flexidate = 'NOW') {
+        $format = '';
         if (strstr($flexidate, '+')) {
             $format = RO::$DateFormat . 'O';
         } elseif (strstr($flexidate, 'Z')) {
             $format = RO::$DateFormat . 'Z';
-        } else {
+        } elseif ($flexidate != 'NOW') {
             $format = RO::$DateFormat;
         }
-        parent::__construct(\DateTime::createFromFormat($format, $flexidate)->setTime(0, 0)->format(\DateTimeInterface::ATOM));
+        parent::__construct(empty($format) ? null : \DateTime::createFromFormat($format, $flexidate)->setTime(0, 0)->format(\DateTimeInterface::ATOM));
     }
 
     /**
