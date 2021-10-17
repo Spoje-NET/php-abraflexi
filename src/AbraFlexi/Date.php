@@ -33,14 +33,11 @@ class Date extends \DateTime {
         $this->isNull = empty($flexidate);
         $format = '';
         if (strstr($flexidate, '+')) {
-            $format = RO::$DateFormat . 'O';
+            $format = RO::$DateFormat . 'T';
         } elseif (strstr($flexidate, 'Z')) {
             $format = RO::$DateFormat . 'Z';
-        } elseif ( !empty ($flexidate) && ($flexidate != 'NOW')) {
+        } elseif (!empty($flexidate) && ($flexidate != 'NOW')) {
             $format = RO::$DateFormat;
-        }
-        if(strstr($flexidate, ':')){ // ?!?!?
-            $flexidate = substr($flexidate,0, -6);
         }
         parent::__construct(empty($format) ? null : \DateTime::createFromFormat($format, $flexidate)->setTime(0, 0)->format(\DateTimeInterface::ATOM));
     }
