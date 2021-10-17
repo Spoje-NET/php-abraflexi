@@ -611,7 +611,7 @@ class RO extends \Ease\Sand {
             $this->loadFromAbraFlexi($init);
         } elseif (is_array($init)) {
             $this->takeData($init);
-        } elseif (preg_match('/\.(json|xml|csv)/', $init)) {
+        } elseif (!is_object($init) && preg_match('/\.(json|xml|csv)/', $init)) {
             $this->takeData($this->getFlexiData((($init[0] != '/') ? $this->evidenceUrlWithSuffix($init) : $init)));
         } else {
             $this->loadFromAbraFlexi($init);
@@ -1036,10 +1036,10 @@ class RO extends \Ease\Sand {
                             $record[$column] = floatval($value);
                             break;
                         case 'datetime':
-                            $record[$column] = empty($value) ? "" : new DateTime($value);
+                            $record[$column] = new DateTime($value);
                             break;
                         case 'date':
-                            $record[$column] = empty($value) ? "" : new Date($value);
+                            $record[$column] = new Date($value);
                             break;
                         case 'blob':
                             break;
@@ -1615,9 +1615,9 @@ class RO extends \Ease\Sand {
         } elseif (is_numeric($id)) {
             $id = strval($id);
         } else if (preg_match('/^ext:/', strval($id))) {
-            $id = self::urlEncode($id);
+            $id = self::urlEncode(strval($id));
         } else if (preg_match('/^code:/', strval($id))) {
-            $id = self::code(self::urlEncode(self::uncode($id)));
+            $id = self::code(self::urlEncode(self::uncode(strval($id))));
         }
         return $id;
     }
