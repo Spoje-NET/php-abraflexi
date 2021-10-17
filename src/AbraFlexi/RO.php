@@ -1025,6 +1025,9 @@ class RO extends \Ease\Sand {
                             unset($record[$column . '@ref']);
                             unset($record[$column . '@showAs']);
                             break;
+                        case 'relations':
+                            $record[$column] = $value;
+                            break;
                         case 'select':
                         case 'string':
                             $record[$column] = is_array($value) ? implode("\n", $value) : strval($value);
@@ -2178,7 +2181,7 @@ class RO extends \Ease\Sand {
 
         if (property_exists('\AbraFlexi\Relations', $evidence)) {
             foreach (Relations::$$evidence as $url => $properties) {
-                $properties['type'] = 'relation';
+                $properties['type'] = 'relations';
                 $columnsInfo[$url] = $properties;
             }
         }
