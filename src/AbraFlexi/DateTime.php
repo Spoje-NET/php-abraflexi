@@ -17,19 +17,27 @@ namespace AbraFlexi;
 class DateTime extends \DateTime {
 
     /**
+     * Support for Null values
+     * @var bool
+     */
+    public bool $isNull = false;
+
+    /**
      * AbraFlexi dateTime to PHP DateTime conversion
      *
      * @param string $flexidatetime 2017-09-26T10:00:53.755+02:00 or older 2017-05-19T00:00:00+02:00
      *
      * @return \DateTime | false
      */
-    public function __construct(string $flexidatetime) {
+    public function __construct(string $flexidatetime = 'NOW') {
+        $this->isNull = empty($flexidatetime);
+        $format = '';
         if (strchr($flexidatetime, '.')) { //NewFormat
             $format = RO::$DateTimeFormat;
-        } else { // Old format
+        } elseif ( !empty ($flexidatetime) && ($flexidatetime != 'NOW')) { // Old format
             $format = 'Y-m-d\TH:i:s+P';
         }
-        parent::__construct(\DateTime::createFromFormat($format, $flexidatetime)->format(\DateTimeInterface::ATOM));
+        parent::__construct(empty($format) ? null : \DateTime::createFromFormat($format, $flexidatetime)->format(\DateTimeInterface::ATOM));
     }
 
     /**
@@ -38,7 +46,7 @@ class DateTime extends \DateTime {
      * @return string
      */
     public function __toString() {
-        return $this->format(RO::$DateTimeFormat);
+        return $this->isNull ? null : $this->format(RO::$DateTimeFormat);
     }
 
 }

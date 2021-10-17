@@ -40,7 +40,11 @@ class Banka extends RW {
      * @return boolean
      */
     public function stahnoutVypisyOnline() {
-        $this->performRequest('nacteni-vypisu-online.json', 'PUT', 'txt');
+        try {
+            $this->performRequest('nacteni-vypisu-online.json', 'PUT', 'txt');
+        } catch (Exception $exc) {
+            $this->addStatusMessage('Json response is still plaintext', 'debug');
+        }
         return $this->lastResponseCode == 200;
     }
 
