@@ -17,11 +17,11 @@ namespace AbraFlexi;
 class Relations
 {
     /**
-     * Source AbraFlexi server version.
+     * Source FlexiBee server version.
      *
      * @var string
      */
- static public $version = '2021.7.6';
+ static public $version = '2021.8.0';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
@@ -2573,6 +2573,18 @@ class Relations
   ],
 ];
     /**
+     * Evidence umisteni-ve-skladu (Umístění ve skladu) Relations.
+     *
+     * @var array
+     */
+ static public $umisteniVeSkladu = [
+  'uzivatelske-vazby' => [
+    'url' => 'uzivatelske-vazby',
+    'evidenceType' => 'VAZBA',
+    'name' => 'Uživatelské vazby',
+  ],
+];
+    /**
      * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Relations.
      *
      * @var array
@@ -2590,18 +2602,6 @@ class Relations
      * @var array
      */
  static public $umisteniVeSkladuPolice = [
-  'uzivatelske-vazby' => [
-    'url' => 'uzivatelske-vazby',
-    'evidenceType' => 'VAZBA',
-    'name' => 'Uživatelské vazby',
-  ],
-];
-    /**
-     * Evidence umisteni-ve-skladu (Umístění ve skladu) Relations.
-     *
-     * @var array
-     */
- static public $umisteniVeSkladu = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',

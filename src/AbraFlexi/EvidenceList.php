@@ -2,7 +2,7 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Fri, 01 Oct 2021 15:22:11 +0200 
+ * Generated: Sat, 16 Oct 2021 23:04:48 +0200 
  * From:      https://demo.flexibee.eu
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -27,8 +27,8 @@ class EvidenceList extends RO
     public $evidence = 'evidence-list';
 
     /**
-     * Základní namespace pro komunikaci s AbraFlexi.
-     * Basic namespace for communication with AbraFlexi
+     * Základní namespace pro komunikaci s FlexiBee.
+     * Basic namespace for communication with FlexiBee
      *
      * @var string Jmený prostor datového bloku odpovědi
      */
@@ -42,11 +42,11 @@ class EvidenceList extends RO
     public $keyColumn = 'evidencePath';
 
     /**
-     * Source AbraFlexi server version.
+     * Source FlexiBee server version.
      *
      * @var string
      */
- static public $version = '2021.7.6';
+ static public $version = '2021.8.0';
 
     /**
      * Evidences Path/Name listing.
@@ -225,9 +225,9 @@ class EvidenceList extends RO
   'udalost' => 'Události, aktivity',
   'radek-priznani-dph' => 'Uložené řádky přiznání DPH',
   'umisteni' => 'Umístění',
+  'umisteni-ve-skladu' => 'Umístění ve skladu',
   'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
   'umisteni-ve-skladu-police' => 'Umístění ve skladu',
-  'umisteni-ve-skladu' => 'Umístění ve skladu',
   'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
   'sablona-upominky' => 'Upomínky',
   'strom' => 'Uzel stromu',
@@ -267,6 +267,7 @@ class EvidenceList extends RO
   'radek-sestavy' => 'Řádek sestavy',
   'cleneni-kontrolni-hlaseni' => 'Řádky kontrolního hlášení DPH',
   'cleneni-dph' => 'Řádky přiznání DPH',
+  'sarze-expirace' => 'Šarže a expirace',
   'stitek' => 'Štítky',
   'zurnal' => 'Žurnál',
 ];
@@ -891,6 +892,16 @@ class EvidenceList extends RO
     'formCode' => 'cenSady',
     'extIdSupported' => 'true',
     'dbName' => 'cSady',
+  ],
+  'sarze-expirace' => [
+    'evidenceType' => 'SARZE_EXPIRACE',
+    'evidenceName' => 'Šarže a expirace',
+    'evidencePath' => 'sarze-expirace',
+    'importStatus' => 'DISALLOWED',
+    'className' => 'cz.winstrom.vo.skl.DPolSkladFbezVC',
+    'formCode' => 'sklSarzeExpiracebezVC',
+    'extIdSupported' => 'false',
+    'dbName' => 'dPolSkladFbezVC',
   ],
   'sazba-dph' => [
     'evidenceType' => 'SAZBA_DPH',

@@ -79,6 +79,35 @@ foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
         ];
     }
 
+    if (array_key_exists('polozkyFaktury', $evidenceInfo) && ($evidenceInfo['polozkyFaktury'] == true)) {
+        $structure['polozkyFaktury'] = [
+            "showToUser" => "true",
+            "propertyName" => "polozkyFaktury",
+            "fkEvidencePath" => 'polozkyFaktury',
+            "name" => "polozkyFaktury",
+            "title" => "polozkyFaktury",
+            "type" => "relation",
+            "isVisible" => "true",
+            "isSortable" => "false",
+            "isHighlight" => "false",
+            "inId" => "false",
+            "inSummary" => "true",
+            "inDetail" => "true",
+            "inExpensive" => "true",
+            "mandatory" => "false",
+            "isWritable" => "true",
+            "isOverWritable" => "true",
+            "hasBusinessLogic" => "false",
+            "isUpperCase" => "false",
+            "isLowerCase" => "false",
+            "url"=> "http:\/\/demo.flexibee.eu\/c\/demo\/faktura-vydana-polozka",
+            "links" => null
+        ];
+    }
+
+
+
+
     if (count($structure)) {
         $syncer->addStatusMessage($pos . ' of ' . count(EvidenceList::$name) . ' ' . $evidencePath . ': structure obtained',
                 'success');
