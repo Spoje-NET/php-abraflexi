@@ -652,6 +652,24 @@ class RO extends \Ease\Sand {
         }
         return $result;
     }
+    
+    /**
+     * Strip all non-identifier data
+     */
+    public function stripBody() {
+        $id = $this->getRecordID();
+        $code = $this->getRecordCode();
+        $extIds = $this->getExternalIDs();
+        $this->dataReset();
+        $this->setMyKey($id);
+        $columns = $this->getColumnsInfo();
+        if (array_key_exists('kod', $columns)) {
+            $this->setDataValue('kod', $code);
+        }
+        if (!empty($extIds)) {
+            $this->setDataValue('external-ids', $columns);
+        }
+    }
 
     /**
      * PHP Date object to AbraFlexi date format
