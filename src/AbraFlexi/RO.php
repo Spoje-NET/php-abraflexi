@@ -655,12 +655,20 @@ class RO extends \Ease\Sand {
     
     /**
      * Strip all non-identifier data
+     * 
+     * @param array $keep  extra columns to be preserved
      */
-    public function stripBody() {
+    public function stripBody(array $keep = []) {
         $id = $this->getRecordID();
         $code = $this->getRecordCode();
         $extIds = $this->getExternalIDs();
+        $restoreData = [];
+        $originalData = $this->getData();
+        foreach ($keep as $column){
+            \Ease\Functions::divDataArray($originalData, $restoreData, $column);
+        }
         $this->dataReset();
+        $this->setData($restoreData);
         $this->setMyKey($id);
         $columns = $this->getColumnsInfo();
         if (array_key_exists('kod', $columns)) {

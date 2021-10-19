@@ -103,6 +103,31 @@ foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
             "url"=> "http:\/\/demo.flexibee.eu\/c\/demo\/faktura-vydana-polozka",
             "links" => null
         ];
+
+        $structure['typDoklBan'] = [
+            "showToUser" => "true",
+            "propertyName" => "typDoklBan",
+            "fkEvidencePath" => 'typDoklBan',
+            "name" => "typDoklBan",
+            "title" => "typDoklBan",
+            "type" => "relation",
+            "isVisible" => "true",
+            "isSortable" => "false",
+            "isHighlight" => "false",
+            "inId" => "false",
+            "inSummary" => "true",
+            "inDetail" => "true",
+            "inExpensive" => "true",
+            "mandatory" => "false",
+            "isWritable" => "true",
+            "isOverWritable" => "true",
+            "hasBusinessLogic" => "false",
+            "isUpperCase" => "false",
+            "isLowerCase" => "false",
+            "url"=> "http:\/\/demo.flexibee.eu\/c\/demo\/faktura-vydana-polozka",
+            "links" => null
+        ];
+        
     }
 
 
