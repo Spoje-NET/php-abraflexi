@@ -37,19 +37,34 @@ class Banka extends RW {
     public $evidence = 'banka';
 
     /**
+     * Bank pull mode of Json processing
+     * @var boolean
+     */
+    private $pullMode = false;
+
+    /**
      * Stáhne bankovní výpisy  ( trvá delší dobu )
      *
      * @return boolean
      */
     public function stahnoutVypisyOnline() {
-        try {
-            $this->performRequest('nacteni-vypisu-online.json', 'PUT', 'txt');
-        } catch (Exception $exc) {
-            $this->addStatusMessage('Json response is still plaintext', 'debug');
-        }
+        $this->pullMode = true;
+        $this->performRequest('nacteni-vypisu-online.json', 'PUT', 'txt');
+        $this->pullMode = false;
         return $this->lastResponseCode == 200;
     }
 
+    /**
+     * Convert AbraFlexi Response JSON to Array
+     *
+     * @param string $rawJson
+     *
+     * @return array
+     */
+    public function rawJsonToArray($rawJson) {
+        return $this->pullMode ? explode($rawJson, "\n") : parent::rawJsonToArray($rawJson);
+    }
+    
     /**
      * Start invoice automatic matching process ( it takes longer time )
      * Spustí proces automatického párování plateb. ( trvá delší dobu )
