@@ -15,6 +15,7 @@ namespace AbraFlexi;
 use AbraFlexi\Firma;
 use AbraFlexi\RW;
 use AbraFlexi\Stitky;
+use AbraFlexi\SubItems;
 
 /**
  * Banka
@@ -26,6 +27,7 @@ class Banka extends RW {
     use Stitky;
     use Firma;
     use Email;
+    use SubItems;
 
     /**
      * Evidence užitá objektem.
