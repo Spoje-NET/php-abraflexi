@@ -1,4 +1,4 @@
-php-spojenet-abraflexi (2.17) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (2.18) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -38,8 +38,9 @@ php-spojenet-abraflexi (2.17) UNRELEASED; urgency=medium
   * Relation class introduced
   * Relations recovered
   * body stripper added
+  * banka can use subevidence
 
- -- vitex <info@vitexsoftware.cz>  Tue, 19 Oct 2021 20:00:03 +0200
+ -- vitex <info@vitexsoftware.cz>  Fri, 29 Oct 2021 00:32:13 +0200
 
 flexipeehp (1.12) experimental; urgency=medium
 

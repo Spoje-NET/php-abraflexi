@@ -801,30 +801,6 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::logResult
-     */
-    public function testLogResult() {
-//        $this->object->cleanMessages();
-        $success = json_decode('{"winstrom":{"@version":"1.0","success":"true",'
-                . '"stats":{"created":"0","updated":"1","deleted":"0","skipped":"0"'
-                . ',"failed":"0"},"results":[{"id":"1","request-id":"ext:SōkoMan.item'
-                . ':5271","ref":"/c/spoje_net_s_r_o_1/skladovy-pohyb/1.json"}]}}');
-        $this->object->logResult(current($this->object->object2array($success)),
-                'http://test');
-
-        $this->assertArrayHasKey('info', $this->object->getStatusMessages(true));
-
-        $error = json_decode('{"winstrom":{"@version":"1.0","success":"false",'
-                . '"stats":{"created":"0","updated":"0","deleted":"0","skipped":"0"'
-                . ',"failed":"0"},"results":[{"errors":[{"message":"cz.winstrom.'
-                . 'service.WSBusinessException: Zadaný kód není unikátní.\nZadaný'
-                . ' kód není unikátní."}]}]}}');
-        $this->object->lastResponseCode = 500;
-        $this->object->logResult(current($this->object->object2array($error)));
-        $this->assertArrayHasKey('error', $this->object->getStatusMessages(true));
-    }
-
-    /**
      * @covers AbraFlexi\AbraFlexiRO::flexiUrl
      */
     public function testFlexiUrl() {
