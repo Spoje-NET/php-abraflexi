@@ -82,7 +82,7 @@ class RWTest extends ROTest {
 
     /**
      * @covers AbraFlexi\AbraFlexiRW::performAction
-     * @expectedException \Exception
+     * @expectedException \AbraFlexi\Exception
      */
     public function testPerformAction() {
         $actions = $this->object->getActionsInfo();

@@ -335,17 +335,17 @@ class RW extends RO {
 
     /**
      * Convert Timestamp to AbraFlexi Date format.
+     * 
+     * @deprecated since version 2.19 - please use \AbraFlexi\Date() object instead
      *
      * @param int $timpestamp
      *
-     * @return string AbraFlexi Date or NULL
+     * @return AbraFlexi\ Date or NULL
      */
     public static function timestampToFlexiDate($timpestamp = null) {
-        $flexiDate = null;
+        $flexiDate = new Date();
         if (!is_null($timpestamp)) {
-            $date = new \DateTime();
-            $date->setTimestamp($timpestamp);
-            $flexiDate = $date->format('Y-m-d');
+            $flexiDate->setTimestamp($timpestamp);
         }
         return $flexiDate;
     }
@@ -548,9 +548,10 @@ class RW extends RO {
                             'GET');
                     break;
             }
-        } else {
-            throw new \Exception(sprintf(_('Unsupported action %s for evidence %s'),
-                                    $action, $this->getEvidence()));
+        } else if ($this->throwException === true) {
+            $this->lastResponseCode = 404;
+            throw new Exception(sprintf(_('Unsupported action "%s" for evidence "%s"'),
+                                    $action, $this->getEvidence()), $this);
         }
 
         return $result;
