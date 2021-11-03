@@ -652,7 +652,7 @@ class RO extends \Ease\Sand {
         }
         return $result;
     }
-    
+
     /**
      * Strip all non-identifier data
      * 
@@ -664,7 +664,7 @@ class RO extends \Ease\Sand {
         $extIds = $this->getExternalIDs();
         $restoreData = [];
         $originalData = $this->getData();
-        foreach ($keep as $column){
+        foreach ($keep as $column) {
             \Ease\Functions::divDataArray($originalData, $restoreData, $column);
         }
         $this->dataReset();
@@ -1193,7 +1193,7 @@ class RO extends \Ease\Sand {
                 $this->addStatusMessage($this->lastResponseCode . ': ' . $this->curlInfo['url'] . ' (' . $this->format . ') ' . json_encode($this->getErrors()), 'warning');
                 if ($this->throwException) {
                     $errors = $this->getErrors();
-                    throw new Exception( empty($errors) ? 'Problem ' : $errors[0]['message'] , $this);
+                    throw new Exception(empty($errors) ? 'Problem ' : $errors[0]['message'], $this);
                 }
                 break;
         }
@@ -2801,7 +2801,7 @@ class RO extends \Ease\Sand {
     public function logBanner($prefix = null, $suffix = null) {
         parent::logBanner($prefix,
                 'ServerURL ' . str_replace('://', '://' . $this->user . '@',
-                        $this->getApiUrl()) . ' library v' . self::$libVersion . ' (AbraFlexi ' . EvidenceList::$version . ')', $suffix);
+                        $this->getApiUrl()) . ' php-abraflexi v' . self::$libVersion . ' (AbraFlexi ' . EvidenceList::$version . ')', $suffix);
     }
 
     /**

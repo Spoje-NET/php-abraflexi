@@ -61,11 +61,20 @@ class ROTest extends \Test\Ease\SandTest {
         
     }
 
+    private function withEvidenceOnly() {
+        if (empty($this->object->getEvidence())) {
+            $this->markTestSkipped('Evidence is not set');
+        }
+    }
+
     /**
      * @covers AbraFlexi\AbraFlexiRO::logBanner
      */
     public function testLogBanner() {
+        \Ease\Logger\Regent::singleton()->cleanMessages();
         $this->object->logBanner(addslashes(get_class($this)));
+        $messages = \Ease\Logger\Regent::singleton()->getMessages();
+        $this->assertFalse(empty(strstr($messages[0]->body, 'ServerURL http')));
     }
 
     /**
@@ -112,6 +121,7 @@ class ROTest extends \Test\Ease\SandTest {
      * @covers AbraFlexi\AbraFlexiRO::processInit
      */
     public function testProcessInit() {
+
         $this->object->processInit(1);
         $this->object->processInit(['id' => 1]);
         $this->assertEquals(1, $this->object->getDataValue('id'));
