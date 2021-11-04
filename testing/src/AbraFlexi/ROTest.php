@@ -68,6 +68,16 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
+     * @covers AbraFlexi\RO::setUp
+     * @todo   Implement testsetUp().
+     */
+    public function testsetUp() {
+        $this->assertEquals('', $this->object->setUp());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
      * @covers AbraFlexi\AbraFlexiRO::logBanner
      */
     public function testLogBanner() {
@@ -254,6 +264,977 @@ class ROTest extends \Test\Ease\SandTest {
                 $this->object->objectToID($this->object));
 
         $this->assertEquals('TEST', $this->object->objectToID('TEST'));
+    }
+
+    /**
+     * @covers AbraFlexi\RO::setObjectName
+     * @todo   Implement testsetObjectName().
+     */
+    public function testsetObjectName() {
+        $this->assertEquals('', $this->object->setObjectName());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::companyUrlToOptions
+     * @todo   Implement testcompanyUrlToOptions().
+     */
+    public function testcompanyUrlToOptions() {
+        $this->assertEquals('', $this->object->companyUrlToOptions());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getConnectionOptions
+     * @todo   Implement testgetConnectionOptions().
+     */
+    public function testgetConnectionOptions() {
+        $this->assertEquals('', $this->object->getConnectionOptions());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::configToEnv
+     * @todo   Implement testconfigToEnv().
+     */
+    public function testconfigToEnv() {
+        $this->assertEquals('', $this->object->configToEnv());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::curlInit
+     * @todo   Implement testcurlInit().
+     */
+    public function testcurlInit() {
+        $this->assertEquals('', $this->object->curlInit());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::processInit
+     * @todo   Implement testprocessInit().
+     */
+    public function testprocessInit() {
+        $this->assertEquals('', $this->object->processInit());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::setDataValue
+     * @todo   Implement testsetDataValue().
+     */
+    public function testsetDataValue() {
+        $this->assertEquals('', $this->object->setDataValue());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::stripBody
+     * @todo   Implement teststripBody().
+     */
+    public function teststripBody() {
+        $this->assertEquals('', $this->object->stripBody());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::dateToFlexiDate
+     * @todo   Implement testdateToFlexiDate().
+     */
+    public function testdateToFlexiDate() {
+        $this->assertEquals('', $this->object->dateToFlexiDate());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::dateToFlexiDateTime
+     * @todo   Implement testdateToFlexiDateTime().
+     */
+    public function testdateToFlexiDateTime() {
+        $this->assertEquals('', $this->object->dateToFlexiDateTime());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::setPrefix
+     * @todo   Implement testsetPrefix().
+     */
+    public function testsetPrefix() {
+        $this->assertEquals('', $this->object->setPrefix());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::setFormat
+     * @todo   Implement testsetFormat().
+     */
+    public function testsetFormat() {
+        $this->assertEquals('', $this->object->setFormat());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::setEvidence
+     * @todo   Implement testsetEvidence().
+     */
+    public function testsetEvidence() {
+        $this->assertEquals('', $this->object->setEvidence());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getEvidence
+     * @todo   Implement testgetEvidence().
+     */
+    public function testgetEvidence() {
+        $this->assertEquals('', $this->object->getEvidence());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::setCompany
+     * @todo   Implement testsetCompany().
+     */
+    public function testsetCompany() {
+        $this->assertEquals('', $this->object->setCompany());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getCompany
+     * @todo   Implement testgetCompany().
+     */
+    public function testgetCompany() {
+        $this->assertEquals('', $this->object->getCompany());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getResponseEvidence
+     * @todo   Implement testgetResponseEvidence().
+     */
+    public function testgetResponseEvidence() {
+        $this->assertEquals('', $this->object->getResponseEvidence());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::object2array
+     * @todo   Implement testobject2array().
+     */
+    public function testobject2array() {
+        $this->assertEquals('', $this->object->object2array());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::objectToID
+     * @todo   Implement testobjectToID().
+     */
+    public function testobjectToID() {
+        $this->assertEquals('', $this->object->objectToID());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getEvidenceURL
+     * @todo   Implement testgetEvidenceURL().
+     */
+    public function testgetEvidenceURL() {
+        $this->assertEquals('', $this->object->getEvidenceURL());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::evidenceUrlWithSuffix
+     * @todo   Implement testevidenceUrlWithSuffix().
+     */
+    public function testevidenceUrlWithSuffix() {
+        $this->assertEquals('', $this->object->evidenceUrlWithSuffix());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::updateApiURL
+     * @todo   Implement testupdateApiURL().
+     */
+    public function testupdateApiURL() {
+        $this->assertEquals('', $this->object->updateApiURL());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::addDefaultUrlParams
+     * @todo   Implement testaddDefaultUrlParams().
+     */
+    public function testaddDefaultUrlParams() {
+        $this->assertEquals('', $this->object->addDefaultUrlParams());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::performRequest
+     * @todo   Implement testperformRequest().
+     */
+    public function testperformRequest() {
+        $this->assertEquals('', $this->object->performRequest());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::rawResponseToArray
+     * @todo   Implement testrawResponseToArray().
+     */
+    public function testrawResponseToArray() {
+        $this->assertEquals('', $this->object->rawResponseToArray());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::fixResponseTypes
+     * @todo   Implement testfixResponseTypes().
+     */
+    public function testfixResponseTypes() {
+        $this->assertEquals('', $this->object->fixResponseTypes());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::fixRecordTypes
+     * @todo   Implement testfixRecordTypes().
+     */
+    public function testfixRecordTypes() {
+        $this->assertEquals('', $this->object->fixRecordTypes());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::rawJsonToArray
+     * @todo   Implement testrawJsonToArray().
+     */
+    public function testrawJsonToArray() {
+        $this->assertEquals('', $this->object->rawJsonToArray());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::rawXmlToArray
+     * @todo   Implement testrawXmlToArray().
+     */
+    public function testrawXmlToArray() {
+        $this->assertEquals('', $this->object->rawXmlToArray());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::parseResponse
+     * @todo   Implement testparseResponse().
+     */
+    public function testparseResponse() {
+        $this->assertEquals('', $this->object->parseResponse());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::parseError
+     * @todo   Implement testparseError().
+     */
+    public function testparseError() {
+        $this->assertEquals('', $this->object->parseError());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::doCurlRequest
+     * @todo   Implement testdoCurlRequest().
+     */
+    public function testdoCurlRequest() {
+        $this->assertEquals('', $this->object->doCurlRequest());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::contentTypeToResponseFormat
+     * @todo   Implement testcontentTypeToResponseFormat().
+     */
+    public function testcontentTypeToResponseFormat() {
+        $this->assertEquals('', $this->object->contentTypeToResponseFormat());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::setAction
+     * @todo   Implement testsetAction().
+     */
+    public function testsetAction() {
+        $this->assertEquals('', $this->object->setAction());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::xml2array
+     * @todo   Implement testxml2array().
+     */
+    public function testxml2array() {
+        $this->assertEquals('', $this->object->xml2array());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::disconnect
+     * @todo   Implement testdisconnect().
+     */
+    public function testdisconnect() {
+        $this->assertEquals('', $this->object->disconnect());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::__destruct
+     * @todo   Implement test__destruct().
+     */
+    public function test__destruct() {
+        $this->assertEquals('', $this->object->__destruct());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getFlexiRow
+     * @todo   Implement testgetFlexiRow().
+     */
+    public function testgetFlexiRow() {
+        $this->assertEquals('', $this->object->getFlexiRow());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::extractUrlParams
+     * @todo   Implement testextractUrlParams().
+     */
+    public function testextractUrlParams() {
+        $this->assertEquals('', $this->object->extractUrlParams());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::urlEncode
+     * @todo   Implement testurlEncode().
+     */
+    public function testurlEncode() {
+        $this->assertEquals('', $this->object->urlEncode());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getFlexiData
+     * @todo   Implement testgetFlexiData().
+     */
+    public function testgetFlexiData() {
+        $this->assertEquals('', $this->object->getFlexiData());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::loadFromAbraFlexi
+     * @todo   Implement testloadFromAbraFlexi().
+     */
+    public function testloadFromAbraFlexi() {
+        $this->assertEquals('', $this->object->loadFromAbraFlexi());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::reload
+     * @todo   Implement testreload().
+     */
+    public function testreload() {
+        $this->assertEquals('', $this->object->reload());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::setFilter
+     * @todo   Implement testsetFilter().
+     */
+    public function testsetFilter() {
+        $this->assertEquals('', $this->object->setFilter());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getJsonizedData
+     * @todo   Implement testgetJsonizedData().
+     */
+    public function testgetJsonizedData() {
+        $this->assertEquals('', $this->object->getJsonizedData());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getDataForJSON
+     * @todo   Implement testgetDataForJSON().
+     */
+    public function testgetDataForJSON() {
+        $this->assertEquals('', $this->object->getDataForJSON());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::join
+     * @todo   Implement testjoin().
+     */
+    public function testjoin() {
+        $this->assertEquals('', $this->object->join());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::urlizeId
+     * @todo   Implement testurlizeId().
+     */
+    public function testurlizeId() {
+        $this->assertEquals('', $this->object->urlizeId());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::idExists
+     * @todo   Implement testidExists().
+     */
+    public function testidExists() {
+        $this->assertEquals('', $this->object->idExists());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::recordExists
+     * @todo   Implement testrecordExists().
+     */
+    public function testrecordExists() {
+        $this->assertEquals('', $this->object->recordExists());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getAllFromAbraFlexi
+     * @todo   Implement testgetAllFromAbraFlexi().
+     */
+    public function testgetAllFromAbraFlexi() {
+        $this->assertEquals('', $this->object->getAllFromAbraFlexi());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getColumnsFromAbraFlexi
+     * @todo   Implement testgetColumnsFromAbraFlexi().
+     */
+    public function testgetColumnsFromAbraFlexi() {
+        $this->assertEquals('', $this->object->getColumnsFromAbraFlexi());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getKod
+     * @todo   Implement testgetKod().
+     */
+    public function testgetKod() {
+        $this->assertEquals('', $this->object->getKod());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::saveDebugFiles
+     * @todo   Implement testsaveDebugFiles().
+     */
+    public function testsaveDebugFiles() {
+        $this->assertEquals('', $this->object->saveDebugFiles());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::setPostFields
+     * @todo   Implement testsetPostFields().
+     */
+    public function testsetPostFields() {
+        $this->assertEquals('', $this->object->setPostFields());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getPostFields
+     * @todo   Implement testgetPostFields().
+     */
+    public function testgetPostFields() {
+        $this->assertEquals('', $this->object->getPostFields());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::flexiUrl
+     * @todo   Implement testflexiUrl().
+     */
+    public function testflexiUrl() {
+        $this->assertEquals('', $this->object->flexiUrl());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getRecordID
+     * @todo   Implement testgetRecordID().
+     */
+    public function testgetRecordID() {
+        $this->assertEquals('', $this->object->getRecordID());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getRecordCode
+     * @todo   Implement testgetRecordCode().
+     */
+    public function testgetRecordCode() {
+        $this->assertEquals('', $this->object->getRecordCode());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getRecordIdent
+     * @todo   Implement testgetRecordIdent().
+     */
+    public function testgetRecordIdent() {
+        $this->assertEquals('', $this->object->getRecordIdent());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::__toString
+     * @todo   Implement test__toString().
+     */
+    public function test__toString() {
+        $this->assertEquals('', $this->object->__toString());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+
+    /**
+     * @covers AbraFlexi\RO::getPrevRecordID
+     * @todo   Implement testgetPrevRecordID().
+     */
+    public function testgetPrevRecordID() {
+        $this->assertEquals('', $this->object->getPrevRecordID());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getExternalIDs
+     * @todo   Implement testgetExternalIDs().
+     */
+    public function testgetExternalIDs() {
+        $this->assertEquals('', $this->object->getExternalIDs());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getApiURL
+     * @todo   Implement testgetApiURL().
+     */
+    public function testgetApiURL() {
+        $this->assertEquals('', $this->object->getApiURL());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getResponseFormat
+     * @todo   Implement testgetResponseFormat().
+     */
+    public function testgetResponseFormat() {
+        $this->assertEquals('', $this->object->getResponseFormat());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getOfflineColumnsInfo
+     * @todo   Implement testgetOfflineColumnsInfo().
+     */
+    public function testgetOfflineColumnsInfo() {
+        $this->assertEquals('', $this->object->getOfflineColumnsInfo());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getOnlineColumnsInfo
+     * @todo   Implement testgetOnlineColumnsInfo().
+     */
+    public function testgetOnlineColumnsInfo() {
+        $this->assertEquals('', $this->object->getOnlineColumnsInfo());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::updateColumnsInfo
+     * @todo   Implement testupdateColumnsInfo().
+     */
+    public function testupdateColumnsInfo() {
+        $this->assertEquals('', $this->object->updateColumnsInfo());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getColumnInfo
+     * @todo   Implement testgetColumnInfo().
+     */
+    public function testgetColumnInfo() {
+        $this->assertEquals('', $this->object->getColumnInfo());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getEvidenceInfo
+     * @todo   Implement testgetEvidenceInfo().
+     */
+    public function testgetEvidenceInfo() {
+        $this->assertEquals('', $this->object->getEvidenceInfo());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getEvidenceName
+     * @todo   Implement testgetEvidenceName().
+     */
+    public function testgetEvidenceName() {
+        $this->assertEquals('', $this->object->getEvidenceName());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::saveResponseToFile
+     * @todo   Implement testsaveResponseToFile().
+     */
+    public function testsaveResponseToFile() {
+        $this->assertEquals('', $this->object->saveResponseToFile());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getVazby
+     * @todo   Implement testgetVazby().
+     */
+    public function testgetVazby() {
+        $this->assertEquals('', $this->object->getVazby());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getAbraFlexiURL
+     * @todo   Implement testgetAbraFlexiURL().
+     */
+    public function testgetAbraFlexiURL() {
+        $this->assertEquals('', $this->object->getAbraFlexiURL());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::setMyKey
+     * @todo   Implement testsetMyKey().
+     */
+    public function testsetMyKey() {
+        $this->assertEquals('', $this->object->setMyKey());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::ignore404
+     * @todo   Implement testignore404().
+     */
+    public function testignore404() {
+        $this->assertEquals('', $this->object->ignore404());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::sendByMail
+     * @todo   Implement testsendByMail().
+     */
+    public function testsendByMail() {
+        $this->assertEquals('', $this->object->sendByMail());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::flexiDateToDateTime
+     * @todo   Implement testflexiDateToDateTime().
+     */
+    public function testflexiDateToDateTime() {
+        $this->assertEquals('', $this->object->flexiDateToDateTime());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::flexiDateTimeToDateTime
+     * @todo   Implement testflexiDateTimeToDateTime().
+     */
+    public function testflexiDateTimeToDateTime() {
+        $this->assertEquals('', $this->object->flexiDateTimeToDateTime());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getInFormat
+     * @todo   Implement testgetInFormat().
+     */
+    public function testgetInFormat() {
+        $this->assertEquals('', $this->object->getInFormat());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::downloadInFormat
+     * @todo   Implement testdownloadInFormat().
+     */
+    public function testdownloadInFormat() {
+        $this->assertEquals('', $this->object->downloadInFormat());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::takeData
+     * @todo   Implement testtakeData().
+     */
+    public function testtakeData() {
+        $this->assertEquals('', $this->object->takeData());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getReportsInfo
+     * @todo   Implement testgetReportsInfo().
+     */
+    public function testgetReportsInfo() {
+        $this->assertEquals('', $this->object->getReportsInfo());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::requestAuthSessionID
+     * @todo   Implement testrequestAuthSessionID().
+     */
+    public function testrequestAuthSessionID() {
+        $this->assertEquals('', $this->object->requestAuthSessionID());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::login
+     * @todo   Implement testlogin().
+     */
+    public function testlogin() {
+        $this->assertEquals('', $this->object->login());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::logout
+     * @todo   Implement testlogout().
+     */
+    public function testlogout() {
+        $this->assertEquals('', $this->object->logout());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::error500Reporter
+     * @todo   Implement testerror500Reporter().
+     */
+    public function testerror500Reporter() {
+        $this->assertEquals('', $this->object->error500Reporter());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::code
+     * @todo   Implement testcode().
+     */
+    public function testcode() {
+        $this->assertEquals('', $this->object->code());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::uncode
+     * @todo   Implement testuncode().
+     */
+    public function testuncode() {
+        $this->assertEquals('', $this->object->uncode());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::arrayCleanUP
+     * @todo   Implement testarrayCleanUP().
+     */
+    public function testarrayCleanUP() {
+        $this->assertEquals('', $this->object->arrayCleanUP());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::logBanner
+     * @todo   Implement testlogBanner().
+     */
+    public function testlogBanner() {
+        $this->assertEquals('', $this->object->logBanner());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getLastOperationType
+     * @todo   Implement testgetLastOperationType().
+     */
+    public function testgetLastOperationType() {
+        $this->assertEquals('', $this->object->getLastOperationType());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getErrors
+     * @todo   Implement testgetErrors().
+     */
+    public function testgetErrors() {
+        $this->assertEquals('', $this->object->getErrors());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::__wakeup
+     * @todo   Implement test__wakeup().
+     */
+    public function test__wakeup() {
+        $this->assertEquals('', $this->object->__wakeup());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getMyKey
+     * @todo   Implement testgetMyKey().
+     */
+    public function testgetMyKey() {
+        $this->assertEquals('', $this->object->getMyKey());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getKeyColumn
+     * @todo   Implement testgetKeyColumn().
+     */
+    public function testgetKeyColumn() {
+        $this->assertEquals('', $this->object->getKeyColumn());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
+     * @covers AbraFlexi\RO::setKeyColumn
+     * @todo   Implement testsetKeyColumn().
+     */
+    public function testsetKeyColumn() {
+        $this->assertEquals('', $this->object->setKeyColumn());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
     }
 
     /**
@@ -925,6 +1906,16 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
+     * @covers AbraFlexi\RO::getNextRecordID
+     * @todo   Implement testgetNextRecordID().
+     */
+    public function testgetNextRecordID() {
+        $this->assertEquals('', $this->object->getNextRecordID());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
      * @covers AbraFlexi\AbraFlexiRO::getActionsInfo
      */
     public function testgetActionsInfo() {
@@ -948,6 +1939,16 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
+     * @covers AbraFlexi\RO::getExternalID
+     * @todo   Implement testgetExternalID().
+     */
+    public function testgetExternalID() {
+        $this->assertEquals('', $this->object->getExternalID());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /**
      * @covers AbraFlexi\AbraFlexiRO::getRelationsInfo
      */
     public function testgetRelationsInfo() {
@@ -968,6 +1969,16 @@ class ROTest extends \Test\Ease\SandTest {
                         'Cannot obtain relations for ' . $this->object->getEvidence());
                 break;
         }
+    }
+
+    /**
+     * @covers AbraFlexi\RO::getGlobalVersion
+     * @todo   Implement testgetGlobalVersion().
+     */
+    public function testgetGlobalVersion() {
+        $this->assertEquals('', $this->object->getGlobalVersion());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
     }
 
     /**
@@ -1297,13 +2308,6 @@ class ROTest extends \Test\Ease\SandTest {
     public function testArrayCleanUP() {
         $this->assertEquals(['a' => 'b'],
                 RO::arrayCleanUP(['a' => 'b', '@a' => 'aaa']));
-    }
-
-    /**
-     * @covers AbraFlexi\AbraFlexiRO::__wakeup
-     */
-    public function test__wakeup() {
-        $this->object->__wakeup();
     }
 
     /**
