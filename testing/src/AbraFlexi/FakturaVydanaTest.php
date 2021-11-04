@@ -190,7 +190,7 @@ class FakturaVydanaTest extends RWTest {
         if (!isset($invoiceData['firma'])) {
             $adresar = new \AbraFlexi\Adresar();
 
-            $adresy = $adresar->getFlexiData(null,
+            $adresy = $adresar->getFlexiData('',
                     ['typVztahuK' => 'typVztahu.odberatel']);
             if (count($adresy)) {
                 $dodavatel = $adresy[array_rand($adresy)];

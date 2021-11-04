@@ -40,7 +40,7 @@ class NastaveniTest extends ROTest {
             $flexidata = $this->object->getFlexiData();
             $this->assertArrayHasKey(0, $flexidata);
             $this->assertArrayHasKey('id', $flexidata[0]);
-            $filtrered = $this->object->getFlexiData(null,
+            $filtrered = $this->object->getFlexiData('',
                     key($flexidata[0]) . " = " . current($flexidata[0]));
             $this->assertArrayHasKey(0, $filtrered);
             $this->assertArrayHasKey('id', $filtrered[0]);

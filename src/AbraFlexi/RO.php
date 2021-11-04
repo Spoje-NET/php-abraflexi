@@ -1037,7 +1037,9 @@ class RO extends \Ease\Sand {
             if ($column && !strstr($column, '@')) {
                 $columnInfo = $this->getColumnInfo($column, $evidence);
                 if (is_null($columnInfo)) {
-                    $this->addStatusMessage(sprintf(_('Unknown response field %s. (Please update library or static definitions)'), $column . '@' . $evidence), 'debug');
+                    if ($this->debug === true) {
+                        $this->addStatusMessage(sprintf(_('Unknown response field %s. (Please update library or static definitions)'), $column . '@' . $evidence), 'debug');
+                    }
                 } else {
                     switch ($columnInfo['type']) {
                         case 'logic':
@@ -1665,7 +1667,7 @@ class RO extends \Ease\Sand {
         }
         $ignorestate = $this->ignore404();
         $this->ignore404(true);
-        $cands = $this->getFlexiData(null,
+        $cands = $this->getFlexiData('',
                 [
                     'detail' => 'custom:' . $this->getKeyColumn(),
                     $this->getKeyColumn() => $identifer
@@ -2130,7 +2132,7 @@ class RO extends \Ease\Sand {
      * @return int
      */
     public function getGlobalVersion() {
-        $this->getFlexiData(null, ['add-global-version' => 'true', 'limit' => 1]);
+        $this->getFlexiData('', ['add-global-version' => 'true', 'limit' => 1]);
 
         return $this->globalVersion;
     }

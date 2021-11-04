@@ -535,13 +535,13 @@ class ROTest extends \Test\Ease\SandTest {
                 $this->assertArrayHasKey('company', $flexidata);
                 break;
             case 'evidence-list':
-                $flexidata = $this->object->getFlexiData(null,
+                $flexidata = $this->object->getFlexiData('',
                         ['detail' => 'id']);
                 $this->assertArrayHasKey('evidenceType', $flexidata[0]);
                 break;
 
             default:
-                $flexidata = $this->object->getFlexiData(null,
+                $flexidata = $this->object->getFlexiData('',
                         ['detail' => 'id']);
 
                 if (is_array($flexidata)) {
@@ -551,7 +551,7 @@ class ROTest extends \Test\Ease\SandTest {
                         $this->assertArrayHasKey(0, $flexidata);
 
                         $this->assertArrayHasKey('id', $flexidata[0]);
-                        $filtrered = $this->object->getFlexiData(null,
+                        $filtrered = $this->object->getFlexiData('',
                                 ["id = " . $flexidata[0]['id'], 'detail' => 'full']);
                         $this->assertArrayHasKey(0, $filtrered);
                         $this->assertArrayHasKey('id', $filtrered[0]);
@@ -672,7 +672,7 @@ class ROTest extends \Test\Ease\SandTest {
                 break;
 
             default:
-                $flexidata = $this->object->getFlexiData(null,
+                $flexidata = $this->object->getFlexiData('',
                         ['limit' => 1, 'detail' => 'id']);
                 if (is_array($flexidata) && !count($flexidata)) {
                     $this->assertFalse($this->object->recordExists(['id' => 1]),
@@ -744,8 +744,7 @@ class ROTest extends \Test\Ease\SandTest {
                 $this->object->getGlobalVersion();
                 break;
             default:
-                $this->assertInternalType("int",
-                        $this->object->getGlobalVersion(),
+                $this->assertTrue(is_int($this->object->getGlobalVersion()),
                         'error obtaining of GlobalVersion');
                 break;
         }
