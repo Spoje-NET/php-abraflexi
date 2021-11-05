@@ -2735,9 +2735,9 @@ class RO extends \Ease\Sand {
             $d->close();
 
             if ((strstr($this->url, '://localhost') || strstr($this->url,
-                            '://127.')) && file_exists('/var/log/abraflexi.log')) {
+                            '://127.')) && file_exists('/var/log/flexibee.log')) {
 
-                $fl = fopen('/var/log/' . 'abraflexi.log', 'r');
+                $fl = fopen('/var/log/' . 'flexibee.log', 'r');
                 if ($fl) {
                     $tracelog = [];
                     for ($x_pos = 0, $ln = 0, $output = array(); fseek($fl,
