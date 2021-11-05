@@ -357,12 +357,18 @@ class RO extends \Ease\Sand {
 
     /**
      * Formating string for \DateTime::format() for datetime columns
+     * 
+     * @deprecated since version 2.17
+     * 
      * @var string
      */
     static public $DateTimeFormat = 'Y-m-d\TH:i:s.u+P';
 
     /**
      * Formating string for \DateTime::format() for date columns
+     * 
+     * @deprecated since version 2.17
+     * 
      * @var string
      */
     static public $DateFormat = 'Y-m-d';
@@ -378,6 +384,13 @@ class RO extends \Ease\Sand {
      * @var array
      */
     public $chained = [];
+
+    /**
+     * Load whole record when id is given ?
+     * 
+     * @var boolean
+     */
+    public $autoload = true;
 
     /**
      * We Connect to server by default
@@ -443,7 +456,7 @@ class RO extends \Ease\Sand {
      *
      * @param array $options Object Options ( user,password,authSessionId
      *                                        company,url,evidence,
-     *                                        prefix,defaultUrlParams,debug,
+     *                                        prefix,defaultUrlParams,debug,autoload
      *                                        detail,offline,filter,ignore404,nativeTypes
      *                                        timeout,companyUrl,ver,throwException
      */
@@ -489,6 +502,7 @@ class RO extends \Ease\Sand {
 
         $this->setupProperty($options, 'throwException', 'ABRAFLEXI_EXCEPTIONS');
         $this->setupProperty($options, 'debug');
+        $this->setupProperty($options, 'autoload');
         $this->updateApiURL();
     }
 
@@ -607,14 +621,18 @@ class RO extends \Ease\Sand {
      * @param mixed $init číslo/"(code:)kód"/(část)URI záznamu k načtení | pole hodnot k předvyplnění
      */
     public function processInit($init) {
-        if (is_integer($init)) {
+        if (is_integer($init) && $this->autoload) {
             $this->loadFromAbraFlexi($init);
         } elseif (is_array($init)) {
             $this->takeData($init);
         } elseif (!is_object($init) && preg_match('/\.(json|xml|csv)/', $init)) {
             $this->takeData($this->getFlexiData((($init[0] != '/') ? $this->evidenceUrlWithSuffix($init) : $init)));
         } else {
-            $this->loadFromAbraFlexi($init);
+            if($this->autoload === false){
+                $this->setMyKey($init);
+            } else {
+                $this->loadFromAbraFlexi($init);
+            }
         }
     }
 
