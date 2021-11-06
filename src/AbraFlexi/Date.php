@@ -51,7 +51,7 @@ class Date extends \DateTime {
      * @return string
      */
     public function __toString() {
-        return $this->isNull ? null : $this->format(RO::$DateFormat);
+        return $this->isNull ? '' : $this->format(RO::$DateFormat);
     }
 
 }
