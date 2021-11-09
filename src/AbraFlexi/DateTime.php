@@ -21,6 +21,12 @@ class DateTime extends \DateTime {
      * @var bool
      */
     public bool $isNull = false;
+ 
+    /**
+     * Default output format
+     * @var string
+     */
+    public static $format = 'Y-m-d\TH:i:s.u+P';
 
     /**
      * AbraFlexi dateTime to PHP DateTime conversion
@@ -33,7 +39,7 @@ class DateTime extends \DateTime {
         $this->isNull = empty($flexidatetime);
         $format = '';
         if (strchr($flexidatetime, '.')) { //NewFormat
-            $format = RO::$DateTimeFormat;
+            $format = self::$format;
         } elseif (!empty($flexidatetime) && ($flexidatetime != 'NOW')) { // Old format
             $format = 'Y-m-d\TH:i:s+P';
         }
@@ -46,7 +52,7 @@ class DateTime extends \DateTime {
      * @return string
      */
     public function __toString() {
-        return $this->isNull ? '' : $this->format(RO::$DateTimeFormat);
+        return $this->isNull ? '' : $this->format(self::$format);
     }
 
 }
