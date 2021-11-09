@@ -625,7 +625,7 @@ class RO extends \Ease\Sand {
             $this->loadFromAbraFlexi($init);
         } elseif (is_array($init)) {
             $this->takeData($init);
-        } elseif (!is_object($init) && preg_match('/\.(json|xml|csv)/', $init)) {
+        } elseif (!is_object($init) && preg_match('/\.(json|xml|csv)/', strval($init))) {
             $this->takeData($this->getFlexiData((($init[0] != '/') ? $this->evidenceUrlWithSuffix($init) : $init)));
         } else {
             if($this->autoload === false){
@@ -2112,8 +2112,8 @@ class RO extends \Ease\Sand {
                 $extid = is_array($ids) ? current($ids) : $ids;
             }
         } else {
-            if (!is_null($ids) && is_array($ids)) {
-                foreach ($ids as $id) {
+            if (!is_null($ids) && is_array($ids->value)) {
+                foreach ($ids->value as $id) {
                     if (strstr($id, 'ext:' . $want)) {
                         if (is_null($extid)) {
                             $extid = str_replace('ext:' . $want . ':', '', $id);

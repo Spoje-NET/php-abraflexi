@@ -19,7 +19,7 @@ include_once '../vendor/autoload.php';
 
 $invoiceId = 1;
 
-$inv = new FakturaVydana($invoiceId);
+$inv = new FakturaVydana($invoiceId, ['autoload' => false]);
 $inv->takeData(["stavMailK" => "stavMail.odeslano"]);
 $inv->sync();
 
