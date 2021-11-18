@@ -20,7 +20,7 @@ class Date extends \DateTime {
      * Support for Null values
      * @var bool
      */
-    public bool $isNull = false;
+    public $isNull = false;
 
     /**
      * AbraFlexi date to PHP DateTime conversion
