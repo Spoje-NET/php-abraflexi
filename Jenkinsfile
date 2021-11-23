@@ -22,7 +22,7 @@ pipeline {
 
         stage('debian-buster') {
             agent {
-                docker { image 'vitexsoftware/debian:oldstable' }
+                docker { image 'vitexsoftware/debian:buster' }
             }
             steps {
                 dir('build/debian/package') {
@@ -42,7 +42,7 @@ pipeline {
 
         stage('debian-bullseye') {
             agent {
-                docker { image 'vitexsoftware/debian:stable' }
+                docker { image 'vitexsoftware/debian:bullseye' }
             }
             steps {
                 dir('build/debian/package') {
@@ -62,11 +62,13 @@ pipeline {
 
         stage('debian-bookworm') {
             agent {
-                docker { image 'vitexsoftware/debian:testing' }
+                docker { image 'vitexsoftware/debian:bookworm' }
             }
             steps {
                 dir('build/debian/package') {
                     checkout scm
+		    sh 'sudo apt update'
+		    sh 'sudo apt install -y php-xml' //TODO: Remove after upstream dependency fix
 	            buildPackage()
 	            installPackages()
                 }
