@@ -239,7 +239,7 @@ class RW extends RO {
      */
     public function deleteFromAbraFlexi($id = null) {
         if (is_null($id)) {
-            $id = $this->getMyKey();
+            $id = $this->getRecordIdent();
         }
 
         $this->performRequest($this->getEvidenceUrl() . '/' . self::urlizeId($id),
