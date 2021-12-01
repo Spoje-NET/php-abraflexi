@@ -38,8 +38,8 @@ class Date extends \DateTime {
             $format = RO::$DateFormat . 'Z';
         } elseif (!empty($flexidate) && ($flexidate != 'NOW')) {
             $format = RO::$DateFormat;
-            if(strstr($flexidate, ':')){
-                $format.='-i:s';
+            if (strstr($flexidate, ':')) {
+                $format .= '-i:s';
             }
         }
         parent::__construct(empty($format) ? null : \DateTime::createFromFormat($format, $flexidate)->setTime(0, 0)->format(\DateTimeInterface::ATOM));

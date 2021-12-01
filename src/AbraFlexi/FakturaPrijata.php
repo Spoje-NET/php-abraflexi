@@ -11,12 +11,6 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
-use AbraFlexi\Firma;
-use AbraFlexi\RW;
-use AbraFlexi\Stitky;
-use AbraFlexi\SubItems;
-use AbraFlexi\Sum;
-
 /**
  * Incoming invoice
  *
