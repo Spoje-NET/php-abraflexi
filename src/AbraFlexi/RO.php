@@ -1887,6 +1887,23 @@ class RO extends \Ease\Sand {
         return $this->postFields;
     }
 
+    
+    /**
+     * Prepare "IN" subselect
+     * 
+     * @param array $items
+     * @param string $key
+     * 
+     * @return string "in" fragment
+     */
+    public static function flexiIN(array $items, string $key) {
+        $slashed = array_map(function ($a, $column) {
+            return $column == 'stitky' ? "'" . self::code($a) . "'" : "'$a'";
+        }, $data[$column],
+                array_fill(0, count($data[$column]), $column));
+        return $key . " in (" . implode(',', $slashed) . ")";
+    }
+
     /**
      * Generuje fragment url pro filtrování.
      *
@@ -1910,11 +1927,7 @@ class RO extends \Ease\Sand {
                 } elseif (is_null($data[$column])) {
                     $parts[$column] = $column . " is null";
                 } elseif (is_array($data[$column])) {
-                    $parts[$column] = $column . " in (" . implode(',',
-                                    array_map(function ($a, $column) {
-                                        return $column == 'stitky' ? "'" . self::code($a) . "'" : "'$a'";
-                                    }, $data[$column],
-                                            array_fill(0, count($data[$column]), $column))) . ")";
+                    $parts[$column] = self::flexiIN($value, $column);
                 } elseif (is_object($data[$column])) {
                     switch (get_class($data[$column])) {
                         case 'DatePeriod':
@@ -2109,7 +2122,7 @@ class RO extends \Ease\Sand {
         $ids = $this->getExternalIDs();
         if (is_null($want)) {
             if (!empty($ids)) {
-                $extid = is_array($ids) ? current($ids) : $ids;
+                $extid = is_array($ids->value) ? current($ids->value) : $ids;
             }
         } else {
             if (!is_null($ids) && is_array($ids->value)) {
