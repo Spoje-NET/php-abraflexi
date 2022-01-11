@@ -109,7 +109,7 @@ class Stitek extends RW {
 
         if (array_key_exists($evidenceBackup, $pathToVsb)) {
             $labelsRaw = $object->getColumnsFromAbraFlexi(['kod', 'nazev'],
-                    [$pathToVsb[$evidenceBackup] => true], 'nazev');
+                    [$pathToVsb[$evidenceBackup] => true, 'limit'=>0], 'nazev');
             if (count($labelsRaw)) {
                 foreach ($labelsRaw as $labelInfo) {
                     $labels[$labelInfo['kod']] = $labelInfo['nazev'];
