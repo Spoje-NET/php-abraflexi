@@ -3,7 +3,7 @@
  * AbraFlexi - Evidence Actions.
  *
  * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  (C) 2015-2021 Spoje.Net
+ * @copyright  (C) 2015-2022 Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -21,7 +21,7 @@ class Actions
      *
      * @var string
      */
- static public $version = '2021.8.0';
+ static public $version = '2021.9.3';
 
     /**
      * Evidence adresar (Adresy firem) Actions.

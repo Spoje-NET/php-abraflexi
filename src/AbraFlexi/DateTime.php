@@ -20,7 +20,7 @@ class DateTime extends \DateTime {
      * Support for Null values
      * @var bool
      */
-    public bool $isNull = false;
+    public /*bool*/ $isNull = false;
  
     /**
      * Default output format
