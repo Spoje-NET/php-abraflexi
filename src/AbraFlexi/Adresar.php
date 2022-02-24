@@ -21,6 +21,7 @@ class Adresar extends RW {
     use Stitky;
     use SubItems;
     use Firma;
+    use GetChanges;
 
     /**
      * Evidence užitá objektem.

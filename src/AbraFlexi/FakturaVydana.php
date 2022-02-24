@@ -23,7 +23,8 @@ class FakturaVydana extends RW {
     use Sum;
     use SubItems;
     use Email;
-
+    use GetChanges;
+    
     /**
      * Evidence užitá objektem.
      *

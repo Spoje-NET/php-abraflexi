@@ -7,7 +7,7 @@
  * From:      https://vitexsoftware.abraflexi.eu:5434
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2021 Spoje.Net
+ * @copyright  (C) 2021-2022 Spoje.Net
  */
 
 namespace AbraFlexi;

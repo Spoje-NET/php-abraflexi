@@ -28,6 +28,7 @@ class Banka extends RW {
     use Firma;
     use Email;
     use SubItems;
+    use GetChanges;
 
     /**
      * Evidence užitá objektem.

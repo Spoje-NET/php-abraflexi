@@ -22,6 +22,7 @@ class FakturaPrijata extends RW {
     use Firma;
     use Sum;
     use SubItems;
+    use GetChanges;
 
     /**
      * Evidence použitá třídou.

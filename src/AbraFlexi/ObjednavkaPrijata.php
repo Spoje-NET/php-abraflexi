@@ -15,6 +15,7 @@ class ObjednavkaPrijata extends RW {
     use Firma;
     use Sum;
     use Email;
+    use GetChanges;
 
     /**
      * Evidence použitá třídou.

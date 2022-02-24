@@ -25,6 +25,7 @@ class Cenik extends RW {
 
     use Stitky;
     use SubItems;
+    use GetChanges;
 
     /**
      * Evidence užitá objektem.
