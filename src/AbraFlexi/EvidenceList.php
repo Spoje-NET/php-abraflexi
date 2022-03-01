@@ -2,7 +2,7 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Tue, 11 Jan 2022 19:52:41 +0100 
+ * Generated: Tue, 01 Mar 2022 21:57:33 +0100 
  * From:      https://demo.flexibee.eu
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -46,7 +46,7 @@ class EvidenceList extends RO
      *
      * @var string
      */
- static public $version = '2021.9.3';
+ static public $version = '2022.1.2';
 
     /**
      * Evidences Path/Name listing.
