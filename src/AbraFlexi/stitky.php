@@ -15,7 +15,7 @@ namespace AbraFlexi;
  * Add for Objects use with "firma" data column
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-trait Stitky {
+trait stitky {
 
     /**
      * Get all labels for current record

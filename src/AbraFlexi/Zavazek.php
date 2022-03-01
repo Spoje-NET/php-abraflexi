@@ -18,10 +18,10 @@ namespace AbraFlexi;
  */
 class Zavazek extends \AbraFlexi\RW {
 
-    use Stitky;
-    use Firma;
-    use Sum;
-    use Email;
+    use stitky;
+    use firma;
+    use sum;
+    use email;
     
     public $evidence = 'zavazek';
 

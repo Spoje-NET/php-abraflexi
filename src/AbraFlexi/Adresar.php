@@ -18,10 +18,10 @@ namespace AbraFlexi;
  */
 class Adresar extends RW {
 
-    use Stitky;
-    use SubItems;
-    use Firma;
-    use GetChanges;
+    use stitky;
+    use subItems;
+    use firma;
+    use getChanges;
 
     /**
      * Evidence užitá objektem.

@@ -34,7 +34,7 @@ namespace AbraFlexi;
  * 
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-trait Email {
+trait email {
 
     /**
      * Get recipient for documnet.

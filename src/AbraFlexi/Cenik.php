@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 use AbraFlexi\RW;
-use AbraFlexi\Stitky;
-use AbraFlexi\SubItems;
+use AbraFlexi\stitky;
+use AbraFlexi\subItems;
 
 /**
  * Ceník - Pricelist
@@ -23,9 +23,9 @@ use AbraFlexi\SubItems;
  */
 class Cenik extends RW {
 
-    use Stitky;
-    use SubItems;
-    use GetChanges;
+    use stitky;
+    use subItems;
+    use getChanges;
 
     /**
      * Evidence užitá objektem.

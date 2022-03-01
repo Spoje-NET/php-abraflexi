@@ -18,11 +18,11 @@ namespace AbraFlexi;
  */
 class FakturaPrijata extends RW {
 
-    use Stitky;
-    use Firma;
-    use Sum;
-    use SubItems;
-    use GetChanges;
+    use stitky;
+    use firma;
+    use sum;
+    use subItems;
+    use getChanges;
 
     /**
      * Evidence použitá třídou.

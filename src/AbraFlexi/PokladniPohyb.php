@@ -18,10 +18,10 @@ namespace AbraFlexi;
  */
 class PokladniPohyb extends RW {
 
-    use Stitky;
-    use Firma;
-    use Sum;
-    use Email;
+    use stitky;
+    use firma;
+    use sum;
+    use email;
 
     /**
      * Evidence AbraFlexi.

@@ -15,7 +15,7 @@ namespace AbraFlexi;
  * Add for evidencies with Summary support
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-trait Sum {
+trait sum {
 
     /**
      * Vrací z AbraFlexi sumaci i podle podmínek.

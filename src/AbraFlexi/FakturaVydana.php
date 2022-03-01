@@ -18,12 +18,12 @@ namespace AbraFlexi;
  */
 class FakturaVydana extends RW {
 
-    use Stitky;
-    use Firma;
-    use Sum;
-    use SubItems;
-    use Email;
-    use GetChanges;
+    use stitky;
+    use firma;
+    use sum;
+    use subItems;
+    use email;
+    use getChanges;
     
     /**
      * Evidence užitá objektem.

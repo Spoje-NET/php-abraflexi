@@ -11,7 +11,7 @@ namespace AbraFlexi;
  */
 class ObjednavkaPrijataPolozka extends RW {
 
-    use Stitky;
+    use stitky;
 
     /**
      * Evidence užitá objektem.

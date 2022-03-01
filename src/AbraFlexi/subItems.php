@@ -15,7 +15,7 @@ namespace AbraFlexi;
  *
  * @author vitex
  */
-trait SubItems {
+trait subItems {
 
     /**
      * Subitems - ex. items of invoice

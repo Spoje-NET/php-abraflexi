@@ -18,8 +18,8 @@ namespace AbraFlexi;
  */
 class Pokladna extends RW {
 
-    use Stitky;
-    use GetChanges;
+    use stitky;
+    use getChanges;
 
     /**
      * Evidence užitá objektem.

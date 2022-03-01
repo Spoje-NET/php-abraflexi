@@ -15,7 +15,7 @@ namespace AbraFlexi;
  * Add for Objects use with "firma" data column
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-trait Firma {
+trait firma {
 
     /**
      * Here Customer's or Provider's comany object live

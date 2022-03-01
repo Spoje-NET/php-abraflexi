@@ -18,7 +18,7 @@ namespace AbraFlexi;
  */
 class SkladovyPohybPolozka extends RW {
 
-    use Stitky;
+    use stitky;
 
     /**
      * Evidence užitá objektem.

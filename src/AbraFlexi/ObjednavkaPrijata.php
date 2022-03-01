@@ -11,11 +11,11 @@ namespace AbraFlexi;
  */
 class ObjednavkaPrijata extends RW {
 
-    use Stitky;
-    use Firma;
-    use Sum;
-    use Email;
-    use GetChanges;
+    use stitky;
+    use firma;
+    use sum;
+    use email;
+    use getChanges;
 
     /**
      * Evidence použitá třídou.

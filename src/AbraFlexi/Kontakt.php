@@ -11,9 +11,9 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
-use AbraFlexi\Firma;
+use AbraFlexi\firma;
 use AbraFlexi\RW;
-use AbraFlexi\Stitky;
+use AbraFlexi\stitky;
 
 /**
  * Kontakt adresáře
@@ -22,8 +22,8 @@ use AbraFlexi\Stitky;
  */
 class Kontakt extends RW {  
 
-    use Stitky;
-    use Firma;
+    use stitky;
+    use firma;
 
     /**
      * Evidence užitá objektem.

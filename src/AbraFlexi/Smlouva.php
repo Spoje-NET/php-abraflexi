@@ -19,8 +19,8 @@ namespace AbraFlexi;
  */
 class Smlouva extends RW {
 
-    use Stitky;
-    use Firma;
+    use stitky;
+    use firma;
 
     /**
      * Evidence užitá objektem.

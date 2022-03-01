@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
-use AbraFlexi\Firma;
+use AbraFlexi\firma;
 use AbraFlexi\RW;
-use AbraFlexi\Stitky;
-use AbraFlexi\SubItems;
+use AbraFlexi\stitky;
+use AbraFlexi\subItems;
 
 /**
  * Banka
@@ -24,11 +24,11 @@ use AbraFlexi\SubItems;
  */
 class Banka extends RW {
 
-    use Stitky;
-    use Firma;
-    use Email;
-    use SubItems;
-    use GetChanges;
+    use stitky;
+    use firma;
+    use email;
+    use subItems;
+    use getChanges;
 
     /**
      * Evidence užitá objektem.
