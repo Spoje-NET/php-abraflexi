@@ -2456,21 +2456,27 @@ class RO extends \Ease\Sand {
      * @return boolean
      */
     public function setMyKey($myKeyValue) {
-        if (is_string($myKeyValue) && substr($myKeyValue, 0, 4) == 'ext:') {
-            if (empty($this->evidenceInfo) || ($this->evidenceInfo['extIdSupported'] == 'false')) {
-                $msg = sprintf(_('Evidence %s does not support extIDs'), $this->getEvidence());
-                $this->addStatusMessage($msg, 'warning');
-                if ($this->throwException) {
-                    throw new Exception($msg, $this);
+        $res = false;
+        if (is_string($myKeyValue)) {
+            if (substr($myKeyValue, 0, 4) == 'ext:') {
+                if (empty($this->evidenceInfo) || ($this->evidenceInfo['extIdSupported'] == 'false')) {
+                    $msg = sprintf(_('Evidence %s does not support extIDs'), $this->getEvidence());
+                    $this->addStatusMessage($msg, 'warning');
+                    if ($this->throwException) {
+                        throw new Exception($msg, $this);
+                    }
+                } else {
+                    $extIds = $this->getDataValue('external-ids');
+                    if (!empty($extIds) && count($extIds)) {
+                        $extIds = array_combine($extIds, $extIds);
+                    }
+                    $extIds[$myKeyValue] = $myKeyValue;
+                    $res = $this->setDataValue('external-ids', $extIds);
                 }
-                $res = false;
-            } else {
-                $extIds = $this->getDataValue('external-ids');
-                if (!empty($extIds) && count($extIds)) {
-                    $extIds = array_combine($extIds, $extIds);
-                }
-                $extIds[$myKeyValue] = $myKeyValue;
-                $res = $this->setDataValue('external-ids', $extIds);
+            }
+            if (substr($myKeyValue, 0, 5) == 'code:') {
+                $this->unsetDataValue($this->getKeyColumn());
+                $res = $this->setDataValue('kod', $myKeyValue);
             }
         } else {
             $res = $this->setDataValue($this->getKeyColumn(), $myKeyValue);
@@ -2478,7 +2484,7 @@ class RO extends \Ease\Sand {
         $this->updateApiURL();
         return $res;
     }
-
+    
     /**
      * Set or get ignore not found pages flag
      *
