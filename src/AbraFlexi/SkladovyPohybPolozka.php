@@ -46,7 +46,7 @@ class SkladovyPohybPolozka extends RW {
             }
             $numberBranch['vyrobnicislohlav'] = 1;
         }
-        $this->setDataValue('mnozMj', count($crrentSerialNumbers) + 1);
+        $this->setDataValue('mnozMj', empty($crrentSerialNumbers) ? 0 : count($crrentSerialNumbers) + 1);
         return $this->addArrayToBranch($numberBranch, 'vyrobniCislaPrijata');
     }
 
