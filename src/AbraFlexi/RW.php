@@ -110,7 +110,7 @@ class RW extends RO {
                     $this->responseStats = array_key_exists('stats',
                                     $responseDecoded) ? (isset($responseDecoded['stats'][0]) ? array_map('intval', $responseDecoded['stats'][0]) : array_map('intval', $responseDecoded['stats'])) : null;
                     if (isset($responseDecoded[$this->resultField][0]['id'])) {
-                        $this->lastInsertedID = $responseDecoded[$this->resultField][0]['id'];
+                        $this->lastInsertedID = intval($responseDecoded[$this->resultField][0]['id']);
                         $this->setMyKey($this->lastInsertedID);
                     } else {
                         $this->lastInsertedID = null;
