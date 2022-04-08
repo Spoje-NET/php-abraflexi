@@ -1,4 +1,4 @@
-php-spojenet-abraflexi (2.19) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (2.22) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -40,8 +40,11 @@ php-spojenet-abraflexi (2.19) UNRELEASED; urgency=medium
   * body stripper added
   * banka can use subevidence
   * v2.19 release
+  * trait begins lowercase
+  * fixes
+  * id of new record is int
 
- -- vitex <info@vitexsoftware.cz>  Wed, 01 Dec 2021 13:59:22 +0100
+ -- vitex <info@vitexsoftware.cz>  Wed, 23 Mar 2022 21:47:32 +0100
 
 flexipeehp (1.12) experimental; urgency=medium
 

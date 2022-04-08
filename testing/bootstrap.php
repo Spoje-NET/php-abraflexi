@@ -49,7 +49,6 @@ switch ($testServer) {
          */
         define('ABRAFLEXI_COMPANY', 'demo');
 
-
         break;
     case 'vitexsoftware':
 //
@@ -73,7 +72,6 @@ switch ($testServer) {
          */
         define('ABRAFLEXI_COMPANY', 'flexipeehp');
 
-
         break;
 
     default:
@@ -92,7 +90,7 @@ switch ($testServer) {
         /*
          * Heslo AbraFlexi API
          */
-        define('ABRAFLEXI_PASSWORD', 'admin123');
+        define('ABRAFLEXI_PASSWORD', 'Ekhuors3');
         /*
          * Společnost v AbraFlexi
          */
@@ -102,3 +100,13 @@ switch ($testServer) {
 }
 
 
+$adresser = new AbraFlexi\Adresar('code:TEST', ['ignore404' => true]);
+if ($adresser->lastResponseCode == 404) {
+    \Test\AbraFlexi\AdresarTest::createTestAddress(['kod' => 'TEST']);
+}
+$invoicer = new AbraFlexi\Adresar('code:TEST', ['ignore404' => true]);
+if ($invoicer->lastResponseCode == 404) {
+    \AbraFlexi\FakturaVydana::makeTestInvoice('code:TEST', ['ignore404' => true]);
+}
+
+    

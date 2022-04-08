@@ -6,7 +6,7 @@ declare(strict_types=1);
  * AbraFlexi - Read Only Access to AbraFlexi class.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2021 Spoje.Net
+ * @copyright  (C) 2015-2022 Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -31,7 +31,7 @@ class RO extends \Ease\Sand {
      *
      * @var string
      */
-    public static $libVersion = '2.6';
+    public static $libVersion = '2.20';
 
     /**
      * Basic namespace for communication with AbraFlexi
