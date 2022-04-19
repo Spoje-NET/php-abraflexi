@@ -27,7 +27,6 @@ $skladovyPohyb->addArrayToBranch(['cenik'=> 'code:B','mnozMj'=> '3'], 'skladoveP
 $skladovyPohyb->insertToFlexiBee();
 
 
-$skladovyPohyb->dataReset(); //Vyprázdníme objekt aby se neposílala zbytečná data
-$skladovyPohyb->setMyKey('ext:PREVODKA:1'); //Nastavíme id záznamu se kterým pracujeme
+$skladovyPohyb->stripBody(); //Vyprázdníme objekt aby se neposílala zbytečná data
 $skladovyPohyb->performAction('dokoncit-prevodku'); //Vykonání akce
 
