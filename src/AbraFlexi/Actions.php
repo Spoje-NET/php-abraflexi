@@ -21,7 +21,7 @@ class Actions
      *
      * @var string
      */
- static public $version = '2022.2.7';
+ static public $version = '2022.3.0';
 
     /**
      * Evidence adresar (Adresy firem) Actions.
@@ -1982,6 +1982,22 @@ class Actions
     'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'false',
     'isService' => 'NO',
+  ],
+  'prepocti-nakupni-cenu' => [
+    'actionId' => 'prepocti-nakupni-cenu',
+    'actionName' => '#kusovnikPrepoctiNakupniCenu',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'true',
+    'isService' => 'YES',
+  ],
+  'prepocti-prodejni-cenu' => [
+    'actionId' => 'prepocti-prodejni-cenu',
+    'actionName' => '#kusovnikPrepoctiProdejniCenu',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'true',
+    'isService' => 'YES',
   ],
 ];
     /**
