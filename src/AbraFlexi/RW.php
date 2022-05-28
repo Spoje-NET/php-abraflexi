@@ -446,7 +446,7 @@ class RW extends RO {
             $data = $this->getData();
         }
 
-        if (array_key_exists('stitky', $data)) {
+        if (is_array($data) && array_key_exists('stitky', $data)) {
             if (is_array($data['stitky'])) {
                 $data['stitky'] = implode(',', $data['stitky']);
             }
