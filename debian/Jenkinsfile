@@ -1,12 +1,9 @@
 #!groovy
 
-
-String[] architectures = []
-String[] distributions = ['debian:buster', 'debian:bullseye', 'debian:bookworm', 'ubuntu:focal', 'ubuntu:hirsute', 'ubuntu:impish']
+String[] distributions = ['debian:buster', 'debian:bullseye', 'debian:bookworm', 'ubuntu:focal', 'ubuntu:hirsute', 'ubuntu:impish', 'ubuntu:jammy']
 
 String vendor = 'vitexsoftware'
 String distribution = ''
-String architecture = ''
 //String distroFamily = ''
 String distroCodename = ''
 String ver = ''
@@ -18,80 +15,56 @@ node() {
     ansiColor('xterm') {
         stage('SCM Checkout') {
             checkout scm
-            def control = readFile( file:  env.WORKSPACE + "/debian/control")
-            def lines = control.readLines() 
-            for(line in lines) {
-                if (line.trim()) {
-                    def (key,value) = line.split(': ').collect { it.trim() }
-                    if ( key == 'Architecture' ) {
-
-                        if (value == 'any') {
-                            architectures = ['amd64', 'armhf', 'aarch64']
-                        } else {
-                            architectures = [value]
-                        }
-                    }
-                }
-            }
-
         }
     }
 }
 
+distributions.each {
+    distribution = it
 
+    println  "Dist:" + distribution
 
-architectures.each {
-    architecture = it
+    def dist = distribution.split(':')
+    //      distroFamily = dist[0]
+    distroCodename = dist[1]
 
-    println "Arch: " + architecture
+    def buildImage = ''
 
-    distributions.each {
-        distribution = it
-
-        println  "Dist:" + distribution
-
-        def dist = distribution.split(':')
-        //      distroFamily = dist[0]
-        distroCodename = dist[1]
-
-        def buildImage = ''
-
-        node( architecture ) {
-            ansiColor('xterm') {
-                stage('Checkout ' + architecture + ' ' + distribution) {
-                    buildImage = docker.image(vendor + '/' + distribution)
-                    sh 'git checkout debian/changelog'
-                    def VERSION = sh (
-                        script: 'dpkg-parsechangelog --show-field Version',
-                        returnStdout: true
-                    ).trim()
-                    ver = VERSION + '~' + distroCodename + '~' + env.BUILD_NUMBER
+    node {
+        ansiColor('xterm') {
+            stage('Checkout ' + distribution) {
+                buildImage = docker.image(vendor + '/' + distribution)
+		sh 'git checkout debian/changelog'
+                def VERSION = sh (
+                    script: 'dpkg-parsechangelog --show-field Version',
+                    returnStdout: true
+                ).trim()
+                ver = VERSION + '~' + distroCodename + '~' + env.BUILD_NUMBER
+            }
+            stage('Build ' + distribution) {
+                buildImage.inside {
+                    sh 'dch -b -v ' + ver  + ' "' + env.BUILD_TAG  + '"'
+                    sh 'sudo apt-get update'
+                    sh 'sudo chown jenkins:jenkins ..'
+                    sh 'debuild-pbuilder  -i -us -uc -b'
+                    sh 'mkdir -p $WORKSPACE/dist/debian/ ; rm -rf $WORKSPACE/dist/debian/* ; for deb in $(cat debian/files | awk \'{print $1}\'); do mv "../$deb" $WORKSPACE/dist/debian/; done'
                 }
-                stage('Build ' + architecture + ' ' + distribution) {
-                    buildImage.inside {
-                        sh 'dch -b -v ' + ver  + ' "' + env.BUILD_TAG  + '"'
-                        sh 'sudo apt-get update'
-                        sh 'sudo chown jenkins:jenkins ..'
-                        sh 'debuild-pbuilder  -i -us -uc -b'
-                        sh 'mkdir -p $WORKSPACE/dist/debian/ ; rm -rf $WORKSPACE/dist/debian/* ; for deb in $(cat debian/files | awk \'{print $1}\'); do mv "../$deb" $WORKSPACE/dist/debian/; done'
-                    }
-                }
+            }
 
-                stage('Test ' + architecture + ' ' + distribution) {
-                    buildImage.inside {
-                        def debconf_debug = 0 //Set to "5" or "developer" to debug debconf
-                        sh 'cd $WORKSPACE/dist/debian/ ; dpkg-scanpackages . /dev/null | gzip -9c > Packages.gz; cd $WORKSPACE'
-                        sh 'echo "deb [trusted=yes] file://///$WORKSPACE/dist/debian/ ./" | sudo tee /etc/apt/sources.list.d/local.list'
-                        sh 'sudo apt-get update'
-                        sh 'echo "INSTALATION"'
-                        sh 'IFS="\n\b"; for package in  `ls $WORKSPACE/dist/debian/ | grep .deb | awk -F_ \'{print \$1}\'` ; do  echo -e "${GREEN} installing ${package} on `lsb_release -sc` ${ENDCOLOR} " ; sudo  DEBIAN_FRONTEND=noninteractive DEBCONF_DEBUG=' + debconf_debug  + ' apt-get -y install $package ; echo "test now";  done;'
-                        stash includes: 'dist/**', name: 'dist-' + distroCodename
-                    }
+            stage('Test ' + distribution) {
+                buildImage.inside {
+                    def debconf_debug = 0 //Set to "5" or "developer" to debug debconf
+                    sh 'cd $WORKSPACE/dist/debian/ ; dpkg-scanpackages . /dev/null | gzip -9c > Packages.gz; cd $WORKSPACE'
+                    sh 'echo "deb [trusted=yes] file://///$WORKSPACE/dist/debian/ ./" | sudo tee /etc/apt/sources.list.d/local.list'
+                    sh 'sudo apt-get update'
+                    sh 'echo "INSTALATION"'
+                    sh 'IFS="\n\b"; for package in  `ls $WORKSPACE/dist/debian/ | grep .deb | awk -F_ \'{print \$1}\'` ; do  echo -e "${GREEN} installing ${package} on `lsb_release -sc` ${ENDCOLOR} " ; sudo  DEBIAN_FRONTEND=noninteractive DEBCONF_DEBUG=' + debconf_debug  + ' apt-get -y install $package ; done;'
+                    stash includes: 'dist/**', name: 'dist-' + distroCodename
                 }
-                stage('Copy artifacts ' + architecture + ' ' + distribution ) {
-                    buildImage.inside {
-                        sh 'mv $WORKSPACE/dist/debian/*.deb $WORKSPACE'
-                    }
+            }
+            stage('Copy artifacts ' + distribution ) {
+                buildImage.inside {
+                    sh 'mv $WORKSPACE/dist/debian/*.deb $WORKSPACE'
                 }
             }
         }

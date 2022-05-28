@@ -8,6 +8,12 @@
             "email": "vitex@arachne.cz"
         }
     ],
+    "keywords": [
+        "AbraFlexi",
+        "FlexiBee",
+        "API-Client",
+        "FinTech"
+    ],    
     "require": {
         "ext-json": "*",
         "ext-curl": "*",
