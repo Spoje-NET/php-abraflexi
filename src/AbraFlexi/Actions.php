@@ -21,7 +21,7 @@ class Actions
      *
      * @var string
      */
- static public $version = '2022.3.0';
+ static public $version = '2022.4.1';
 
     /**
      * Evidence adresar (Adresy firem) Actions.
@@ -5760,6 +5760,45 @@ class Actions
   ],
 ];
     /**
+     * Evidence stav-obchodniho-dokladu (Stav obchodního dokladu) Actions.
+     *
+     * @var array
+     */
+ static public $stavObchodnihoDokladu = [
+  'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ],
+  'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+  ],
+  'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ],
+  'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+  ],
+];
+    /**
      * Evidence stav-skladu-k-datu (Stav skladu k datu) Actions.
      *
      * @var array
@@ -7305,11 +7344,11 @@ class Actions
   ],
 ];
     /**
-     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Actions.
+     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Actions.
      *
      * @var array
      */
- static public $umisteniVeSkladuRegal = [
+ static public $umisteniVeSkladuMistnost = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7383,11 +7422,11 @@ class Actions
   ],
 ];
     /**
-     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Actions.
+     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Actions.
      *
      * @var array
      */
- static public $umisteniVeSkladuMistnost = [
+ static public $umisteniVeSkladuRegal = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8910,11 +8949,11 @@ class Actions
   ],
 ];
     /**
-     * Evidence stav-ceniku (Číselník stavů položek ceníku) Actions.
+     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Actions.
      *
      * @var array
      */
- static public $stavCeniku = [
+ static public $typStavuCeniku = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8949,11 +8988,11 @@ class Actions
   ],
 ];
     /**
-     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Actions.
+     * Evidence stav-ceniku (Číselník stavů položek ceníku) Actions.
      *
      * @var array
      */
- static public $typStavuCeniku = [
+ static public $stavCeniku = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
