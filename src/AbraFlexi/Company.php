@@ -240,8 +240,7 @@ class Company extends RW {
      * @return null
      */
     public function getVazby($id = null) {
-        throw new Exception(_
-                                ('Company has no relations'));
+        throw new Exception(_('Company has no relations'), $this);
     }
 
     /**

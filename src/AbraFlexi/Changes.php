@@ -98,7 +98,7 @@ class Changes extends RO {
      * @return null
      */
     public function getVazby($id = null) {
-        throw new Exception(_('Changes has no relations'));
+        throw new Exception(_('Changes has no relations'), $this);
     }
 
 }

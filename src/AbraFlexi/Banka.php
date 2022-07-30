@@ -52,7 +52,7 @@ class Banka extends RW {
         $this->pullMode = true;
         $this->performRequest('nacteni-vypisu-online.json', 'PUT', 'txt');
         $this->pullMode = false;
-        return $this->lastResponseCode == 200;
+        return ($this->lastResponseCode == 200);
     }
 
     /**
