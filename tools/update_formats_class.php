@@ -22,7 +22,7 @@ $ok = 0;
 function getEvidenceFormats($evidence, RO $syncer) {
 
     $syncer->setEvidence($evidence);
-    $flexinfo = $syncer->getColumnsFromFlexibee(['id'], ['limit' => 1]);
+    $flexinfo = $syncer->getColumnsFromAbraFlexi(['id'], ['limit' => 1]);
     if (is_array($flexinfo) && is_array($flexinfo[0]) && array_key_exists('id', $flexinfo[0])) {
         $id = is_numeric($flexinfo[0]['id']) ? intval($flexinfo[0]['id']) : $flexinfo[0]['id'];
         $formats = [];
