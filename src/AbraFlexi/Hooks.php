@@ -49,8 +49,7 @@ class Hooks extends RW {
                 }
             }
         }
-        $this->performRequest('?' . http_build_query($this->getData()), 'PUT',
-                'xml');
+        $this->performRequest('?' . http_build_query($this->getData()), 'PUT');
 
         return $this->lastResponseCode === 200;
     }
