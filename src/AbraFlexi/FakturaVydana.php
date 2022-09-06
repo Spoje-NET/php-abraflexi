@@ -219,6 +219,9 @@ class FakturaVydana extends RW {
      * @return int
      */
     static public function overdueDays($dueDate) {
+        if(is_object($dueDate) && array_key_exists('isNull', get_class_vars( get_class($dueDate)))  && ($dueDate->isNull === true)){
+            throw new Exception('$dueDate->isNull is true', self);
+        }        
         $dateDiff = date_diff(is_object($dueDate) ? $dueDate : RO::flexiDateToDateTime($dueDate),
                 new \DateTime());
         if ($dateDiff->invert == 1) {
