@@ -3,7 +3,7 @@
  * AbraFlexi - Evidence Formats.
  *
  * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  (C) 2015-2021 Spoje.Net
+ * @copyright  (C) 2015-2022 Spoje.Net
  */
 namespace AbraFlexi;
 
@@ -15,18 +15,18 @@ namespace AbraFlexi;
 class Formats
 {
  /**
- * Source AbraFlexi server version.
+ * Source FlexiBee server version.
  *
  * @var string
  */
- static public $version = '2021.7.6';
+ static public $version = '2022.4.8';
 
 
     /**
      * Availble Formats.
      *
-     * @see https://www.abraflexi.eu/api/dokumentace/ref/format-types/
-     * @var array formats known to abraflexi
+     * @see https://www.flexibee.eu/api/dokumentace/ref/format-types/
+     * @var array formats known to flexibee
      */
     static public $formats = [
         'JS' => ['desc' => 'JavaScropt',
@@ -1582,6 +1582,17 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
+     * Evidence stav-obchodniho-dokladu (Stav obchodního dokladu) Formats.
+     *
+     * @var array
+     */
+ static public $stavObchodnihoDokladu = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
      * Evidence stav-skladu-k-datu (Stav skladu k datu) Formats.
      *
      * @var array
@@ -2000,11 +2011,22 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Formats.
+     * Evidence umisteni-ve-skladu (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladuRegal = [
+ static public $umisteniVeSkladu = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
+     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Formats.
+     *
+     * @var array
+     */
+ static public $umisteniVeSkladuMistnost = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2022,22 +2044,11 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence umisteni-ve-skladu (Umístění ve skladu) Formats.
+     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Formats.
-     *
-     * @var array
-     */
- static public $umisteniVeSkladuMistnost = [
+ static public $umisteniVeSkladuRegal = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2396,22 +2407,22 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence stav-ceniku (Číselník stavů položek ceníku) Formats.
+     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Formats.
      *
      * @var array
      */
- static public $stavCeniku = [
+ static public $typStavuCeniku = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
   'CSV' => 'csv',
 ];
     /**
-     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Formats.
+     * Evidence stav-ceniku (Číselník stavů položek ceníku) Formats.
      *
      * @var array
      */
- static public $typStavuCeniku = [
+ static public $stavCeniku = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2456,6 +2467,17 @@ class Formats
      * @var array
      */
  static public $cleneniDph = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
+     * Evidence sarze-expirace (Šarže a expirace) Formats.
+     *
+     * @var array
+     */
+ static public $sarzeExpirace = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
