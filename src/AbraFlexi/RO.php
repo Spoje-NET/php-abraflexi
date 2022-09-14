@@ -990,7 +990,7 @@ class RO extends \Ease\Sand {
         $responseCode = $this->doCurlRequest($this->addDefaultUrlParams($url),
                 $method, $format);
 
-        return $this->lastCurlResponse ? $this->parseResponse($this->rawResponseToArray($this->lastCurlResponse,
+        return $this->lastCurlResponse ? $this->parseResponse($this->rawResponseToArray(strval($this->lastCurlResponse),
                                 $this->responseFormat), $responseCode) : false;
     }
 
