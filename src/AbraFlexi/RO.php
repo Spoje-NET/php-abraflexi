@@ -21,6 +21,12 @@ class RO extends \Ease\Sand {
     use \Ease\RecordKey;
 
     /**
+     * Object Name used for logging
+     * @var string
+     */
+    public $objectName = null;
+
+    /**
      * Where to get JSON files with evidence stricture etc.
      * @var string
      */
