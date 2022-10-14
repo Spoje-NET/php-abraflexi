@@ -438,6 +438,7 @@ class RO extends \Ease\Sand {
         if (!empty($init)) {
             $this->processInit($init);
         }
+        $this->setObjectName(array_key_exists('objectName', $options) ? $options['objectName'] : null);
     }
 
     /**
@@ -469,7 +470,6 @@ class RO extends \Ease\Sand {
             $options = array_merge(self::companyUrlToOptions($options['companyUrl']),
                     $options);
         }
-
         $this->setupProperty($options, 'company', 'ABRAFLEXI_COMPANY');
         $this->setupProperty($options, 'url', 'ABRAFLEXI_URL');
         $this->setupProperty($options, 'user', 'ABRAFLEXI_LOGIN');
@@ -628,7 +628,7 @@ class RO extends \Ease\Sand {
         } elseif (!is_object($init) && preg_match('/\.(json|xml|csv)/', strval($init))) {
             $this->takeData($this->getFlexiData((($init[0] != '/') ? $this->evidenceUrlWithSuffix($init) : $init)));
         } else {
-            if($this->autoload === false){
+            if ($this->autoload === false) {
                 $this->setMyKey($init);
             } else {
                 $this->loadFromAbraFlexi($init);
@@ -1887,7 +1887,6 @@ class RO extends \Ease\Sand {
         return $this->postFields;
     }
 
-    
     /**
      * Prepare "IN" subselect
      * 
@@ -2484,7 +2483,7 @@ class RO extends \Ease\Sand {
         $this->updateApiURL();
         return $res;
     }
-    
+
     /**
      * Set or get ignore not found pages flag
      *
