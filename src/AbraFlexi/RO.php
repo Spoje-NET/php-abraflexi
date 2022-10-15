@@ -681,6 +681,8 @@ class RO extends \Ease\Sand {
      * Strip all non-identifier data
      * 
      * @param array $keep  extra columns to be preserved
+     * 
+     * @return RO Current object state
      */
     public function stripBody(array $keep = []) {
         $id = $this->getRecordID();
@@ -701,6 +703,7 @@ class RO extends \Ease\Sand {
         if (!empty($extIds)) {
             $this->setDataValue('external-ids', $columns);
         }
+        return $this;
     }
 
     /**
