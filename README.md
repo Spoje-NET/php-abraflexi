@@ -5,16 +5,15 @@ PHP7.1+ Based Library for easy interaction with Czech accounting system AbraFlex
 
 CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [AbraFlexi](https://www.abraflexi.eu/)
 
-[![Source Code](http://img.shields.io/badge/source/Spoje-NET/php-abraflexi-blue.svg?style=flat-square)](https://github.com/Spoje-NET/php-abraflexi)
+[![Source Code](https://img.shields.io/github/source/Spoje-NET/php-abraflexi)](https://github.com/Spoje-NET/php-abraflexi)
 [![Latest Version](https://img.shields.io/github/release/Spoje-NET/php-abraflexi.svg?style=flat-square)](https://github.com/Spoje-NET/php-abraflexi/releases)
 [![Software License](https://img.shields.io/badge/license-GNU-brightgreen.svg?style=flat-square)](https://github.com/Spoje-NET/php-abraflexi/blob/master/LICENSE)
-[![time tracker](https://wakatime.com/badge/github/Spoje-NET/php-abraflexi.svg)](https://wakatime.com/badge/github/Spoje-NET/php-abraflexi)
+[![GitHub forks](https://img.shields.io/github/forks/Spoje-NET/php-abraflexi)](https://github.com/Spoje-NET/php-abraflexi/network)
+[![wakatime](https://wakatime.com/badge/user/5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/project/48520b87-4e9a-4eca-861a-a5dd85b11374.svg)](https://wakatime.com/badge/user/5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/project/48520b87-4e9a-4eca-861a-a5dd85b11374)
 [![Build Status](https://img.shields.io/travis/Spoje-NET/php-abraflexi/master.svg?style=flat-square)](https://travis-ci.org/Spoje-NET/php-abraflexi)
 [![Code Coverage](https://scrutinizer-ci.com/g/Spoje-NET/php-abraflexi/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Spoje-NET/php-abraflexi/?branch=master)
 [![Docker pulls](https://img.shields.io/docker/pulls/vitexsoftware/flexipeehp.svg)](https://hub.docker.com/r/vitexsoftware/flexipeehp/)
 [![Latest stable](https://img.shields.io/packagist/v/spoje.net/php-abraflexi.svg?style=flat-square)](https://packagist.org/packages/spoje.net/php-abraflexi)
-
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4/big.png)](https://insight.sensiolabs.com/projects/5ba2e106-1590-4d0b-bbb2-953484ca36d4)
 
 [![Latest Stable Version](https://poser.pugx.org/spojenet/flexibee/v/stable)](https://packagist.org/packages/spojenet/flexibee)
 [![Total Downloads](https://poser.pugx.org/spojenet/flexibee/downloads)](https://packagist.org/packages/spojenet/flexibee)
@@ -24,7 +23,7 @@ CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [AbraFlexi
 [![Monthly Downloads](https://poser.pugx.org/spojenet/flexibee/d/monthly)](https://packagist.org/packages/spojenet/flexibee)
 [![Daily Downloads](https://poser.pugx.org/spojenet/flexibee/d/daily)](https://packagist.org/packages/spojenet/flexibee)
 
- :exclamation:  Byla změněna výchozí větev z **2.0** na **main**  :exclamation:
+ :exclamation:  Byly odstraněny zastaralé větve  **2.0** a **master**  :exclamation:
 
 
 # Poděkování 
@@ -490,4 +489,7 @@ AbraFlexi knihovny pro další jazky:
  * [flexibee-client](https://github.com/klemen/flexibee-client) (PHP)
  * [Flexibee](https://github.com/adleritech/flexibee) (Java)
  
-[Statistiky práce na projektu WakaTime](https://wakatime.com/@5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/projects/ypdqvdcmsg)
+ 
+[Statistiky práce na projektu WakaTime](https://wakatime.com/@Vitex/projects/eftagqirep?start=2022-10-09&end=2022-10-15)
+[Statistiky práce na projektu před přejmenováním](https://wakatime.com/@5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/projects/ypdqvdcmsg) (cca 250h)
+
