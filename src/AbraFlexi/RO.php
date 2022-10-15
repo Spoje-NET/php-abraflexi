@@ -438,7 +438,7 @@ class RO extends \Ease\Sand {
      */
     public function __construct($init = null, $options = []) {
         $this->init = $init;
-
+        parent::setObjectName();
         $this->setUp($options);
         $this->curlInit();
         if (!empty($init)) {
