@@ -41,4 +41,11 @@ build:
     analysis:
       tests:
         override:
-          - php-scrutinizer-run
+          - php-scrutinizer-run --enable-security-analysis
+    coverage:
+      tests:
+        override:
+          - command: phpunit --coverage-text --coverage-clover=coverage.clover
+            coverage:
+              file: coverage.clover 
+              format: clover
