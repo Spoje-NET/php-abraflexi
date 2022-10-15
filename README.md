@@ -13,7 +13,7 @@ CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [AbraFlexi
 [![Build Status](https://img.shields.io/travis/Spoje-NET/php-abraflexi/master.svg?style=flat-square)](https://travis-ci.org/Spoje-NET/php-abraflexi)
 [![Code Coverage](https://scrutinizer-ci.com/g/Spoje-NET/php-abraflexi/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Spoje-NET/php-abraflexi/?branch=master)
 [![Docker pulls](https://img.shields.io/docker/pulls/vitexsoftware/flexipeehp.svg)](https://hub.docker.com/r/vitexsoftware/flexipeehp/)
-[![Latest stable](https://img.shields.io/packagist/v/spoje.net/php-abraflexi.svg?style=flat-square)](https://packagist.org/packages/spoje.net/php-abraflexi)
+[![Latest stable](https://img.shields.io/packagist/v/spojenet/php-abraflexi.svg?style=flat-square)](https://packagist.org/packages/spojenet/php-abraflexi)
 
 [![Latest Stable Version](https://poser.pugx.org/spojenet/flexibee/v/stable)](https://packagist.org/packages/spojenet/flexibee)
 [![Total Downloads](https://poser.pugx.org/spojenet/flexibee/downloads)](https://packagist.org/packages/spojenet/flexibee)
@@ -339,9 +339,9 @@ Přidejte do vašeho composer.json i cesty k původním testům:
 ```json
     "autoload-dev": {
         "psr-4": {
-            "Test\\": "vendor/spoje.net/php-abraflexi/testing/src/AbraFlexi/testing/",
+            "Test\\": "vendor/spojenet/php-abraflexi/testing/src/AbraFlexi/testing/",
             "Test\\Ease\\": "vendor/vitexsoftware/ease-core/tests/src/Ease",
-            "Test\\AbraFlexi\\": "vendor/spoje.net/php-abraflexi/testing/src/AbraFlexi/",
+            "Test\\AbraFlexi\\": "vendor/spojenet/php-abraflexi/testing/src/AbraFlexi/",
          }
     }
 ```
