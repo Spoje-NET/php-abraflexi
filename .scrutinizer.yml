@@ -45,7 +45,7 @@ build:
     coverage:
       tests:
         override:
-          - command: phpunit --coverage-text --coverage-clover=coverage.clover
+          - command: ./vendor/bin/phpunit -c phpunit.xml --coverage-text --coverage-clover=coverage.clover
             coverage:
               file: coverage.clover 
               format: clover
