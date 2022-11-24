@@ -42,7 +42,11 @@ class Date extends \DateTime {
                 $format .= '-i:s';
             }
         }
-        parent::__construct(empty($format) ? null : \DateTime::createFromFormat($format, $flexidate)->setTime(0, 0)->format(\DateTimeInterface::ATOM));
+        if (empty($format)) {
+            parent::__construct();
+        } else {
+            parent::__construct(\DateTime::createFromFormat($format, $flexidate)->setTime(0, 0)->format(\DateTimeInterface::ATOM));
+        }
     }
 
     /**
