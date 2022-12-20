@@ -43,7 +43,11 @@ class DateTime extends \DateTime {
         } elseif (!empty($flexidatetime) && ($flexidatetime != 'NOW')) { // Old format
             $format = 'Y-m-d\TH:i:s+P';
         }
-        parent::__construct(empty($format) ? null : \DateTime::createFromFormat($format, $flexidatetime)->format(\DateTimeInterface::ATOM));
+        if (empty($format)) {
+            parent::__construct();
+        } else {
+            parent::__construct(\DateTime::createFromFormat($format, $flexidatetime)->format(\DateTimeInterface::ATOM));
+        }
     }
 
     /**
