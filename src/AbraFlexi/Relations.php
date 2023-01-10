@@ -21,7 +21,7 @@ class Relations
      *
      * @var string
      */
- static public $version = '2022.4.9';
+ static public $version = '2022.5.7';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
@@ -152,6 +152,11 @@ class Relations
   ],
   'doklady-k-uhrade' => [
     'url' => 'doklady-k-uhrade',
+    'evidenceType' => 'DOKLAD_K_UHRADE',
+    'name' => 'Doklady faktur',
+  ],
+  'doklady-k-uhrade-bez-filtrovani-firmy' => [
+    'url' => 'doklady-k-uhrade-bez-filtrovani-firmy',
     'evidenceType' => 'DOKLAD_K_UHRADE',
     'name' => 'Doklady faktur',
   ],
@@ -868,6 +873,18 @@ class Relations
   ],
 ];
     /**
+     * Evidence kurz-pro-preceneni (Kurzy pro přecenění) Relations.
+     *
+     * @var array
+     */
+ static public $kurzProPreceneni = [
+  'uzivatelske-vazby' => [
+    'url' => 'uzivatelske-vazby',
+    'evidenceType' => 'VAZBA',
+    'name' => 'Uživatelské vazby',
+  ],
+];
+    /**
      * Evidence kusovnik (Kusovník) Relations.
      *
      * @var array
@@ -1238,6 +1255,11 @@ class Relations
   ],
   'doklady-k-uhrade' => [
     'url' => 'doklady-k-uhrade',
+    'evidenceType' => 'DOKLAD_K_UHRADE',
+    'name' => 'Doklady faktur',
+  ],
+  'doklady-k-uhrade-bez-filtrovani-firmy' => [
+    'url' => 'doklady-k-uhrade-bez-filtrovani-firmy',
     'evidenceType' => 'DOKLAD_K_UHRADE',
     'name' => 'Doklady faktur',
   ],
@@ -2590,18 +2612,6 @@ class Relations
   ],
 ];
     /**
-     * Evidence umisteni-ve-skladu (Umístění ve skladu) Relations.
-     *
-     * @var array
-     */
- static public $umisteniVeSkladu = [
-  'uzivatelske-vazby' => [
-    'url' => 'uzivatelske-vazby',
-    'evidenceType' => 'VAZBA',
-    'name' => 'Uživatelské vazby',
-  ],
-];
-    /**
      * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Relations.
      *
      * @var array
@@ -2614,11 +2624,11 @@ class Relations
   ],
 ];
     /**
-     * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Relations.
+     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Relations.
      *
      * @var array
      */
- static public $umisteniVeSkladuPolice = [
+ static public $umisteniVeSkladuRegal = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2626,11 +2636,23 @@ class Relations
   ],
 ];
     /**
-     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Relations.
+     * Evidence umisteni-ve-skladu (Umístění ve skladu) Relations.
      *
      * @var array
      */
- static public $umisteniVeSkladuRegal = [
+ static public $umisteniVeSkladu = [
+  'uzivatelske-vazby' => [
+    'url' => 'uzivatelske-vazby',
+    'evidenceType' => 'VAZBA',
+    'name' => 'Uživatelské vazby',
+  ],
+];
+    /**
+     * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Relations.
+     *
+     * @var array
+     */
+ static public $umisteniVeSkladuPolice = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -3040,11 +3062,11 @@ class Relations
   ],
 ];
     /**
-     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Relations.
+     * Evidence stav-ceniku (Číselník stavů položek ceníku) Relations.
      *
      * @var array
      */
- static public $typStavuCeniku = [
+ static public $stavCeniku = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -3057,11 +3079,11 @@ class Relations
   ],
 ];
     /**
-     * Evidence stav-ceniku (Číselník stavů položek ceníku) Relations.
+     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Relations.
      *
      * @var array
      */
- static public $stavCeniku = [
+ static public $typStavuCeniku = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',

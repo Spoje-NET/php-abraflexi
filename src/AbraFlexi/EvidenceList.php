@@ -2,7 +2,7 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Fri, 14 Oct 2022 12:43:52 +0200 
+ * Generated: Tue, 13 Dec 2022 00:28:38 +0100 
  * From:      https://demo.flexibee.eu
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -46,7 +46,7 @@ class EvidenceList extends RO
      *
      * @var string
      */
- static public $version = '2022.4.9';
+ static public $version = '2022.5.7';
 
     /**
      * Evidences Path/Name listing.
@@ -100,6 +100,7 @@ class EvidenceList extends RO
   'kurz' => 'Kurzy',
   'intrastat-kurz' => 'Kurzy pro Intrastat',
   'kurz-pro-cenotvorbu' => 'Kurzy pro cenotvorbu',
+  'kurz-pro-preceneni' => 'Kurzy pro přecenění',
   'kusovnik' => 'Kusovník',
   'intrastat-kod-nomenklatury' => 'Kódy nomenklatury',
   'leasing' => 'Leasing',
@@ -113,8 +114,8 @@ class EvidenceList extends RO
   'vazebni-doklad' => 'Navázané doklady',
   'po-splatnosti' => 'Neuhrazené pohledávky/závazky po splatnosti',
   'naklad' => 'Náklady na události / aktivity',
-  'cenikovy-pohyb-prodej' => 'Nákupní, prodejní a skladové pohyby',
   'cenikovy-pohyb-nakup' => 'Nákupní, prodejní a skladové pohyby',
+  'cenikovy-pohyb-prodej' => 'Nákupní, prodejní a skladové pohyby',
   'intrastat-obchodni-transakce' => 'Obchodní transakce',
   'strom-koren' => 'Obecný strom',
   'obratova-predvaha' => 'Obratová předvaha',
@@ -226,10 +227,10 @@ class EvidenceList extends RO
   'udalost' => 'Události, aktivity',
   'radek-priznani-dph' => 'Uložené řádky přiznání DPH',
   'umisteni' => 'Umístění',
-  'umisteni-ve-skladu' => 'Umístění ve skladu',
   'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
-  'umisteni-ve-skladu-police' => 'Umístění ve skladu',
   'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
+  'umisteni-ve-skladu' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-police' => 'Umístění ve skladu',
   'sablona-upominky' => 'Upomínky',
   'strom' => 'Uzel stromu',
   'uzivatelsky-dotaz' => 'Uživatelské dotazy',
@@ -262,8 +263,8 @@ class EvidenceList extends RO
   'ucetni-obdobi' => 'Účetní období',
   'ucet' => 'Účtový rozvrh',
   'cinnost' => 'Činnost',
-  'typ-stavu-ceniku' => 'Číselník stavů položek ceníku',
   'stav-ceniku' => 'Číselník stavů položek ceníku',
+  'typ-stavu-ceniku' => 'Číselník stavů položek ceníku',
   'cislo-baliku' => 'Čísla balíků',
   'radek-sestavy' => 'Řádek sestavy',
   'cleneni-kontrolni-hlaseni' => 'Řádky kontrolního hlášení DPH',
@@ -1736,6 +1737,18 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'uKurzy',
     'evidenceFilter' => 'TypKurzuK = \'typKurzu.cenotvorba\'',
+  ],
+  'kurz-pro-preceneni' => [
+    'evidenceType' => 'KURZ_PRO_PRECENENI',
+    'evidenceName' => 'Kurzy pro přecenění',
+    'evidencePath' => 'kurz-pro-preceneni',
+    'importStatus' => 'DISALLOWED',
+    'beanKey' => 'cz.winstrom.vo.ucto.Kurz',
+    'className' => 'cz.winstrom.vo.ucto.Kurz',
+    'formCode' => 'cisKurzyPreceneni',
+    'extIdSupported' => 'true',
+    'dbName' => 'uKurzy',
+    'evidenceFilter' => 'TypKurzuK = \'typKurzu.preceneni\'',
   ],
   'leasing' => [
     'evidenceType' => 'LEASING',

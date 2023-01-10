@@ -19,7 +19,7 @@ class Formats
  *
  * @var string
  */
- static public $version = '2022.4.9';
+ static public $version = '2022.5.7';
 
 
     /**
@@ -625,6 +625,17 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
+     * Evidence kurz-pro-preceneni (Kurzy pro přecenění) Formats.
+     *
+     * @var array
+     */
+ static public $kurzProPreceneni = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
      * Evidence kusovnik (Kusovník) Formats.
      *
      * @var array
@@ -768,22 +779,22 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence cenikovy-pohyb-prodej (Nákupní, prodejní a skladové pohyby) Formats.
+     * Evidence cenikovy-pohyb-nakup (Nákupní, prodejní a skladové pohyby) Formats.
      *
      * @var array
      */
- static public $cenikovyPohybProdej = [
+ static public $cenikovyPohybNakup = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
   'CSV' => 'csv',
 ];
     /**
-     * Evidence cenikovy-pohyb-nakup (Nákupní, prodejní a skladové pohyby) Formats.
+     * Evidence cenikovy-pohyb-prodej (Nákupní, prodejní a skladové pohyby) Formats.
      *
      * @var array
      */
- static public $cenikovyPohybNakup = [
+ static public $cenikovyPohybProdej = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2011,17 +2022,6 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence umisteni-ve-skladu (Umístění ve skladu) Formats.
-     *
-     * @var array
-     */
- static public $umisteniVeSkladu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
      * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Formats.
      *
      * @var array
@@ -2033,22 +2033,33 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Formats.
+     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladuPolice = [
+ static public $umisteniVeSkladuRegal = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
   'CSV' => 'csv',
 ];
     /**
-     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Formats.
+     * Evidence umisteni-ve-skladu (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladuRegal = [
+ static public $umisteniVeSkladu = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
+     * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Formats.
+     *
+     * @var array
+     */
+ static public $umisteniVeSkladuPolice = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2407,22 +2418,22 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Formats.
+     * Evidence stav-ceniku (Číselník stavů položek ceníku) Formats.
      *
      * @var array
      */
- static public $typStavuCeniku = [
+ static public $stavCeniku = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
   'CSV' => 'csv',
 ];
     /**
-     * Evidence stav-ceniku (Číselník stavů položek ceníku) Formats.
+     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Formats.
      *
      * @var array
      */
- static public $stavCeniku = [
+ static public $typStavuCeniku = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
