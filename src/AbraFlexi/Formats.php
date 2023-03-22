@@ -3,7 +3,7 @@
  * AbraFlexi - Evidence Formats.
  *
  * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  (C) 2015-2022 Spoje.Net
+ * @copyright  (C) 2015-2023 Spoje.Net
  */
 namespace AbraFlexi;
 
@@ -19,7 +19,7 @@ class Formats
  *
  * @var string
  */
- static public $version = '2022.5.7';
+ static public $version = '2023.2.1';
 
 
     /**
@@ -240,6 +240,17 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
+     * Evidence certifikat (Certifikáty) Formats.
+     *
+     * @var array
+     */
+ static public $certifikat = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
      * Evidence intrastat-dodaci-podminky (Dodací podmínky) Formats.
      *
      * @var array
@@ -443,28 +454,6 @@ class Formats
      * @var array
      */
  static public $intrastatDruhDopravy = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence certifikat-eet (EET certifikáty) Formats.
-     *
-     * @var array
-     */
- static public $certifikatEet = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
-     * Evidence eet-komunikace (EET komunikace) Formats.
-     *
-     * @var array
-     */
- static public $eetKomunikace = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1582,6 +1571,17 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
+     * Evidence standardni-predpis (Standardní předpis sestavy) Formats.
+     *
+     * @var array
+     */
+ static public $standardniPredpis = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
      * Evidence ucetni-osnova (Standardní účetní osnova) Formats.
      *
      * @var array
@@ -1686,6 +1686,17 @@ class Formats
      * @var array
      */
  static public $subjekt = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
+     * Evidence sumace-sestavy (Sumace v sestavách) Formats.
+     *
+     * @var array
+     */
+ static public $sumaceSestavy = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2022,17 +2033,6 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Formats.
-     *
-     * @var array
-     */
- static public $umisteniVeSkladuMistnost = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
-    /**
      * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Formats.
      *
      * @var array
@@ -2055,6 +2055,17 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
+     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Formats.
+     *
+     * @var array
+     */
+ static public $umisteniVeSkladuMistnost = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
      * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Formats.
      *
      * @var array
@@ -2071,6 +2082,17 @@ class Formats
      * @var array
      */
  static public $sablonaUpominky = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
+     * Evidence umisteni-uctu (Upřesnění umístění účtu) Formats.
+     *
+     * @var array
+     */
+ static public $umisteniUctu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2418,22 +2440,22 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence stav-ceniku (Číselník stavů položek ceníku) Formats.
+     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Formats.
      *
      * @var array
      */
- static public $stavCeniku = [
+ static public $typStavuCeniku = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
   'CSV' => 'csv',
 ];
     /**
-     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Formats.
+     * Evidence stav-ceniku (Číselník stavů položek ceníku) Formats.
      *
      * @var array
      */
- static public $typStavuCeniku = [
+ static public $stavCeniku = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2467,6 +2489,17 @@ class Formats
      * @var array
      */
  static public $cleneniKontrolniHlaseni = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
+     * Evidence pricteni-rozdilu (Řádky pro přičtení rozdílu) Formats.
+     *
+     * @var array
+     */
+ static public $pricteniRozdilu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
