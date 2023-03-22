@@ -159,7 +159,7 @@ class Priloha extends RW {
             if (is_dir($destination)) {
                 $destination .= '/' . $downloader->getDataValue('nazSoub');
             }
-            $result = file_put_contents($destination, $downloader->getDataValue('content'));
+            $result = file_put_contents($destination, base64_decode($downloader->getDataValue('content')));
         }
         return $result;
     }
