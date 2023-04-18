@@ -154,7 +154,7 @@ novou třídu pro evidenci "Měrné jednotky" bude vypadat takto:
     /**
      * @link https://demo.abraflexi.eu/c/demo/merna-jednotka/properties Vlastnosti evidence
      */
-    class MernaJednotka extends /AbraFlexi/AbraFlexi
+    class MernaJednotka extends /AbraFlexi/RW
     {
         /**
          * Evidence užitá objektem.
