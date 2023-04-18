@@ -2087,7 +2087,7 @@ class RO extends \Ease\Sand {
     }
 
     /**
-     * Get previous record ID
+     * Get next record ID
      * 
      * @param array $conditions optional
      * 

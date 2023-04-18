@@ -597,4 +597,21 @@ class RW extends RO {
         return $this->lastResponseCode == 202;
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function setDataValue(string $columnName, $value)
+    {
+        if($this->debug === true){
+            $columnInfo = $this->getColumnInfo($columnName);
+            if ($columnInfo) {
+                if (array_key_exists('maxLength', $columnInfo) && (mb_strlen((string)$value) > $columnInfo['maxLength'])) {
+                    $this->addStatusMessage($value . ' is too long. Shorting to ' . $columnInfo['maxLength'] . ' characters', 'warning');
+                    $value = substr($value, 0, intval($columnInfo['maxLength']));
+                }
+            }
+        }
+        return parent::setDataValue($columnName, $value);
+    }
+    
 }
