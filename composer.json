@@ -34,8 +34,8 @@
     },
     "require-dev": {
 	"ext-iconv": "*",
-        "phpunit/phpunit": "^9",
-	"phing/phing": "^2"
+        "phpunit/phpunit": "*",
+	"phing/phing": "*"
     },
     "replace": {
 	"spoje.net/flexipeehp": "*",
