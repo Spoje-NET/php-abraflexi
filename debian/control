@@ -7,7 +7,7 @@ Priority: optional
 Homepage: https://github.com/Spoje-NET/php-abraflexi
 
 Package: php-spojenet-abraflexi
-Depends: ${misc:Depends}, php-curl, php-xml,php-vitexsoftware-ease-core, composer
+Depends: ${misc:Depends}, php-curl, php-xml, php-vitexsoftware-ease-core, composer
 Provides: php-abraflexi
 Conflicts: flexipeehp
 Suggests: abraflexi-client-config,abraflexi-client,abraflexi-contract-invoices,abraflexi-dark-gui,abraflexi-digest,abraflexi-matcher,abraflexi-reminder,abraflexi-server,abraflexi-server-backup,abraflexi-tools,multi-abraflexi-setup,abraflexi-mailer,php-vitexsoftware-ease-bootstrap4-widgets-abraflexi,php-vitexsoftware-abraflexi-bricks
