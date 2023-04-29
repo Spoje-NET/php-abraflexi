@@ -7,7 +7,7 @@ declare(strict_types=1);
  *              Objekt Banky.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * @copyright  (C) 2015-2023 Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -22,13 +22,14 @@ use AbraFlexi\subItems;
  * 
  * @link https://demo.flexibee.eu/c/demo/banka/properties Vlastnosti evidence
  */
-class Banka extends RW {
+class Banka extends RW implements \AbraFlexi\Document {
 
     use stitky;
     use firma;
     use email;
     use subItems;
     use getChanges;
+    use sum;
 
     /**
      * Evidence užitá objektem.

@@ -16,7 +16,7 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/faktura-vydana/properties položky evidence
  */
-class FakturaVydana extends RW {
+class FakturaVydana extends RW implements \AbraFlexi\Document {
 
     use stitky;
     use firma;

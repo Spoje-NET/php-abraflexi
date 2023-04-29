@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /**
  * AbraFlexi - Objekt dodavatelské smlouvy.
  *
@@ -20,9 +19,11 @@ use AbraFlexi\stitky;
  *
  * @link https://demo.flexibee.eu/c/demo/dodavatelska-smlouva/properties
  */
-class DodavatelskaSmlouva extends RW {
+class DodavatelskaSmlouva extends RW
+{
 
     use stitky;
+    use subItems;
     use firma;
 
     /**
@@ -38,10 +39,10 @@ class DodavatelskaSmlouva extends RW {
      *
      * @return boolean operation success
      */
-    public function generateInvoices() {
+    public function generateInvoices()
+    {
         $this->performRequest('dodavatelska-smlouva/generovani-faktur.xml',
                 'PUT', 'xml');
         return $this->lastResponseCode == 200;
     }
-
 }

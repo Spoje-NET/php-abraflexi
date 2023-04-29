@@ -16,11 +16,12 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/interni-doklad/properties
  */
-class InterniDoklad extends RW {
+class InterniDoklad extends RW implements \AbraFlexi\Document {
 
     use stitky;
     use firma;
     use sum;
+    use subItems;
     use email;
     use getChanges;
 

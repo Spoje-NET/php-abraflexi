@@ -1,4 +1,4 @@
-php-spojenet-abraflexi (2.23.1) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (2.24.0) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -45,8 +45,9 @@ php-spojenet-abraflexi (2.23.1) UNRELEASED; urgency=medium
   * id of new record is int
   * release v2.23 dueDays
   * Attachment Downloader fixed
+  * Document interface added
 
- -- vitex <info@vitexsoftware.cz>  Wed, 22 Mar 2023 19:58:55 +0100
+ -- vitex <info@vitexsoftware.cz>  Sat, 29 Apr 2023 11:20:38 +0200
 
 flexipeehp (1.12) experimental; urgency=medium
 

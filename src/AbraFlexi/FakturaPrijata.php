@@ -6,7 +6,7 @@ declare(strict_types=1);
  * AbraFlexi - Invoice Incomed.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2020 Spoje.Net
+ * @copyright  (C) 2015-2023 Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -16,12 +16,13 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/faktura-prijata/properties
  */
-class FakturaPrijata extends RW {
+class FakturaPrijata extends RW implements \AbraFlexi\Document {
 
     use stitky;
     use firma;
     use sum;
     use subItems;
+    use email;
     use getChanges;
 
     /**

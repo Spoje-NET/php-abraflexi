@@ -35,6 +35,9 @@ namespace AbraFlexi;
  * @see http://podpora.flexibee.eu/cs/articles/5784862-prehled-zmen-zaznamu-v-rest-api
  */
 trait getChanges {
+    /**
+     * Obtain Chaneges from Journal
+     */
     function getChanges() {
         $changesRaw = $this->performRequest( $this->addDefaultUrlParams($this->getApiURL().'/zmeny.json') );
         if($changesRaw){
