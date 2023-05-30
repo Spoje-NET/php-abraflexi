@@ -100,16 +100,24 @@ class Adresar extends RW {
                 $phoneNo = $numbers['tel'];
             }
             if (array_key_exists('kontakty', $numbers) && !empty($numbers['kontakty'])) {
+
+                // Try to use primary contact if present
                 foreach ($numbers['kontakty'] as $kontakt) {
                     if ($kontakt['primarni'] == 'true') {
-                        
+                        if (strlen(trim($kontakt['mobil']))) {
+                            $phoneNo = $kontakt['mobil'];
+                            break;
+                        } 
                     }
-                    if (strlen(trim($kontakt['mobil']))) {
-                        $phoneNo = $kontakt['mobil'];
-                        break;
-                    } elseif (strlen(trim($kontakt['mobil']))) {
-                        $phoneNo = $kontakt['mobil'];
-                        break;
+                }
+
+                // Use first contact if no primary is set
+                if (is_null($phoneNo)) {
+                    foreach ($numbers['kontakty'] as $kontakt) {
+                        if (strlen(trim($kontakt['mobil']))) {
+                            $phoneNo = $kontakt['mobil'];
+                            break;
+                        }
                     }
                 }
             }
