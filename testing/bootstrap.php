@@ -4,7 +4,7 @@
  * AbraFlexi - nastavení testů.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2015-2020 Spoje.Net
+ * @copyright  2015-2023 Spoje.Net
  */
 /**
  * Predefined server:One of:

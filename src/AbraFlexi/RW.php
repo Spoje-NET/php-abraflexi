@@ -16,7 +16,8 @@ namespace AbraFlexi;
  *
  * @url https://demo.flexibee.eu/devdoc/http-operations
  */
-class RW extends RO {
+class RW extends RO
+{
 
     /**
      * Sloupeček obsahující datum vložení záznamu do shopu.
@@ -62,16 +63,30 @@ class RW extends RO {
     private $sourceId = null;
 
     /**
+     * Dry Run mode indicator
+     * 
+     * @link https://podpora.flexibee.eu/cs/articles/4720123-testovaci-ulozeni-dry-run
+     * 
+     * @var boolean
+     */
+    public $dryRun = false;
+
+    /**
      * SetUp Object to be ready for work
      *
      * @param array $options Object Options (authSessionId,user,password,
      *                                       url,company,evidence,companyUrl
-     *                                       prefix,defaultUrlParams,debug,ver
+     *                                       prefix,defaultUrlParams,debug,ver,dry-run
      *                                       detail,offline,atomic,filter,ignore404
      */
-    public function setUp($options = array()) {
+    public function setUp($options = array())
+    {
         if (array_key_exists('atomic', $options)) {
             $this->atomic = (boolean) $options['atomic'];
+        }
+        if (array_key_exists('dry-run', $options)) {
+            $this->dryRun = boolval($options['dry-run']);
+            $this->defaultUrlParams['dry-run'] = $this->dryRun ? 'true' : 'false';
         }
         return parent::setUp($options);
     }
@@ -85,12 +100,15 @@ class RW extends RO {
      *
      * @return array odpověď
      */
-    public function insertToAbraFlexi($data = null) {
+    public function insertToAbraFlexi($data = null)
+    {
         if (is_null($data)) {
             $data = $this->getData();
         }
-        $this->postFields = $this->getJsonizedData($data,
-                $this->debug ? JSON_PRETTY_PRINT : 0);
+        $this->postFields = $this->getJsonizedData(
+            $data,
+            $this->debug ? JSON_PRETTY_PRINT : 0
+        );
         return $this->performRequest('', 'PUT');
     }
 
@@ -102,13 +120,20 @@ class RW extends RO {
      *
      * @return array main data part of response
      */
-    public function parseResponse($responseDecoded, $responseCode) {
+    public function parseResponse($responseDecoded, $responseCode)
+    {
         $parsedData = parent::parseResponse($responseDecoded, $responseCode);
         switch ($responseCode) {
+            case 200: //The Dry Run response
+                if ($this->dryRun === false) {
+                    break; // Read operation does not return results
+                }
             case 201: //Success Write
                 if (is_array($responseDecoded)) {
-                    $this->responseStats = array_key_exists('stats',
-                                    $responseDecoded) ? (isset($responseDecoded['stats'][0]) ? array_map('intval', $responseDecoded['stats'][0]) : array_map('intval', $responseDecoded['stats'])) : null;
+                    $this->responseStats = array_key_exists(
+                        'stats',
+                        $responseDecoded
+                    ) ? (isset($responseDecoded['stats'][0]) ? array_map('intval', $responseDecoded['stats'][0]) : array_map('intval', $responseDecoded['stats'])) : null;
                     if (isset($responseDecoded[$this->resultField][0]['id'])) {
                         $this->lastInsertedID = intval($responseDecoded[$this->resultField][0]['id']);
                         $this->setMyKey($this->lastInsertedID);
@@ -131,7 +156,8 @@ class RW extends RO {
      * 
      * @return int number of errors processed
      */
-    public function parseError(array $responseDecoded) {
+    public function parseError(array $responseDecoded)
+    {
         if (array_key_exists('results', $responseDecoded)) {
 
             if (array_key_exists(0, $responseDecoded['results'])) {
@@ -175,7 +201,8 @@ class RW extends RO {
      * 
      * @param array $candidates AbraFlexi insert IDs  prepared by extractResultIDs()
      */
-    public function assignResultIDs($candidates) {
+    public function assignResultIDs($candidates)
+    {
         foreach ($this->chained as $chid => $chained) {
             $chainedEvidence = $chained->getEvidence();
             $chainedExtid = $chained->getRecordID();
@@ -205,7 +232,8 @@ class RW extends RO {
      * 
      * @return array List of [ 'evidence1'=>[ 'original-id'=>numericID,'original-id2'=>numericID2 ], 'evidence2'=> ... ]
      */
-    public function extractResultIDs($resultInfo) {
+    public function extractResultIDs($resultInfo)
+    {
         $candidates = [];
         foreach ($resultInfo as $insertResult) {
             $newID = $insertResult['id'];
@@ -225,7 +253,8 @@ class RW extends RO {
      * 
      * @return int
      */
-    public function getLastInsertedId() {
+    public function getLastInsertedId()
+    {
         return $this->lastInsertedID;
     }
 
@@ -237,13 +266,16 @@ class RW extends RO {
      * 
      * @return boolean Response code is 200 ?
      */
-    public function deleteFromAbraFlexi($id = null) {
+    public function deleteFromAbraFlexi($id = null)
+    {
         if (is_null($id)) {
             $id = $this->getRecordIdent();
         }
 
-        $this->performRequest($this->getEvidenceUrl() . '/' . self::urlizeId($id),
-                'DELETE');
+        $this->performRequest(
+            $this->getEvidenceUrl() . '/' . self::urlizeId($id),
+            'DELETE'
+        );
         return $this->lastResponseCode == 200;
     }
 
@@ -254,7 +286,8 @@ class RW extends RO {
      * 
      * @return int number of records taken
      */
-    public function takeData($data) {
+    public function takeData($data)
+    {
         if ($this->debug === true) {
             $fbRelations = [];
             $fbColumns = $this->getColumnsInfo();
@@ -288,7 +321,8 @@ class RW extends RO {
      * 
      * @return array List of missing columns. Empty if all is ok
      */
-    public function controlMandatoryColumns($data = null) {
+    public function controlMandatoryColumns($data = null)
+    {
         if (is_null($data)) {
             $data = $this->getData();
         }
@@ -314,7 +348,8 @@ class RW extends RO {
      * 
      * @return array List of ReadOnly columns. Empty if all is ok
      */
-    public function controlReadOnlyColumns($data = null) {
+    public function controlReadOnlyColumns($data = null)
+    {
         if (is_null($data)) {
             $data = $this->getData();
         }
@@ -340,9 +375,10 @@ class RW extends RO {
      *
      * @param int $timpestamp
      *
-     * @return AbraFlexi\ Date or NULL
+     * @return \AbraFlexi\ Date or NULL
      */
-    public static function timestampToFlexiDate($timpestamp = null) {
+    public static function timestampToFlexiDate($timpestamp = null)
+    {
         $flexiDate = new Date();
         if (!is_null($timpestamp)) {
             $flexiDate->setTimestamp($timpestamp);
@@ -357,7 +393,8 @@ class RW extends RO {
      *
      * @return string AbraFlexi DateTime or NULL
      */
-    public static function timestampToFlexiDateTime($timpestamp = null) {
+    public static function timestampToFlexiDateTime($timpestamp = null)
+    {
         $flexiDateTime = null;
         if (!is_null($timpestamp)) {
             $date = new \DateTime();
@@ -381,13 +418,20 @@ class RW extends RO {
      *
      * @return boolean Operation success
      */
-    public function addArrayToBranch($data, $relationPath = 'polozkyDokladu',
-            $removeAll = false) {
+    public function addArrayToBranch(
+        $data,
+        $relationPath = 'polozkyDokladu',
+        $removeAll = false
+    ) {
         $currentBranchData = $this->getDataValue($relationPath);
         $branchData = $currentBranchData;
         $branchData[] = $data;
-        if (is_array($this->getEvidence()) && array_key_exists('bezPolozek',
-                        $this->getColumnsInfo())) {
+        if (
+            is_array($this->getEvidence()) && array_key_exists(
+                'bezPolozek',
+                $this->getColumnsInfo()
+            )
+        ) {
             $this->setDataValue('bezPolozek', false);
         }
         if ($removeAll === true) {
@@ -402,9 +446,13 @@ class RW extends RO {
      * @param AbraFlexiRO $object    objekt evidence
      * @param boolean    $removeAll flush older items 
      */
-    public function addObjectToBranch($object, $removeAll = false) {
-        $this->addArrayToBranch([$object->getEvidence() => $object->getData()],
-                'polozkyDokladu', $removeAll);
+    public function addObjectToBranch($object, $removeAll = false)
+    {
+        $this->addArrayToBranch(
+            [$object->getEvidence() => $object->getData()],
+            'polozkyDokladu',
+            $removeAll
+        );
     }
 
     /**
@@ -413,9 +461,12 @@ class RW extends RO {
      * @see https://www.abraflexi.eu/api/dokumentace/ref/uzivatelske-vazby/
      * @param string $vazba
      */
-    public function vazbaAdd($vazba) {
-        $this->addArrayToBranch(['uzivatelska-vazba' => $vazba],
-                'uzivatelske-vazby');
+    public function vazbaAdd($vazba)
+    {
+        $this->addArrayToBranch(
+            ['uzivatelska-vazba' => $vazba],
+            'uzivatelske-vazby'
+        );
     }
 
     /**
@@ -424,10 +475,13 @@ class RW extends RO {
      * @see https://www.abraflexi.eu/api/dokumentace/ref/uzivatelske-vazby/
      * @param string $vazba
      */
-    public function vazbaDel($vazba) {
+    public function vazbaDel($vazba)
+    {
         $this->setDataValue('uzivatelska-vazba@action', 'delete');
-        $this->addArrayToBranch(['uzivatelska-vazba' => $vazba],
-                'uzivatelske-vazby');
+        $this->addArrayToBranch(
+            ['uzivatelska-vazba' => $vazba],
+            'uzivatelske-vazby'
+        );
     }
 
     /**
@@ -441,7 +495,8 @@ class RW extends RO {
      *
      * @return string
      */
-    public function getJsonizedData($data = null, $options = 0) {
+    public function getJsonizedData($data = null, $options = 0)
+    {
         if (is_null($data)) {
             $data = $this->getData();
         }
@@ -462,7 +517,8 @@ class RW extends RO {
      * 
      * @return array
      */
-    public function getDataForJSON($data = null) {
+    public function getDataForJSON($data = null)
+    {
         if (is_null($data)) {
             $data = $this->getData();
         }
@@ -484,14 +540,15 @@ class RW extends RO {
      * 
      * @return boolean Operation success
      */
-    public function sync($data = null) {
+    public function sync($data = null)
+    {
         $this->insertToAbraFlexi($data);
         $insertResult = $this->lastResponseCode;
         if ($insertResult == 201) {
             $this->reload();
         }
         $loadResult = $this->lastResponseCode;
-        return ($insertResult + $loadResult) == 401;
+        return $this->dryRun ? $insertResult == 200 : ($insertResult + $loadResult) == 401;
     }
 
     /**
@@ -504,7 +561,8 @@ class RW extends RO {
      * 
      * @return RW|null copied record object or null in case of failure
      */
-    public function copy($source, $overrides = []) {
+    public function copy($source, $overrides = [])
+    {
         $this->sourceId = $source;
         return $this->sync($overrides) ? $this : null;
     }
@@ -519,11 +577,16 @@ class RW extends RO {
      *
      * @return boolean operation success
      */
-    public function performAction(string $action, $method = 'int') {
+    public function performAction(string $action, $method = 'int')
+    {
         $actionsAvailble = $this->getActionsInfo();
 
-        if (is_array($actionsAvailble) && array_key_exists($action,
-                        $actionsAvailble)) {
+        if (
+            is_array($actionsAvailble) && array_key_exists(
+                $action,
+                $actionsAvailble
+            )
+        ) {
             switch ($actionsAvailble[$action]['actionMakesSense']) {
                 case 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT':
                 case 'ONLY_WITH_INSTANCE': //Add instance
@@ -544,14 +607,21 @@ class RW extends RO {
                     break;
 
                 default:
-                    $result = $this->performRequest($this->evidenceUrlWithSuffix($urlSuffix),
-                            'GET');
+                    $result = $this->performRequest(
+                        $this->evidenceUrlWithSuffix($urlSuffix),
+                        'GET'
+                    );
                     break;
             }
         } else if ($this->throwException === true) {
             $this->lastResponseCode = 404;
-            throw new Exception(sprintf(_('Unsupported action "%s" for evidence "%s"'),
-                                    $action, $this->getEvidence()), $this);
+            throw new Exception(
+                sprintf(
+                    _('Unsupported action "%s" for evidence "%s"'),
+                    $action, $this->getEvidence()
+                ),
+                $this
+            );
         }
 
         return $result;
@@ -564,9 +634,17 @@ class RW extends RO {
      * 
      * @return array Insert result
      */
-    public function addExternalID($extId) {
-        return $this->insertToAbraFlexi(['id' => [$this->getRecordID(), 'ext:' . preg_replace('/^ext:/',
-                                '', $extId)]]);
+    public function addExternalID($extId)
+    {
+        return $this->insertToAbraFlexi([
+            'id' => [
+                $this->getRecordID(), 'ext:' . preg_replace(
+                    '/^ext:/',
+                    '',
+                    $extId
+                )
+            ]
+        ]);
     }
 
     /**
@@ -578,10 +656,13 @@ class RW extends RO {
      * 
      * @return array operation result
      */
-    public function changeExternalID($selector, $newValue, $forID = null) {
+    public function changeExternalID($selector, $newValue, $forID = null)
+    {
         $change['@removeExternalIds'] = 'ext:' . $selector . ':';
-        $change['id'] = [is_null($forID) ? $this->getRecordID() : $forID,
-            'ext:' . $selector . ':' . $newValue];
+        $change['id'] = [
+            is_null($forID) ? $this->getRecordID() : $forID,
+            'ext:' . $selector . ':' . $newValue
+        ];
         return $this->insertToAbraFlexi($change);
     }
 
@@ -592,7 +673,8 @@ class RW extends RO {
      * 
      * @return int http response code
      */
-    public function sendUnsent() {
+    public function sendUnsent()
+    {
         $this->performRequest('automaticky-odeslat-neodeslane', 'PUT', 'xml');
         return $this->lastResponseCode == 202;
     }
@@ -602,10 +684,10 @@ class RW extends RO {
      */
     public function setDataValue(string $columnName, $value)
     {
-        if($this->debug === true){
+        if ($this->debug === true) {
             $columnInfo = $this->getColumnInfo($columnName);
             if ($columnInfo) {
-                if (array_key_exists('maxLength', $columnInfo) && (mb_strlen((string)$value) > $columnInfo['maxLength'])) {
+                if (array_key_exists('maxLength', $columnInfo) && (mb_strlen((string) $value) > $columnInfo['maxLength'])) {
                     $this->addStatusMessage($value . ' is too long. Shorting to ' . $columnInfo['maxLength'] . ' characters', 'warning');
                     $value = substr($value, 0, intval($columnInfo['maxLength']));
                 }
@@ -613,5 +695,5 @@ class RW extends RO {
         }
         return parent::setDataValue($columnName, $value);
     }
-    
+
 }
