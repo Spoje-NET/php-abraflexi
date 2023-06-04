@@ -2,7 +2,7 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Wed, 22 Mar 2023 19:46:52 +0100 
+ * Generated: Sun, 04 Jun 2023 07:16:22 +0000 
  * From:      https://demo.flexibee.eu
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -46,7 +46,7 @@ class EvidenceList extends RO
      *
      * @var string
      */
- static public $version = '2023.2.1';
+ static public $version = '2023.3.0';
 
     /**
      * Evidences Path/Name listing.
@@ -60,6 +60,8 @@ class EvidenceList extends RO
   'banka' => 'Banka',
   'format-elektronickeho-bankovnictvi' => 'Bankovní formáty',
   'adresar-bankovni-ucet' => 'Bankovní spojení',
+  'bankovni-ucet-pokladna' => 'Bankovní účty a pokladny',
+  'bankovni-ucet-sklad-pokladna' => 'Banky/pokladny/sklady',
   'cenova-uroven' => 'Cenové úrovně',
   'odberatel' => 'Ceny pro odběratele/skupiny odběratelů, speciální kódy',
   'cenik' => 'Ceník',
@@ -203,6 +205,7 @@ class EvidenceList extends RO
   'typ-atributu' => 'Typy atributů',
   'typ-banka' => 'Typy bankovních dokladů',
   'dodavatelsky-typ-smlouvy' => 'Typy dodavatelských smluv',
+  'typ-dokladu' => 'Typy dokladů',
   'typ-interniho-dokladu' => 'Typy interních dokladů',
   'typ-leasingu' => 'Typy leasingů',
   'typ-majetku' => 'Typy majetků',
@@ -228,10 +231,10 @@ class EvidenceList extends RO
   'udalost' => 'Události, aktivity',
   'radek-priznani-dph' => 'Uložené řádky přiznání DPH',
   'umisteni' => 'Umístění',
-  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
   'umisteni-ve-skladu' => 'Umístění ve skladu',
-  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
   'umisteni-ve-skladu-police' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
   'sablona-upominky' => 'Upomínky',
   'umisteni-uctu' => 'Upřesnění umístění účtu',
   'strom' => 'Uzel stromu',
@@ -275,6 +278,7 @@ class EvidenceList extends RO
   'sarze-expirace' => 'Šarže a expirace',
   'stitek' => 'Štítky',
   'zurnal' => 'Žurnál',
+  'smlouva-zurnal' => 'Žurnál pro smlouvy',
 ];
 
     /**
@@ -992,6 +996,17 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dPolSml',
   ],
+  'smlouva-zurnal' => [
+    'evidenceType' => 'SMLOUVA_ZURNAL',
+    'evidenceName' => 'Žurnál pro smlouvy',
+    'evidencePath' => 'smlouva-zurnal',
+    'importStatus' => 'DISALLOWED',
+    'beanKey' => 'cz.winstrom.vo.dok.ZurnalSmlouvy',
+    'className' => 'cz.winstrom.vo.dok.ZurnalSmlouvy',
+    'formCode' => 'adrZurnalSml',
+    'extIdSupported' => 'false',
+    'dbName' => 'dZurnalSml',
+  ],
   'stav-ceniku' => [
     'evidenceType' => 'STAV_CENIKU',
     'evidenceName' => 'Číselník stavů položek ceníku',
@@ -1328,6 +1343,30 @@ class EvidenceList extends RO
     'dbName' => 'dBsp',
     'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (8,19,5))) AND IdTypOrg = 1 AND Modul = \'BAN\'',
   ],
+  'bankovni-ucet-pokladna' => [
+    'evidenceType' => 'BANKOVNI_UCET_POKLADNA',
+    'evidenceName' => 'Bankovní účty a pokladny',
+    'evidencePath' => 'bankovni-ucet-pokladna',
+    'importStatus' => 'DISALLOWED',
+    'beanKey' => 'cz.winstrom.vo.dok.Bsp',
+    'className' => 'cz.winstrom.vo.dok.Bsp',
+    'formCode' => 'banPokBsp',
+    'extIdSupported' => 'true',
+    'dbName' => 'dBsp',
+    'evidenceFilter' => 'Modul IN (\'POK\',\'BAN\') AND ((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (8,19,5))) AND IdTypOrg = 1',
+  ],
+  'bankovni-ucet-sklad-pokladna' => [
+    'evidenceType' => 'BANKOVNI_UCET_SKLAD_POKLADNA',
+    'evidenceName' => 'Banky/pokladny/sklady',
+    'evidencePath' => 'bankovni-ucet-sklad-pokladna',
+    'importStatus' => 'DISALLOWED',
+    'beanKey' => 'cz.winstrom.vo.dok.Bsp',
+    'className' => 'cz.winstrom.vo.dok.Bsp',
+    'formCode' => 'bspModulFree',
+    'extIdSupported' => 'true',
+    'dbName' => 'dBsp',
+    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (8,19,5))) AND IdTypOrg = 1',
+  ],
   'cenik' => [
     'evidenceType' => 'CENIK',
     'evidenceName' => 'Ceník',
@@ -1362,7 +1401,7 @@ class EvidenceList extends RO
     'formCode' => 'osCert',
     'extIdSupported' => 'false',
     'dbName' => 'wOsCert',
-    'evidenceFilter' => 'IdUzivatel = 7 AND UcelCertK <> \'ucelCertK.eet\'',
+    'evidenceFilter' => 'IdUzivatel = 7 AND UcelCertK NOT IN (\'ucelCertK.eet\',\'ucelCertK.finbricks\')',
   ],
   'cinnost' => [
     'evidenceType' => 'CINNOST',
@@ -1542,7 +1581,7 @@ class EvidenceList extends RO
     'formCode' => 'cisElBanFormaty',
     'extIdSupported' => 'false',
     'dbName' => 'dElbanFormat',
-    'evidenceFilter' => 'PlatiOd <= 2023 AND PlatiDo >= 2023',
+    'evidenceFilter' => '(PlatiOd <= 2023 AND PlatiDo >= 2023) AND Kod <> \'FINBRICKS\'',
   ],
   'forma-dopravy' => [
     'evidenceType' => 'FORMA_DOPRAVY',
@@ -2587,6 +2626,18 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'cTypAtribut',
     'evidenceFilter' => 'Standard = false',
+  ],
+  'typ-dokladu' => [
+    'evidenceType' => 'TYP_DOKLADU',
+    'evidenceName' => 'Typy dokladů',
+    'evidencePath' => 'typ-dokladu',
+    'importStatus' => 'DISALLOWED',
+    'beanKey' => 'cz.winstrom.vo.dok.TypDokl',
+    'className' => 'cz.winstrom.vo.dok.TypDokl',
+    'formCode' => 'typDoklBezModulu',
+    'extIdSupported' => 'true',
+    'dbName' => 'dTypDokl',
+    'evidenceFilter' => '(((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (8,19,5))) AND PlatiOd <= 2023 AND PlatiDo >= 2023) AND IdTypOrg = 1',
   ],
   'typ-organizace' => [
     'evidenceType' => 'TYP_ORGANIZACE',

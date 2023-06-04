@@ -21,7 +21,7 @@ class Relations
      *
      * @var string
      */
- static public $version = '2023.2.1';
+ static public $version = '2023.3.0';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
@@ -167,6 +167,30 @@ class Relations
      * @var array
      */
  static public $adresarBankovniUcet = [
+  'uzivatelske-vazby' => [
+    'url' => 'uzivatelske-vazby',
+    'evidenceType' => 'VAZBA',
+    'name' => 'Uživatelské vazby',
+  ],
+];
+    /**
+     * Evidence bankovni-ucet-pokladna (Bankovní účty a pokladny) Relations.
+     *
+     * @var array
+     */
+ static public $bankovniUcetPokladna = [
+  'uzivatelske-vazby' => [
+    'url' => 'uzivatelske-vazby',
+    'evidenceType' => 'VAZBA',
+    'name' => 'Uživatelské vazby',
+  ],
+];
+    /**
+     * Evidence bankovni-ucet-sklad-pokladna (Banky/pokladny/sklady) Relations.
+     *
+     * @var array
+     */
+ static public $bankovniUcetSkladPokladna = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2261,6 +2285,23 @@ class Relations
   ],
 ];
     /**
+     * Evidence typ-dokladu (Typy dokladů) Relations.
+     *
+     * @var array
+     */
+ static public $typDokladu = [
+  'autoTisky' => [
+    'url' => 'autoTisky',
+    'evidenceType' => 'AUTOTISK',
+    'name' => 'Automatický tisk',
+  ],
+  'uzivatelske-vazby' => [
+    'url' => 'uzivatelske-vazby',
+    'evidenceType' => 'VAZBA',
+    'name' => 'Uživatelské vazby',
+  ],
+];
+    /**
      * Evidence typ-interniho-dokladu (Typy interních dokladů) Relations.
      *
      * @var array
@@ -2646,18 +2687,6 @@ class Relations
   ],
 ];
     /**
-     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Relations.
-     *
-     * @var array
-     */
- static public $umisteniVeSkladuRegal = [
-  'uzivatelske-vazby' => [
-    'url' => 'uzivatelske-vazby',
-    'evidenceType' => 'VAZBA',
-    'name' => 'Uživatelské vazby',
-  ],
-];
-    /**
      * Evidence umisteni-ve-skladu (Umístění ve skladu) Relations.
      *
      * @var array
@@ -2670,11 +2699,11 @@ class Relations
   ],
 ];
     /**
-     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Relations.
+     * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Relations.
      *
      * @var array
      */
- static public $umisteniVeSkladuMistnost = [
+ static public $umisteniVeSkladuRegal = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2687,6 +2716,18 @@ class Relations
      * @var array
      */
  static public $umisteniVeSkladuPolice = [
+  'uzivatelske-vazby' => [
+    'url' => 'uzivatelske-vazby',
+    'evidenceType' => 'VAZBA',
+    'name' => 'Uživatelské vazby',
+  ],
+];
+    /**
+     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Relations.
+     *
+     * @var array
+     */
+ static public $umisteniVeSkladuMistnost = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
