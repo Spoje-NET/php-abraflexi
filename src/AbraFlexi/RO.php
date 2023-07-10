@@ -4,7 +4,7 @@ declare(strict_types=1);
 /**
  * AbraFlexi - Read Only Access to AbraFlexi class.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
+ * @author     Vítězslav Dvořák <vitezslav.dvorak@spojenet.cz>
  * @copyright  (C) 2015-2022 Spoje.Net
  */
 

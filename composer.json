@@ -1,11 +1,11 @@
 {
     "name": "spojenet/flexibee",
-    "description": "Library for easy interaction with czech accounting system FlexiBee.",
+    "description": "Library for easy interaction with czech economic system FlexiBee.",
     "license": "MIT",
     "authors": [
         {
             "name": "Vítězslav Dvořák",
-            "email": "vitex@arachne.cz"
+            "email": "info@vitexsoftware.cz"
         }
     ],
     "keywords": [
