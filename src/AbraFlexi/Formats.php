@@ -19,7 +19,7 @@ class Formats
  *
  * @var string
  */
- static public $version = '2023.3.1';
+ static public $version = '2023.4.1';
 
 
     /**
@@ -2066,11 +2066,11 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Formats.
+     * Evidence umisteni-ve-skladu (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladuMistnost = [
+ static public $umisteniVeSkladu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2099,11 +2099,11 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
-     * Evidence umisteni-ve-skladu (Umístění ve skladu) Formats.
+     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladu = [
+ static public $umisteniVeSkladuMistnost = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
