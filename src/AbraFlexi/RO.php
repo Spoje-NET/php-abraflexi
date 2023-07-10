@@ -27,7 +27,7 @@ class RO extends \Ease\Sand
     public $objectName = null;
 
     /**
-     * Where to get JSON files with evidence stricture etc.
+     * Where to get JSON files with evidence structure etc.
      * @var string
      */
     public static $infoDir = __DIR__ . '/../../static';
