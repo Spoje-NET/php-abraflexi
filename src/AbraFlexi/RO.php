@@ -447,7 +447,7 @@ class RO extends \Ease\Sand
      */
     public function __construct($init = null, $options = [])
     {
-        $this->urlParams =& $this->urlParamsKnown; //Sync deprecated variable with current TODO: Remove in 2024
+        $this->urlParams = & $this->urlParamsKnown; //Sync deprecated variable with current TODO: Remove in 2024
         $this->init = $init;
         parent::setObjectName();
         $this->setUp($options);
@@ -2093,7 +2093,9 @@ class RO extends \Ease\Sand
         }
         if (empty($ident)) {
             $ident = $this->getRecordID();
-            $this->addStatusMessage('getRecordIdent: No ext: or code: record identificator found', 'warning' );
+            if ($this->debug && is_numeric($ident)) {
+                $this->addStatusMessage('getRecordIdent: only numeric record identificator found', 'warning');
+            }
         }
         return $ident;
     }
