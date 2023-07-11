@@ -2094,7 +2094,7 @@ class RO extends \Ease\Sand
         if (empty($ident)) {
             $ident = $this->getRecordID();
             if ($this->debug && is_numeric($ident)) {
-                $this->addStatusMessage('getRecordIdent: only numeric record identificator found', 'warning');
+                $this->addStatusMessage(sprintf('getRecordIdent: only numeric record identificator %d in %s found', $ident, $this->getEvidence()), 'warning');
             }
         }
         return $ident;
