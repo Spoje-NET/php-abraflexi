@@ -21,7 +21,7 @@ class Actions
      *
      * @var string
      */
- static public $version = '2023.4.1';
+ static public $version = '2023.4.2';
 
     /**
      * Evidence adresar (Adresy firem) Actions.
@@ -7500,11 +7500,11 @@ class Actions
   ],
 ];
     /**
-     * Evidence umisteni-ve-skladu (Umístění ve skladu) Actions.
+     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Actions.
      *
      * @var array
      */
- static public $umisteniVeSkladu = [
+ static public $umisteniVeSkladuMistnost = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7617,11 +7617,11 @@ class Actions
   ],
 ];
     /**
-     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Actions.
+     * Evidence umisteni-ve-skladu (Umístění ve skladu) Actions.
      *
      * @var array
      */
- static public $umisteniVeSkladuMistnost = [
+ static public $umisteniVeSkladu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',

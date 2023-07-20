@@ -21,7 +21,7 @@ class Relations
      *
      * @var string
      */
- static public $version = '2023.4.1';
+ static public $version = '2023.4.2';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
@@ -2687,11 +2687,11 @@ class Relations
   ],
 ];
     /**
-     * Evidence umisteni-ve-skladu (Umístění ve skladu) Relations.
+     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Relations.
      *
      * @var array
      */
- static public $umisteniVeSkladu = [
+ static public $umisteniVeSkladuMistnost = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2723,11 +2723,11 @@ class Relations
   ],
 ];
     /**
-     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Relations.
+     * Evidence umisteni-ve-skladu (Umístění ve skladu) Relations.
      *
      * @var array
      */
- static public $umisteniVeSkladuMistnost = [
+ static public $umisteniVeSkladu = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
