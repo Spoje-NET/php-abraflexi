@@ -391,7 +391,7 @@ Příklady použití:
   * [Matcher](https://github.com/VitexSoftware/php-abraflexi-matcher) Párovač fakur
   * [Redmine2AbraFlexi](https://github.com/VitexSoftware/Redmine2AbraFlexi) Generuje faktury z odpracovaného času v Redmine
   * [FlexiPeeHP-Bricks](https://github.com/VitexSoftware/FlexiPeeHP-Bricks) Příklady a často požívaní třídy při práci s AbraFlexi
-  * [TestingTools](https://github.com/VitexSoftware/AbraFlexi-TestingTools) Nástroje pro testování AbraFlexi aplikací
+  * [AbraFlexi Tools](https://github.com/VitexSoftware/AbraFlexi-Tools) Nástroje pro skriptování AbraFlexi z příkazové řádky
 
 
 Reference:
