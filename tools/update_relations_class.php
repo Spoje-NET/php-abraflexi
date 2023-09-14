@@ -5,7 +5,7 @@ namespace AbraFlexi;
 define('EASE_APPNAME', 'FlexiPeehUP');
 define('EASE_LOGGER', 'console|syslog');
 
-require_once '../testing/bootstrap.php';
+require_once '../test/bootstrap.php';
 require_once  __DIR__ . '/common.php';
 
 $outFile = 'Relations.php';

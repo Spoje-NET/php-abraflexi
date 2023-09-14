@@ -1,4 +1,4 @@
-/testing               export-ignore
+/test               export-ignore
 /.gitattributes     export-ignore
 /.gitignore         export-ignore
 /.scrutinizer.yml  export-ignore
