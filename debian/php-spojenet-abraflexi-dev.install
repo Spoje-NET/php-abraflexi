@@ -1,3 +1,3 @@
-testing/AbraFlexi/*.php		 /usr/share/php/AbraFlexiDev
+test/src/AbraFlexi/*.php	 /usr/share/php/AbraFlexiDev
 debian/composer.json		 /usr/share/php/AbraFlexiDev
 debian/test/*                    /usr/share/doc/AbraFlexiDev
