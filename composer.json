@@ -1,6 +1,6 @@
 {
     "name": "spojenet/flexibee",
-    "description": "Library for easy interaction with czech economic system FlexiBee.",
+    "description": "Library for easy interaction with czech economic system AbraFlexi.",
     "license": "MIT",
     "authors": [
         {
@@ -18,7 +18,7 @@
         "ext-json": "*",
         "ext-curl": "*",
         "ext-gettext": "*",
-        "vitexsoftware/ease-core": ">=1.12"
+        "vitexsoftware/ease-core": ">=1.40"
     },
     "autoload": {
         "psr-4": {
@@ -28,18 +28,14 @@
     "autoload-dev": {
         "psr-4": {
             "Test\\Ease\\": "vendor/vitexsoftware/ease-core/tests/src/Ease",
-            "Test\\AbraFlexi\\": "testing/src/AbraFlexi/",
-            "Test\\": "testing/"
+            "Test\\AbraFlexi\\": "test/src/AbraFlexi/",
+            "Test\\": "test/"
         }
     },
     "require-dev": {
 	"ext-iconv": "*",
         "phpunit/phpunit": "*",
 	"phing/phing": "*"
-    },
-    "replace": {
-	"spoje.net/flexipeehp": "*",
-	"spoje.net/flexibee": "*"
     },
     "scripts": {
         "post-install-cmd": [
