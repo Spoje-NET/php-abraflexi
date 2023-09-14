@@ -6,4 +6,4 @@
  * @copyright  (G) 2017 Vitex Software
  */
 
-require_once '../testing/bootstrap.php';
+require_once '../test/bootstrap.php';

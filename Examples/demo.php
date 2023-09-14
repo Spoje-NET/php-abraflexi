@@ -2,7 +2,7 @@
 
 namespace AbraFlexi;
 
-require_once '../testing/bootstrap.php';
+require_once '../test/bootstrap.php';
 
 echo _('FlexiBee Connection Test')."\n\n";
 

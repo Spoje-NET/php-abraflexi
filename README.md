@@ -339,9 +339,9 @@ Přidejte do vašeho composer.json i cesty k původním testům:
 ```json
     "autoload-dev": {
         "psr-4": {
-            "Test\\": "vendor/spojenet/php-abraflexi/testing/src/AbraFlexi/testing/",
+            "Test\\": "vendor/spojenet/php-abraflexi/test/src/AbraFlexi/test/",
             "Test\\Ease\\": "vendor/vitexsoftware/ease-core/tests/src/Ease",
-            "Test\\AbraFlexi\\": "vendor/spojenet/php-abraflexi/testing/src/AbraFlexi/",
+            "Test\\AbraFlexi\\": "vendor/spojenet/php-abraflexi/test/src/AbraFlexi/",
          }
     }
 ```
