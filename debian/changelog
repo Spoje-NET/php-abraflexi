@@ -1,4 +1,4 @@
-php-spojenet-abraflexi (2.24.1) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (2.24.1.81~jammy) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -47,8 +47,9 @@ php-spojenet-abraflexi (2.24.1) UNRELEASED; urgency=medium
   * Attachment Downloader fixed
   * Document interface added
   * jenkins-Spoje.Net-php-spojenet-abraflexi-67
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-81
 
- -- vitex <jenkins@vyvojar.spoje.net>  Tue, 11 Jul 2023 07:43:49 +0000
+ -- vitex <jenkins@vyvojar.spoje.net>  Fri, 15 Sep 2023 06:34:13 +0000
 
 flexipeehp (1.12) experimental; urgency=medium
 
