@@ -16,7 +16,7 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/faktura-prijata/properties
  */
-class FakturaPrijata extends RW implements \AbraFlexi\Document {
+class FakturaPrijata extends RW implements Document {
 
     use stitky;
     use firma;
