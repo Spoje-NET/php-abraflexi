@@ -21,7 +21,7 @@ class Actions
      *
      * @var string
      */
- static public $version = '2023.4.3';
+ static public $version = '2023.4.4';
 
     /**
      * Evidence adresar (Adresy firem) Actions.
