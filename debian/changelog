@@ -1,4 +1,4 @@
-php-spojenet-abraflexi (2.24.1.81~jammy.83~jammy.84~bullseye) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (2.24.1.81~jammy.83~jammy.84~bullseye.84~focal) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -50,8 +50,9 @@ php-spojenet-abraflexi (2.24.1.81~jammy.83~jammy.84~bullseye) UNRELEASED; urgenc
   * jenkins-Spoje.Net-php-spojenet-abraflexi-81
   * jenkins-Spoje.Net-php-spojenet-abraflexi-83
   * jenkins-Spoje.Net-php-spojenet-abraflexi-84
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-84
 
- -- vitex <jenkins@vyvojar.spoje.net>  Wed, 20 Sep 2023 12:22:09 +0000
+ -- vitex <jenkins@vyvojar.spoje.net>  Wed, 20 Sep 2023 12:25:40 +0000
 
 flexipeehp (1.12) experimental; urgency=medium
 
