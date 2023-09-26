@@ -2,7 +2,11 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
+<<<<<<< HEAD
  * Generated: Tue, 19 Sep 2023 07:25:40 +0000 
+=======
+ * Generated: Tue, 19 Sep 2023 07:29:41 +0000 
+>>>>>>> e987c27823348d4d57805b65369e45d4593f39d0
  * From:      https://demo.flexibee.eu
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
