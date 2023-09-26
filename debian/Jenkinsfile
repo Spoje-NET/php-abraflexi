@@ -33,6 +33,7 @@ distributions.each {
     node {
         ansiColor('xterm') {
             stage('Checkout ' + distribution) {
+            checkout scm
                 buildImage = docker.image(vendor + '/' + distribution)
 		sh 'git checkout debian/changelog'
                 def VERSION = sh (
@@ -46,6 +47,7 @@ distributions.each {
                     sh 'dch -b -v ' + ver  + ' "' + env.BUILD_TAG  + '"'
                     sh 'sudo apt-get update --allow-releaseinfo-change'
                     sh 'sudo chown jenkins:jenkins ..'
+                    sh 'sudo apt install -y php-mbstring'
                     sh 'debuild-pbuilder  -i -us -uc -b'
                     sh 'mkdir -p $WORKSPACE/dist/debian/ ; rm -rf $WORKSPACE/dist/debian/* ; for deb in $(cat debian/files | awk \'{print $1}\'); do mv "../$deb" $WORKSPACE/dist/debian/; done'
                 }
