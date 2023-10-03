@@ -2,11 +2,7 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
-<<<<<<< HEAD
- * Generated: Tue, 19 Sep 2023 07:25:40 +0000 
-=======
- * Generated: Tue, 19 Sep 2023 07:29:41 +0000 
->>>>>>> e987c27823348d4d57805b65369e45d4593f39d0
+ * Generated: Tue, 03 Oct 2023 09:49:28 +0200 
  * From:      https://demo.flexibee.eu
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -50,7 +46,7 @@ class EvidenceList extends RO
      *
      * @var string
      */
- static public $version = '2023.4.4';
+ static public $version = '2023.4.5';
 
     /**
      * Evidences Path/Name listing.
@@ -235,10 +231,10 @@ class EvidenceList extends RO
   'udalost' => 'Události, aktivity',
   'radek-priznani-dph' => 'Uložené řádky přiznání DPH',
   'umisteni' => 'Umístění',
-  'umisteni-ve-skladu' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
   'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
   'umisteni-ve-skladu-police' => 'Umístění ve skladu',
-  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
+  'umisteni-ve-skladu' => 'Umístění ve skladu',
   'sablona-upominky' => 'Upomínky',
   'umisteni-uctu' => 'Upřesnění umístění účtu',
   'strom' => 'Uzel stromu',
