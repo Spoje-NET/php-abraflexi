@@ -1,13 +1,13 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * AbraFlexi - Objekt vydané faktury.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2015-2017 Spoje.Net
  */
+
+declare(strict_types=1);
 
 namespace AbraFlexi;
 
@@ -16,8 +16,8 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/faktura-vydana/properties položky evidence
  */
-class FakturaVydana extends RW implements \AbraFlexi\Document {
-
+class FakturaVydana extends RW implements \AbraFlexi\Document
+{
     use stitky;
     use firma;
     use sum;
@@ -244,9 +244,8 @@ class FakturaVydana extends RW implements \AbraFlexi\Document {
      *
      * @return boolean Operation success
      */
-    public function addArrayToBranch($data, $relationPath = 'polozkyFaktury',
-            $removeAll = false) {
+    public function addArrayToBranch($data, $relationPath = 'polozkyFaktury', $removeAll = false)
+    {
         return parent::addArrayToBranch($data, $relationPath, $removeAll);
     }
-
 }

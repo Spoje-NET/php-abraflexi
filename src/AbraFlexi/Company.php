@@ -1,13 +1,13 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * AbraFlexi - Objekt Společnosti.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2020 Spoje.Net
+ * @copyright  (C) 2015-2023 Spoje.Net
  */
+
+declare(strict_types=1);
 
 namespace AbraFlexi;
 
@@ -18,8 +18,8 @@ use AbraFlexi\RW;
  *
  * @note Tato položka nemá dostupné položky evidence
  */
-class Company extends RW {
-
+class Company extends RW
+{
     /**
      * Základní namespace pro komunikaci s AbraFlexi.
      *
@@ -60,7 +60,8 @@ class Company extends RW {
      * @param string|array $init    company dbNazev or initial data
      * @param array        $options Connection settings override
      */
-    public function __construct($init = null, $options = []) {
+    public function __construct($init = null, $options = [])
+    {
         if (is_string($init)) {
             $init = ['dbNazev' => $init];
         }
@@ -79,8 +80,8 @@ class Company extends RW {
      *
      * @param mixed $init číslo/"(code:)kód"/(část)URI záznamu k načtení | pole hodnot k předvyplnění
      */
-    public function processInit($init) {
-
+    public function processInit($init)
+    {
         parent::processInit($init);
         if (is_array($init) && array_key_exists('dbNazev', $init)) {
             $companyInfo = $this->getFlexiData('/c/' . $init['dbNazev']);
@@ -96,7 +97,8 @@ class Company extends RW {
      * @link https://www.abraflexi.eu/api/dokumentace/ref/urls/ Sestavování URL
      * @param string $urlSuffix
      */
-    public function getEvidenceURL($urlSuffix = null) {
+    public function getEvidenceURL($urlSuffix = null)
+    {
         if (is_null($urlSuffix)) {
             $urlSuffix = $this->evidence;
         }
@@ -110,12 +112,13 @@ class Company extends RW {
 
     /**
      * Gives you current ApiURL with given format suffix
-     * 
+     *
      * @param string $format json|html|xml|...
-     * 
+     *
      * @return string API URL for current record or object/evidence
      */
-    public function getApiURL($format = null) {
+    public function getApiURL($format = null)
+    {
         return dirname(parent::getApiURL($format));
     }
 
@@ -124,7 +127,8 @@ class Company extends RW {
      *
      * @return string
      */
-    public function getResponseEvidence() {
+    public function getResponseEvidence()
+    {
         return 'company';
     }
 
@@ -136,7 +140,8 @@ class Company extends RW {
      *
      * @return array
      */
-    public function rawResponseToArray(string $responseRaw, string $format) {
+    public function rawResponseToArray(string $responseRaw, string $format)
+    {
         if (strstr($responseRaw, 'winstrom')) {
             $nsbackup = $this->nameSpace;
             $this->nameSpace = 'winstrom';
@@ -155,14 +160,14 @@ class Company extends RW {
      *
      * @return boolean was backup saved to file ?
      */
-    public function saveBackupTo($filename) {
+    public function saveBackupTo($filename)
+    {
         $result = false;
         $headersBackup = $this->defaultHttpHeaders;
         $this->defaultHttpHeaders['Accept'] = '*/*';
         $this->defaultHttpHeaders['Content-Type'] = 'application/x-winstrom-backup';
         $this->performRequest('backup', 'GET');
         $this->defaultHttpHeaders = $headersBackup;
-
         if ($this->lastResponseCode == 200) {
             if (file_put_contents($filename, $this->lastCurlResponse)) {
                 $result = true;
@@ -178,17 +183,20 @@ class Company extends RW {
      * @link https://www.abraflexi.eu/api/dokumentace/ref/restore-backup/ Obnovení ze zálohy
      *
      * @param string $filename             *.winstrom-backup file
-     * @param string $name                 Extra name for restored company   
-     * @param boolean $disableEet          Disable EET on restored company 
-     * @param boolean $disableAutoSendMail Dsable auto sending of all documents 
-     * @param boolean $disableWebHooks     Remove Registered webhooks 
+     * @param string $name                 Extra name for restored company
+     * @param boolean $disableEet          Disable EET on restored company
+     * @param boolean $disableAutoSendMail Dsable auto sending of all documents
+     * @param boolean $disableWebHooks     Remove Registered webhooks
      *
      * @return boolean restore result
      */
-    public function restoreBackupFrom($filename, $name = null,
-            $disableEet = false,
-            $disableAutoSendMail = false,
-            $disableWebHooks = false) {
+    public function restoreBackupFrom(
+        $filename,
+        $name = null,
+        $disableEet = false,
+        $disableAutoSendMail = false,
+        $disableWebHooks = false
+    ) {
         $options = [];
         if (!empty($name)) {
             $options['name'] = $name;
@@ -206,8 +214,7 @@ class Company extends RW {
         $this->defaultHttpHeaders['Accept'] = '*/*';
         $this->defaultHttpHeaders['Content-Type'] = 'application/x-winstrom-backup';
         $this->setPostFields(file_get_contents($filename));
-        $this->performRequest('restore' . (empty($options) ? '' : '?' . http_build_query($options) ),
-                'PUT');
+        $this->performRequest('restore' . (empty($options) ? '' : '?' . http_build_query($options) ), 'PUT');
         $this->defaultHttpHeaders = $headersBackup;
         return $this->lastResponseCode == 200;
     }
@@ -219,28 +226,30 @@ class Company extends RW {
      *
      * @return boolean
      */
-    public function createNew($name) {
-        $this->performRequest('/admin/zalozeni-firmy?name=' . urlencode($name),
-                'PUT');
+    public function createNew($name)
+    {
+        $this->performRequest('/admin/zalozeni-firmy?name=' . urlencode($name), 'PUT');
         return $this->lastResponseCode == 201;
     }
 
     /**
      * Obtain company identifier
      *
-     * @return string company database name
+     * @return int|null company database name
      */
-    public function getRecordID() {
+    public function getRecordID()
+    {
         return $this->getDataValue('dbNazev');
     }
 
     /**
      * Company has no relations
      *
-     * @return null
+     * @return array
      */
-    public function getVazby($id = null) {
-        throw new Exception(_('Company has no relations'), $this);
+    public function getVazby($bid = null)
+    {
+        throw new Exception(_('Company has no relations') . ' ' . strval($bid), $this);
     }
 
     /**
@@ -248,15 +257,15 @@ class Company extends RW {
      * Delete  company in AbraFlexi
      *
      * @param string $company identifikátor záznamu
-     * 
+     *
      * @return boolean Response code is 200 ?
      */
-    public function deleteFromAbraFlexi($company = null) {
+    public function deleteFromAbraFlexi($company = null)
+    {
         if (is_null($company)) {
             $company = $this->getDataValue('dbNazev');
         }
         $this->performRequest('/c/' . $company . '.' . $this->format, 'DELETE');
         return $this->lastResponseCode == 200;
     }
-
 }

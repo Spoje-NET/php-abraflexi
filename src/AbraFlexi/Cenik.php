@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * AbraFlexi - Pricelist class.
  *              Objekt ceníku.
@@ -9,6 +7,8 @@ declare(strict_types=1);
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2016-2017 Spoje.Net
  */
+
+declare(strict_types=1);
 
 namespace AbraFlexi;
 
@@ -21,8 +21,8 @@ use AbraFlexi\subItems;
  *
  * @link https://demo.flexibee.eu/c/demo/cenik/properties Vlastnosti evidence
  */
-class Cenik extends RW {
-
+class Cenik extends RW
+{
     use stitky;
     use subItems;
     use getChanges;
@@ -33,5 +33,4 @@ class Cenik extends RW {
      * @var string
      */
     public $evidence = 'cenik';
-
 }

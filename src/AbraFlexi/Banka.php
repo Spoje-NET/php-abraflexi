@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * AbraFlexi - Bank Class.
  *              Objekt Banky.
@@ -9,6 +7,8 @@ declare(strict_types=1);
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2015-2023 Spoje.Net
  */
+
+declare(strict_types=1);
 
 namespace AbraFlexi;
 
@@ -19,11 +19,11 @@ use AbraFlexi\subItems;
 
 /**
  * Banka
- * 
+ *
  * @link https://demo.flexibee.eu/c/demo/banka/properties Vlastnosti evidence
  */
-class Banka extends RW implements \AbraFlexi\Document {
-
+class Banka extends RW implements \AbraFlexi\Document
+{
     use stitky;
     use firma;
     use email;
@@ -49,7 +49,8 @@ class Banka extends RW implements \AbraFlexi\Document {
      *
      * @return boolean
      */
-    public function stahnoutVypisyOnline() {
+    public function stahnoutVypisyOnline()
+    {
         $this->pullMode = true;
         $this->performRequest('nacteni-vypisu-online.json', 'PUT', 'txt');
         $this->pullMode = false;
@@ -63,25 +64,26 @@ class Banka extends RW implements \AbraFlexi\Document {
      *
      * @return array
      */
-    public function rawJsonToArray($rawJson) {
+    public function rawJsonToArray($rawJson)
+    {
         return $this->pullMode ? explode($rawJson, "\n") : parent::rawJsonToArray($rawJson);
     }
-    
+
     /**
      * Start invoice automatic matching process ( it takes longer time )
      * Spustí proces automatického párování plateb. ( trvá delší dobu )
      *
      * @link https://demo.flexibee.eu/devdoc/parovani-plateb Interní dokumentace
-     * 
+     *
      * @param boolean $advanced Use Advanced matching method ?
      * @param string $filter Filter bank records before pairing ?
-     * 
+     *
      * @return boolean
      */
-    public function automatickeParovani($advanced = false, $filter = null) {
+    public function automatickeParovani($advanced = false, $filter = null)
+    {
         $filterUrl = $filter === null ? "" : rtrim($filter, '/') . '/';
         $this->performRequest($filterUrl . 'automaticke-parovani' . ($advanced ? '-pokrocile' : '' ), 'PUT');
         return $this->lastResponseCode == 200;
     }
-
 }

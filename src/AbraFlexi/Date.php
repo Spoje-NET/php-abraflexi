@@ -4,7 +4,7 @@
  * AbraFlexi - Date object.
  *
  * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  (C) 2021 Spoje.Net
+ * @copyright  (C) 2021-2023 Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -14,8 +14,8 @@ namespace AbraFlexi;
  *
  * @author vitex
  */
-class Date extends \DateTime {
-
+class Date extends \DateTime
+{
     /**
      * Support for Null values
      * @var bool
@@ -29,7 +29,8 @@ class Date extends \DateTime {
      *
      * @return \DateTime | false
      */
-    public function __construct(string $flexidate = 'NOW') {
+    public function __construct(string $flexidate = 'NOW')
+    {
         $this->isNull = empty($flexidate);
         $format = '';
         if (strstr($flexidate, '+')) {
@@ -45,17 +46,18 @@ class Date extends \DateTime {
         if (empty($format)) {
             parent::__construct();
         } else {
-            parent::__construct(\DateTime::createFromFormat($format, $flexidate)->setTime(0, 0)->format(\DateTimeInterface::ATOM));
+            parent::__construct(\DateTime::createFromFormat($format, $flexidate)
+                    ->setTime(0, 0)->format(\DateTimeInterface::ATOM));
         }
     }
 
     /**
      * Render Object as AbraFlexi::$DateFormat
-     * 
+     *
      * @return string
      */
-    public function __toString() {
+    public function __toString()
+    {
         return $this->isNull ? '' : $this->format(RO::$DateFormat);
     }
-
 }

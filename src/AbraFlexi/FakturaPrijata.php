@@ -1,13 +1,13 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * AbraFlexi - Invoice Incomed.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2015-2023 Spoje.Net
  */
+
+declare(strict_types=1);
 
 namespace AbraFlexi;
 
@@ -16,8 +16,8 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/faktura-prijata/properties
  */
-class FakturaPrijata extends RW implements Document {
-
+class FakturaPrijata extends RW implements Document
+{
     use stitky;
     use firma;
     use sum;
@@ -31,5 +31,4 @@ class FakturaPrijata extends RW implements Document {
      * @var string
      */
     public $evidence = 'faktura-prijata';
-
 }

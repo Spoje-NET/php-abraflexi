@@ -84,6 +84,7 @@ function getEvidenceActions($evidence, RO $syncer) {
 }
 
 $evidenceActions = '<?php
+    
 /**
  * AbraFlexi - Evidence Actions.
  *

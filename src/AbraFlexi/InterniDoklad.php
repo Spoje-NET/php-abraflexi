@@ -1,13 +1,13 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * AbraFlexi - Internal Document.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2019 Spoje.Net
+ * @copyright  (C) 2015-2023 Spoje.Net
  */
+
+declare(strict_types=1);
 
 namespace AbraFlexi;
 
@@ -16,8 +16,8 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/interni-doklad/properties
  */
-class InterniDoklad extends RW implements \AbraFlexi\Document {
-
+class InterniDoklad extends RW implements \AbraFlexi\Document
+{
     use stitky;
     use firma;
     use sum;
@@ -31,5 +31,4 @@ class InterniDoklad extends RW implements \AbraFlexi\Document {
      * @var string
      */
     public $evidence = 'interni-doklad';
-
 }

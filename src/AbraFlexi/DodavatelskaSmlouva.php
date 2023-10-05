@@ -1,12 +1,13 @@
 <?php
 
-declare(strict_types=1);
 /**
  * AbraFlexi - Objekt dodavatelské smlouvy.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * @copyright  (C) 2015-2023 Spoje.Net
  */
+
+declare(strict_types=1);
 
 namespace AbraFlexi;
 
@@ -21,7 +22,6 @@ use AbraFlexi\stitky;
  */
 class DodavatelskaSmlouva extends RW
 {
-
     use stitky;
     use subItems;
     use firma;
@@ -41,8 +41,7 @@ class DodavatelskaSmlouva extends RW
      */
     public function generateInvoices()
     {
-        $this->performRequest('dodavatelska-smlouva/generovani-faktur.xml',
-                'PUT', 'xml');
+        $this->performRequest('dodavatelska-smlouva/generovani-faktur.xml', 'PUT', 'xml');
         return $this->lastResponseCode == 200;
     }
 }

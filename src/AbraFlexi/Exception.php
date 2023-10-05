@@ -3,11 +3,8 @@
 /**
  * AbraFlexi - Somenthing goes wrong.
  *
- * Generated: Sat, 27 Feb 2021 22:30:07 +0100 
- * From:      https://vitexsoftware.abraflexi.eu:5434
- *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2021-2022 Spoje.Net
+ * @copyright  (C) 2021-2023 Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -17,8 +14,8 @@ namespace AbraFlexi;
  *
  * @author vitex
  */
-class Exception extends \Ease\Exception {
-
+class Exception extends \Ease\Exception
+{
     /**
      * Original server response
      * @var string

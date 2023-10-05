@@ -1,13 +1,12 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * AbraFlexi - Objekt adresáře.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2015-2023 Spoje.Net
  */
+declare(strict_types=1);
 
 namespace AbraFlexi;
 
@@ -16,7 +15,8 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/adresar/properties položky evidence
  */
-class Adresar extends RW {
+class Adresar extends RW
+{
 
     use stitky;
     use subItems;
@@ -32,10 +32,11 @@ class Adresar extends RW {
 
     /**
      * get Email address for Customer with primary contact prefered
-     * 
+     *
      * @return string email of primary contact or address email or null
      */
-    public function getNotificationEmailAddress() {
+    public function getNotificationEmailAddress()
+    {
         $email = null;
         $emailsRaw = $this->getFlexiData($this->getApiURL(),
                 ['detail' => 'custom:id,email,kontakty(primarni,email)', 'relations' => 'kontakty']);
@@ -61,7 +62,8 @@ class Adresar extends RW {
      * 
      * @return string cell phone number of primary contact or address cell number or null
      */
-    public function getCellPhoneNumber() {
+    public function getCellPhoneNumber()
+    {
         $mobil = null;
         $mobilsRaw = $this->getFlexiData($this->getApiURL(),
                 ['detail' => 'custom:id,mobil,kontakty(primarni,mobil)', 'relations' => 'kontakty']);
@@ -87,7 +89,8 @@ class Adresar extends RW {
      * 
      * @return string phone number of primary contact or address's phone number or null
      */
-    public function getAnyPhoneNumber() {
+    public function getAnyPhoneNumber()
+    {
         $phoneNo = null;
         $numbersRaw = $this->getFlexiData($this->getApiURL(),
                 ['detail' => 'custom:id,mobil,tel,kontakty(primarni,mobil,tel)', 'relations' => 'kontakty']);
@@ -107,7 +110,7 @@ class Adresar extends RW {
                         if (strlen(trim($kontakt['mobil']))) {
                             $phoneNo = $kontakt['mobil'];
                             break;
-                        } 
+                        }
                     }
                 }
 
@@ -132,12 +135,12 @@ class Adresar extends RW {
      * 
      * @return array bank account details
      */
-    public function getBankAccountNumber($address = null) {
+    public function getBankAccountNumber($address = null)
+    {
         if (is_null($address)) {
             $address = $this->getMyKey();
         }
         $bucRaw = $this->getColumnsFromAbraFlexi(['buc', 'smerKod'], ['firma' => $address, 'evidence' => 'adresar-bankovni-ucet']);
         return (!empty($bucRaw) && array_key_exists(0, $bucRaw)) ? $bucRaw : [];
     }
-
 }
