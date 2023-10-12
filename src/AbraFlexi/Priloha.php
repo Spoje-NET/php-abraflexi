@@ -17,8 +17,8 @@ namespace AbraFlexi;
  * @link https://www.abraflexi.eu/api/dokumentace/ref/attachments/
  * @link https://demo.flexibee.eu/c/demo/priloha/properties
  */
-class Priloha extends RW {
-
+class Priloha extends RW
+{
     /**
      * Evidence užitá objektem.
      *
@@ -51,7 +51,8 @@ class Priloha extends RW {
      * @param string $filepath
      * @param array  $attachmentData
      */
-    public function attachFile($filepath, $attachmentData = []) {
+    public function attachFile($filepath, $attachmentData = [])
+    {
         if (file_exists($filepath)) {
             $attachmentData['nazSoub'] = basename($filepath);
             $attachmentData['contentType'] = mime_content_type($filepath);
@@ -74,7 +75,8 @@ class Priloha extends RW {
      * @param RO $object Source object
      * @return string url
      */
-    public static function getDownloadUrl($object) {
+    public static function getDownloadUrl($object)
+    {
         $urlParts = parse_url($object->apiURL);
         $pathParts = pathinfo($urlParts['path']);
         return $urlParts['scheme'] . '://' . $urlParts['host'] . ( array_key_exists('port', $urlParts) ? ':' . $urlParts['port'] : '') . $pathParts['dirname'] . '/' . $pathParts['filename'] . '/content';
@@ -86,24 +88,25 @@ class Priloha extends RW {
      * @param  RO $object
      * @return array
      */
-    public static function getFirstAttachment($object) {
+    public static function getFirstAttachment($object)
+    {
         $attachments = self::getAttachmentsList($object);
         return count($attachments) ? current($attachments) : null;
     }
 
     /**
      * Gives you attachment body as return value
-     * 
+     *
      * @param int   $attachmentID
      * @param array $options      Additional Connection Options
-     * 
+     *
      * @return string
      */
-    public static function getAttachment($attachmentID, $options = []) {
+    public static function getAttachment($attachmentID, $options = [])
+    {
         $result = null;
         $downloader = new Priloha($attachmentID, $options);
         if ($downloader->lastResponseCode == 200) {
-
             $downloader->doCurlRequest(self::getDownloadURL($downloader), 'GET');
             if ($downloader->lastResponseCode == 200) {
                 $result = $downloader->lastCurlResponse;
@@ -118,21 +121,29 @@ class Priloha extends RW {
      * @param RO $object
      * @param int|string $attachmentID
      */
-    public static function download($object, $format = 'pdf',
-            $attachmentID = null) {
+    public static function download(
+        $object,
+        $format = 'pdf',
+        $attachmentID = null
+    ) {
         $attachments = self::getAttachmentsList($object);
 
-        if (isset($attachmentID) && !array_key_exists($attachmentID,
-                        $attachments)) {
-            $object->addStatusMessage(sprintf(_('Attachment %s does no exist'),$attachmentID), 'warning');
+        if (
+            isset($attachmentID) && !array_key_exists(
+                $attachmentID,
+                $attachments
+            )
+        ) {
+            $object->addStatusMessage(sprintf(_('Attachment %s does no exist'), $attachmentID), 'warning');
             if ($this->throwException == true) {
-                throw new Exception(sprintf(_('Attachment %s does no exist'),$attachmentID), $this);
+                throw new Exception(sprintf(_('Attachment %s does no exist'), $attachmentID), $this);
             }
-            
         }
 
-        $attachmentBody = $object->doCurlRequest(self::getDownloadUrl($object),
-                'GET');
+        $attachmentBody = $object->doCurlRequest(
+            self::getDownloadUrl($object),
+            'GET'
+        );
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
         header('Content-Transfer-Encoding: binary');
@@ -149,10 +160,11 @@ class Priloha extends RW {
      *
      * @param int $attachmentID
      * @param string $destination directory or filename with path
-     * 
+     *
      * @return int saved attachment length in bytes
      */
-    public static function saveToFile(int $attachmentID, $destination) {
+    public static function saveToFile(int $attachmentID, $destination)
+    {
         $result = 0;
         $downloader = new Priloha($attachmentID, ['autoload' => true]);
         if ($downloader->lastResponseCode == 200) {
@@ -172,9 +184,14 @@ class Priloha extends RW {
      *
      * @return Priloha attached file object
      */
-    public static function addAttachmentFromFile($object, $filename) {
-        return self::addAttachment($object, basename($filename),
-                        file_get_contents($filename), mime_content_type($filename));
+    public static function addAttachmentFromFile($object, $filename)
+    {
+        return self::addAttachment(
+            $object,
+            basename($filename),
+            file_get_contents($filename),
+            mime_content_type($filename)
+        );
     }
 
     /**
@@ -187,8 +204,12 @@ class Priloha extends RW {
      *
      * @return Priloha attached file object
      */
-    public static function addAttachment($object, $filename, $attachment,
-            $contentType) {
+    public static function addAttachment(
+        $object,
+        $filename,
+        $attachment,
+        $contentType
+    ) {
         $attached = new Priloha();
         $headersBackup = $object->defaultHttpHeaders;
         $codeBackup = $object->lastResponseCode;
@@ -210,10 +231,11 @@ class Priloha extends RW {
      * Obtain Record related attachments list
      *
      * @param RO $object
-     * 
+     *
      * @return array
      */
-    public static function getAttachmentsList($object) {
+    public static function getAttachmentsList($object)
+    {
         $fburl = $object->getAbraFlexiURL();
         $attachments = [];
         $oFormat = $object->format;
@@ -228,5 +250,4 @@ class Priloha extends RW {
         }
         return $attachments;
     }
-
 }

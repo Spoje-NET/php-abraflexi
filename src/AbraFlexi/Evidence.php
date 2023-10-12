@@ -19,51 +19,62 @@ use AbraFlexi\RO;
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-class Evidence extends Sand {
-
+class Evidence extends Sand
+{
     /**
      *
-     * @var RO 
+     * @var RO
      */
     public $engine = null;
 
     /**
      *
-     * @var array 
+     * @var array
      */
     public $conditions = [];
 
     /**
-     * 
+     *
      * @param RO $engine
-     * 
+     *
      * @param array $conditions
      */
-    public function __construct(RO $engine, array $conditions = []) {
+    public function __construct(RO $engine, array $conditions = [])
+    {
         $this->engine = $engine;
         $this->conditions = $conditions;
     }
 
     /**
      * Array of objects in eveidence
-     * 
+     *
      * @return array
      */
-    public function getEvidenceData() {
-        return $this->engine->getColumnsFromAbraFlexi(array_key_exists('detail',
-                                $this->conditions) ? $this->conditions['detail'] : 'full', $this->conditions);
+    public function getEvidenceData()
+    {
+        return $this->engine->getColumnsFromAbraFlexi(array_key_exists(
+            'detail',
+            $this->conditions
+        ) ? $this->conditions['detail'] : 'full', $this->conditions);
     }
 
     /**
      * Array of objects in eveidence
-     * 
+     *
      * @return RO[]
      */
-    public function getEvidenceObjects() {
+    public function getEvidenceObjects()
+    {
         $contents = [];
-        foreach ($this->engine->getColumnsFromAbraFlexi(array_key_exists('detail',
-                        $this->conditions) ? $this->conditions['detail'] : 'full',
-                $this->conditions) as $pos => $recordData) {
+        foreach (
+            $this->engine->getColumnsFromAbraFlexi(
+                array_key_exists(
+                    'detail',
+                    $this->conditions
+                ) ? $this->conditions['detail'] : 'full',
+                $this->conditions
+            ) as $pos => $recordData
+        ) {
             $contents[$pos] = clone $this->engine;
             $contents[$pos]->setData($recordData, true);
         }
@@ -72,11 +83,11 @@ class Evidence extends Sand {
 
     /**
      * get used evidence name
-     * 
+     *
      * @return string
      */
-    public function getEvidence() {
+    public function getEvidence()
+    {
         return $this->engine->getEvidence();
     }
-
 }

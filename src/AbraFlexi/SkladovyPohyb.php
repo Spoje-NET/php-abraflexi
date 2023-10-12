@@ -16,8 +16,8 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/skladovy-pohyb/properties
  */
-class SkladovyPohyb extends RW {
-
+class SkladovyPohyb extends RW
+{
     use stitky;
     use firma;
     use sum;
@@ -29,5 +29,4 @@ class SkladovyPohyb extends RW {
      * @var string
      */
     public $evidence = 'skladovy-pohyb';
-
 }

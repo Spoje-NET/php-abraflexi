@@ -16,13 +16,12 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/skupina-firem/properties
  */
-class SkupinaFirem extends RW {
-
+class SkupinaFirem extends RW
+{
     /**
      * Evidence užitá objektem.
      *
      * @var string
      */
     public $evidence = 'skupina-firem';
-
 }

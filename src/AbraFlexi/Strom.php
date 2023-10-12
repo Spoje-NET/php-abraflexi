@@ -16,8 +16,8 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/strom/properties vlastnosti evidence
  */
-class Strom extends RW {
-
+class Strom extends RW
+{
     /**
      * Evidence užitá objektem.
      *
@@ -31,5 +31,4 @@ class Strom extends RW {
      * @var string
      */
     public $nameColumn = 'nazev';
-
 }

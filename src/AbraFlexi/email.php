@@ -11,9 +11,9 @@ namespace AbraFlexi;
 
 /**
  * Add functions to use with "email" data column
- * 
+ *
  * Please use with:
- * 
+ *
  * faktura-prijata
  * prodejka
  * doklad-k-uhrade
@@ -31,22 +31,23 @@ namespace AbraFlexi;
  * poptavka-prijata
  * interni-doklad
  * objednavka-prijata
- * 
+ *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-trait email {
-
+trait email
+{
     /**
      * Get recipient for documnet.
-     * 
+     *
      * 1. try Document's "kontaktEmail" field
      * 2. try Document's company email
      * 3. try Document's primary contact mail
      * 4. try Document's any contact mail
-     * 
+     *
      * @return string
      */
-    public function getEmail() {
+    public function getEmail()
+    {
         if (empty($this->getDataValue('kontaktEmail'))) {
             $addresser = new Adresar($this->getDataValue('firma'), array_merge(['detail' => 'custom:email'], $this->getConnectionOptions()));
             if (empty($addresser->getDataValue('email'))) {
@@ -60,5 +61,4 @@ trait email {
 
         return $email;
     }
-
 }

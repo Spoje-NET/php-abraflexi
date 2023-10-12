@@ -17,8 +17,8 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/adresar/properties položky evidence
  */
-class Zurnal extends RO {
-
+class Zurnal extends RO
+{
     /**
      * Evidence užitá objektem.
      *
@@ -38,7 +38,8 @@ class Zurnal extends RO {
      * @param mixed $init default record id or initial data
      * @param array $options Connection settings and other options override
      */
-    public function __construct($init = null, $options = []) {
+    public function __construct($init = null, $options = [])
+    {
         parent::__construct($init, $options);
         foreach (EvidenceList::$evidences as $evidenceName => $evidenceProperties) {
             if (array_key_exists('dbName', $evidenceProperties)) {
@@ -61,14 +62,17 @@ class Zurnal extends RO {
      * @param RO $object
      * @return array changes history
      */
-    public function getAllChanges($object) {
+    public function getAllChanges($object)
+    {
         $changesArray = [];
 
         $evidence = $object->getEvidence();
         if (array_key_exists($evidence, self::$evidenceToDb)) {
             $dbTable = self::$evidenceToDb[$evidence];
-            $changes = $this->getColumnsFromAbraFlexi('*',
-                    ['tabulka' => $dbTable, 'idZaznamu' => $object->getMyKey()]);
+            $changes = $this->getColumnsFromAbraFlexi(
+                '*',
+                ['tabulka' => $dbTable, 'idZaznamu' => $object->getMyKey()]
+            );
 
             foreach ($changes as $change) {
                 $changesArray[$change['datCas']][$change['sloupec']] = $change;
@@ -83,7 +87,8 @@ class Zurnal extends RO {
      * @param RO $object
      * @return array Old/New values pairs
      */
-    public function getLastChange($object) {
+    public function getLastChange($object)
+    {
         $lastChange = null;
         $allChanges = $this->getAllChanges($object);
         if (count($allChanges)) {
@@ -91,5 +96,4 @@ class Zurnal extends RO {
         }
         return $lastChange;
     }
-
 }

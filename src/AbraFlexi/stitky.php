@@ -15,25 +15,27 @@ namespace AbraFlexi;
  * Add for Objects use with "firma" data column
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-trait stitky {
-
+trait stitky
+{
     /**
      * Get all labels for current record
-     * 
+     *
      * @return array
      */
-    public function getLabels() {
+    public function getLabels()
+    {
         return Stitek::listToArray($this->getDataValue('stitky'));
     }
 
     /**
      * Set one of availble Labels for current record
-     * 
+     *
      * @param string $label
-     * 
+     *
      * @return boolean Operation success
      */
-    public function setLabel($label) {
+    public function setLabel($label)
+    {
         $this->insertToAbraFlexi(['id' => $this->getRecordIdent(), 'stitky' => $label]);
         return $this->lastResponseCode == 201;
     }
@@ -45,10 +47,13 @@ trait stitky {
      *
      * @return boolean   success result ?
      */
-    public function unsetLabel($labelsToRemove) {
+    public function unsetLabel($labelsToRemove)
+    {
         $this->insertToAbraFlexi(['id' => $this->getRecordIdent(), 'stitky@removeAll' => 'true',
-            'stitky' => array_diff_key($this->getLabels($this),
-                    Stitek::listToArray($labelsToRemove))]);
+            'stitky' => array_diff_key(
+                $this->getLabels($this),
+                Stitek::listToArray($labelsToRemove)
+            )]);
         return $this->lastResponseCode == 201;
     }
 
@@ -57,9 +62,9 @@ trait stitky {
      *
      * @return boolean   success result ?
      */
-    public function unsetLabels() {
+    public function unsetLabels()
+    {
         $this->insertToAbraFlexi(['id' => $this->getRecordIdent(), 'stitky@removeAll' => 'true']);
         return $this->lastResponseCode == 201;
     }
-
 }

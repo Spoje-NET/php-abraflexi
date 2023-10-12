@@ -17,8 +17,8 @@ namespace AbraFlexi;
  *
  * @note Tato položka nemá dostupné položky evidence
  */
-class Hooks extends RW {
-
+class Hooks extends RW
+{
     /**
      * Evidence užitá objektem.
      *
@@ -34,7 +34,8 @@ class Hooks extends RW {
      *
      * @return boolean výsledek požadavku
      */
-    public function register($url, $format = 'json') {
+    public function register($url, $format = 'json')
+    {
         $this->setDataValue('url', $url);
         $this->setDataValue('format', strtoupper($format));
 
@@ -43,7 +44,7 @@ class Hooks extends RW {
             foreach ($hooks as $hook) {
                 if (is_array($hook) && array_key_exists('url', $hook)) {
                     if ($hook['url'] == $url) {
-                        $this->addStatusMessage(sprintf(_('Url %s allready registered'), $url)  , 'debug');
+                        $this->addStatusMessage(sprintf(_('Url %s allready registered'), $url), 'debug');
                         return false;
                     }
                 }
@@ -56,10 +57,11 @@ class Hooks extends RW {
 
     /**
      * Aktualizuje WebHook (penalty = 0)
-     * 
+     *
      * @param int $id
      */
-    public function refreshWebHook($id) {
+    public function refreshWebHook($id)
+    {
         $this->performRequest($id . '/retry', 'PUT');
         return $this->lastResponseCode === 200;
     }
@@ -69,7 +71,8 @@ class Hooks extends RW {
      *
      * @param int $id číslo záznamu
      */
-    public function unregister($id) {
+    public function unregister($id)
+    {
         return $this->deleteFromAbraFlexi($id);
     }
 
@@ -79,8 +82,8 @@ class Hooks extends RW {
      * @param array $data
      * @return null Unsupported evidence
      */
-    public function recordExists($data = null) {
+    public function recordExists($data = null)
+    {
         return null;
     }
-
 }

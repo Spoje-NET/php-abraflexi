@@ -6,6 +6,7 @@
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2015-2023 Spoje.Net
  */
+
 declare(strict_types=1);
 
 namespace AbraFlexi;
@@ -17,7 +18,6 @@ namespace AbraFlexi;
  */
 class Adresar extends RW
 {
-
     use stitky;
     use subItems;
     use firma;
@@ -38,8 +38,10 @@ class Adresar extends RW
     public function getNotificationEmailAddress()
     {
         $email = null;
-        $emailsRaw = $this->getFlexiData($this->getApiURL(),
-                ['detail' => 'custom:id,email,kontakty(primarni,email)', 'relations' => 'kontakty']);
+        $emailsRaw = $this->getFlexiData(
+            $this->getApiURL(),
+            ['detail' => 'custom:id,email,kontakty(primarni,email)', 'relations' => 'kontakty']
+        );
         if (is_array($emailsRaw) && !empty($emailsRaw[0])) {
             $emails = $emailsRaw[0];
             if (array_key_exists('email', $emails) && strlen(trim($emails['email']))) {
@@ -59,14 +61,16 @@ class Adresar extends RW
 
     /**
      * get cell phone Number for Customer with primary contact prefered
-     * 
+     *
      * @return string cell phone number of primary contact or address cell number or null
      */
     public function getCellPhoneNumber()
     {
         $mobil = null;
-        $mobilsRaw = $this->getFlexiData($this->getApiURL(),
-                ['detail' => 'custom:id,mobil,kontakty(primarni,mobil)', 'relations' => 'kontakty']);
+        $mobilsRaw = $this->getFlexiData(
+            $this->getApiURL(),
+            ['detail' => 'custom:id,mobil,kontakty(primarni,mobil)', 'relations' => 'kontakty']
+        );
         if (is_array($mobilsRaw)) {
             $mobils = $mobilsRaw[0];
             if (array_key_exists('mobil', $mobils) && strlen(trim($mobils['mobil']))) {
@@ -86,14 +90,16 @@ class Adresar extends RW
 
     /**
      * get any phone Number for Customer with primary contact prefered
-     * 
+     *
      * @return string phone number of primary contact or address's phone number or null
      */
     public function getAnyPhoneNumber()
     {
         $phoneNo = null;
-        $numbersRaw = $this->getFlexiData($this->getApiURL(),
-                ['detail' => 'custom:id,mobil,tel,kontakty(primarni,mobil,tel)', 'relations' => 'kontakty']);
+        $numbersRaw = $this->getFlexiData(
+            $this->getApiURL(),
+            ['detail' => 'custom:id,mobil,tel,kontakty(primarni,mobil,tel)', 'relations' => 'kontakty']
+        );
         if (is_array($numbersRaw) && !empty($numbersRaw[0])) {
             $numbers = $numbersRaw[0];
             if (array_key_exists('mobil', $numbers) && strlen(trim($numbers['mobil']))) {
@@ -103,7 +109,6 @@ class Adresar extends RW
                 $phoneNo = $numbers['tel'];
             }
             if (array_key_exists('kontakty', $numbers) && !empty($numbers['kontakty'])) {
-
                 // Try to use primary contact if present
                 foreach ($numbers['kontakty'] as $kontakt) {
                     if ($kontakt['primarni'] == 'true') {
@@ -129,10 +134,10 @@ class Adresar extends RW
     }
 
     /**
-     * Obtain Bank number 
-     * 
+     * Obtain Bank number
+     *
      * @param Adresar|string|int $address
-     * 
+     *
      * @return array bank account details
      */
     public function getBankAccountNumber($address = null)

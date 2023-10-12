@@ -14,8 +14,8 @@ namespace AbraFlexi;
 /**
  * Číselná řada pokladního pohybu
  */
-class RadaPokladniPohyb extends RW {
-
+class RadaPokladniPohyb extends RW
+{
     /**
      * Evidence užitá objektem.
      *
@@ -29,7 +29,8 @@ class RadaPokladniPohyb extends RW {
      * @param string $code
      * @return string
      */
-    public function getNextRecordCode($code = null) {
+    public function getNextRecordCode($code = null)
+    {
         if (is_null($code)) {
             $code = $this->getMyKey();
         }
@@ -49,8 +50,10 @@ class RadaPokladniPohyb extends RW {
 
         $cislo = $crInfo['cisAkt'] + 1;
         if ($crInfo['zobrazNuly'] == 'true') {
-            return $crInfo['prefix'] . sprintf('%\'.0' . $crInfo['cisDelka'] . 'd',
-                            $cislo) . '/' . date('y');
+            return $crInfo['prefix'] . sprintf(
+                '%\'.0' . $crInfo['cisDelka'] . 'd',
+                $cislo
+            ) . '/' . date('y');
         } else {
             return $crInfo['prefix'] . $cislo . '/' . date('y');
         }
@@ -62,7 +65,8 @@ class RadaPokladniPohyb extends RW {
      * @param string $code
      * @return int číslo nového dokladu
      */
-    public function incrementNextRecordCode($code = null) {
+    public function incrementNextRecordCode($code = null)
+    {
         if (is_null($code)) {
             $code = $this->getMyKey();
         }
@@ -81,5 +85,4 @@ class RadaPokladniPohyb extends RW {
         $cislo = $crInfo['cisAkt'] + 1;
         return $cislo;
     }
-
 }

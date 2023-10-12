@@ -16,8 +16,8 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/pokladni-pohyb/properties položky evidence
  */
-class PokladniPohyb extends RW implements \AbraFlexi\Document {
-
+class PokladniPohyb extends RW implements \AbraFlexi\Document
+{
     use stitky;
     use firma;
     use sum;
@@ -31,5 +31,4 @@ class PokladniPohyb extends RW implements \AbraFlexi\Document {
      * @var string
      */
     public $evidence = 'pokladni-pohyb';
-
 }

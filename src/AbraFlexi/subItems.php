@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -12,15 +13,14 @@ namespace AbraFlexi;
 
 /**
  * Document SubItems functions
- * 
+ *
  * @author vitex
  */
 trait subItems
 {
-
     /**
      * Subitems - ex. items of invoice
-     * 
+     *
      * @return array of document items or null
      */
     public function getSubItems()
@@ -56,17 +56,22 @@ trait subItems
      */
     public function getSubObjects()
     {
-        $subEvidence = $this->getEvidence().'-polozka';
-        $subClass = str_replace(' ', '',
-            ucwords(str_replace('-', ' ', $subEvidence)));
+        $subEvidence = $this->getEvidence() . '-polozka';
+        $subClass = str_replace(
+            ' ',
+            '',
+            ucwords(str_replace('-', ' ', $subEvidence))
+        );
         if (class_exists($subClass) === false) {
             $subClass = 'RW';
         }
 
         $subObjects = [];
         foreach ($this->getSubItems() as $subItemData) {
-            $subObjects[$subItemData['id']] = new $subClass($subItemData,
-                ['evidence' => $subEvidence]);
+            $subObjects[$subItemData['id']] = new $subClass(
+                $subItemData,
+                ['evidence' => $subEvidence]
+            );
         }
         return $subObjects;
     }

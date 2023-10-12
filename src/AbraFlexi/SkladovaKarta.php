@@ -17,8 +17,8 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/skladova-karta/properties položky evidence
  */
-class SkladovaKarta extends RW {
-
+class SkladovaKarta extends RW
+{
     /**
      * Evidence užitá objektem.
      * Evidence used by object.
@@ -26,5 +26,4 @@ class SkladovaKarta extends RW {
      * @var string
      */
     public $evidence = 'skladova-karta';
-
 }

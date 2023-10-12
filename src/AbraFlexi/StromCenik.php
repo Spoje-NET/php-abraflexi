@@ -16,13 +16,12 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/strom-cenik/properties Vlastnosti evidence
  */
-class StromCenik extends RW {
-
+class StromCenik extends RW
+{
     /**
      * Evidence užitá objektem.
      *
      * @var string
      */
     public $evidence = 'strom-cenik';
-
 }

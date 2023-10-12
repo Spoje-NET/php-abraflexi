@@ -18,7 +18,6 @@ namespace AbraFlexi;
  */
 class RW extends RO
 {
-
     /**
      * Sloupeček obsahující datum vložení záznamu do shopu.
      *
@@ -42,14 +41,14 @@ class RW extends RO
 
     /**
      * Array of fields for next curl POST operation
-     * 
+     *
      * @var string
      */
     public $postFields = null;
 
     /**
      * Transaction processing mode
-     * 
+     *
      * @link https://www.abraflexi.eu/api/dokumentace/ref/tx/ Transakční zpracování
      * @var boolean
      */
@@ -57,16 +56,16 @@ class RW extends RO
 
     /**
      * Record Copy helper
-     * 
-     * @var int 
+     *
+     * @var int
      */
     private $sourceId = null;
 
     /**
      * Dry Run mode indicator
-     * 
+     *
      * @link https://podpora.flexibee.eu/cs/articles/4720123-testovaci-ulozeni-dry-run
-     * 
+     *
      * @var boolean
      */
     public $dryRun = false;
@@ -82,7 +81,7 @@ class RW extends RO
     public function setUp($options = array())
     {
         if (array_key_exists('atomic', $options)) {
-            $this->atomic = (boolean) $options['atomic'];
+            $this->atomic = (bool) $options['atomic'];
         }
         if (array_key_exists('dry-run', $options)) {
             $this->dryRun = boolval($options['dry-run']);
@@ -153,16 +152,14 @@ class RW extends RO
      * Parse error message response
      *
      * @param array $responseDecoded
-     * 
+     *
      * @return int number of errors processed
      */
     public function parseError(array $responseDecoded)
     {
         if (array_key_exists('results', $responseDecoded)) {
-
             if (array_key_exists(0, $responseDecoded['results'])) {
                 foreach ($responseDecoded['results'] as $result) {
-
                     if (array_key_exists('request-id', $result)) {
                         unset($result['request-id']);
                     }
@@ -198,7 +195,7 @@ class RW extends RO
 
     /**
      * Assign result IDs to its source objects
-     * 
+     *
      * @param array $candidates AbraFlexi insert IDs  prepared by extractResultIDs()
      */
     public function assignResultIDs($candidates)
@@ -227,9 +224,9 @@ class RW extends RO
 
     /**
      * Extract IDs from AbraFlexi response Array
-     * 
+     *
      * @param array $resultInfo AbraFlexi response
-     * 
+     *
      * @return array List of [ 'evidence1'=>[ 'original-id'=>numericID,'original-id2'=>numericID2 ], 'evidence2'=> ... ]
      */
     public function extractResultIDs($resultInfo)
@@ -250,7 +247,7 @@ class RW extends RO
 
     /**
      * Give you last inserted record ID.
-     * 
+     *
      * @return int
      */
     public function getLastInsertedId()
@@ -263,7 +260,7 @@ class RW extends RO
      * Delete record in AbraFlexi
      *
      * @param int|string $id identifikátor záznamu
-     * 
+     *
      * @return boolean Response code is 200 ?
      */
     public function deleteFromAbraFlexi($id = null)
@@ -283,7 +280,7 @@ class RW extends RO
      * Control for existing column names in evidence and take data
      *
      * @param array $data Data to keep
-     * 
+     *
      * @return int number of records taken
      */
     public function takeData($data)
@@ -316,9 +313,9 @@ class RW extends RO
      * Control data for mandatory columns presence.
      *
      * @deprecated since version 1.8.7
-     * 
+     *
      * @param array $data
-     * 
+     *
      * @return array List of missing columns. Empty if all is ok
      */
     public function controlMandatoryColumns($data = null)
@@ -345,7 +342,7 @@ class RW extends RO
      * Control data for readonly columns presence.
      *
      * @param array $data
-     * 
+     *
      * @return array List of ReadOnly columns. Empty if all is ok
      */
     public function controlReadOnlyColumns($data = null)
@@ -370,7 +367,7 @@ class RW extends RO
 
     /**
      * Convert Timestamp to AbraFlexi Date format.
-     * 
+     *
      * @deprecated since version 2.19 - please use \AbraFlexi\Date() object instead
      *
      * @param int $timpestamp
@@ -444,7 +441,7 @@ class RW extends RO
      * Vloží do větve data z objektu
      *
      * @param AbraFlexiRO $object    objekt evidence
-     * @param boolean    $removeAll flush older items 
+     * @param boolean    $removeAll flush older items
      */
     public function addObjectToBranch($object, $removeAll = false)
     {
@@ -491,7 +488,7 @@ class RW extends RO
      * Array of Labels is converted to coma separated list
      *
      * @param array $data
-     * @param int   $options json_encode options like JSON_PRETTY_PRINT etc 
+     * @param int   $options json_encode options like JSON_PRETTY_PRINT etc
      *
      * @return string
      */
@@ -512,9 +509,9 @@ class RW extends RO
 
     /**
      * Get Data Fragment specific for current object
-     * 
+     *
      * @param array $data
-     * 
+     *
      * @return array
      */
     public function getDataForJSON($data = null)
@@ -537,7 +534,7 @@ class RW extends RO
      * Insert current data into AbraFlexi and load actual record data back
      *
      * @param array $data Initial data to save
-     * 
+     *
      * @return boolean Operation success
      */
     public function sync($data = null)
@@ -553,12 +550,12 @@ class RW extends RO
 
     /**
      * Make Copy of given record with optional modifiactions
-     * 
+     *
      * !!!Experimental Feature!!!
-     * 
+     *
      * @param int  $source
      * @param array $overrides
-     * 
+     *
      * @return RW|null copied record object or null in case of failure
      */
     public function copy($source, $overrides = [])
@@ -613,12 +610,13 @@ class RW extends RO
                     );
                     break;
             }
-        } else if ($this->throwException === true) {
+        } elseif ($this->throwException === true) {
             $this->lastResponseCode = 404;
             throw new Exception(
                 sprintf(
                     _('Unsupported action "%s" for evidence "%s"'),
-                    $action, $this->getEvidence()
+                    $action,
+                    $this->getEvidence()
                 ),
                 $this
             );
@@ -629,9 +627,9 @@ class RW extends RO
 
     /**
      * Add External ID to Current Record
-     * 
+     *
      * @param string $extId ext:whatever:123 or simplay whatever:123
-     * 
+     *
      * @return array Insert result
      */
     public function addExternalID($extId)
@@ -649,11 +647,11 @@ class RW extends RO
 
     /**
      * Change Value of external id identified by selector. Add new if not exists
-     * 
+     *
      * @param string     $selector ext:$selector:$newValue
      * @param string|int $newValue string or number
      * @param string|int $forID    Other than current record id
-     * 
+     *
      * @return array operation result
      */
     public function changeExternalID($selector, $newValue, $forID = null)
@@ -670,7 +668,7 @@ class RW extends RO
      * Send all unsent Documents by eMail
      *
      * @url https://www.abraflexi.eu/api/dokumentace/ref/odesilani-mailem/
-     * 
+     *
      * @return int http response code
      */
     public function sendUnsent()
@@ -695,5 +693,4 @@ class RW extends RO
         }
         return parent::setDataValue($columnName, $value);
     }
-
 }

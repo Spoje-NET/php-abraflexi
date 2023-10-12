@@ -24,7 +24,7 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
     use subItems;
     use email;
     use getChanges;
-    
+
     /**
      * Evidence užitá objektem.
      *
@@ -36,13 +36,14 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
      * Provede spárování platby s dokladem
      *
      * @link https://demo.flexibee.eu/devdoc/parovani-plateb Párování plateb
-     * 
+     *
      * @param $doklad Banka|PokladniPohyb|InterniDoklad S jakým dokladem spárovat ?
      * @param $zbytek string ne|zauctovat|ignorovat|castecnaUhrada|castecnaUhradaNeboZauctovat|castecnaUhradaNeboIgnorovat
-     * 
+     *
      * @return boolean success
      */
-    public function sparujPlatbu($doklad, $zbytek = 'ignorovat') {
+    public function sparujPlatbu($doklad, $zbytek = 'ignorovat')
+    {
         $sparovani = ['uhrazovanaFak' => $this];
         $sparovani['uhrazovanaFak@type'] = $this->evidence;
         $sparovani['zbytek'] = $zbytek;
@@ -66,10 +67,11 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
      *        string  'rada' dokladová řada pro vytvářený pokladní doklad.
      *                      Např.:code:POKLADNA+
      *        string  'datumUhrady' sql formát. Výchozí: dnes
-     * 
+     *
      * @return boolean výsledek pokusu o provedení úhrady
      */
-    public function hotovostniUhrada($value, $uhrada = []) {
+    public function hotovostniUhrada($value, $uhrada = [])
+    {
         if (!isset($uhrada['pokladna'])) {
             $uhrada['pokladna'] = 'code:POKLADNA KČ';
         }
@@ -95,14 +97,15 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
 
     /**
      * Odpočet zálohy (vystavení daňového dokladu k platbě)
-     * 
+     *
      * @link https://demo.flexibee.eu/devdoc/odpocet-zaloh Odpočet záloh a ZDD
      * @param FakturaVydana $invoice zálohová faktura
      * @param array $odpocet Vlastnosti odpočtu
-     * 
+     *
      * @return boolean success
      */
-    public function odpocetZalohy($invoice, $odpocet = []) {
+    public function odpocetZalohy($invoice, $odpocet = [])
+    {
         if (!isset($odpocet['castkaMen'])) {
             $odpocet['castkaMen'] = $invoice->getDataValue('sumCelkem');
         }
@@ -119,10 +122,11 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
      * @link https://demo.flexibee.eu/devdoc/odpocet-zaloh Odpočet záloh a ZDD
      * @param FakturaVydana $invoice zálohová faktura
      * @param array $odpocet Vlastnosti odpočtu
-     * 
+     *
      * @return boolean success
      */
-    public function odpocetZDD($invoice, $odpocet = []) {
+    public function odpocetZDD($invoice, $odpocet = [])
+    {
         if (!isset($odpocet['castkaZaklMen'])) {
             $odpocet['castkaZaklMen'] = $invoice->getDataValue('sumZklZakl');
         }
@@ -147,14 +151,15 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
 
     /**
      * add link to advance tax document
-     * 
+     *
      * @link https://www.abraflexi.eu/api/dokumentace/ref/vazby-zdd/ vazby-zdd
-     * 
+     *
      * @param Banka|PokladniPohyb $income Income payment document
-     * 
+     *
      * @return boolean success
      */
-    public function vytvorVazbuZDD($income) {
+    public function vytvorVazbuZDD($income)
+    {
         $classHelper = explode('\\', get_class($income));
         $bondRequest = [
             'id' => $this->getRecordIdent(),
@@ -169,14 +174,15 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
 
     /**
      * Remove Advance tax document bondig
-     * 
+     *
      * @link https://www.abraflexi.eu/api/dokumentace/ref/vazby-zdd/ vazby-zdd
-     * 
+     *
      * @param int|string $id Invoice record identifier
-     * 
+     *
      * @return boolean operation success
      */
-    public function zrusVazbuZdd($id = null) {
+    public function zrusVazbuZdd($id = null)
+    {
         $unbondRequest = [
             'id' => is_null($id) ? $this->getRecordIent() : $id,
             'zrus-vazbu-zdd'
@@ -187,14 +193,18 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
     }
 
     /**
-     * 
+     *
      * @param int $size requested of image
-     * 
+     *
      * @return string binary PNG body
      */
-    public function getQrCodeImage($size = 140) {
-        $this->performRequest($this->getRecordID() . '/qrcode.png?size=' . $size,
-                'GET', 'png');
+    public function getQrCodeImage($size = 140)
+    {
+        $this->performRequest(
+            $this->getRecordID() . '/qrcode.png?size=' . $size,
+            'GET',
+            'png'
+        );
         if ($this->lastResponseCode == 200) {
             return $this->lastCurlResponse;
         }
@@ -202,28 +212,32 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
 
     /**
      * Get base64 encoded QrCode image
-     * 
+     *
      * @param int $size requested of image
-     * 
+     *
      * @return string IMG SRC code
      */
-    public function getQrCodeBase64($size = 140) {
+    public function getQrCodeBase64($size = 140)
+    {
         return 'data: image/png;base64,' . base64_encode($this->getQrCodeImage($size));
     }
 
     /**
      * Get Number of days overdue
-     * 
+     *
      * @param string $dueDate AbraFlexi date
-     * 
+     *
      * @return int
      */
-    static public function overdueDays($dueDate) {
-        if(is_object($dueDate) && array_key_exists('isNull', get_class_vars( get_class($dueDate)))  && ($dueDate->isNull === true)){
+    public static function overdueDays($dueDate)
+    {
+        if (is_object($dueDate) && array_key_exists('isNull', get_class_vars(get_class($dueDate)))  && ($dueDate->isNull === true)) {
             throw new Exception('$dueDate->isNull is true', self);
-        }        
-        $dateDiff = date_diff(is_object($dueDate) ? $dueDate : RO::flexiDateToDateTime($dueDate),
-                new \DateTime());
+        }
+        $dateDiff = date_diff(
+            is_object($dueDate) ? $dueDate : RO::flexiDateToDateTime($dueDate),
+            new \DateTime()
+        );
         if ($dateDiff->invert == 1) {
             $ddif = $dateDiff->days * -1;
         } else {

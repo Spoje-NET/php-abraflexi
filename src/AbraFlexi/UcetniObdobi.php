@@ -17,12 +17,11 @@ namespace AbraFlexi;
  * @link https://demo.flexibee.eu/c/demo/ucetni-obdobi/properties Položky evidence
  * @author vitex
  */
-class UcetniObdobi extends RW {
-
+class UcetniObdobi extends RW
+{
     /**
      * Evidence AbraFlexi
      * @var string
      */
     public $evidence = 'ucetni-obdobi';
-
 }

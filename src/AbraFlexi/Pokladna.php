@@ -16,8 +16,8 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/pokladna/properties
  */
-class Pokladna extends RW {
-
+class Pokladna extends RW
+{
     use stitky;
     use getChanges;
 
@@ -39,9 +39,11 @@ class Pokladna extends RW {
      *
      * @return boolean Operation success
      */
-    public function addArrayToBranch($data, $relationPath = 'polozkyIntDokladu',
-            $removeAll = false) {
+    public function addArrayToBranch(
+        $data,
+        $relationPath = 'polozkyIntDokladu',
+        $removeAll = false
+    ) {
         return parent::addArrayToBranch($data, $relationPath, $removeAll);
     }
-
 }

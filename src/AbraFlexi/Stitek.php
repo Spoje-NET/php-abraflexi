@@ -19,8 +19,8 @@ use AbraFlexi\RW;
  *
  * @link https://demo.flexibee.eu/c/demo/stitek/properties Vlastnosti evidence
  */
-class Stitek extends RW {
-
+class Stitek extends RW
+{
     /**
      * Evidence Path for vsb supported by label
      *
@@ -59,11 +59,12 @@ class Stitek extends RW {
      * Obtain labels for current record
      *
      * @deprecated since version 1.21
-     * 
+     *
      * @param RO $object data source
      * @return array labels
      */
-    public static function getLabels($object) {
+    public static function getLabels($object)
+    {
         $labels = null;
         $labelsRaw = $object->getDataValue('stitky');
 
@@ -77,10 +78,11 @@ class Stitek extends RW {
      * Convert coma-separated list to array
      *
      * @param string $listRaw
-     * 
+     *
      * @return array
      */
-    public static function listToArray($listRaw) {
+    public static function listToArray($listRaw)
+    {
         if (is_array($listRaw)) {
             $list = array_combine(array_values($listRaw), array_values($listRaw));
         } else {
@@ -98,18 +100,22 @@ class Stitek extends RW {
      * Obtain list of availble labels for given object
      *
      * @param RO $object
-     * 
+     *
      * @return array
      */
-    public static function getAvailbleLabels($object) {
+    public static function getAvailbleLabels($object)
+    {
         $labels = [];
         $evidenceBackup = $object->getEvidence();
         $object->setEvidence('stitek');
         $pathToVsb = array_flip(self::$vsbToEvidencePath);
 
         if (array_key_exists($evidenceBackup, $pathToVsb)) {
-            $labelsRaw = $object->getColumnsFromAbraFlexi(['kod', 'nazev'],
-                    [$pathToVsb[$evidenceBackup] => true, 'limit'=>0], 'nazev');
+            $labelsRaw = $object->getColumnsFromAbraFlexi(
+                ['kod', 'nazev'],
+                [$pathToVsb[$evidenceBackup] => true, 'limit' => 0],
+                'nazev'
+            );
             if (count($labelsRaw)) {
                 foreach ($labelsRaw as $labelInfo) {
                     $labels[$labelInfo['kod']] = $labelInfo['nazev'];
@@ -125,13 +131,14 @@ class Stitek extends RW {
      * Set Label for Current Object record
      *
      * @deprecated since version 1.21
-     * 
+     *
      * @param string     $label
      * @param RW $object
      *
      * @return boolean   success result ?
      */
-    public static function setLabel($label, $object) {
+    public static function setLabel($label, $object)
+    {
         return $object->insertToAbraFlexi(['id' => $object->getMyKey(), 'stitky' => $label]);
     }
 
@@ -139,13 +146,14 @@ class Stitek extends RW {
      * UnSet Label for Current Object record
      *
      * @deprecated since version 1.21
-     * 
+     *
      * @param string     $label
      * @param RW $object
      *
      * @return boolean   success result ?
      */
-    public static function unsetLabel($label, $object) {
+    public static function unsetLabel($label, $object)
+    {
         $result = true;
         $labels = self::getLabels($object);
         if (array_key_exists($label, $labels)) {
@@ -159,14 +167,15 @@ class Stitek extends RW {
 
     /**
      * Create New Label for given evidencies
-     * 
+     *
      * @param string $name       Label Name
      * @param array  $evidences  Evidence code list ex: ['faktura-vydana','faktura-prijata']
-     * @param array  $options    Additional Label properties ex: ['kod'=>'EXAMPLE','skupVybKlic'=>'SKUPINA_STITKU'] 
-     * 
+     * @param array  $options    Additional Label properties ex: ['kod'=>'EXAMPLE','skupVybKlic'=>'SKUPINA_STITKU']
+     *
      * @return boolean success
      */
-    public function createNew($name, $evidences, $options = []) {
+    public function createNew($name, $evidences, $options = [])
+    {
         $this->setData($options, true);
         $evidence2code = array_flip(self::$vsbToEvidencePath);
         foreach ($evidences as $evidence) {
@@ -181,5 +190,4 @@ class Stitek extends RW {
         $this->setDataValue('nazev', $name);
         return $this->sync();
     }
-
 }

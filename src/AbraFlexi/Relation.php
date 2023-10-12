@@ -14,8 +14,8 @@ namespace AbraFlexi;
  *
  * @author vitex
  */
-class Relation {
-
+class Relation
+{
     /**
      * Item in target evidence
      * @var string|array
@@ -29,26 +29,27 @@ class Relation {
     public $target;
 
     /**
-     * 
+     *
      * @var string
      */
     public $ref;
 
     /**
-     * 
+     *
      * @var string
      */
     public $showAs;
 
     /**
      * Relation
-     * 
-     * @param string|array $item     Record identifier    
+     *
+     * @param string|array $item     Record identifier
      * @param string       $evidence Record's evidence
      * @param string       $ref      Reference path
      * @param string       $showAs   Item caption
      */
-    public function __construct($item, string $evidence, $ref = null, $showAs = null) {
+    public function __construct($item, string $evidence, $ref = null, $showAs = null)
+    {
         $this->value = $item;
         $this->target = $evidence;
         $this->ref = $ref;
@@ -57,19 +58,21 @@ class Relation {
 
     /**
      * Render value as string
-     * 
+     *
      * @return string
      */
-    public function __toString() {
+    public function __toString()
+    {
         return is_array($this->value) ? current($this->value) : $this->value;
     }
 
     /**
      * Obtain Relation target as Object
-     * 
+     *
      * @return \AbraFlexi\RO
      */
-    public function getRelationTarget() {
+    public function getRelationTarget()
+    {
         $engineClass = RO::evidenceToClassName($this->target);
         if (class_exists($engineClass)) {
             $relation = new $engineClass($this->value);
@@ -82,5 +85,4 @@ class Relation {
         }
         return $relation;
     }
-
 }

@@ -16,8 +16,8 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/skladovy-pohyb-polozka/properties
  */
-class SkladovyPohybPolozka extends RW {
-
+class SkladovyPohybPolozka extends RW
+{
     use stitky;
 
     /**
@@ -29,13 +29,14 @@ class SkladovyPohybPolozka extends RW {
 
     /**
      * Add Items Serial Number
-     * 
+     *
      * @param string  $number serial number
      * @param boolean $isMain main number
-     * 
+     *
      * @return boolean Success
      */
-    public function addSerialNumber($number, $isMain = false) {
+    public function addSerialNumber($number, $isMain = false)
+    {
         $numberBranch['kod'] = $number;
         $crrentSerialNumbers = $this->getDataValue('vyrobniCislaPrijata');
         if ($isMain) {
@@ -49,5 +50,4 @@ class SkladovyPohybPolozka extends RW {
         $this->setDataValue('mnozMj', empty($crrentSerialNumbers) ? 0 : count($crrentSerialNumbers) + 1);
         return $this->addArrayToBranch($numberBranch, 'vyrobniCislaPrijata');
     }
-
 }

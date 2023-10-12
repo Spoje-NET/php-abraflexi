@@ -15,8 +15,8 @@ namespace AbraFlexi;
  * Add for evidencies with Summary support
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-trait sum {
-
+trait sum
+{
     /**
      * Vrací z AbraFlexi sumaci i podle podmínek.
      *
@@ -24,9 +24,9 @@ trait sum {
      *
      * @return array
      */
-    public function getSumFromAbraFlexi($conditions = []) {
+    public function getSumFromAbraFlexi($conditions = [])
+    {
         $flexiData = $this->getFlexiData('$sum', $conditions);
         return empty($flexiData) ? null : $flexiData['sum'];
     }
-
 }

@@ -17,13 +17,12 @@ namespace AbraFlexi;
  * @note Tato položka nemá dostupné položky evidence
  * @note Tato evidence není veřejně dostupná na demo.abraflexi.eu
  */
-class Nastaveni extends RO {
-
+class Nastaveni extends RO
+{
     /**
      * Evidence užitá objektem.
      *
      * @var string
      */
     public $evidence = 'nastaveni';
-
 }

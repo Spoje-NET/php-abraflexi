@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /**
  * AbraFlexi - Incoming order class.
  *
@@ -15,8 +16,8 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/objednavka-prijata/properties
  */
-class ObjednavkaPrijata extends RW implements \AbraFlexi\Document {
-
+class ObjednavkaPrijata extends RW implements \AbraFlexi\Document
+{
     use stitky;
     use firma;
     use sum;
@@ -30,5 +31,4 @@ class ObjednavkaPrijata extends RW implements \AbraFlexi\Document {
      * @var string
      */
     public $evidence = 'objednavka-prijata';
-
 }

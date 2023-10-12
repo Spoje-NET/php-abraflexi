@@ -18,8 +18,8 @@ use AbraFlexi\RO;
  *
  * @link https://www.abraflexi.eu/api/dokumentace/ref/changes-api/ Dokumentace
  */
-class Changes extends RO {
-
+class Changes extends RO
+{
     /**
      * Evidence užitá objektem.
      *
@@ -30,10 +30,11 @@ class Changes extends RO {
     /**
      * Povolí oznamování změn
      * Allow changes notification
-     * 
+     *
      * @return boolean
      */
-    public function enable() {
+    public function enable()
+    {
         $this->performRequest('enable.xml', 'POST', 'xml');
         return $this->lastResponseCode == 200;
     }
@@ -41,10 +42,11 @@ class Changes extends RO {
     /**
      * Zakáže oznamování změn
      * Disallow changes notification
-     * 
+     *
      * @return boolean
      */
-    public function disable() {
+    public function disable()
+    {
         $this->performRequest('disable.xml', 'POST', 'xml');
         return $this->lastResponseCode == 200;
     }
@@ -54,7 +56,8 @@ class Changes extends RO {
      *
      * @return boolean
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         $status = $this->performRequest('status.xml', 'GET', 'xml');
         return (($this->lastResponseCode == 200) && ($status['changes'][0]['success'] === 'true'));
     }
@@ -65,7 +68,8 @@ class Changes extends RO {
      * @param array $data
      * @return null Method is disabled for Changes
      */
-    public function recordExists($data = null) {
+    public function recordExists($data = null)
+    {
         return null;
     }
 
@@ -76,7 +80,8 @@ class Changes extends RO {
      * @link https://www.abraflexi.eu/api/dokumentace/ref/changes-api#globalVersion Globální Verze
      * @return int
      */
-    public function getGlobalVersion() {
+    public function getGlobalVersion()
+    {
         $this->getColumnsFromAbraFlexi('id', ['start' => 0, 'limit' => 0]);
         return $this->globalVersion;
     }
@@ -88,7 +93,8 @@ class Changes extends RO {
      *
      * @return array
      */
-    public function rawXmlToArray($rawXML) {
+    public function rawXmlToArray($rawXML)
+    {
         return [$this->getEvidence() => parent::rawXmlToArray($rawXML)];
     }
 
@@ -97,8 +103,8 @@ class Changes extends RO {
      *
      * @return null
      */
-    public function getVazby($id = null) {
+    public function getVazby($id = null)
+    {
         throw new Exception(_('Changes has no relations'), $this);
     }
-
 }

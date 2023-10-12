@@ -16,8 +16,8 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/faktura-vydana-polozka/properties položky evidence
  */
-class FakturaVydanaPolozka extends RW {
-
+class FakturaVydanaPolozka extends RW
+{
     use stitky;
 
     /**
@@ -26,5 +26,4 @@ class FakturaVydanaPolozka extends RW {
      * @var string
      */
     public $evidence = 'faktura-vydana-polozka';
-
 }

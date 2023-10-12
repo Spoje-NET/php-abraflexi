@@ -9,8 +9,8 @@ namespace AbraFlexi;
  *
  * @link https://demo.flexibee.eu/c/demo/objednavka-prijata-polozka/properties
  */
-class ObjednavkaPrijataPolozka extends RW {
-
+class ObjednavkaPrijataPolozka extends RW
+{
     use stitky;
 
     /**
@@ -19,5 +19,4 @@ class ObjednavkaPrijataPolozka extends RW {
      * @var string
      */
     public $evidence = 'objednavka-prijata-polozka';
-
 }

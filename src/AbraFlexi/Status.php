@@ -16,8 +16,8 @@ namespace AbraFlexi;
  *
  * @author vitex
  */
-class Status extends RO {
-
+class Status extends RO
+{
     /**
      * Evidence užitá objektem.
      * Evidence used by object
@@ -46,7 +46,8 @@ class Status extends RO {
      * @param mixed $init       mostly ignored
      * @param array $options    not used at all
      */
-    public function __construct($init = null, $options = []) {
+    public function __construct($init = null, $options = [])
+    {
         parent::__construct($init, $options);
         $this->takeData($this->getFlexiData('/' . $this->evidence));
     }
@@ -57,7 +58,8 @@ class Status extends RO {
      * @param array $responseRaw
      * @return array
      */
-    public function unifyResponseFormat($responseRaw) {
+    public function unifyResponseFormat($responseRaw)
+    {
         if (array_key_exists('status', $responseRaw)) {
             $response = $responseRaw['status'];
         } else {
@@ -71,8 +73,8 @@ class Status extends RO {
      *
      * @return null
      */
-    public function getVazby($id = null) {
+    public function getVazby($id = null)
+    {
         throw new \Exception(_('Status has no relations'));
     }
-
 }

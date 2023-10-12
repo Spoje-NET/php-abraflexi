@@ -16,16 +16,17 @@ namespace AbraFlexi;
  *
  * @author vitex
  */
-class Root extends RW {
-
+class Root extends RW
+{
     /**
      * Update HTTPS certificate
-     * 
+     *
      * @param string $pem
-     * 
+     *
      * @return boolean
      */
-    public function uploadCertificate($pem) {
+    public function uploadCertificate($pem)
+    {
         $this->postFields = $pem;
         $this->performRequest('/certificate', 'PUT');
         return $this->lastResponseCode == 201;
@@ -33,13 +34,13 @@ class Root extends RW {
 
     /**
      * Get availble companies listing
-     * 
+     *
      * @param array $condition applay to listing
-     * 
+     *
      * @return array
      */
-    public function companies($conditions = []) {
+    public function companies($conditions = [])
+    {
         return $this->getFlexiData('/c', $conditions);
     }
-
 }

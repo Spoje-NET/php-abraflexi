@@ -16,13 +16,12 @@ namespace AbraFlexi;
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-class Zavazek extends \AbraFlexi\RW {
-
+class Zavazek extends \AbraFlexi\RW
+{
     use stitky;
     use firma;
     use sum;
     use email;
-    
-    public $evidence = 'zavazek';
 
+    public $evidence = 'zavazek';
 }
