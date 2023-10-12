@@ -178,7 +178,7 @@ class RO extends \Ease\Sand
      *
      * @var string
      */
-    public $fbKeyColumn = 'id';
+    public $keyColumn = 'id';
 
     /**
      * Informace o posledním HTTP requestu.

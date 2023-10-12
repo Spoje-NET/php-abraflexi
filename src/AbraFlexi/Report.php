@@ -53,8 +53,8 @@ class Report extends RW {
             $this->setDataValue($this->getMyKey(),\AbraFlexi\RO::uncode($this->init));
         } else {
             $this->unsetDataValue('kod');
-            parent::updateApiURL();
         }
+        parent::updateApiURL();
         if(empty($code) === false){
             $this->setDataValue('kod', $code);
         }
