@@ -1,4 +1,4 @@
-php-spojenet-abraflexi (2.24.1.81~jammy.83~jammy.84~bullseye.84~focal.86~focal.89~jammy) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (2.24.1) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -10,8 +10,6 @@ php-spojenet-abraflexi (2.24.1.81~jammy.83~jammy.84~bullseye.84~focal.86~focal.8
   * Update for 2020.1.0.9
   * Ability to configure from ENV
   * composer.json updated
-  * Update for FlexiBee 2020.2.2
-  * Update for FlexiBee 2020.2.2
   * Update for FlexiBee 2020.2.2
   * Better parsing error response for XSLT based imports
   * Package renamed on Packagist
