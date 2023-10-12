@@ -49,10 +49,13 @@ class Report extends RW {
      */
     public function updateApiURL() {
         $code = $this->getDataValue('kod');
-        $this->unsetDataValue('kod');
-        $result = parent::updateApiURL();
+        if(is_string($this->init) && strstr($this->init, $code) ){
+            $this->setMyKey(\AbraFlexi\RO::uncode($this->init));
+        } else {
+            $this->unsetDataValue('kod');
+            $result = parent::updateApiURL();
+        }
         $this->setDataValue('kod', $code);
-        return $result;
     }
 
 }
