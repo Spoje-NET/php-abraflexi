@@ -55,7 +55,9 @@ class Report extends RW {
             $this->unsetDataValue('kod');
             $result = parent::updateApiURL();
         }
-        $this->setDataValue('kod', $code);
+        if(strlen($code)){
+            $this->setDataValue('kod', $code);
+        }
     }
 
 }
