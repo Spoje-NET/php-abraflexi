@@ -5,7 +5,7 @@
  *              Objekt ceníku.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2016-2017 Spoje.Net
+ * @copyright  (C) 2016-2023 Spoje.Net
  */
 
 declare(strict_types=1);

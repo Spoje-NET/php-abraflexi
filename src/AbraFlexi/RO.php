@@ -501,9 +501,6 @@ class RO extends \Ease\Sand
         if (!empty($this->authSessionId)) {
             $this->defaultHttpHeaders['X-authSessionId'] = $this->authSessionId;
         }
-        if (isset($options['evidence'])) {
-            $this->setEvidence($options['evidence']);
-        }
         $this->setupProperty($options, 'defaultUrlParams');
         if (isset($options['prefix'])) {
             $this->setPrefix($options['prefix']);
@@ -523,7 +520,12 @@ class RO extends \Ease\Sand
         $this->setupProperty($options, 'throwException', 'ABRAFLEXI_EXCEPTIONS');
         $this->setupProperty($options, 'debug');
         $this->setupProperty($options, 'autoload');
-        $this->updateApiURL();
+
+        if (isset($options['evidence'])) {
+            $this->setEvidence($options['evidence']);
+        } else {
+            $this->setEvidence($this->evidence);
+        }
     }
 
     /**

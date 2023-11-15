@@ -1,10 +1,12 @@
 <?php
+
 /**
  * AbraFlexi - Evidence Formats.
  *
  * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
  * @copyright  (C) 2015-2023 Spoje.Net
  */
+
 namespace AbraFlexi;
 
 /**
@@ -19,7 +21,7 @@ class Formats
  *
  * @var string
  */
- static public $version = '2023.5.2';
+    public static $version = '2023.5.2';
 
 
     /**
@@ -28,7 +30,7 @@ class Formats
      * @see https://www.flexibee.eu/api/dokumentace/ref/format-types/
      * @var array formats known to flexibee
      */
-    static public $formats = [
+    public static $formats = [
         'JS' => ['desc' => 'JavaScropt',
             'suffix' => 'js', 'content-type' => 'application/javascript', 'import' => false],
         'PNG' => ['desc' => 'Portable Network Graphics',
@@ -73,7 +75,7 @@ class Formats
      *
      * @return array
      */
-    static public function byContentType()
+    public static function byContentType()
     {
         return \Ease\Functions::reindexArrayBy(self::$formats, 'content-type');
     }
@@ -83,7 +85,7 @@ class Formats
      *
      * @return array
      */
-    static public function bySuffix()
+    public static function bySuffix()
     {
         return \Ease\Functions::reindexArrayBy(self::$formats, 'suffix');
     }
@@ -94,7 +96,7 @@ class Formats
      * @param string $suffix
      * @return string
      */
-    static public function suffixToContentType($suffix)
+    public static function suffixToContentType($suffix)
     {
         $types = self::bySuffix();
         return isset($types[$suffix]) ? $types[$suffix]['content-type'] : null;
@@ -106,7 +108,7 @@ class Formats
      * @param string $contentType
      * @return string
      */
-    static public function contentTypeToSuffix($contentType)
+    public static function contentTypeToSuffix($contentType)
     {
         $types = self::byContentType();
         return isset($types[$contentType]) ? $types[$contentType]['suffix'] : null;
@@ -117,2524 +119,2524 @@ class Formats
      *
      * @var array
      */
- static public $adresar = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-  'DBF' => 'dbf',
-  'XLS' => 'xls',
-  'ISDOC' => 'isdoc',
-  'ISDOCx' => 'isdocx',
-  'PDF' => 'pdf',
-  'vCard' => 'vcf',
-];
+    public static $adresar = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    'DBF' => 'dbf',
+    'XLS' => 'xls',
+    'ISDOC' => 'isdoc',
+    'ISDOCx' => 'isdocx',
+    'PDF' => 'pdf',
+    'vCard' => 'vcf',
+    ];
     /**
      * Evidence atribut (Atributy) Formats.
      *
      * @var array
      */
- static public $atribut = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $atribut = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence autotisk (Automatický tisk) Formats.
      *
      * @var array
      */
- static public $autotisk = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $autotisk = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence banka (Banka) Formats.
      *
      * @var array
      */
- static public $banka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $banka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence format-elektronickeho-bankovnictvi (Bankovní formáty) Formats.
      *
      * @var array
      */
- static public $formatElektronickehoBankovnictvi = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $formatElektronickehoBankovnictvi = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence adresar-bankovni-ucet (Bankovní spojení) Formats.
      *
      * @var array
      */
- static public $adresarBankovniUcet = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $adresarBankovniUcet = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence bankovni-ucet-pokladna (Bankovní účty a pokladny) Formats.
      *
      * @var array
      */
- static public $bankovniUcetPokladna = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $bankovniUcetPokladna = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence bankovni-ucet-sklad-pokladna (Banky/pokladny/sklady) Formats.
      *
      * @var array
      */
- static public $bankovniUcetSkladPokladna = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $bankovniUcetSkladPokladna = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence cenova-uroven (Cenové úrovně) Formats.
      *
      * @var array
      */
- static public $cenovaUroven = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $cenovaUroven = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence odberatel (Ceny pro odběratele/skupiny odběratelů, speciální kódy) Formats.
      *
      * @var array
      */
- static public $odberatel = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $odberatel = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence cenik (Ceník) Formats.
      *
      * @var array
      */
- static public $cenik = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $cenik = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence cenikova-skupina (Ceníkové skupiny) Formats.
      *
      * @var array
      */
- static public $cenikovaSkupina = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $cenikovaSkupina = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence certifikacni-autorita (Certifikační autority) Formats.
      *
      * @var array
      */
- static public $certifikacniAutorita = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $certifikacniAutorita = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence certifikat (Certifikáty) Formats.
      *
      * @var array
      */
- static public $certifikat = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $certifikat = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence danovy-naklad (Daňové náklady) Formats.
      *
      * @var array
      */
- static public $danovyNaklad = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $danovyNaklad = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence danovy-odpis (Daňové odpisy) Formats.
      *
      * @var array
      */
- static public $danovyOdpis = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $danovyOdpis = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence intrastat-dodaci-podminky (Dodací podmínky) Formats.
      *
      * @var array
      */
- static public $intrastatDodaciPodminky = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $intrastatDodaciPodminky = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence dodavatelska-smlouva (Dodavatelské smlouvy) Formats.
      *
      * @var array
      */
- static public $dodavatelskaSmlouva = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $dodavatelskaSmlouva = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence dodavatel (Dodavatelé) Formats.
      *
      * @var array
      */
- static public $dodavatel = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $dodavatel = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rada-banka (Dokladové řady - bankovní doklady) Formats.
      *
      * @var array
      */
- static public $radaBanka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radaBanka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rada-interniho-dokladu (Dokladové řady - interní doklady) Formats.
      *
      * @var array
      */
- static public $radaInternihoDokladu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radaInternihoDokladu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rada-pohledavky (Dokladové řady - pohledávky) Formats.
      *
      * @var array
      */
- static public $radaPohledavky = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radaPohledavky = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rada-pokladni-pohyb (Dokladové řady - pokladní doklady) Formats.
      *
      * @var array
      */
- static public $radaPokladniPohyb = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radaPokladniPohyb = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rada-faktury-prijate (Dokladové řady - přijaté faktury) Formats.
      *
      * @var array
      */
- static public $radaFakturyPrijate = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radaFakturyPrijate = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rada-nabidky-prijate (Dokladové řady - přijaté nabídky) Formats.
      *
      * @var array
      */
- static public $radaNabidkyPrijate = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radaNabidkyPrijate = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rada-objednavky-prijate (Dokladové řady - přijaté objednávky) Formats.
      *
      * @var array
      */
- static public $radaObjednavkyPrijate = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radaObjednavkyPrijate = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rada-poptavky-prijate (Dokladové řady - přijaté poptávky) Formats.
      *
      * @var array
      */
- static public $radaPoptavkyPrijate = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radaPoptavkyPrijate = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rada-skladovy-pohyb (Dokladové řady - sklad) Formats.
      *
      * @var array
      */
- static public $radaSkladovyPohyb = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radaSkladovyPohyb = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rada-faktury-vydane (Dokladové řady - vydané faktury) Formats.
      *
      * @var array
      */
- static public $radaFakturyVydane = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radaFakturyVydane = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rada-nabidky-vydane (Dokladové řady - vydané nabídky) Formats.
      *
      * @var array
      */
- static public $radaNabidkyVydane = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radaNabidkyVydane = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rada-objednavky-vydane (Dokladové řady - vydané objednávky) Formats.
      *
      * @var array
      */
- static public $radaObjednavkyVydane = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radaObjednavkyVydane = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rada-poptavky-vydane (Dokladové řady - vydané poptávky) Formats.
      *
      * @var array
      */
- static public $radaPoptavkyVydane = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radaPoptavkyVydane = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rada-zavazku (Dokladové řady - závazky) Formats.
      *
      * @var array
      */
- static public $radaZavazku = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radaZavazku = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence doklad-k-uhrade (Doklady k úhradě) Formats.
      *
      * @var array
      */
- static public $dokladKUhrade = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $dokladKUhrade = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence intrastat-druh-dopravy (Druh dopravy) Formats.
      *
      * @var array
      */
- static public $intrastatDruhDopravy = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $intrastatDruhDopravy = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence cenik-obal (Evidence obalů EkoKom) Formats.
      *
      * @var array
      */
- static public $cenikObal = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $cenikObal = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence forma-dopravy (Formy dopravy) Formats.
      *
      * @var array
      */
- static public $formaDopravy = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $formaDopravy = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence forma-uhrady (Formy úhrady) Formats.
      *
      * @var array
      */
- static public $formaUhrady = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $formaUhrady = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence hlavni-kniha (Hlavní kniha) Formats.
      *
      * @var array
      */
- static public $hlavniKniha = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $hlavniKniha = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence individualni-cenik (Individuální ceník) Formats.
      *
      * @var array
      */
- static public $individualniCenik = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $individualniCenik = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence insight (Insight) Formats.
      *
      * @var array
      */
- static public $insight = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $insight = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence interni-doklad (Interní doklady) Formats.
      *
      * @var array
      */
- static public $interniDoklad = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $interniDoklad = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence inventura (Inventury) Formats.
      *
      * @var array
      */
- static public $inventura = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $inventura = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence konst-symbol (Konstantní symboly) Formats.
      *
      * @var array
      */
- static public $konstSymbol = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $konstSymbol = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence kontakt (Kontakty) Formats.
      *
      * @var array
      */
- static public $kontakt = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $kontakt = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence intrastat-kraj-urceni (Kraje určení) Formats.
      *
      * @var array
      */
- static public $intrastatKrajUrceni = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $intrastatKrajUrceni = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence kurz (Kurzy) Formats.
      *
      * @var array
      */
- static public $kurz = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $kurz = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence intrastat-kurz (Kurzy pro Intrastat) Formats.
      *
      * @var array
      */
- static public $intrastatKurz = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $intrastatKurz = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence kurz-pro-cenotvorbu (Kurzy pro cenotvorbu) Formats.
      *
      * @var array
      */
- static public $kurzProCenotvorbu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $kurzProCenotvorbu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence kurz-pro-preceneni (Kurzy pro přecenění) Formats.
      *
      * @var array
      */
- static public $kurzProPreceneni = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $kurzProPreceneni = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence kusovnik (Kusovník) Formats.
      *
      * @var array
      */
- static public $kusovnik = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $kusovnik = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence intrastat-kod-nomenklatury (Kódy nomenklatury) Formats.
      *
      * @var array
      */
- static public $intrastatKodNomenklatury = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $intrastatKodNomenklatury = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence leasing (Leasing) Formats.
      *
      * @var array
      */
- static public $leasing = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $leasing = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence majetek (Majetek) Formats.
      *
      * @var array
      */
- static public $majetek = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $majetek = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence mapovani-skladu (Mapování skladů) Formats.
      *
      * @var array
      */
- static public $mapovaniSkladu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $mapovaniSkladu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence misto-urceni (Místa určení) Formats.
      *
      * @var array
      */
- static public $mistoUrceni = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $mistoUrceni = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence mena (Měny) Formats.
      *
      * @var array
      */
- static public $mena = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $mena = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence intrastat-merna-jednotka (Měrné jednotky) Formats.
      *
      * @var array
      */
- static public $intrastatMernaJednotka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $intrastatMernaJednotka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence merna-jednotka (Měrné jednotky ) Formats.
      *
      * @var array
      */
- static public $mernaJednotka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $mernaJednotka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence nastaveni (Nastavení) Formats.
      *
      * @var array
      */
- static public $nastaveni = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $nastaveni = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence vazebni-doklad (Navázané doklady) Formats.
      *
      * @var array
      */
- static public $vazebniDoklad = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $vazebniDoklad = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence po-splatnosti (Neuhrazené pohledávky/závazky po splatnosti) Formats.
      *
      * @var array
      */
- static public $poSplatnosti = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $poSplatnosti = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence naklad (Náklady na události / aktivity) Formats.
      *
      * @var array
      */
- static public $naklad = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $naklad = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence cenikovy-pohyb-nakup (Nákupní, prodejní a skladové pohyby) Formats.
      *
      * @var array
      */
- static public $cenikovyPohybNakup = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $cenikovyPohybNakup = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence cenikovy-pohyb-prodej (Nákupní, prodejní a skladové pohyby) Formats.
      *
      * @var array
      */
- static public $cenikovyPohybProdej = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $cenikovyPohybProdej = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence intrastat-obchodni-transakce (Obchodní transakce) Formats.
      *
      * @var array
      */
- static public $intrastatObchodniTransakce = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $intrastatObchodniTransakce = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence strom-koren (Obecný strom) Formats.
      *
      * @var array
      */
- static public $stromKoren = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $stromKoren = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence obratova-predvaha (Obratová předvaha) Formats.
      *
      * @var array
      */
- static public $obratovaPredvaha = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $obratovaPredvaha = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence obrat (Obraty) Formats.
      *
      * @var array
      */
- static public $obrat = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $obrat = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence smlouva (Odběratelské smlouvy) Formats.
      *
      * @var array
      */
- static public $smlouva = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $smlouva = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence odpisova-skupina (Odpisové skupiny) Formats.
      *
      * @var array
      */
- static public $odpisovaSkupina = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $odpisovaSkupina = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence uzivatel (Osoby a uživatelé) Formats.
      *
      * @var array
      */
- static public $uzivatel = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $uzivatel = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence pohledavka (Ostatní pohledávky) Formats.
      *
      * @var array
      */
- static public $pohledavka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $pohledavka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence zavazek (Ostatní závazky) Formats.
      *
      * @var array
      */
- static public $zavazek = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $zavazek = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence uzivatelsky-dotaz-parametr (Parametry) Formats.
      *
      * @var array
      */
- static public $uzivatelskyDotazParametr = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $uzivatelskyDotazParametr = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence penezni-ustav (Peněžní ústavy) Formats.
      *
      * @var array
      */
- static public $penezniUstav = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $penezniUstav = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence podklady-dph (Podklady DPH) Formats.
      *
      * @var array
      */
- static public $podkladyDph = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $podkladyDph = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence podobne-zbozi (Podobné) Formats.
      *
      * @var array
      */
- static public $podobneZbozi = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $podobneZbozi = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence pohyb-na-uctech (Pohyby na účtech) Formats.
      *
      * @var array
      */
- static public $pohybNaUctech = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $pohybNaUctech = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence pokladni-pohyb (Pokladna) Formats.
      *
      * @var array
      */
- static public $pokladniPohyb = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $pokladniPohyb = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence parametr (Pokročilá parametrizace pomocí parametrů) Formats.
      *
      * @var array
      */
- static public $parametr = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $parametr = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence prikaz-k-inkasu-polozka (Položka inkasa) Formats.
      *
      * @var array
      */
- static public $prikazKInkasuPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $prikazKInkasuPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence prikaz-k-uhrade-polozka (Položka příkazu k úhradě) Formats.
      *
      * @var array
      */
- static public $prikazKUhradePolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $prikazKUhradePolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence interni-doklad-polozka (Položky interních dokladů) Formats.
      *
      * @var array
      */
- static public $interniDokladPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $interniDokladPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence inventura-polozka (Položky inventur) Formats.
      *
      * @var array
      */
- static public $inventuraPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $inventuraPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence pohledavka-polozka (Položky ostatních pohledávek) Formats.
      *
      * @var array
      */
- static public $pohledavkaPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $pohledavkaPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence zavazek-polozka (Položky ostatních závazků) Formats.
      *
      * @var array
      */
- static public $zavazekPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $zavazekPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence pokladni-pohyb-polozka (Položky pokladních dokladů) Formats.
      *
      * @var array
      */
- static public $pokladniPohybPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $pokladniPohybPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence nabidka-prijata-polozka (Položky přijaté nabídky) Formats.
      *
      * @var array
      */
- static public $nabidkaPrijataPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $nabidkaPrijataPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence objednavka-prijata-polozka (Položky přijaté objednávky) Formats.
      *
      * @var array
      */
- static public $objednavkaPrijataPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $objednavkaPrijataPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence faktura-prijata-polozka (Položky přijatých faktur) Formats.
      *
      * @var array
      */
- static public $fakturaPrijataPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $fakturaPrijataPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence poptavka-prijata-polozka (Položky přijatých poptávek) Formats.
      *
      * @var array
      */
- static public $poptavkaPrijataPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $poptavkaPrijataPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence skladovy-pohyb-polozka (Položky příjemky/výdejky) Formats.
      *
      * @var array
      */
- static public $skladovyPohybPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $skladovyPohybPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence smlouva-polozka (Položky smluv) Formats.
      *
      * @var array
      */
- static public $smlouvaPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $smlouvaPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence nabidka-vydana-polozka (Položky vydané nabídky) Formats.
      *
      * @var array
      */
- static public $nabidkaVydanaPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $nabidkaVydanaPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence objednavka-vydana-polozka (Položky vydané objednávky) Formats.
      *
      * @var array
      */
- static public $objednavkaVydanaPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $objednavkaVydanaPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence poptavka-vydana-polozka (Položky vydané poptávky) Formats.
      *
      * @var array
      */
- static public $poptavkaVydanaPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $poptavkaVydanaPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence faktura-vydana-polozka (Položky vydaných faktur a prodejek) Formats.
      *
      * @var array
      */
- static public $fakturaVydanaPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $fakturaVydanaPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence banka-polozka (Položky vzájemných zápočtů) Formats.
      *
      * @var array
      */
- static public $bankaPolozka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $bankaPolozka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence poplatek (Poplatky) Formats.
      *
      * @var array
      */
- static public $poplatek = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $poplatek = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence psc (Poštovní směrovací čísla) Formats.
      *
      * @var array
      */
- static public $psc = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $psc = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence prodejka (Prodejní kasa) Formats.
      *
      * @var array
      */
- static public $prodejka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $prodejka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence pravo-viditelnosti (Práva viditelnosti dat) Formats.
      *
      * @var array
      */
- static public $pravoViditelnosti = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $pravoViditelnosti = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence text (Předdefinované texty) Formats.
      *
      * @var array
      */
- static public $text = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $text = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence predpis-zauctovani (Předpisy zaúčtování) Formats.
      *
      * @var array
      */
- static public $predpisZauctovani = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $predpisZauctovani = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence doklad (Přehled všech dokladů) Formats.
      *
      * @var array
      */
- static public $doklad = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $doklad = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence faktura-prijata (Přijaté faktury) Formats.
      *
      * @var array
      */
- static public $fakturaPrijata = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $fakturaPrijata = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence nabidka-prijata (Přijaté nabídky) Formats.
      *
      * @var array
      */
- static public $nabidkaPrijata = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $nabidkaPrijata = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence objednavka-prijata (Přijaté objednávky) Formats.
      *
      * @var array
      */
- static public $objednavkaPrijata = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $objednavkaPrijata = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence poptavka-prijata (Přijaté poptávky) Formats.
      *
      * @var array
      */
- static public $poptavkaPrijata = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $poptavkaPrijata = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence skladovy-pohyb (Příjemky/výdejky) Formats.
      *
      * @var array
      */
- static public $skladovyPohyb = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $skladovyPohyb = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence prikaz-k-inkasu (Příkaz k inkasu) Formats.
      *
      * @var array
      */
- static public $prikazKInkasu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $prikazKInkasu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence prikaz-k-uhrade (Příkaz k úhradě) Formats.
      *
      * @var array
      */
- static public $prikazKUhrade = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $prikazKUhrade = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence priloha (Příloha) Formats.
      *
      * @var array
      */
- static public $priloha = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $priloha = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence prislustenstvi (Příslušenství) Formats.
      *
      * @var array
      */
- static public $prislustenstvi = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $prislustenstvi = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rezervace (Rezervace) Formats.
      *
      * @var array
      */
- static public $rezervace = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $rezervace = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rocni-rada (Roční položky dokladové řady) Formats.
      *
      * @var array
      */
- static public $rocniRada = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $rocniRada = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence sady-a-komplety (Sady) Formats.
      *
      * @var array
      */
- static public $sadyAKomplety = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $sadyAKomplety = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence saldo (Saldo) Formats.
      *
      * @var array
      */
- static public $saldo = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $saldo = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence sazba-dph (Sazby DPH) Formats.
      *
      * @var array
      */
- static public $sazbaDph = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $sazbaDph = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence dashboard-sharing (Sdílení přehledů) Formats.
      *
      * @var array
      */
- static public $dashboardSharing = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $dashboardSharing = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence bankovni-ucet (Seznam bankovních účtů) Formats.
      *
      * @var array
      */
- static public $bankovniUcet = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $bankovniUcet = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence pokladna (Seznam pokladen) Formats.
      *
      * @var array
      */
- static public $pokladna = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $pokladna = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-prodejky (Seznam prodejních kas) Formats.
      *
      * @var array
      */
- static public $typProdejky = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typProdejky = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence sestava (Seznam sestav) Formats.
      *
      * @var array
      */
- static public $sestava = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $sestava = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence sklad (Seznam skladů) Formats.
      *
      * @var array
      */
- static public $sklad = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $sklad = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence preneseni-dph (Seznam zboží v režimu přenesení DPH) Formats.
      *
      * @var array
      */
- static public $preneseniDph = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $preneseniDph = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence skladova-karta (Skladové karty) Formats.
      *
      * @var array
      */
- static public $skladovaKarta = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $skladovaKarta = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence skupina-atributu (Skupiny atributů) Formats.
      *
      * @var array
      */
- static public $skupinaAtributu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $skupinaAtributu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence skupina-firem (Skupiny firem) Formats.
      *
      * @var array
      */
- static public $skupinaFirem = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $skupinaFirem = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence skupina-zbozi (Skupiny zboží a materiálu) Formats.
      *
      * @var array
      */
- static public $skupinaZbozi = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $skupinaZbozi = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence skupina-stitku (Skupiny štítků) Formats.
      *
      * @var array
      */
- static public $skupinaStitku = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $skupinaStitku = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence souhrnne-hlaseni-dph (Souhrnné hlášení k DPH) Formats.
      *
      * @var array
      */
- static public $souhrnneHlaseniDph = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $souhrnneHlaseniDph = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rozvaha-po-uctech (Soupis aktiv a pasiv) Formats.
      *
      * @var array
      */
- static public $rozvahaPoUctech = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $rozvahaPoUctech = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence vysledovka-po-uctech (Soupis nákladů a výnosů) Formats.
      *
      * @var array
      */
- static public $vysledovkaPoUctech = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $vysledovkaPoUctech = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence splatkovy-kalendar (Splátkový kalendář) Formats.
      *
      * @var array
      */
- static public $splatkovyKalendar = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $splatkovyKalendar = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence dashboard-panel (Správa přehledů) Formats.
      *
      * @var array
      */
- static public $dashboardPanel = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $dashboardPanel = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence standardni-predpis (Standardní předpis sestavy) Formats.
      *
      * @var array
      */
- static public $standardniPredpis = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $standardniPredpis = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence ucetni-osnova (Standardní účetní osnova) Formats.
      *
      * @var array
      */
- static public $ucetniOsnova = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $ucetniOsnova = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence stav-obchodniho-dokladu (Stav obchodního dokladu) Formats.
      *
      * @var array
      */
- static public $stavObchodnihoDokladu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $stavObchodnihoDokladu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence stav-skladu-k-datu (Stav skladu k datu) Formats.
      *
      * @var array
      */
- static public $stavSkladuKDatu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $stavSkladuKDatu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence saldo-k-datu (Stav úhrad k datu) Formats.
      *
      * @var array
      */
- static public $saldoKDatu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $saldoKDatu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence stav-smlouvy (Stavy smluv) Formats.
      *
      * @var array
      */
- static public $stavSmlouvy = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $stavSmlouvy = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence stav-zakazky (Stavy zakázek) Formats.
      *
      * @var array
      */
- static public $stavZakazky = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $stavZakazky = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence stav-uctu (Stavy účtů) Formats.
      *
      * @var array
      */
- static public $stavUctu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $stavUctu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence stat (Státy) Formats.
      *
      * @var array
      */
- static public $stat = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $stat = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence stredisko (Střediska) Formats.
      *
      * @var array
      */
- static public $stredisko = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $stredisko = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence subjekt (Subjekt) Formats.
      *
      * @var array
      */
- static public $subjekt = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $subjekt = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence sumace-sestavy (Sumace v sestavách) Formats.
      *
      * @var array
      */
- static public $sumaceSestavy = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $sumaceSestavy = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-organizace (Typ organizace) Formats.
      *
      * @var array
      */
- static public $typOrganizace = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typOrganizace = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence cenik-typ-sazby-dph (Typ sazby DPH) Formats.
      *
      * @var array
      */
- static public $cenikTypSazbyDph = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $cenikTypSazbyDph = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-atributu (Typy atributů) Formats.
      *
      * @var array
      */
- static public $typAtributu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typAtributu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-banka (Typy bankovních dokladů) Formats.
      *
      * @var array
      */
- static public $typBanka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typBanka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence dodavatelsky-typ-smlouvy (Typy dodavatelských smluv) Formats.
      *
      * @var array
      */
- static public $dodavatelskyTypSmlouvy = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $dodavatelskyTypSmlouvy = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-dokladu (Typy dokladů) Formats.
      *
      * @var array
      */
- static public $typDokladu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typDokladu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-interniho-dokladu (Typy interních dokladů) Formats.
      *
      * @var array
      */
- static public $typInternihoDokladu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typInternihoDokladu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-leasingu (Typy leasingů) Formats.
      *
      * @var array
      */
- static public $typLeasingu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typLeasingu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-majetku (Typy majetků) Formats.
      *
      * @var array
      */
- static public $typMajetku = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typMajetku = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-nakladu (Typy nákladů na události / aktivity) Formats.
      *
      * @var array
      */
- static public $typNakladu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typNakladu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-smlouvy (Typy odběratelských smluv) Formats.
      *
      * @var array
      */
- static public $typSmlouvy = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typSmlouvy = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-pohledavky (Typy ostatních pohledávek) Formats.
      *
      * @var array
      */
- static public $typPohledavky = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typPohledavky = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-zavazku (Typy ostatních závazků) Formats.
      *
      * @var array
      */
- static public $typZavazku = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typZavazku = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-pokladni-pohyb (Typy pokladních dokladů) Formats.
      *
      * @var array
      */
- static public $typPokladniPohyb = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typPokladniPohyb = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-faktury-prijate (Typy přijatých faktur) Formats.
      *
      * @var array
      */
- static public $typFakturyPrijate = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typFakturyPrijate = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-nabidky-prijate (Typy přijatých nabídek) Formats.
      *
      * @var array
      */
- static public $typNabidkyPrijate = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typNabidkyPrijate = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-objednavky-prijate (Typy přijatých objednávek) Formats.
      *
      * @var array
      */
- static public $typObjednavkyPrijate = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typObjednavkyPrijate = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-poptavky-prijate (Typy přijatých poptávek) Formats.
      *
      * @var array
      */
- static public $typPoptavkyPrijate = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typPoptavkyPrijate = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-skladovy-pohyb (Typy skladových dokladů) Formats.
      *
      * @var array
      */
- static public $typSkladovyPohyb = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typSkladovyPohyb = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-aktivity (Typy událostí / aktivit) Formats.
      *
      * @var array
      */
- static public $typAktivity = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typAktivity = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-uzivatelske-vazby (Typy uživatelských vazeb) Formats.
      *
      * @var array
      */
- static public $typUzivatelskeVazby = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typUzivatelskeVazby = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-faktury-vydane (Typy vydaných faktur) Formats.
      *
      * @var array
      */
- static public $typFakturyVydane = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typFakturyVydane = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-nabidky-vydane (Typy vydaných nabídek) Formats.
      *
      * @var array
      */
- static public $typNabidkyVydane = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typNabidkyVydane = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-objednavky-vydane (Typy vydaných objednávek) Formats.
      *
      * @var array
      */
- static public $typObjednavkyVydane = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typObjednavkyVydane = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-poptavky-vydane (Typy vydaných poptávek) Formats.
      *
      * @var array
      */
- static public $typPoptavkyVydane = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typPoptavkyVydane = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-zakazky (Typy zakázek) Formats.
      *
      * @var array
      */
- static public $typZakazky = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typZakazky = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-vzajemnych-zapoctu (Typy zápočtů) Formats.
      *
      * @var array
      */
- static public $typVzajemnychZapoctu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typVzajemnychZapoctu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence majetek-udalost (Události) Formats.
      *
      * @var array
      */
- static public $majetekUdalost = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $majetekUdalost = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence udalost (Události, aktivity) Formats.
      *
      * @var array
      */
- static public $udalost = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $udalost = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence radek-priznani-dph (Uložené řádky přiznání DPH) Formats.
      *
      * @var array
      */
- static public $radekPriznaniDph = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radekPriznaniDph = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence umisteni (Umístění) Formats.
      *
      * @var array
      */
- static public $umisteni = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $umisteni = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladuPolice = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $umisteniVeSkladuPolice = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence umisteni-ve-skladu-regal (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladuRegal = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $umisteniVeSkladuRegal = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence umisteni-ve-skladu (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $umisteniVeSkladu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Formats.
      *
      * @var array
      */
- static public $umisteniVeSkladuMistnost = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $umisteniVeSkladuMistnost = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence sablona-upominky (Upomínky) Formats.
      *
      * @var array
      */
- static public $sablonaUpominky = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $sablonaUpominky = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence umisteni-uctu (Upřesnění umístění účtu) Formats.
      *
      * @var array
      */
- static public $umisteniUctu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $umisteniUctu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence strom (Uzel stromu) Formats.
      *
      * @var array
      */
- static public $strom = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $strom = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence uzivatelsky-dotaz (Uživatelské dotazy) Formats.
      *
      * @var array
      */
- static public $uzivatelskyDotaz = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $uzivatelskyDotaz = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence sablona-mail (Uživatelské e-mailové šablony) Formats.
      *
      * @var array
      */
- static public $sablonaMail = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $sablonaMail = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence filtr (Uživatelské filtry) Formats.
      *
      * @var array
      */
- static public $filtr = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $filtr = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence custom-button (Uživatelské tlačítko) Formats.
      *
      * @var array
      */
- static public $customButton = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $customButton = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence xslt (Uživatelské transformace) Formats.
      *
      * @var array
      */
- static public $xslt = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $xslt = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence uzivatelska-vazba (Uživatelské vazby) Formats.
      *
      * @var array
      */
- static public $uzivatelskaVazba = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $uzivatelskaVazba = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence strom-cenik (Vazba uzlu na objekt) Formats.
      *
      * @var array
      */
- static public $stromCenik = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $stromCenik = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence vazba (Vazby dokladu) Formats.
      *
      * @var array
      */
- static public $vazba = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $vazba = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence uzivatelsky-dotaz-vlastnost (Vlastnosti) Formats.
      *
      * @var array
      */
- static public $uzivatelskyDotazVlastnost = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $uzivatelskyDotazVlastnost = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence faktura-vydana (Vydané faktury) Formats.
      *
      * @var array
      */
- static public $fakturaVydana = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $fakturaVydana = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence nabidka-vydana (Vydané nabídky) Formats.
      *
      * @var array
      */
- static public $nabidkaVydana = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $nabidkaVydana = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence objednavka-vydana (Vydané objednávky) Formats.
      *
      * @var array
      */
- static public $objednavkaVydana = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $objednavkaVydana = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence poptavka-vydana (Vydané poptávky) Formats.
      *
      * @var array
      */
- static public $poptavkaVydana = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $poptavkaVydana = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence hodnoceni-zakazky (Vyhodnocení zakázek) Formats.
      *
      * @var array
      */
- static public $hodnoceniZakazky = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $hodnoceniZakazky = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence vzajemny-zapocet (Vzájemné zápočty) Formats.
      *
      * @var array
      */
- static public $vzajemnyZapocet = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $vzajemnyZapocet = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence vykaz-hospodareni (Výkaz hospodaření za měsíc) Formats.
      *
      * @var array
      */
- static public $vykazHospodareni = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $vykazHospodareni = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence vyrobni-cislo (Výrobní čísla) Formats.
      *
      * @var array
      */
- static public $vyrobniCislo = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $vyrobniCislo = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence zakazka (Zakázky) Formats.
      *
      * @var array
      */
- static public $zakazka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $zakazka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence forma-uhrady-zauctovani (Zaúčtování formy úhrady) Formats.
      *
      * @var array
      */
- static public $formaUhradyZauctovani = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $formaUhradyZauctovani = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence intrastat-zvlastni-pohyb (Zvláštní pohyby) Formats.
      *
      * @var array
      */
- static public $intrastatZvlastniPohyb = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $intrastatZvlastniPohyb = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence zapujcka (Zápůjčky) Formats.
      *
      * @var array
      */
- static public $zapujcka = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $zapujcka = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence rada (dokladové řady) Formats.
      *
      * @var array
      */
- static public $rada = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $rada = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence prodejka-platba (Úhrada) Formats.
      *
      * @var array
      */
- static public $prodejkaPlatba = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $prodejkaPlatba = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence global-store (Úložiště globálního nastavení) Formats.
      *
      * @var array
      */
- static public $globalStore = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $globalStore = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence setting-store (Úložiště nastavení) Formats.
      *
      * @var array
      */
- static public $settingStore = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $settingStore = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence analyza-zakazky (Účetní analýza zakázky) Formats.
      *
      * @var array
      */
- static public $analyzaZakazky = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $analyzaZakazky = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence ucetni-denik (Účetní deník) Formats.
      *
      * @var array
      */
- static public $ucetniDenik = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $ucetniDenik = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence ucetni-obdobi (Účetní období) Formats.
      *
      * @var array
      */
- static public $ucetniObdobi = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $ucetniObdobi = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence ucetni-odpis (Účetní odpisy) Formats.
      *
      * @var array
      */
- static public $ucetniOdpis = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $ucetniOdpis = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence ucet (Účtový rozvrh) Formats.
      *
      * @var array
      */
- static public $ucet = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $ucet = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence cinnost (Činnost) Formats.
      *
      * @var array
      */
- static public $cinnost = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $cinnost = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence stav-ceniku (Číselník stavů položek ceníku) Formats.
      *
      * @var array
      */
- static public $stavCeniku = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $stavCeniku = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Formats.
      *
      * @var array
      */
- static public $typStavuCeniku = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $typStavuCeniku = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence cislo-baliku (Čísla balíků) Formats.
      *
      * @var array
      */
- static public $cisloBaliku = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $cisloBaliku = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence radek-sestavy (Řádek sestavy) Formats.
      *
      * @var array
      */
- static public $radekSestavy = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $radekSestavy = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence cleneni-kontrolni-hlaseni (Řádky kontrolního hlášení DPH) Formats.
      *
      * @var array
      */
- static public $cleneniKontrolniHlaseni = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $cleneniKontrolniHlaseni = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence pricteni-rozdilu (Řádky pro přičtení rozdílu) Formats.
      *
      * @var array
      */
- static public $pricteniRozdilu = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $pricteniRozdilu = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence cleneni-dph (Řádky přiznání DPH) Formats.
      *
      * @var array
      */
- static public $cleneniDph = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $cleneniDph = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence sarze-expirace (Šarže a expirace) Formats.
      *
      * @var array
      */
- static public $sarzeExpirace = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $sarzeExpirace = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence stitek (Štítky) Formats.
      *
      * @var array
      */
- static public $stitek = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $stitek = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence zurnal (Žurnál) Formats.
      *
      * @var array
      */
- static public $zurnal = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $zurnal = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
     /**
      * Evidence smlouva-zurnal (Žurnál pro smlouvy) Formats.
      *
      * @var array
      */
- static public $smlouvaZurnal = [
-  'HTML' => 'html',
-  'XML' => 'xml',
-  'JSON' => 'json',
-  'CSV' => 'csv',
-];
+    public static $smlouvaZurnal = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
 }
