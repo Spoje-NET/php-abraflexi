@@ -1666,6 +1666,14 @@ class RO extends \Ease\Sand
             ['@version' => $this->protoVersion],
             $this->getDataForJSON($data)
         );
+        $evidence = $this->getEvidence();
+        if (
+                $evidence &&
+                array_key_exists($evidence, $dataToJsonize) &&
+                array_key_exists('external-ids', $dataToJsonize[$evidence])
+        ) {
+            $dataToJsonize[$evidence]['external-ids'] = array_values($dataToJsonize[$evidence]['external-ids']);
+        }
         $jsonRaw = json_encode(
             [$this->nameSpace => $dataToJsonize],
             $options
