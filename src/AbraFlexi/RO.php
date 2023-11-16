@@ -523,7 +523,7 @@ class RO extends \Ease\Sand
 
         if (isset($options['evidence'])) {
             $this->setEvidence($options['evidence']);
-        } else {
+        } elseif ($this->evidence) { // Use Defaut if specified
             $this->setEvidence($this->evidence);
         }
     }
