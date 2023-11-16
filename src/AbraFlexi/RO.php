@@ -2252,7 +2252,7 @@ class RO extends \Ease\Sand
         $ids = $this->getExternalIDs();
         if (is_null($want)) {
             if (!empty($ids)) {
-                $extid = is_array($ids->value) ? current($ids->value) : $ids;
+                $extid = is_object($ids) ? (is_array($ids->value) ? current($ids->value) : $ids) : current($ids) ;
             }
         } else {
             if (!is_null($ids) && is_array($ids->value)) {
