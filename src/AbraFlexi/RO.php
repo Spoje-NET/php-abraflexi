@@ -525,6 +525,8 @@ class RO extends \Ease\Sand
             $this->setEvidence($options['evidence']);
         } elseif ($this->evidence) { // Use Defaut if specified
             $this->setEvidence($this->evidence);
+        } else {
+            $this->updateApiURL();
         }
     }
 
