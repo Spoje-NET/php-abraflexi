@@ -29,3 +29,4 @@ composer.lock
 /debian/php-spojenet-abraflexi-doc.substvars
 /debian/php-spojenet-abraflexi.debhelper.log
 /debian/php-spojenet-abraflexi.substvars
+/test/.phpunit.result.cache
