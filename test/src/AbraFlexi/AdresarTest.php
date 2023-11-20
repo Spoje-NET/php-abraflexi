@@ -22,23 +22,22 @@ class AdresarTest extends RWTest {
     protected $object;
 
     /**
-     * Prepare Testing Invoice
+     * Prepare Addresbook entry
      * 
      * @param array $initialData
      * 
-     * @return \AbraFlexi\FakturaVydana
+     * @return \AbraFlexi\Adresar
      */
     public static function makeTestAddress($initialData = []) {
         $testCode = 'TEST_' . time();
-
+        $address = new \AbraFlexi\Adresar();
         $address->takeData(array_merge([
             'kod' => $testCode,
-            'name' => 'TESTer',
+            'nazev' => 'TESTer ' . time(),
             'poznam' => 'AbraFlexi Test Address',
                         ], $initialData));
         if ($address->sync()) {
-            $address->addStatusMessage($address->getApiURL() . ' ' . \AbraFlexi\RO::uncode($address->getDataValue('typDokl')) . ' ' . \AbraFlexi\RO::uncode($address->getRecordIdent()) . ' ' . \AbraFlexi\RO::uncode($address->getDataValue('sumCelkem')) . ' ' . \AbraFlexi\RO::uncode($address->getDataValue('mena')),
-                    'success');
+            $address->addStatusMessage($address->getApiURL() . ' ' .\AbraFlexi\RO::uncode($address->getRecordIdent().' '.$address->getDataValue('mail')) ,'success');
         } else {
             $address->addStatusMessage(json_encode($address->getData()), 'debug');
         }
@@ -58,8 +57,10 @@ class AdresarTest extends RWTest {
      * @covers AbraFlexi\Adresar::getNotificationEmailAddress
      */
     public function testGetNotificationEmailAddress() {
-        $this->object->setMyKey('id');
-        $found = $this->object->getNotificationEmailAddress();
+        $this->object->setMyKey('code:TEST');
+        $this->assertEquals('main@test.cz',$this->object->getNotificationEmailAddress());
+        $this->assertEquals('fakturace@test.cz,kancelar@test.cz',$this->object->getNotificationEmailAddress('Fak'));
+        $this->assertEquals('kancelar@test.cz',$this->object->getNotificationEmailAddress('Ppt'));
     }
 
     /**
@@ -83,5 +84,4 @@ class AdresarTest extends RWTest {
     protected function tearDown(): void {
         
     }
-
 }

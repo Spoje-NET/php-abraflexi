@@ -35,12 +35,10 @@ class Adresar extends RW
      *
      * @param string $purpose Purpose - one of Fak|Obj|Nab|Ppt|Skl|Pok
      *
-     * @return string email of primary contact or address email or null
+     * @return string|null email of primary contact or address email or null
      */
     public function getNotificationEmailAddress(string $purpose = '')
     {
-
-
         $email = null;
         $emailsRaw = $this->getFlexiData(
             $this->getApiURL(),
@@ -52,11 +50,21 @@ class Adresar extends RW
                 $email = $emails['email'];
             }
             if (array_key_exists('kontakty', $emails) && !empty($emails['kontakty'])) {
+                $candidates = [];
                 foreach ($emails['kontakty'] as $kontakt) {
-                    if (array_key_exists('primarni', $kontakt) && ($kontakt['primarni'] == 'true') && strlen(trim($kontakt['email']))) {
-                        $email = $kontakt['email'];
-                        break;
+                    if (strlen($purpose)) {
+                        if ($kontakt['odesilat' . ucfirst($purpose)] == 'true') {
+                            $candidates[] = $kontakt['email'];
+                        }
+                    } else {
+                        if (array_key_exists('primarni', $kontakt) && ($kontakt['primarni'] == 'true') && strlen(trim($kontakt['email']))) {
+                            $candidates = $kontakt['email'];
+                            break;
+                        }
                     }
+                }
+                if (count($candidates)) {
+                    $email = implode(',', $candidates);
                 }
             }
         }
@@ -83,11 +91,21 @@ class Adresar extends RW
                 $mobil = $mobils['mobil'];
             }
             if (array_key_exists('kontakty', $mobils) && !empty($mobils['kontakty'])) {
-                foreach ($mobils['kontakty'] as $kontakt) {
-                    if (($kontakt['primarni'] == 'true') && strlen(trim($kontakt['mobil']))) {
-                        $mobil = $kontakt['mobil'];
-                        break;
+                $candidates = [];
+                foreach ($emails['kontakty'] as $kontakt) {
+                    if (strlen($purpose)) {
+                        if ($kontakt['odesilat' . ucfirst($purpose)] == 'true') {
+                            $candidates[] = $kontakt['mobil'];
+                        }
+                    } else {
+                        if (array_key_exists('primarni', $kontakt) && ($kontakt['primarni'] == 'true') && strlen(trim($kontakt['mobil']))) {
+                            $candidates = $kontakt['mobil'];
+                            break;
+                        }
                     }
+                }
+                if (count($candidates)) {
+                    $mobil = implode(',', $candidates);
                 }
             }
         }

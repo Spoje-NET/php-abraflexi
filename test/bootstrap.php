@@ -11,7 +11,7 @@
  *
  * official|vitexsoftware|localhost
  */
-$testServer = 'official';
+$testServer = '.env';
 
 include_once file_exists('../vendor/autoload.php') ? '../vendor/autoload.php' : 'vendor/autoload.php';
 
@@ -25,88 +25,32 @@ if (!defined('EASE_LOGGER')) {
     define('EASE_LOGGER', 'syslog');
 }
 
-
-switch ($testServer) {
-    case 'official':
-////
-//// Config for official test server
-////
-
-        /*
-         * URL AbraFlexi API
-         */
-        define('ABRAFLEXI_URL', 'https://demo.flexibee.eu');
-        /*
-         * Uživatel AbraFlexi API
-         */
-        define('ABRAFLEXI_LOGIN', 'winstrom');
-        /*
-         * Heslo AbraFlexi API
-         */
-        define('ABRAFLEXI_PASSWORD', 'winstrom');
-        /*
-         * Společnost v AbraFlexi
-         */
-        define('ABRAFLEXI_COMPANY', 'demo');
-
-        break;
-    case 'vitexsoftware':
-//
-// Config for Spoje.Net
-//
-
-        /*
-         * URL AbraFlexi API
-         */
-        define('ABRAFLEXI_URL', 'https://vitexsoftware.abraflexi.eu:5434');
-        /*
-         * Uživatel AbraFlexi API
-         */
-        define('ABRAFLEXI_LOGIN', 'flexipeehp');
-        /*
-         * Heslo AbraFlexi API
-         */
-        define('ABRAFLEXI_PASSWORD', '8Ojeton_');
-        /*
-         * Společnost v AbraFlexi
-         */
-        define('ABRAFLEXI_COMPANY', 'flexipeehp');
-
-        break;
-
-    default:
-//
-// Config for localhost
-//
-
-        /*
-         * URL AbraFlexi API
-         */
-        define('ABRAFLEXI_URL', 'https://localhost:5434');
-        /*
-         * Uživatel AbraFlexi API
-         */
-        define('ABRAFLEXI_LOGIN', 'admin');
-        /*
-         * Heslo AbraFlexi API
-         */
-        define('ABRAFLEXI_PASSWORD', 'Ekhuors3');
-        /*
-         * Společnost v AbraFlexi
-         */
-        define('ABRAFLEXI_COMPANY', 'testing_s_r_o_');
-
-        break;
+if (\Ease\Shared::init(['ABRAFLEXI_URL', 'ABRAFLEXI_LOGIN', 'ABRAFLEXI_PASSWORD', 'ABRAFLEXI_COMPANY'], '../.env', true)) { //FallBack to Abra
+    /*
+     * URL AbraFlexi API
+     */
+    define('ABRAFLEXI_URL', 'https://demo.flexibee.eu');
+    /*
+     * Uživatel AbraFlexi API
+     */
+    define('ABRAFLEXI_LOGIN', 'winstrom');
+    /*
+     * Heslo AbraFlexi API
+     */
+    define('ABRAFLEXI_PASSWORD', 'winstrom');
+    /*
+     * Společnost v AbraFlexi
+     */
+    define('ABRAFLEXI_COMPANY', 'demo');
 }
-
 
 $adresser = new AbraFlexi\Adresar('code:TEST', ['ignore404' => true]);
 if ($adresser->lastResponseCode == 404) {
-    \Test\AbraFlexi\AdresarTest::createTestAddress(['kod' => 'TEST']);
+    $addressTester = \Test\AbraFlexi\AdresarTest::makeTestAddress(['kod' => 'TEST', 'email' => 'main@test.cz']);
+    \Test\AbraFlexi\KontaktTest::makeTestContact(['firma' => $addressTester, 'email' => 'fakturace@test.cz', 'jmeno' => 'fakturant', 'prijmeni' => 'Novak', 'odesilatFak' => true]);
+    \Test\AbraFlexi\KontaktTest::makeTestContact(['firma' => $addressTester, 'email' => 'kancelar@test.cz', 'jmeno' => 'Obchodnik', 'prijmeni' => 'Novy', 'odesilatFak' => true, 'odesilatPpt' => true]);
 }
 $invoicer = new AbraFlexi\Adresar('code:TEST', ['ignore404' => true]);
 if ($invoicer->lastResponseCode == 404) {
-    \AbraFlexi\FakturaVydana::makeTestInvoice('code:TEST', ['ignore404' => true]);
+    \Test\AbraFlexi\FakturaVydana::makeTestInvoice('code:TEST', ['ignore404' => true]);
 }
-
-    

@@ -30,3 +30,4 @@ composer.lock
 /debian/php-spojenet-abraflexi.debhelper.log
 /debian/php-spojenet-abraflexi.substvars
 /test/.phpunit.result.cache
+/.env

@@ -932,7 +932,7 @@ class RO extends \Ease\Sand
     {
         $resultID = null;
         if (
-            is_object($object) && method_exists($object, '__toString')
+                is_object($object) && method_exists($object, '__toString')
         ) {
             $resultID = $object->__toString();
         } else {
@@ -1002,6 +1002,7 @@ class RO extends \Ease\Sand
         }
         $this->apiURL .= '.' . $this->format;
     }
+
     /*
      * Add Default Url params to given url if not overrided
      *
@@ -1243,10 +1244,10 @@ class RO extends \Ease\Sand
                             if (!empty($this->rowCount)) {
                                 $this->responseStats = ['read' => $this->rowCount];
                             } elseif (
-                                array_key_exists(
-                                    $responseEvidence,
-                                    $mainResult
-                                )
+                                    array_key_exists(
+                                        $responseEvidence,
+                                        $mainResult
+                                    )
                             ) {
                                 $this->responseStats = ['read' => count($mainResult[$responseEvidence])];
                             } else {
@@ -1412,10 +1413,10 @@ class RO extends \Ease\Sand
         $result = false;
         $actionsAvailable = $this->getActionsInfo();
         if (
-            is_array($actionsAvailable) && array_key_exists(
-                $action,
-                $actionsAvailable
-            )
+                is_array($actionsAvailable) && array_key_exists(
+                    $action,
+                    $actionsAvailable
+                )
         ) {
             $this->action = $action;
             $result = true;
@@ -1576,10 +1577,10 @@ class RO extends \Ease\Sand
         $transactions = $this->performRequest($finalUrl, 'GET');
         $responseEvidence = $this->getResponseEvidence();
         if (
-            is_array($transactions) && array_key_exists(
-                $responseEvidence,
-                $transactions
-            )
+                is_array($transactions) && array_key_exists(
+                    $responseEvidence,
+                    $transactions
+                )
         ) {
             $result = $transactions[$responseEvidence];
             if ((count($result) == 1) && empty(current($result))) {
@@ -1792,7 +1793,7 @@ class RO extends \Ease\Sand
             [
                     'detail' => 'custom:' . $this->getKeyColumn(),
                     $this->getKeyColumn() => $identifer
-            ]
+                ]
         );
         $this->ignore404($ignorestate);
         return ($this->lastResponseCode == 200) && !empty($cands);
@@ -1869,10 +1870,10 @@ class RO extends \Ease\Sand
                 $conditions = [$this->getmyKeyColumn() => $conditions];
             case 'array': //Few Conditions
                 if (
-                    !is_null($indexBy) && !array_key_exists(
-                        $indexBy,
-                        $columnsList
-                    )
+                        !is_null($indexBy) && !array_key_exists(
+                            $indexBy,
+                            $columnsList
+                        )
                 ) {
                     $columnsList[] = $indexBy;
                 }
@@ -1895,10 +1896,10 @@ class RO extends \Ease\Sand
         $conditions['detail'] = $detail;
         $flexiData = $this->getFlexiData('', $conditions);
         if (
-            is_string($indexBy) && is_array($flexiData) && array_key_exists(
-                0,
-                $flexiData
-            ) && array_key_exists($indexBy, $flexiData[0])
+                is_string($indexBy) && is_array($flexiData) && array_key_exists(
+                    0,
+                    $flexiData
+                ) && array_key_exists($indexBy, $flexiData[0])
         ) {
             $flexiData = \Ease\Functions::reindexArrayBy($flexiData, $indexBy);
         }
@@ -2262,7 +2263,7 @@ class RO extends \Ease\Sand
         $ids = $this->getExternalIDs();
         if (is_null($want)) {
             if (!empty($ids)) {
-                $extid = is_object($ids) ? (is_array($ids->value) ? current($ids->value) : $ids) : current($ids) ;
+                $extid = is_object($ids) ? (is_array($ids->value) ? current($ids->value) : $ids) : current($ids);
             }
         } else {
             if (!is_null($ids) && is_array($ids->value)) {
@@ -2345,10 +2346,10 @@ class RO extends \Ease\Sand
     public function unifyResponseFormat($responseBody)
     {
         if (
-            !is_array($responseBody) || array_key_exists(
-                'message',
-                $responseBody
-            )
+                !is_array($responseBody) || array_key_exists(
+                    'message',
+                    $responseBody
+                )
         ) { //Unifi response format
             $response = $responseBody;
         } else {
@@ -2769,10 +2770,10 @@ class RO extends \Ease\Sand
                 $urlParams['report-name'] = $reportName;
             }
             if (
-                ($this->doCurlRequest(\Ease\Functions::addUrlParams(
-                    $this->apiURL,
-                    $urlParams
-                ), 'GET') == 200)
+                    ($this->doCurlRequest(\Ease\Functions::addUrlParams(
+                        $this->apiURL,
+                        $urlParams
+                    ), 'GET') == 200)
             ) {
                 $response = $this->lastCurlResponse;
             }
@@ -2800,13 +2801,13 @@ class RO extends \Ease\Sand
         if ($this->setFormat($format)) {
             $downloadTo = $destDir . $this->getEvidence() . '_' . $this->getMyKey() . '.' . $format;
             if (
-                ($this->doCurlRequest(empty($reportName) ? $this->apiURL : \Ease\Functions::addUrlParams(
-                    $this->apiURL,
-                    ['report-name' => $reportName]
-                ), 'GET') == 200) && (file_put_contents(
-                    $downloadTo,
-                    $this->lastCurlResponse
-                ) !== false)
+                    ($this->doCurlRequest(empty($reportName) ? $this->apiURL : \Ease\Functions::addUrlParams(
+                        $this->apiURL,
+                        ['report-name' => $reportName]
+                    ), 'GET') == 200) && (file_put_contents(
+                        $downloadTo,
+                        $this->lastCurlResponse
+                    ) !== false)
             ) {
                 $fileOnDisk = $downloadTo;
             }
@@ -2856,7 +2857,7 @@ class RO extends \Ease\Sand
         $reports = [];
         $reportsRaw = $this->getFlexiData($this->getEvidenceURL() . '/reports');
         if (
-            !empty($reportsRaw) && array_key_exists('reports', $reportsRaw) && !empty($reportsRaw['reports']) && array_key_exists('report', $reportsRaw['reports']) &&
+                !empty($reportsRaw) && array_key_exists('reports', $reportsRaw) && !empty($reportsRaw['reports']) && array_key_exists('report', $reportsRaw['reports']) &&
                 !empty($reportsRaw['reports']['report'])
         ) {
             if (\Ease\Functions::isAssoc($reportsRaw['reports']['report'])) {
@@ -2967,20 +2968,20 @@ class RO extends \Ease\Sand
             }
             $d->close();
             if (
-                (strstr($this->url, '://localhost') || strstr(
-                    $this->url,
-                    '://127.'
-                )) && file_exists('/var/log/flexibee.log')
+                    (strstr($this->url, '://localhost') || strstr(
+                        $this->url,
+                        '://127.'
+                    )) && file_exists('/var/log/flexibee.log')
             ) {
                 $fl = fopen('/var/log/' . 'flexibee.log', 'r');
                 if ($fl) {
                     $tracelog = [];
                     for (
-                        $x_pos = 0, $ln = 0, $output = array(); fseek(
-                            $fl,
-                            $x_pos,
-                            SEEK_END
-                        ) !== -1; $x_pos--
+                            $x_pos = 0, $ln = 0, $output = array(); fseek(
+                                $fl,
+                                $x_pos,
+                                SEEK_END
+                            ) !== -1; $x_pos--
                     ) {
                         $char = fgetc($fl);
                         if ($char === "\n") {
