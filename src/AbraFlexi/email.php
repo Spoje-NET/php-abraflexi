@@ -44,14 +44,16 @@ trait email
      * 3. try Document's primary contact mail
      * 4. try Document's any contact mail
      *
+     * @param string $purpose Purpose of Mail - one of Fak|Obj|Nab|Ppt|Skl|Pok
+     *
      * @return string
      */
-    public function getEmail()
+    public function getEmail(string $purpose = '')
     {
         if (empty($this->getDataValue('kontaktEmail'))) {
             $addresser = new Adresar($this->getDataValue('firma'), array_merge(['detail' => 'custom:email'], $this->getConnectionOptions()));
             if (empty($addresser->getDataValue('email'))) {
-                $email = $addresser->getNotificationEmailAddress();
+                $email = $addresser->getNotificationEmailAddress($purpose);
             } else {
                 $email = $addresser->getDataValue('email');
             }

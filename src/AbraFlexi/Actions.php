@@ -22,7 +22,7 @@ class Actions
      *
      * @var string
      */
-    public static $version = '2023.5.2';
+    public static $version = '2023.5.3';
 
     /**
      * Evidence adresar (Adresy firem) Actions.
@@ -30,6 +30,123 @@ class Actions
      * @var array
      */
     public static $adresar = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence mzda (Aktualizace mezd) Actions.
+     *
+     * @var array
+     */
+    public static $mzda = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence analyza-nakupu (Analýza nákupu) Actions.
+     *
+     * @var array
+     */
+    public static $analyzaNakupu = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence analyza-prodeje (Analýza prodeje) Actions.
+     *
+     * @var array
+     */
+    public static $analyzaProdeje = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -151,25 +268,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -210,14 +327,6 @@ class Actions
     'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
     'isService' => 'NO',
-    ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
     ],
     'automaticke-parovani' => [
     'actionId' => 'automaticke-parovani',
@@ -273,6 +382,45 @@ class Actions
      * @var array
      */
     public static $adresarBankovniUcet = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence mzdy-bankovni-spojeni (Bankovní spojení) Actions.
+     *
+     * @var array
+     */
+    public static $mzdyBankovniSpojeni = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1377,25 +1525,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -1445,14 +1593,6 @@ class Actions
     'isRealAction' => 'true',
     'isService' => 'YES',
     ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
-    ],
     ];
     /**
      * Evidence intrastat-druh-dopravy (Druh dopravy) Actions.
@@ -1460,6 +1600,45 @@ class Actions
      * @var array
      */
     public static $intrastatDruhDopravy = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence dite (Dítě) Actions.
+     *
+     * @var array
+     */
+    public static $dite = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1577,6 +1756,45 @@ class Actions
      * @var array
      */
     public static $formaUhrady = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence osoba-hlavicka (Hlavičky osob) Actions.
+     *
+     * @var array
+     */
+    public static $osobaHlavicka = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1737,25 +1955,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -1796,14 +2014,6 @@ class Actions
     'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
     'isService' => 'NO',
-    ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
     ],
     ];
     /**
@@ -2261,25 +2471,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -2320,6 +2530,45 @@ class Actions
      * @var array
      */
     public static $mapovaniSkladu = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence mzdova-slozka (Mzdové složky - vstup a výběry) Actions.
+     *
+     * @var array
+     */
+    public static $mzdovaSlozka = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2510,11 +2759,65 @@ class Actions
     ],
     ];
     /**
+     * Evidence nastaveni (Nastavení) Actions.
+     *
+     * @var array
+     */
+    public static $nastaveni = [
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
      * Evidence vazebni-doklad (Navázané doklady) Actions.
      *
      * @var array
      */
     public static $vazebniDoklad = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence nepritomnost (Nepřítomnost) Actions.
+     *
+     * @var array
+     */
+    public static $nepritomnost = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2947,6 +3250,45 @@ class Actions
     ],
     ];
     /**
+     * Evidence uzivatel (Osoby a uživatelé) Actions.
+     *
+     * @var array
+     */
+    public static $uzivatel = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
      * Evidence pohledavka (Ostatní pohledávky) Actions.
      *
      * @var array
@@ -2956,25 +3298,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -3023,14 +3365,6 @@ class Actions
     'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
     'isRealAction' => 'true',
     'isService' => 'YES',
-    ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
     ],
     ];
     /**
@@ -3043,25 +3377,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -3103,22 +3437,6 @@ class Actions
     'isRealAction' => 'true',
     'isService' => 'NO',
     ],
-    'sign-for-payment' => [
-    'actionId' => 'sign-for-payment',
-    'actionName' => 'Podepsat k úhradě',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'true',
-    'isService' => 'YES',
-    ],
-    'unsign-for-payment' => [
-    'actionId' => 'unsign-for-payment',
-    'actionName' => 'Zrušit podpis k úhradě',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'true',
-    'isService' => 'YES',
-    ],
     'uhrad-zapoctem' => [
     'actionId' => 'uhrad-zapoctem',
     'actionName' => 'Uhradit vzájemným zápočtem',
@@ -3126,14 +3444,6 @@ class Actions
     'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
     'isRealAction' => 'true',
     'isService' => 'YES',
-    ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
     ],
     ];
     /**
@@ -3210,6 +3520,29 @@ class Actions
     'actionName' => 'Smazat',
     'needInstance' => 'true',
     'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence osoba (Personalistika) Actions.
+     *
+     * @var array
+     */
+    public static $osoba = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
     'isRealAction' => 'false',
     'isService' => 'NO',
     ],
@@ -3341,25 +3674,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -3400,14 +3733,6 @@ class Actions
     'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
     'isService' => 'NO',
-    ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
     ],
     'automaticke-parovani' => [
     'actionId' => 'automaticke-parovani',
@@ -3588,6 +3913,45 @@ class Actions
      * @var array
      */
     public static $inventuraPolozka = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence obrat-polozky (Položky obratů) Actions.
+     *
+     * @var array
+     */
+    public static $obratPolozky = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -4311,6 +4675,76 @@ class Actions
     ],
     ];
     /**
+     * Evidence pracovni-pomer (Pracovní poměr) Actions.
+     *
+     * @var array
+     */
+    public static $pracovniPomer = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence pracovni-pomer-hlavicka (Pracovní poměr) Actions.
+     *
+     * @var array
+     */
+    public static $pracovniPomerHlavicka = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
      * Evidence prodejka (Prodejní kasa) Actions.
      *
      * @var array
@@ -4320,25 +4754,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'delete' => [
     'actionId' => 'delete',
@@ -4356,22 +4790,6 @@ class Actions
     'isRealAction' => 'true',
     'isService' => 'NO',
     ],
-    'sign-for-payment' => [
-    'actionId' => 'sign-for-payment',
-    'actionName' => 'Podepsat k úhradě',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'true',
-    'isService' => 'YES',
-    ],
-    'unsign-for-payment' => [
-    'actionId' => 'unsign-for-payment',
-    'actionName' => 'Zrušit podpis k úhradě',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'true',
-    'isService' => 'YES',
-    ],
     'uhrad-preplatky' => [
     'actionId' => 'uhrad-preplatky',
     'actionName' => 'Uhradit z přeplatků v bance a pokladně',
@@ -4388,13 +4806,83 @@ class Actions
     'isRealAction' => 'true',
     'isService' => 'YES',
     ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
+    ];
+    /**
+     * Evidence prace (Práce pro střediska) Actions.
+     *
+     * @var array
+     */
+    public static $prace = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
     'needInstance' => 'true',
     'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence prace-mesic (Práce pro střediska) Actions.
+     *
+     * @var array
+     */
+    public static $praceMesic = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
     'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
     ],
     ];
     /**
@@ -4554,6 +5042,45 @@ class Actions
     ],
     ];
     /**
+     * Evidence prehled-zamestnancu (Přehled zaměstnanců) Actions.
+     *
+     * @var array
+     */
+    public static $prehledZamestnancu = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
      * Evidence faktura-prijata (Přijaté faktury) Actions.
      *
      * @var array
@@ -4563,25 +5090,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -4623,22 +5150,6 @@ class Actions
     'isRealAction' => 'true',
     'isService' => 'NO',
     ],
-    'sign-for-payment' => [
-    'actionId' => 'sign-for-payment',
-    'actionName' => 'Podepsat k úhradě',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'true',
-    'isService' => 'YES',
-    ],
-    'unsign-for-payment' => [
-    'actionId' => 'unsign-for-payment',
-    'actionName' => 'Zrušit podpis k úhradě',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'true',
-    'isService' => 'YES',
-    ],
     'uhrad-zapoctem' => [
     'actionId' => 'uhrad-zapoctem',
     'actionName' => 'Uhradit vzájemným zápočtem',
@@ -4646,14 +5157,6 @@ class Actions
     'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
     'isRealAction' => 'true',
     'isService' => 'YES',
-    ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
     ],
     ];
     /**
@@ -4666,25 +5169,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -4725,14 +5228,6 @@ class Actions
     'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
     'isService' => 'NO',
-    ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
     ],
     ];
     /**
@@ -4745,25 +5240,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -4804,14 +5299,6 @@ class Actions
     'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
     'isService' => 'NO',
-    ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
     ],
     ];
     /**
@@ -4824,25 +5311,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -4884,14 +5371,6 @@ class Actions
     'isRealAction' => 'true',
     'isService' => 'NO',
     ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
-    ],
     ];
     /**
      * Evidence skladovy-pohyb (Příjemky/výdejky) Actions.
@@ -4903,25 +5382,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -4970,14 +5449,6 @@ class Actions
     'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
     'isService' => 'YES',
-    ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
     ],
     ];
     /**
@@ -5722,6 +6193,45 @@ class Actions
     ],
     ];
     /**
+     * Evidence skupina-osob (Skupiny osob) Actions.
+     *
+     * @var array
+     */
+    public static $skupinaOsob = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
      * Evidence skupina-zbozi (Skupiny zboží a materiálu) Actions.
      *
      * @var array
@@ -5766,6 +6276,45 @@ class Actions
      * @var array
      */
     public static $skupinaStitku = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence smena (Směny) Actions.
+     *
+     * @var array
+     */
+    public static $smena = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5922,6 +6471,84 @@ class Actions
      * @var array
      */
     public static $splatkovyKalendar = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence dashboard-panel (Správa přehledů) Actions.
+     *
+     * @var array
+     */
+    public static $dashboardPanel = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence srazka (Srážka) Actions.
+     *
+     * @var array
+     */
+    public static $srazka = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6253,6 +6880,45 @@ class Actions
     ],
     ];
     /**
+     * Evidence stala-mzdova-slozka (Stálá mzdová složka) Actions.
+     *
+     * @var array
+     */
+    public static $stalaMzdovaSlozka = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
      * Evidence stat (Státy) Actions.
      *
      * @var array
@@ -6414,6 +7080,45 @@ class Actions
      * @var array
      */
     public static $typOrganizace = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence typ-pracovniho-pomeru (Typ pracovního poměru) Actions.
+     *
+     * @var array
+     */
+    public static $typPracovnihoPomeru = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7618,11 +8323,11 @@ class Actions
     ],
     ];
     /**
-     * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Actions.
+     * Evidence umisteni-ve-skladu (Umístění ve skladu) Actions.
      *
      * @var array
      */
-    public static $umisteniVeSkladuPolice = [
+    public static $umisteniVeSkladu = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7696,11 +8401,11 @@ class Actions
     ],
     ];
     /**
-     * Evidence umisteni-ve-skladu (Umístění ve skladu) Actions.
+     * Evidence umisteni-ve-skladu-police (Umístění ve skladu) Actions.
      *
      * @var array
      */
-    public static $umisteniVeSkladu = [
+    public static $umisteniVeSkladuPolice = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8008,6 +8713,84 @@ class Actions
     ],
     ];
     /**
+     * Evidence report (Uživatelské reporty) Actions.
+     *
+     * @var array
+     */
+    public static $report = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence role (Uživatelské role) Actions.
+     *
+     * @var array
+     */
+    public static $role = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
      * Evidence custom-button (Uživatelské tlačítko) Actions.
      *
      * @var array
@@ -8251,25 +9034,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -8310,22 +9093,6 @@ class Actions
     'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
     'isService' => 'NO',
-    ],
-    'sign-for-payment' => [
-    'actionId' => 'sign-for-payment',
-    'actionName' => 'Podepsat k úhradě',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'true',
-    'isService' => 'YES',
-    ],
-    'unsign-for-payment' => [
-    'actionId' => 'unsign-for-payment',
-    'actionName' => 'Zrušit podpis k úhradě',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-    'isRealAction' => 'true',
-    'isService' => 'YES',
     ],
     'uhrad-preplatky' => [
     'actionId' => 'uhrad-preplatky',
@@ -8343,14 +9110,6 @@ class Actions
     'isRealAction' => 'true',
     'isService' => 'YES',
     ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
-    ],
     ];
     /**
      * Evidence nabidka-vydana (Vydané nabídky) Actions.
@@ -8362,25 +9121,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -8421,14 +9180,6 @@ class Actions
     'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
     'isService' => 'NO',
-    ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
     ],
     ];
     /**
@@ -8441,25 +9192,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -8500,14 +9251,6 @@ class Actions
     'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
     'isService' => 'NO',
-    ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
     ],
     ];
     /**
@@ -8520,25 +9263,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -8579,14 +9322,6 @@ class Actions
     'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
     'isService' => 'NO',
-    ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
     ],
     ];
     /**
@@ -8638,25 +9373,25 @@ class Actions
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'lock-for-ucetni' => [
     'actionId' => 'lock-for-ucetni',
-    'actionName' => 'Zamknout pro učetní',
+    'actionName' => 'Zamknout mimo účetní',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'unlock' => [
     'actionId' => 'unlock',
-    'actionName' => 'Odemknout',
+    'actionName' => 'Otevřít zámek',
     'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
-    'isService' => 'YES',
+    'isService' => 'NO',
     ],
     'new' => [
     'actionId' => 'new',
@@ -8697,14 +9432,6 @@ class Actions
     'actionMakesSense' => 'ONLY_WITH_INSTANCE',
     'isRealAction' => 'true',
     'isService' => 'NO',
-    ],
-    'odeslani-mailem' => [
-    'actionId' => 'odeslani-mailem',
-    'actionName' => 'Odeslání dokladu',
-    'needInstance' => 'true',
-    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-    'isRealAction' => 'true',
-    'isService' => 'ON_MOBILE',
     ],
     ];
     /**
@@ -8791,6 +9518,69 @@ class Actions
      * @var array
      */
     public static $zakazka = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence zamek (Zamykání období) Actions.
+     *
+     * @var array
+     */
+    public static $zamek = [
+    'lock' => [
+    'actionId' => 'lock',
+    'actionName' => 'Zamknout',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'true',
+    'isService' => 'YES',
+    ],
+    'lock-for-ucetni' => [
+    'actionId' => 'lock-for-ucetni',
+    'actionName' => 'Zamknout pro učetní',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'true',
+    'isService' => 'YES',
+    ],
+    'unlock' => [
+    'actionId' => 'unlock',
+    'actionName' => 'Odemknout',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'true',
+    'isService' => 'YES',
+    ],
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9176,6 +9966,45 @@ class Actions
     ],
     ];
     /**
+     * Evidence ucetni-denik-zjednoduseny (Účetní deník - zjednodušený) Actions.
+     *
+     * @var array
+     */
+    public static $ucetniDenikZjednoduseny = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
      * Evidence ucetni-obdobi (Účetní období) Actions.
      *
      * @var array
@@ -9332,11 +10161,11 @@ class Actions
     ],
     ];
     /**
-     * Evidence stav-ceniku (Číselník stavů položek ceníku) Actions.
+     * Evidence ciselnik-mzdovych-slozek (Číselník mzdových složek) Actions.
      *
      * @var array
      */
-    public static $stavCeniku = [
+    public static $ciselnikMzdovychSlozek = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9376,6 +10205,45 @@ class Actions
      * @var array
      */
     public static $typStavuCeniku = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence stav-ceniku (Číselník stavů položek ceníku) Actions.
+     *
+     * @var array
+     */
+    public static $stavCeniku = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',

@@ -33,14 +33,18 @@ class Adresar extends RW
     /**
      * get Email address for Customer with primary contact prefered
      *
+     * @param string $purpose Purpose - one of Fak|Obj|Nab|Ppt|Skl|Pok
+     *
      * @return string email of primary contact or address email or null
      */
-    public function getNotificationEmailAddress()
+    public function getNotificationEmailAddress(string $purpose = '')
     {
+
+
         $email = null;
         $emailsRaw = $this->getFlexiData(
             $this->getApiURL(),
-            ['detail' => 'custom:id,email,kontakty(primarni,email)', 'relations' => 'kontakty']
+            ['detail' => 'custom:id,email,kontakty(primarni,email,odesilatFak,odesilatObj,odesilatNab,odesilatPpt,odesilatSkl,odesilatPok)', 'relations' => 'kontakty']
         );
         if (is_array($emailsRaw) && !empty($emailsRaw[0])) {
             $emails = $emailsRaw[0];
@@ -62,14 +66,16 @@ class Adresar extends RW
     /**
      * get cell phone Number for Customer with primary contact prefered
      *
+     * @param string $purpose Purpose - one of Fak|Obj|Nab|Ppt|Skl|Pok
+     *
      * @return string cell phone number of primary contact or address cell number or null
      */
-    public function getCellPhoneNumber()
+    public function getCellPhoneNumber(string $purpose = '')
     {
         $mobil = null;
         $mobilsRaw = $this->getFlexiData(
             $this->getApiURL(),
-            ['detail' => 'custom:id,mobil,kontakty(primarni,mobil)', 'relations' => 'kontakty']
+            ['detail' => 'custom:id,mobil,kontakty(primarni,mobil,odesilatFak,odesilatObj,odesilatNab,odesilatPpt,odesilatSkl,odesilatPok)', 'relations' => 'kontakty']
         );
         if (is_array($mobilsRaw)) {
             $mobils = $mobilsRaw[0];
@@ -91,14 +97,16 @@ class Adresar extends RW
     /**
      * get any phone Number for Customer with primary contact prefered
      *
+     * @param string $purpose Purpose - one of Fak|Obj|Nab|Ppt|Skl|Pok
+     *
      * @return string phone number of primary contact or address's phone number or null
      */
-    public function getAnyPhoneNumber()
+    public function getAnyPhoneNumber(string $purpose = '')
     {
         $phoneNo = null;
         $numbersRaw = $this->getFlexiData(
             $this->getApiURL(),
-            ['detail' => 'custom:id,mobil,tel,kontakty(primarni,mobil,tel)', 'relations' => 'kontakty']
+            ['detail' => 'custom:id,mobil,tel,kontakty(primarni,mobil,tel,odesilatFak,odesilatObj,odesilatNab,odesilatPpt,odesilatSkl,odesilatPok)', 'relations' => 'kontakty']
         );
         if (is_array($numbersRaw) && !empty($numbersRaw[0])) {
             $numbers = $numbersRaw[0];
