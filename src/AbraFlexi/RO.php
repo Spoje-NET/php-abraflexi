@@ -1072,7 +1072,7 @@ class RO extends \Ease\Sand
                     $responseDecoded = $this->rawJsonToArray($responseRaw);
                     break;
                 case 'xml':
-                    $responseDecoded = $this->rawXmlToArray($this->lastCurlResponse);
+                    $responseDecoded = ($this->lastCurlResponse[0] == '<') ? $this->rawXmlToArray($this->lastCurlResponse) : ['message' => $this->lastCurlResponse];
                     break;
                 case 'txt':
                 default:
