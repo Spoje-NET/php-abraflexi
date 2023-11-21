@@ -52,7 +52,7 @@ trait email {
         if (empty($this->getDataValue('kontaktEmail'))) {
             $addresser = new Adresar($this->getDataValue('firma'), array_merge(['detail' => 'custom:email'], $this->getConnectionOptions()));
             if (empty($addresser->getDataValue('email'))) {
-                $email = $addresser->getNotificationEmailAddress($purpose);
+                $email = $addresser->getNotificationEmailAddress(empty($purpose) ? self::docTypeToPurpose($this) : $purpose);
             } else {
                 $email = $addresser->getDataValue('email');
             }
