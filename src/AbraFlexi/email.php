@@ -44,15 +44,13 @@ trait email {
      * 3. try Document's primary contact mail
      * 4. try Document's any contact mail
      *
-     * @param string $purpose Purpose of Mail - one of Fak|Obj|Nab|Ppt|Skl|Pok
-     *
      * @return string
      */
-    public function getEmail(string $purpose = '') {
+    public function getEmail() {
         if (empty($this->getDataValue('kontaktEmail'))) {
             $addresser = new Adresar($this->getDataValue('firma'), array_merge(['detail' => 'custom:email'], $this->getConnectionOptions()));
             if (empty($addresser->getDataValue('email'))) {
-                $email = $addresser->getNotificationEmailAddress(empty($purpose) ? self::docTypeToPurpose($this) : $purpose);
+                $email = $addresser->getNotificationEmailAddress();
             } else {
                 $email = $addresser->getDataValue('email');
             }
@@ -64,6 +62,41 @@ trait email {
     }
 
     /**
+     * Get recipients for documnet.
+     *
+     * 1. try Document's "kontaktEmail" field
+     * 2. try Document's company email
+     * 3. try Document's primary contact mail
+     * 4. try Document's any contact mail
+     * 5. try Document's contacts mail for given purpose
+     *
+     * @param string $purpose Purpose of Mail - one of Fak|Obj|Nab|Ppt|Skl|Pok or empty for autodetection
+     *
+     * @return string column divided list of email addresses
+     */
+    public function getRecipients(string $purpose = '') {
+        $recipients = [];
+        if (empty($this->getDataValue('kontaktEmail')) === false) {
+            $recipients[] = $this->getDataValue('kontaktEmail');
+        }
+        if (empty($this->getDataValue('email')) === false) {
+            $recipients[] = $this->getDataValue('email');
+        }
+        if (empty($this->getDataValue('firma')) === false) {
+            $addresser = new Adresar($this->getDataValue('firma'), array_merge(['detail' => 'custom:email'], $this->getConnectionOptions()));
+            $contacts = $addresser->getNotificationEmailAddress(empty($purpose) ? self::docTypeToPurpose($this) : $purpose);
+            if (empty($contacts) === false) {
+                if (strchr($contacts, ',') === false) {
+                    $recipients[] = $contacts;
+                } else {
+                    $recipients = array_merge($recipients, explode(',', $contacts));
+                }
+            }
+        }
+        return implode(',', array_unique($recipients));
+    }
+
+    /**
      * Document type To Purpose
      *
      * @param \AbraFlexi\RO $document
@@ -71,7 +104,7 @@ trait email {
      * @return string Contact role Fak|Obj|Nab|Ppt|Skl|Pok or ''
      */
     public static function docTypeToPurpose($document) {
-        $purposeRaw = substr(str_replace('AbraFlexi\\', '', get_class($document)), 0, 2);
-        return array_search($purposeRaw, ['Fak','Obj','Nab','Ppt','Skl','Pok']) === false ? '' : $purposeRaw ; 
+        $purposeRaw = substr(str_replace('AbraFlexi\\', '', str_replace('Poptavka', 'Pptavka', get_class($document) ) ), 0, 3);
+        return array_search($purposeRaw, ['Fak', 'Obj', 'Nab', 'Ppt', 'Skl', 'Pok']) === false ? '' : $purposeRaw;
     }
 }
