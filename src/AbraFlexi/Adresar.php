@@ -58,13 +58,13 @@ class Adresar extends RW
                         }
                     } else {
                         if (array_key_exists('primarni', $kontakt) && ($kontakt['primarni'] == 'true') && strlen(trim($kontakt['email']))) {
-                            $candidates = $kontakt['email'];
+                            $candidates[] = $kontakt['email'];
                             break;
                         }
                     }
                 }
                 if (count($candidates)) {
-                    $email = implode(',', $candidates);
+                    $email = implode(',', array_unique($candidates));
                 }
             }
         }
@@ -105,7 +105,7 @@ class Adresar extends RW
                     }
                 }
                 if (count($candidates)) {
-                    $mobil = implode(',', $candidates);
+                    $mobil = implode(',', array_unique($candidates));
                 }
             }
         }
