@@ -166,9 +166,13 @@ class Company extends RW
         $headersBackup = $this->defaultHttpHeaders;
         $this->defaultHttpHeaders['Accept'] = '*/*';
         $this->defaultHttpHeaders['Content-Type'] = 'application/x-winstrom-backup';
-        $this->performRequest('backup', 'GET');
+        $responseCode = $this->doCurlRequest(
+            $this->evidenceUrlWithSuffix('backup'),
+            'GET',
+            'winstrom-backup'
+        );
         $this->defaultHttpHeaders = $headersBackup;
-        if ($this->lastResponseCode == 200) {
+        if ($responseCode == 200) {
             if (file_put_contents($filename, $this->lastCurlResponse)) {
                 $result = true;
             }

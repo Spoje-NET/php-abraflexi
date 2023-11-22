@@ -34,8 +34,8 @@ namespace AbraFlexi;
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-trait email {
-
+trait email
+{
     /**
      * Get recipient for documnet.
      *
@@ -46,7 +46,8 @@ trait email {
      *
      * @return string
      */
-    public function getEmail() {
+    public function getEmail()
+    {
         if (empty($this->getDataValue('kontaktEmail'))) {
             $addresser = new Adresar($this->getDataValue('firma'), array_merge(['detail' => 'custom:email'], $this->getConnectionOptions()));
             if (empty($addresser->getDataValue('email'))) {
@@ -74,7 +75,8 @@ trait email {
      *
      * @return string column divided list of email addresses
      */
-    public function getRecipients(string $purpose = '') {
+    public function getRecipients(string $purpose = '')
+    {
         $recipients = [];
         if (empty($this->getDataValue('kontaktEmail')) === false) {
             $recipients[] = $this->getDataValue('kontaktEmail');
@@ -103,8 +105,9 @@ trait email {
      *
      * @return string Contact role Fak|Obj|Nab|Ppt|Skl|Pok or ''
      */
-    public static function docTypeToPurpose($document) {
-        $purposeRaw = substr(str_replace('AbraFlexi\\', '', str_replace('Poptavka', 'Pptavka', get_class($document) ) ), 0, 3);
+    public static function docTypeToPurpose($document)
+    {
+        $purposeRaw = substr(str_replace('AbraFlexi\\', '', str_replace('Poptavka', 'Pptavka', get_class($document))), 0, 3);
         return array_search($purposeRaw, ['Fak', 'Obj', 'Nab', 'Ppt', 'Skl', 'Pok']) === false ? '' : $purposeRaw;
     }
 }
