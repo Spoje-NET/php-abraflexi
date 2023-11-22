@@ -147,6 +147,8 @@ class Company extends RW
             $this->nameSpace = 'winstrom';
             $response = parent::rawResponseToArray($responseRaw, $format);
             $this->nameSpace = $nsbackup;
+        } elseif ($responseRaw == 'ok') {
+            $response = ['success' => true];
         } else {
             $response = parent::rawResponseToArray($responseRaw, $format);
         }
