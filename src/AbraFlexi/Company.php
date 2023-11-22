@@ -83,9 +83,9 @@ class Company extends RW
     public function processInit($init)
     {
         parent::processInit($init);
-        if (is_array($init) && array_key_exists('dbNazev', $init)) {
+        if (is_array($init) && array_key_exists('dbNazev', $init) && $this->autoload) {
             $companyInfo = $this->getFlexiData('/c/' . $init['dbNazev']);
-            if (!array_key_exists('message', $companyInfo)) {
+            if (is_array($companyInfo) && !array_key_exists('message', $companyInfo)) {
                 $this->takeData(current($companyInfo));
             }
         }
