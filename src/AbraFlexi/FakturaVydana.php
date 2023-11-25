@@ -184,7 +184,7 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
     public function zrusVazbuZdd($id = null)
     {
         $unbondRequest = [
-            'id' => is_null($id) ? $this->getRecordIent() : $id,
+            'id' => is_null($id) ? $this->getRecordIdent() : $id,
             'zrus-vazbu-zdd'
         ];
 
@@ -205,9 +205,7 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
             'GET',
             'png'
         );
-        if ($this->lastResponseCode == 200) {
-            return $this->lastCurlResponse;
-        }
+        return $this->lastResponseCode == 200 ? $this->lastCurlResponse : '';
     }
 
     /**
@@ -225,14 +223,14 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
     /**
      * Get Number of days overdue
      *
-     * @param string $dueDate AbraFlexi date
+     * @param string|Date $dueDate AbraFlexi date
      *
      * @return int
      */
     public static function overdueDays($dueDate)
     {
         if (is_object($dueDate) && array_key_exists('isNull', get_class_vars(get_class($dueDate)))  && ($dueDate->isNull === true)) {
-            throw new Exception('$dueDate->isNull is true', self);
+            throw new Exception('$dueDate->isNull is true', $this);
         }
         $dateDiff = date_diff(
             is_object($dueDate) ? $dueDate : RO::flexiDateToDateTime($dueDate),
