@@ -6,7 +6,7 @@ declare(strict_types=1);
  * AbraFlexi - Custom Report object.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2020 Spoje.Net
+ * @copyright  (C) 2020-2023 Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -36,12 +36,15 @@ class Report extends RW
      */
     public function loadFromAbraFlexi($id = null)
     {
-        if (strstr($id, 'code:')) { //Dirty Hack ⚠ Error 400: Entita 'Report' neobsahuje kód nebo ho nelze použít jako ID (není unikátní)
-            $candidates = $this->getColumnsFromAbraFlexi(['id', 'kod'], null, 'kod');
-            if (array_key_exists(\AbraFlexi\RO::uncode($id), $candidates)) {
+        if (is_string($id) && strstr($id, 'code:')) { //Dirty Hack ⚠ Error 400: Entita 'Report' neobsahuje kód nebo ho nelze použít jako ID (není unikátní)
+            $kod = \AbraFlexi\RO::uncode($id);
+            $candidates = $this->getColumnsFromAbraFlexi(['id', 'kod'], ['kod' => $kod], 'kod');
+            if (array_key_exists($kod, $candidates)) {
                 $id = intval($candidates[\AbraFlexi\RO::uncode($id)]['id']);
+            } else {
+                $this->lastResponseCode = 404;
             }
         }
-        return parent::loadFromAbraFlexi($id);
+        return is_numeric($id) ? parent::loadFromAbraFlexi($id) : 0;
     }
 }
