@@ -105,7 +105,7 @@ class Priloha extends RW
     public static function getAttachment($attachmentID, $options = [])
     {
         $result = null;
-        $downloader = new Priloha($attachmentID, $options);
+        $downloader = new self($attachmentID, $options);
         if ($downloader->lastResponseCode == 200) {
             $downloader->doCurlRequest(self::getDownloadURL($downloader), 'GET');
             if ($downloader->lastResponseCode == 200) {
@@ -210,20 +210,12 @@ class Priloha extends RW
         $attachment,
         $contentType
     ) {
-        $attached = new Priloha();
-        $headersBackup = $object->defaultHttpHeaders;
-        $codeBackup = $object->lastResponseCode;
-        $responseBackup = $object->lastCurlResponse;
-        $object->postFields = $attachment;
-        $object->defaultHttpHeaders['Content-Type'] = $contentType;
+        $attached = new self();
+        $attached->postFields = $attachment;
+        $attached->defaultHttpHeaders['Content-Type'] = $contentType;
         $url = $object->getAbraFlexiURL() . '/prilohy/new/' . $filename;
-        $response = $object->performRequest($url, 'PUT');
-        $object->defaultHttpHeaders = $headersBackup;
+        $response = $attached->performRequest($url, 'PUT');
         $attached->setMyKey($response[0]['id']);
-        $attached->lastResponseCode = $object->lastResponseCode;
-        $attached->lastCurlResponse = $object->lastCurlResponse;
-        $object->lastResponseCode = $codeBackup;
-        $object->lastCurlResponse = $responseBackup;
         return $attached;
     }
 
