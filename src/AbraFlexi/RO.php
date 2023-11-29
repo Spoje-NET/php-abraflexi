@@ -678,7 +678,7 @@ class RO extends \Ease\Sand
     {
         switch ($columnName) {
             case 'kod':
-                $value = self::uncode($value); //Alwyas uncode "kod" column
+                $value = $value ? self::uncode($value) : ''; //Alwyas uncode "kod" column
 
             default:
                 if (is_object($value)) {
