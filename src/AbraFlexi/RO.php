@@ -2751,6 +2751,7 @@ class RO extends \Ease\Sand
         $sign = false
     ) {
         $response = null;
+        $formatBackup = $this->format;
         if ($this->setFormat($format)) {
             $urlParams = [];
             switch ($format) {
@@ -2777,6 +2778,7 @@ class RO extends \Ease\Sand
             ) {
                 $response = $this->lastCurlResponse;
             }
+            $this->setFormat($formatBackup);
         }
         return $response;
     }
@@ -2785,35 +2787,24 @@ class RO extends \Ease\Sand
      * Uloží dokument v daném formátu do složky v systému souborů
      * Save document in given format to directory in filesystem
      *
-     * @param string $format  pdf/csv/xml/json/ ...
-     * @param string $destDir where to put file (prefix)
-     * @param string $reportName Template used to generate PDF
+     * @param string  $format  pdf/csv/xml/json/ ...
+     * @param string  $destDir where to put file (prefix)
+     * @param string  $reportName Template used to generate PDF
+     * @param string  $lang Requested Language
+     * @param boolean $sign download digital signed
      *
      * @return string|null filename downloaded or none
      */
     public function downloadInFormat(
         string $format,
         $destDir = './',
-        $reportName = null
+        $reportName = null,
+        $lang = null,
+        $sign = false
     ) {
-        $fileOnDisk = null;
-        $formatBackup = $this->format;
-        if ($this->setFormat($format)) {
             $downloadTo = $destDir . $this->getEvidence() . '_' . $this->getMyKey() . '.' . $format;
-            if (
-                    ($this->doCurlRequest(empty($reportName) ? $this->apiURL : \Ease\Functions::addUrlParams(
-                        $this->apiURL,
-                        ['report-name' => $reportName]
-                    ), 'GET') == 200) && (file_put_contents(
-                        $downloadTo,
-                        $this->lastCurlResponse
-                    ) !== false)
-            ) {
-                $fileOnDisk = $downloadTo;
-            }
-            $this->setFormat($formatBackup);
-        }
-        return $fileOnDisk;
+        $downloaded = $this->getInFormat($format, $reportName, $lang, $sign);
+        return file_put_contents($downloadTo, $downloaded) ? $downloadTo : null;
     }
 
     /**
