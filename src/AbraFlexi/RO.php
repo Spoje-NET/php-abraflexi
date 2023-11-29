@@ -2629,7 +2629,7 @@ class RO extends \Ease\Sand
     public function setMyKey($myKeyValue)
     {
         $res = false;
-        if (is_string($myKeyValue)) {
+        if (is_string($myKeyValue) && (is_numeric($myKeyValue) === false)) {
             if (substr($myKeyValue, 0, 4) == 'ext:') {
                 if (empty($this->evidenceInfo) || ($this->evidenceInfo['extIdSupported'] == 'false')) {
                     $msg = sprintf(_('Evidence %s does not support extIDs'), $this->getEvidence());
