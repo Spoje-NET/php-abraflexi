@@ -65,4 +65,14 @@ class Exception extends \Ease\Exception
     {
         return $this->errorMessages;
     }
+
+    /**
+     * Raw API Response
+     *
+     * @return string
+     */
+    public function getServerResponse()
+    {
+        return $this->serverResponse;
+    }
 }
