@@ -164,23 +164,22 @@ class Company extends RW
      */
     public function saveBackupTo($filename)
     {
-        $result = false;
+        $backupFile = fopen($filename, 'w+');
         $headersBackup = $this->defaultHttpHeaders;
         $this->defaultHttpHeaders['Accept'] = '*/*';
         $this->defaultHttpHeaders['Content-Type'] = 'application/x-winstrom-backup';
+        \curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, false); // return content as a string from curl_exec
+        \curl_setopt($this->curl, CURLOPT_FILE, $backupFile);
         $responseCode = $this->doCurlRequest(
             $this->evidenceUrlWithSuffix('backup'),
             'GET',
             'winstrom-backup'
         );
+        fclose($backupFile);
         $this->defaultHttpHeaders = $headersBackup;
-        if ($responseCode == 200) {
-            if (file_put_contents($filename, $this->lastCurlResponse)) {
-                $result = true;
-            }
-        }
         $this->defaultHttpHeaders = $headersBackup;
-        return $result;
+        \curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true); // return content as a string from curl_exec
+        return $responseCode == 200;
     }
 
     /**
