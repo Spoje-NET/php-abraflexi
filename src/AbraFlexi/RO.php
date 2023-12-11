@@ -1457,7 +1457,7 @@ class RO extends \Ease\Sand
      */
     public function disconnect()
     {
-        if (is_resource($this->curl)) {
+        if (is_null($this->curl) === false) {
             curl_close($this->curl);
         }
         $this->curl = null;
