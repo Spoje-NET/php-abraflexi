@@ -73,7 +73,7 @@ class Relation
      */
     public function getRelationTarget()
     {
-        $engineClass = RO::evidenceToClassName($this->target);
+        $engineClass = Functions::evidenceToClassName($this->target);
         if (class_exists($engineClass)) {
             $relation = new $engineClass($this->value);
         } else {

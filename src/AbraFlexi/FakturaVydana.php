@@ -233,7 +233,7 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
             throw new Exception('$dueDate->isNull is true', $this);
         }
         $dateDiff = date_diff(
-            is_object($dueDate) ? $dueDate : RO::flexiDateToDateTime($dueDate),
+            is_object($dueDate) ? $dueDate : Functions::flexiDateToDateTime($dueDate),
             new \DateTime()
         );
         if ($dateDiff->invert == 1) {
