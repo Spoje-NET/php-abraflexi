@@ -1473,7 +1473,7 @@ class RO extends \Ease\Sand
                     $this->setEvidence($conditions['evidence']);
                     unset($conditions['evidence']);
                 }
-                $conditions = $this->flexiUrl($conditions);
+                $conditions = Functions::flexiUrl($conditions);
             }
 
             if (strlen($conditions) && ($conditions[0] != '/')) {

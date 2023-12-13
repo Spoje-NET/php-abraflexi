@@ -196,7 +196,7 @@ class Functions
                                     if (count($condParts) == 1) {
                                         $parts[$column] = $column .= ' ' . $value;
                                     } else {
-                                        $parts[$column] = $column .= ' ' . $condParts[0] . " '" . $condParts[1] . "'";
+                                        $parts[$column] = $column .= ' ' . $condParts[0] . (is_numeric($condParts[1]) ? $condParts[1] : " '" . $condParts[1] . "'");
                                     }
                                     break;
                                 default:
