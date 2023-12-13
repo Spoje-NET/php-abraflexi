@@ -92,7 +92,7 @@ class Adresar extends RW
             }
             if (array_key_exists('kontakty', $mobils) && !empty($mobils['kontakty'])) {
                 $candidates = [];
-                foreach ($emails['kontakty'] as $kontakt) {
+                foreach ($mobils['kontakty'] as $kontakt) {
                     if (strlen($purpose)) {
                         if ($kontakt['odesilat' . ucfirst($purpose)] == 'true') {
                             $candidates[] = $kontakt['mobil'];

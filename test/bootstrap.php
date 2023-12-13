@@ -25,7 +25,7 @@ if (!defined('EASE_LOGGER')) {
     define('EASE_LOGGER', 'syslog');
 }
 
-if (\Ease\Shared::init(['ABRAFLEXI_URL', 'ABRAFLEXI_LOGIN', 'ABRAFLEXI_PASSWORD', 'ABRAFLEXI_COMPANY'], '../.env', true)) { //FallBack to Abra
+if (\Ease\Shared::init(['ABRAFLEXI_URL', 'ABRAFLEXI_LOGIN', 'ABRAFLEXI_PASSWORD', 'ABRAFLEXI_COMPANY'], '../.env')) { //FallBack to Abra
     /*
      * URL AbraFlexi API
      */

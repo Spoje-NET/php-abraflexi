@@ -35,7 +35,7 @@ class Root extends RW
     /**
      * Get availble companies listing
      *
-     * @param array $condition applay to listing
+     * @param array $conditions applay to listing
      *
      * @return array
      */

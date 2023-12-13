@@ -34,11 +34,11 @@ class Date extends \DateTime
         $this->isNull = empty($flexidate);
         $format = '';
         if (strstr($flexidate, '+')) {
-            $format = RO::$DateFormat . 'T';
+            $format = Functions::$DateFormat . 'T';
         } elseif (strstr($flexidate, 'Z')) {
-            $format = RO::$DateFormat . 'Z';
+            $format = Functions::$DateFormat . 'Z';
         } elseif (!empty($flexidate) && ($flexidate != 'NOW')) {
-            $format = RO::$DateFormat;
+            $format = Functions::$DateFormat;
             if (strstr($flexidate, ':')) {
                 $format .= '-i:s';
             }
@@ -47,7 +47,7 @@ class Date extends \DateTime
             parent::__construct();
         } else {
             parent::__construct(\DateTime::createFromFormat($format, $flexidate)
-                    ->setTime(0, 0)->format(\DateTimeInterface::ATOM));
+                            ->setTime(0, 0)->format(\DateTimeInterface::ATOM));
         }
     }
 
@@ -58,6 +58,6 @@ class Date extends \DateTime
      */
     public function __toString()
     {
-        return $this->isNull ? '' : $this->format(RO::$DateFormat);
+        return $this->isNull ? '' : $this->format(Functions::$DateFormat);
     }
 }

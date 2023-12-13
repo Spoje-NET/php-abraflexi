@@ -80,10 +80,11 @@ class Hooks extends RW
      * Test if given record exists in AbraFlexi.
      *
      * @param array $data
-     * @return null Unsupported evidence
+     *
+     * @return bool Unsupported evidence
      */
     public function recordExists($data = null)
     {
-        return null;
+        return false;
     }
 }

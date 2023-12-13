@@ -65,12 +65,13 @@ class Changes extends RO
     /**
      * Test if given record exists in AbraFlexi .
      *
-     * @param array $data
-     * @return null Method is disabled for Changes
+     * @param  array     $data
+     *
+     * @return bool Method is disabled for Changes
      */
     public function recordExists($data = null)
     {
-        return null;
+        return false;
     }
 
     /**

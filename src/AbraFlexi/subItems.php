@@ -32,7 +32,7 @@ trait subItems
      *
      * @param array $subitems
      *
-     * @return type
+     * @return bool
      */
     public function setSubitems(array $subitems)
     {
@@ -40,8 +40,9 @@ trait subItems
     }
 
     /**
+     * Name for SubItem branch
      *
-     * @return type
+     * @return string
      */
     public function getSubMenuName()
     {
@@ -51,8 +52,9 @@ trait subItems
     }
 
     /**
+     * SubItem object
      *
-     * @return \AbraFlexi\RW
+     * @return array
      */
     public function getSubObjects()
     {

@@ -230,7 +230,7 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
     public static function overdueDays($dueDate)
     {
         if (is_object($dueDate) && array_key_exists('isNull', get_class_vars(get_class($dueDate)))  && ($dueDate->isNull === true)) {
-            throw new Exception('$dueDate->isNull is true', $this);
+            throw new Exception('$dueDate->isNull is true', new self());
         }
         $dateDiff = date_diff(
             is_object($dueDate) ? $dueDate : Functions::flexiDateToDateTime($dueDate),

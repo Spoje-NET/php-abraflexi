@@ -38,6 +38,8 @@ trait getChanges
 {
     /**
      * Obtain Chaneges from Journal
+     *
+     * @return array Changes obtained
      */
     function getChanges()
     {
@@ -45,6 +47,6 @@ trait getChanges
         if ($changesRaw) {
             $changes = $changesRaw['zmeny'];
         }
-        return $changes;
+        return is_array($changesRaw) && array_key_exists('zmeny', $changesRaw) ?  $changesRaw['zmeny'] : [];
     }
 }

@@ -108,7 +108,7 @@ class Priloha extends RW
         $downloader = new self($attachmentID, $options);
         if ($downloader->lastResponseCode == 200) {
             $downloader->doCurlRequest(self::getDownloadURL($downloader), 'GET');
-            if ($downloader->lastResponseCode == 200) {
+            if ($downloader->lastResponseCode == 200) { /** @phpstan-ignore-line */
                 $result = $downloader->lastCurlResponse;
             }
         }
@@ -128,22 +128,14 @@ class Priloha extends RW
     ) {
         $attachments = self::getAttachmentsList($object);
 
-        if (
-            isset($attachmentID) && !array_key_exists(
-                $attachmentID,
-                $attachments
-            )
-        ) {
+        if (isset($attachmentID) && !array_key_exists($attachmentID, $attachments)) {
             $object->addStatusMessage(sprintf(_('Attachment %s does no exist'), $attachmentID), 'warning');
-            if ($this->throwException == true) {
-                throw new Exception(sprintf(_('Attachment %s does no exist'), $attachmentID), $this);
+            if ($object->throwException == true) {
+                throw new Exception(sprintf(_('Attachment %s does no exist'), $attachmentID), $object);
             }
         }
 
-        $attachmentBody = $object->doCurlRequest(
-            self::getDownloadUrl($object),
-            'GET'
-        );
+        $attachmentBody = $object->doCurlRequest(self::getDownloadUrl($object), 'GET');
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
         header('Content-Transfer-Encoding: binary');

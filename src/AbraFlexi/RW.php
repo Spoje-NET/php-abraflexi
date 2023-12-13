@@ -35,7 +35,7 @@ class RW extends RO
     /**
      * Last Inserted ID.
      *
-     * @var int
+     * @var int|null
      */
     public $lastInsertedID = null;
 
@@ -372,7 +372,7 @@ class RW extends RO
      *
      * @param int $timpestamp
      *
-     * @return \AbraFlexi\ Date or NULL
+     * @return \AbraFlexi\Date or NULL
      */
     public static function timestampToFlexiDate($timpestamp = null)
     {
@@ -440,8 +440,8 @@ class RW extends RO
     /**
      * Vloží do větve data z objektu
      *
-     * @param AbraFlexiRO $object    objekt evidence
-     * @param boolean    $removeAll flush older items
+     * @param RO      $object    objekt evidence
+     * @param boolean $removeAll flush older items
      */
     public function addObjectToBranch($object, $removeAll = false)
     {
@@ -577,7 +577,7 @@ class RW extends RO
     public function performAction(string $action, $method = 'int')
     {
         $actionsAvailble = $this->getActionsInfo();
-
+        $result = false;
         if (
             is_array($actionsAvailble) && array_key_exists(
                 $action,
@@ -669,7 +669,7 @@ class RW extends RO
      *
      * @url https://www.abraflexi.eu/api/dokumentace/ref/odesilani-mailem/
      *
-     * @return int http response code
+     * @return bool http response code
      */
     public function sendUnsent()
     {

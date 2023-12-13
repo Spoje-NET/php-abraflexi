@@ -43,7 +43,7 @@ trait stitky
     /**
      * UnSet Label for Current Object record
      *
-     * @param string|array $label(s) To Remove
+     * @param string|array $labelsToRemove Label/Labels
      *
      * @return boolean   success result ?
      */
@@ -51,7 +51,7 @@ trait stitky
     {
         $this->insertToAbraFlexi(['id' => $this->getRecordIdent(), 'stitky@removeAll' => 'true',
             'stitky' => array_diff_key(
-                $this->getLabels($this),
+                $this->getLabels(),
                 Stitek::listToArray($labelsToRemove)
             )]);
         return $this->lastResponseCode == 201;

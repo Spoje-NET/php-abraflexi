@@ -77,7 +77,7 @@ class Stitek extends RW
     /**
      * Convert coma-separated list to array
      *
-     * @param string $listRaw
+     * @param string|array $listRaw
      *
      * @return array
      */
@@ -139,7 +139,7 @@ class Stitek extends RW
      */
     public static function setLabel($label, $object)
     {
-        return $object->insertToAbraFlexi(['id' => $object->getMyKey(), 'stitky' => $label]);
+        return boolval($object->insertToAbraFlexi(['id' => $object->getMyKey(), 'stitky' => $label]));
     }
 
     /**

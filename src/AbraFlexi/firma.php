@@ -19,7 +19,7 @@ trait firma
 {
     /**
      * Here Customer's or Provider's comany object live
-     * @var \AbraFlexi\Adresar
+     * @var \AbraFlexi\Adresar|null
      */
     public $firma = null;
 

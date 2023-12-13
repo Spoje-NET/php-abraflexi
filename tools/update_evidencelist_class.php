@@ -152,12 +152,20 @@ $evidenceList .= ' static public $evidences = ' . varexport($fullList, true) . '
 
 $evidenceList .= '
     /**
-     * Obtain evidence identifier
+     * There is not ID
+     * 
+     * @deprecated since version 1.24 - use getRecordCode() instead
      *
-     * @return string company database name
+     * @return null company database name
      */
-    public function getRecordID()
-    {
+    public function getRecordID() {
+        return null;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getRecordCode() {
         return $this->getDataValue(\'evidencePath\');
     }
     ';

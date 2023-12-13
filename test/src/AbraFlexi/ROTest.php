@@ -1486,28 +1486,6 @@ class ROTest extends \Test\Ease\SandTest {
         $this->object->saveDebugFiles();
     }
 
-    /**
-     * PHP Date object to AbraFlexi date format test
-     * 
-     * @covers AbraFlexi\AbraFlexiRO::dateToFlexiDate
-     */
-    public function testDateToFlexiDate() {
-        $dater = new \DateTime();
-        $this->assertEquals($dater->format(RO::$DateFormat),
-                RO::dateToFlexiDate($dater));
-    }
-
-    /**
-     * PHP Date object to AbraFlexi dateTime format test
-     * 
-     * @covers AbraFlexi\AbraFlexiRO::dateToFlexiDateTime
-     */
-    public function testDateToFlexiDateTime() {
-        $dater = new \DateTime();
-        $this->assertEquals($dater->format(RO::$DateTimeFormat),
-                RO::dateToFlexiDateTime($dater));
-    }
-
     public function testSetFilter() {
         $this->object->setFilter('X');
         $this->object->setFilter(['a' => 'b']);

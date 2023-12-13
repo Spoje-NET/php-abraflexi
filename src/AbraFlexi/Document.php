@@ -36,7 +36,7 @@ interface Document
     /**
      * UnSet Label for Current Object record
      *
-     * @param string|array $label(s) To Remove
+     * @param string|array $labelsToRemove Label name
      *
      * @return boolean   success result ?
      */
@@ -78,7 +78,7 @@ interface Document
      *
      * @param array $subitems
      *
-     * @return type
+     * @return bool
      */
     public function setSubitems(array $subitems);
 
@@ -89,8 +89,9 @@ interface Document
     public function getSubMenuName();
 
     /**
+     * Array of SubItem objects
      *
-     * @return \AbraFlexi\RW
+     * @return array
      */
     public function getSubObjects();
 

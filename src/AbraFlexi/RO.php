@@ -183,7 +183,7 @@ class RO extends \Ease\Sand
     /**
      * Informace o posledním HTTP requestu.
      *
-     * @var *
+     * @var array|null
      */
     public $curlInfo;
 
@@ -1109,7 +1109,6 @@ class RO extends \Ease\Sand
                             break;
                         default:
                             throw new \Ease\Exception(sprintf(_('Unknown response field %s type: %s. (Please update library or static definitions)'), $column . '@' . $evidence, $columnInfo['type']));
-                            break;
                     }
                 }
             }
@@ -1158,8 +1157,8 @@ class RO extends \Ease\Sand
     /**
      * Parse Response array
      *
-     * @param array $responseDecoded
-     * @param int $responseCode Request Response Code
+     * @param array|string $responseDecoded
+     * @param int          $responseCode     Request Response Code
      *
      * @return array main data part of response
      */
@@ -2438,7 +2437,7 @@ class RO extends \Ease\Sand
     /**
      * Obtain established relations listing
      *
-     * @return array Null or Relations
+     * @return array|null or Relations
      */
     public function getVazby($id = null)
     {
@@ -2836,15 +2835,15 @@ class RO extends \Ease\Sand
                     $trace = implode("\n", array_reverse($tracelog));
                     $tracefile = $tmpdir . '/trace-' . $this->evidence . '-' . $myTime . '.log';
                     file_put_contents($tracefile, $trace);
-                    $report->addItem("\n\n" . $trace);
+                    $report->addText("\n\n" . $trace);
                     fclose($fl);
                 }
             } else {
-                $report->addItem($errorResponse['message']);
+                $report->addText($errorResponse['message']);
             }
 
             $licenseInfo = $this->performRequest($this->url . '/default-license.json');
-            $report->addItem("\n\n" . json_encode(
+            $report->addText("\n\n" . json_encode(
                 $licenseInfo['license'],
                 JSON_PRETTY_PRINT
             ));
@@ -2914,8 +2913,7 @@ class RO extends \Ease\Sand
                 '://',
                 '://' . $this->user . '@',
                 $this->getApiUrl()
-            ) . ' php-abraflexi v' . self::$libVersion . ' (AbraFlexi ' . EvidenceList::$version . ')',
-            $suffix
+            ) . ' php-abraflexi v' . self::$libVersion . ' (AbraFlexi ' . EvidenceList::$version . ')'
         );
     }
 
