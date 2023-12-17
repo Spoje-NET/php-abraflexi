@@ -103,9 +103,9 @@ class RO extends \Ease\Sand
     /**
      * Curl Handle.
      *
-     * @var resource
+     * @var resource|null
      */
-    public $curl = null;
+    public $curl;
 
     /**
      * @link https://demo.flexibee.eu/devdoc/company-identifier Identifikátor firmy
@@ -1393,7 +1393,16 @@ class RO extends \Ease\Sand
         if (is_null($this->curl) === false) {
             curl_close($this->curl);
         }
-        $this->curl = null;
+        unset($this->curl);
+    }
+
+    /**
+     * Reset Curl Connection
+     */
+    public function connectionReset()
+    {
+        $this->disconnect();
+        $this->curlInit();
     }
 
     /**
@@ -1426,6 +1435,7 @@ class RO extends \Ease\Sand
      * Oddělí z pole podmínek ty jenž patří za ? v URL požadavku
      *
      * @link https://www.abraflexi.eu/api/dokumentace/ref/urls/ Sestavování URL
+     *
      * @param array $conditions pole podmínek   - rendrují se do ()
      * @param array $urlParams  pole parametrů  - rendrují za ?
      */
@@ -2648,7 +2658,7 @@ class RO extends \Ease\Sand
         $lang = null,
         $sign = false
     ) {
-            $downloadTo = $destDir . $this->getEvidence() . '_' . $this->getMyKey() . '.' . $format;
+        $downloadTo = $destDir . $this->getEvidence() . '_' . $this->getMyKey() . '.' . $format;
         $downloaded = $this->getInFormat($format, $reportName, $lang, $sign);
         return file_put_contents($downloadTo, $downloaded) ? $downloadTo : null;
     }

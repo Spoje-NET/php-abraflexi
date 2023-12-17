@@ -21,7 +21,7 @@ class Formats
  *
  * @var string
  */
-    public static $version = '2023.5.3';
+    public static $version = '2023.6.2';
 
 
     /**
@@ -725,6 +725,17 @@ class Formats
      * @var array
      */
     public static $inventura = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
+    /**
+     * Evidence certifikat-finbricks (Klíče Finbricks) Formats.
+     *
+     * @var array
+     */
+    public static $certifikatFinbricks = [
     'HTML' => 'html',
     'XML' => 'xml',
     'JSON' => 'json',
@@ -2364,6 +2375,17 @@ class Formats
      * @var array
      */
     public static $udalost = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
+    /**
+     * Evidence ulozene-priznani-dph (Uložené přiznání DPH) Formats.
+     *
+     * @var array
+     */
+    public static $ulozenePriznaniDph = [
     'HTML' => 'html',
     'XML' => 'xml',
     'JSON' => 'json',

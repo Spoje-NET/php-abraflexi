@@ -22,7 +22,7 @@ class Relations
      *
      * @var string
      */
-    public static $version = '2023.5.3';
+    public static $version = '2023.6.2';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
@@ -878,6 +878,18 @@ class Relations
     'url' => 'inventura-polozky',
     'evidenceType' => 'INVENTURA_POLOZKA',
     'name' => 'Položka inventury',
+    ],
+    ];
+    /**
+     * Evidence certifikat-finbricks (Klíče Finbricks) Relations.
+     *
+     * @var array
+     */
+    public static $certifikatFinbricks = [
+    'uzivatelske-vazby' => [
+    'url' => 'uzivatelske-vazby',
+    'evidenceType' => 'VAZBA',
+    'name' => 'Uživatelské vazby',
     ],
     ];
     /**
@@ -1756,6 +1768,11 @@ class Relations
     'url' => 'polozkyDokladu',
     'evidenceType' => 'FAKTURA_OUT_POLOZKA',
     'name' => 'Položky faktur',
+    ],
+    'formy-uhrad' => [
+    'url' => 'formy-uhrad',
+    'evidenceType' => 'FORMA_UHRADY',
+    'name' => 'Forma úhrady',
     ],
     'prilohy' => [
     'url' => 'prilohy',
@@ -2912,6 +2929,18 @@ class Relations
     'url' => 'kontakty',
     'evidenceType' => 'ADR_KONTAKT',
     'name' => 'Kontakty',
+    ],
+    ];
+    /**
+     * Evidence ulozene-priznani-dph (Uložené přiznání DPH) Relations.
+     *
+     * @var array
+     */
+    public static $ulozenePriznaniDph = [
+    'uzivatelske-vazby' => [
+    'url' => 'uzivatelske-vazby',
+    'evidenceType' => 'VAZBA',
+    'name' => 'Uživatelské vazby',
     ],
     ];
     /**

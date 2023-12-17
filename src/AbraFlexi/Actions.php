@@ -22,7 +22,7 @@ class Actions
      *
      * @var string
      */
-    public static $version = '2023.5.3';
+    public static $version = '2023.6.2';
 
     /**
      * Evidence adresar (Adresy firem) Actions.
@@ -2022,6 +2022,45 @@ class Actions
      * @var array
      */
     public static $inventura = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence certifikat-finbricks (Klíče Finbricks) Actions.
+     *
+     * @var array
+     */
+    public static $certifikatFinbricks = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8211,6 +8250,45 @@ class Actions
      * @var array
      */
     public static $udalost = [
+    'new' => [
+    'actionId' => 'new',
+    'actionName' => 'Přidat',
+    'needInstance' => 'false',
+    'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'copy' => [
+    'actionId' => 'copy',
+    'actionName' => 'Vytvořit kopii',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'ON_MOBILE',
+    ],
+    'edit' => [
+    'actionId' => 'edit',
+    'actionName' => 'Změnit',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    'delete' => [
+    'actionId' => 'delete',
+    'actionName' => 'Smazat',
+    'needInstance' => 'true',
+    'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+    'isRealAction' => 'false',
+    'isService' => 'NO',
+    ],
+    ];
+    /**
+     * Evidence ulozene-priznani-dph (Uložené přiznání DPH) Actions.
+     *
+     * @var array
+     */
+    public static $ulozenePriznaniDph = [
     'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
