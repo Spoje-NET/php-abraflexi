@@ -89,6 +89,12 @@ $evidenceFormats .= '
             \'content-type\' => \'image/png\', 
             \'import\' => false
             ],
+        \'JPG\' => [
+            \'desc\' => \'JPEG File Interchange Format.\',
+            \'suffix\' => \'jpg\', 
+            \'content-type\' => \'image/jpeg\', 
+            \'import\' => false
+            ],
         \'CSS\' => [
             \'desc\' => \'Kaskádový styl\',
             \'suffix\' => \'css\', 

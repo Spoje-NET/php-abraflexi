@@ -1714,7 +1714,7 @@ class RO extends \Ease\Sand
 
     /**
      * Test if given record ID exists in AbraFlexi.
-     * 
+     *
      * @deprecated since version 2.25 - use recordExists() instead
      *
      * @param mixed $identifer presence state
@@ -1850,7 +1850,7 @@ class RO extends \Ease\Sand
     /**
      * Vrací kód záznamu.
      * Obtain record CODE
-     * 
+     *
      * @deprecated since version 2.25 - do not use at all
      *
      * @param mixed $data
