@@ -1620,7 +1620,9 @@ class RO extends \Ease\Sand
                 array_key_exists($evidence, $dataToJsonize) &&
                 array_key_exists('external-ids', $dataToJsonize[$evidence])
         ) {
-            $dataToJsonize[$evidence]['external-ids'] = array_values($dataToJsonize[$evidence]['external-ids']);
+            if (is_array($dataToJsonize[$evidence]['external-ids'])) {
+                $dataToJsonize[$evidence]['external-ids'] = array_values($dataToJsonize[$evidence]['external-ids']);
+            }
         }
         $jsonRaw = json_encode(
             [$this->nameSpace => $dataToJsonize],
