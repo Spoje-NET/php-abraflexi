@@ -6,7 +6,7 @@ declare(strict_types=1);
  * AbraFlexi - Read Only Access to AbraFlexi class.
  *
  * @author     Vítězslav Dvořák <vitezslav.dvorak@spojenet.cz>
- * @copyright  (C) 2015-2023 Spoje.Net
+ * @copyright  (C) 2015-2024 Spoje.Net
  */
 
 namespace AbraFlexi;

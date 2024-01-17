@@ -3,11 +3,11 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Sun, 17 Dec 2023 23:42:18 +0000
+ * Generated: Wed, 17 Jan 2024 21:40:15 +0000
  * From:      https://flexibee-dev.spoje.net:5434
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2016-2023 Spoje.Net
+ * @copyright  (C) 2016-2024 Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -47,7 +47,7 @@ class EvidenceList extends RO
      *
      * @var string
      */
-    public static $version = '2023.6.2';
+    public static $version = '2024.1.2';
 
     /**
      * Evidences Path/Name listing.
@@ -971,17 +971,6 @@ class EvidenceList extends RO
     'formCode' => 'cenPoplatky',
     'extIdSupported' => 'true',
     'dbName' => 'cPoplatky',
-    ],
-    'prace-mesic' => [
-    'evidenceType' => 'PRACE_MESIC',
-    'evidenceName' => 'Práce pro střediska',
-    'evidencePath' => 'prace-mesic',
-    'importStatus' => 'NOT_DOCUMENTED',
-    'beanKey' => 'cz.winstrom.vo.mzdy.PraceStred$$MZD',
-    'className' => 'cz.winstrom.vo.mzdy.PraceStred',
-    'formCode' => 'perPraceStred',
-    'extIdSupported' => 'true',
-    'dbName' => 'pPraceStred',
     ],
     'pracovni-pomer' => [
     'evidenceType' => 'PRACOVNI_POMER',
@@ -2646,6 +2635,18 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'pPraceStred',
     'evidenceFilter' => 'Rok IS NULL',
+    ],
+    'prace-mesic' => [
+    'evidenceType' => 'PRACE_MESIC',
+    'evidenceName' => 'Práce pro střediska',
+    'evidencePath' => 'prace-mesic',
+    'importStatus' => 'NOT_DOCUMENTED',
+    'beanKey' => 'cz.winstrom.vo.mzdy.PraceStred$$MZD',
+    'className' => 'cz.winstrom.vo.mzdy.PraceStred',
+    'formCode' => 'perPraceStred',
+    'extIdSupported' => 'true',
+    'dbName' => 'pPraceStred',
+    'evidenceFilter' => 'Rok IS NOT NULL',
     ],
     'predpis-zauctovani' => [
     'evidenceType' => 'PREDPIS_ZAUCTOVANI',

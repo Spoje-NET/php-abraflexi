@@ -22,7 +22,7 @@ class Relations
      *
      * @var string
      */
-    public static $version = '2023.6.2';
+    public static $version = '2024.1.2';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
@@ -305,11 +305,6 @@ class Relations
     'evidenceType' => 'DODAVATEL',
     'name' => 'Nákupní ceny',
     ],
-    'cenik-typy-sazeb-dph' => [
-    'url' => 'cenik-typy-sazeb-dph',
-    'evidenceType' => 'TYP_SAZBY_DPH',
-    'name' => 'Typy sazeb DPH',
-    ],
     'vyrobni-cisla' => [
     'url' => 'vyrobni-cisla',
     'evidenceType' => 'VYROBNI_CISLA',
@@ -339,6 +334,11 @@ class Relations
     'url' => 'cenHladiny',
     'evidenceType' => 'CENOVA_UROVEN',
     'name' => 'Cenové úrovně',
+    ],
+    'typy-sazeb-dph' => [
+    'url' => 'typy-sazeb-dph',
+    'evidenceType' => 'TYP_SAZBY_DPH',
+    'name' => 'Typy sazeb DPH',
     ],
     'rezervace' => [
     'url' => 'rezervace',

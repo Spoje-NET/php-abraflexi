@@ -4,7 +4,7 @@
  * AbraFlexi - Evidence Formats.
  *
  * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  (C) 2015-2023 Spoje.Net
+ * @copyright  (C) 2015-2024 Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -21,7 +21,7 @@ class Formats
  *
  * @var string
  */
-    public static $version = '2023.6.2';
+    public static $version = '2024.1.2';
 
 
     /**
