@@ -1230,7 +1230,7 @@ class RO extends \Ease\Sand
                 }
                 if ($this->throwException) {
                     $errors = $this->getErrors();
-                    throw new Exception(empty($errors) ? 'Problem ' : $errors[0]['message'], $this);
+                    throw new Exception(empty($errors) ? 'Problem ' : (is_array($errors[0]) ? $errors[0]['message'] : $errors[0] ), $this);
                 } else {
                     $this->addStatusMessage($this->lastResponseCode . ': ' . $this->curlInfo['url'] . ' (' . $this->format . ') ' . json_encode($this->getErrors()), 'warning');
                 }
