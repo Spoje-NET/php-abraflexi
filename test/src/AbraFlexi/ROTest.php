@@ -674,8 +674,40 @@ class ROTest extends \Test\Ease\SandTest {
      * @covers AbraFlexi\AbraFlexiRO::parseResponse
      */
     public function testParseResponse() {
-        $this->object->parseResponse($this->object->rawJsonToArray($this->json),
-                200);
+//        $this->object->parseResponse($this->object->rawJsonToArray($this->json), 200);
+        $mixedResponse = '{
+  "winstrom": {
+    "@version": "1.0",
+    "success": "false",
+    "stats": {
+      "created": "0",
+      "updated": "0",
+      "deleted": "0",
+      "skipped": "1",
+      "failed": "1"
+    },
+    "results": [
+      {
+        "code": "Výpis 0 pro účet 2900886213/2010 -  Počet položek 0",
+        "errors": [
+          {
+            "message": "Během stahování výpisu pro účet EURO FIO (2900886213/2010) došlo k chybě.\nNedodržujete minimální interval 30 sekund mezi dotazy na daný token (bez ohledu na typ formátu)."
+          }
+        ]
+      },
+      {
+        "code": "Výpis 0 pro účet 2800061687 -  Počet položek 0",
+        "infos": [
+          {
+            "message": "Načítání proběhlo úspěšně. Načtený výpis neobsahuje žádnou položku."
+          }
+        ]
+      }
+    ]
+  }
+}';
+ 
+        $parsed =  $this->object->parseResponse($this->object->rawJsonToArray($mixedResponse), 400);
     }
 
     /**
