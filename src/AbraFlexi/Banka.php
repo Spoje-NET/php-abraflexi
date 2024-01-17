@@ -45,9 +45,7 @@ class Banka extends RW implements \AbraFlexi\Document
      */
     public function stahnoutVypisyOnline()
     {
-        $this->pullMode = true;
         $this->performRequest('nacteni-vypisu-online.json', 'PUT', 'txt');
-        $this->pullMode = false;
         return ($this->lastResponseCode == 200);
     }
 

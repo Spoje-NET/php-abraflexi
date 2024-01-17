@@ -1228,10 +1228,11 @@ class RO extends \Ease\Sand
                 if (!empty($responseDecoded) && is_array($responseDecoded)) {
                     $this->parseError($responseDecoded);
                 }
-                $this->addStatusMessage($this->lastResponseCode . ': ' . $this->curlInfo['url'] . ' (' . $this->format . ') ' . json_encode($this->getErrors()), 'warning');
                 if ($this->throwException) {
                     $errors = $this->getErrors();
                     throw new Exception(empty($errors) ? 'Problem ' : $errors[0]['message'], $this);
+                } else {
+                    $this->addStatusMessage($this->lastResponseCode . ': ' . $this->curlInfo['url'] . ' (' . $this->format . ') ' . json_encode($this->getErrors()), 'warning');
                 }
                 break;
         }

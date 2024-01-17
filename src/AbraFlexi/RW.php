@@ -166,7 +166,7 @@ class RW extends RO
 
                     if (array_key_exists('errors', $result)) {
                         foreach ($result as $error) {
-                            $this->errors[] = current($error);
+                            $this->errors[] = is_array($error) ? current($error) : $error;
                         }
                     }
                 }
@@ -174,14 +174,13 @@ class RW extends RO
                 foreach ($responseDecoded['results'][0]['result'] as $result) {
                     if (array_key_exists('errors', $result)) {
                         foreach ($result as $error) {
-                            $this->errors[] = current($error);
+                            $this->errors[] = is_array($error) ? current($error) : $error;
                         }
                     }
                 }
             }
 
             foreach ($this->errors as $errorInfo) {
-                $this->addStatusMessage(array_key_exists('error', $errorInfo) ? $errorInfo['error'] : $errorInfo['message'], 'error');
                 if ($this->debug && array_key_exists('for', $errorInfo)) {
                     unset($errorInfo['message']);
                     $this->addStatusMessage(json_encode($errorInfo), 'debug');
