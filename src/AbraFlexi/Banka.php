@@ -39,12 +39,6 @@ class Banka extends RW implements \AbraFlexi\Document
     public $evidence = 'banka';
 
     /**
-     * Bank pull mode of Json processing
-     * @var boolean
-     */
-    private $pullMode = false;
-
-    /**
      * Stáhne bankovní výpisy  ( trvá delší dobu )
      *
      * @return boolean
@@ -58,25 +52,13 @@ class Banka extends RW implements \AbraFlexi\Document
     }
 
     /**
-     * Convert AbraFlexi Response JSON to Array
-     *
-     * @param string $rawJson
-     *
-     * @return array
-     */
-    public function rawJsonToArray($rawJson)
-    {
-        return $this->pullMode ? explode($rawJson, "\n") : parent::rawJsonToArray($rawJson);
-    }
-
-    /**
      * Start invoice automatic matching process ( it takes longer time )
      * Spustí proces automatického párování plateb. ( trvá delší dobu )
      *
      * @link https://demo.flexibee.eu/devdoc/parovani-plateb Interní dokumentace
      *
      * @param boolean $advanced Use Advanced matching method ?
-     * @param string $filter Filter bank records before pairing ?
+     * @param string  $filter   Filter bank records before pairing ?
      *
      * @return boolean
      */
