@@ -63,7 +63,7 @@ class Relation
      */
     public function __toString()
     {
-        return is_array($this->value) ? current($this->value) : $this->value;
+        return (is_array($this->value) ? ( is_array(current($this->value)) ? current($this->value)['kod'] : current($this->value) ) : $this->value);
     }
 
     /**
