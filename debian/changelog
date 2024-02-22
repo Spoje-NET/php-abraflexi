@@ -1,4 +1,4 @@
-php-spojenet-abraflexi (2.25.2.137~bookworm.138~jammy) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (2.25.2.137~bookworm.138~jammy.139~jammy) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -58,8 +58,9 @@ php-spojenet-abraflexi (2.25.2.137~bookworm.138~jammy) UNRELEASED; urgency=mediu
   * JPG image support added
   * jenkins-Spoje.Net-php-spojenet-abraflexi-137
   * jenkins-Spoje.Net-php-spojenet-abraflexi-138
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-139
 
- -- vitex <jenkins@vyvojar.spoje.net>  Sun, 18 Feb 2024 12:27:17 +0000
+ -- vitex <jenkins@vyvojar.spoje.net>  Mon, 19 Feb 2024 13:56:18 +0000
 
 flexipeehp (1.12) experimental; urgency=medium
 
