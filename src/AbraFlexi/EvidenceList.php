@@ -3,7 +3,7 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Wed, 06 Mar 2024 10:50:03 +0000
+ * Generated: Wed, 06 Mar 2024 11:18:55 +0000
  * From:      https://flexibee-dev.spoje.net:5434
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -166,7 +166,6 @@ class EvidenceList extends RO
     'faktura-vydana-polozka' => 'Položky vydaných faktur a prodejek',
     'banka-polozka' => 'Položky vzájemných zápočtů',
     'poplatek' => 'Poplatky',
-    'changes' => 'Poslední změny',
     'psc' => 'Poštovní směrovací čísla',
     'pracovni-pomer' => 'Pracovní poměr',
     'pracovni-pomer-hlavicka' => 'Pracovní poměr',
@@ -287,6 +286,7 @@ class EvidenceList extends RO
     'zakazka' => 'Zakázky',
     'zamek' => 'Zamykání období',
     'forma-uhrady-zauctovani' => 'Zaúčtování formy úhrady',
+    'changes' => 'Změny',
     'intrastat-zvlastni-pohyb' => 'Zvláštní pohyby',
     'zapujcka' => 'Zápůjčky',
     'rada' => 'dokladové řady',
@@ -335,14 +335,6 @@ class EvidenceList extends RO
     'importStatus' => 'NOT_DOCUMENTED',
     'className' => 'cz.winstrom.vo.w.Uzivatel',
     'formCode' => 'cisOsoby',
-    ],
-    'changes' => [
-    'evidenceType' => 'ZMENY',
-    'evidenceName' => 'Poslední změny',
-    'evidencePath' => 'changes',
-    'importStatus' => 'UNSUPPORTRED',
-    'className' => '',
-    'formCode' => '',
     ],
     'analyza-nakupu' => [
     'evidenceType' => 'ANALYZA_NAKUPU',
@@ -595,6 +587,15 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.StavyUctu',
     'formCode' => 'vykazVysledovkaPoUctech',
     'extIdSupported' => 'false',
+    ],
+    'changes' => [
+    'evidenceType' => 'ZMENY',
+    'evidenceName' => 'Změny',
+    'evidencePath' => 'changes',
+    'importStatus' => 'UNSUPPORTRED',
+    'extIdSupported' => true,
+    'className' => '',
+    'formCode' => '',
     ],
     'adresar-bankovni-ucet' => [
     'evidenceType' => 'ADR_BANKOVNI_UCET',

@@ -45,14 +45,21 @@ $pos = 0;
 foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
     $pos++;
     $evidenceInfo = EvidenceList::$evidences[$evidencePath];
-    if ($evidencePath == 'nastaveni') {
-        $info = json_decode(file_get_contents('nastaveni-properties.json'),
-                true);
-        $structure = \Ease\Functions::reindexArrayBy($info['properties']['property'], 'propertyName');
-    } else {
-        $structure = $syncer->getOnlineColumnsInfo($evidencePath);
+    
+    switch ($evidencePath) {
+        case 'nastaveni':
+            $info = json_decode(file_get_contents('nastaveni-properties.json'), true);
+            $structure = \Ease\Functions::reindexArrayBy($info['properties']['property'], 'propertyName');
+            break;
+        case 'changes':
+            $info = json_decode(file_get_contents('changes-properties.json'), true);
+            $structure = \Ease\Functions::reindexArrayBy($info['properties']['property'], 'propertyName');
+            break;
+        default:
+            $structure = $syncer->getOnlineColumnsInfo($evidencePath);
+            break;
     }
-
+    
     if (array_key_exists('extIdSupported', $evidenceInfo) && ($evidenceInfo['extIdSupported'] == true)) {
         $structure['external-ids'] = [
             "showToUser" => "false",
@@ -141,8 +148,7 @@ foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
         $syncer->addStatusMessage($pos . ' of ' . count(EvidenceList::$name) . ' ' . $evidencePath . ': structure problem',
                 'error');
     }
-    file_put_contents('Properties.' . $evidencePath . '.json',
-            json_encode($structure));
+    file_put_contents('Properties.' . $evidencePath . '.json', json_encode($structure));
 
     $evidenceClass = evidenceToClass($evidencePath);
     $evidenceClassFile = '../src/AbraFlexi/' . $evidenceClass . '.php';

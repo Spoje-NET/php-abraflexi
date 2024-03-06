@@ -6,7 +6,7 @@ define('EASE_APPNAME', 'AbraFlexiStaticEvidenceListGenerator');
 define('EASE_LOGGER', 'console|syslog');
 
 require_once '../test/bootstrap.php';
-require_once  __DIR__ . '/common.php';
+require_once __DIR__ . '/common.php';
 
 $outFile = 'EvidenceList.php';
 $outJson = 'EvidenceList.json';
@@ -19,7 +19,8 @@ $outFullJson = 'EvidenceFullList.json';
  * @param RO $syncer Class to read from FlexiBee
  * @return array     Evidence structure
  */
-function getColumnsInfo($evidence, RO $syncer) {
+function getColumnsInfo($evidence, RO $syncer)
+{
     $useKeywords = [];
     $flexinfo = $syncer->performRequest($evidence . '/properties.json');
     if (count($flexinfo) && array_key_exists('properties', $flexinfo)) {
@@ -43,7 +44,7 @@ $evidenceList = '<?php
  * From:      ' . $statuser->url . '
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2016-'.date('Y').' Spoje.Net
+ * @copyright  (C) 2016-' . date('Y') . ' Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -91,7 +92,7 @@ $evidenceList .= ' static public $version = \'' . $statuser->getDataValue('versi
 ';
 
 $syncer = new EvidenceList();
-$syncer->addStatusMessage('Updating Evidences List');
+$syncer->addStatusMessage('♻️ Updating Evidences List');
 
 $evidencies = $syncer->getColumnsFromAbraFlexi(['evidencePath', 'evidenceName']);
 
@@ -114,13 +115,23 @@ $evidencies[] = [
     "formCode" => "cisOsoby"
 ];
 
+$evidencies[] = [
+    "evidenceType" => "ZMENY",
+    "evidenceName" => "Změny",
+    "evidencePath" => "changes",
+    "importStatus" => "UNSUPPORTRED",
+    'extIdSupported' => true,
+    "className" => "",
+    "formCode" => ""
+];
+
 $evlist = [];
 foreach ($evidencies as $evidenceID => $evidence) {
     if (array_key_exists('evidencePath', $evidence)) {
         $evlist[$evidence['evidencePath']] = $evidence['evidenceName'];
         $fullList[$evidence['evidencePath']] = $evidence;
     }
-    
+
     if (array_key_exists('extIdSupported', $evidence)) {
         $evidencies[$evidenceID]['extIdSupported'] = ($evidencies[$evidenceID]['extIdSupported'] == 'true');
     } else {

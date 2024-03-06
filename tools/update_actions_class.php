@@ -124,6 +124,9 @@ $structures = [];
 $pos = 0;
 foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
     $pos++;
+    if ($evidencePath == 'changes') {
+        continue;
+    }
     $structure = getEvidenceActions($evidencePath, $syncer);
     $structures[$evidencePath] = $structure;
     if (count($structure)) {

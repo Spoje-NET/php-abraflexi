@@ -1,0 +1,27 @@
+{
+    "properties": {
+        "@version": "1.0",
+        "evidenceName": "Změny",
+        "tagName": "changes",
+        "property": [{
+                "showToUser": "false",
+                "propertyName": "id",
+                "name": "ID",
+                "title": "ID",
+                "type": "integer",
+                "isVisible": "true",
+                "isSortable": "true",
+                "isHighlight": "false",
+                "inId": "true",
+                "inSummary": "true",
+                "inDetail": "true",
+                "mandatory": "false",
+                "isWritable": "false",
+                "isOverWritable": "false",
+                "hasBusinessLogic": "false",
+                "isUpperCase": "false",
+                "isLowerCase": "false",
+                "links": null
+            }]
+    }
+}
