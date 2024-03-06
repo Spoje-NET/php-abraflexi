@@ -2286,7 +2286,7 @@ class RO extends \Ease\Sand
         $properties = [];
         $evidence = is_null($evidence) ? $this->getEvidence() : $evidence;
         $flexinfo = $this->performRequest('/c/' . $this->company . '/' . $evidence . '/properties.json');
-        if (!empty($flexinfo) && array_key_exists('properties', $flexinfo)) {
+        if (!empty($flexinfo) && array_key_exists('properties', $flexinfo) && array_key_exists('property', $flexinfo['properties'])) {
             foreach ($flexinfo['properties']['property'] as $evidenceProperty) {
                 $key = $evidenceProperty['propertyName'];
                 $properties[$key] = $evidenceProperty;

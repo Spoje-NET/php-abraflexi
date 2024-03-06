@@ -1419,6 +1419,17 @@ class Formats
     'CSV' => 'csv',
     ];
     /**
+     * Evidence changes (Poslední změny) Formats.
+     *
+     * @var array
+     */
+    public static $changes = [
+    'HTML' => 'html',
+    'XML' => 'xml',
+    'JSON' => 'json',
+    'CSV' => 'csv',
+    ];
+    /**
      * Evidence psc (Poštovní směrovací čísla) Formats.
      *
      * @var array
