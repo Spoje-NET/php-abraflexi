@@ -1,4 +1,4 @@
-php-spojenet-abraflexi (2.25.3) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (2.25.3.143~jammy) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -61,8 +61,9 @@ php-spojenet-abraflexi (2.25.3) UNRELEASED; urgency=medium
   * jenkins-Spoje.Net-php-spojenet-abraflexi-139
   * jenkins-Spoje.Net-php-spojenet-abraflexi-140
   * Changes availble now as evidence
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-143
 
- -- vitex <info@vitexsoftware.cz>  Wed, 06 Mar 2024 11:59:41 +0100
+ -- vitex <jenkins@vyvojar.spoje.net>  Wed, 06 Mar 2024 11:32:56 +0000
 
 flexipeehp (1.12) experimental; urgency=medium
 
