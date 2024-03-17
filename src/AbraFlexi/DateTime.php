@@ -59,7 +59,7 @@ class DateTime extends \DateTime
      * 
      * @return \DateTime | false
      */
-    public function setFormat(sting $format){
+    public function setFormat(string $format){
         self::$format = $format;
         return $this;
     }
