@@ -27,8 +27,8 @@ class DateTime extends \DateTime
      * @var string
      */
 
-    public static $format = 'Y-m-d\TH:i:s';
-
+    public static $format = 'Y-m-d\TH:i:s.u+P';
+    
     /**
      * AbraFlexi dateTime to PHP DateTime conversion
      *
@@ -50,6 +50,18 @@ class DateTime extends \DateTime
         } else {
             parent::__construct(\DateTime::createFromFormat($format, $flexidatetime)->format(\DateTimeInterface::ATOM));
         }
+    }
+
+    /**
+     * Easy way how to force format DateTime used
+     * 
+     * @param string 
+     * 
+     * @return \DateTime | false
+     */
+    public function setFormat(sting $format){
+        self::$format = $format;
+        return $this;
     }
 
     /**
