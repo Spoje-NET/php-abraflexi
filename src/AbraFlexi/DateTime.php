@@ -26,7 +26,7 @@ class DateTime extends \DateTime
      * Default output format
      * @var string
      */
-    public static $format = 'Y-m-d\TH:i:s.u+P';
+    public static $format = 'Y-m-d\TH:i:s+P';
 
     /**
      * AbraFlexi dateTime to PHP DateTime conversion
