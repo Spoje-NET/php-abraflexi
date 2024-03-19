@@ -44,7 +44,7 @@ class ROTest extends \Test\Ease\SandTest {
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     * @covers AbraFlexi\AbraFlexiRO::__construct
+     * @covers AbraFlexi\RO::__construct
      */
     protected function setUp(): void {
         $this->object = new RO();
@@ -68,7 +68,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::logBanner
+     * @covers AbraFlexi\RO::logBanner
      */
     public function testLogBanner() {
         \Ease\Logger\Regent::singleton()->cleanMessages();
@@ -81,7 +81,7 @@ class ROTest extends \Test\Ease\SandTest {
      * Test Constructor
      *
      * @depends testLogBanner
-     * @covers AbraFlexi\AbraFlexiRO::__construct
+     * @covers AbraFlexi\RO::__construct
      */
     public function testConstructor() {
         $classname = get_class($this->object);
@@ -109,7 +109,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::curlInit
+     * @covers AbraFlexi\RO::curlInit
      */
     public function testCurlInit() {
         $this->object->timeout = 120;
@@ -118,7 +118,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::processInit
+     * @covers AbraFlexi\RO::processInit
      */
     public function testProcessInit() {
 
@@ -151,7 +151,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::setUp
+     * @covers AbraFlexi\RO::setUp
      */
     public function testSetUp() {
         $this->object->authSessionId = 'XXXtestXXX';
@@ -179,7 +179,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getConnectionOptions
+     * @covers AbraFlexi\RO::getConnectionOptions
      */
     public function testGetConnectionOptions() {
         $options = $this->object->getConnectionOptions();
@@ -191,7 +191,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::setPrefix
+     * @covers AbraFlexi\RO::setPrefix
      * @expectedException \Exception
      */
     public function testSetPrefix() {
@@ -203,7 +203,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::setFormat
+     * @covers AbraFlexi\RO::setFormat
      */
     public function testSetFormat() {
         $this->object->setFormat('xml');
@@ -213,7 +213,7 @@ class ROTest extends \Test\Ease\SandTest {
     /**
      * We can set only evidence defined in EvidenceList class
      *
-     * @covers AbraFlexi\AbraFlexiRO::setEvidence
+     * @covers AbraFlexi\RO::setEvidence
      * @expectedException \Exception
      */
     public function testSetEvidence() {
@@ -225,7 +225,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::setCompany
+     * @covers AbraFlexi\RO::setCompany
      */
     public function testSetCompany() {
         $this->object->setCompany('test_s_r_o_');
@@ -233,7 +233,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::object2array
+     * @covers AbraFlexi\RO::object2array
      */
     public function testObject2array() {
         $this->assertNull($this->object->object2array(new \stdClass()));
@@ -246,7 +246,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::objectToID
+     * @covers AbraFlexi\RO::objectToID
      */
     public function testObjectToID() {
         $this->object->setDataValue('kod', 'TEST');
@@ -577,7 +577,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::performRequest
+     * @covers AbraFlexi\RO::performRequest
      */
     public function testPerformRequest() {
         $evidence = $this->object->getEvidence();
@@ -608,7 +608,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::rawResponseToArray
+     * @covers AbraFlexi\RO::rawResponseToArray
      */
     public function testRawResponseToArray() {
 
@@ -623,7 +623,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::rawJsonToArray
+     * @covers AbraFlexi\RO::rawJsonToArray
      */
     public function testRawJsonToArray() {
         $this->assertNull($this->object->rawJsonToArray($this->json . 'XXX'));
@@ -646,7 +646,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::rawXmlToArray
+     * @covers AbraFlexi\RO::rawXmlToArray
      */
     public function testRawXmlToArray() {
         $evidence = $this->object->getResponseEvidence() ? $this->object->getResponseEvidence() : 'adresar';
@@ -671,7 +671,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::parseResponse
+     * @covers AbraFlexi\RO::parseResponse
      */
     public function testParseResponse() {
 //        $this->object->parseResponse($this->object->rawJsonToArray($this->json), 200);
@@ -706,19 +706,19 @@ class ROTest extends \Test\Ease\SandTest {
     ]
   }
 }';
- 
-        $parsed =  $this->object->parseResponse($this->object->rawJsonToArray($mixedResponse), 400);
+
+        $parsed = $this->object->parseResponse($this->object->rawJsonToArray($mixedResponse), 400);
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::doCurlRequest
+     * @covers AbraFlexi\RO::doCurlRequest
      */
     public function testDoCurlRequest() {
         $this->object->doCurlRequest(constant('ABRAFLEXI_URL'), 'GET');
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::setAction
+     * @covers AbraFlexi\RO::setAction
      */
     public function testSetAction() {
         switch ($this->object->getEvidence()) {
@@ -742,7 +742,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getEvidence
+     * @covers AbraFlexi\RO::getEvidence
      */
     public function testGetEvidence() {
         $this->assertEquals($this->object->evidence,
@@ -750,14 +750,14 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getCompany
+     * @covers AbraFlexi\RO::getCompany
      */
     public function testGetCompany() {
         $this->assertEquals($this->object->company, $this->object->getCompany());
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getResponseEvidence
+     * @covers AbraFlexi\RO::getResponseEvidence
      */
     public function testGetResponseEvidence() {
         $responseEvidence = $this->object->getResponseEvidence();
@@ -778,7 +778,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getLastInsertedId
+     * @covers AbraFlexi\RO::getLastInsertedId
      * @depends testInsertToAbraFlexi
      */
     public function testGetLastInsertedId() {
@@ -786,7 +786,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::xml2array
+     * @covers AbraFlexi\RO::xml2array
      */
     public function testXml2array() {
         $arrayWeWant = [
@@ -810,7 +810,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::extractUrlParams
+     * @covers AbraFlexi\RO::extractUrlParams
      */
     public function testExtractUrlParams() {
         $conditions = ['id' => 23, 'limit' => 10];
@@ -820,7 +820,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::urlEncode
+     * @covers AbraFlexi\RO::urlEncode
      */
     public function testUrlEncode() {
         $this->assertEquals("stitky%3D'code:VIP'%20or%20stitky%3D'code:DULEZITE'",
@@ -828,14 +828,14 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getAllFromAbraFlexi
+     * @covers AbraFlexi\RO::getAllFromAbraFlexi
      */
     public function testGetAllFromAbraFlexi() {
         $this->object->getAllFromAbraFlexi();
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::disconnect
+     * @covers AbraFlexi\RO::disconnect
      *
      * @depends testPerformRequest
      * @depends testLoadFlexiData
@@ -854,7 +854,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::__destruct
+     * @covers AbraFlexi\RO::__destruct
      * @depends testDisconnect
      */
     public function testdestruct() {
@@ -862,7 +862,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getFlexiRow
+     * @covers AbraFlexi\RO::getFlexiRow
      */
     public function testGetFlexiRow() {
         $this->object->getFlexiRow(0);
@@ -870,7 +870,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getFlexiData
+     * @covers AbraFlexi\RO::getFlexiData
      */
     public function testGetFlexiData() {
         $evidence = $this->object->getEvidence();
@@ -914,7 +914,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::loadFromAbraFlexi
+     * @covers AbraFlexi\RO::loadFromAbraFlexi
      */
     public function testLoadFromAbraFlexi() {
         $this->object->loadFromAbraFlexi();
@@ -922,7 +922,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getJsonizedData
+     * @covers AbraFlexi\RO::getJsonizedData
      */
     public function testGetJsonizedData() {
         $this->assertEquals('{"' . $this->object->nameSpace . '":{"@version":"1.0","' . $this->object->evidence . '":{"key":"value"}}}',
@@ -951,14 +951,14 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getDataForJSON
+     * @covers AbraFlexi\RO::getDataForJSON
      */
     public function testGetDataForJson() {
         $this->object->getDataForJSON();
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::idExists
+     * @covers AbraFlexi\RO::idExists
      */
     public function testIdExists() {
         $this->assertFalse($this->object->idExists('nonexistent'));
@@ -985,7 +985,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getRecordID
+     * @covers AbraFlexi\RO::getRecordID
      */
     public function testGetRecordID() {
         $this->object->setData([$this->object->getKeyColumn() => 10]);
@@ -993,7 +993,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getRecordIdent
+     * @covers AbraFlexi\RO::getRecordIdent
      */
     public function testGetRecordIdent() {
         $this->object->dataReset();
@@ -1010,7 +1010,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::recordExists
+     * @covers AbraFlexi\RO::recordExists
      */
     public function testRecordExists() {
         $evidence = $this->object->getEvidence();
@@ -1031,6 +1031,8 @@ class ROTest extends \Test\Ease\SandTest {
                             'Record ID 1 exists in empty evidence ?');
                 } else {
                     if (!is_null($flexidata)) {
+                        $this->assertTrue($this->object->recordExists('code:TEST'), 
+                                'code:TEST exists test failed');
                         $this->object->setData(['id' => (int) $flexidata[0]['id']]);
                         $this->assertTrue($this->object->recordExists(),
                                 'First record exists test failed');
@@ -1045,7 +1047,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getColumnsFromAbraFlexi
+     * @covers AbraFlexi\RO::getColumnsFromAbraFlexi
      */
     public function testGetColumnsFromAbraFlexi() {
 
@@ -1069,7 +1071,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getExternalID
+     * @covers AbraFlexi\RO::getExternalID
      */
     public function testGetExternalID() {
         $this->assertTrue(empty($this->object->getExternalID('ext:test:10'))); //ext: does not exist
@@ -1082,7 +1084,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getGlobalVersion
+     * @covers AbraFlexi\RO::getGlobalVersion
      */
     public function testGetGlobalVersion() {
         switch ($this->object->getEvidence()) {
@@ -1103,7 +1105,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getApiURL
+     * @covers AbraFlexi\RO::getApiURL
      */
     public function testGetApiUrl() {
         $evidence = $this->object->getEvidence();
@@ -1119,7 +1121,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getResponseFormat
+     * @covers AbraFlexi\RO::getResponseFormat
      */
     public function testGetResponseFormat() {
         $this->object->performRequest(null, 'GET', 'json');
@@ -1131,7 +1133,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getKod
+     * @covers AbraFlexi\RO::getKod
      */
     public function testGetKod() {
         $testString = [];
@@ -1162,7 +1164,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::flexiUrl
+     * @covers AbraFlexi\RO::flexiUrl
      */
     public function testFlexiUrl() {
         $this->assertEquals("a eq '1' and b eq 'foo'",
@@ -1186,7 +1188,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::unifyResponseFormat
+     * @covers AbraFlexi\RO::unifyResponseFormat
      */
     public function testunifyResponseFormat() {
         $this->assertNull($this->object->unifyResponseFormat(null));
@@ -1230,7 +1232,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::__toString
+     * @covers AbraFlexi\RO::__toString
      */
     public function testtoString() {
         $id = '123';
@@ -1249,7 +1251,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::draw
+     * @covers AbraFlexi\RO::draw
      */
     public function testDraw($whatWant = NULL) {
         $this->object->setDataValue('kod', 'test');
@@ -1257,7 +1259,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getColumnsInfo
+     * @covers AbraFlexi\RO::getColumnsInfo
      */
     public function testgetColumnsInfo() {
         switch ($this->object->getEvidence()) {
@@ -1287,7 +1289,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getActionsInfo
+     * @covers AbraFlexi\RO::getActionsInfo
      */
     public function testgetActionsInfo() {
         switch ($this->object->getEvidence()) {
@@ -1310,7 +1312,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getRelationsInfo
+     * @covers AbraFlexi\RO::getRelationsInfo
      */
     public function testgetRelationsInfo() {
         switch ($this->object->getEvidence()) {
@@ -1333,7 +1335,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getEvidenceUrl
+     * @covers AbraFlexi\RO::getEvidenceUrl
      */
     public function testgetEvidenceUrl() {
         $this->assertNotEmpty($this->object->getEvidenceUrl());
@@ -1341,7 +1343,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::evidenceToClassName
+     * @covers AbraFlexi\RO::evidenceToClassName
      */
     public function testevidenceToClassName() {
         $this->assertEquals('FakturaVydana',
@@ -1349,7 +1351,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getEvidenceInfo
+     * @covers AbraFlexi\RO::getEvidenceInfo
      */
     public function testGetEvidenceInfo() {
         $eInfo = $this->object->getEvidenceInfo();
@@ -1369,7 +1371,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getEvidenceName
+     * @covers AbraFlexi\RO::getEvidenceName
      */
     public function testGetEvidenceName() {
         $evidenceName = $this->object->getEvidenceName();
@@ -1389,7 +1391,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::saveResponseToFile
+     * @covers AbraFlexi\RO::saveResponseToFile
      */
     public function testSaveResponseToFile() {
         $tmp = sys_get_temp_dir() . '/' . tmpfile();
@@ -1398,7 +1400,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getFirstRecordID()
+     * @covers AbraFlexi\RO::getFirstRecordID()
      */
     public function testgetFirstRecordID() {
         $this->object->getFirstRecordID();
@@ -1417,7 +1419,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getVazby
+     * @covers AbraFlexi\RO::getVazby
      * @expectedException \Exception
      */
     public function testGetVazby() {
@@ -1438,7 +1440,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::evidenceUrlWithSuffix
+     * @covers AbraFlexi\RO::evidenceUrlWithSuffix
      */
     public function testEvidenceUrlWithSuffix() {
         $urlraw = $this->object->getEvidenceURL();
@@ -1451,7 +1453,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::join
+     * @covers AbraFlexi\RO::join
      * @expectedException \Ease\Exception
      */
     public function testJoin() {
@@ -1464,7 +1466,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::addDefaultUrlParams
+     * @covers AbraFlexi\RO::addDefaultUrlParams
      */
     public function testAddDefaultUrlParams() {
         $this->object->defaultUrlParams = [];
@@ -1486,7 +1488,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::takeData
+     * @covers AbraFlexi\RO::takeData
      */
     public function testTakeData() {
         $this->object->takeData(['id' => 1]);
@@ -1500,7 +1502,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::setDataValue
+     * @covers AbraFlexi\RO::setDataValue
      */
     public function testSetDataValue() {
         if (!empty($this->object->getColumnsInfo())) {
@@ -1512,7 +1514,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::saveDebugFiles
+     * @covers AbraFlexi\RO::saveDebugFiles
      */
     public function testSaveDebugFiles() {
         $this->object->saveDebugFiles();
@@ -1524,7 +1526,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::error500Reporter
+     * @covers AbraFlexi\RO::error500Reporter
      */
     public function testError500Reporter() {
         $this->object->reportRecipient = 'testreports@vitexsoftware.cz';
@@ -1532,7 +1534,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::setMyKey
+     * @covers AbraFlexi\RO::setMyKey
      */
     public function testSetMyKey() {
         $key = \Ease\Functions::randomNumber();
@@ -1541,7 +1543,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::ignore404
+     * @covers AbraFlexi\RO::ignore404
      */
     public function testIgnore404() {
         $this->object->ignore404(true);
@@ -1549,7 +1551,7 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::sendByMail
+     * @covers AbraFlexi\RO::sendByMail
      */
     public function testSendByMail() {
         $this->object->sendByMail($this->object->reportRecipient, 'test',
@@ -1559,7 +1561,7 @@ class ROTest extends \Test\Ease\SandTest {
     /**
      * @expectedException        Ease\Exception
      * @expectedExceptionMessage Unknown language ua for PDF export
-     * @covers AbraFlexi\AbraFlexiRO::getInFormat
+     * @covers AbraFlexi\RO::getInFormat
      */
     public function testGetInFormat() {
         $this->object->evidence = 'test';
@@ -1570,14 +1572,14 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::downloadInFormat
+     * @covers AbraFlexi\RO::downloadInFormat
      */
     public function testDownloadInFormat() {
         $this->object->downloadInFormat('pdf', sys_get_temp_dir() . '/');
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::getReportsInfo
+     * @covers AbraFlexi\RO::getReportsInfo
      */
     public function testGetReportsInfo() {
         $result = $this->object->getReportsInfo();
@@ -1597,21 +1599,21 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::code
+     * @covers AbraFlexi\RO::code
      */
     public function testCode() {
         $this->assertEquals('code:TEST', RO::code('test'));
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::uncode
+     * @covers AbraFlexi\RO::uncode
      */
     public function testUncode() {
         $this->assertEquals('test', RO::uncode('code:test'));
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::arrayCleanUP
+     * @covers AbraFlexi\RO::arrayCleanUP
      */
     public function testArrayCleanUP() {
         $this->assertEquals(['a' => 'b'],
@@ -1619,10 +1621,9 @@ class ROTest extends \Test\Ease\SandTest {
     }
 
     /**
-     * @covers AbraFlexi\AbraFlexiRO::__destruct
+     * @covers AbraFlexi\RO::__destruct
      */
     public function test_destruct() {
         $this->assertEmpty($this->object->__destruct());
     }
-
 }

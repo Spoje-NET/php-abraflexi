@@ -1751,13 +1751,17 @@ class RO extends \Ease\Sand
      */
     public function recordExists($data = [])
     {
-
         if (empty($data)) {
             $data = $this->getData();
         }
         $ignorestate = $this->ignore404();
         $this->ignore404(true);
-        $keyColumn = $this->getKeyColumn();
+        if(is_string($data) && preg_match('^code:', $data)){
+            $data = \AbraFlexi\Functions::uncode($data);
+            $this->keyColumn = 'kod';
+        } else {
+            $keyColumn = $this->getKeyColumn();
+        }
         $res = $this->getColumnsFromAbraFlexi(
             [$keyColumn],
             is_array($data) ? $data : [$keyColumn => $data]
