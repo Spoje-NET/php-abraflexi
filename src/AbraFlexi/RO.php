@@ -1758,7 +1758,7 @@ class RO extends \Ease\Sand
         $this->ignore404(true);
         if(is_string($data) && preg_match('/^code:/', $data)){
             $data = \AbraFlexi\Functions::uncode($data);
-            $this->keyColumn = 'kod';
+            $keyColumn = 'kod';
         } else {
             $keyColumn = $this->getKeyColumn();
         }
