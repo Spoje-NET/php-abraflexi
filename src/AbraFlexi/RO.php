@@ -1756,7 +1756,7 @@ class RO extends \Ease\Sand
         }
         $ignorestate = $this->ignore404();
         $this->ignore404(true);
-        if(is_string($data) && preg_match('^code:', $data)){
+        if(is_string($data) && preg_match('/^code:/', $data)){
             $data = \AbraFlexi\Functions::uncode($data);
             $this->keyColumn = 'kod';
         } else {
