@@ -1484,11 +1484,11 @@ class RO extends \Ease\Sand
                     $this->setEvidence($conditions['evidence']);
                     unset($conditions['evidence']);
                 }
-                $conditions = $this->flexiUrl($conditions);
+                $conditions = Functions::flexiUrl($conditions);
             }
 
             if (strlen($conditions) && ($conditions[0] != '/')) {
-                $conditions = '(' . self::urlEncode($conditions) . ')';
+                $conditions = '(' . Functions::urlEncode($conditions) . ')';
             }
         }
 
@@ -1497,7 +1497,7 @@ class RO extends \Ease\Sand
                 $finalUrl = $suffix;
             } else {
                 if (preg_match('/^(code|ext):(.*)/', $suffix)) {
-                    $finalUrl = self::urlizeId($suffix);
+                    $finalUrl = Functions::urlizeId($suffix);
                 } else {
                     $finalUrl = $suffix;
                 }
@@ -1757,7 +1757,6 @@ class RO extends \Ease\Sand
         $ignorestate = $this->ignore404();
         $this->ignore404(true);
         if(is_string($data) && preg_match('/^code:/', $data)){
-            $data = \AbraFlexi\Functions::uncode($data);
             $keyColumn = 'kod';
         } else {
             $keyColumn = $this->getKeyColumn();
