@@ -6,7 +6,7 @@ declare(strict_types=1);
  * AbraFlexi - Objekt pokladny.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * @copyright  (C) 2015-2024 Spoje.Net
  */
 
 namespace AbraFlexi;
@@ -20,6 +20,7 @@ class Pokladna extends RW
 {
     use stitky;
     use getChanges;
+    use kod;
 
     /**
      * Evidence užitá objektem.

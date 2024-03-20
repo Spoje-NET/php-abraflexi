@@ -5,7 +5,7 @@
  *              Objekt Banky.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2023 Spoje.Net
+ * @copyright  (C) 2015-2024 Spoje.Net
  */
 
 declare(strict_types=1);
@@ -30,6 +30,7 @@ class Banka extends RW implements \AbraFlexi\Document
     use subItems;
     use getChanges;
     use sum;
+    use kod;
 
     /**
      * Evidence užitá objektem.

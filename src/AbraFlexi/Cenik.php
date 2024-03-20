@@ -5,7 +5,7 @@
  *              Objekt ceníku.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2016-2023 Spoje.Net
+ * @copyright  (C) 2016-2024 Spoje.Net
  */
 
 declare(strict_types=1);
@@ -26,6 +26,7 @@ class Cenik extends RW
     use stitky;
     use subItems;
     use getChanges;
+    use kod;
 
     /**
      * Evidence užitá objektem.

@@ -4,7 +4,7 @@
  * AbraFlexi - Objekt vydané faktury.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * @copyright  (C) 2015-2024 Spoje.Net
  */
 
 declare(strict_types=1);
@@ -24,6 +24,7 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
     use subItems;
     use email;
     use getChanges;
+    use kod;
 
     /**
      * Evidence užitá objektem.

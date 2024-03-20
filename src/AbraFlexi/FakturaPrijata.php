@@ -4,7 +4,7 @@
  * AbraFlexi - Invoice Incomed.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2023 Spoje.Net
+ * @copyright  (C) 2015-2024 Spoje.Net
  */
 
 declare(strict_types=1);
@@ -24,6 +24,7 @@ class FakturaPrijata extends RW implements Document
     use subItems;
     use email;
     use getChanges;
+    use kod;
 
     /**
      * Evidence použitá třídou.
