@@ -2869,6 +2869,7 @@ class RO extends \Ease\Sand {
      */
     public function __sleep() {
         return [
+            'data',
             'objectName',
             'nameSpace',
             'apiURL',
