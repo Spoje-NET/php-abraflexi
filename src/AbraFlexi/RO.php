@@ -2008,6 +2008,8 @@ class RO extends \Ease\Sand
      * Obtain record/object identificator code:
      * Vrací identifikátor objektu code:
      *
+     * @todo move to "kod" trait
+     *
      * @link https://demo.flexibee.eu/devdoc/identifiers Identifikátory záznamů
      *
      * @return string record code identifier
