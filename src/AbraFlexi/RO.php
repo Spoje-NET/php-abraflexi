@@ -2578,7 +2578,7 @@ class RO extends \Ease\Sand {
             $lang = null,
             $sign = false
     ) {
-        $downloadTo = $destDir . $this->getEvidence() . '_' . $this->getMyKey() . '.' . $format;
+        $downloadTo = $destDir . $this->getEvidence() . '_' . str_replace(['/',' ',':'],'_',$this->getRecordIdent()) . '.' . $format;
         $downloaded = $this->getInFormat($format, $reportName, $lang, $sign);
         return file_put_contents($downloadTo, $downloaded) ? $downloadTo : null;
     }
