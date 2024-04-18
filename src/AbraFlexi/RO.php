@@ -16,8 +16,8 @@ namespace AbraFlexi;
  *
  * @url https://demo.flexibee.eu/devdoc/
  */
-class RO extends \Ease\Sand {
-
+class RO extends \Ease\Sand
+{
     use \Ease\RecordKey;
 
     /**
@@ -427,7 +427,8 @@ class RO extends \Ease\Sand {
      * @param mixed $init default record id or initial data. See processInit()
      * @param array $options Connection settings and other options override
      */
-    public function __construct($init = null, $options = []) {
+    public function __construct($init = null, $options = [])
+    {
         $this->urlParams = & $this->urlParamsKnown; //Sync deprecated variable with current TODO: Remove in 2024
         $this->init = $init;
         parent::setObjectName();
@@ -446,7 +447,8 @@ class RO extends \Ease\Sand {
      *
      * @return string Jméno objektu
      */
-    public function setObjectName($objectName = null) {
+    public function setObjectName($objectName = null)
+    {
         return parent::setObjectName(is_null($objectName) ? ( empty($this->getRecordIdent()) ? $this->getObjectName() : $this->getRecordIdent() . '@' . $this->getObjectName() ) : $objectName);
     }
 
@@ -459,15 +461,16 @@ class RO extends \Ease\Sand {
      *                                        detail,offline,filter,ignore404,nativeTypes
      *                                        timeout,companyUrl,ver,throwException
      */
-    public function setUp(array $options = []) {
+    public function setUp(array $options = [])
+    {
         if (array_key_exists('ver', $options)) {
             $this->protoVersion = $options['ver'];
             $this->prefix = 'v' . round($this->protoVersion) . '/c/';
         }
         if (array_key_exists('companyUrl', $options)) {
             $options = array_merge(
-                    self::companyUrlToOptions($options['companyUrl']),
-                    $options
+                self::companyUrlToOptions($options['companyUrl']),
+                $options
             );
         }
         $this->setupProperty($options, 'company', 'ABRAFLEXI_COMPANY');
@@ -518,7 +521,8 @@ class RO extends \Ease\Sand {
      *
      * @return array Options
      */
-    public static function companyUrlToOptions(string $companyUrl) {
+    public static function companyUrlToOptions(string $companyUrl)
+    {
         return Functions::companyUrlToOptions($companyUrl);
     }
 
@@ -527,7 +531,8 @@ class RO extends \Ease\Sand {
      *
      * @return array usable as second constructor parameter
      */
-    public function getConnectionOptions() {
+    public function getConnectionOptions()
+    {
         $conOpts = ['url' => $this->url];
         if (empty($this->authSessionId)) {
             $conOpts ['user'] = $this->user;
@@ -549,7 +554,8 @@ class RO extends \Ease\Sand {
      * Export current/given configutation into Environment
      * @param array $opts
      */
-    public function configToEnv(array $opts = []) {
+    public function configToEnv(array $opts = [])
+    {
         $options = empty($opts) ? $this->getConnectionOptions() : $opts;
         if (array_key_exists('url', $options)) {
             putenv('ABRAFLEXI_URL=' . $options['URL']);
@@ -573,7 +579,8 @@ class RO extends \Ease\Sand {
      *
      * @return boolean Online Status
      */
-    public function curlInit() {
+    public function curlInit()
+    {
         if ($this->offline === false) {
             $this->curl = \curl_init(); // create curl resource
             \curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true); // return content as a string from curl_exec
@@ -584,9 +591,9 @@ class RO extends \Ease\Sand {
             \curl_setopt($this->curl, CURLOPT_VERBOSE, ($this->debug === true)); // For debugging
             if (empty($this->authSessionId)) {
                 \curl_setopt(
-                        $this->curl,
-                        CURLOPT_USERPWD,
-                        $this->user . ':' . $this->password
+                    $this->curl,
+                    CURLOPT_USERPWD,
+                    $this->user . ':' . $this->password
                 ); // set username and password
             }
             if (!is_null($this->timeout)) {
@@ -613,7 +620,8 @@ class RO extends \Ease\Sand {
      *
      * @param mixed $init číslo/"(code:)kód"/(část)URI záznamu k načtení | pole hodnot k předvyplnění
      */
-    public function processInit($init) {
+    public function processInit($init)
+    {
         if (is_integer($init) && $this->autoload) {
             $this->loadFromAbraFlexi($init);
         } elseif (is_array($init)) {
@@ -637,7 +645,8 @@ class RO extends \Ease\Sand {
      *
      * @return bool Success
      */
-    public function setDataValue(string $columnName, $value) {
+    public function setDataValue(string $columnName, $value)
+    {
         switch ($columnName) {
             case 'kod':
                 $value = $value ? self::uncode($value) : ''; //Alwyas uncode "kod" column
@@ -671,7 +680,8 @@ class RO extends \Ease\Sand {
      *
      * @return RO Current object state
      */
-    public function stripBody(array $keep = []) {
+    public function stripBody(array $keep = [])
+    {
         $id = $this->getRecordID();
         $code = $this->getRecordCode();
         $extIds = $this->getExternalIDs();
@@ -700,7 +710,8 @@ class RO extends \Ease\Sand {
      *
      * @param \DateTime $date
      */
-    public static function dateToFlexiDate(\DateTime $date) {
+    public static function dateToFlexiDate(\DateTime $date)
+    {
         return Functions::dateToFlexiDate($date);
     }
 
@@ -711,7 +722,8 @@ class RO extends \Ease\Sand {
      *
      * @param \DateTime $dateTime
      */
-    public static function dateToFlexiDateTime(\DateTime $dateTime) {
+    public static function dateToFlexiDateTime(\DateTime $dateTime)
+    {
         return Functions::dateToFlexiDateTime($dateTime);
     }
 
@@ -720,7 +732,8 @@ class RO extends \Ease\Sand {
      *
      * @param string $prefix
      */
-    public function setPrefix(string $prefix) {
+    public function setPrefix(string $prefix)
+    {
         switch ($prefix) {
             case 'a': //Access
             case 'c': //Company
@@ -749,7 +762,8 @@ class RO extends \Ease\Sand {
      *
      * @return boolean format is availble
      */
-    public function setFormat(string $format) {
+    public function setFormat(string $format)
+    {
         $result = true;
         if (($this->debug === true) && !empty($this->evidence) && isset(Formats::$$this->evidence)) {
             if (array_key_exists($format, array_flip(Formats::$$this->evidence)) === false) {
@@ -771,7 +785,8 @@ class RO extends \Ease\Sand {
      *
      * @return boolean evidence switching status
      */
-    public function setEvidence(string $evidence) {
+    public function setEvidence(string $evidence)
+    {
         switch ($this->prefix) {
             case '/c/':
                 if ($this->debug === true) {
@@ -780,8 +795,8 @@ class RO extends \Ease\Sand {
                         $result = true;
                     } else {
                         throw new \Exception(sprintf(
-                                                'Try to set unsupported evidence %s',
-                                                $evidence
+                            'Try to set unsupported evidence %s',
+                            $evidence
                         ));
                     }
                 } else {
@@ -805,7 +820,8 @@ class RO extends \Ease\Sand {
      *
      * @return string
      */
-    public function getEvidence() {
+    public function getEvidence()
+    {
         return $this->evidence;
     }
 
@@ -815,7 +831,8 @@ class RO extends \Ease\Sand {
      *
      * @param string $company
      */
-    public function setCompany($company) {
+    public function setCompany($company)
+    {
         $this->company = $company;
     }
 
@@ -825,7 +842,8 @@ class RO extends \Ease\Sand {
      *
      * @return string
      */
-    public function getCompany() {
+    public function getCompany()
+    {
         return $this->company;
     }
 
@@ -834,7 +852,8 @@ class RO extends \Ease\Sand {
      *
      * @return string
      */
-    public function getResponseEvidence() {
+    public function getResponseEvidence()
+    {
         switch ($this->evidence) {
             case 'c':
                 $evidence = 'company';
@@ -858,7 +877,8 @@ class RO extends \Ease\Sand {
      *
      * @return array
      */
-    public static function object2array($object) {
+    public static function object2array($object)
+    {
         return Functions::object2array($object);
     }
 
@@ -871,7 +891,8 @@ class RO extends \Ease\Sand {
      *
      * @return array
      */
-    public static function objectToID($object) {
+    public static function objectToID($object)
+    {
         return Functions::objectToID($object);
     }
 
@@ -882,7 +903,8 @@ class RO extends \Ease\Sand {
      *
      * @return string Evidence URL
      */
-    public function getEvidenceURL() {
+    public function getEvidenceURL()
+    {
         $evidenceUrl = $this->url . $this->prefix . $this->company;
         $evidence = $this->getEvidence();
         if (!empty($evidence)) {
@@ -898,7 +920,8 @@ class RO extends \Ease\Sand {
      *
      * @return string
      */
-    public function evidenceUrlWithSuffix($urlSuffix) {
+    public function evidenceUrlWithSuffix($urlSuffix)
+    {
         $evidenceUrl = $this->getEvidenceUrl();
         if (!empty($urlSuffix)) {
             if (($urlSuffix[0] != '/') && ($urlSuffix[0] != ';') && ($urlSuffix[0] != '?')) {
@@ -912,7 +935,8 @@ class RO extends \Ease\Sand {
     /**
      * Update $this->apiURL
      */
-    public function updateApiURL() {
+    public function updateApiURL()
+    {
         $this->apiURL = $this->getEvidenceURL();
         $rowIdentifier = $this->getRecordIdent();
         if (empty($rowIdentifier)) {
@@ -935,11 +959,12 @@ class RO extends \Ease\Sand {
      * @return string url with default params added
      */
 
-    public function addDefaultUrlParams(string $urlRaw) {
+    public function addDefaultUrlParams(string $urlRaw)
+    {
         return \Ease\Functions::addUrlParams(
-                        $urlRaw,
-                        $this->defaultUrlParams,
-                        false
+            $urlRaw,
+            $this->defaultUrlParams,
+            false
         );
     }
 
@@ -953,9 +978,9 @@ class RO extends \Ease\Sand {
      * @return array|boolean Výsledek operace
      */
     public function performRequest(
-            string $urlSuffix = '',
-            string $method = 'GET',
-            $format = null
+        string $urlSuffix = '',
+        string $method = 'GET',
+        $format = null
     ) {
         $this->rowCount = null;
         $this->responseStats = [];
@@ -969,14 +994,14 @@ class RO extends \Ease\Sand {
         }
 
         $responseCode = $this->doCurlRequest(
-                $this->addDefaultUrlParams($url),
-                $method,
-                $format
+            $this->addDefaultUrlParams($url),
+            $method,
+            $format
         );
         return $this->lastCurlResponse ? $this->parseResponse($this->rawResponseToArray(
-                                strval($this->lastCurlResponse),
-                                $this->responseFormat
-                        ), $responseCode) : false;
+            strval($this->lastCurlResponse),
+            $this->responseFormat
+        ), $responseCode) : false;
     }
 
     /**
@@ -987,7 +1012,8 @@ class RO extends \Ease\Sand {
      *
      * @return array
      */
-    public function rawResponseToArray(string $responseRaw, string $format) {
+    public function rawResponseToArray(string $responseRaw, string $format)
+    {
         $responseDecoded = [];
         if (!empty(trim($responseRaw))) {
             switch ($format) {
@@ -1013,7 +1039,8 @@ class RO extends \Ease\Sand {
      *
      * @return array types resolved
      */
-    public function fixResponseTypes(array $response) {
+    public function fixResponseTypes(array $response)
+    {
         foreach ($response as $evidence => $records) {
             if (array_key_exists($evidence, EvidenceList::$evidences)) {
                 foreach ($records as $recordId => $record) {
@@ -1035,7 +1062,8 @@ class RO extends \Ease\Sand {
      *
      * @throws \Ease\Exception
      */
-    public function fixRecordTypes(array $record, $evidence = null) {
+    public function fixRecordTypes(array $record, $evidence = null)
+    {
         foreach ($record as $column => $value) {
             if ($column && !strstr($column, '@')) {
                 $columnInfo = $this->getColumnInfo($column, $evidence);
@@ -1050,10 +1078,10 @@ class RO extends \Ease\Sand {
                             break;
                         case 'relation':
                             $record[$column] = new Relation(
-                                    $value,
-                                    array_key_exists('fkEvidencePath', $columnInfo) && !is_null($columnInfo['fkEvidencePath']) ? $columnInfo['fkEvidencePath'] : $column,
-                                    array_key_exists($column . '@ref', $record) ? $record[$column . '@ref'] : null,
-                                    array_key_exists($column . '@showAs', $record) ? $record[$column . '@showAs'] : null
+                                $value,
+                                array_key_exists('fkEvidencePath', $columnInfo) && !is_null($columnInfo['fkEvidencePath']) ? $columnInfo['fkEvidencePath'] : $column,
+                                array_key_exists($column . '@ref', $record) ? $record[$column . '@ref'] : null,
+                                array_key_exists($column . '@showAs', $record) ? $record[$column . '@showAs'] : null
                             );
                             unset($record[$column . '@ref']);
                             unset($record[$column . '@showAs']);
@@ -1095,7 +1123,8 @@ class RO extends \Ease\Sand {
      *
      * @return array
      */
-    public function rawJsonToArray($rawJson) {
+    public function rawJsonToArray($rawJson)
+    {
         $responseDecoded = json_decode($rawJson, true, 10);
         $decodeError = json_last_error_msg();
         if ($decodeError == 'No error') {
@@ -1120,7 +1149,8 @@ class RO extends \Ease\Sand {
      *
      * @return array
      */
-    public function rawXmlToArray($rawXML) {
+    public function rawXmlToArray($rawXML)
+    {
         return $this->fixResponseTypes(self::xml2array($rawXML));
     }
 
@@ -1132,7 +1162,8 @@ class RO extends \Ease\Sand {
      *
      * @return array main data part of response
      */
-    public function parseResponse($responseDecoded, $responseCode) {
+    public function parseResponse($responseDecoded, $responseCode)
+    {
         $mainResult = null;
         switch ($responseCode) {
             case 201: //We do not care about Success Write here
@@ -1161,8 +1192,8 @@ class RO extends \Ease\Sand {
                                 $this->responseStats = ['read' => $this->rowCount];
                             } elseif (
                                     array_key_exists(
-                                            $responseEvidence,
-                                            $mainResult
+                                        $responseEvidence,
+                                        $mainResult
                                     )
                             ) {
                                 $this->responseStats = ['read' => count($mainResult[$responseEvidence])];
@@ -1215,7 +1246,8 @@ class RO extends \Ease\Sand {
      *
      * @return int number of errors processed
      */
-    public function parseError(array $responseDecoded) {
+    public function parseError(array $responseDecoded)
+    {
         if (array_key_exists('success', $responseDecoded)) {
             $this->errors = [['message' => array_key_exists('message', $responseDecoded) ? $responseDecoded['message'] : '']];
         } else {
@@ -1234,7 +1266,8 @@ class RO extends \Ease\Sand {
      *
      * @return int HTTP Response CODE
      */
-    public function doCurlRequest($url, $method, $format = null) {
+    public function doCurlRequest($url, $method, $format = null)
+    {
         if (is_null($format)) {
             $format = $this->format;
         }
@@ -1285,16 +1318,17 @@ class RO extends \Ease\Sand {
      *
      * @return string response format
      */
-    public function contentTypeToResponseFormat(string $contentType, $url = null) {
+    public function contentTypeToResponseFormat(string $contentType, $url = null)
+    {
         if (!empty($url)) {
             $url = parse_url($url, PHP_URL_PATH);
         }
 
         $contentTypeClean = strstr($contentType, ';') ? substr(
-                        $contentType,
-                        0,
-                        strpos($contentType, ';')
-                ) : $contentType;
+            $contentType,
+            0,
+            strpos($contentType, ';')
+        ) : $contentType;
         switch ($url) {
             case '/login-logout/login';
                 $responseFormat = 'json';
@@ -1322,13 +1356,14 @@ class RO extends \Ease\Sand {
      *
      * @return boolean
      */
-    public function setAction(string $action) {
+    public function setAction(string $action)
+    {
         $result = false;
         $actionsAvailable = $this->getActionsInfo();
         if (
                 is_array($actionsAvailable) && array_key_exists(
-                        $action,
-                        $actionsAvailable
+                    $action,
+                    $actionsAvailable
                 )
         ) {
             $this->action = $action;
@@ -1346,14 +1381,16 @@ class RO extends \Ease\Sand {
      *
      * @return array
      */
-    public static function xml2array($xml) {
+    public static function xml2array($xml)
+    {
         return Functions::xml2array($xml);
     }
 
     /**
      * Odpojení od AbraFlexi.
      */
-    public function disconnect() {
+    public function disconnect()
+    {
         if (is_null($this->curl) === false) {
             curl_close($this->curl);
         }
@@ -1363,7 +1400,8 @@ class RO extends \Ease\Sand {
     /**
      * Reset Curl Connection
      */
-    public function connectionReset() {
+    public function connectionReset()
+    {
         $this->disconnect();
         $this->curlInit();
     }
@@ -1371,7 +1409,8 @@ class RO extends \Ease\Sand {
     /**
      * Disconnect CURL befere pass away
      */
-    public function __destruct() {
+    public function __destruct()
+    {
         $this->disconnect();
     }
 
@@ -1382,7 +1421,8 @@ class RO extends \Ease\Sand {
      *
      * @return array
      */
-    public function getFlexiRow($recordID) {
+    public function getFlexiRow($recordID)
+    {
         $record = null;
         $response = $this->performRequest($this->evidence . '/' . $recordID . '.json');
         if (isset($response[$this->evidence])) {
@@ -1400,7 +1440,8 @@ class RO extends \Ease\Sand {
      * @param array $conditions pole podmínek   - rendrují se do ()
      * @param array $urlParams  pole parametrů  - rendrují za ?
      */
-    public function extractUrlParams(&$conditions, &$urlParams) {
+    public function extractUrlParams(&$conditions, &$urlParams)
+    {
         foreach (array_keys($this->urlParamsKnown) as $urlParam) {
             if (isset($conditions[$urlParam])) {
                 \Ease\Functions::divDataArray($conditions, $urlParams, $urlParam);
@@ -1417,7 +1458,8 @@ class RO extends \Ease\Sand {
      *
      * @return string
      */
-    public static function urlEncode(string $urlRaw) {
+    public static function urlEncode(string $urlRaw)
+    {
         return Functions::urlEncode($urlRaw);
     }
 
@@ -1429,7 +1471,8 @@ class RO extends \Ease\Sand {
      *
      * @return array Data obtained
      */
-    public function getFlexiData(string $suffix = '', $conditions = null) {
+    public function getFlexiData(string $suffix = '', $conditions = null)
+    {
         $finalUrl = '';
         $evidenceToRestore = null;
         $urlParams = $this->defaultUrlParams;
@@ -1474,15 +1517,15 @@ class RO extends \Ease\Sand {
             }
             $finalUrl .= http_build_query(array_map(function ($a) {
                         return is_bool($a) ? ($a ? 'true' : 'false' ) : $a;
-                    }, $urlParams), '', '&', PHP_QUERY_RFC3986);
+            }, $urlParams), '', '&', PHP_QUERY_RFC3986);
         }
 
         $transactions = $this->performRequest($finalUrl, 'GET');
         $responseEvidence = $this->getResponseEvidence();
         if (
                 is_array($transactions) && array_key_exists(
-                        $responseEvidence,
-                        $transactions
+                    $responseEvidence,
+                    $transactions
                 )
         ) {
             $result = $transactions[$responseEvidence];
@@ -1506,7 +1549,8 @@ class RO extends \Ease\Sand {
      *
      * @return int počet načtených položek
      */
-    public function loadFromAbraFlexi($id = null) {
+    public function loadFromAbraFlexi($id = null)
+    {
         $data = [];
         if (is_null($id)) {
             $id = $this->getMyKey();
@@ -1527,7 +1571,8 @@ class RO extends \Ease\Sand {
      *
      * @return boolean
      */
-    public function reload() {
+    public function reload()
+    {
         $id = $this->getRecordIdent();
         $this->dataReset();
         $this->loadFromAbraFlexi($id);
@@ -1543,7 +1588,8 @@ class RO extends \Ease\Sand {
      *
      * @return string Filter code
      */
-    public function setFilter($filter) {
+    public function setFilter($filter)
+    {
         return $this->filter = is_array($filter) ? self::flexiUrl($filter) : $filter;
     }
 
@@ -1559,14 +1605,15 @@ class RO extends \Ease\Sand {
      *
      * @return string
      */
-    public function getJsonizedData($data = null, $options = 0) {
+    public function getJsonizedData($data = null, $options = 0)
+    {
         if (is_null($data)) {
             $data = $this->getData();
         }
 
         $dataToJsonize = array_merge(
-                ['@version' => $this->protoVersion],
-                $this->getDataForJSON($data)
+            ['@version' => $this->protoVersion],
+            $this->getDataForJSON($data)
         );
         $evidence = $this->getEvidence();
         if (
@@ -1579,8 +1626,8 @@ class RO extends \Ease\Sand {
             }
         }
         $jsonRaw = json_encode(
-                [$this->nameSpace => $dataToJsonize],
-                $options
+            [$this->nameSpace => $dataToJsonize],
+            $options
         );
         return $jsonRaw;
     }
@@ -1592,7 +1639,8 @@ class RO extends \Ease\Sand {
      *
      * @return array
      */
-    public function getDataForJSON($data = null) {
+    public function getDataForJSON($data = null)
+    {
         if (is_null($data)) {
             $data = $this->getData();
         }
@@ -1641,7 +1689,8 @@ class RO extends \Ease\Sand {
      *
      * @return boolean adding to stack success
      */
-    public function join(&$object) {
+    public function join(&$object)
+    {
         $result = true;
         if (method_exists($object, 'getDataForJSON')) {
             $this->chained[] = $object;
@@ -1661,7 +1710,8 @@ class RO extends \Ease\Sand {
      *
      * @return string id ready for use in URL
      */
-    public static function urlizeId($id) {
+    public static function urlizeId($id)
+    {
         return Functions::urlizeId($id);
     }
 
@@ -1674,15 +1724,16 @@ class RO extends \Ease\Sand {
      *
      * @return boolean
      */
-    public function idExists($identifer = null) {
+    public function idExists($identifer = null)
+    {
         if (is_null($identifer)) {
             $identifer = $this->getMyKey();
         }
         $ignorestate = $this->ignore404();
         $this->ignore404(true);
         $cands = $this->getFlexiData(
-                '',
-                [
+            '',
+            [
                     'detail' => 'custom:' . $this->getKeyColumn(),
                     $this->getKeyColumn() => $identifer
                 ]
@@ -1698,7 +1749,8 @@ class RO extends \Ease\Sand {
      *
      * @return boolean Record presence status
      */
-    public function recordExists($data = []) {
+    public function recordExists($data = [])
+    {
         if (empty($data)) {
             $data = $this->getData();
         }
@@ -1710,8 +1762,8 @@ class RO extends \Ease\Sand {
             $keyColumn = $this->getKeyColumn();
         }
         $res = $this->getColumnsFromAbraFlexi(
-                [$keyColumn],
-                is_array($data) ? $data : [$keyColumn => $data]
+            [$keyColumn],
+            is_array($data) ? $data : [$keyColumn => $data]
         );
         if (empty($res) || (isset($res['success']) && ($res['success'] == 'false')) || ((isset($res) && is_array($res)) && !isset($res[0]) )) {
             $found = false;
@@ -1730,7 +1782,8 @@ class RO extends \Ease\Sand {
      *                                     sloupečku
      * @return array
      */
-    public function getAllFromAbraFlexi($conditions = null, $indexBy = null) {
+    public function getAllFromAbraFlexi($conditions = null, $indexBy = null)
+    {
         if (is_int($conditions)) {
             $conditions = [$this->getmyKeyColumn() => $conditions];
         }
@@ -1753,9 +1806,9 @@ class RO extends \Ease\Sand {
      * @return array
      */
     public function getColumnsFromAbraFlexi(
-            $columnsList,
-            $conditions = [],
-            $indexBy = null
+        $columnsList,
+        $conditions = [],
+        $indexBy = null
     ) {
         $detail = 'full';
         switch (gettype($columnsList)) {
@@ -1764,8 +1817,8 @@ class RO extends \Ease\Sand {
             case 'array': //Few Conditions
                 if (
                         !is_null($indexBy) && !array_key_exists(
-                                $indexBy,
-                                $columnsList
+                            $indexBy,
+                            $columnsList
                         )
                 ) {
                     $columnsList[] = $indexBy;
@@ -1790,8 +1843,8 @@ class RO extends \Ease\Sand {
         $flexiData = $this->getFlexiData('', $conditions);
         if (
                 is_string($indexBy) && is_array($flexiData) && array_key_exists(
-                        0,
-                        $flexiData
+                    0,
+                    $flexiData
                 ) && array_key_exists($indexBy, $flexiData[0])
         ) {
             $flexiData = \Ease\Functions::reindexArrayBy($flexiData, $indexBy);
@@ -1810,7 +1863,8 @@ class RO extends \Ease\Sand {
      *
      * @return string
      */
-    public function getKod($data = null, $unique = true) {
+    public function getKod($data = null, $unique = true)
+    {
         $kod = null;
         if (is_null($data)) {
             $data = $this->getData();
@@ -1825,9 +1879,9 @@ class RO extends \Ease\Sand {
         } else {
             if (isset($data[$this->nameColumn])) {
                 $kod = preg_replace(
-                        '/[^a-zA-Z0-9]/',
-                        '',
-                        \Ease\Functions::rip($data[$this->nameColumn])
+                    '/[^a-zA-Z0-9]/',
+                    '',
+                    \Ease\Functions::rip($data[$this->nameColumn])
                 );
             } else {
                 if (isset($data[$this->keyColumn])) {
@@ -1869,7 +1923,8 @@ class RO extends \Ease\Sand {
     /**
      * Save RAW Curl Request & Response to files in Temp directory
      */
-    public function saveDebugFiles() {
+    public function saveDebugFiles()
+    {
         $tmpdir = sys_get_temp_dir();
         $fname = $this->evidence . '-' . $this->curlInfo['when'] . '.' . $this->format;
         $reqname = $tmpdir . '/request-' . $fname;
@@ -1888,7 +1943,8 @@ class RO extends \Ease\Sand {
      *
      * @param string $data
      */
-    public function setPostFields($data) {
+    public function setPostFields($data)
+    {
         $this->postFields = $data;
     }
 
@@ -1896,7 +1952,8 @@ class RO extends \Ease\Sand {
      * Get Content ready to be send as POST body
      * @return string
      */
-    public function getPostFields() {
+    public function getPostFields()
+    {
         return $this->postFields;
     }
 
@@ -1910,7 +1967,8 @@ class RO extends \Ease\Sand {
      *
      * @return string "in" fragment
      */
-    public static function flexiIN(array $items, string $key) {
+    public static function flexiIN(array $items, string $key)
+    {
         return Functions::flexiIN($items, $key);
     }
 
@@ -1927,7 +1985,8 @@ class RO extends \Ease\Sand {
      *
      * @return string
      */
-    public static function flexiUrl(array $data, $joiner = 'and', $defop = 'eq') {
+    public static function flexiUrl(array $data, $joiner = 'and', $defop = 'eq')
+    {
         return Functions::flexiUrl($data, $joiner, $defop);
     }
 
@@ -1939,7 +1998,8 @@ class RO extends \Ease\Sand {
      *
      * @return null|int indentifikátor záznamu reprezentovaného objektem
      */
-    public function getRecordID() {
+    public function getRecordID()
+    {
         $id = $this->getDataValue('id');
         return is_null($id) ? null : (is_numeric($id) ? intval($id) : $id);
     }
@@ -1952,7 +2012,8 @@ class RO extends \Ease\Sand {
      *
      * @return string record code identifier
      */
-    public function getRecordCode() {
+    public function getRecordCode()
+    {
         return empty($this->getDataValue('kod')) ? null : self::code($this->getDataValue('kod'));
     }
 
@@ -1964,7 +2025,8 @@ class RO extends \Ease\Sand {
      *
      * @return string|int|null record code identifier
      */
-    public function getRecordIdent() {
+    public function getRecordIdent()
+    {
         $ident = $this->getExternalID();
         if (empty($ident)) {
             $ident = $this->getRecordCode();
@@ -1986,7 +2048,8 @@ class RO extends \Ease\Sand {
      *
      * @return string indentifikátor záznamu reprezentovaného objektem
      */
-    public function __toString() {
+    public function __toString()
+    {
         return strval($this->getRecordIdent());
     }
 
@@ -1999,7 +2062,8 @@ class RO extends \Ease\Sand {
      *
      * @return string Class name
      */
-    public static function evidenceToClassName($evidence) {
+    public static function evidenceToClassName($evidence)
+    {
         return Functions::evidenceToClassName($evidence);
     }
 
@@ -2008,13 +2072,14 @@ class RO extends \Ease\Sand {
      *
      * @return string|null id or null if no records
      */
-    public function getFirstRecordID() {
+    public function getFirstRecordID()
+    {
         $firstID = null;
         $keyColumn = $this->getKeyColumn();
         $firstIdRaw = $this->getColumnsFromAbraFlexi(
-                [$keyColumn],
-                ['limit' => 1, 'order' => $keyColumn],
-                $keyColumn
+            [$keyColumn],
+            ['limit' => 1, 'order' => $keyColumn],
+            $keyColumn
         );
         if (!empty($firstIdRaw) && isset(current($firstIdRaw)[$keyColumn])) {
             $firstID = current($firstIdRaw)[$keyColumn];
@@ -2029,15 +2094,16 @@ class RO extends \Ease\Sand {
      *
      * @return int|null
      */
-    public function getNextRecordID($conditions = []) {
+    public function getNextRecordID($conditions = [])
+    {
         $conditions['order'] = 'id@D';
         $conditions['limit'] = 1;
         $conditions[] = 'id gt ' . $this->getRecordID();
         $next = $this->getColumnsFromAbraFlexi(['id'], $conditions);
         return (is_array($next) && array_key_exists(0, $next) && array_key_exists(
-                        'id',
-                        $next[0]
-                )) ? intval($next[0]['id']) : null;
+            'id',
+            $next[0]
+        )) ? intval($next[0]['id']) : null;
     }
 
     /**
@@ -2047,15 +2113,16 @@ class RO extends \Ease\Sand {
      *
      * @return int|null
      */
-    public function getPrevRecordID($conditions = []) {
+    public function getPrevRecordID($conditions = [])
+    {
         $conditions['order'] = 'id@A';
         $conditions['limit'] = 1;
         $conditions[] = 'id lt ' . $this->getRecordID();
         $prev = $this->getColumnsFromAbraFlexi(['id'], $conditions);
         return (is_array($prev) && array_key_exists(0, $prev) && array_key_exists(
-                        'id',
-                        $prev[0]
-                )) ? intval($prev[0]['id']) : null;
+            'id',
+            $prev[0]
+        )) ? intval($prev[0]['id']) : null;
     }
 
     /**
@@ -2065,7 +2132,8 @@ class RO extends \Ease\Sand {
      *
      * @return string|array one id or array if multiplete
      */
-    public function getExternalID($want = null) {
+    public function getExternalID($want = null)
+    {
         $extid = null;
         $ids = $this->getExternalIDs();
         if (is_null($want)) {
@@ -2083,9 +2151,9 @@ class RO extends \Ease\Sand {
                                 $extid[] = str_replace('ext:' . $want . ':', '', $id);
                             } else {
                                 $extid = [$extid, str_replace(
-                                            'ext:' . $want . ':',
-                                            '',
-                                            $id
+                                    'ext:' . $want . ':',
+                                    '',
+                                    $id
                                 )];
                             }
                         }
@@ -2101,7 +2169,8 @@ class RO extends \Ease\Sand {
      *
      * @return array
      */
-    public function getExternalIDs() {
+    public function getExternalIDs()
+    {
         return $this->getDataValue('external-ids');
     }
 
@@ -2113,7 +2182,8 @@ class RO extends \Ease\Sand {
      *
      * @return int
      */
-    public function getGlobalVersion() {
+    public function getGlobalVersion()
+    {
         $this->getFlexiData('', ['add-global-version' => 'true', 'limit' => 1]);
         return $this->globalVersion;
     }
@@ -2125,7 +2195,8 @@ class RO extends \Ease\Sand {
      *
      * @return string API URL for current record or object/evidence
      */
-    public function getApiURL($format = null) {
+    public function getApiURL($format = null)
+    {
         $apiUrl = str_replace(['.' . $this->format, '?limit=0'], '', $this->apiURL);
         return $apiUrl . (empty($format) ? '' : '.' . $format );
     }
@@ -2135,7 +2206,8 @@ class RO extends \Ease\Sand {
      *
      * @return string
      */
-    public function getResponseFormat() {
+    public function getResponseFormat()
+    {
         return $this->responseFormat;
     }
 
@@ -2146,11 +2218,12 @@ class RO extends \Ease\Sand {
      *
      * @return array
      */
-    public function unifyResponseFormat($responseBody) {
+    public function unifyResponseFormat($responseBody)
+    {
         if (
                 !is_array($responseBody) || array_key_exists(
-                        'message',
-                        $responseBody
+                    'message',
+                    $responseBody
                 )
         ) { //Unifi response format
             $response = $responseBody;
@@ -2186,7 +2259,8 @@ class RO extends \Ease\Sand {
      *
      * @return array Evidence structure
      */
-    public function getOfflineColumnsInfo($evidence = null) {
+    public function getOfflineColumnsInfo($evidence = null)
+    {
         $columnsInfo = null;
         $infoSource = self::$infoDir . '/Properties.' . (empty($evidence) ? $this->getEvidence() : $evidence) . '.json';
         if (file_exists($infoSource)) {
@@ -2210,7 +2284,8 @@ class RO extends \Ease\Sand {
      *
      * @return array structure
      */
-    public function getOnlineColumnsInfo($evidence = null) {
+    public function getOnlineColumnsInfo($evidence = null)
+    {
         $properties = [];
         $evidence = is_null($evidence) ? $this->getEvidence() : $evidence;
         $flexinfo = $this->performRequest('/c/' . $this->company . '/' . $evidence . '/properties.json');
@@ -2224,9 +2299,9 @@ class RO extends \Ease\Sand {
                 $properties[$key]['type'] = $evidenceProperty['type'];
                 if (array_key_exists('url', $evidenceProperty)) {
                     $properties[$key]['url'] = str_replace(
-                            '?limit=0',
-                            '',
-                            $evidenceProperty['url']
+                        '?limit=0',
+                        '',
+                        $evidenceProperty['url']
                     );
                 }
             }
@@ -2240,7 +2315,8 @@ class RO extends \Ease\Sand {
      * @param array  $columnsInfo
      * @param string $evidence
      */
-    public function updateColumnsInfo($columnsInfo = null, $evidence = null) {
+    public function updateColumnsInfo($columnsInfo = null, $evidence = null)
+    {
         $evidence = is_null($evidence) ? $this->getEvidence() : $evidence;
         if (is_null($columnsInfo)) {
             $this->columnsInfo[$evidence] = $this->offline ? $this->getOfflineColumnsInfo($evidence) : $this->getOnlineColumnsInfo($evidence);
@@ -2257,12 +2333,13 @@ class RO extends \Ease\Sand {
      *
      * @return array
      */
-    public function getColumnsInfo($evidence = null) {
+    public function getColumnsInfo($evidence = null)
+    {
         $evidence = is_null($evidence) ? $this->getEvidence() : $evidence;
         if (!array_key_exists($evidence, $this->columnsInfo)) {
             $this->updateColumnsInfo(
-                    $this->getOfflineColumnsInfo($evidence),
-                    $evidence
+                $this->getOfflineColumnsInfo($evidence),
+                $evidence
             );
         }
         return $this->columnsInfo[$evidence];
@@ -2276,7 +2353,8 @@ class RO extends \Ease\Sand {
      *
      * @return array column properties or null if column not exits
      */
-    public function getColumnInfo($column, $evidence = null) {
+    public function getColumnInfo($column, $evidence = null)
+    {
         $columnsInfo = $this->getColumnsInfo(empty($evidence) ? $this->getEvidence() : $evidence);
         return (empty($column) || empty($columnsInfo) || !is_array($columnsInfo)) ? null : (array_key_exists($column, $columnsInfo) ? $columnsInfo[$column] : null);
     }
@@ -2288,7 +2366,8 @@ class RO extends \Ease\Sand {
      *
      * @return array Evidence structure
      */
-    public function getActionsInfo($evidence = null) {
+    public function getActionsInfo($evidence = null)
+    {
         $actionsInfo = null;
         if (is_null($evidence)) {
             $evidence = $this->getEvidence();
@@ -2307,7 +2386,8 @@ class RO extends \Ease\Sand {
      *
      * @return array Evidence structure
      */
-    public function getRelationsInfo($evidence = null) {
+    public function getRelationsInfo($evidence = null)
+    {
         $relationsInfo = null;
         if (is_null($evidence)) {
             $evidence = $this->getEvidence();
@@ -2326,7 +2406,8 @@ class RO extends \Ease\Sand {
      *
      * @return array Evidence info
      */
-    public function getEvidenceInfo($evidence = null) {
+    public function getEvidenceInfo($evidence = null)
+    {
         $evidencesInfo = null;
         if (is_null($evidence)) {
             $evidence = $this->getEvidence();
@@ -2348,7 +2429,8 @@ class RO extends \Ease\Sand {
      *
      * @return array Evidence info
      */
-    public function getEvidenceName($evidence = null) {
+    public function getEvidenceName($evidence = null)
+    {
         $evidenceName = null;
         if (is_null($evidence)) {
             $evidence = $this->getEvidence();
@@ -2364,7 +2446,8 @@ class RO extends \Ease\Sand {
      *
      * @param string $destfile path to file
      */
-    public function saveResponseToFile($destfile) {
+    public function saveResponseToFile($destfile)
+    {
         if (strlen($this->lastCurlResponse)) {
             $this->doCurlRequest($this->apiURL, 'GET', $this->format);
         }
@@ -2376,14 +2459,15 @@ class RO extends \Ease\Sand {
      *
      * @return array|null or Relations
      */
-    public function getVazby($id = null) {
+    public function getVazby($id = null)
+    {
         if (is_null($id)) {
             $id = $this->getRecordID();
         }
         if (!empty($id)) {
             $vazbyRaw = $this->getColumnsFromAbraFlexi(
-                    ['vazby'],
-                    ['relations' => 'vazby', 'id' => $id]
+                ['vazby'],
+                ['relations' => 'vazby', 'id' => $id]
             );
             $vazby = array_key_exists('vazby', $vazbyRaw[0]) ? $vazbyRaw[0]['vazby'] : null;
         } else {
@@ -2397,7 +2481,8 @@ class RO extends \Ease\Sand {
      *
      * @return string url
      */
-    public function getAbraFlexiURL() {
+    public function getAbraFlexiURL()
+    {
         $parsed_url = parse_url(str_replace('.' . $this->format, '', $this->apiURL));
         $scheme = isset($parsed_url['scheme']) ? $parsed_url['scheme'] . '://' : '';
         $host = isset($parsed_url['host']) ? $parsed_url['host'] : '';
@@ -2416,7 +2501,8 @@ class RO extends \Ease\Sand {
      *
      * @return boolean
      */
-    public function setMyKey($myKeyValue) {
+    public function setMyKey($myKeyValue)
+    {
         $res = false;
         if (is_string($myKeyValue) && (is_numeric($myKeyValue) === false)) {
             if (substr($myKeyValue, 0, 4) == 'ext:') {
@@ -2453,7 +2539,8 @@ class RO extends \Ease\Sand {
      *
      * @return boolean get flag state
      */
-    public function ignore404($ignore = null) {
+    public function ignore404($ignore = null)
+    {
         if (!is_null($ignore)) {
             $this->ignoreNotFound = $ignore;
         }
@@ -2471,12 +2558,13 @@ class RO extends \Ease\Sand {
      *
      * @return boolean mail sent status
      */
-    public function sendByMail($to, $subject, $body, $cc = null) {
+    public function sendByMail($to, $subject, $body, $cc = null)
+    {
         $this->setPostFields($body);
         $this->performRequest(
-                rawurlencode((string) $this->getRecordIdent()) . '/odeslani-dokladu?to=' . $to . '&subject=' . urlencode($subject) . '&cc=' . $cc,
-                'PUT',
-                'xml'
+            rawurlencode((string) $this->getRecordIdent()) . '/odeslani-dokladu?to=' . $to . '&subject=' . urlencode($subject) . '&cc=' . $cc,
+            'PUT',
+            'xml'
         );
         return $this->lastResponseCode == 200;
     }
@@ -2490,7 +2578,8 @@ class RO extends \Ease\Sand {
      *
      * @return \DateTime | false
      */
-    public static function flexiDateToDateTime(string $flexidate) {
+    public static function flexiDateToDateTime(string $flexidate)
+    {
         return Functions::flexiDateToDateTime($flexidate);
     }
 
@@ -2503,7 +2592,8 @@ class RO extends \Ease\Sand {
      *
      * @return \DateTime | false
      */
-    public static function flexiDateTimeToDateTime(string $flexidatetime) {
+    public static function flexiDateTimeToDateTime(string $flexidatetime)
+    {
         return Functions::flexiDateTimeToDateTime($flexidatetime);
     }
 
@@ -2521,10 +2611,10 @@ class RO extends \Ease\Sand {
      * @return string|null filename downloaded or none
      */
     public function getInFormat(
-            string $format,
-            $reportName = null,
-            $lang = null,
-            $sign = false
+        string $format,
+        $reportName = null,
+        $lang = null,
+        $sign = false
     ) {
         $response = null;
         $formatBackup = $this->format;
@@ -2548,9 +2638,9 @@ class RO extends \Ease\Sand {
             }
             if (
                     ($this->doCurlRequest(\Ease\Functions::addUrlParams(
-                                    $this->apiURL,
-                                    $urlParams
-                            ), 'GET') == 200)
+                        $this->apiURL,
+                        $urlParams
+                    ), 'GET') == 200)
             ) {
                 $response = $this->lastCurlResponse;
             }
@@ -2572,13 +2662,13 @@ class RO extends \Ease\Sand {
      * @return string|null filename downloaded or none
      */
     public function downloadInFormat(
-            string $format,
-            $destDir = './',
-            $reportName = null,
-            $lang = null,
-            $sign = false
+        string $format,
+        $destDir = './',
+        $reportName = null,
+        $lang = null,
+        $sign = false
     ) {
-        $downloadTo = $destDir . $this->getEvidence() . '_' . str_replace(['/',' ',':'],'_',$this->getRecordIdent()) . '.' . $format;
+        $downloadTo = $destDir . $this->getEvidence() . '_' . str_replace(['/',' ',':'], '_', $this->getRecordIdent()) . '.' . $format;
         $downloaded = $this->getInFormat($format, $reportName, $lang, $sign);
         return file_put_contents($downloadTo, $downloaded) ? $downloadTo : null;
     }
@@ -2590,7 +2680,8 @@ class RO extends \Ease\Sand {
      *
      * @return int number of records taken
      */
-    public function takeData($data) {
+    public function takeData($data)
+    {
         $keyColumn = $this->getKeyColumn();
         if (is_array($data) && array_key_exists($keyColumn, $data) && is_array($data[$keyColumn])) {
             foreach ($data[$keyColumn] as $recPos => $recordKey) {
@@ -2618,7 +2709,8 @@ class RO extends \Ease\Sand {
      *
      * @return array
      */
-    public function getReportsInfo() {
+    public function getReportsInfo()
+    {
         $reports = [];
         $reportsRaw = $this->getFlexiData($this->getEvidenceURL() . '/reports');
         if (
@@ -2629,8 +2721,8 @@ class RO extends \Ease\Sand {
                 $reports = [$reportsRaw['reports']['report']['reportId'] => $reportsRaw['reports']['report']];
             } else {
                 $reports = \Ease\Functions::reindexArrayBy(
-                                $reportsRaw['reports']['report'],
-                                'reportId'
+                    $reportsRaw['reports']['report'],
+                    'reportId'
                 );
             }
         }
@@ -2648,14 +2740,15 @@ class RO extends \Ease\Sand {
      *
      * @return string authUserId or null in case of problems
      */
-    public function requestAuthSessionID(string $username, string $password, $otp = null) {
+    public function requestAuthSessionID(string $username, string $password, $otp = null)
+    {
         $this->postFields = http_build_query(is_null($otp) ? ['username' => $username,
             'password' => $password] : ['username' => $username, 'password' => $password,
             'otp' => $otp]);
         $response = $this->performRequest(
-                '/login-logout/login',
-                'POST',
-                'json'
+            '/login-logout/login',
+            'POST',
+            'json'
         );
         if (array_key_exists('refreshToken', $response)) {
             $this->refreshToken = $response['refreshToken'];
@@ -2670,10 +2763,11 @@ class RO extends \Ease\Sand {
      *
      * @return boolean sign in success
      */
-    public function login() {
+    public function login()
+    {
         $this->authSessionId = $this->requestAuthSessionID(
-                $this->user,
-                $this->password
+            $this->user,
+            $this->password
         );
         return $this->lastResponseCode == 200;
     }
@@ -2688,7 +2782,8 @@ class RO extends \Ease\Sand {
      *
      * @return array server response
      */
-    public function logout($username = null) {
+    public function logout($username = null)
+    {
         return $this->performRequest('/status/user/' . (is_null($username) ? $this->user : $username) . '/logout', 'POST');
     }
 
@@ -2698,23 +2793,24 @@ class RO extends \Ease\Sand {
      *
      * @param array $errorResponse result of parseError();
      */
-    public function error500Reporter($errorResponse) {
+    public function error500Reporter($errorResponse)
+    {
         $ur = str_replace(
-                '/c/' . $this->company,
-                '',
-                str_replace($this->url, '', $this->curlInfo['url'])
+            '/c/' . $this->company,
+            '',
+            str_replace($this->url, '', $this->curlInfo['url'])
         );
         if (!array_key_exists($ur, $this->reports)) {
             $tmpdir = sys_get_temp_dir();
             $myTime = $this->curlInfo['when'];
             $curlname = $tmpdir . '/curl-' . $this->evidence . '-' . $myTime . '.json';
             file_put_contents(
-                    $curlname,
-                    json_encode($this->curlInfo, JSON_PRETTY_PRINT)
+                $curlname,
+                json_encode($this->curlInfo, JSON_PRETTY_PRINT)
             );
             $report = new \Ease\Mailer(
-                    $this->reportRecipient,
-                    'Error report 500 - ' . $ur
+                $this->reportRecipient,
+                'Error report 500 - ' . $ur
             );
             $d = dir($tmpdir);
             while (false !== ($entry = $d->read())) {
@@ -2722,16 +2818,16 @@ class RO extends \Ease\Sand {
                     $ext = pathinfo($tmpdir . '/' . $entry, PATHINFO_EXTENSION);
                     $mime = Formats::suffixToContentType($ext);
                     $report->addFile(
-                            $tmpdir . '/' . $entry,
-                            empty($mime) ? 'text/plain' : $mime
+                        $tmpdir . '/' . $entry,
+                        empty($mime) ? 'text/plain' : $mime
                     );
                 }
             }
             $d->close();
             if (
                     (strstr($this->url, '://localhost') || strstr(
-                            $this->url,
-                            '://127.'
+                        $this->url,
+                        '://127.'
                     )) && file_exists('/var/log/flexibee.log')
             ) {
                 $fl = fopen('/var/log/' . 'flexibee.log', 'r');
@@ -2739,9 +2835,9 @@ class RO extends \Ease\Sand {
                     $tracelog = [];
                     for (
                             $x_pos = 0, $ln = 0, $output = array(); fseek(
-                                    $fl,
-                                    $x_pos,
-                                    SEEK_END
+                                $fl,
+                                $x_pos,
+                                SEEK_END
                             ) !== -1; $x_pos--
                     ) {
                         $char = fgetc($fl);
@@ -2768,8 +2864,8 @@ class RO extends \Ease\Sand {
 
             $licenseInfo = $this->performRequest($this->url . '/default-license.json');
             $report->addText("\n\n" . json_encode(
-                            $licenseInfo['license'],
-                            JSON_PRETTY_PRINT
+                $licenseInfo['license'],
+                JSON_PRETTY_PRINT
             ));
             if ($report->send()) {
                 $this->reports[$ur] = $myTime;
@@ -2786,7 +2882,8 @@ class RO extends \Ease\Sand {
      *
      * @return string
      */
-    public static function code(string $code) {
+    public static function code(string $code)
+    {
         return Functions::code($code);
     }
 
@@ -2799,7 +2896,8 @@ class RO extends \Ease\Sand {
      *
      * @return string
      */
-    public static function uncode(string $code) {
+    public static function uncode(string $code)
+    {
         return Functions::uncode($code);
     }
 
@@ -2810,13 +2908,14 @@ class RO extends \Ease\Sand {
      *
      * @return array data without @ columns
      */
-    public static function arrayCleanUP(array $data) {
+    public static function arrayCleanUP(array $data)
+    {
         return array_filter(
-                $data,
-                function ($key) {
-                    return !strchr($key, '@');
-                },
-                ARRAY_FILTER_USE_KEY
+            $data,
+            function ($key) {
+                return !strchr($key, '@');
+            },
+            ARRAY_FILTER_USE_KEY
         );
     }
 
@@ -2826,14 +2925,15 @@ class RO extends \Ease\Sand {
      * @param string $prefix banner prefix text
      * @param string $suffix banner suffix text
      */
-    public function logBanner($prefix = null, $suffix = null) {
+    public function logBanner($prefix = null, $suffix = null)
+    {
         parent::logBanner(
-                $prefix,
-                'ServerURL ' . str_replace(
-                        '://',
-                        '://' . $this->user . '@',
-                        $this->getApiUrl()
-                ) . ' php-abraflexi v' . self::$libVersion . ' (AbraFlexi ' . EvidenceList::$version . ')'
+            $prefix,
+            'ServerURL ' . str_replace(
+                '://',
+                '://' . $this->user . '@',
+                $this->getApiUrl()
+            ) . ' php-abraflexi v' . self::$libVersion . ' (AbraFlexi ' . EvidenceList::$version . ')'
         );
     }
 
@@ -2842,7 +2942,8 @@ class RO extends \Ease\Sand {
      *
      * @return string create|read|update|delete or update,insert for some inserted and updated in one transaction
      */
-    public function getLastOperationType() {
+    public function getLastOperationType()
+    {
         return implode(',', array_keys(array_filter($this->responseStats)));
     }
 
@@ -2851,23 +2952,26 @@ class RO extends \Ease\Sand {
      *
      * @return array AbraFlexi error meassages
      */
-    public function getErrors() {
+    public function getErrors()
+    {
         return $this->errors;
     }
 
     /**
      * Reconnect After unserialization
      */
-    public function __wakeup() {
+    public function __wakeup()
+    {
         $this->curlInit();
     }
 
     /**
      * Only Variables to keep
-     * 
+     *
      * @return array
      */
-    public function __sleep() {
+    public function __sleep()
+    {
         return [
             'data',
             'objectName',
