@@ -1,11 +1,10 @@
 <?php
-
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Thu, 11 Apr 2024 09:49:38 +0000
+ * Generated: Tue, 30 Apr 2024 17:49:42 +0000 
  * From:      https://demo.flexibee.eu
- *
+ *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2016-2024 Spoje.Net
  */
@@ -47,271 +46,275 @@ class EvidenceList extends RO
      *
      * @var string
      */
-    public static $version = '2024.2.10';
+ static public $version = '2024.3.0';
 
     /**
      * Evidences Path/Name listing.
      *
      * @var array
      */
-    public static $name = [
-    'adresar' => 'Adresy firem',
-    'atribut' => 'Atributy',
-    'autotisk' => 'Automatický tisk',
-    'banka' => 'Banka',
-    'format-elektronickeho-bankovnictvi' => 'Bankovní formáty',
-    'adresar-bankovni-ucet' => 'Bankovní spojení',
-    'bankovni-ucet-pokladna' => 'Bankovní účty a pokladny',
-    'bankovni-ucet-sklad-pokladna' => 'Banky/pokladny/sklady',
-    'cenova-uroven' => 'Cenové úrovně',
-    'odberatel' => 'Ceny pro odběratele/skupiny odběratelů, speciální kódy',
-    'cenik' => 'Ceník',
-    'cenikova-skupina' => 'Ceníkové skupiny',
-    'certifikacni-autorita' => 'Certifikační autority',
-    'certifikat' => 'Certifikáty',
-    'danovy-naklad' => 'Daňové náklady',
-    'danovy-odpis' => 'Daňové odpisy',
-    'intrastat-dodaci-podminky' => 'Dodací podmínky',
-    'dodavatelska-smlouva' => 'Dodavatelské smlouvy',
-    'dodavatel' => 'Dodavatelé',
-    'rada-banka' => 'Dokladové řady - bankovní doklady',
-    'rada-interniho-dokladu' => 'Dokladové řady - interní doklady',
-    'rada-pohledavky' => 'Dokladové řady - pohledávky',
-    'rada-pokladni-pohyb' => 'Dokladové řady - pokladní doklady',
-    'rada-faktury-prijate' => 'Dokladové řady - přijaté faktury',
-    'rada-nabidky-prijate' => 'Dokladové řady - přijaté nabídky',
-    'rada-objednavky-prijate' => 'Dokladové řady - přijaté objednávky',
-    'rada-poptavky-prijate' => 'Dokladové řady - přijaté poptávky',
-    'rada-skladovy-pohyb' => 'Dokladové řady - sklad',
-    'rada-faktury-vydane' => 'Dokladové řady - vydané faktury',
-    'rada-nabidky-vydane' => 'Dokladové řady - vydané nabídky',
-    'rada-objednavky-vydane' => 'Dokladové řady - vydané objednávky',
-    'rada-poptavky-vydane' => 'Dokladové řady - vydané poptávky',
-    'rada-zavazku' => 'Dokladové řady - závazky',
-    'doklad-k-uhrade' => 'Doklady k úhradě',
-    'intrastat-druh-dopravy' => 'Druh dopravy',
-    'cenik-obal' => 'Evidence obalů EkoKom',
-    'forma-dopravy' => 'Formy dopravy',
-    'forma-uhrady' => 'Formy úhrady',
-    'hlavni-kniha' => 'Hlavní kniha',
-    'individualni-cenik' => 'Individuální ceník',
-    'insight' => 'Insight',
-    'interni-doklad' => 'Interní doklady',
-    'inventura' => 'Inventury',
-    'certifikat-finbricks' => 'Klíče Finbricks',
-    'konst-symbol' => 'Konstantní symboly',
-    'kontakt' => 'Kontakty',
-    'intrastat-kraj-urceni' => 'Kraje určení',
-    'kurz' => 'Kurzy',
-    'intrastat-kurz' => 'Kurzy pro Intrastat',
-    'kurz-pro-cenotvorbu' => 'Kurzy pro cenotvorbu',
-    'kurz-pro-preceneni' => 'Kurzy pro přecenění',
-    'kusovnik' => 'Kusovník',
-    'intrastat-kod-nomenklatury' => 'Kódy nomenklatury',
-    'leasing' => 'Leasing',
-    'majetek' => 'Majetek',
-    'mapovani-skladu' => 'Mapování skladů',
-    'misto-urceni' => 'Místa určení',
-    'mena' => 'Měny',
-    'intrastat-merna-jednotka' => 'Měrné jednotky',
-    'merna-jednotka' => 'Měrné jednotky ',
-    'nastaveni' => 'Nastavení',
-    'vazebni-doklad' => 'Navázané doklady',
-    'po-splatnosti' => 'Neuhrazené pohledávky/závazky po splatnosti',
-    'naklad' => 'Náklady na události / aktivity',
-    'cenikovy-pohyb-nakup' => 'Nákupní, prodejní a skladové pohyby',
-    'cenikovy-pohyb-prodej' => 'Nákupní, prodejní a skladové pohyby',
-    'intrastat-obchodni-transakce' => 'Obchodní transakce',
-    'strom-koren' => 'Obecný strom',
-    'obratova-predvaha' => 'Obratová předvaha',
-    'obrat' => 'Obraty',
-    'smlouva' => 'Odběratelské smlouvy',
-    'odpisova-skupina' => 'Odpisové skupiny',
-    'uzivatel' => 'Osoby a uživatelé',
-    'pohledavka' => 'Ostatní pohledávky',
-    'zavazek' => 'Ostatní závazky',
-    'uzivatelsky-dotaz-parametr' => 'Parametry',
-    'penezni-ustav' => 'Peněžní ústavy',
-    'podklady-dph' => 'Podklady DPH',
-    'podobne-zbozi' => 'Podobné',
-    'pohyb-na-uctech' => 'Pohyby na účtech',
-    'pokladni-pohyb' => 'Pokladna',
-    'parametr' => 'Pokročilá parametrizace pomocí parametrů',
-    'prikaz-k-inkasu-polozka' => 'Položka inkasa',
-    'prikaz-k-uhrade-polozka' => 'Položka příkazu k úhradě',
-    'interni-doklad-polozka' => 'Položky interních dokladů',
-    'inventura-polozka' => 'Položky inventur',
-    'pohledavka-polozka' => 'Položky ostatních pohledávek',
-    'zavazek-polozka' => 'Položky ostatních závazků',
-    'pokladni-pohyb-polozka' => 'Položky pokladních dokladů',
-    'nabidka-prijata-polozka' => 'Položky přijaté nabídky',
-    'objednavka-prijata-polozka' => 'Položky přijaté objednávky',
-    'faktura-prijata-polozka' => 'Položky přijatých faktur',
-    'poptavka-prijata-polozka' => 'Položky přijatých poptávek',
-    'skladovy-pohyb-polozka' => 'Položky příjemky/výdejky',
-    'smlouva-polozka' => 'Položky smluv',
-    'nabidka-vydana-polozka' => 'Položky vydané nabídky',
-    'objednavka-vydana-polozka' => 'Položky vydané objednávky',
-    'poptavka-vydana-polozka' => 'Položky vydané poptávky',
-    'faktura-vydana-polozka' => 'Položky vydaných faktur a prodejek',
-    'banka-polozka' => 'Položky vzájemných zápočtů',
-    'poplatek' => 'Poplatky',
-    'psc' => 'Poštovní směrovací čísla',
-    'prodejka' => 'Prodejní kasa',
-    'pravo-viditelnosti' => 'Práva viditelnosti dat',
-    'text' => 'Předdefinované texty',
-    'predpis-zauctovani' => 'Předpisy zaúčtování',
-    'doklad' => 'Přehled všech dokladů',
-    'faktura-prijata' => 'Přijaté faktury',
-    'nabidka-prijata' => 'Přijaté nabídky',
-    'objednavka-prijata' => 'Přijaté objednávky',
-    'poptavka-prijata' => 'Přijaté poptávky',
-    'skladovy-pohyb' => 'Příjemky/výdejky',
-    'prikaz-k-inkasu' => 'Příkaz k inkasu',
-    'prikaz-k-uhrade' => 'Příkaz k úhradě',
-    'priloha' => 'Příloha',
-    'prislustenstvi' => 'Příslušenství',
-    'rezervace' => 'Rezervace',
-    'rocni-rada' => 'Roční položky dokladové řady',
-    'sady-a-komplety' => 'Sady',
-    'saldo' => 'Saldo',
-    'sazba-dph' => 'Sazby DPH',
-    'dashboard-sharing' => 'Sdílení přehledů',
-    'bankovni-ucet' => 'Seznam bankovních účtů',
-    'pokladna' => 'Seznam pokladen',
-    'typ-prodejky' => 'Seznam prodejních kas',
-    'sestava' => 'Seznam sestav',
-    'sklad' => 'Seznam skladů',
-    'preneseni-dph' => 'Seznam zboží v režimu přenesení DPH',
-    'skladova-karta' => 'Skladové karty',
-    'skupina-atributu' => 'Skupiny atributů',
-    'skupina-firem' => 'Skupiny firem',
-    'skupina-zbozi' => 'Skupiny zboží a materiálu',
-    'skupina-stitku' => 'Skupiny štítků',
-    'souhrnne-hlaseni-dph' => 'Souhrnné hlášení k DPH',
-    'rozvaha-po-uctech' => 'Soupis aktiv a pasiv',
-    'vysledovka-po-uctech' => 'Soupis nákladů a výnosů',
-    'splatkovy-kalendar' => 'Splátkový kalendář',
-    'dashboard-panel' => 'Správa přehledů',
-    'standardni-predpis' => 'Standardní předpis sestavy',
-    'ucetni-osnova' => 'Standardní účetní osnova',
-    'stav-obchodniho-dokladu' => 'Stav obchodního dokladu',
-    'stav-skladu-k-datu' => 'Stav skladu k datu',
-    'saldo-k-datu' => 'Stav úhrad k datu',
-    'stav-smlouvy' => 'Stavy smluv',
-    'stav-zakazky' => 'Stavy zakázek',
-    'stav-uctu' => 'Stavy účtů',
-    'stat' => 'Státy',
-    'stredisko' => 'Střediska',
-    'subjekt' => 'Subjekt',
-    'sumace-sestavy' => 'Sumace v sestavách',
-    'typ-organizace' => 'Typ organizace',
-    'cenik-typ-sazby-dph' => 'Typ sazby DPH',
-    'typ-atributu' => 'Typy atributů',
-    'typ-banka' => 'Typy bankovních dokladů',
-    'dodavatelsky-typ-smlouvy' => 'Typy dodavatelských smluv',
-    'typ-dokladu' => 'Typy dokladů',
-    'typ-interniho-dokladu' => 'Typy interních dokladů',
-    'typ-leasingu' => 'Typy leasingů',
-    'typ-majetku' => 'Typy majetků',
-    'typ-nakladu' => 'Typy nákladů na události / aktivity',
-    'typ-smlouvy' => 'Typy odběratelských smluv',
-    'typ-pohledavky' => 'Typy ostatních pohledávek',
-    'typ-zavazku' => 'Typy ostatních závazků',
-    'typ-pokladni-pohyb' => 'Typy pokladních dokladů',
-    'typ-faktury-prijate' => 'Typy přijatých faktur',
-    'typ-nabidky-prijate' => 'Typy přijatých nabídek',
-    'typ-objednavky-prijate' => 'Typy přijatých objednávek',
-    'typ-poptavky-prijate' => 'Typy přijatých poptávek',
-    'typ-skladovy-pohyb' => 'Typy skladových dokladů',
-    'typ-aktivity' => 'Typy událostí / aktivit',
-    'typ-uzivatelske-vazby' => 'Typy uživatelských vazeb',
-    'typ-faktury-vydane' => 'Typy vydaných faktur',
-    'typ-nabidky-vydane' => 'Typy vydaných nabídek',
-    'typ-objednavky-vydane' => 'Typy vydaných objednávek',
-    'typ-poptavky-vydane' => 'Typy vydaných poptávek',
-    'typ-zakazky' => 'Typy zakázek',
-    'typ-vzajemnych-zapoctu' => 'Typy zápočtů',
-    'majetek-udalost' => 'Události',
-    'udalost' => 'Události, aktivity',
-    'ulozene-priznani-dph' => 'Uložené přiznání DPH',
-    'radek-priznani-dph' => 'Uložené řádky přiznání DPH',
-    'umisteni' => 'Umístění',
-    'umisteni-ve-skladu' => 'Umístění ve skladu',
-    'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
-    'umisteni-ve-skladu-police' => 'Umístění ve skladu',
-    'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
-    'sablona-upominky' => 'Upomínky',
-    'umisteni-uctu' => 'Upřesnění umístění účtu',
-    'strom' => 'Uzel stromu',
-    'uzivatelsky-dotaz' => 'Uživatelské dotazy',
-    'sablona-mail' => 'Uživatelské e-mailové šablony',
-    'filtr' => 'Uživatelské filtry',
-    'custom-button' => 'Uživatelské tlačítko',
-    'xslt' => 'Uživatelské transformace',
-    'uzivatelska-vazba' => 'Uživatelské vazby',
-    'strom-cenik' => 'Vazba uzlu na objekt',
-    'vazba' => 'Vazby dokladu',
-    'uzivatelsky-dotaz-vlastnost' => 'Vlastnosti',
-    'faktura-vydana' => 'Vydané faktury',
-    'nabidka-vydana' => 'Vydané nabídky',
-    'objednavka-vydana' => 'Vydané objednávky',
-    'poptavka-vydana' => 'Vydané poptávky',
-    'hodnoceni-zakazky' => 'Vyhodnocení zakázek',
-    'vzajemny-zapocet' => 'Vzájemné zápočty',
-    'vykaz-hospodareni' => 'Výkaz hospodaření za měsíc',
-    'vyrobni-cislo' => 'Výrobní čísla',
-    'zakazka' => 'Zakázky',
-    'forma-uhrady-zauctovani' => 'Zaúčtování formy úhrady',
-    'changes' => 'Změny',
-    'intrastat-zvlastni-pohyb' => 'Zvláštní pohyby',
-    'zapujcka' => 'Zápůjčky',
-    'rada' => 'dokladové řady',
-    'prodejka-platba' => 'Úhrada',
-    'global-store' => 'Úložiště globálního nastavení',
-    'setting-store' => 'Úložiště nastavení',
-    'analyza-zakazky' => 'Účetní analýza zakázky',
-    'ucetni-denik' => 'Účetní deník',
-    'ucetni-obdobi' => 'Účetní období',
-    'ucetni-odpis' => 'Účetní odpisy',
-    'ucet' => 'Účtový rozvrh',
-    'cinnost' => 'Činnost',
-    'typ-stavu-ceniku' => 'Číselník stavů položek ceníku',
-    'stav-ceniku' => 'Číselník stavů položek ceníku',
-    'cislo-baliku' => 'Čísla balíků',
-    'radek-sestavy' => 'Řádek sestavy',
-    'cleneni-kontrolni-hlaseni' => 'Řádky kontrolního hlášení DPH',
-    'pricteni-rozdilu' => 'Řádky pro přičtení rozdílu',
-    'cleneni-dph' => 'Řádky přiznání DPH',
-    'sarze-expirace' => 'Šarže a expirace',
-    'stitek' => 'Štítky',
-    'zurnal' => 'Žurnál',
-    'smlouva-zurnal' => 'Žurnál pro smlouvy',
-    ];
+ static public $name = [
+  'adresar' => 'Adresy firem',
+  'atribut' => 'Atributy',
+  'autotisk' => 'Automatický tisk',
+  'banka' => 'Banka',
+  'format-elektronickeho-bankovnictvi' => 'Bankovní formáty',
+  'adresar-bankovni-ucet' => 'Bankovní spojení',
+  'bankovni-ucet-pokladna' => 'Bankovní účty a pokladny',
+  'bankovni-ucet-sklad-pokladna' => 'Banky/pokladny/sklady',
+  'cenova-uroven' => 'Cenové úrovně',
+  'odberatel' => 'Ceny pro odběratele/skupiny odběratelů, speciální kódy',
+  'cenik' => 'Ceník',
+  'cenikova-skupina' => 'Ceníkové skupiny',
+  'certifikacni-autorita' => 'Certifikační autority',
+  'certifikat' => 'Certifikáty',
+  'danovy-naklad' => 'Daňové náklady',
+  'danovy-odpis' => 'Daňové odpisy',
+  'intrastat-dodaci-podminky' => 'Dodací podmínky',
+  'dodavatelska-smlouva' => 'Dodavatelské smlouvy',
+  'dodavatel' => 'Dodavatelé',
+  'rada-banka' => 'Dokladové řady - bankovní doklady',
+  'rada-interniho-dokladu' => 'Dokladové řady - interní doklady',
+  'rada-pohledavky' => 'Dokladové řady - pohledávky',
+  'rada-pokladni-pohyb' => 'Dokladové řady - pokladní doklady',
+  'rada-faktury-prijate' => 'Dokladové řady - přijaté faktury',
+  'rada-nabidky-prijate' => 'Dokladové řady - přijaté nabídky',
+  'rada-objednavky-prijate' => 'Dokladové řady - přijaté objednávky',
+  'rada-poptavky-prijate' => 'Dokladové řady - přijaté poptávky',
+  'rada-skladovy-pohyb' => 'Dokladové řady - sklad',
+  'rada-faktury-vydane' => 'Dokladové řady - vydané faktury',
+  'rada-nabidky-vydane' => 'Dokladové řady - vydané nabídky',
+  'rada-objednavky-vydane' => 'Dokladové řady - vydané objednávky',
+  'rada-poptavky-vydane' => 'Dokladové řady - vydané poptávky',
+  'rada-zavazku' => 'Dokladové řady - závazky',
+  'doklad-k-uhrade' => 'Doklady k úhradě',
+  'doporuceni' => 'Doporučení',
+  'intrastat-druh-dopravy' => 'Druh dopravy',
+  'cenik-obal' => 'Evidence obalů EkoKom',
+  'forma-dopravy' => 'Formy dopravy',
+  'forma-uhrady' => 'Formy úhrady',
+  'hlavni-kniha' => 'Hlavní kniha',
+  'individualni-cenik' => 'Individuální ceník',
+  'insight' => 'Insight',
+  'interni-doklad' => 'Interní doklady',
+  'inventura' => 'Inventury',
+  'certifikat-finbricks' => 'Klíče Finbricks',
+  'konst-symbol' => 'Konstantní symboly',
+  'kontakt' => 'Kontakty',
+  'intrastat-kraj-urceni' => 'Kraje určení',
+  'kurz' => 'Kurzy',
+  'intrastat-kurz' => 'Kurzy pro Intrastat',
+  'kurz-pro-cenotvorbu' => 'Kurzy pro cenotvorbu',
+  'kurz-pro-preceneni' => 'Kurzy pro přecenění',
+  'kusovnik' => 'Kusovník',
+  'intrastat-kod-nomenklatury' => 'Kódy nomenklatury',
+  'leasing' => 'Leasing',
+  'majetek' => 'Majetek',
+  'mapovani-skladu' => 'Mapování skladů',
+  'misto-urceni' => 'Místa určení',
+  'mena' => 'Měny',
+  'intrastat-merna-jednotka' => 'Měrné jednotky',
+  'merna-jednotka' => 'Měrné jednotky ',
+  'nastaveni' => 'Nastavení',
+  'vazebni-doklad' => 'Navázané doklady',
+  'po-splatnosti' => 'Neuhrazené pohledávky/závazky po splatnosti',
+  'naklad' => 'Náklady na události / aktivity',
+  'cenikovy-pohyb-nakup' => 'Nákupní, prodejní a skladové pohyby',
+  'cenikovy-pohyb-prodej' => 'Nákupní, prodejní a skladové pohyby',
+  'intrastat-obchodni-transakce' => 'Obchodní transakce',
+  'strom-koren' => 'Obecný strom',
+  'obratova-predvaha' => 'Obratová předvaha',
+  'obrat' => 'Obraty',
+  'smlouva' => 'Odběratelské smlouvy',
+  'odpisova-skupina' => 'Odpisové skupiny',
+  'uzivatel' => 'Osoby a uživatelé',
+  'pohledavka' => 'Ostatní pohledávky',
+  'zavazek' => 'Ostatní závazky',
+  'uzivatelsky-dotaz-parametr' => 'Parametry',
+  'penezni-ustav' => 'Peněžní ústavy',
+  'podklady-dph' => 'Podklady DPH',
+  'podobne-zbozi' => 'Podobné',
+  'pohyb-na-uctech' => 'Pohyby na účtech',
+  'pokladni-pohyb' => 'Pokladna',
+  'parametr' => 'Pokročilá parametrizace pomocí parametrů',
+  'prikaz-k-inkasu-polozka' => 'Položka inkasa',
+  'prikaz-k-uhrade-polozka' => 'Položka příkazu k úhradě',
+  'interni-doklad-polozka' => 'Položky interních dokladů',
+  'inventura-polozka' => 'Položky inventur',
+  'pohledavka-polozka' => 'Položky ostatních pohledávek',
+  'zavazek-polozka' => 'Položky ostatních závazků',
+  'pokladni-pohyb-polozka' => 'Položky pokladních dokladů',
+  'nabidka-prijata-polozka' => 'Položky přijaté nabídky',
+  'objednavka-prijata-polozka' => 'Položky přijaté objednávky',
+  'faktura-prijata-polozka' => 'Položky přijatých faktur',
+  'poptavka-prijata-polozka' => 'Položky přijatých poptávek',
+  'skladovy-pohyb-polozka' => 'Položky příjemky/výdejky',
+  'smlouva-polozka' => 'Položky smluv',
+  'nabidka-vydana-polozka' => 'Položky vydané nabídky',
+  'objednavka-vydana-polozka' => 'Položky vydané objednávky',
+  'poptavka-vydana-polozka' => 'Položky vydané poptávky',
+  'faktura-vydana-polozka' => 'Položky vydaných faktur a prodejek',
+  'banka-polozka' => 'Položky vzájemných zápočtů',
+  'poplatek' => 'Poplatky',
+  'psc' => 'Poštovní směrovací čísla',
+  'prodejka' => 'Prodejní kasa',
+  'pravo-viditelnosti' => 'Práva viditelnosti dat',
+  'text' => 'Předdefinované texty',
+  'predpis-zauctovani' => 'Předpisy zaúčtování',
+  'doklad' => 'Přehled všech dokladů',
+  'faktura-prijata' => 'Přijaté faktury',
+  'nabidka-prijata' => 'Přijaté nabídky',
+  'objednavka-prijata' => 'Přijaté objednávky',
+  'poptavka-prijata' => 'Přijaté poptávky',
+  'skladovy-pohyb' => 'Příjemky/výdejky',
+  'prikaz-k-inkasu' => 'Příkaz k inkasu',
+  'prikaz-k-uhrade' => 'Příkaz k úhradě',
+  'priloha' => 'Příloha',
+  'prislustenstvi' => 'Příslušenství',
+  'rezervace' => 'Rezervace',
+  'rocni-rada' => 'Roční položky dokladové řady',
+  'sady-a-komplety' => 'Sady',
+  'saldo' => 'Saldo',
+  'sazba-dph' => 'Sazby DPH',
+  'dashboard-sharing' => 'Sdílení přehledů',
+  'bankovni-ucet' => 'Seznam bankovních účtů',
+  'pokladna' => 'Seznam pokladen',
+  'typ-prodejky' => 'Seznam prodejních kas',
+  'sestava' => 'Seznam sestav',
+  'sklad' => 'Seznam skladů',
+  'preneseni-dph' => 'Seznam zboží v režimu přenesení DPH',
+  'skladova-karta' => 'Skladové karty',
+  'skupina-atributu' => 'Skupiny atributů',
+  'skupina-firem' => 'Skupiny firem',
+  'skupina-plneni' => 'Skupiny plnění',
+  'skupina-zbozi' => 'Skupiny zboží a materiálu',
+  'skupina-stitku' => 'Skupiny štítků',
+  'souhrnne-hlaseni-dph' => 'Souhrnné hlášení k DPH',
+  'rozvaha-po-uctech' => 'Soupis aktiv a pasiv',
+  'vysledovka-po-uctech' => 'Soupis nákladů a výnosů',
+  'splatkovy-kalendar' => 'Splátkový kalendář',
+  'dashboard-panel' => 'Správa přehledů',
+  'standardni-predpis' => 'Standardní předpis sestavy',
+  'ucetni-osnova' => 'Standardní účetní osnova',
+  'stav-obchodniho-dokladu' => 'Stav obchodního dokladu',
+  'stav-skladu-k-datu' => 'Stav skladu k datu',
+  'saldo-k-datu' => 'Stav úhrad k datu',
+  'stav-smlouvy' => 'Stavy smluv',
+  'stav-zakazky' => 'Stavy zakázek',
+  'stav-uctu' => 'Stavy účtů',
+  'stat' => 'Státy',
+  'stredisko' => 'Střediska',
+  'subjekt' => 'Subjekt',
+  'sumace-sestavy' => 'Sumace v sestavách',
+  'typ-organizace' => 'Typ organizace',
+  'cenik-typ-sazby-dph' => 'Typ sazby DPH',
+  'typ-atributu' => 'Typy atributů',
+  'typ-banka' => 'Typy bankovních dokladů',
+  'dodavatelsky-typ-smlouvy' => 'Typy dodavatelských smluv',
+  'typ-dokladu' => 'Typy dokladů',
+  'typ-interniho-dokladu' => 'Typy interních dokladů',
+  'typ-leasingu' => 'Typy leasingů',
+  'typ-majetku' => 'Typy majetků',
+  'typ-nakladu' => 'Typy nákladů na události / aktivity',
+  'typ-smlouvy' => 'Typy odběratelských smluv',
+  'typ-pohledavky' => 'Typy ostatních pohledávek',
+  'typ-zavazku' => 'Typy ostatních závazků',
+  'typ-pokladni-pohyb' => 'Typy pokladních dokladů',
+  'typ-faktury-prijate' => 'Typy přijatých faktur',
+  'typ-nabidky-prijate' => 'Typy přijatých nabídek',
+  'typ-objednavky-prijate' => 'Typy přijatých objednávek',
+  'typ-poptavky-prijate' => 'Typy přijatých poptávek',
+  'typ-skladovy-pohyb' => 'Typy skladových dokladů',
+  'typ-aktivity' => 'Typy událostí / aktivit',
+  'typ-uzivatelske-vazby' => 'Typy uživatelských vazeb',
+  'typ-faktury-vydane' => 'Typy vydaných faktur',
+  'typ-nabidky-vydane' => 'Typy vydaných nabídek',
+  'typ-objednavky-vydane' => 'Typy vydaných objednávek',
+  'typ-poptavky-vydane' => 'Typy vydaných poptávek',
+  'typ-zakazky' => 'Typy zakázek',
+  'typ-vzajemnych-zapoctu' => 'Typy zápočtů',
+  'majetek-udalost' => 'Události',
+  'udalost' => 'Události, aktivity',
+  'ulozene-priznani-dph' => 'Uložené přiznání DPH',
+  'radek-priznani-dph' => 'Uložené řádky přiznání DPH',
+  'umisteni' => 'Umístění',
+  'umisteni-ve-skladu' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-regal' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-police' => 'Umístění ve skladu',
+  'umisteni-ve-skladu-mistnost' => 'Umístění ve skladu',
+  'sablona-upominky' => 'Upomínky',
+  'umisteni-uctu' => 'Upřesnění umístění účtu',
+  'strom' => 'Uzel stromu',
+  'uzivatelsky-dotaz' => 'Uživatelské dotazy',
+  'sablona-mail' => 'Uživatelské e-mailové šablony',
+  'filtr' => 'Uživatelské filtry',
+  'custom-button' => 'Uživatelské tlačítko',
+  'xslt' => 'Uživatelské transformace',
+  'uzivatelska-vazba' => 'Uživatelské vazby',
+  'strom-cenik' => 'Vazba uzlu na objekt',
+  'vazba' => 'Vazby dokladu',
+  'uzivatelsky-dotaz-vlastnost' => 'Vlastnosti',
+  'faktura-vydana' => 'Vydané faktury',
+  'nabidka-vydana' => 'Vydané nabídky',
+  'objednavka-vydana' => 'Vydané objednávky',
+  'poptavka-vydana' => 'Vydané poptávky',
+  'hodnoceni-zakazky' => 'Vyhodnocení zakázek',
+  'vzajemny-zapocet' => 'Vzájemné zápočty',
+  'vykaz-hospodareni' => 'Výkaz hospodaření za měsíc',
+  'vyrobni-cislo' => 'Výrobní čísla',
+  'zakazka' => 'Zakázky',
+  'forma-uhrady-zauctovani' => 'Zaúčtování formy úhrady',
+  'changes' => 'Změny',
+  'intrastat-zvlastni-pohyb' => 'Zvláštní pohyby',
+  'zaloha-k-odpoctu' => 'Zálohy k odpočtu',
+  'zapujcka' => 'Zápůjčky',
+  'rada' => 'dokladové řady',
+  'prodejka-platba' => 'Úhrada',
+  'global-store' => 'Úložiště globálního nastavení',
+  'setting-store' => 'Úložiště nastavení',
+  'analyza-zakazky' => 'Účetní analýza zakázky',
+  'ucetni-denik' => 'Účetní deník',
+  'ucetni-obdobi' => 'Účetní období',
+  'ucetni-odpis' => 'Účetní odpisy',
+  'ucet' => 'Účtový rozvrh',
+  'cinnost' => 'Činnost',
+  'castky-k-odpoctu' => 'Částky k odpočtu',
+  'typ-stavu-ceniku' => 'Číselník stavů položek ceníku',
+  'stav-ceniku' => 'Číselník stavů položek ceníku',
+  'cislo-baliku' => 'Čísla balíků',
+  'radek-sestavy' => 'Řádek sestavy',
+  'cleneni-kontrolni-hlaseni' => 'Řádky kontrolního hlášení DPH',
+  'pricteni-rozdilu' => 'Řádky pro přičtení rozdílu',
+  'cleneni-dph' => 'Řádky přiznání DPH',
+  'sarze-expirace' => 'Šarže a expirace',
+  'stitek' => 'Štítky',
+  'zurnal' => 'Žurnál',
+  'smlouva-zurnal' => 'Žurnál pro smlouvy',
+];
 
     /**
      * All Evidence's all properties listing.
      *
      * @var array
      */
-    public static $evidences = [
-    'nastaveni' => [
+ static public $evidences = [
+  'nastaveni' => [
     'evidenceType' => 'NASTAVENI',
     'evidenceName' => 'Nastavení',
     'evidencePath' => 'nastaveni',
     'importStatus' => 'NOT_DOCUMENTED',
     'className' => 'cz.winstrom.vo.nast.Nastaveni',
     'formCode' => 'nNastav',
-    ],
-    'uzivatel' => [
+  ],
+  'uzivatel' => [
     'evidenceType' => 'UZIVATELE',
     'evidenceName' => 'Osoby a uživatelé',
     'evidencePath' => 'uzivatel',
     'importStatus' => 'NOT_DOCUMENTED',
     'className' => 'cz.winstrom.vo.w.Uzivatel',
     'formCode' => 'cisOsoby',
-    ],
-    'analyza-zakazky' => [
+  ],
+  'analyza-zakazky' => [
     'evidenceType' => 'ANALYZA_ZAKAZKY',
     'evidenceName' => 'Účetní analýza zakázky',
     'evidencePath' => 'analyza-zakazky',
@@ -319,8 +322,17 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.AnalyzaZakazky',
     'formCode' => 'vykazAnalyzaZakazky',
     'extIdSupported' => 'false',
-    ],
-    'cenikovy-pohyb-nakup' => [
+  ],
+  'castky-k-odpoctu' => [
+    'evidenceType' => 'CASTKY_K_ODPOCTU',
+    'evidenceName' => 'Částky k odpočtu',
+    'evidencePath' => 'castky-k-odpoctu',
+    'importStatus' => 'DISALLOWED',
+    'className' => 'cz.winstrom.vo.dok.CastkyKOdpoctu',
+    'formCode' => 'castkyKOdpoctu',
+    'extIdSupported' => 'false',
+  ],
+  'cenikovy-pohyb-nakup' => [
     'evidenceType' => 'CENIKOVE_POHYBY_NAKUP',
     'evidenceName' => 'Nákupní, prodejní a skladové pohyby',
     'evidencePath' => 'cenikovy-pohyb-nakup',
@@ -328,8 +340,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.CenikovePohyby',
     'formCode' => 'vykazCenPohyby',
     'extIdSupported' => 'false',
-    ],
-    'cenikovy-pohyb-prodej' => [
+  ],
+  'cenikovy-pohyb-prodej' => [
     'evidenceType' => 'CENIKOVE_POHYBY_PRODEJ',
     'evidenceName' => 'Nákupní, prodejní a skladové pohyby',
     'evidencePath' => 'cenikovy-pohyb-prodej',
@@ -337,8 +349,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.CenikovePohyby',
     'formCode' => 'vykazCenPohyby',
     'extIdSupported' => 'false',
-    ],
-    'doklad' => [
+  ],
+  'doklad' => [
     'evidenceType' => 'DOKLAD_VIEW',
     'evidenceName' => 'Přehled všech dokladů',
     'evidencePath' => 'doklad',
@@ -346,8 +358,17 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.DokladView',
     'formCode' => 'dokladView',
     'extIdSupported' => 'false',
-    ],
-    'hlavni-kniha' => [
+  ],
+  'doporuceni' => [
+    'evidenceType' => 'DOPORUCENI',
+    'evidenceName' => 'Doporučení',
+    'evidencePath' => 'doporuceni',
+    'importStatus' => 'DISALLOWED',
+    'className' => 'cz.winstrom.vo.dok.Doporuceni',
+    'formCode' => 'doporuceni',
+    'extIdSupported' => 'false',
+  ],
+  'hlavni-kniha' => [
     'evidenceType' => 'HLAVNI_KNIHA',
     'evidenceName' => 'Hlavní kniha',
     'evidencePath' => 'hlavni-kniha',
@@ -355,8 +376,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.ObratovaPredvaha',
     'formCode' => 'vykazHlavniKniha',
     'extIdSupported' => 'false',
-    ],
-    'individualni-cenik' => [
+  ],
+  'individualni-cenik' => [
     'evidenceType' => 'INDIVIDUALNI_CENIK',
     'evidenceName' => 'Individuální ceník',
     'evidencePath' => 'individualni-cenik',
@@ -364,8 +385,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.CenyView',
     'formCode' => 'cenyView',
     'extIdSupported' => 'false',
-    ],
-    'obratova-predvaha' => [
+  ],
+  'obratova-predvaha' => [
     'evidenceType' => 'OBRATOVA_PREDVAHA',
     'evidenceName' => 'Obratová předvaha',
     'evidencePath' => 'obratova-predvaha',
@@ -373,8 +394,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.ObratovaPredvaha',
     'formCode' => 'vykazObratovaPredvaha',
     'extIdSupported' => 'false',
-    ],
-    'podklady-dph' => [
+  ],
+  'podklady-dph' => [
     'evidenceType' => 'PODKLADY_DPH',
     'evidenceName' => 'Podklady DPH',
     'evidencePath' => 'podklady-dph',
@@ -382,8 +403,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.PodkladyDph',
     'formCode' => 'vykazPodkladyDph',
     'extIdSupported' => 'false',
-    ],
-    'pohyb-na-uctech' => [
+  ],
+  'pohyb-na-uctech' => [
     'evidenceType' => 'POHYB_NA_UCTECH',
     'evidenceName' => 'Pohyby na účtech',
     'evidencePath' => 'pohyb-na-uctech',
@@ -391,8 +412,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.PohybyNaUctech',
     'formCode' => 'vykazPohybyNaUctech',
     'extIdSupported' => 'false',
-    ],
-    'po-splatnosti' => [
+  ],
+  'po-splatnosti' => [
     'evidenceType' => 'PO_SPLATNOSTI',
     'evidenceName' => 'Neuhrazené pohledávky/závazky po splatnosti',
     'evidencePath' => 'po-splatnosti',
@@ -400,8 +421,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.PoSplatnosti',
     'formCode' => 'vykazPoSplatnostiWizard',
     'extIdSupported' => 'false',
-    ],
-    'pricteni-rozdilu' => [
+  ],
+  'pricteni-rozdilu' => [
     'evidenceType' => 'PRICTENI_ROZDILU',
     'evidenceName' => 'Řádky pro přičtení rozdílu',
     'evidencePath' => 'pricteni-rozdilu',
@@ -409,8 +430,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.uses.PricteniRozdilu',
     'formCode' => 'uSesPricteniRozdilu',
     'extIdSupported' => 'false',
-    ],
-    'rozvaha-po-uctech' => [
+  ],
+  'rozvaha-po-uctech' => [
     'evidenceType' => 'ROZVAHA_PO_UCTECH',
     'evidenceName' => 'Soupis aktiv a pasiv',
     'evidencePath' => 'rozvaha-po-uctech',
@@ -418,8 +439,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.StavyUctu',
     'formCode' => 'vykazRozvahaPoUctech',
     'extIdSupported' => 'false',
-    ],
-    'saldo' => [
+  ],
+  'saldo' => [
     'evidenceType' => 'SALDO',
     'evidenceName' => 'Saldo',
     'evidencePath' => 'saldo',
@@ -427,8 +448,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.PohybyNaUctech',
     'formCode' => 'vykazSaldo',
     'extIdSupported' => 'false',
-    ],
-    'saldo-k-datu' => [
+  ],
+  'saldo-k-datu' => [
     'evidenceType' => 'SALDO_K_DATU',
     'evidenceName' => 'Stav úhrad k datu',
     'evidencePath' => 'saldo-k-datu',
@@ -436,8 +457,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.SaldoKdatu',
     'formCode' => 'vykazSaldoKdatu',
     'extIdSupported' => 'false',
-    ],
-    'souhrnne-hlaseni-dph' => [
+  ],
+  'souhrnne-hlaseni-dph' => [
     'evidenceType' => 'SOUHRNNE_HLASENI',
     'evidenceName' => 'Souhrnné hlášení k DPH',
     'evidencePath' => 'souhrnne-hlaseni-dph',
@@ -445,8 +466,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.SouhrnneHlaseni',
     'formCode' => 'vykazSouhrnneHlaseni',
     'extIdSupported' => 'false',
-    ],
-    'stav-skladu-k-datu' => [
+  ],
+  'stav-skladu-k-datu' => [
     'evidenceType' => 'STAV_SKLADU_K_DATU',
     'evidenceName' => 'Stav skladu k datu',
     'evidencePath' => 'stav-skladu-k-datu',
@@ -454,8 +475,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.skl.StavSkladu',
     'formCode' => 'stavSkl',
     'extIdSupported' => 'false',
-    ],
-    'stav-uctu' => [
+  ],
+  'stav-uctu' => [
     'evidenceType' => 'STAV_UCTU',
     'evidenceName' => 'Stavy účtů',
     'evidencePath' => 'stav-uctu',
@@ -463,8 +484,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.StavyUctu',
     'formCode' => 'vykazStavyUctu',
     'extIdSupported' => 'false',
-    ],
-    'ucetni-denik' => [
+  ],
+  'ucetni-denik' => [
     'evidenceType' => 'UCETNI_DENIK',
     'evidenceName' => 'Účetní deník',
     'evidencePath' => 'ucetni-denik',
@@ -472,8 +493,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.UcetniDenik',
     'formCode' => 'vykazUcetniDenik',
     'extIdSupported' => 'false',
-    ],
-    'umisteni-uctu' => [
+  ],
+  'umisteni-uctu' => [
     'evidenceType' => 'UMISTENI_UCTU',
     'evidenceName' => 'Upřesnění umístění účtu',
     'evidencePath' => 'umisteni-uctu',
@@ -481,8 +502,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.uses.UmisteniUctu',
     'formCode' => 'uSesUmisteniUctu',
     'extIdSupported' => 'false',
-    ],
-    'vazebni-doklad' => [
+  ],
+  'vazebni-doklad' => [
     'evidenceType' => 'VAZEBNI_DOKLAD',
     'evidenceName' => 'Navázané doklady',
     'evidencePath' => 'vazebni-doklad',
@@ -490,8 +511,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.VazebniDoklad',
     'formCode' => 'vykazVazbyDokladu',
     'extIdSupported' => 'false',
-    ],
-    'vykaz-hospodareni' => [
+  ],
+  'vykaz-hospodareni' => [
     'evidenceType' => 'VYKAZ_HOSPODARENI',
     'evidenceName' => 'Výkaz hospodaření za měsíc',
     'evidencePath' => 'vykaz-hospodareni',
@@ -499,8 +520,8 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.StavyUctu',
     'formCode' => 'vykazVykazHospodareni',
     'extIdSupported' => 'false',
-    ],
-    'vysledovka-po-uctech' => [
+  ],
+  'vysledovka-po-uctech' => [
     'evidenceType' => 'VYSLEDOVKA_PO_UCTECH',
     'evidenceName' => 'Soupis nákladů a výnosů',
     'evidencePath' => 'vysledovka-po-uctech',
@@ -508,8 +529,17 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.StavyUctu',
     'formCode' => 'vykazVysledovkaPoUctech',
     'extIdSupported' => 'false',
-    ],
-    'changes' => [
+  ],
+  'zaloha-k-odpoctu' => [
+    'evidenceType' => 'ZALOHA_K_ODPOCTU',
+    'evidenceName' => 'Zálohy k odpočtu',
+    'evidencePath' => 'zaloha-k-odpoctu',
+    'importStatus' => 'DISALLOWED',
+    'className' => 'cz.winstrom.vo.dok.ZalohaKOdpoctu',
+    'formCode' => 'zalohyKOdpoctu',
+    'extIdSupported' => 'false',
+  ],
+  'changes' => [
     'evidenceType' => 'ZMENY',
     'evidenceName' => 'Změny',
     'evidencePath' => 'changes',
@@ -517,8 +547,8 @@ class EvidenceList extends RO
     'extIdSupported' => true,
     'className' => '',
     'formCode' => '',
-    ],
-    'adresar-bankovni-ucet' => [
+  ],
+  'adresar-bankovni-ucet' => [
     'evidenceType' => 'ADR_BANKOVNI_UCET',
     'evidenceName' => 'Bankovní spojení',
     'evidencePath' => 'adresar-bankovni-ucet',
@@ -528,8 +558,8 @@ class EvidenceList extends RO
     'formCode' => 'adrBanSpoj',
     'extIdSupported' => 'true',
     'dbName' => 'aBanSpoj',
-    ],
-    'kontakt' => [
+  ],
+  'kontakt' => [
     'evidenceType' => 'ADR_KONTAKT',
     'evidenceName' => 'Kontakty',
     'evidencePath' => 'kontakt',
@@ -539,8 +569,8 @@ class EvidenceList extends RO
     'formCode' => 'adrKontakty',
     'extIdSupported' => 'true',
     'dbName' => 'aKontakty',
-    ],
-    'udalost' => [
+  ],
+  'udalost' => [
     'evidenceType' => 'ADR_UDALOST',
     'evidenceName' => 'Události, aktivity',
     'evidencePath' => 'udalost',
@@ -550,8 +580,8 @@ class EvidenceList extends RO
     'formCode' => 'adrUdalosti',
     'extIdSupported' => 'true',
     'dbName' => 'aUdalosti',
-    ],
-    'atribut' => [
+  ],
+  'atribut' => [
     'evidenceType' => 'ATRIBUT',
     'evidenceName' => 'Atributy',
     'evidencePath' => 'atribut',
@@ -561,8 +591,8 @@ class EvidenceList extends RO
     'formCode' => 'cenAtribut',
     'extIdSupported' => 'false',
     'dbName' => 'cAtribut',
-    ],
-    'autotisk' => [
+  ],
+  'autotisk' => [
     'evidenceType' => 'AUTOTISK',
     'evidenceName' => 'Automatický tisk',
     'evidencePath' => 'autotisk',
@@ -572,8 +602,8 @@ class EvidenceList extends RO
     'formCode' => 'autoTisk',
     'extIdSupported' => 'false',
     'dbName' => 'dAutoTisk',
-    ],
-    'cenik-obal' => [
+  ],
+  'cenik-obal' => [
     'evidenceType' => 'CENIK_OBAL',
     'evidenceName' => 'Evidence obalů EkoKom',
     'evidencePath' => 'cenik-obal',
@@ -583,8 +613,8 @@ class EvidenceList extends RO
     'formCode' => 'cenEkoKom',
     'extIdSupported' => 'false',
     'dbName' => 'cEkoKom',
-    ],
-    'certifikacni-autorita' => [
+  ],
+  'certifikacni-autorita' => [
     'evidenceType' => 'CERTIFIKACNI_AUTORITA',
     'evidenceName' => 'Certifikační autority',
     'evidencePath' => 'certifikacni-autorita',
@@ -594,8 +624,8 @@ class EvidenceList extends RO
     'formCode' => 'autCert',
     'extIdSupported' => 'false',
     'dbName' => 'wAutCert',
-    ],
-    'cislo-baliku' => [
+  ],
+  'cislo-baliku' => [
     'evidenceType' => 'CISLO_BALIKU',
     'evidenceName' => 'Čísla balíků',
     'evidencePath' => 'cislo-baliku',
@@ -605,8 +635,8 @@ class EvidenceList extends RO
     'formCode' => 'cisloBal',
     'extIdSupported' => 'false',
     'dbName' => 'dCisloBal',
-    ],
-    'custom-button' => [
+  ],
+  'custom-button' => [
     'evidenceType' => 'CUSTOM_BUTTON',
     'evidenceName' => 'Uživatelské tlačítko',
     'evidencePath' => 'custom-button',
@@ -616,8 +646,8 @@ class EvidenceList extends RO
     'formCode' => 'customButton',
     'extIdSupported' => 'true',
     'dbName' => 'wcustbutton',
-    ],
-    'danovy-naklad' => [
+  ],
+  'danovy-naklad' => [
     'evidenceType' => 'DANOVY_NAKLAD',
     'evidenceName' => 'Daňové náklady',
     'evidencePath' => 'danovy-naklad',
@@ -627,8 +657,8 @@ class EvidenceList extends RO
     'formCode' => 'majDanNakl',
     'extIdSupported' => 'false',
     'dbName' => 'mDanNakl',
-    ],
-    'danovy-odpis' => [
+  ],
+  'danovy-odpis' => [
     'evidenceType' => 'DANOVY_ODPIS',
     'evidenceName' => 'Daňové odpisy',
     'evidencePath' => 'danovy-odpis',
@@ -638,8 +668,8 @@ class EvidenceList extends RO
     'formCode' => 'majDanOdpisy',
     'extIdSupported' => 'false',
     'dbName' => 'mDanOdpisy',
-    ],
-    'dashboard-panel' => [
+  ],
+  'dashboard-panel' => [
     'evidenceType' => 'DASHBOARD_PANEL',
     'evidenceName' => 'Správa přehledů',
     'evidencePath' => 'dashboard-panel',
@@ -649,8 +679,8 @@ class EvidenceList extends RO
     'formCode' => 'dashboardPanel',
     'extIdSupported' => 'false',
     'dbName' => 'wdashboardpanel',
-    ],
-    'dashboard-sharing' => [
+  ],
+  'dashboard-sharing' => [
     'evidenceType' => 'DASHBOARD_SHARING',
     'evidenceName' => 'Sdílení přehledů',
     'evidencePath' => 'dashboard-sharing',
@@ -660,8 +690,8 @@ class EvidenceList extends RO
     'formCode' => 'dashboardSharing',
     'extIdSupported' => 'false',
     'dbName' => 'wdashboardsharing',
-    ],
-    'dodavatel' => [
+  ],
+  'dodavatel' => [
     'evidenceType' => 'DODAVATEL',
     'evidenceName' => 'Dodavatelé',
     'evidencePath' => 'dodavatel',
@@ -671,8 +701,8 @@ class EvidenceList extends RO
     'formCode' => 'cenDodavateleView',
     'extIdSupported' => 'true',
     'dbName' => 'cDodavatele',
-    ],
-    'filtr' => [
+  ],
+  'filtr' => [
     'evidenceType' => 'FILTR',
     'evidenceName' => 'Uživatelské filtry',
     'evidencePath' => 'filtr',
@@ -682,8 +712,8 @@ class EvidenceList extends RO
     'formCode' => 'filtry',
     'extIdSupported' => 'false',
     'dbName' => 'wFiltry',
-    ],
-    'forma-uhrady-zauctovani' => [
+  ],
+  'forma-uhrady-zauctovani' => [
     'evidenceType' => 'FORMA_UHRADY_ZAUCTOVANI',
     'evidenceName' => 'Zaúčtování formy úhrady',
     'evidencePath' => 'forma-uhrady-zauctovani',
@@ -693,8 +723,8 @@ class EvidenceList extends RO
     'formCode' => 'formaUhrZauc',
     'extIdSupported' => 'false',
     'dbName' => 'dFormaUhradyZauc',
-    ],
-    'insight' => [
+  ],
+  'insight' => [
     'evidenceType' => 'INSIGHT',
     'evidenceName' => 'Insight',
     'evidencePath' => 'insight',
@@ -704,8 +734,8 @@ class EvidenceList extends RO
     'formCode' => 'insight',
     'extIdSupported' => 'false',
     'dbName' => 'wInsight',
-    ],
-    'inventura' => [
+  ],
+  'inventura' => [
     'evidenceType' => 'INVENTURA',
     'evidenceName' => 'Inventury',
     'evidencePath' => 'inventura',
@@ -715,8 +745,8 @@ class EvidenceList extends RO
     'formCode' => 'sklInventura',
     'extIdSupported' => 'false',
     'dbName' => 'sInventura',
-    ],
-    'inventura-polozka' => [
+  ],
+  'inventura-polozka' => [
     'evidenceType' => 'INVENTURA_POLOZKA',
     'evidenceName' => 'Položky inventur',
     'evidencePath' => 'inventura-polozka',
@@ -726,8 +756,8 @@ class EvidenceList extends RO
     'formCode' => 'sklInventuraPol',
     'extIdSupported' => 'false',
     'dbName' => 'sPolInventura',
-    ],
-    'kusovnik' => [
+  ],
+  'kusovnik' => [
     'evidenceType' => 'KUSOVNIK',
     'evidenceName' => 'Kusovník',
     'evidencePath' => 'kusovnik',
@@ -737,8 +767,8 @@ class EvidenceList extends RO
     'formCode' => 'kusovnik',
     'extIdSupported' => 'true',
     'dbName' => 'cKusovnik',
-    ],
-    'majetek-udalost' => [
+  ],
+  'majetek-udalost' => [
     'evidenceType' => 'MAJETEK_UDALOST',
     'evidenceName' => 'Události',
     'evidencePath' => 'majetek-udalost',
@@ -748,8 +778,8 @@ class EvidenceList extends RO
     'formCode' => 'majUdalosti',
     'extIdSupported' => 'false',
     'dbName' => 'mUdalosti',
-    ],
-    'mapovani-skladu' => [
+  ],
+  'mapovani-skladu' => [
     'evidenceType' => 'MAPOVANI_SKLADU',
     'evidenceName' => 'Mapování skladů',
     'evidencePath' => 'mapovani-skladu',
@@ -759,8 +789,8 @@ class EvidenceList extends RO
     'formCode' => 'sklMapSklad',
     'extIdSupported' => 'true',
     'dbName' => 'sMapSklad',
-    ],
-    'misto-urceni' => [
+  ],
+  'misto-urceni' => [
     'evidenceType' => 'MISTO_URCENI',
     'evidenceName' => 'Místa určení',
     'evidencePath' => 'misto-urceni',
@@ -770,8 +800,8 @@ class EvidenceList extends RO
     'formCode' => 'adrMistUrc',
     'extIdSupported' => 'true',
     'dbName' => 'aMistUrc',
-    ],
-    'naklad' => [
+  ],
+  'naklad' => [
     'evidenceType' => 'NAKLAD',
     'evidenceName' => 'Náklady na události / aktivity',
     'evidencePath' => 'naklad',
@@ -781,8 +811,8 @@ class EvidenceList extends RO
     'formCode' => 'adrNaklAkt',
     'extIdSupported' => 'false',
     'dbName' => 'aNaklAkt',
-    ],
-    'obrat' => [
+  ],
+  'obrat' => [
     'evidenceType' => 'OBRAT',
     'evidenceName' => 'Obraty',
     'evidencePath' => 'obrat',
@@ -792,8 +822,8 @@ class EvidenceList extends RO
     'formCode' => 'ucDoklObrat',
     'extIdSupported' => 'false',
     'dbName' => 'uObraty',
-    ],
-    'odberatel' => [
+  ],
+  'odberatel' => [
     'evidenceType' => 'ODBERATEL',
     'evidenceName' => 'Ceny pro odběratele/skupiny odběratelů, speciální kódy',
     'evidencePath' => 'odberatel',
@@ -803,8 +833,8 @@ class EvidenceList extends RO
     'formCode' => 'cenOdberateleView',
     'extIdSupported' => 'true',
     'dbName' => 'cOdberatele',
-    ],
-    'parametr' => [
+  ],
+  'parametr' => [
     'evidenceType' => 'PARAM',
     'evidenceName' => 'Pokročilá parametrizace pomocí parametrů',
     'evidencePath' => 'parametr',
@@ -814,8 +844,8 @@ class EvidenceList extends RO
     'formCode' => 'parametry',
     'extIdSupported' => 'false',
     'dbName' => 'wParam',
-    ],
-    'podobne-zbozi' => [
+  ],
+  'podobne-zbozi' => [
     'evidenceType' => 'PODOBNE_ZBOZI',
     'evidenceName' => 'Podobné',
     'evidencePath' => 'podobne-zbozi',
@@ -825,8 +855,8 @@ class EvidenceList extends RO
     'formCode' => 'cenPodobne',
     'extIdSupported' => 'true',
     'dbName' => 'cPodobne',
-    ],
-    'poplatek' => [
+  ],
+  'poplatek' => [
     'evidenceType' => 'POPLATKY',
     'evidenceName' => 'Poplatky',
     'evidencePath' => 'poplatek',
@@ -836,8 +866,8 @@ class EvidenceList extends RO
     'formCode' => 'cenPoplatky',
     'extIdSupported' => 'true',
     'dbName' => 'cPoplatky',
-    ],
-    'pravo-viditelnosti' => [
+  ],
+  'pravo-viditelnosti' => [
     'evidenceType' => 'PRAVO_VIDITELNOSTI',
     'evidenceName' => 'Práva viditelnosti dat',
     'evidencePath' => 'pravo-viditelnosti',
@@ -847,8 +877,8 @@ class EvidenceList extends RO
     'formCode' => 'uzivPristup',
     'extIdSupported' => 'false',
     'dbName' => 'wDataPrava',
-    ],
-    'prikaz-k-inkasu-polozka' => [
+  ],
+  'prikaz-k-inkasu-polozka' => [
     'evidenceType' => 'PRIKAZ_K_INKASU_POLOZKA',
     'evidenceName' => 'Položka inkasa',
     'evidencePath' => 'prikaz-k-inkasu-polozka',
@@ -858,8 +888,8 @@ class EvidenceList extends RO
     'formCode' => 'elInkasoPol',
     'extIdSupported' => 'false',
     'dbName' => 'dPolPrikazUhr',
-    ],
-    'prikaz-k-uhrade-polozka' => [
+  ],
+  'prikaz-k-uhrade-polozka' => [
     'evidenceType' => 'PRIKAZ_K_UHRADE_POLOZKA',
     'evidenceName' => 'Položka příkazu k úhradě',
     'evidencePath' => 'prikaz-k-uhrade-polozka',
@@ -869,8 +899,8 @@ class EvidenceList extends RO
     'formCode' => 'elPrikazPol',
     'extIdSupported' => 'false',
     'dbName' => 'dPolPrikazUhr',
-    ],
-    'priloha' => [
+  ],
+  'priloha' => [
     'evidenceType' => 'PRILOHA',
     'evidenceName' => 'Příloha',
     'evidencePath' => 'priloha',
@@ -880,8 +910,8 @@ class EvidenceList extends RO
     'formCode' => 'priloha',
     'extIdSupported' => 'true',
     'dbName' => 'wPriloha',
-    ],
-    'prislustenstvi' => [
+  ],
+  'prislustenstvi' => [
     'evidenceType' => 'PRISLUSENSTVI',
     'evidenceName' => 'Příslušenství',
     'evidencePath' => 'prislustenstvi',
@@ -891,8 +921,8 @@ class EvidenceList extends RO
     'formCode' => 'cenPrislusenstvi',
     'extIdSupported' => 'false',
     'dbName' => 'cPrislusenstvi',
-    ],
-    'prodejka-platba' => [
+  ],
+  'prodejka-platba' => [
     'evidenceType' => 'PRODEJKA_PLATBA',
     'evidenceName' => 'Úhrada',
     'evidencePath' => 'prodejka-platba',
@@ -902,8 +932,8 @@ class EvidenceList extends RO
     'formCode' => 'favProdPlat',
     'extIdSupported' => 'false',
     'dbName' => 'dFormaUhrady',
-    ],
-    'psc' => [
+  ],
+  'psc' => [
     'evidenceType' => 'PSC',
     'evidenceName' => 'Poštovní směrovací čísla',
     'evidencePath' => 'psc',
@@ -913,8 +943,8 @@ class EvidenceList extends RO
     'formCode' => 'cisPsc',
     'extIdSupported' => 'false',
     'dbName' => 'aPsc',
-    ],
-    'radek-priznani-dph' => [
+  ],
+  'radek-priznani-dph' => [
     'evidenceType' => 'RADEK_PRIZNANI_DPH',
     'evidenceName' => 'Uložené řádky přiznání DPH',
     'evidencePath' => 'radek-priznani-dph',
@@ -924,8 +954,8 @@ class EvidenceList extends RO
     'formCode' => 'vykazRadekPriznaniDph',
     'extIdSupported' => 'false',
     'dbName' => 'uRadekPriznaniDph',
-    ],
-    'radek-sestavy' => [
+  ],
+  'radek-sestavy' => [
     'evidenceType' => 'RADEK_SESTAVY',
     'evidenceName' => 'Řádek sestavy',
     'evidencePath' => 'radek-sestavy',
@@ -935,8 +965,8 @@ class EvidenceList extends RO
     'formCode' => 'uSesRadky',
     'extIdSupported' => 'true',
     'dbName' => 'uSesRadky',
-    ],
-    'rezervace' => [
+  ],
+  'rezervace' => [
     'evidenceType' => 'REZERVACE',
     'evidenceName' => 'Rezervace',
     'evidencePath' => 'rezervace',
@@ -946,8 +976,8 @@ class EvidenceList extends RO
     'formCode' => 'sklRezervace',
     'extIdSupported' => 'false',
     'dbName' => 'sRezervace',
-    ],
-    'rocni-rada' => [
+  ],
+  'rocni-rada' => [
     'evidenceType' => 'ROCNI_RADA',
     'evidenceName' => 'Roční položky dokladové řady',
     'evidencePath' => 'rocni-rada',
@@ -957,8 +987,8 @@ class EvidenceList extends RO
     'formCode' => 'nezRadyRok',
     'extIdSupported' => 'false',
     'dbName' => 'dRadyRok',
-    ],
-    'sablona-mail' => [
+  ],
+  'sablona-mail' => [
     'evidenceType' => 'SABLONA_MAIL',
     'evidenceName' => 'Uživatelské e-mailové šablony',
     'evidencePath' => 'sablona-mail',
@@ -968,8 +998,8 @@ class EvidenceList extends RO
     'formCode' => 'sablonaMail',
     'extIdSupported' => 'false',
     'dbName' => 'wSablonaMail',
-    ],
-    'sady-a-komplety' => [
+  ],
+  'sady-a-komplety' => [
     'evidenceType' => 'SADY_A_KOMPLETY',
     'evidenceName' => 'Sady',
     'evidencePath' => 'sady-a-komplety',
@@ -979,8 +1009,8 @@ class EvidenceList extends RO
     'formCode' => 'cenSady',
     'extIdSupported' => 'true',
     'dbName' => 'cSady',
-    ],
-    'sarze-expirace' => [
+  ],
+  'sarze-expirace' => [
     'evidenceType' => 'SARZE_EXPIRACE',
     'evidenceName' => 'Šarže a expirace',
     'evidencePath' => 'sarze-expirace',
@@ -990,8 +1020,8 @@ class EvidenceList extends RO
     'formCode' => 'sklSarzeExpiracebezVC',
     'extIdSupported' => 'false',
     'dbName' => 'dPolSkladFbezVC',
-    ],
-    'sazba-dph' => [
+  ],
+  'sazba-dph' => [
     'evidenceType' => 'SAZBA_DPH',
     'evidenceName' => 'Sazby DPH',
     'evidencePath' => 'sazba-dph',
@@ -1001,8 +1031,8 @@ class EvidenceList extends RO
     'formCode' => 'uSazbyDph',
     'extIdSupported' => 'true',
     'dbName' => 'uSazbyDph',
-    ],
-    'skladova-karta' => [
+  ],
+  'skladova-karta' => [
     'evidenceType' => 'SKLADOVA_KARTA',
     'evidenceName' => 'Skladové karty',
     'evidencePath' => 'skladova-karta',
@@ -1012,8 +1042,8 @@ class EvidenceList extends RO
     'formCode' => 'sklKar',
     'extIdSupported' => 'true',
     'dbName' => 'sKarty',
-    ],
-    'smlouva-polozka' => [
+  ],
+  'smlouva-polozka' => [
     'evidenceType' => 'SMLOUVA_POLOZKA',
     'evidenceName' => 'Položky smluv',
     'evidencePath' => 'smlouva-polozka',
@@ -1023,8 +1053,8 @@ class EvidenceList extends RO
     'formCode' => 'adrPolSml',
     'extIdSupported' => 'true',
     'dbName' => 'dPolSml',
-    ],
-    'smlouva-zurnal' => [
+  ],
+  'smlouva-zurnal' => [
     'evidenceType' => 'SMLOUVA_ZURNAL',
     'evidenceName' => 'Žurnál pro smlouvy',
     'evidencePath' => 'smlouva-zurnal',
@@ -1034,8 +1064,8 @@ class EvidenceList extends RO
     'formCode' => 'adrZurnalSml',
     'extIdSupported' => 'false',
     'dbName' => 'dZurnalSml',
-    ],
-    'splatkovy-kalendar' => [
+  ],
+  'splatkovy-kalendar' => [
     'evidenceType' => 'SPLATKOVY_KALENDAR',
     'evidenceName' => 'Splátkový kalendář',
     'evidencePath' => 'splatkovy-kalendar',
@@ -1045,8 +1075,8 @@ class EvidenceList extends RO
     'formCode' => 'majSplatKal',
     'extIdSupported' => 'false',
     'dbName' => 'mSplatKal',
-    ],
-    'stav-ceniku' => [
+  ],
+  'stav-ceniku' => [
     'evidenceType' => 'STAV_CENIKU',
     'evidenceName' => 'Číselník stavů položek ceníku',
     'evidencePath' => 'stav-ceniku',
@@ -1056,8 +1086,8 @@ class EvidenceList extends RO
     'formCode' => 'cenStav',
     'extIdSupported' => 'false',
     'dbName' => 'cStavCen',
-    ],
-    'stav-zakazky' => [
+  ],
+  'stav-zakazky' => [
     'evidenceType' => 'STAV_ZAKAZKY',
     'evidenceName' => 'Stavy zakázek',
     'evidencePath' => 'stav-zakazky',
@@ -1067,8 +1097,8 @@ class EvidenceList extends RO
     'formCode' => 'cisStavZak',
     'extIdSupported' => 'false',
     'dbName' => 'uStavZakazky',
-    ],
-    'standardni-predpis' => [
+  ],
+  'standardni-predpis' => [
     'evidenceType' => 'STD_PREDPIS_SESTAVY',
     'evidenceName' => 'Standardní předpis sestavy',
     'evidencePath' => 'standardni-predpis',
@@ -1078,8 +1108,8 @@ class EvidenceList extends RO
     'formCode' => 'uSesStdPred',
     'extIdSupported' => 'true',
     'dbName' => 'uSesStdPred',
-    ],
-    'strom' => [
+  ],
+  'strom' => [
     'evidenceType' => 'STROM',
     'evidenceName' => 'Uzel stromu',
     'evidencePath' => 'strom',
@@ -1089,8 +1119,8 @@ class EvidenceList extends RO
     'formCode' => 'uzel',
     'extIdSupported' => 'true',
     'dbName' => 'wUzel',
-    ],
-    'strom-cenik' => [
+  ],
+  'strom-cenik' => [
     'evidenceType' => 'STROM_CENIK',
     'evidenceName' => 'Vazba uzlu na objekt',
     'evidencePath' => 'strom-cenik',
@@ -1100,8 +1130,8 @@ class EvidenceList extends RO
     'formCode' => 'vazUzel',
     'extIdSupported' => 'true',
     'dbName' => 'wVazUzel',
-    ],
-    'subjekt' => [
+  ],
+  'subjekt' => [
     'evidenceType' => 'SUBJEKT',
     'evidenceName' => 'Subjekt',
     'evidencePath' => 'subjekt',
@@ -1111,8 +1141,8 @@ class EvidenceList extends RO
     'formCode' => 'wSubjekt',
     'extIdSupported' => 'false',
     'dbName' => 'wSubjekt',
-    ],
-    'sumace-sestavy' => [
+  ],
+  'sumace-sestavy' => [
     'evidenceType' => 'SUMACE_SESTAVY',
     'evidenceName' => 'Sumace v sestavách',
     'evidencePath' => 'sumace-sestavy',
@@ -1122,8 +1152,8 @@ class EvidenceList extends RO
     'formCode' => 'uSesSumace',
     'extIdSupported' => 'true',
     'dbName' => 'uSesSumace',
-    ],
-    'text' => [
+  ],
+  'text' => [
     'evidenceType' => 'TEXT',
     'evidenceName' => 'Předdefinované texty',
     'evidencePath' => 'text',
@@ -1133,8 +1163,8 @@ class EvidenceList extends RO
     'formCode' => 'cisTexty',
     'extIdSupported' => 'true',
     'dbName' => 'wTexty',
-    ],
-    'typ-aktivity' => [
+  ],
+  'typ-aktivity' => [
     'evidenceType' => 'TYP_AKTIVITY',
     'evidenceName' => 'Typy událostí / aktivit',
     'evidencePath' => 'typ-aktivity',
@@ -1144,8 +1174,8 @@ class EvidenceList extends RO
     'formCode' => 'adrTypAkt',
     'extIdSupported' => 'true',
     'dbName' => 'aTypAkt',
-    ],
-    'typ-nakladu' => [
+  ],
+  'typ-nakladu' => [
     'evidenceType' => 'TYP_NAKLADU',
     'evidenceName' => 'Typy nákladů na události / aktivity',
     'evidencePath' => 'typ-nakladu',
@@ -1155,8 +1185,8 @@ class EvidenceList extends RO
     'formCode' => 'adrTypNaklAkt',
     'extIdSupported' => 'true',
     'dbName' => 'aTypNaklAkt',
-    ],
-    'cenik-typ-sazby-dph' => [
+  ],
+  'cenik-typ-sazby-dph' => [
     'evidenceType' => 'TYP_SAZBY_DPH',
     'evidenceName' => 'Typ sazby DPH',
     'evidencePath' => 'cenik-typ-sazby-dph',
@@ -1166,8 +1196,8 @@ class EvidenceList extends RO
     'formCode' => 'typSazbyDph',
     'extIdSupported' => 'true',
     'dbName' => 'cTypSazbyDph',
-    ],
-    'typ-stavu-ceniku' => [
+  ],
+  'typ-stavu-ceniku' => [
     'evidenceType' => 'TYP_STAVU_CENIKU',
     'evidenceName' => 'Číselník stavů položek ceníku',
     'evidencePath' => 'typ-stavu-ceniku',
@@ -1177,8 +1207,8 @@ class EvidenceList extends RO
     'formCode' => 'cenStav',
     'extIdSupported' => 'false',
     'dbName' => 'cStavCen',
-    ],
-    'ucetni-obdobi' => [
+  ],
+  'ucetni-obdobi' => [
     'evidenceType' => 'UCETNI_OBDOBI',
     'evidenceName' => 'Účetní období',
     'evidencePath' => 'ucetni-obdobi',
@@ -1188,8 +1218,8 @@ class EvidenceList extends RO
     'formCode' => 'nUcetniObdobi',
     'extIdSupported' => 'false',
     'dbName' => 'nUcetObdobi',
-    ],
-    'ucetni-odpis' => [
+  ],
+  'ucetni-odpis' => [
     'evidenceType' => 'UCETNI_ODPIS',
     'evidenceName' => 'Účetní odpisy',
     'evidencePath' => 'ucetni-odpis',
@@ -1199,8 +1229,8 @@ class EvidenceList extends RO
     'formCode' => 'majUcetOdpisy',
     'extIdSupported' => 'false',
     'dbName' => 'mUcetOdpisy',
-    ],
-    'umisteni-ve-skladu' => [
+  ],
+  'umisteni-ve-skladu' => [
     'evidenceType' => 'UMISTENI_VE_SKLADU',
     'evidenceName' => 'Umístění ve skladu',
     'evidencePath' => 'umisteni-ve-skladu',
@@ -1210,8 +1240,8 @@ class EvidenceList extends RO
     'formCode' => 'sklUmisteni',
     'extIdSupported' => 'false',
     'dbName' => 'sUmisteni',
-    ],
-    'sablona-upominky' => [
+  ],
+  'sablona-upominky' => [
     'evidenceType' => 'UPOMINKA_SABLONA',
     'evidenceName' => 'Upomínky',
     'evidencePath' => 'sablona-upominky',
@@ -1221,8 +1251,8 @@ class EvidenceList extends RO
     'formCode' => 'upominky',
     'extIdSupported' => 'false',
     'dbName' => 'wSablona',
-    ],
-    'uzivatelsky-dotaz' => [
+  ],
+  'uzivatelsky-dotaz' => [
     'evidenceType' => 'UZIVATELSKY_DOTAZ',
     'evidenceName' => 'Uživatelské dotazy',
     'evidencePath' => 'uzivatelsky-dotaz',
@@ -1232,8 +1262,8 @@ class EvidenceList extends RO
     'formCode' => 'dotaz',
     'extIdSupported' => 'true',
     'dbName' => 'wDotazy',
-    ],
-    'uzivatelsky-dotaz-parametr' => [
+  ],
+  'uzivatelsky-dotaz-parametr' => [
     'evidenceType' => 'UZIVATELSKY_DOTAZ_PARAMETR',
     'evidenceName' => 'Parametry',
     'evidencePath' => 'uzivatelsky-dotaz-parametr',
@@ -1243,8 +1273,8 @@ class EvidenceList extends RO
     'formCode' => 'dotazParam',
     'extIdSupported' => 'true',
     'dbName' => 'wDotazyParam',
-    ],
-    'uzivatelsky-dotaz-vlastnost' => [
+  ],
+  'uzivatelsky-dotaz-vlastnost' => [
     'evidenceType' => 'UZIVATELSKY_DOTAZ_VLASTNOST',
     'evidenceName' => 'Vlastnosti',
     'evidencePath' => 'uzivatelsky-dotaz-vlastnost',
@@ -1254,8 +1284,8 @@ class EvidenceList extends RO
     'formCode' => 'dotazProp',
     'extIdSupported' => 'true',
     'dbName' => 'wDotazyProp',
-    ],
-    'uzivatelska-vazba' => [
+  ],
+  'uzivatelska-vazba' => [
     'evidenceType' => 'VAZBA',
     'evidenceName' => 'Uživatelské vazby',
     'evidencePath' => 'uzivatelska-vazba',
@@ -1265,8 +1295,8 @@ class EvidenceList extends RO
     'formCode' => 'vazbaUzivView',
     'extIdSupported' => 'false',
     'dbName' => 'wVazba',
-    ],
-    'vazba' => [
+  ],
+  'vazba' => [
     'evidenceType' => 'VAZBA_MEZI_DOKLADY',
     'evidenceName' => 'Vazby dokladu',
     'evidencePath' => 'vazba',
@@ -1276,8 +1306,8 @@ class EvidenceList extends RO
     'formCode' => 'nezVazbyDokl',
     'extIdSupported' => 'false',
     'dbName' => 'dVazebTab',
-    ],
-    'vyrobni-cislo' => [
+  ],
+  'vyrobni-cislo' => [
     'evidenceType' => 'VYROBNI_CISLA',
     'evidenceName' => 'Výrobní čísla',
     'evidencePath' => 'vyrobni-cislo',
@@ -1287,8 +1317,8 @@ class EvidenceList extends RO
     'formCode' => 'sklVyrCis',
     'extIdSupported' => 'false',
     'dbName' => 'sVyrobniCislo',
-    ],
-    'xslt' => [
+  ],
+  'xslt' => [
     'evidenceType' => 'XSLT',
     'evidenceName' => 'Uživatelské transformace',
     'evidencePath' => 'xslt',
@@ -1298,8 +1328,8 @@ class EvidenceList extends RO
     'formCode' => 'xslt',
     'extIdSupported' => 'false',
     'dbName' => 'wXslt',
-    ],
-    'zapujcka' => [
+  ],
+  'zapujcka' => [
     'evidenceType' => 'ZAPUJCKA',
     'evidenceName' => 'Zápůjčky',
     'evidencePath' => 'zapujcka',
@@ -1309,8 +1339,8 @@ class EvidenceList extends RO
     'formCode' => 'majZapujcky',
     'extIdSupported' => 'false',
     'dbName' => 'mZapujcky',
-    ],
-    'zurnal' => [
+  ],
+  'zurnal' => [
     'evidenceType' => 'ZURNAL',
     'evidenceName' => 'Žurnál',
     'evidencePath' => 'zurnal',
@@ -1320,8 +1350,8 @@ class EvidenceList extends RO
     'formCode' => 'zurnal',
     'extIdSupported' => 'false',
     'dbName' => 'wZurnal',
-    ],
-    'adresar' => [
+  ],
+  'adresar' => [
     'evidenceType' => 'ADRESAR',
     'evidenceName' => 'Adresy firem',
     'evidencePath' => 'adresar',
@@ -1332,8 +1362,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'aAdresar',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'banka' => [
+  ],
+  'banka' => [
     'evidenceType' => 'BANKA',
     'evidenceName' => 'Banka',
     'evidencePath' => 'banka',
@@ -1344,8 +1374,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklInt',
     'evidenceFilter' => 'Zapocet = false AND Modul = \'BAN\'',
-    ],
-    'banka-polozka' => [
+  ],
+  'banka-polozka' => [
     'evidenceType' => 'BANKA_POLOZKA',
     'evidenceName' => 'Položky vzájemných zápočtů',
     'evidencePath' => 'banka-polozka',
@@ -1356,8 +1386,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dPolInt',
     'evidenceFilter' => 'Modul = \'BAN\'',
-    ],
-    'rada-banka' => [
+  ],
+  'rada-banka' => [
     'evidenceType' => 'BANKA_RADA',
     'evidenceName' => 'Dokladové řady - bankovní doklady',
     'evidencePath' => 'rada-banka',
@@ -1368,8 +1398,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND Modul = \'BAN\'',
-    ],
-    'typ-banka' => [
+  ],
+  'typ-banka' => [
     'evidenceType' => 'BANKA_TYP',
     'evidenceName' => 'Typy bankovních dokladů',
     'evidencePath' => 'typ-banka',
@@ -1380,8 +1410,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'BAN\'',
-    ],
-    'bankovni-ucet' => [
+  ],
+  'bankovni-ucet' => [
     'evidenceType' => 'BANKOVNI_UCET',
     'evidenceName' => 'Seznam bankovních účtů',
     'evidencePath' => 'bankovni-ucet',
@@ -1392,8 +1422,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dBsp',
     'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND IdTypOrg = 1 AND Modul = \'BAN\'',
-    ],
-    'bankovni-ucet-pokladna' => [
+  ],
+  'bankovni-ucet-pokladna' => [
     'evidenceType' => 'BANKOVNI_UCET_POKLADNA',
     'evidenceName' => 'Bankovní účty a pokladny',
     'evidencePath' => 'bankovni-ucet-pokladna',
@@ -1404,8 +1434,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dBsp',
     'evidenceFilter' => 'Modul IN (\'POK\',\'BAN\') AND ((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND IdTypOrg = 1',
-    ],
-    'bankovni-ucet-sklad-pokladna' => [
+  ],
+  'bankovni-ucet-sklad-pokladna' => [
     'evidenceType' => 'BANKOVNI_UCET_SKLAD_POKLADNA',
     'evidenceName' => 'Banky/pokladny/sklady',
     'evidencePath' => 'bankovni-ucet-sklad-pokladna',
@@ -1416,8 +1446,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dBsp',
     'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND IdTypOrg = 1',
-    ],
-    'cenik' => [
+  ],
+  'cenik' => [
     'evidenceType' => 'CENIK',
     'evidenceName' => 'Ceník',
     'evidencePath' => 'cenik',
@@ -1428,8 +1458,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'cCenik',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'cenikova-skupina' => [
+  ],
+  'cenikova-skupina' => [
     'evidenceType' => 'CENIKOVA_SKUPINA',
     'evidenceName' => 'Ceníkové skupiny',
     'evidencePath' => 'cenikova-skupina',
@@ -1440,8 +1470,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'cSkupCen',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'cenova-uroven' => [
+  ],
+  'cenova-uroven' => [
     'evidenceType' => 'CENOVA_UROVEN',
     'evidenceName' => 'Cenové úrovně',
     'evidencePath' => 'cenova-uroven',
@@ -1452,8 +1482,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'cCenHlad',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'certifikat' => [
+  ],
+  'certifikat' => [
     'evidenceType' => 'CERTIFIKAT',
     'evidenceName' => 'Certifikáty',
     'evidencePath' => 'certifikat',
@@ -1464,8 +1494,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'wOsCert',
     'evidenceFilter' => 'IdUzivatel = 7 AND UcelCertK NOT IN (\'ucelCertK.eet\',\'ucelCertK.finbricks\')',
-    ],
-    'certifikat-finbricks' => [
+  ],
+  'certifikat-finbricks' => [
     'evidenceType' => 'CERTIFIKAT_FINBRICKS',
     'evidenceName' => 'Klíče Finbricks',
     'evidencePath' => 'certifikat-finbricks',
@@ -1476,8 +1506,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'wOsCert',
     'evidenceFilter' => 'UcelCertK = \'ucelCertK.finbricks\'',
-    ],
-    'cinnost' => [
+  ],
+  'cinnost' => [
     'evidenceType' => 'CINNOST',
     'evidenceName' => 'Činnost',
     'evidencePath' => 'cinnost',
@@ -1488,8 +1518,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'uCinnost',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'cleneni-dph' => [
+  ],
+  'cleneni-dph' => [
     'evidenceType' => 'CLENENI_DPH',
     'evidenceName' => 'Řádky přiznání DPH',
     'evidencePath' => 'cleneni-dph',
@@ -1500,8 +1530,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'uClenDph',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdStatu IN (39,124)',
-    ],
-    'cleneni-kontrolni-hlaseni' => [
+  ],
+  'cleneni-kontrolni-hlaseni' => [
     'evidenceType' => 'CLEN_KON_VYK_DPH',
     'evidenceName' => 'Řádky kontrolního hlášení DPH',
     'evidencePath' => 'cleneni-kontrolni-hlaseni',
@@ -1512,8 +1542,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'uClenKonVykDph',
     'evidenceFilter' => 'IdStatu IN (39,124)',
-    ],
-    'dodavatelska-smlouva' => [
+  ],
+  'dodavatelska-smlouva' => [
     'evidenceType' => 'DODAVATELSKA_SMLOUVA',
     'evidenceName' => 'Dodavatelské smlouvy',
     'evidencePath' => 'dodavatelska-smlouva',
@@ -1524,8 +1554,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dSmlouvy',
     'evidenceFilter' => 'TypPohybuK = \'typPohybu.vydej\'',
-    ],
-    'dodavatelsky-typ-smlouvy' => [
+  ],
+  'dodavatelsky-typ-smlouvy' => [
     'evidenceType' => 'DODAVATELSKY_TYP_SMLOUVY',
     'evidenceName' => 'Typy dodavatelských smluv',
     'evidencePath' => 'dodavatelsky-typ-smlouvy',
@@ -1536,8 +1566,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypSml',
     'evidenceFilter' => 'TypPohybuK = \'typPohybu.vydej\' AND (PlatiOd <= 2024 AND PlatiDo >= 2024)',
-    ],
-    'doklad-k-uhrade' => [
+  ],
+  'doklad-k-uhrade' => [
     'evidenceType' => 'DOKLAD_K_UHRADE',
     'evidenceName' => 'Doklady k úhradě',
     'evidencePath' => 'doklad-k-uhrade',
@@ -1548,8 +1578,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklFak',
     'evidenceFilter' => 'Prodejka = false',
-    ],
-    'faktura-prijata' => [
+  ],
+  'faktura-prijata' => [
     'evidenceType' => 'FAKTURA_IN',
     'evidenceName' => 'Přijaté faktury',
     'evidencePath' => 'faktura-prijata',
@@ -1560,8 +1590,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklFak',
     'evidenceFilter' => 'Prodejka = false AND Modul = \'FAP\'',
-    ],
-    'faktura-prijata-polozka' => [
+  ],
+  'faktura-prijata-polozka' => [
     'evidenceType' => 'FAKTURA_IN_POLOZKA',
     'evidenceName' => 'Položky přijatých faktur',
     'evidencePath' => 'faktura-prijata-polozka',
@@ -1572,8 +1602,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dPolFak',
     'evidenceFilter' => 'Modul = \'FAP\'',
-    ],
-    'rada-faktury-prijate' => [
+  ],
+  'rada-faktury-prijate' => [
     'evidenceType' => 'FAKTURA_IN_RADA',
     'evidenceName' => 'Dokladové řady - přijaté faktury',
     'evidencePath' => 'rada-faktury-prijate',
@@ -1584,8 +1614,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND Modul = \'FAP\'',
-    ],
-    'typ-faktury-prijate' => [
+  ],
+  'typ-faktury-prijate' => [
     'evidenceType' => 'FAKTURA_IN_TYP',
     'evidenceName' => 'Typy přijatých faktur',
     'evidencePath' => 'typ-faktury-prijate',
@@ -1596,8 +1626,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'FAP\'',
-    ],
-    'faktura-vydana' => [
+  ],
+  'faktura-vydana' => [
     'evidenceType' => 'FAKTURA_OUT',
     'evidenceName' => 'Vydané faktury',
     'evidencePath' => 'faktura-vydana',
@@ -1608,8 +1638,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklFak',
     'evidenceFilter' => 'Prodejka = false AND Modul = \'FAV\'',
-    ],
-    'faktura-vydana-polozka' => [
+  ],
+  'faktura-vydana-polozka' => [
     'evidenceType' => 'FAKTURA_OUT_POLOZKA',
     'evidenceName' => 'Položky vydaných faktur a prodejek',
     'evidencePath' => 'faktura-vydana-polozka',
@@ -1620,8 +1650,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dPolFak',
     'evidenceFilter' => 'Modul = \'FAV\'',
-    ],
-    'rada-faktury-vydane' => [
+  ],
+  'rada-faktury-vydane' => [
     'evidenceType' => 'FAKTURA_OUT_RADA',
     'evidenceName' => 'Dokladové řady - vydané faktury',
     'evidencePath' => 'rada-faktury-vydane',
@@ -1632,8 +1662,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND Modul = \'FAV\'',
-    ],
-    'typ-faktury-vydane' => [
+  ],
+  'typ-faktury-vydane' => [
     'evidenceType' => 'FAKTURA_OUT_TYP',
     'evidenceName' => 'Typy vydaných faktur',
     'evidencePath' => 'typ-faktury-vydane',
@@ -1644,8 +1674,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'FAV\'',
-    ],
-    'format-elektronickeho-bankovnictvi' => [
+  ],
+  'format-elektronickeho-bankovnictvi' => [
     'evidenceType' => 'FORMAT_ELEKTRONICKEHO_BANKOVNICTVI',
     'evidenceName' => 'Bankovní formáty',
     'evidencePath' => 'format-elektronickeho-bankovnictvi',
@@ -1656,8 +1686,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dElbanFormat',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'forma-dopravy' => [
+  ],
+  'forma-dopravy' => [
     'evidenceType' => 'FORMA_DOPRAVY',
     'evidenceName' => 'Formy dopravy',
     'evidencePath' => 'forma-dopravy',
@@ -1668,8 +1698,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dFormaDopravy',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'forma-uhrady' => [
+  ],
+  'forma-uhrady' => [
     'evidenceType' => 'FORMA_UHRADY',
     'evidenceName' => 'Formy úhrady',
     'evidencePath' => 'forma-uhrady',
@@ -1680,8 +1710,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dFormaUhradyCis',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'global-store' => [
+  ],
+  'global-store' => [
     'evidenceType' => 'GLOBAL_SETTING',
     'evidenceName' => 'Úložiště globálního nastavení',
     'evidencePath' => 'global-store',
@@ -1692,8 +1722,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'wSetting',
     'evidenceFilter' => 'IdUzivatel = -1',
-    ],
-    'hodnoceni-zakazky' => [
+  ],
+  'hodnoceni-zakazky' => [
     'evidenceType' => 'HODNOCENI_ZAKAZKY',
     'evidenceName' => 'Vyhodnocení zakázek',
     'evidencePath' => 'hodnoceni-zakazky',
@@ -1704,8 +1734,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'uVyhZakazky',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'interni-doklad' => [
+  ],
+  'interni-doklad' => [
     'evidenceType' => 'INTERNI_DOKLAD',
     'evidenceName' => 'Interní doklady',
     'evidencePath' => 'interni-doklad',
@@ -1716,8 +1746,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklInt',
     'evidenceFilter' => 'Zapocet = false AND Modul = \'INT\'',
-    ],
-    'interni-doklad-polozka' => [
+  ],
+  'interni-doklad-polozka' => [
     'evidenceType' => 'INTERNI_DOKLAD_POLOZKA',
     'evidenceName' => 'Položky interních dokladů',
     'evidencePath' => 'interni-doklad-polozka',
@@ -1728,8 +1758,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dPolInt',
     'evidenceFilter' => 'Zapocet = false AND Modul = \'INT\'',
-    ],
-    'rada-interniho-dokladu' => [
+  ],
+  'rada-interniho-dokladu' => [
     'evidenceType' => 'INTERNI_DOKLAD_RADA',
     'evidenceName' => 'Dokladové řady - interní doklady',
     'evidencePath' => 'rada-interniho-dokladu',
@@ -1740,8 +1770,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND Modul = \'INT\'',
-    ],
-    'typ-interniho-dokladu' => [
+  ],
+  'typ-interniho-dokladu' => [
     'evidenceType' => 'INTERNI_DOKLAD_TYP',
     'evidenceName' => 'Typy interních dokladů',
     'evidencePath' => 'typ-interniho-dokladu',
@@ -1752,8 +1782,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'INT\'',
-    ],
-    'intrastat-dodaci-podminky' => [
+  ],
+  'intrastat-dodaci-podminky' => [
     'evidenceType' => 'INTRASTAT_DODACI_PODMINKY',
     'evidenceName' => 'Dodací podmínky',
     'evidencePath' => 'intrastat-dodaci-podminky',
@@ -1764,8 +1794,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'iDodPodm',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'intrastat-druh-dopravy' => [
+  ],
+  'intrastat-druh-dopravy' => [
     'evidenceType' => 'INTRASTAT_DRUH_DOPRAVY',
     'evidenceName' => 'Druh dopravy',
     'evidencePath' => 'intrastat-druh-dopravy',
@@ -1776,8 +1806,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'iDruhDopr',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'intrastat-kod-nomenklatury' => [
+  ],
+  'intrastat-kod-nomenklatury' => [
     'evidenceType' => 'INTRASTAT_KOD_NOMENKLATURY',
     'evidenceName' => 'Kódy nomenklatury',
     'evidencePath' => 'intrastat-kod-nomenklatury',
@@ -1788,8 +1818,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'iNomen',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'intrastat-kraj-urceni' => [
+  ],
+  'intrastat-kraj-urceni' => [
     'evidenceType' => 'INTRASTAT_KRAJ_URCENI',
     'evidenceName' => 'Kraje určení',
     'evidencePath' => 'intrastat-kraj-urceni',
@@ -1800,8 +1830,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'iKrajUrc',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'intrastat-kurz' => [
+  ],
+  'intrastat-kurz' => [
     'evidenceType' => 'INTRASTAT_KURZ',
     'evidenceName' => 'Kurzy pro Intrastat',
     'evidencePath' => 'intrastat-kurz',
@@ -1812,8 +1842,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'uKurzy',
     'evidenceFilter' => 'TypKurzuK = \'typKurzu.intrastat\'',
-    ],
-    'intrastat-merna-jednotka' => [
+  ],
+  'intrastat-merna-jednotka' => [
     'evidenceType' => 'INTRASTAT_MERNA_JEDNOTKA',
     'evidenceName' => 'Měrné jednotky',
     'evidencePath' => 'intrastat-merna-jednotka',
@@ -1824,8 +1854,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'iIntrMerJed',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'intrastat-obchodni-transakce' => [
+  ],
+  'intrastat-obchodni-transakce' => [
     'evidenceType' => 'INTRASTAT_OBCHODNI_TRANSAKCE',
     'evidenceName' => 'Obchodní transakce',
     'evidencePath' => 'intrastat-obchodni-transakce',
@@ -1836,8 +1866,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'iObchTrans',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'intrastat-zvlastni-pohyb' => [
+  ],
+  'intrastat-zvlastni-pohyb' => [
     'evidenceType' => 'INTRASTAT_ZVLASTNI_POHYB',
     'evidenceName' => 'Zvláštní pohyby',
     'evidencePath' => 'intrastat-zvlastni-pohyb',
@@ -1848,8 +1878,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'iZvlPoh',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'konst-symbol' => [
+  ],
+  'konst-symbol' => [
     'evidenceType' => 'KONST_SYM',
     'evidenceName' => 'Konstantní symboly',
     'evidencePath' => 'konst-symbol',
@@ -1860,8 +1890,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dKonSym',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'kurz' => [
+  ],
+  'kurz' => [
     'evidenceType' => 'KURZ',
     'evidenceName' => 'Kurzy',
     'evidencePath' => 'kurz',
@@ -1872,8 +1902,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'uKurzy',
     'evidenceFilter' => 'TypKurzuK = \'typKurzu.obecny\'',
-    ],
-    'kurz-pro-cenotvorbu' => [
+  ],
+  'kurz-pro-cenotvorbu' => [
     'evidenceType' => 'KURZ_PRO_CENOTVORBU',
     'evidenceName' => 'Kurzy pro cenotvorbu',
     'evidencePath' => 'kurz-pro-cenotvorbu',
@@ -1884,8 +1914,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'uKurzy',
     'evidenceFilter' => 'TypKurzuK = \'typKurzu.cenotvorba\'',
-    ],
-    'kurz-pro-preceneni' => [
+  ],
+  'kurz-pro-preceneni' => [
     'evidenceType' => 'KURZ_PRO_PRECENENI',
     'evidenceName' => 'Kurzy pro přecenění',
     'evidencePath' => 'kurz-pro-preceneni',
@@ -1896,8 +1926,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'uKurzy',
     'evidenceFilter' => 'TypKurzuK = \'typKurzu.preceneni\'',
-    ],
-    'leasing' => [
+  ],
+  'leasing' => [
     'evidenceType' => 'LEASING',
     'evidenceName' => 'Leasing',
     'evidencePath' => 'leasing',
@@ -1908,8 +1938,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'mLeasing',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'typ-leasingu' => [
+  ],
+  'typ-leasingu' => [
     'evidenceType' => 'LEASING_TYP',
     'evidenceName' => 'Typy leasingů',
     'evidencePath' => 'typ-leasingu',
@@ -1920,8 +1950,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'mTypLeas',
     'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND IdTypOrg = 1',
-    ],
-    'majetek' => [
+  ],
+  'majetek' => [
     'evidenceType' => 'MAJETEK',
     'evidenceName' => 'Majetek',
     'evidencePath' => 'majetek',
@@ -1932,8 +1962,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'mMajetek',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'typ-majetku' => [
+  ],
+  'typ-majetku' => [
     'evidenceType' => 'MAJETEK_TYP',
     'evidenceName' => 'Typy majetků',
     'evidencePath' => 'typ-majetku',
@@ -1944,8 +1974,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'mTypMaj',
     'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND IdTypOrg = 1',
-    ],
-    'mena' => [
+  ],
+  'mena' => [
     'evidenceType' => 'MENA',
     'evidenceName' => 'Měny',
     'evidencePath' => 'mena',
@@ -1956,8 +1986,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'uMeny',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'merna-jednotka' => [
+  ],
+  'merna-jednotka' => [
     'evidenceType' => 'MERNA_JEDNOTKA',
     'evidenceName' => 'Měrné jednotky ',
     'evidencePath' => 'merna-jednotka',
@@ -1968,8 +1998,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'cMerJed',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'nabidka-prijata' => [
+  ],
+  'nabidka-prijata' => [
     'evidenceType' => 'NABIDKA_IN',
     'evidenceName' => 'Přijaté nabídky',
     'evidencePath' => 'nabidka-prijata',
@@ -1980,8 +2010,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklObch',
     'evidenceFilter' => 'Modul = \'NAP\'',
-    ],
-    'nabidka-prijata-polozka' => [
+  ],
+  'nabidka-prijata-polozka' => [
     'evidenceType' => 'NABIDKA_IN_POLOZKA',
     'evidenceName' => 'Položky přijaté nabídky',
     'evidencePath' => 'nabidka-prijata-polozka',
@@ -1992,8 +2022,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dPolObch',
     'evidenceFilter' => 'Modul = \'NAP\'',
-    ],
-    'rada-nabidky-prijate' => [
+  ],
+  'rada-nabidky-prijate' => [
     'evidenceType' => 'NABIDKA_IN_RADA',
     'evidenceName' => 'Dokladové řady - přijaté nabídky',
     'evidencePath' => 'rada-nabidky-prijate',
@@ -2004,8 +2034,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND Modul = \'NAP\'',
-    ],
-    'typ-nabidky-prijate' => [
+  ],
+  'typ-nabidky-prijate' => [
     'evidenceType' => 'NABIDKA_IN_TYP',
     'evidenceName' => 'Typy přijatých nabídek',
     'evidencePath' => 'typ-nabidky-prijate',
@@ -2016,8 +2046,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'NAP\'',
-    ],
-    'nabidka-vydana' => [
+  ],
+  'nabidka-vydana' => [
     'evidenceType' => 'NABIDKA_OUT',
     'evidenceName' => 'Vydané nabídky',
     'evidencePath' => 'nabidka-vydana',
@@ -2028,8 +2058,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklObch',
     'evidenceFilter' => 'Modul = \'NAV\'',
-    ],
-    'nabidka-vydana-polozka' => [
+  ],
+  'nabidka-vydana-polozka' => [
     'evidenceType' => 'NABIDKA_OUT_POLOZKA',
     'evidenceName' => 'Položky vydané nabídky',
     'evidencePath' => 'nabidka-vydana-polozka',
@@ -2040,8 +2070,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dPolObch',
     'evidenceFilter' => 'Modul = \'NAV\'',
-    ],
-    'rada-nabidky-vydane' => [
+  ],
+  'rada-nabidky-vydane' => [
     'evidenceType' => 'NABIDKA_OUT_RADA',
     'evidenceName' => 'Dokladové řady - vydané nabídky',
     'evidencePath' => 'rada-nabidky-vydane',
@@ -2052,8 +2082,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND Modul = \'NAV\'',
-    ],
-    'typ-nabidky-vydane' => [
+  ],
+  'typ-nabidky-vydane' => [
     'evidenceType' => 'NABIDKA_OUT_TYP',
     'evidenceName' => 'Typy vydaných nabídek',
     'evidencePath' => 'typ-nabidky-vydane',
@@ -2064,8 +2094,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'NAV\'',
-    ],
-    'objednavka-prijata' => [
+  ],
+  'objednavka-prijata' => [
     'evidenceType' => 'OBJEDNAVKA_IN',
     'evidenceName' => 'Přijaté objednávky',
     'evidencePath' => 'objednavka-prijata',
@@ -2076,8 +2106,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklObch',
     'evidenceFilter' => 'Modul = \'OBP\'',
-    ],
-    'objednavka-prijata-polozka' => [
+  ],
+  'objednavka-prijata-polozka' => [
     'evidenceType' => 'OBJEDNAVKA_IN_POLOZKA',
     'evidenceName' => 'Položky přijaté objednávky',
     'evidencePath' => 'objednavka-prijata-polozka',
@@ -2088,8 +2118,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dPolObch',
     'evidenceFilter' => 'Modul = \'OBP\'',
-    ],
-    'rada-objednavky-prijate' => [
+  ],
+  'rada-objednavky-prijate' => [
     'evidenceType' => 'OBJEDNAVKA_IN_RADA',
     'evidenceName' => 'Dokladové řady - přijaté objednávky',
     'evidencePath' => 'rada-objednavky-prijate',
@@ -2100,8 +2130,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND Modul = \'OBP\'',
-    ],
-    'typ-objednavky-prijate' => [
+  ],
+  'typ-objednavky-prijate' => [
     'evidenceType' => 'OBJEDNAVKA_IN_TYP',
     'evidenceName' => 'Typy přijatých objednávek',
     'evidencePath' => 'typ-objednavky-prijate',
@@ -2112,8 +2142,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'OBP\'',
-    ],
-    'objednavka-vydana' => [
+  ],
+  'objednavka-vydana' => [
     'evidenceType' => 'OBJEDNAVKA_OUT',
     'evidenceName' => 'Vydané objednávky',
     'evidencePath' => 'objednavka-vydana',
@@ -2124,8 +2154,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklObch',
     'evidenceFilter' => 'Modul = \'OBV\'',
-    ],
-    'objednavka-vydana-polozka' => [
+  ],
+  'objednavka-vydana-polozka' => [
     'evidenceType' => 'OBJEDNAVKA_OUT_POLOZKA',
     'evidenceName' => 'Položky vydané objednávky',
     'evidencePath' => 'objednavka-vydana-polozka',
@@ -2136,8 +2166,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dPolObch',
     'evidenceFilter' => 'Modul = \'OBV\'',
-    ],
-    'rada-objednavky-vydane' => [
+  ],
+  'rada-objednavky-vydane' => [
     'evidenceType' => 'OBJEDNAVKA_OUT_RADA',
     'evidenceName' => 'Dokladové řady - vydané objednávky',
     'evidencePath' => 'rada-objednavky-vydane',
@@ -2148,8 +2178,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND Modul = \'OBV\'',
-    ],
-    'typ-objednavky-vydane' => [
+  ],
+  'typ-objednavky-vydane' => [
     'evidenceType' => 'OBJEDNAVKA_OUT_TYP',
     'evidenceName' => 'Typy vydaných objednávek',
     'evidencePath' => 'typ-objednavky-vydane',
@@ -2160,8 +2190,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'OBV\'',
-    ],
-    'odpisova-skupina' => [
+  ],
+  'odpisova-skupina' => [
     'evidenceType' => 'ODPISOVE_SKUPINY',
     'evidenceName' => 'Odpisové skupiny',
     'evidencePath' => 'odpisova-skupina',
@@ -2172,8 +2202,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'mSazby',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'penezni-ustav' => [
+  ],
+  'penezni-ustav' => [
     'evidenceType' => 'PENEZNI_USTAV',
     'evidenceName' => 'Peněžní ústavy',
     'evidencePath' => 'penezni-ustav',
@@ -2184,8 +2214,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'aSmerKod',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'pohledavka' => [
+  ],
+  'pohledavka' => [
     'evidenceType' => 'POHLEDAVKA',
     'evidenceName' => 'Ostatní pohledávky',
     'evidencePath' => 'pohledavka',
@@ -2196,8 +2226,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklFak',
     'evidenceFilter' => 'Prodejka = false AND Modul = \'PHL\'',
-    ],
-    'pohledavka-polozka' => [
+  ],
+  'pohledavka-polozka' => [
     'evidenceType' => 'POHLEDAVKA_POLOZKA',
     'evidenceName' => 'Položky ostatních pohledávek',
     'evidencePath' => 'pohledavka-polozka',
@@ -2208,8 +2238,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dPolFak',
     'evidenceFilter' => 'Modul = \'PHL\'',
-    ],
-    'rada-pohledavky' => [
+  ],
+  'rada-pohledavky' => [
     'evidenceType' => 'POHLEDAVKA_RADA',
     'evidenceName' => 'Dokladové řady - pohledávky',
     'evidencePath' => 'rada-pohledavky',
@@ -2220,8 +2250,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND Modul = \'PHL\'',
-    ],
-    'typ-pohledavky' => [
+  ],
+  'typ-pohledavky' => [
     'evidenceType' => 'POHLEDAVKA_TYP',
     'evidenceName' => 'Typy ostatních pohledávek',
     'evidencePath' => 'typ-pohledavky',
@@ -2232,8 +2262,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'PHL\'',
-    ],
-    'pokladna' => [
+  ],
+  'pokladna' => [
     'evidenceType' => 'POKLADNA',
     'evidenceName' => 'Seznam pokladen',
     'evidencePath' => 'pokladna',
@@ -2244,8 +2274,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dBsp',
     'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND IdTypOrg = 1 AND Modul = \'POK\'',
-    ],
-    'pokladni-pohyb' => [
+  ],
+  'pokladni-pohyb' => [
     'evidenceType' => 'POKLADNI_POHYB',
     'evidenceName' => 'Pokladna',
     'evidencePath' => 'pokladni-pohyb',
@@ -2256,8 +2286,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklInt',
     'evidenceFilter' => 'Zapocet = false AND Modul = \'POK\'',
-    ],
-    'pokladni-pohyb-polozka' => [
+  ],
+  'pokladni-pohyb-polozka' => [
     'evidenceType' => 'POKLADNI_POHYB_POLOZKA',
     'evidenceName' => 'Položky pokladních dokladů',
     'evidencePath' => 'pokladni-pohyb-polozka',
@@ -2268,8 +2298,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dPolInt',
     'evidenceFilter' => 'Zapocet = false AND Modul = \'POK\'',
-    ],
-    'rada-pokladni-pohyb' => [
+  ],
+  'rada-pokladni-pohyb' => [
     'evidenceType' => 'POKLADNI_POHYB_RADA',
     'evidenceName' => 'Dokladové řady - pokladní doklady',
     'evidencePath' => 'rada-pokladni-pohyb',
@@ -2280,8 +2310,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND Modul = \'POK\'',
-    ],
-    'typ-pokladni-pohyb' => [
+  ],
+  'typ-pokladni-pohyb' => [
     'evidenceType' => 'POKLADNI_POHYB_TYP',
     'evidenceName' => 'Typy pokladních dokladů',
     'evidencePath' => 'typ-pokladni-pohyb',
@@ -2292,8 +2322,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'POK\'',
-    ],
-    'poptavka-prijata' => [
+  ],
+  'poptavka-prijata' => [
     'evidenceType' => 'POPTAVKA_IN',
     'evidenceName' => 'Přijaté poptávky',
     'evidencePath' => 'poptavka-prijata',
@@ -2304,8 +2334,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklObch',
     'evidenceFilter' => 'Modul = \'PPP\'',
-    ],
-    'poptavka-prijata-polozka' => [
+  ],
+  'poptavka-prijata-polozka' => [
     'evidenceType' => 'POPTAVKA_IN_POLOZKA',
     'evidenceName' => 'Položky přijatých poptávek',
     'evidencePath' => 'poptavka-prijata-polozka',
@@ -2316,8 +2346,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dPolObch',
     'evidenceFilter' => 'Modul = \'PPP\'',
-    ],
-    'rada-poptavky-prijate' => [
+  ],
+  'rada-poptavky-prijate' => [
     'evidenceType' => 'POPTAVKA_IN_RADA',
     'evidenceName' => 'Dokladové řady - přijaté poptávky',
     'evidencePath' => 'rada-poptavky-prijate',
@@ -2328,8 +2358,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND Modul = \'PPP\'',
-    ],
-    'typ-poptavky-prijate' => [
+  ],
+  'typ-poptavky-prijate' => [
     'evidenceType' => 'POPTAVKA_IN_TYP',
     'evidenceName' => 'Typy přijatých poptávek',
     'evidencePath' => 'typ-poptavky-prijate',
@@ -2340,8 +2370,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'PPP\'',
-    ],
-    'poptavka-vydana' => [
+  ],
+  'poptavka-vydana' => [
     'evidenceType' => 'POPTAVKA_OUT',
     'evidenceName' => 'Vydané poptávky',
     'evidencePath' => 'poptavka-vydana',
@@ -2352,8 +2382,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklObch',
     'evidenceFilter' => 'Modul = \'PPV\'',
-    ],
-    'poptavka-vydana-polozka' => [
+  ],
+  'poptavka-vydana-polozka' => [
     'evidenceType' => 'POPTAVKA_OUT_POLOZKA',
     'evidenceName' => 'Položky vydané poptávky',
     'evidencePath' => 'poptavka-vydana-polozka',
@@ -2364,8 +2394,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dPolObch',
     'evidenceFilter' => 'Modul = \'PPV\'',
-    ],
-    'rada-poptavky-vydane' => [
+  ],
+  'rada-poptavky-vydane' => [
     'evidenceType' => 'POPTAVKA_OUT_RADA',
     'evidenceName' => 'Dokladové řady - vydané poptávky',
     'evidencePath' => 'rada-poptavky-vydane',
@@ -2376,8 +2406,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND Modul = \'PPV\'',
-    ],
-    'typ-poptavky-vydane' => [
+  ],
+  'typ-poptavky-vydane' => [
     'evidenceType' => 'POPTAVKA_OUT_TYP',
     'evidenceName' => 'Typy vydaných poptávek',
     'evidencePath' => 'typ-poptavky-vydane',
@@ -2388,8 +2418,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'PPV\'',
-    ],
-    'predpis-zauctovani' => [
+  ],
+  'predpis-zauctovani' => [
     'evidenceType' => 'PREDPIS_ZAUCTOVANI',
     'evidenceName' => 'Předpisy zaúčtování',
     'evidencePath' => 'predpis-zauctovani',
@@ -2400,8 +2430,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'uTypUcOp',
     'evidenceFilter' => '(IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))',
-    ],
-    'preneseni-dph' => [
+  ],
+  'preneseni-dph' => [
     'evidenceType' => 'PRENESENI_DPH',
     'evidenceName' => 'Seznam zboží v režimu přenesení DPH',
     'evidencePath' => 'preneseni-dph',
@@ -2412,8 +2442,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'uDphPren',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'prikaz-k-inkasu' => [
+  ],
+  'prikaz-k-inkasu' => [
     'evidenceType' => 'PRIKAZ_K_INKASU',
     'evidenceName' => 'Příkaz k inkasu',
     'evidencePath' => 'prikaz-k-inkasu',
@@ -2424,8 +2454,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dPrikazUhr',
     'evidenceFilter' => 'TypPrikazK = \'typPrikazu.inkaso\'',
-    ],
-    'prikaz-k-uhrade' => [
+  ],
+  'prikaz-k-uhrade' => [
     'evidenceType' => 'PRIKAZ_K_UHRADE',
     'evidenceName' => 'Příkaz k úhradě',
     'evidencePath' => 'prikaz-k-uhrade',
@@ -2436,8 +2466,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dPrikazUhr',
     'evidenceFilter' => 'TypPrikazK = \'typPrikazu.prikaz\'',
-    ],
-    'prodejka' => [
+  ],
+  'prodejka' => [
     'evidenceType' => 'PRODEJKA',
     'evidenceName' => 'Prodejní kasa',
     'evidencePath' => 'prodejka',
@@ -2448,8 +2478,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklFak',
     'evidenceFilter' => 'Prodejka = true AND Modul = \'FAV\'',
-    ],
-    'typ-prodejky' => [
+  ],
+  'typ-prodejky' => [
     'evidenceType' => 'PRODEJKA_TYP',
     'evidenceName' => 'Seznam prodejních kas',
     'evidencePath' => 'typ-prodejky',
@@ -2460,8 +2490,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = true AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'FAV\'',
-    ],
-    'rada' => [
+  ],
+  'rada' => [
     'evidenceType' => 'RADA',
     'evidenceName' => 'dokladové řady',
     'evidencePath' => 'rada',
@@ -2472,8 +2502,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'sestava' => [
+  ],
+  'sestava' => [
     'evidenceType' => 'SESTAVA',
     'evidenceName' => 'Seznam sestav',
     'evidencePath' => 'sestava',
@@ -2484,8 +2514,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'uSestavy',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'setting-store' => [
+  ],
+  'setting-store' => [
     'evidenceType' => 'SETTING',
     'evidenceName' => 'Úložiště nastavení',
     'evidencePath' => 'setting-store',
@@ -2496,8 +2526,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'wSetting',
     'evidenceFilter' => 'IdUzivatel = 7',
-    ],
-    'sklad' => [
+  ],
+  'sklad' => [
     'evidenceType' => 'SKLAD',
     'evidenceName' => 'Seznam skladů',
     'evidencePath' => 'sklad',
@@ -2508,8 +2538,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dBsp',
     'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND IdTypOrg = 1 AND Modul = \'SKL\'',
-    ],
-    'skladovy-pohyb' => [
+  ],
+  'skladovy-pohyb' => [
     'evidenceType' => 'SKLADOVY_POHYB',
     'evidenceName' => 'Příjemky/výdejky',
     'evidencePath' => 'skladovy-pohyb',
@@ -2520,8 +2550,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklSklad',
     'evidenceFilter' => 'Modul = \'SKL\'',
-    ],
-    'skladovy-pohyb-polozka' => [
+  ],
+  'skladovy-pohyb-polozka' => [
     'evidenceType' => 'SKLADOVY_POHYB_POLOZKA',
     'evidenceName' => 'Položky příjemky/výdejky',
     'evidencePath' => 'skladovy-pohyb-polozka',
@@ -2532,8 +2562,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dPolSklad',
     'evidenceFilter' => 'Modul = \'SKL\'',
-    ],
-    'rada-skladovy-pohyb' => [
+  ],
+  'rada-skladovy-pohyb' => [
     'evidenceType' => 'SKLADOVY_POHYB_RADA',
     'evidenceName' => 'Dokladové řady - sklad',
     'evidencePath' => 'rada-skladovy-pohyb',
@@ -2544,8 +2574,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND Modul = \'SKL\'',
-    ],
-    'typ-skladovy-pohyb' => [
+  ],
+  'typ-skladovy-pohyb' => [
     'evidenceType' => 'SKLADOVY_POHYB_TYP',
     'evidenceName' => 'Typy skladových dokladů',
     'evidencePath' => 'typ-skladovy-pohyb',
@@ -2556,8 +2586,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'SKL\'',
-    ],
-    'skupina-atributu' => [
+  ],
+  'skupina-atributu' => [
     'evidenceType' => 'SKUPINA_ATRIBUTU',
     'evidenceName' => 'Skupiny atributů',
     'evidencePath' => 'skupina-atributu',
@@ -2568,8 +2598,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'cTypZbozi',
     'evidenceFilter' => 'Standard = false',
-    ],
-    'skupina-firem' => [
+  ],
+  'skupina-firem' => [
     'evidenceType' => 'SKUPINA_FIREM',
     'evidenceName' => 'Skupiny firem',
     'evidencePath' => 'skupina-firem',
@@ -2580,8 +2610,20 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'aSkupFir',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1',
-    ],
-    'skupina-stitku' => [
+  ],
+  'skupina-plneni' => [
+    'evidenceType' => 'SKUPINA_PLNENI',
+    'evidenceName' => 'Skupiny plnění',
+    'evidencePath' => 'skupina-plneni',
+    'importStatus' => 'SUPPORTED',
+    'beanKey' => 'cz.winstrom.vo.dok.SkupPlneni',
+    'className' => 'cz.winstrom.vo.dok.SkupPlneni',
+    'formCode' => 'skupPlneni',
+    'extIdSupported' => 'true',
+    'dbName' => 'dSkupPlneni',
+    'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
+  ],
+  'skupina-stitku' => [
     'evidenceType' => 'SKUPINA_STITKU',
     'evidenceName' => 'Skupiny štítků',
     'evidencePath' => 'skupina-stitku',
@@ -2592,8 +2634,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'wSkupVybKlic',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'skupina-zbozi' => [
+  ],
+  'skupina-zbozi' => [
     'evidenceType' => 'SKUPINA_ZBOZI',
     'evidenceName' => 'Skupiny zboží a materiálu',
     'evidencePath' => 'skupina-zbozi',
@@ -2604,8 +2646,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'cSkupZboz',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1',
-    ],
-    'smlouva' => [
+  ],
+  'smlouva' => [
     'evidenceType' => 'SMLOUVA',
     'evidenceName' => 'Odběratelské smlouvy',
     'evidencePath' => 'smlouva',
@@ -2616,8 +2658,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dSmlouvy',
     'evidenceFilter' => 'TypPohybuK = \'typPohybu.prijem\'',
-    ],
-    'stat' => [
+  ],
+  'stat' => [
     'evidenceType' => 'STAT',
     'evidenceName' => 'Státy',
     'evidencePath' => 'stat',
@@ -2628,8 +2670,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'aStaty',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'stav-obchodniho-dokladu' => [
+  ],
+  'stav-obchodniho-dokladu' => [
     'evidenceType' => 'STAV_OBCHODNIHO_DOKLADU',
     'evidenceName' => 'Stav obchodního dokladu',
     'evidencePath' => 'stav-obchodniho-dokladu',
@@ -2640,8 +2682,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dStavDoklObchCis',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'stav-smlouvy' => [
+  ],
+  'stav-smlouvy' => [
     'evidenceType' => 'STAV_SMLOUVY',
     'evidenceName' => 'Stavy smluv',
     'evidencePath' => 'stav-smlouvy',
@@ -2652,8 +2694,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dStavSml',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'stitek' => [
+  ],
+  'stitek' => [
     'evidenceType' => 'STITEK',
     'evidenceName' => 'Štítky',
     'evidencePath' => 'stitek',
@@ -2664,8 +2706,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'wVybKlice',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'stredisko' => [
+  ],
+  'stredisko' => [
     'evidenceType' => 'STREDISKO',
     'evidenceName' => 'Střediska',
     'evidencePath' => 'stredisko',
@@ -2676,8 +2718,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'uStrediska',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'strom-koren' => [
+  ],
+  'strom-koren' => [
     'evidenceType' => 'STROM_KOREN',
     'evidenceName' => 'Obecný strom',
     'evidencePath' => 'strom-koren',
@@ -2688,8 +2730,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'wStrom',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'typ-atributu' => [
+  ],
+  'typ-atributu' => [
     'evidenceType' => 'TYP_ATRIBUTU',
     'evidenceName' => 'Typy atributů',
     'evidencePath' => 'typ-atributu',
@@ -2700,8 +2742,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'cTypAtribut',
     'evidenceFilter' => 'Standard = false',
-    ],
-    'typ-dokladu' => [
+  ],
+  'typ-dokladu' => [
     'evidenceType' => 'TYP_DOKLADU',
     'evidenceName' => 'Typy dokladů',
     'evidencePath' => 'typ-dokladu',
@@ -2712,8 +2754,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => '(((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1',
-    ],
-    'typ-organizace' => [
+  ],
+  'typ-organizace' => [
     'evidenceType' => 'TYP_ORGANIZACE',
     'evidenceName' => 'Typ organizace',
     'evidencePath' => 'typ-organizace',
@@ -2724,8 +2766,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'uTypOrg',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'typ-smlouvy' => [
+  ],
+  'typ-smlouvy' => [
     'evidenceType' => 'TYP_SMLOUVY',
     'evidenceName' => 'Typy odběratelských smluv',
     'evidencePath' => 'typ-smlouvy',
@@ -2736,8 +2778,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypSml',
     'evidenceFilter' => 'TypPohybuK = \'typPohybu.prijem\' AND (PlatiOd <= 2024 AND PlatiDo >= 2024)',
-    ],
-    'typ-zakazky' => [
+  ],
+  'typ-zakazky' => [
     'evidenceType' => 'TYP_ZAKAZKY',
     'evidenceName' => 'Typy zakázek',
     'evidencePath' => 'typ-zakazky',
@@ -2748,8 +2790,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'uTypZakazky',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'ucet' => [
+  ],
+  'ucet' => [
     'evidenceType' => 'UCET',
     'evidenceName' => 'Účtový rozvrh',
     'evidencePath' => 'ucet',
@@ -2760,8 +2802,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'uUcty',
     'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND IdTypOrg = 1',
-    ],
-    'ucetni-osnova' => [
+  ],
+  'ucetni-osnova' => [
     'evidenceType' => 'UCETNI_OSNOVA',
     'evidenceName' => 'Standardní účetní osnova',
     'evidencePath' => 'ucetni-osnova',
@@ -2772,8 +2814,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'uStdUcty',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1',
-    ],
-    'ulozene-priznani-dph' => [
+  ],
+  'ulozene-priznani-dph' => [
     'evidenceType' => 'ULOZENE_PRIZNANI_DPH',
     'evidenceName' => 'Uložené přiznání DPH',
     'evidencePath' => 'ulozene-priznani-dph',
@@ -2784,8 +2826,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'uRadekPriznaniDph',
     'evidenceFilter' => 'IdClenDph IS NULL AND TypSzbDphK IS NULL',
-    ],
-    'umisteni' => [
+  ],
+  'umisteni' => [
     'evidenceType' => 'UMISTENI',
     'evidenceName' => 'Umístění',
     'evidencePath' => 'umisteni',
@@ -2796,8 +2838,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'mUmisteni',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'umisteni-ve-skladu-mistnost' => [
+  ],
+  'umisteni-ve-skladu-mistnost' => [
     'evidenceType' => 'UMISTENI_VE_SKLADU_MISTNOST',
     'evidenceName' => 'Umístění ve skladu',
     'evidencePath' => 'umisteni-ve-skladu-mistnost',
@@ -2808,8 +2850,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'sUmisteni',
     'evidenceFilter' => 'TypUmisteniK = \'typUmisteniSklad.mistnost\'',
-    ],
-    'umisteni-ve-skladu-police' => [
+  ],
+  'umisteni-ve-skladu-police' => [
     'evidenceType' => 'UMISTENI_VE_SKLADU_POLICE',
     'evidenceName' => 'Umístění ve skladu',
     'evidencePath' => 'umisteni-ve-skladu-police',
@@ -2820,8 +2862,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'sUmisteni',
     'evidenceFilter' => 'TypUmisteniK = \'typUmisteniSklad.police\'',
-    ],
-    'umisteni-ve-skladu-regal' => [
+  ],
+  'umisteni-ve-skladu-regal' => [
     'evidenceType' => 'UMISTENI_VE_SKLADU_REGAL',
     'evidenceName' => 'Umístění ve skladu',
     'evidencePath' => 'umisteni-ve-skladu-regal',
@@ -2832,8 +2874,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'sUmisteni',
     'evidenceFilter' => 'TypUmisteniK = \'typUmisteniSklad.regal\'',
-    ],
-    'typ-uzivatelske-vazby' => [
+  ],
+  'typ-uzivatelske-vazby' => [
     'evidenceType' => 'VAZBA_TYP',
     'evidenceName' => 'Typy uživatelských vazeb',
     'evidencePath' => 'typ-uzivatelske-vazby',
@@ -2844,8 +2886,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'wVazbaTyp',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'vzajemny-zapocet' => [
+  ],
+  'vzajemny-zapocet' => [
     'evidenceType' => 'VZAJEMNY_ZAPOCET',
     'evidenceName' => 'Vzájemné zápočty',
     'evidencePath' => 'vzajemny-zapocet',
@@ -2856,8 +2898,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklInt',
     'evidenceFilter' => 'Zapocet = true AND Modul = \'BAN\'',
-    ],
-    'typ-vzajemnych-zapoctu' => [
+  ],
+  'typ-vzajemnych-zapoctu' => [
     'evidenceType' => 'VZAJEMNY_ZAPOCET_TYP',
     'evidenceName' => 'Typy zápočtů',
     'evidencePath' => 'typ-vzajemnych-zapoctu',
@@ -2868,8 +2910,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = false AND Zapocet = true AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'BAN\'',
-    ],
-    'zakazka' => [
+  ],
+  'zakazka' => [
     'evidenceType' => 'ZAKAZKA',
     'evidenceName' => 'Zakázky',
     'evidencePath' => 'zakazka',
@@ -2880,8 +2922,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'uZakazky',
     'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
-    ],
-    'zavazek' => [
+  ],
+  'zavazek' => [
     'evidenceType' => 'ZAVAZEK',
     'evidenceName' => 'Ostatní závazky',
     'evidencePath' => 'zavazek',
@@ -2892,8 +2934,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dDoklFak',
     'evidenceFilter' => 'Prodejka = false AND Modul = \'ZAV\'',
-    ],
-    'zavazek-polozka' => [
+  ],
+  'zavazek-polozka' => [
     'evidenceType' => 'ZAVAZEK_POLOZKA',
     'evidenceName' => 'Položky ostatních závazků',
     'evidencePath' => 'zavazek-polozka',
@@ -2904,8 +2946,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dPolFak',
     'evidenceFilter' => 'Modul = \'ZAV\'',
-    ],
-    'rada-zavazku' => [
+  ],
+  'rada-zavazku' => [
     'evidenceType' => 'ZAVAZEK_RADA',
     'evidenceName' => 'Dokladové řady - závazky',
     'evidencePath' => 'rada-zavazku',
@@ -2916,8 +2958,8 @@ class EvidenceList extends RO
     'extIdSupported' => 'false',
     'dbName' => 'dRady',
     'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND Modul = \'ZAV\'',
-    ],
-    'typ-zavazku' => [
+  ],
+  'typ-zavazku' => [
     'evidenceType' => 'ZAVAZEK_TYP',
     'evidenceName' => 'Typy ostatních závazků',
     'evidencePath' => 'typ-zavazku',
@@ -2928,27 +2970,25 @@ class EvidenceList extends RO
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
     'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (3,1,2,4,5,19)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8,19))) AND PlatiOd <= 2024 AND PlatiDo >= 2024) AND IdTypOrg = 1 AND Modul = \'ZAV\'',
-    ],
-    ];
+  ],
+];
 
 
     /**
      * There is not ID
-     *
+     * 
      * @deprecated since version 1.24 - use getRecordCode() instead
      *
      * @return null company database name
      */
-    public function getRecordID()
-    {
+    public function getRecordID() {
         return null;
     }
 
     /**
      * @inheritDoc
      */
-    public function getRecordCode()
-    {
+    public function getRecordCode() {
         return $this->getDataValue('evidencePath');
     }
-}
+    }
