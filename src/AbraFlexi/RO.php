@@ -2655,11 +2655,11 @@ class RO extends \Ease\Sand
      * Uloží dokument v daném formátu do složky v systému souborů
      * Save document in given format to directory in filesystem
      *
-     * @param string  $format  pdf/csv/xml/json/ ...
-     * @param string  $destDir where to put file (prefix)
+     * @param string  $format     pdf/csv/xml/json/ ...
+     * @param string  $destDir    where to put file (prefix)
      * @param string  $reportName Template used to generate PDF
-     * @param string  $lang Requested Language
-     * @param boolean $sign download digital signed
+     * @param string  $lang       Requested Language
+     * @param boolean $sign       download digital signed
      *
      * @return string|null filename downloaded or none
      */
@@ -2670,7 +2670,7 @@ class RO extends \Ease\Sand
         $lang = null,
         $sign = false
     ) {
-        $downloadTo = $destDir . $this->getEvidence() . '_' . str_replace(['/',' ',':'], '_', $this->getRecordIdent()) . '.' . $format;
+        $downloadTo = $destDir . $this->getEvidence() . '_' . str_replace(['/',' ',':'], '_', strval($this->getRecordIdent())) . '.' . $format;
         $downloaded = $this->getInFormat($format, $reportName, $lang, $sign);
         return file_put_contents($downloadTo, $downloaded) ? $downloadTo : null;
     }
