@@ -46,7 +46,6 @@ class Priloha extends RW
 
     /**
      * Attach file
-     * Přilož Soubor
      *
      * @param string $filepath
      * @param array  $attachmentData
@@ -86,6 +85,7 @@ class Priloha extends RW
      * Obtain first attachment for given object
      *
      * @param  RO $object
+     * 
      * @return array
      */
     public static function getFirstAttachment($object)
@@ -202,10 +202,10 @@ class Priloha extends RW
         $attachment,
         $contentType
     ) {
-        $attached = new self();
+        $attached = new self(null, $object->getConnectionOptions());
         $attached->postFields = $attachment;
         $attached->defaultHttpHeaders['Content-Type'] = $contentType;
-        $url = $object->getAbraFlexiURL() . '/prilohy/new/' . $filename;
+        $url = $object->getEvidenceURL().'/'.$object->getRecordID() . '/prilohy/new/' . $filename;
         $response = $attached->performRequest($url, 'PUT');
         $attached->setMyKey($response[0]['id']);
         return $attached;
