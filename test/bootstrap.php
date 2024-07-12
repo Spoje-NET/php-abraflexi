@@ -1,17 +1,11 @@
 <?php
 
 /**
- * AbraFlexi - nastavení testů.
+ * AbraFlexi - Setup Testing.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2015-2023 Spoje.Net
+ * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
+ * @copyright  2015-2024 Spoje.Net
  */
-/**
- * Predefined server:One of:
- *
- * official|vitexsoftware|localhost
- */
-$testServer = '.env';
 
 include_once file_exists('../vendor/autoload.php') ? '../vendor/autoload.php' : 'vendor/autoload.php';
 
