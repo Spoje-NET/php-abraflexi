@@ -1757,7 +1757,7 @@ class RO extends \Ease\Sand
         $ignorestate = $this->ignore404();
         $this->ignore404(true);
         if (is_string($data) && preg_match('/^code:/', $data)) {
-            $keyColumn = 'kod';
+            $keyColumn = 'id';
         } else {
             $keyColumn = $this->getKeyColumn();
         }
