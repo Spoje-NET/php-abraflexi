@@ -1,4 +1,4 @@
-php-spojenet-abraflexi (2.25.3.161~jammy.162~jammy.163~jammy.166~jammy.167~jammy.168~jammy.169~jammy.170~jammy.171~jammy.173~jammy.174~jammy) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (2.25.3.161~jammy.162~jammy.163~jammy.166~jammy.167~jammy.168~jammy.169~jammy.170~jammy.171~jammy.173~jammy.174~jammy.177~jammy) UNRELEASED; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -75,8 +75,9 @@ php-spojenet-abraflexi (2.25.3.161~jammy.162~jammy.163~jammy.166~jammy.167~jammy
   * jenkins-Spoje.Net-php-spojenet-abraflexi-171
   * jenkins-Spoje.Net-php-spojenet-abraflexi-173
   * jenkins-Spoje.Net-php-spojenet-abraflexi-174
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-177
 
- -- vitex <jenkins@vyvojar.spoje.net>  Mon, 29 Jul 2024 13:58:55 +0000
+ -- vitex <jenkins@vyvojar.spoje.net>  Thu, 01 Aug 2024 15:22:05 +0000
 
 flexipeehp (1.12) experimental; urgency=medium
 
