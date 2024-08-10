@@ -548,7 +548,16 @@ class RW extends RO
     }
 
     /**
-     * Make Copy of given record with optional modifiactions
+     * Last operation was successfull ?
+     * 
+     * @return boolean
+     */
+    public function success(){
+        $this->curlInfo['http_method'] == 'POST' ? $this->lastResponseCode == 201 : parent::success();
+    }
+
+    /**
+     * Make Copy of given record with optional modifications
      *
      * !!!Experimental Feature!!!
      *
