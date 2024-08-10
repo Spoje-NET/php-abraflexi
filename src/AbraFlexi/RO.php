@@ -1311,6 +1311,21 @@ class RO extends \Ease\Sand
     }
 
     /**
+     * Return last response success status
+     * 
+     * @return boolean
+     */
+    public function success()
+    {
+        if($this->curlInfo['http_method'] == 'POST'){
+            $successCode = 201;
+        } else {
+            $successCode = 200;
+        }
+        return $this->lastResponseCode == $successCode;
+    }
+
+    /**
      * Obtain json for application/json
      *
      * @param string $contentType
