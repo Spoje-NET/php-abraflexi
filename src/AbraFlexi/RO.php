@@ -1293,6 +1293,7 @@ class RO extends \Ease\Sand
         $this->lastCurlResponse = curl_exec($this->curl);
         $this->curlInfo = curl_getinfo($this->curl);
         $this->curlInfo['when'] = microtime();
+        $this->curlInfo['http_method'] = $method;
         $this->responseFormat = $this->contentTypeToResponseFormat(strval($this->curlInfo['content_type']), $url);
         $this->lastResponseCode = $this->curlInfo['http_code'];
         $this->lastCurlError = curl_error($this->curl);

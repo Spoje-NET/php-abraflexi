@@ -2,7 +2,7 @@
     /**
      * @link https://demo.abraflexi.eu/c/demo/udalost/properties api udalost evidence
      */
-    class Udalost extends /AbraFlexi/RW
+    class Udalost extends RW
     {
         /**
          * Evidence užitá objektem.
