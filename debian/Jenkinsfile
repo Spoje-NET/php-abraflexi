@@ -33,9 +33,9 @@ distributions.each {
     node {
         ansiColor('xterm') {
             stage('Checkout ' + distribution) {
-            checkout scm
+                checkout scm
                 buildImage = docker.image(vendor + '/' + distribution)
-		sh 'git checkout debian/changelog'
+		sh 'git clean -f'
                 def VERSION = sh (
                     script: 'dpkg-parsechangelog --show-field Version',
                     returnStdout: true

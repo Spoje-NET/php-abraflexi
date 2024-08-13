@@ -21,7 +21,7 @@ class Relations
      *
      * @var string
      */
-    public static $version = '2024.5.1';
+    public static $version = '2024.5.3';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
