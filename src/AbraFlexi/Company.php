@@ -219,7 +219,7 @@ class Company extends RW
         $this->defaultHttpHeaders['Accept'] = '*/*';
         $this->defaultHttpHeaders['Content-Type'] = 'application/x-winstrom-backup';
         $this->setPostFields(file_get_contents($filename));
-        $this->performRequest('restore' . (empty($options) ? '' : '?' . http_build_query($options) ), 'PUT');
+        $this->performRequest('restore' . (empty($options) ? '' : '?' . http_build_query($options)), 'PUT');
         $this->defaultHttpHeaders = $headersBackup;
         return $this->lastResponseCode == 200;
     }

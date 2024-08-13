@@ -1,4 +1,16 @@
     <?php
+    
+declare(strict_types=1);
+
+/**
+ * AbraFlexi - Event Object.
+ *
+ * @author     Vítězslav Dvořák <vitex@arachne.cz>
+ * @copyright  (C) 2024 Spoje.Net
+ */
+
+namespace AbraFlexi;
+
     /**
      * @link https://demo.abraflexi.eu/c/demo/udalost/properties api udalost evidence
      */

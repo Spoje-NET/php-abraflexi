@@ -78,14 +78,14 @@ class Priloha extends RW
     {
         $urlParts = parse_url($object->apiURL);
         $pathParts = pathinfo($urlParts['path']);
-        return $urlParts['scheme'] . '://' . $urlParts['host'] . ( array_key_exists('port', $urlParts) ? ':' . $urlParts['port'] : '') . $pathParts['dirname'] . '/' . $pathParts['filename'] . '/content';
+        return $urlParts['scheme'] . '://' . $urlParts['host'] . (array_key_exists('port', $urlParts) ? ':' . $urlParts['port'] : '') . $pathParts['dirname'] . '/' . $pathParts['filename'] . '/content';
     }
 
     /**
      * Obtain first attachment for given object
      *
      * @param  RO $object
-     * 
+     *
      * @return array
      */
     public static function getFirstAttachment($object)

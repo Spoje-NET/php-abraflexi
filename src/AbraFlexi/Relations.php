@@ -21,14 +21,14 @@ class Relations
      *
      * @var string
      */
- static public $version = '2024.5.1';
+    public static $version = '2024.5.1';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
      *
      * @var array
      */
- static public $adresar = [
+    public static $adresar = [
   'odberatele' => [
     'url' => 'odberatele',
     'evidenceType' => 'ODBERATEL',
@@ -95,7 +95,7 @@ class Relations
      *
      * @var array
      */
- static public $atribut = [
+    public static $atribut = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -107,7 +107,7 @@ class Relations
      *
      * @var array
      */
- static public $autotisk = [
+    public static $autotisk = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -119,7 +119,7 @@ class Relations
      *
      * @var array
      */
- static public $banka = [
+    public static $banka = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -166,7 +166,7 @@ class Relations
      *
      * @var array
      */
- static public $adresarBankovniUcet = [
+    public static $adresarBankovniUcet = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -178,7 +178,7 @@ class Relations
      *
      * @var array
      */
- static public $bankovniUcetPokladna = [
+    public static $bankovniUcetPokladna = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -190,7 +190,7 @@ class Relations
      *
      * @var array
      */
- static public $bankovniUcetSkladPokladna = [
+    public static $bankovniUcetSkladPokladna = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -202,7 +202,7 @@ class Relations
      *
      * @var array
      */
- static public $cenovaUroven = [
+    public static $cenovaUroven = [
   'firmy' => [
     'url' => 'firmy',
     'evidenceType' => 'ADRESAR',
@@ -234,7 +234,7 @@ class Relations
      *
      * @var array
      */
- static public $odberatel = [
+    public static $odberatel = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -246,7 +246,7 @@ class Relations
      *
      * @var array
      */
- static public $cenik = [
+    public static $cenik = [
   'odberatele' => [
     'url' => 'odberatele',
     'evidenceType' => 'ODBERATEL',
@@ -338,7 +338,7 @@ class Relations
      *
      * @var array
      */
- static public $cenikovaSkupina = [
+    public static $cenikovaSkupina = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -350,7 +350,7 @@ class Relations
      *
      * @var array
      */
- static public $certifikacniAutorita = [
+    public static $certifikacniAutorita = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -362,7 +362,7 @@ class Relations
      *
      * @var array
      */
- static public $certifikat = [
+    public static $certifikat = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -374,7 +374,7 @@ class Relations
      *
      * @var array
      */
- static public $danovyNaklad = [
+    public static $danovyNaklad = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -386,7 +386,7 @@ class Relations
      *
      * @var array
      */
- static public $danovyOdpis = [
+    public static $danovyOdpis = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -398,7 +398,7 @@ class Relations
      *
      * @var array
      */
- static public $intrastatDodaciPodminky = [
+    public static $intrastatDodaciPodminky = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -410,7 +410,7 @@ class Relations
      *
      * @var array
      */
- static public $dodavatelskaSmlouva = [
+    public static $dodavatelskaSmlouva = [
   'polozkySmlouvy' => [
     'url' => 'polozkySmlouvy',
     'evidenceType' => 'SMLOUVA_POLOZKA',
@@ -442,7 +442,7 @@ class Relations
      *
      * @var array
      */
- static public $dodavatel = [
+    public static $dodavatel = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -454,7 +454,7 @@ class Relations
      *
      * @var array
      */
- static public $radaBanka = [
+    public static $radaBanka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -471,7 +471,7 @@ class Relations
      *
      * @var array
      */
- static public $radaInternihoDokladu = [
+    public static $radaInternihoDokladu = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -488,7 +488,7 @@ class Relations
      *
      * @var array
      */
- static public $radaPohledavky = [
+    public static $radaPohledavky = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -505,7 +505,7 @@ class Relations
      *
      * @var array
      */
- static public $radaPokladniPohyb = [
+    public static $radaPokladniPohyb = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -522,7 +522,7 @@ class Relations
      *
      * @var array
      */
- static public $radaFakturyPrijate = [
+    public static $radaFakturyPrijate = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -539,7 +539,7 @@ class Relations
      *
      * @var array
      */
- static public $radaNabidkyPrijate = [
+    public static $radaNabidkyPrijate = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -556,7 +556,7 @@ class Relations
      *
      * @var array
      */
- static public $radaObjednavkyPrijate = [
+    public static $radaObjednavkyPrijate = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -573,7 +573,7 @@ class Relations
      *
      * @var array
      */
- static public $radaPoptavkyPrijate = [
+    public static $radaPoptavkyPrijate = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -590,7 +590,7 @@ class Relations
      *
      * @var array
      */
- static public $radaSkladovyPohyb = [
+    public static $radaSkladovyPohyb = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -607,7 +607,7 @@ class Relations
      *
      * @var array
      */
- static public $radaFakturyVydane = [
+    public static $radaFakturyVydane = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -624,7 +624,7 @@ class Relations
      *
      * @var array
      */
- static public $radaNabidkyVydane = [
+    public static $radaNabidkyVydane = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -641,7 +641,7 @@ class Relations
      *
      * @var array
      */
- static public $radaObjednavkyVydane = [
+    public static $radaObjednavkyVydane = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -658,7 +658,7 @@ class Relations
      *
      * @var array
      */
- static public $radaPoptavkyVydane = [
+    public static $radaPoptavkyVydane = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -675,7 +675,7 @@ class Relations
      *
      * @var array
      */
- static public $radaZavazku = [
+    public static $radaZavazku = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -692,7 +692,7 @@ class Relations
      *
      * @var array
      */
- static public $dokladKUhrade = [
+    public static $dokladKUhrade = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -724,7 +724,7 @@ class Relations
      *
      * @var array
      */
- static public $intrastatDruhDopravy = [
+    public static $intrastatDruhDopravy = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -736,7 +736,7 @@ class Relations
      *
      * @var array
      */
- static public $cenikObal = [
+    public static $cenikObal = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -748,7 +748,7 @@ class Relations
      *
      * @var array
      */
- static public $formaDopravy = [
+    public static $formaDopravy = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -760,7 +760,7 @@ class Relations
      *
      * @var array
      */
- static public $formaUhrady = [
+    public static $formaUhrady = [
   'zauctovani' => [
     'url' => 'zauctovani',
     'evidenceType' => 'FORMA_UHRADY_ZAUCTOVANI',
@@ -777,7 +777,7 @@ class Relations
      *
      * @var array
      */
- static public $insight = [
+    public static $insight = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -789,7 +789,7 @@ class Relations
      *
      * @var array
      */
- static public $interniDoklad = [
+    public static $interniDoklad = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -826,7 +826,7 @@ class Relations
      *
      * @var array
      */
- static public $inventura = [
+    public static $inventura = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -843,7 +843,7 @@ class Relations
      *
      * @var array
      */
- static public $certifikatFinbricks = [
+    public static $certifikatFinbricks = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -855,7 +855,7 @@ class Relations
      *
      * @var array
      */
- static public $konstSymbol = [
+    public static $konstSymbol = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -867,7 +867,7 @@ class Relations
      *
      * @var array
      */
- static public $kontakt = [
+    public static $kontakt = [
   'prilohy' => [
     'url' => 'prilohy',
     'evidenceType' => 'PRILOHA',
@@ -889,7 +889,7 @@ class Relations
      *
      * @var array
      */
- static public $intrastatKrajUrceni = [
+    public static $intrastatKrajUrceni = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -901,7 +901,7 @@ class Relations
      *
      * @var array
      */
- static public $kurz = [
+    public static $kurz = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -913,7 +913,7 @@ class Relations
      *
      * @var array
      */
- static public $intrastatKurz = [
+    public static $intrastatKurz = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -925,7 +925,7 @@ class Relations
      *
      * @var array
      */
- static public $kurzProCenotvorbu = [
+    public static $kurzProCenotvorbu = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -937,7 +937,7 @@ class Relations
      *
      * @var array
      */
- static public $kurzProPreceneni = [
+    public static $kurzProPreceneni = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -949,7 +949,7 @@ class Relations
      *
      * @var array
      */
- static public $kusovnik = [
+    public static $kusovnik = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -961,7 +961,7 @@ class Relations
      *
      * @var array
      */
- static public $intrastatKodNomenklatury = [
+    public static $intrastatKodNomenklatury = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -973,7 +973,7 @@ class Relations
      *
      * @var array
      */
- static public $leasing = [
+    public static $leasing = [
   'splatkove-kalendare' => [
     'url' => 'splatkove-kalendare',
     'evidenceType' => 'SPLATKOVY_KALENDAR',
@@ -1005,7 +1005,7 @@ class Relations
      *
      * @var array
      */
- static public $majetek = [
+    public static $majetek = [
   'danove-odpisy' => [
     'url' => 'danove-odpisy',
     'evidenceType' => 'DANOVY_ODPIS',
@@ -1042,7 +1042,7 @@ class Relations
      *
      * @var array
      */
- static public $mapovaniSkladu = [
+    public static $mapovaniSkladu = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1054,7 +1054,7 @@ class Relations
      *
      * @var array
      */
- static public $mistoUrceni = [
+    public static $mistoUrceni = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1066,7 +1066,7 @@ class Relations
      *
      * @var array
      */
- static public $mena = [
+    public static $mena = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1083,7 +1083,7 @@ class Relations
      *
      * @var array
      */
- static public $intrastatMernaJednotka = [
+    public static $intrastatMernaJednotka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1095,7 +1095,7 @@ class Relations
      *
      * @var array
      */
- static public $mernaJednotka = [
+    public static $mernaJednotka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1107,7 +1107,7 @@ class Relations
      *
      * @var array
      */
- static public $naklad = [
+    public static $naklad = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1119,7 +1119,7 @@ class Relations
      *
      * @var array
      */
- static public $intrastatObchodniTransakce = [
+    public static $intrastatObchodniTransakce = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1131,7 +1131,7 @@ class Relations
      *
      * @var array
      */
- static public $smlouva = [
+    public static $smlouva = [
   'polozkySmlouvy' => [
     'url' => 'polozkySmlouvy',
     'evidenceType' => 'SMLOUVA_POLOZKA',
@@ -1163,7 +1163,7 @@ class Relations
      *
      * @var array
      */
- static public $odpisovaSkupina = [
+    public static $odpisovaSkupina = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1175,7 +1175,7 @@ class Relations
      *
      * @var array
      */
- static public $uzivatel = [
+    public static $uzivatel = [
   'udalosti' => [
     'url' => 'udalosti',
     'evidenceType' => 'ADR_UDALOST',
@@ -1192,7 +1192,7 @@ class Relations
      *
      * @var array
      */
- static public $pohledavka = [
+    public static $pohledavka = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -1229,7 +1229,7 @@ class Relations
      *
      * @var array
      */
- static public $zavazek = [
+    public static $zavazek = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -1266,7 +1266,7 @@ class Relations
      *
      * @var array
      */
- static public $uzivatelskyDotazParametr = [
+    public static $uzivatelskyDotazParametr = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1278,7 +1278,7 @@ class Relations
      *
      * @var array
      */
- static public $penezniUstav = [
+    public static $penezniUstav = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1290,7 +1290,7 @@ class Relations
      *
      * @var array
      */
- static public $podobneZbozi = [
+    public static $podobneZbozi = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1302,7 +1302,7 @@ class Relations
      *
      * @var array
      */
- static public $pokladniPohyb = [
+    public static $pokladniPohyb = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -1349,7 +1349,7 @@ class Relations
      *
      * @var array
      */
- static public $parametr = [
+    public static $parametr = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1361,7 +1361,7 @@ class Relations
      *
      * @var array
      */
- static public $prikazKInkasuPolozka = [
+    public static $prikazKInkasuPolozka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1373,7 +1373,7 @@ class Relations
      *
      * @var array
      */
- static public $prikazKUhradePolozka = [
+    public static $prikazKUhradePolozka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1385,7 +1385,7 @@ class Relations
      *
      * @var array
      */
- static public $interniDokladPolozka = [
+    public static $interniDokladPolozka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1397,7 +1397,7 @@ class Relations
      *
      * @var array
      */
- static public $inventuraPolozka = [
+    public static $inventuraPolozka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1409,7 +1409,7 @@ class Relations
      *
      * @var array
      */
- static public $pohledavkaPolozka = [
+    public static $pohledavkaPolozka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1421,7 +1421,7 @@ class Relations
      *
      * @var array
      */
- static public $zavazekPolozka = [
+    public static $zavazekPolozka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1433,7 +1433,7 @@ class Relations
      *
      * @var array
      */
- static public $pokladniPohybPolozka = [
+    public static $pokladniPohybPolozka = [
   'vyrobniCislaVydana' => [
     'url' => 'vyrobniCislaVydana',
     'evidenceType' => 'VYROBNI_CISLA',
@@ -1455,7 +1455,7 @@ class Relations
      *
      * @var array
      */
- static public $nabidkaPrijataPolozka = [
+    public static $nabidkaPrijataPolozka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1467,7 +1467,7 @@ class Relations
      *
      * @var array
      */
- static public $objednavkaPrijataPolozka = [
+    public static $objednavkaPrijataPolozka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1479,7 +1479,7 @@ class Relations
      *
      * @var array
      */
- static public $fakturaPrijataPolozka = [
+    public static $fakturaPrijataPolozka = [
   'vyrobniCislaVydana' => [
     'url' => 'vyrobniCislaVydana',
     'evidenceType' => 'VYROBNI_CISLA',
@@ -1501,7 +1501,7 @@ class Relations
      *
      * @var array
      */
- static public $poptavkaPrijataPolozka = [
+    public static $poptavkaPrijataPolozka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1513,7 +1513,7 @@ class Relations
      *
      * @var array
      */
- static public $skladovyPohybPolozka = [
+    public static $skladovyPohybPolozka = [
   'vyrobniCislaVydana' => [
     'url' => 'vyrobniCislaVydana',
     'evidenceType' => 'VYROBNI_CISLA',
@@ -1535,7 +1535,7 @@ class Relations
      *
      * @var array
      */
- static public $smlouvaPolozka = [
+    public static $smlouvaPolozka = [
   'prilohy' => [
     'url' => 'prilohy',
     'evidenceType' => 'PRILOHA',
@@ -1557,7 +1557,7 @@ class Relations
      *
      * @var array
      */
- static public $nabidkaVydanaPolozka = [
+    public static $nabidkaVydanaPolozka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1569,7 +1569,7 @@ class Relations
      *
      * @var array
      */
- static public $objednavkaVydanaPolozka = [
+    public static $objednavkaVydanaPolozka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1581,7 +1581,7 @@ class Relations
      *
      * @var array
      */
- static public $poptavkaVydanaPolozka = [
+    public static $poptavkaVydanaPolozka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1593,7 +1593,7 @@ class Relations
      *
      * @var array
      */
- static public $fakturaVydanaPolozka = [
+    public static $fakturaVydanaPolozka = [
   'vyrobniCislaVydana' => [
     'url' => 'vyrobniCislaVydana',
     'evidenceType' => 'VYROBNI_CISLA',
@@ -1615,7 +1615,7 @@ class Relations
      *
      * @var array
      */
- static public $bankaPolozka = [
+    public static $bankaPolozka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1627,7 +1627,7 @@ class Relations
      *
      * @var array
      */
- static public $poplatek = [
+    public static $poplatek = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1639,7 +1639,7 @@ class Relations
      *
      * @var array
      */
- static public $psc = [
+    public static $psc = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1651,7 +1651,7 @@ class Relations
      *
      * @var array
      */
- static public $prodejka = [
+    public static $prodejka = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -1703,7 +1703,7 @@ class Relations
      *
      * @var array
      */
- static public $text = [
+    public static $text = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1715,7 +1715,7 @@ class Relations
      *
      * @var array
      */
- static public $predpisZauctovani = [
+    public static $predpisZauctovani = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1727,7 +1727,7 @@ class Relations
      *
      * @var array
      */
- static public $fakturaPrijata = [
+    public static $fakturaPrijata = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -1774,7 +1774,7 @@ class Relations
      *
      * @var array
      */
- static public $nabidkaPrijata = [
+    public static $nabidkaPrijata = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -1811,7 +1811,7 @@ class Relations
      *
      * @var array
      */
- static public $objednavkaPrijata = [
+    public static $objednavkaPrijata = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -1848,7 +1848,7 @@ class Relations
      *
      * @var array
      */
- static public $poptavkaPrijata = [
+    public static $poptavkaPrijata = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -1885,7 +1885,7 @@ class Relations
      *
      * @var array
      */
- static public $skladovyPohyb = [
+    public static $skladovyPohyb = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -1922,7 +1922,7 @@ class Relations
      *
      * @var array
      */
- static public $prikazKInkasu = [
+    public static $prikazKInkasu = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1939,7 +1939,7 @@ class Relations
      *
      * @var array
      */
- static public $prikazKUhrade = [
+    public static $prikazKUhrade = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1956,7 +1956,7 @@ class Relations
      *
      * @var array
      */
- static public $priloha = [
+    public static $priloha = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1968,7 +1968,7 @@ class Relations
      *
      * @var array
      */
- static public $prislustenstvi = [
+    public static $prislustenstvi = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1980,7 +1980,7 @@ class Relations
      *
      * @var array
      */
- static public $rezervace = [
+    public static $rezervace = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1992,7 +1992,7 @@ class Relations
      *
      * @var array
      */
- static public $rocniRada = [
+    public static $rocniRada = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2004,7 +2004,7 @@ class Relations
      *
      * @var array
      */
- static public $sadyAKomplety = [
+    public static $sadyAKomplety = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2016,7 +2016,7 @@ class Relations
      *
      * @var array
      */
- static public $sazbaDph = [
+    public static $sazbaDph = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2028,7 +2028,7 @@ class Relations
      *
      * @var array
      */
- static public $dashboardSharing = [
+    public static $dashboardSharing = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2040,7 +2040,7 @@ class Relations
      *
      * @var array
      */
- static public $bankovniUcet = [
+    public static $bankovniUcet = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2052,7 +2052,7 @@ class Relations
      *
      * @var array
      */
- static public $pokladna = [
+    public static $pokladna = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2064,7 +2064,7 @@ class Relations
      *
      * @var array
      */
- static public $typProdejky = [
+    public static $typProdejky = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2081,7 +2081,7 @@ class Relations
      *
      * @var array
      */
- static public $sestava = [
+    public static $sestava = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2108,7 +2108,7 @@ class Relations
      *
      * @var array
      */
- static public $sklad = [
+    public static $sklad = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2120,7 +2120,7 @@ class Relations
      *
      * @var array
      */
- static public $preneseniDph = [
+    public static $preneseniDph = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2132,7 +2132,7 @@ class Relations
      *
      * @var array
      */
- static public $skladovaKarta = [
+    public static $skladovaKarta = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2149,7 +2149,7 @@ class Relations
      *
      * @var array
      */
- static public $skupinaAtributu = [
+    public static $skupinaAtributu = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2161,7 +2161,7 @@ class Relations
      *
      * @var array
      */
- static public $skupinaFirem = [
+    public static $skupinaFirem = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2173,7 +2173,7 @@ class Relations
      *
      * @var array
      */
- static public $skupinaPlneni = [
+    public static $skupinaPlneni = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2185,7 +2185,7 @@ class Relations
      *
      * @var array
      */
- static public $skupinaZbozi = [
+    public static $skupinaZbozi = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2197,7 +2197,7 @@ class Relations
      *
      * @var array
      */
- static public $skupinaStitku = [
+    public static $skupinaStitku = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2209,7 +2209,7 @@ class Relations
      *
      * @var array
      */
- static public $splatkovyKalendar = [
+    public static $splatkovyKalendar = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2221,7 +2221,7 @@ class Relations
      *
      * @var array
      */
- static public $dashboardPanel = [
+    public static $dashboardPanel = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2233,7 +2233,7 @@ class Relations
      *
      * @var array
      */
- static public $standardniPredpis = [
+    public static $standardniPredpis = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2245,7 +2245,7 @@ class Relations
      *
      * @var array
      */
- static public $ucetniOsnova = [
+    public static $ucetniOsnova = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2257,7 +2257,7 @@ class Relations
      *
      * @var array
      */
- static public $stavObchodnihoDokladu = [
+    public static $stavObchodnihoDokladu = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2269,7 +2269,7 @@ class Relations
      *
      * @var array
      */
- static public $stavSmlouvy = [
+    public static $stavSmlouvy = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2281,7 +2281,7 @@ class Relations
      *
      * @var array
      */
- static public $stavZakazky = [
+    public static $stavZakazky = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2293,7 +2293,7 @@ class Relations
      *
      * @var array
      */
- static public $stat = [
+    public static $stat = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2305,7 +2305,7 @@ class Relations
      *
      * @var array
      */
- static public $stredisko = [
+    public static $stredisko = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2317,7 +2317,7 @@ class Relations
      *
      * @var array
      */
- static public $subjekt = [
+    public static $subjekt = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2329,7 +2329,7 @@ class Relations
      *
      * @var array
      */
- static public $sumaceSestavy = [
+    public static $sumaceSestavy = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2341,7 +2341,7 @@ class Relations
      *
      * @var array
      */
- static public $cenikTypSazbyDph = [
+    public static $cenikTypSazbyDph = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2353,7 +2353,7 @@ class Relations
      *
      * @var array
      */
- static public $typAtributu = [
+    public static $typAtributu = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2365,7 +2365,7 @@ class Relations
      *
      * @var array
      */
- static public $typBanka = [
+    public static $typBanka = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2382,7 +2382,7 @@ class Relations
      *
      * @var array
      */
- static public $dodavatelskyTypSmlouvy = [
+    public static $dodavatelskyTypSmlouvy = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2394,7 +2394,7 @@ class Relations
      *
      * @var array
      */
- static public $typDokladu = [
+    public static $typDokladu = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2411,7 +2411,7 @@ class Relations
      *
      * @var array
      */
- static public $typInternihoDokladu = [
+    public static $typInternihoDokladu = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2428,7 +2428,7 @@ class Relations
      *
      * @var array
      */
- static public $typLeasingu = [
+    public static $typLeasingu = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2440,7 +2440,7 @@ class Relations
      *
      * @var array
      */
- static public $typMajetku = [
+    public static $typMajetku = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2452,7 +2452,7 @@ class Relations
      *
      * @var array
      */
- static public $typNakladu = [
+    public static $typNakladu = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2464,7 +2464,7 @@ class Relations
      *
      * @var array
      */
- static public $typSmlouvy = [
+    public static $typSmlouvy = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2476,7 +2476,7 @@ class Relations
      *
      * @var array
      */
- static public $typPohledavky = [
+    public static $typPohledavky = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2493,7 +2493,7 @@ class Relations
      *
      * @var array
      */
- static public $typZavazku = [
+    public static $typZavazku = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2510,7 +2510,7 @@ class Relations
      *
      * @var array
      */
- static public $typPokladniPohyb = [
+    public static $typPokladniPohyb = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2527,7 +2527,7 @@ class Relations
      *
      * @var array
      */
- static public $typFakturyPrijate = [
+    public static $typFakturyPrijate = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2544,7 +2544,7 @@ class Relations
      *
      * @var array
      */
- static public $typNabidkyPrijate = [
+    public static $typNabidkyPrijate = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2561,7 +2561,7 @@ class Relations
      *
      * @var array
      */
- static public $typObjednavkyPrijate = [
+    public static $typObjednavkyPrijate = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2578,7 +2578,7 @@ class Relations
      *
      * @var array
      */
- static public $typPoptavkyPrijate = [
+    public static $typPoptavkyPrijate = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2595,7 +2595,7 @@ class Relations
      *
      * @var array
      */
- static public $typSkladovyPohyb = [
+    public static $typSkladovyPohyb = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2612,7 +2612,7 @@ class Relations
      *
      * @var array
      */
- static public $typAktivity = [
+    public static $typAktivity = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2624,7 +2624,7 @@ class Relations
      *
      * @var array
      */
- static public $typUzivatelskeVazby = [
+    public static $typUzivatelskeVazby = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2636,7 +2636,7 @@ class Relations
      *
      * @var array
      */
- static public $typFakturyVydane = [
+    public static $typFakturyVydane = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2653,7 +2653,7 @@ class Relations
      *
      * @var array
      */
- static public $typNabidkyVydane = [
+    public static $typNabidkyVydane = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2670,7 +2670,7 @@ class Relations
      *
      * @var array
      */
- static public $typObjednavkyVydane = [
+    public static $typObjednavkyVydane = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2687,7 +2687,7 @@ class Relations
      *
      * @var array
      */
- static public $typPoptavkyVydane = [
+    public static $typPoptavkyVydane = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2704,7 +2704,7 @@ class Relations
      *
      * @var array
      */
- static public $typZakazky = [
+    public static $typZakazky = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2716,7 +2716,7 @@ class Relations
      *
      * @var array
      */
- static public $typVzajemnychZapoctu = [
+    public static $typVzajemnychZapoctu = [
   'autoTisky' => [
     'url' => 'autoTisky',
     'evidenceType' => 'AUTOTISK',
@@ -2733,7 +2733,7 @@ class Relations
      *
      * @var array
      */
- static public $majetekUdalost = [
+    public static $majetekUdalost = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2745,7 +2745,7 @@ class Relations
      *
      * @var array
      */
- static public $udalost = [
+    public static $udalost = [
   'prilohy' => [
     'url' => 'prilohy',
     'evidenceType' => 'PRILOHA',
@@ -2772,7 +2772,7 @@ class Relations
      *
      * @var array
      */
- static public $ulozenePriznaniDph = [
+    public static $ulozenePriznaniDph = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2784,7 +2784,7 @@ class Relations
      *
      * @var array
      */
- static public $radekPriznaniDph = [
+    public static $radekPriznaniDph = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2796,7 +2796,7 @@ class Relations
      *
      * @var array
      */
- static public $umisteni = [
+    public static $umisteni = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2808,7 +2808,7 @@ class Relations
      *
      * @var array
      */
- static public $umisteniVeSkladu = [
+    public static $umisteniVeSkladu = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2820,7 +2820,7 @@ class Relations
      *
      * @var array
      */
- static public $umisteniVeSkladuRegal = [
+    public static $umisteniVeSkladuRegal = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2832,7 +2832,7 @@ class Relations
      *
      * @var array
      */
- static public $umisteniVeSkladuPolice = [
+    public static $umisteniVeSkladuPolice = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2844,7 +2844,7 @@ class Relations
      *
      * @var array
      */
- static public $umisteniVeSkladuMistnost = [
+    public static $umisteniVeSkladuMistnost = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2856,7 +2856,7 @@ class Relations
      *
      * @var array
      */
- static public $sablonaUpominky = [
+    public static $sablonaUpominky = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2868,7 +2868,7 @@ class Relations
      *
      * @var array
      */
- static public $strom = [
+    public static $strom = [
   'prilohy' => [
     'url' => 'prilohy',
     'evidenceType' => 'PRILOHA',
@@ -2880,7 +2880,7 @@ class Relations
      *
      * @var array
      */
- static public $uzivatelskyDotaz = [
+    public static $uzivatelskyDotaz = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2902,7 +2902,7 @@ class Relations
      *
      * @var array
      */
- static public $sablonaMail = [
+    public static $sablonaMail = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2914,7 +2914,7 @@ class Relations
      *
      * @var array
      */
- static public $filtr = [
+    public static $filtr = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2926,7 +2926,7 @@ class Relations
      *
      * @var array
      */
- static public $customButton = [
+    public static $customButton = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2938,7 +2938,7 @@ class Relations
      *
      * @var array
      */
- static public $xslt = [
+    public static $xslt = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2950,7 +2950,7 @@ class Relations
      *
      * @var array
      */
- static public $uzivatelskyDotazVlastnost = [
+    public static $uzivatelskyDotazVlastnost = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2962,7 +2962,7 @@ class Relations
      *
      * @var array
      */
- static public $fakturaVydana = [
+    public static $fakturaVydana = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -3009,7 +3009,7 @@ class Relations
      *
      * @var array
      */
- static public $nabidkaVydana = [
+    public static $nabidkaVydana = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -3046,7 +3046,7 @@ class Relations
      *
      * @var array
      */
- static public $objednavkaVydana = [
+    public static $objednavkaVydana = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -3083,7 +3083,7 @@ class Relations
      *
      * @var array
      */
- static public $poptavkaVydana = [
+    public static $poptavkaVydana = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -3120,7 +3120,7 @@ class Relations
      *
      * @var array
      */
- static public $hodnoceniZakazky = [
+    public static $hodnoceniZakazky = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -3132,7 +3132,7 @@ class Relations
      *
      * @var array
      */
- static public $vzajemnyZapocet = [
+    public static $vzajemnyZapocet = [
   'vazebni-doklady' => [
     'url' => 'vazebni-doklady',
     'evidenceType' => 'VAZEBNI_DOKLAD',
@@ -3169,7 +3169,7 @@ class Relations
      *
      * @var array
      */
- static public $zakazka = [
+    public static $zakazka = [
   'prilohy' => [
     'url' => 'prilohy',
     'evidenceType' => 'PRILOHA',
@@ -3191,7 +3191,7 @@ class Relations
      *
      * @var array
      */
- static public $formaUhradyZauctovani = [
+    public static $formaUhradyZauctovani = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -3203,7 +3203,7 @@ class Relations
      *
      * @var array
      */
- static public $intrastatZvlastniPohyb = [
+    public static $intrastatZvlastniPohyb = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -3215,7 +3215,7 @@ class Relations
      *
      * @var array
      */
- static public $zalohaKOdpoctu = [
+    public static $zalohaKOdpoctu = [
   'doporuceni' => [
     'url' => 'doporuceni',
     'evidenceType' => 'DOPORUCENI',
@@ -3227,7 +3227,7 @@ class Relations
      *
      * @var array
      */
- static public $zapujcka = [
+    public static $zapujcka = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -3239,7 +3239,7 @@ class Relations
      *
      * @var array
      */
- static public $rada = [
+    public static $rada = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -3256,7 +3256,7 @@ class Relations
      *
      * @var array
      */
- static public $ucetniOdpis = [
+    public static $ucetniOdpis = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -3268,7 +3268,7 @@ class Relations
      *
      * @var array
      */
- static public $ucet = [
+    public static $ucet = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -3280,7 +3280,7 @@ class Relations
      *
      * @var array
      */
- static public $cinnost = [
+    public static $cinnost = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -3292,7 +3292,7 @@ class Relations
      *
      * @var array
      */
- static public $typStavuCeniku = [
+    public static $typStavuCeniku = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -3309,7 +3309,7 @@ class Relations
      *
      * @var array
      */
- static public $stavCeniku = [
+    public static $stavCeniku = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -3326,7 +3326,7 @@ class Relations
      *
      * @var array
      */
- static public $cisloBaliku = [
+    public static $cisloBaliku = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -3338,7 +3338,7 @@ class Relations
      *
      * @var array
      */
- static public $radekSestavy = [
+    public static $radekSestavy = [
   'stdPredpisy' => [
     'url' => 'stdPredpisy',
     'evidenceType' => 'STD_PREDPIS_SESTAVY',
@@ -3360,7 +3360,7 @@ class Relations
      *
      * @var array
      */
- static public $cleneniKontrolniHlaseni = [
+    public static $cleneniKontrolniHlaseni = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -3372,7 +3372,7 @@ class Relations
      *
      * @var array
      */
- static public $cleneniDph = [
+    public static $cleneniDph = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -3384,7 +3384,7 @@ class Relations
      *
      * @var array
      */
- static public $stitek = [
+    public static $stitek = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',

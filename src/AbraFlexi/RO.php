@@ -449,7 +449,7 @@ class RO extends \Ease\Sand
      */
     public function setObjectName($objectName = null)
     {
-        return parent::setObjectName(is_null($objectName) ? ( empty($this->getRecordIdent()) ? $this->getObjectName() : $this->getRecordIdent() . '@' . $this->getObjectName() ) : $objectName);
+        return parent::setObjectName(is_null($objectName) ? (empty($this->getRecordIdent()) ? $this->getObjectName() : $this->getRecordIdent() . '@' . $this->getObjectName()) : $objectName);
     }
 
     /**
@@ -651,6 +651,7 @@ class RO extends \Ease\Sand
             case 'kod':
                 $value = $value ? self::uncode($value) : ''; //Alwyas uncode "kod" column
 
+                // no break
             default:
                 if (is_object($value)) {
                     switch (get_class($value)) {
@@ -1212,6 +1213,7 @@ class RO extends \Ease\Sand
                 if ($this->debug === true) {
                     $this->error500Reporter($responseDecoded);
                 }
+                // no break
             case 401:
                 $msg = (array_key_exists('message', $responseDecoded) ? $responseDecoded['message'] : $responseDecoded[key($responseDecoded)]['message']) . ' for ' . $this->getApiURL();
                 $this->addStatusMessage($msg, 'error');
@@ -1223,6 +1225,7 @@ class RO extends \Ease\Sand
                 if ($this->ignoreNotFound === true) {
                     break;
                 }
+                // no break
             case 400: //Bad Request parameters
             default: //Something goes wrong
                 if (!empty($responseDecoded) && is_array($responseDecoded)) {
@@ -1230,7 +1233,7 @@ class RO extends \Ease\Sand
                 }
                 if ($this->throwException) {
                     $errors = $this->getErrors();
-                    throw new Exception(empty($errors) ? 'Problem ' : (is_array($errors[0]) ? $errors[0]['message'] : $errors[0] ), $this);
+                    throw new Exception(empty($errors) ? 'Problem ' : (is_array($errors[0]) ? $errors[0]['message'] : $errors[0]), $this);
                 } else {
                     $this->addStatusMessage($this->lastResponseCode . ': ' . $this->curlInfo['url'] . ' (' . $this->format . ') ' . json_encode($this->getErrors()), 'warning');
                 }
@@ -1272,9 +1275,9 @@ class RO extends \Ease\Sand
             $format = $this->format;
         }
         curl_setopt($this->curl, CURLOPT_URL, $url);
-// Nastavení samotné operace
+        // Nastavení samotné operace
         curl_setopt($this->curl, CURLOPT_CUSTOMREQUEST, strtoupper($method));
-//Vždy nastavíme byť i prázná postdata jako ochranu před chybou 411
+        //Vždy nastavíme byť i prázná postdata jako ochranu před chybou 411
         curl_setopt($this->curl, CURLOPT_POSTFIELDS, $this->postFields);
         $httpHeaders = $this->defaultHttpHeaders;
         $formats = Formats::bySuffix();
@@ -1289,7 +1292,7 @@ class RO extends \Ease\Sand
             $value = $header . ': ' . $value;
         });
         curl_setopt($this->curl, CURLOPT_HTTPHEADER, $httpHeaders);
-// Proveď samotnou operaci
+        // Proveď samotnou operaci
         $this->lastCurlResponse = curl_exec($this->curl);
         $this->curlInfo = curl_getinfo($this->curl);
         $this->curlInfo['when'] = microtime();
@@ -1313,7 +1316,7 @@ class RO extends \Ease\Sand
 
     /**
      * Return last response success status
-     * 
+     *
      * @return boolean
      */
     public function success()
@@ -1341,7 +1344,7 @@ class RO extends \Ease\Sand
             strpos($contentType, ';')
         ) : $contentType;
         switch ($url) {
-            case '/login-logout/login';
+            case '/login-logout/login':
                 $responseFormat = 'json';
                 break;
             default:
@@ -1527,7 +1530,7 @@ class RO extends \Ease\Sand
                 $finalUrl .= '?';
             }
             $finalUrl .= http_build_query(array_map(function ($a) {
-                        return is_bool($a) ? ($a ? 'true' : 'false' ) : $a;
+                return is_bool($a) ? ($a ? 'true' : 'false') : $a;
             }, $urlParams), '', '&', PHP_QUERY_RFC3986);
         }
 
@@ -1776,7 +1779,7 @@ class RO extends \Ease\Sand
             [$keyColumn],
             is_array($data) ? $data : [$keyColumn => $data]
         );
-        if (empty($res) || (isset($res['success']) && ($res['success'] == 'false')) || ((isset($res) && is_array($res)) && !isset($res[0]) )) {
+        if (empty($res) || (isset($res['success']) && ($res['success'] == 'false')) || ((isset($res) && is_array($res)) && !isset($res[0]))) {
             $found = false;
         } else {
             $found = true;
@@ -1825,6 +1828,7 @@ class RO extends \Ease\Sand
         switch (gettype($columnsList)) {
             case 'integer': //Record ID
                 $conditions = [$this->getmyKeyColumn() => $conditions];
+                // no break
             case 'array': //Few Conditions
                 if (
                         !is_null($indexBy) && !array_key_exists(
@@ -1836,6 +1840,7 @@ class RO extends \Ease\Sand
                 }
                 $columns = implode(',', array_unique($columnsList));
                 $detail = 'custom:' . $columns;
+                // no break
             default:
                 switch ($columnsList) {
                     case 'id':
@@ -2211,7 +2216,7 @@ class RO extends \Ease\Sand
     public function getApiURL($format = null)
     {
         $apiUrl = str_replace(['.' . $this->format, '?limit=0'], '', $this->apiURL);
-        return $apiUrl . (empty($format) ? '' : '.' . $format );
+        return $apiUrl . (empty($format) ? '' : '.' . $format);
     }
 
     /**

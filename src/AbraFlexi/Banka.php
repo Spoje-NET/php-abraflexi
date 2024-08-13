@@ -64,7 +64,7 @@ class Banka extends RW implements \AbraFlexi\Document
     public function automatickeParovani($advanced = false, $filter = null)
     {
         $filterUrl = $filter === null ? "" : rtrim($filter, '/') . '/';
-        $this->performRequest($filterUrl . 'automaticke-parovani' . ($advanced ? '-pokrocile' : '' ), 'PUT');
+        $this->performRequest($filterUrl . 'automaticke-parovani' . ($advanced ? '-pokrocile' : ''), 'PUT');
         return $this->lastResponseCode == 200;
     }
 }

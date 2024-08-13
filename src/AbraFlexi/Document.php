@@ -110,5 +110,5 @@ interface Document
     /**
      * Obtain Chaneges from Journal
      */
-    function getChanges();
+    public function getChanges();
 }

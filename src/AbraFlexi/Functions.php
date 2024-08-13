@@ -120,10 +120,13 @@ class Functions
      */
     public static function flexiIN(array $items, string $key)
     {
-        $slashed = array_map(function ($a, $column) {
+        $slashed = array_map(
+            function ($a, $column) {
             return $column === 'stitky' ? "'" . self::code($a) . "'" : "'$a'";
-        }, $items,
-                array_fill(0, count($items), $key));
+        },
+            $items,
+            array_fill(0, count($items), $key)
+        );
         return $key . " in (" . implode(',', $slashed) . ")";
     }
 

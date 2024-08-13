@@ -14,12 +14,12 @@ namespace AbraFlexi;
  */
 class Formats
 {
- /**
- * Source FlexiBee server version.
- *
- * @var string
- */
- static public $version = '2024.5.1';
+    /**
+    * Source FlexiBee server version.
+    *
+    * @var string
+    */
+    public static $version = '2024.5.1';
 
 
     /**
@@ -31,109 +31,109 @@ class Formats
     public static $formats = [
         'JS' => [
             'desc' => 'JavaScript',
-            'suffix' => 'js', 
-            'content-type' => 'application/javascript', 
+            'suffix' => 'js',
+            'content-type' => 'application/javascript',
             'import' => false
             ],
         'PNG' => [
             'desc' => 'Portable Network Graphics',
-            'suffix' => 'png', 
-            'content-type' => 'image/png', 
+            'suffix' => 'png',
+            'content-type' => 'image/png',
             'import' => false
             ],
         'JPG' => [
             'desc' => 'JPEG File Interchange Format.',
-            'suffix' => 'jpg', 
-            'content-type' => 'image/jpeg', 
+            'suffix' => 'jpg',
+            'content-type' => 'image/jpeg',
             'import' => false
             ],
         'CSS' => [
             'desc' => 'Kaskádový styl',
-            'suffix' => 'css', 
-            'content-type' => 'text/css', 
+            'suffix' => 'css',
+            'content-type' => 'text/css',
             'import' => false
             ],
         'HTML' => [
             'desc' => 'HTML stránka pro zobrazení informací na webové stránce.',
-            'suffix' => 'html', 
-            'content-type' => 'text/html', 
+            'suffix' => 'html',
+            'content-type' => 'text/html',
             'import' => false
             ],
         'XML' => [
-            'desc' => 'Strojově čitelná struktura ve formátu XML.', 
+            'desc' => 'Strojově čitelná struktura ve formátu XML.',
             'suffix' => 'xml',
-            'content-type' => 'application/xml', 
+            'content-type' => 'application/xml',
             'import' => true],
         'JSON' => [
-            'desc' => 'Strojově čitelná struktura ve formátu JSON. ', 
+            'desc' => 'Strojově čitelná struktura ve formátu JSON. ',
             'suffix' => 'json',
-            'content-type' => 'application/json', 
+            'content-type' => 'application/json',
             'import' => true
             ],
         'CSV' => [
             'desc' => 'Tabulkový výstup do formátu CSV (Column Separated Values).',
-            'suffix' => 'csv', 
-            'content-type' => 'text/csv', 
+            'suffix' => 'csv',
+            'content-type' => 'text/csv',
             'import' => true
             ],
         'DBF' => [
-            'desc' => 'Databázový výstup ve formátu DBF (dBase).', 
+            'desc' => 'Databázový výstup ve formátu DBF (dBase).',
             'suffix' => 'dbf',
-            'content-type' => 'application/dbf', 
+            'content-type' => 'application/dbf',
             'import' => true
             ],
         'XLS' => [
-            'desc' => 'Tabulkový výstup ve formátu Excel.', 
+            'desc' => 'Tabulkový výstup ve formátu Excel.',
             'suffix' => 'xls',
-            'content-type' => 'application/ms-excel', 
+            'content-type' => 'application/ms-excel',
             'import' => true
             ],
         'ISDOC' => [
-            'desc' => 'e-faktura ISDOC.', 
-            'suffix' => 'isdoc', 
+            'desc' => 'e-faktura ISDOC.',
+            'suffix' => 'isdoc',
             'content-type' => 'application/x-isdoc',
             'import' => false
             ],
         'ISDOCx' => [
-            'desc' => 'e-faktura ISDOC s PDF přílohou', 
+            'desc' => 'e-faktura ISDOC s PDF přílohou',
             'suffix' => 'isdocx',
             'content-type' => 'application/x-isdocx',
             'import' => false
             ],
         'EDI' => [
             'desc' => 'Elektronická výměna data (EDI) ve formátu INHOUSE.',
-            'suffix' => 'edi', 
-            'content-type' => 'application/x-edi-inhouse', 
+            'suffix' => 'edi',
+            'content-type' => 'application/x-edi-inhouse',
             'import' => 'objednavka-prijata'
             ],
         'PDF' => [
             'desc' => 'Generování tiskového reportu. Jedná se o stejnou funkci která je dostupná v aplikaci. Export do PDF',
-            'suffix' => 'pdf', 
-            'content-type' => 'application/pdf', 
+            'suffix' => 'pdf',
+            'content-type' => 'application/pdf',
             'import' => false
             ],
         'vCard' => [
             'desc' => 'Výstup adresáře do formátu elektronické vizitky vCard.',
-            'suffix' => 'vcf', 
-            'content-type' => 'text/vcard', 
+            'suffix' => 'vcf',
+            'content-type' => 'text/vcard',
             'import' => false
             ],
         'iCalendar' => [
             'desc' => 'Výstup do kalendáře ve formátu iCalendar. Lze takto exportovat události, ale také třeba splatnosti u přijatých či vydaných faktur.',
-            'suffix' => 'ical', 
-            'content-type' => 'text/calendar', 
+            'suffix' => 'ical',
+            'content-type' => 'text/calendar',
             'import' => false
             ],
         'TEXT' => [
-            'desc' => 'Prostý text', 
+            'desc' => 'Prostý text',
             'suffix' => 'txt',
-            'content-type' => 'text/plain', 
+            'content-type' => 'text/plain',
             'import' => false
             ],
         'TTF' => [
-            'desc' => 'TrueType font', 
+            'desc' => 'TrueType font',
             'suffix' => 'ttf',
-            'content-type' => 'application/x-font-truetype', 
+            'content-type' => 'application/x-font-truetype',
             'import' => false
             ],
         'JASPERReport' => [
@@ -150,7 +150,7 @@ class Formats
      *
      * @return array
      */
-    static public function byContentType()
+    public static function byContentType()
     {
         return \Ease\Functions::reindexArrayBy(self::$formats, 'content-type');
     }
@@ -160,7 +160,7 @@ class Formats
      *
      * @return array
      */
-    static public function bySuffix()
+    public static function bySuffix()
     {
         return \Ease\Functions::reindexArrayBy(self::$formats, 'suffix');
     }
@@ -171,7 +171,7 @@ class Formats
      * @param string $suffix
      * @return string
      */
-    static public function suffixToContentType($suffix)
+    public static function suffixToContentType($suffix)
     {
         $types = self::bySuffix();
         return isset($types[$suffix]) ? $types[$suffix]['content-type'] : null;
@@ -183,18 +183,18 @@ class Formats
      * @param string $contentType
      * @return string
      */
-    static public function contentTypeToSuffix($contentType)
+    public static function contentTypeToSuffix($contentType)
     {
         $types = self::byContentType();
         return isset($types[$contentType]) ? $types[$contentType]['suffix'] : null;
     }
 
-        /**
+    /**
      * Evidence adresar (Adresy firem) Formats.
      *
      * @var array
      */
- static public $adresar = [
+    public static $adresar = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -211,7 +211,7 @@ class Formats
      *
      * @var array
      */
- static public $atribut = [
+    public static $atribut = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -222,7 +222,7 @@ class Formats
      *
      * @var array
      */
- static public $autotisk = [
+    public static $autotisk = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -233,7 +233,7 @@ class Formats
      *
      * @var array
      */
- static public $banka = [
+    public static $banka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -244,7 +244,7 @@ class Formats
      *
      * @var array
      */
- static public $formatElektronickehoBankovnictvi = [
+    public static $formatElektronickehoBankovnictvi = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -255,7 +255,7 @@ class Formats
      *
      * @var array
      */
- static public $adresarBankovniUcet = [
+    public static $adresarBankovniUcet = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -266,7 +266,7 @@ class Formats
      *
      * @var array
      */
- static public $bankovniUcetPokladna = [
+    public static $bankovniUcetPokladna = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -277,7 +277,7 @@ class Formats
      *
      * @var array
      */
- static public $bankovniUcetSkladPokladna = [
+    public static $bankovniUcetSkladPokladna = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -288,7 +288,7 @@ class Formats
      *
      * @var array
      */
- static public $cenovaUroven = [
+    public static $cenovaUroven = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -299,7 +299,7 @@ class Formats
      *
      * @var array
      */
- static public $odberatel = [
+    public static $odberatel = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -310,7 +310,7 @@ class Formats
      *
      * @var array
      */
- static public $cenik = [
+    public static $cenik = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -321,7 +321,7 @@ class Formats
      *
      * @var array
      */
- static public $cenikovaSkupina = [
+    public static $cenikovaSkupina = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -332,7 +332,7 @@ class Formats
      *
      * @var array
      */
- static public $certifikacniAutorita = [
+    public static $certifikacniAutorita = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -343,7 +343,7 @@ class Formats
      *
      * @var array
      */
- static public $certifikat = [
+    public static $certifikat = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -354,7 +354,7 @@ class Formats
      *
      * @var array
      */
- static public $danovyNaklad = [
+    public static $danovyNaklad = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -365,7 +365,7 @@ class Formats
      *
      * @var array
      */
- static public $danovyOdpis = [
+    public static $danovyOdpis = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -376,7 +376,7 @@ class Formats
      *
      * @var array
      */
- static public $intrastatDodaciPodminky = [
+    public static $intrastatDodaciPodminky = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -387,7 +387,7 @@ class Formats
      *
      * @var array
      */
- static public $dodavatelskaSmlouva = [
+    public static $dodavatelskaSmlouva = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -398,7 +398,7 @@ class Formats
      *
      * @var array
      */
- static public $dodavatel = [
+    public static $dodavatel = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -409,7 +409,7 @@ class Formats
      *
      * @var array
      */
- static public $radaBanka = [
+    public static $radaBanka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -420,7 +420,7 @@ class Formats
      *
      * @var array
      */
- static public $radaInternihoDokladu = [
+    public static $radaInternihoDokladu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -431,7 +431,7 @@ class Formats
      *
      * @var array
      */
- static public $radaPohledavky = [
+    public static $radaPohledavky = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -442,7 +442,7 @@ class Formats
      *
      * @var array
      */
- static public $radaPokladniPohyb = [
+    public static $radaPokladniPohyb = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -453,7 +453,7 @@ class Formats
      *
      * @var array
      */
- static public $radaFakturyPrijate = [
+    public static $radaFakturyPrijate = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -464,7 +464,7 @@ class Formats
      *
      * @var array
      */
- static public $radaNabidkyPrijate = [
+    public static $radaNabidkyPrijate = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -475,7 +475,7 @@ class Formats
      *
      * @var array
      */
- static public $radaObjednavkyPrijate = [
+    public static $radaObjednavkyPrijate = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -486,7 +486,7 @@ class Formats
      *
      * @var array
      */
- static public $radaPoptavkyPrijate = [
+    public static $radaPoptavkyPrijate = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -497,7 +497,7 @@ class Formats
      *
      * @var array
      */
- static public $radaSkladovyPohyb = [
+    public static $radaSkladovyPohyb = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -508,7 +508,7 @@ class Formats
      *
      * @var array
      */
- static public $radaFakturyVydane = [
+    public static $radaFakturyVydane = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -519,7 +519,7 @@ class Formats
      *
      * @var array
      */
- static public $radaNabidkyVydane = [
+    public static $radaNabidkyVydane = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -530,7 +530,7 @@ class Formats
      *
      * @var array
      */
- static public $radaObjednavkyVydane = [
+    public static $radaObjednavkyVydane = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -541,7 +541,7 @@ class Formats
      *
      * @var array
      */
- static public $radaPoptavkyVydane = [
+    public static $radaPoptavkyVydane = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -552,7 +552,7 @@ class Formats
      *
      * @var array
      */
- static public $radaZavazku = [
+    public static $radaZavazku = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -563,7 +563,7 @@ class Formats
      *
      * @var array
      */
- static public $dokladKUhrade = [
+    public static $dokladKUhrade = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -574,7 +574,7 @@ class Formats
      *
      * @var array
      */
- static public $doporuceni = [
+    public static $doporuceni = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -585,7 +585,7 @@ class Formats
      *
      * @var array
      */
- static public $intrastatDruhDopravy = [
+    public static $intrastatDruhDopravy = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -596,7 +596,7 @@ class Formats
      *
      * @var array
      */
- static public $cenikObal = [
+    public static $cenikObal = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -607,7 +607,7 @@ class Formats
      *
      * @var array
      */
- static public $formaDopravy = [
+    public static $formaDopravy = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -618,7 +618,7 @@ class Formats
      *
      * @var array
      */
- static public $formaUhrady = [
+    public static $formaUhrady = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -629,7 +629,7 @@ class Formats
      *
      * @var array
      */
- static public $hlavniKniha = [
+    public static $hlavniKniha = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -640,7 +640,7 @@ class Formats
      *
      * @var array
      */
- static public $individualniCenik = [
+    public static $individualniCenik = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -651,7 +651,7 @@ class Formats
      *
      * @var array
      */
- static public $insight = [
+    public static $insight = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -662,7 +662,7 @@ class Formats
      *
      * @var array
      */
- static public $interniDoklad = [
+    public static $interniDoklad = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -673,7 +673,7 @@ class Formats
      *
      * @var array
      */
- static public $inventura = [
+    public static $inventura = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -684,7 +684,7 @@ class Formats
      *
      * @var array
      */
- static public $certifikatFinbricks = [
+    public static $certifikatFinbricks = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -695,7 +695,7 @@ class Formats
      *
      * @var array
      */
- static public $konstSymbol = [
+    public static $konstSymbol = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -706,7 +706,7 @@ class Formats
      *
      * @var array
      */
- static public $kontakt = [
+    public static $kontakt = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -717,7 +717,7 @@ class Formats
      *
      * @var array
      */
- static public $intrastatKrajUrceni = [
+    public static $intrastatKrajUrceni = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -728,7 +728,7 @@ class Formats
      *
      * @var array
      */
- static public $kurz = [
+    public static $kurz = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -739,7 +739,7 @@ class Formats
      *
      * @var array
      */
- static public $intrastatKurz = [
+    public static $intrastatKurz = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -750,7 +750,7 @@ class Formats
      *
      * @var array
      */
- static public $kurzProCenotvorbu = [
+    public static $kurzProCenotvorbu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -761,7 +761,7 @@ class Formats
      *
      * @var array
      */
- static public $kurzProPreceneni = [
+    public static $kurzProPreceneni = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -772,7 +772,7 @@ class Formats
      *
      * @var array
      */
- static public $kusovnik = [
+    public static $kusovnik = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -783,7 +783,7 @@ class Formats
      *
      * @var array
      */
- static public $intrastatKodNomenklatury = [
+    public static $intrastatKodNomenklatury = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -794,7 +794,7 @@ class Formats
      *
      * @var array
      */
- static public $leasing = [
+    public static $leasing = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -805,7 +805,7 @@ class Formats
      *
      * @var array
      */
- static public $majetek = [
+    public static $majetek = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -816,7 +816,7 @@ class Formats
      *
      * @var array
      */
- static public $mapovaniSkladu = [
+    public static $mapovaniSkladu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -827,7 +827,7 @@ class Formats
      *
      * @var array
      */
- static public $mistoUrceni = [
+    public static $mistoUrceni = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -838,7 +838,7 @@ class Formats
      *
      * @var array
      */
- static public $mena = [
+    public static $mena = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -849,7 +849,7 @@ class Formats
      *
      * @var array
      */
- static public $intrastatMernaJednotka = [
+    public static $intrastatMernaJednotka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -860,7 +860,7 @@ class Formats
      *
      * @var array
      */
- static public $mernaJednotka = [
+    public static $mernaJednotka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -871,7 +871,7 @@ class Formats
      *
      * @var array
      */
- static public $nastaveni = [
+    public static $nastaveni = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -882,7 +882,7 @@ class Formats
      *
      * @var array
      */
- static public $vazebniDoklad = [
+    public static $vazebniDoklad = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -893,7 +893,7 @@ class Formats
      *
      * @var array
      */
- static public $poSplatnosti = [
+    public static $poSplatnosti = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -904,7 +904,7 @@ class Formats
      *
      * @var array
      */
- static public $naklad = [
+    public static $naklad = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -915,7 +915,7 @@ class Formats
      *
      * @var array
      */
- static public $cenikovyPohybNakup = [
+    public static $cenikovyPohybNakup = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -926,7 +926,7 @@ class Formats
      *
      * @var array
      */
- static public $cenikovyPohybProdej = [
+    public static $cenikovyPohybProdej = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -937,7 +937,7 @@ class Formats
      *
      * @var array
      */
- static public $intrastatObchodniTransakce = [
+    public static $intrastatObchodniTransakce = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -948,7 +948,7 @@ class Formats
      *
      * @var array
      */
- static public $stromKoren = [
+    public static $stromKoren = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -959,7 +959,7 @@ class Formats
      *
      * @var array
      */
- static public $obratovaPredvaha = [
+    public static $obratovaPredvaha = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -970,7 +970,7 @@ class Formats
      *
      * @var array
      */
- static public $obrat = [
+    public static $obrat = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -981,7 +981,7 @@ class Formats
      *
      * @var array
      */
- static public $smlouva = [
+    public static $smlouva = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -992,7 +992,7 @@ class Formats
      *
      * @var array
      */
- static public $odpisovaSkupina = [
+    public static $odpisovaSkupina = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1003,7 +1003,7 @@ class Formats
      *
      * @var array
      */
- static public $uzivatel = [
+    public static $uzivatel = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1014,7 +1014,7 @@ class Formats
      *
      * @var array
      */
- static public $pohledavka = [
+    public static $pohledavka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1025,7 +1025,7 @@ class Formats
      *
      * @var array
      */
- static public $zavazek = [
+    public static $zavazek = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1036,7 +1036,7 @@ class Formats
      *
      * @var array
      */
- static public $uzivatelskyDotazParametr = [
+    public static $uzivatelskyDotazParametr = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1047,7 +1047,7 @@ class Formats
      *
      * @var array
      */
- static public $penezniUstav = [
+    public static $penezniUstav = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1058,7 +1058,7 @@ class Formats
      *
      * @var array
      */
- static public $podkladyDph = [
+    public static $podkladyDph = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1069,7 +1069,7 @@ class Formats
      *
      * @var array
      */
- static public $podobneZbozi = [
+    public static $podobneZbozi = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1080,7 +1080,7 @@ class Formats
      *
      * @var array
      */
- static public $pohybNaUctech = [
+    public static $pohybNaUctech = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1091,7 +1091,7 @@ class Formats
      *
      * @var array
      */
- static public $pokladniPohyb = [
+    public static $pokladniPohyb = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1102,7 +1102,7 @@ class Formats
      *
      * @var array
      */
- static public $parametr = [
+    public static $parametr = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1113,7 +1113,7 @@ class Formats
      *
      * @var array
      */
- static public $prikazKInkasuPolozka = [
+    public static $prikazKInkasuPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1124,7 +1124,7 @@ class Formats
      *
      * @var array
      */
- static public $prikazKUhradePolozka = [
+    public static $prikazKUhradePolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1135,7 +1135,7 @@ class Formats
      *
      * @var array
      */
- static public $interniDokladPolozka = [
+    public static $interniDokladPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1146,7 +1146,7 @@ class Formats
      *
      * @var array
      */
- static public $inventuraPolozka = [
+    public static $inventuraPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1157,7 +1157,7 @@ class Formats
      *
      * @var array
      */
- static public $pohledavkaPolozka = [
+    public static $pohledavkaPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1168,7 +1168,7 @@ class Formats
      *
      * @var array
      */
- static public $zavazekPolozka = [
+    public static $zavazekPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1179,7 +1179,7 @@ class Formats
      *
      * @var array
      */
- static public $pokladniPohybPolozka = [
+    public static $pokladniPohybPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1190,7 +1190,7 @@ class Formats
      *
      * @var array
      */
- static public $nabidkaPrijataPolozka = [
+    public static $nabidkaPrijataPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1201,7 +1201,7 @@ class Formats
      *
      * @var array
      */
- static public $objednavkaPrijataPolozka = [
+    public static $objednavkaPrijataPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1212,7 +1212,7 @@ class Formats
      *
      * @var array
      */
- static public $fakturaPrijataPolozka = [
+    public static $fakturaPrijataPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1223,7 +1223,7 @@ class Formats
      *
      * @var array
      */
- static public $poptavkaPrijataPolozka = [
+    public static $poptavkaPrijataPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1234,7 +1234,7 @@ class Formats
      *
      * @var array
      */
- static public $skladovyPohybPolozka = [
+    public static $skladovyPohybPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1245,7 +1245,7 @@ class Formats
      *
      * @var array
      */
- static public $smlouvaPolozka = [
+    public static $smlouvaPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1256,7 +1256,7 @@ class Formats
      *
      * @var array
      */
- static public $nabidkaVydanaPolozka = [
+    public static $nabidkaVydanaPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1267,7 +1267,7 @@ class Formats
      *
      * @var array
      */
- static public $objednavkaVydanaPolozka = [
+    public static $objednavkaVydanaPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1278,7 +1278,7 @@ class Formats
      *
      * @var array
      */
- static public $poptavkaVydanaPolozka = [
+    public static $poptavkaVydanaPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1289,7 +1289,7 @@ class Formats
      *
      * @var array
      */
- static public $fakturaVydanaPolozka = [
+    public static $fakturaVydanaPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1300,7 +1300,7 @@ class Formats
      *
      * @var array
      */
- static public $bankaPolozka = [
+    public static $bankaPolozka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1311,7 +1311,7 @@ class Formats
      *
      * @var array
      */
- static public $poplatek = [
+    public static $poplatek = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1322,7 +1322,7 @@ class Formats
      *
      * @var array
      */
- static public $psc = [
+    public static $psc = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1333,7 +1333,7 @@ class Formats
      *
      * @var array
      */
- static public $prodejka = [
+    public static $prodejka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1344,7 +1344,7 @@ class Formats
      *
      * @var array
      */
- static public $pravoViditelnosti = [
+    public static $pravoViditelnosti = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1355,7 +1355,7 @@ class Formats
      *
      * @var array
      */
- static public $text = [
+    public static $text = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1366,7 +1366,7 @@ class Formats
      *
      * @var array
      */
- static public $predpisZauctovani = [
+    public static $predpisZauctovani = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1377,7 +1377,7 @@ class Formats
      *
      * @var array
      */
- static public $doklad = [
+    public static $doklad = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1388,7 +1388,7 @@ class Formats
      *
      * @var array
      */
- static public $fakturaPrijata = [
+    public static $fakturaPrijata = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1399,7 +1399,7 @@ class Formats
      *
      * @var array
      */
- static public $nabidkaPrijata = [
+    public static $nabidkaPrijata = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1410,7 +1410,7 @@ class Formats
      *
      * @var array
      */
- static public $objednavkaPrijata = [
+    public static $objednavkaPrijata = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1421,7 +1421,7 @@ class Formats
      *
      * @var array
      */
- static public $poptavkaPrijata = [
+    public static $poptavkaPrijata = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1432,7 +1432,7 @@ class Formats
      *
      * @var array
      */
- static public $skladovyPohyb = [
+    public static $skladovyPohyb = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1443,7 +1443,7 @@ class Formats
      *
      * @var array
      */
- static public $prikazKInkasu = [
+    public static $prikazKInkasu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1454,7 +1454,7 @@ class Formats
      *
      * @var array
      */
- static public $prikazKUhrade = [
+    public static $prikazKUhrade = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1465,7 +1465,7 @@ class Formats
      *
      * @var array
      */
- static public $priloha = [
+    public static $priloha = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1476,7 +1476,7 @@ class Formats
      *
      * @var array
      */
- static public $prislustenstvi = [
+    public static $prislustenstvi = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1487,7 +1487,7 @@ class Formats
      *
      * @var array
      */
- static public $rezervace = [
+    public static $rezervace = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1498,7 +1498,7 @@ class Formats
      *
      * @var array
      */
- static public $rocniRada = [
+    public static $rocniRada = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1509,7 +1509,7 @@ class Formats
      *
      * @var array
      */
- static public $sadyAKomplety = [
+    public static $sadyAKomplety = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1520,7 +1520,7 @@ class Formats
      *
      * @var array
      */
- static public $saldo = [
+    public static $saldo = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1531,7 +1531,7 @@ class Formats
      *
      * @var array
      */
- static public $sazbaDph = [
+    public static $sazbaDph = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1542,7 +1542,7 @@ class Formats
      *
      * @var array
      */
- static public $dashboardSharing = [
+    public static $dashboardSharing = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1553,7 +1553,7 @@ class Formats
      *
      * @var array
      */
- static public $bankovniUcet = [
+    public static $bankovniUcet = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1564,7 +1564,7 @@ class Formats
      *
      * @var array
      */
- static public $pokladna = [
+    public static $pokladna = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1575,7 +1575,7 @@ class Formats
      *
      * @var array
      */
- static public $typProdejky = [
+    public static $typProdejky = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1586,7 +1586,7 @@ class Formats
      *
      * @var array
      */
- static public $sestava = [
+    public static $sestava = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1597,7 +1597,7 @@ class Formats
      *
      * @var array
      */
- static public $sklad = [
+    public static $sklad = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1608,7 +1608,7 @@ class Formats
      *
      * @var array
      */
- static public $preneseniDph = [
+    public static $preneseniDph = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1619,7 +1619,7 @@ class Formats
      *
      * @var array
      */
- static public $skladovaKarta = [
+    public static $skladovaKarta = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1630,7 +1630,7 @@ class Formats
      *
      * @var array
      */
- static public $skupinaAtributu = [
+    public static $skupinaAtributu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1641,7 +1641,7 @@ class Formats
      *
      * @var array
      */
- static public $skupinaFirem = [
+    public static $skupinaFirem = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1652,7 +1652,7 @@ class Formats
      *
      * @var array
      */
- static public $skupinaPlneni = [
+    public static $skupinaPlneni = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1663,7 +1663,7 @@ class Formats
      *
      * @var array
      */
- static public $skupinaZbozi = [
+    public static $skupinaZbozi = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1674,7 +1674,7 @@ class Formats
      *
      * @var array
      */
- static public $skupinaStitku = [
+    public static $skupinaStitku = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1685,7 +1685,7 @@ class Formats
      *
      * @var array
      */
- static public $souhrnneHlaseniDph = [
+    public static $souhrnneHlaseniDph = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1696,7 +1696,7 @@ class Formats
      *
      * @var array
      */
- static public $rozvahaPoUctech = [
+    public static $rozvahaPoUctech = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1707,7 +1707,7 @@ class Formats
      *
      * @var array
      */
- static public $vysledovkaPoUctech = [
+    public static $vysledovkaPoUctech = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1718,7 +1718,7 @@ class Formats
      *
      * @var array
      */
- static public $splatkovyKalendar = [
+    public static $splatkovyKalendar = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1729,7 +1729,7 @@ class Formats
      *
      * @var array
      */
- static public $dashboardPanel = [
+    public static $dashboardPanel = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1740,7 +1740,7 @@ class Formats
      *
      * @var array
      */
- static public $standardniPredpis = [
+    public static $standardniPredpis = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1751,7 +1751,7 @@ class Formats
      *
      * @var array
      */
- static public $ucetniOsnova = [
+    public static $ucetniOsnova = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1762,7 +1762,7 @@ class Formats
      *
      * @var array
      */
- static public $stavObchodnihoDokladu = [
+    public static $stavObchodnihoDokladu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1773,7 +1773,7 @@ class Formats
      *
      * @var array
      */
- static public $stavSkladuKDatu = [
+    public static $stavSkladuKDatu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1784,7 +1784,7 @@ class Formats
      *
      * @var array
      */
- static public $saldoKDatu = [
+    public static $saldoKDatu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1795,7 +1795,7 @@ class Formats
      *
      * @var array
      */
- static public $stavSmlouvy = [
+    public static $stavSmlouvy = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1806,7 +1806,7 @@ class Formats
      *
      * @var array
      */
- static public $stavZakazky = [
+    public static $stavZakazky = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1817,7 +1817,7 @@ class Formats
      *
      * @var array
      */
- static public $stavUctu = [
+    public static $stavUctu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1828,7 +1828,7 @@ class Formats
      *
      * @var array
      */
- static public $stat = [
+    public static $stat = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1839,7 +1839,7 @@ class Formats
      *
      * @var array
      */
- static public $stredisko = [
+    public static $stredisko = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1850,7 +1850,7 @@ class Formats
      *
      * @var array
      */
- static public $subjekt = [
+    public static $subjekt = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1861,7 +1861,7 @@ class Formats
      *
      * @var array
      */
- static public $sumaceSestavy = [
+    public static $sumaceSestavy = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1872,7 +1872,7 @@ class Formats
      *
      * @var array
      */
- static public $typOrganizace = [
+    public static $typOrganizace = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1883,7 +1883,7 @@ class Formats
      *
      * @var array
      */
- static public $cenikTypSazbyDph = [
+    public static $cenikTypSazbyDph = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1894,7 +1894,7 @@ class Formats
      *
      * @var array
      */
- static public $typAtributu = [
+    public static $typAtributu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1905,7 +1905,7 @@ class Formats
      *
      * @var array
      */
- static public $typBanka = [
+    public static $typBanka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1916,7 +1916,7 @@ class Formats
      *
      * @var array
      */
- static public $dodavatelskyTypSmlouvy = [
+    public static $dodavatelskyTypSmlouvy = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1927,7 +1927,7 @@ class Formats
      *
      * @var array
      */
- static public $typDokladu = [
+    public static $typDokladu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1938,7 +1938,7 @@ class Formats
      *
      * @var array
      */
- static public $typInternihoDokladu = [
+    public static $typInternihoDokladu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1949,7 +1949,7 @@ class Formats
      *
      * @var array
      */
- static public $typLeasingu = [
+    public static $typLeasingu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1960,7 +1960,7 @@ class Formats
      *
      * @var array
      */
- static public $typMajetku = [
+    public static $typMajetku = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1971,7 +1971,7 @@ class Formats
      *
      * @var array
      */
- static public $typNakladu = [
+    public static $typNakladu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1982,7 +1982,7 @@ class Formats
      *
      * @var array
      */
- static public $typSmlouvy = [
+    public static $typSmlouvy = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1993,7 +1993,7 @@ class Formats
      *
      * @var array
      */
- static public $typPohledavky = [
+    public static $typPohledavky = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2004,7 +2004,7 @@ class Formats
      *
      * @var array
      */
- static public $typZavazku = [
+    public static $typZavazku = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2015,7 +2015,7 @@ class Formats
      *
      * @var array
      */
- static public $typPokladniPohyb = [
+    public static $typPokladniPohyb = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2026,7 +2026,7 @@ class Formats
      *
      * @var array
      */
- static public $typFakturyPrijate = [
+    public static $typFakturyPrijate = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2037,7 +2037,7 @@ class Formats
      *
      * @var array
      */
- static public $typNabidkyPrijate = [
+    public static $typNabidkyPrijate = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2048,7 +2048,7 @@ class Formats
      *
      * @var array
      */
- static public $typObjednavkyPrijate = [
+    public static $typObjednavkyPrijate = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2059,7 +2059,7 @@ class Formats
      *
      * @var array
      */
- static public $typPoptavkyPrijate = [
+    public static $typPoptavkyPrijate = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2070,7 +2070,7 @@ class Formats
      *
      * @var array
      */
- static public $typSkladovyPohyb = [
+    public static $typSkladovyPohyb = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2081,7 +2081,7 @@ class Formats
      *
      * @var array
      */
- static public $typAktivity = [
+    public static $typAktivity = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2092,7 +2092,7 @@ class Formats
      *
      * @var array
      */
- static public $typUzivatelskeVazby = [
+    public static $typUzivatelskeVazby = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2103,7 +2103,7 @@ class Formats
      *
      * @var array
      */
- static public $typFakturyVydane = [
+    public static $typFakturyVydane = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2114,7 +2114,7 @@ class Formats
      *
      * @var array
      */
- static public $typNabidkyVydane = [
+    public static $typNabidkyVydane = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2125,7 +2125,7 @@ class Formats
      *
      * @var array
      */
- static public $typObjednavkyVydane = [
+    public static $typObjednavkyVydane = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2136,7 +2136,7 @@ class Formats
      *
      * @var array
      */
- static public $typPoptavkyVydane = [
+    public static $typPoptavkyVydane = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2147,7 +2147,7 @@ class Formats
      *
      * @var array
      */
- static public $typZakazky = [
+    public static $typZakazky = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2158,7 +2158,7 @@ class Formats
      *
      * @var array
      */
- static public $typVzajemnychZapoctu = [
+    public static $typVzajemnychZapoctu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2169,7 +2169,7 @@ class Formats
      *
      * @var array
      */
- static public $majetekUdalost = [
+    public static $majetekUdalost = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2180,7 +2180,7 @@ class Formats
      *
      * @var array
      */
- static public $udalost = [
+    public static $udalost = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2191,7 +2191,7 @@ class Formats
      *
      * @var array
      */
- static public $ulozenePriznaniDph = [
+    public static $ulozenePriznaniDph = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2202,7 +2202,7 @@ class Formats
      *
      * @var array
      */
- static public $radekPriznaniDph = [
+    public static $radekPriznaniDph = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2213,7 +2213,7 @@ class Formats
      *
      * @var array
      */
- static public $umisteni = [
+    public static $umisteni = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2224,7 +2224,7 @@ class Formats
      *
      * @var array
      */
- static public $umisteniVeSkladu = [
+    public static $umisteniVeSkladu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2235,7 +2235,7 @@ class Formats
      *
      * @var array
      */
- static public $umisteniVeSkladuRegal = [
+    public static $umisteniVeSkladuRegal = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2246,7 +2246,7 @@ class Formats
      *
      * @var array
      */
- static public $umisteniVeSkladuPolice = [
+    public static $umisteniVeSkladuPolice = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2257,7 +2257,7 @@ class Formats
      *
      * @var array
      */
- static public $umisteniVeSkladuMistnost = [
+    public static $umisteniVeSkladuMistnost = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2268,7 +2268,7 @@ class Formats
      *
      * @var array
      */
- static public $sablonaUpominky = [
+    public static $sablonaUpominky = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2279,7 +2279,7 @@ class Formats
      *
      * @var array
      */
- static public $umisteniUctu = [
+    public static $umisteniUctu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2290,7 +2290,7 @@ class Formats
      *
      * @var array
      */
- static public $strom = [
+    public static $strom = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2301,7 +2301,7 @@ class Formats
      *
      * @var array
      */
- static public $uzivatelskyDotaz = [
+    public static $uzivatelskyDotaz = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2312,7 +2312,7 @@ class Formats
      *
      * @var array
      */
- static public $sablonaMail = [
+    public static $sablonaMail = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2323,7 +2323,7 @@ class Formats
      *
      * @var array
      */
- static public $filtr = [
+    public static $filtr = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2334,7 +2334,7 @@ class Formats
      *
      * @var array
      */
- static public $customButton = [
+    public static $customButton = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2345,7 +2345,7 @@ class Formats
      *
      * @var array
      */
- static public $xslt = [
+    public static $xslt = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2356,7 +2356,7 @@ class Formats
      *
      * @var array
      */
- static public $uzivatelskaVazba = [
+    public static $uzivatelskaVazba = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2367,7 +2367,7 @@ class Formats
      *
      * @var array
      */
- static public $stromCenik = [
+    public static $stromCenik = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2378,7 +2378,7 @@ class Formats
      *
      * @var array
      */
- static public $vazba = [
+    public static $vazba = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2389,7 +2389,7 @@ class Formats
      *
      * @var array
      */
- static public $uzivatelskyDotazVlastnost = [
+    public static $uzivatelskyDotazVlastnost = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2400,7 +2400,7 @@ class Formats
      *
      * @var array
      */
- static public $fakturaVydana = [
+    public static $fakturaVydana = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2411,7 +2411,7 @@ class Formats
      *
      * @var array
      */
- static public $nabidkaVydana = [
+    public static $nabidkaVydana = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2422,7 +2422,7 @@ class Formats
      *
      * @var array
      */
- static public $objednavkaVydana = [
+    public static $objednavkaVydana = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2433,7 +2433,7 @@ class Formats
      *
      * @var array
      */
- static public $poptavkaVydana = [
+    public static $poptavkaVydana = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2444,7 +2444,7 @@ class Formats
      *
      * @var array
      */
- static public $hodnoceniZakazky = [
+    public static $hodnoceniZakazky = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2455,7 +2455,7 @@ class Formats
      *
      * @var array
      */
- static public $vzajemnyZapocet = [
+    public static $vzajemnyZapocet = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2466,7 +2466,7 @@ class Formats
      *
      * @var array
      */
- static public $vykazHospodareni = [
+    public static $vykazHospodareni = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2477,7 +2477,7 @@ class Formats
      *
      * @var array
      */
- static public $vyrobniCislo = [
+    public static $vyrobniCislo = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2488,7 +2488,7 @@ class Formats
      *
      * @var array
      */
- static public $zakazka = [
+    public static $zakazka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2499,7 +2499,7 @@ class Formats
      *
      * @var array
      */
- static public $formaUhradyZauctovani = [
+    public static $formaUhradyZauctovani = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2510,7 +2510,7 @@ class Formats
      *
      * @var array
      */
- static public $changes = [
+    public static $changes = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2521,7 +2521,7 @@ class Formats
      *
      * @var array
      */
- static public $intrastatZvlastniPohyb = [
+    public static $intrastatZvlastniPohyb = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2532,7 +2532,7 @@ class Formats
      *
      * @var array
      */
- static public $zalohaKOdpoctu = [
+    public static $zalohaKOdpoctu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2543,7 +2543,7 @@ class Formats
      *
      * @var array
      */
- static public $zapujcka = [
+    public static $zapujcka = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2554,7 +2554,7 @@ class Formats
      *
      * @var array
      */
- static public $rada = [
+    public static $rada = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2565,7 +2565,7 @@ class Formats
      *
      * @var array
      */
- static public $prodejkaPlatba = [
+    public static $prodejkaPlatba = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2576,7 +2576,7 @@ class Formats
      *
      * @var array
      */
- static public $globalStore = [
+    public static $globalStore = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2587,7 +2587,7 @@ class Formats
      *
      * @var array
      */
- static public $settingStore = [
+    public static $settingStore = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2598,7 +2598,7 @@ class Formats
      *
      * @var array
      */
- static public $analyzaZakazky = [
+    public static $analyzaZakazky = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2609,7 +2609,7 @@ class Formats
      *
      * @var array
      */
- static public $ucetniDenik = [
+    public static $ucetniDenik = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2620,7 +2620,7 @@ class Formats
      *
      * @var array
      */
- static public $ucetniObdobi = [
+    public static $ucetniObdobi = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2631,7 +2631,7 @@ class Formats
      *
      * @var array
      */
- static public $ucetniOdpis = [
+    public static $ucetniOdpis = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2642,7 +2642,7 @@ class Formats
      *
      * @var array
      */
- static public $ucet = [
+    public static $ucet = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2653,7 +2653,7 @@ class Formats
      *
      * @var array
      */
- static public $cinnost = [
+    public static $cinnost = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2664,7 +2664,7 @@ class Formats
      *
      * @var array
      */
- static public $castkyKOdpoctu = [
+    public static $castkyKOdpoctu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2675,7 +2675,7 @@ class Formats
      *
      * @var array
      */
- static public $typStavuCeniku = [
+    public static $typStavuCeniku = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2686,7 +2686,7 @@ class Formats
      *
      * @var array
      */
- static public $stavCeniku = [
+    public static $stavCeniku = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2697,7 +2697,7 @@ class Formats
      *
      * @var array
      */
- static public $cisloBaliku = [
+    public static $cisloBaliku = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2708,7 +2708,7 @@ class Formats
      *
      * @var array
      */
- static public $radekSestavy = [
+    public static $radekSestavy = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2719,7 +2719,7 @@ class Formats
      *
      * @var array
      */
- static public $cleneniKontrolniHlaseni = [
+    public static $cleneniKontrolniHlaseni = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2730,7 +2730,7 @@ class Formats
      *
      * @var array
      */
- static public $pricteniRozdilu = [
+    public static $pricteniRozdilu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2741,7 +2741,7 @@ class Formats
      *
      * @var array
      */
- static public $cleneniDph = [
+    public static $cleneniDph = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2752,7 +2752,7 @@ class Formats
      *
      * @var array
      */
- static public $sarzeExpirace = [
+    public static $sarzeExpirace = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2763,7 +2763,7 @@ class Formats
      *
      * @var array
      */
- static public $stitek = [
+    public static $stitek = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2774,7 +2774,7 @@ class Formats
      *
      * @var array
      */
- static public $zurnal = [
+    public static $zurnal = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2785,7 +2785,7 @@ class Formats
      *
      * @var array
      */
- static public $smlouvaZurnal = [
+    public static $smlouvaZurnal = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',

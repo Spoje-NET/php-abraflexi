@@ -127,6 +127,7 @@ class RW extends RO
                 if ($this->dryRun === false) {
                     break; // Read operation does not return results
                 }
+                // no break
             case 201: //Success Write
                 if (is_array($responseDecoded)) {
                     $this->responseStats = array_key_exists(
@@ -549,10 +550,11 @@ class RW extends RO
 
     /**
      * Last operation was successfull ?
-     * 
+     *
      * @return boolean
      */
-    public function success(){
+    public function success()
+    {
         $this->curlInfo['http_method'] == 'POST' ? $this->lastResponseCode == 201 : parent::success();
     }
 
