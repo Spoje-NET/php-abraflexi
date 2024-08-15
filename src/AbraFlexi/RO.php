@@ -1631,7 +1631,7 @@ class RO extends \Ease\Sand
         );
         $evidence = $this->getEvidence();
         if (
-                $evidence &&
+                empty($evidence) === false &&
                 array_key_exists($evidence, $dataToJsonize) &&
                 array_key_exists('external-ids', $dataToJsonize[$evidence])
         ) {
