@@ -1,5 +1,5 @@
 <?php
-    
+
 declare(strict_types=1);
 
 /**
@@ -11,15 +11,18 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
+/**
+ * @link https://demo.abraflexi.eu/c/demo/udalost/properties api udalost evidence
+ */
+class Udalost extends RW {
+
+    use stitky;
+    use firma;
+
     /**
-     * @link https://demo.abraflexi.eu/c/demo/udalost/properties api udalost evidence
+     * Evidence užitá objektem.
+     *
+     * @var string
      */
-    class Udalost extends RW
-    {
-        /**
-         * Evidence užitá objektem.
-         *
-         * @var string
-         */
-        public $evidence = 'udalost';
-    }
+    public $evidence = 'udalost';
+}
