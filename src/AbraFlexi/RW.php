@@ -706,7 +706,7 @@ class RW extends RO
 
     /**
      * New Web Interface Item editor link. It use record ID. If record Id is not
-     * availble try to load record using its code to obtain current record Id
+     * available try to load record using its code to obtain current record Id
      *
      * @return string link to item editor or empty string.
      */
