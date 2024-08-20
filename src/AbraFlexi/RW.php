@@ -645,13 +645,13 @@ class RW extends RO
     public function addExternalID($extId)
     {
         return $this->insertToAbraFlexi([
-            'id' => [
-                $this->getRecordID(), 'ext:' . preg_replace(
-                    '/^ext:/',
-                    '',
-                    $extId
-                )
-            ]
+                    'id' => [
+                        $this->getRecordID(), 'ext:' . preg_replace(
+                            '/^ext:/',
+                            '',
+                            $extId
+                        )
+                    ]
         ]);
     }
 
@@ -705,13 +705,18 @@ class RW extends RO
     }
 
     /**
-     * New Web Interface Item editor link
+     * New Web Interface Item editor link. It use record ID. If record Id is not
+     * availble try to load record using its code to obtain current record Id
      *
-     * @return string link to item editor
+     * @return string link to item editor or empty string.
      */
     public function flexiEditUrl()
     {
-        return $this->url.'/flexi/'. $this->getCompany(). '/' .$this->getEvidence().'/'.$this->getRecordID().'/edit';
+        $recId = $this->getRecordID();
+        if (empty($recId)) {
+            $helper = new self(Functions::code($this->getRecordCode()), ['detail' => 'id']);
+            $recId = $helper->getRecordID();
+        }
+        return empty($recId) ? '' : $this->url . '/flexi/' . $this->getCompany() . '/' . $this->getEvidence() . '/' . $recId . '/edit';
     }
-
 }
