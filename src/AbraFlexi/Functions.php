@@ -122,8 +122,8 @@ class Functions
     {
         $slashed = array_map(
             function ($a, $column) {
-            return $column === 'stitky' ? "'" . self::code($a) . "'" : "'$a'";
-        },
+                return $column === 'stitky' ? "'" . self::code($a) . "'" : "'$a'";
+            },
             $items,
             array_fill(0, count($items), $key)
         );

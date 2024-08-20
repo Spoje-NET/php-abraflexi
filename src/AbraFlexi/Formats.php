@@ -5,6 +5,7 @@
  * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
  * @copyright  (C) 2015-2024 Spoje.Net
  */
+
 namespace AbraFlexi;
 
 /**
@@ -139,8 +140,8 @@ class Formats
         'JASPERReport' => [
             'desc' => 'JasperReports',
             'content-type' => 'application/x-java-serialized-object',
-            'suffix'=> 'jasper',
-            'import'=> false
+            'suffix' => 'jasper',
+            'import' => false
         ]
     ];
 

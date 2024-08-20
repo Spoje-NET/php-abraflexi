@@ -14,8 +14,8 @@ namespace AbraFlexi;
 /**
  * @link https://demo.abraflexi.eu/c/demo/udalost/properties api udalost evidence
  */
-class Udalost extends RW {
-
+class Udalost extends RW
+{
     use stitky;
     use firma;
 

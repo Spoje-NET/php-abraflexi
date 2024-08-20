@@ -25,7 +25,6 @@ declare(strict_types=1);
    ✘ Typy dokladů
  */
 
-
 namespace AbraFlexi;
 
 /**
@@ -47,6 +46,6 @@ trait getChanges
         if ($changesRaw) {
             $changes = $changesRaw['zmeny'];
         }
-        return is_array($changesRaw) && array_key_exists('zmeny', $changesRaw) ?  $changesRaw['zmeny'] : [];
+        return is_array($changesRaw) && array_key_exists('zmeny', $changesRaw) ? $changesRaw['zmeny'] : [];
     }
 }

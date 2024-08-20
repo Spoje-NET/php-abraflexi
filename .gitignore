@@ -32,3 +32,6 @@ composer.lock
 /test/.phpunit.result.cache
 /.env
 /dist/
+/.php-cs-fixer.cache/
+
+
