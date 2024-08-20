@@ -703,4 +703,15 @@ class RW extends RO
         }
         return parent::setDataValue($columnName, $value);
     }
+
+    /**
+     * New Web Interface Item editor link
+     *
+     * @return string link to item editor
+     */
+    public function flexiEditUrl()
+    {
+        return $this->url.'/flexi/'.$this->getEvidence().'/'.$this->getRecordID().'/edit';
+    }
+
 }
