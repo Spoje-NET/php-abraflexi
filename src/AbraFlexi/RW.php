@@ -711,7 +711,7 @@ class RW extends RO
      */
     public function flexiEditUrl()
     {
-        return $this->url.'/flexi/'.$this->getEvidence().'/'.$this->getRecordID().'/edit';
+        return $this->url.'/flexi/'. $this->getCompany(). '/' .$this->getEvidence().'/'.$this->getRecordID().'/edit';
     }
 
 }
