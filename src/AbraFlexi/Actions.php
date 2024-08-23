@@ -1,5 +1,5 @@
 <?php
-
+    
 /**
  * AbraFlexi - Evidence Actions.
  *
@@ -22,14 +22,14 @@ class Actions
      *
      * @var string
      */
-    public static $version = '2024.5.3';
+ static public $version = '2024.5.4';
 
     /**
      * Evidence adresar (Adresy firem) Actions.
      *
      * @var array
      */
-    public static $adresar = [
+ static public $adresar = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -68,7 +68,7 @@ class Actions
      *
      * @var array
      */
-    public static $atribut = [
+ static public $atribut = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -107,7 +107,7 @@ class Actions
      *
      * @var array
      */
-    public static $autotisk = [
+ static public $autotisk = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -146,7 +146,7 @@ class Actions
      *
      * @var array
      */
-    public static $banka = [
+ static public $banka = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -233,7 +233,7 @@ class Actions
      *
      * @var array
      */
-    public static $formatElektronickehoBankovnictvi = [
+ static public $formatElektronickehoBankovnictvi = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -272,7 +272,7 @@ class Actions
      *
      * @var array
      */
-    public static $adresarBankovniUcet = [
+ static public $adresarBankovniUcet = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -311,7 +311,7 @@ class Actions
      *
      * @var array
      */
-    public static $bankovniUcetPokladna = [
+ static public $bankovniUcetPokladna = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -350,7 +350,7 @@ class Actions
      *
      * @var array
      */
-    public static $bankovniUcetSkladPokladna = [
+ static public $bankovniUcetSkladPokladna = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -389,7 +389,7 @@ class Actions
      *
      * @var array
      */
-    public static $cenovaUroven = [
+ static public $cenovaUroven = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -428,7 +428,7 @@ class Actions
      *
      * @var array
      */
-    public static $odberatel = [
+ static public $odberatel = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -467,7 +467,7 @@ class Actions
      *
      * @var array
      */
-    public static $cenik = [
+ static public $cenik = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -506,7 +506,7 @@ class Actions
      *
      * @var array
      */
-    public static $cenikovaSkupina = [
+ static public $cenikovaSkupina = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -545,7 +545,7 @@ class Actions
      *
      * @var array
      */
-    public static $certifikacniAutorita = [
+ static public $certifikacniAutorita = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -584,7 +584,7 @@ class Actions
      *
      * @var array
      */
-    public static $certifikat = [
+ static public $certifikat = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -623,7 +623,7 @@ class Actions
      *
      * @var array
      */
-    public static $danovyNaklad = [
+ static public $danovyNaklad = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -662,7 +662,7 @@ class Actions
      *
      * @var array
      */
-    public static $danovyOdpis = [
+ static public $danovyOdpis = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -701,7 +701,7 @@ class Actions
      *
      * @var array
      */
-    public static $intrastatDodaciPodminky = [
+ static public $intrastatDodaciPodminky = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -740,7 +740,7 @@ class Actions
      *
      * @var array
      */
-    public static $dodavatelskaSmlouva = [
+ static public $dodavatelskaSmlouva = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -787,7 +787,7 @@ class Actions
      *
      * @var array
      */
-    public static $dodavatel = [
+ static public $dodavatel = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -826,7 +826,7 @@ class Actions
      *
      * @var array
      */
-    public static $radaBanka = [
+ static public $radaBanka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -865,7 +865,7 @@ class Actions
      *
      * @var array
      */
-    public static $radaInternihoDokladu = [
+ static public $radaInternihoDokladu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -904,7 +904,7 @@ class Actions
      *
      * @var array
      */
-    public static $radaPohledavky = [
+ static public $radaPohledavky = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -943,7 +943,7 @@ class Actions
      *
      * @var array
      */
-    public static $radaPokladniPohyb = [
+ static public $radaPokladniPohyb = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -982,7 +982,7 @@ class Actions
      *
      * @var array
      */
-    public static $radaFakturyPrijate = [
+ static public $radaFakturyPrijate = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1021,7 +1021,7 @@ class Actions
      *
      * @var array
      */
-    public static $radaNabidkyPrijate = [
+ static public $radaNabidkyPrijate = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1060,7 +1060,7 @@ class Actions
      *
      * @var array
      */
-    public static $radaObjednavkyPrijate = [
+ static public $radaObjednavkyPrijate = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1099,7 +1099,7 @@ class Actions
      *
      * @var array
      */
-    public static $radaPoptavkyPrijate = [
+ static public $radaPoptavkyPrijate = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1138,7 +1138,7 @@ class Actions
      *
      * @var array
      */
-    public static $radaSkladovyPohyb = [
+ static public $radaSkladovyPohyb = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1177,7 +1177,7 @@ class Actions
      *
      * @var array
      */
-    public static $radaFakturyVydane = [
+ static public $radaFakturyVydane = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1216,7 +1216,7 @@ class Actions
      *
      * @var array
      */
-    public static $radaNabidkyVydane = [
+ static public $radaNabidkyVydane = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1255,7 +1255,7 @@ class Actions
      *
      * @var array
      */
-    public static $radaObjednavkyVydane = [
+ static public $radaObjednavkyVydane = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1294,7 +1294,7 @@ class Actions
      *
      * @var array
      */
-    public static $radaPoptavkyVydane = [
+ static public $radaPoptavkyVydane = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1333,7 +1333,7 @@ class Actions
      *
      * @var array
      */
-    public static $radaZavazku = [
+ static public $radaZavazku = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1372,7 +1372,7 @@ class Actions
      *
      * @var array
      */
-    public static $dokladKUhrade = [
+ static public $dokladKUhrade = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -1459,7 +1459,7 @@ class Actions
      *
      * @var array
      */
-    public static $doporuceni = [
+ static public $doporuceni = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1498,7 +1498,7 @@ class Actions
      *
      * @var array
      */
-    public static $intrastatDruhDopravy = [
+ static public $intrastatDruhDopravy = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1537,7 +1537,7 @@ class Actions
      *
      * @var array
      */
-    public static $cenikObal = [
+ static public $cenikObal = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1576,7 +1576,7 @@ class Actions
      *
      * @var array
      */
-    public static $formaDopravy = [
+ static public $formaDopravy = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1615,7 +1615,7 @@ class Actions
      *
      * @var array
      */
-    public static $formaUhrady = [
+ static public $formaUhrady = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1654,7 +1654,7 @@ class Actions
      *
      * @var array
      */
-    public static $hlavniKniha = [
+ static public $hlavniKniha = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1693,7 +1693,7 @@ class Actions
      *
      * @var array
      */
-    public static $individualniCenik = [
+ static public $individualniCenik = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1732,7 +1732,7 @@ class Actions
      *
      * @var array
      */
-    public static $insight = [
+ static public $insight = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1771,7 +1771,7 @@ class Actions
      *
      * @var array
      */
-    public static $interniDoklad = [
+ static public $interniDoklad = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -1850,7 +1850,7 @@ class Actions
      *
      * @var array
      */
-    public static $inventura = [
+ static public $inventura = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1889,7 +1889,7 @@ class Actions
      *
      * @var array
      */
-    public static $certifikatFinbricks = [
+ static public $certifikatFinbricks = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1928,7 +1928,7 @@ class Actions
      *
      * @var array
      */
-    public static $konstSymbol = [
+ static public $konstSymbol = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -1967,7 +1967,7 @@ class Actions
      *
      * @var array
      */
-    public static $kontakt = [
+ static public $kontakt = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2006,7 +2006,7 @@ class Actions
      *
      * @var array
      */
-    public static $intrastatKrajUrceni = [
+ static public $intrastatKrajUrceni = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2045,7 +2045,7 @@ class Actions
      *
      * @var array
      */
-    public static $kurz = [
+ static public $kurz = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2084,7 +2084,7 @@ class Actions
      *
      * @var array
      */
-    public static $intrastatKurz = [
+ static public $intrastatKurz = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2123,7 +2123,7 @@ class Actions
      *
      * @var array
      */
-    public static $kurzProCenotvorbu = [
+ static public $kurzProCenotvorbu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2162,7 +2162,7 @@ class Actions
      *
      * @var array
      */
-    public static $kurzProPreceneni = [
+ static public $kurzProPreceneni = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2201,7 +2201,7 @@ class Actions
      *
      * @var array
      */
-    public static $kusovnik = [
+ static public $kusovnik = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2256,7 +2256,7 @@ class Actions
      *
      * @var array
      */
-    public static $intrastatKodNomenklatury = [
+ static public $intrastatKodNomenklatury = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2295,7 +2295,7 @@ class Actions
      *
      * @var array
      */
-    public static $leasing = [
+ static public $leasing = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2334,7 +2334,7 @@ class Actions
      *
      * @var array
      */
-    public static $majetek = [
+ static public $majetek = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -2397,7 +2397,7 @@ class Actions
      *
      * @var array
      */
-    public static $mapovaniSkladu = [
+ static public $mapovaniSkladu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2436,7 +2436,7 @@ class Actions
      *
      * @var array
      */
-    public static $mistoUrceni = [
+ static public $mistoUrceni = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2475,7 +2475,7 @@ class Actions
      *
      * @var array
      */
-    public static $mena = [
+ static public $mena = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2514,7 +2514,7 @@ class Actions
      *
      * @var array
      */
-    public static $intrastatMernaJednotka = [
+ static public $intrastatMernaJednotka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2553,7 +2553,7 @@ class Actions
      *
      * @var array
      */
-    public static $mernaJednotka = [
+ static public $mernaJednotka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2592,7 +2592,7 @@ class Actions
      *
      * @var array
      */
-    public static $vazebniDoklad = [
+ static public $vazebniDoklad = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2631,7 +2631,7 @@ class Actions
      *
      * @var array
      */
-    public static $poSplatnosti = [
+ static public $poSplatnosti = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2670,7 +2670,7 @@ class Actions
      *
      * @var array
      */
-    public static $naklad = [
+ static public $naklad = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2709,7 +2709,7 @@ class Actions
      *
      * @var array
      */
-    public static $cenikovyPohybNakup = [
+ static public $cenikovyPohybNakup = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2748,7 +2748,7 @@ class Actions
      *
      * @var array
      */
-    public static $cenikovyPohybProdej = [
+ static public $cenikovyPohybProdej = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2787,7 +2787,7 @@ class Actions
      *
      * @var array
      */
-    public static $intrastatObchodniTransakce = [
+ static public $intrastatObchodniTransakce = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2826,7 +2826,7 @@ class Actions
      *
      * @var array
      */
-    public static $stromKoren = [
+ static public $stromKoren = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2865,7 +2865,7 @@ class Actions
      *
      * @var array
      */
-    public static $obratovaPredvaha = [
+ static public $obratovaPredvaha = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2904,7 +2904,7 @@ class Actions
      *
      * @var array
      */
-    public static $obrat = [
+ static public $obrat = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2943,7 +2943,7 @@ class Actions
      *
      * @var array
      */
-    public static $smlouva = [
+ static public $smlouva = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -2990,7 +2990,7 @@ class Actions
      *
      * @var array
      */
-    public static $odpisovaSkupina = [
+ static public $odpisovaSkupina = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3029,7 +3029,7 @@ class Actions
      *
      * @var array
      */
-    public static $pohledavka = [
+ static public $pohledavka = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -3116,7 +3116,7 @@ class Actions
      *
      * @var array
      */
-    public static $zavazek = [
+ static public $zavazek = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -3219,7 +3219,7 @@ class Actions
      *
      * @var array
      */
-    public static $uzivatelskyDotazParametr = [
+ static public $uzivatelskyDotazParametr = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3258,7 +3258,7 @@ class Actions
      *
      * @var array
      */
-    public static $penezniUstav = [
+ static public $penezniUstav = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3297,7 +3297,7 @@ class Actions
      *
      * @var array
      */
-    public static $podkladyDph = [
+ static public $podkladyDph = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3336,7 +3336,7 @@ class Actions
      *
      * @var array
      */
-    public static $podobneZbozi = [
+ static public $podobneZbozi = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3375,7 +3375,7 @@ class Actions
      *
      * @var array
      */
-    public static $pohybNaUctech = [
+ static public $pohybNaUctech = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3414,7 +3414,7 @@ class Actions
      *
      * @var array
      */
-    public static $pokladniPohyb = [
+ static public $pokladniPohyb = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -3501,7 +3501,7 @@ class Actions
      *
      * @var array
      */
-    public static $parametr = [
+ static public $parametr = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3540,7 +3540,7 @@ class Actions
      *
      * @var array
      */
-    public static $prikazKInkasuPolozka = [
+ static public $prikazKInkasuPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3579,7 +3579,7 @@ class Actions
      *
      * @var array
      */
-    public static $prikazKUhradePolozka = [
+ static public $prikazKUhradePolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3618,7 +3618,7 @@ class Actions
      *
      * @var array
      */
-    public static $interniDokladPolozka = [
+ static public $interniDokladPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3665,7 +3665,7 @@ class Actions
      *
      * @var array
      */
-    public static $inventuraPolozka = [
+ static public $inventuraPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3704,7 +3704,7 @@ class Actions
      *
      * @var array
      */
-    public static $pohledavkaPolozka = [
+ static public $pohledavkaPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3751,7 +3751,7 @@ class Actions
      *
      * @var array
      */
-    public static $zavazekPolozka = [
+ static public $zavazekPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3798,7 +3798,7 @@ class Actions
      *
      * @var array
      */
-    public static $pokladniPohybPolozka = [
+ static public $pokladniPohybPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3845,7 +3845,7 @@ class Actions
      *
      * @var array
      */
-    public static $nabidkaPrijataPolozka = [
+ static public $nabidkaPrijataPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3892,7 +3892,7 @@ class Actions
      *
      * @var array
      */
-    public static $objednavkaPrijataPolozka = [
+ static public $objednavkaPrijataPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3939,7 +3939,7 @@ class Actions
      *
      * @var array
      */
-    public static $fakturaPrijataPolozka = [
+ static public $fakturaPrijataPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -3986,7 +3986,7 @@ class Actions
      *
      * @var array
      */
-    public static $poptavkaPrijataPolozka = [
+ static public $poptavkaPrijataPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -4033,7 +4033,7 @@ class Actions
      *
      * @var array
      */
-    public static $skladovyPohybPolozka = [
+ static public $skladovyPohybPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -4080,7 +4080,7 @@ class Actions
      *
      * @var array
      */
-    public static $smlouvaPolozka = [
+ static public $smlouvaPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -4119,7 +4119,7 @@ class Actions
      *
      * @var array
      */
-    public static $nabidkaVydanaPolozka = [
+ static public $nabidkaVydanaPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -4166,7 +4166,7 @@ class Actions
      *
      * @var array
      */
-    public static $objednavkaVydanaPolozka = [
+ static public $objednavkaVydanaPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -4213,7 +4213,7 @@ class Actions
      *
      * @var array
      */
-    public static $poptavkaVydanaPolozka = [
+ static public $poptavkaVydanaPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -4260,7 +4260,7 @@ class Actions
      *
      * @var array
      */
-    public static $fakturaVydanaPolozka = [
+ static public $fakturaVydanaPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -4307,7 +4307,7 @@ class Actions
      *
      * @var array
      */
-    public static $bankaPolozka = [
+ static public $bankaPolozka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -4354,7 +4354,7 @@ class Actions
      *
      * @var array
      */
-    public static $poplatek = [
+ static public $poplatek = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -4393,7 +4393,7 @@ class Actions
      *
      * @var array
      */
-    public static $prodejka = [
+ static public $prodejka = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -4480,7 +4480,7 @@ class Actions
      *
      * @var array
      */
-    public static $pravoViditelnosti = [
+ static public $pravoViditelnosti = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -4519,7 +4519,7 @@ class Actions
      *
      * @var array
      */
-    public static $text = [
+ static public $text = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -4558,7 +4558,7 @@ class Actions
      *
      * @var array
      */
-    public static $predpisZauctovani = [
+ static public $predpisZauctovani = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -4597,7 +4597,7 @@ class Actions
      *
      * @var array
      */
-    public static $doklad = [
+ static public $doklad = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -4636,7 +4636,7 @@ class Actions
      *
      * @var array
      */
-    public static $fakturaPrijata = [
+ static public $fakturaPrijata = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -4739,7 +4739,7 @@ class Actions
      *
      * @var array
      */
-    public static $nabidkaPrijata = [
+ static public $nabidkaPrijata = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -4818,7 +4818,7 @@ class Actions
      *
      * @var array
      */
-    public static $objednavkaPrijata = [
+ static public $objednavkaPrijata = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -4897,7 +4897,7 @@ class Actions
      *
      * @var array
      */
-    public static $poptavkaPrijata = [
+ static public $poptavkaPrijata = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -4976,7 +4976,7 @@ class Actions
      *
      * @var array
      */
-    public static $skladovyPohyb = [
+ static public $skladovyPohyb = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -5063,7 +5063,7 @@ class Actions
      *
      * @var array
      */
-    public static $prikazKInkasu = [
+ static public $prikazKInkasu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5102,7 +5102,7 @@ class Actions
      *
      * @var array
      */
-    public static $prikazKUhrade = [
+ static public $prikazKUhrade = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5141,7 +5141,7 @@ class Actions
      *
      * @var array
      */
-    public static $priloha = [
+ static public $priloha = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5180,7 +5180,7 @@ class Actions
      *
      * @var array
      */
-    public static $prislustenstvi = [
+ static public $prislustenstvi = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5219,7 +5219,7 @@ class Actions
      *
      * @var array
      */
-    public static $rezervace = [
+ static public $rezervace = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5258,7 +5258,7 @@ class Actions
      *
      * @var array
      */
-    public static $rocniRada = [
+ static public $rocniRada = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5297,7 +5297,7 @@ class Actions
      *
      * @var array
      */
-    public static $sadyAKomplety = [
+ static public $sadyAKomplety = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5336,7 +5336,7 @@ class Actions
      *
      * @var array
      */
-    public static $saldo = [
+ static public $saldo = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5375,7 +5375,7 @@ class Actions
      *
      * @var array
      */
-    public static $sazbaDph = [
+ static public $sazbaDph = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5414,7 +5414,7 @@ class Actions
      *
      * @var array
      */
-    public static $dashboardSharing = [
+ static public $dashboardSharing = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5453,7 +5453,7 @@ class Actions
      *
      * @var array
      */
-    public static $bankovniUcet = [
+ static public $bankovniUcet = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5492,7 +5492,7 @@ class Actions
      *
      * @var array
      */
-    public static $pokladna = [
+ static public $pokladna = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5531,7 +5531,7 @@ class Actions
      *
      * @var array
      */
-    public static $typProdejky = [
+ static public $typProdejky = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5570,7 +5570,7 @@ class Actions
      *
      * @var array
      */
-    public static $sestava = [
+ static public $sestava = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5609,7 +5609,7 @@ class Actions
      *
      * @var array
      */
-    public static $sklad = [
+ static public $sklad = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5648,7 +5648,7 @@ class Actions
      *
      * @var array
      */
-    public static $preneseniDph = [
+ static public $preneseniDph = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5687,7 +5687,7 @@ class Actions
      *
      * @var array
      */
-    public static $skladovaKarta = [
+ static public $skladovaKarta = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5726,7 +5726,7 @@ class Actions
      *
      * @var array
      */
-    public static $skupinaAtributu = [
+ static public $skupinaAtributu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5765,7 +5765,7 @@ class Actions
      *
      * @var array
      */
-    public static $skupinaFirem = [
+ static public $skupinaFirem = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5804,7 +5804,7 @@ class Actions
      *
      * @var array
      */
-    public static $skupinaPlneni = [
+ static public $skupinaPlneni = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5843,7 +5843,7 @@ class Actions
      *
      * @var array
      */
-    public static $skupinaZbozi = [
+ static public $skupinaZbozi = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5882,7 +5882,7 @@ class Actions
      *
      * @var array
      */
-    public static $skupinaStitku = [
+ static public $skupinaStitku = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5921,7 +5921,7 @@ class Actions
      *
      * @var array
      */
-    public static $souhrnneHlaseniDph = [
+ static public $souhrnneHlaseniDph = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5960,7 +5960,7 @@ class Actions
      *
      * @var array
      */
-    public static $rozvahaPoUctech = [
+ static public $rozvahaPoUctech = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -5999,7 +5999,7 @@ class Actions
      *
      * @var array
      */
-    public static $vysledovkaPoUctech = [
+ static public $vysledovkaPoUctech = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6038,7 +6038,7 @@ class Actions
      *
      * @var array
      */
-    public static $splatkovyKalendar = [
+ static public $splatkovyKalendar = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6077,7 +6077,7 @@ class Actions
      *
      * @var array
      */
-    public static $standardniPredpis = [
+ static public $standardniPredpis = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6116,7 +6116,7 @@ class Actions
      *
      * @var array
      */
-    public static $stavObchodnihoDokladu = [
+ static public $stavObchodnihoDokladu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6155,7 +6155,7 @@ class Actions
      *
      * @var array
      */
-    public static $stavSkladuKDatu = [
+ static public $stavSkladuKDatu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6194,7 +6194,7 @@ class Actions
      *
      * @var array
      */
-    public static $saldoKDatu = [
+ static public $saldoKDatu = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -6257,7 +6257,7 @@ class Actions
      *
      * @var array
      */
-    public static $stavSmlouvy = [
+ static public $stavSmlouvy = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6296,7 +6296,7 @@ class Actions
      *
      * @var array
      */
-    public static $stavZakazky = [
+ static public $stavZakazky = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6335,7 +6335,7 @@ class Actions
      *
      * @var array
      */
-    public static $stavUctu = [
+ static public $stavUctu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6374,7 +6374,7 @@ class Actions
      *
      * @var array
      */
-    public static $stat = [
+ static public $stat = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6413,7 +6413,7 @@ class Actions
      *
      * @var array
      */
-    public static $stredisko = [
+ static public $stredisko = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6452,7 +6452,7 @@ class Actions
      *
      * @var array
      */
-    public static $subjekt = [
+ static public $subjekt = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6491,7 +6491,7 @@ class Actions
      *
      * @var array
      */
-    public static $sumaceSestavy = [
+ static public $sumaceSestavy = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6530,7 +6530,7 @@ class Actions
      *
      * @var array
      */
-    public static $typOrganizace = [
+ static public $typOrganizace = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6569,7 +6569,7 @@ class Actions
      *
      * @var array
      */
-    public static $cenikTypSazbyDph = [
+ static public $cenikTypSazbyDph = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6608,7 +6608,7 @@ class Actions
      *
      * @var array
      */
-    public static $typAtributu = [
+ static public $typAtributu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6647,7 +6647,7 @@ class Actions
      *
      * @var array
      */
-    public static $typBanka = [
+ static public $typBanka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6686,7 +6686,7 @@ class Actions
      *
      * @var array
      */
-    public static $dodavatelskyTypSmlouvy = [
+ static public $dodavatelskyTypSmlouvy = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6725,7 +6725,7 @@ class Actions
      *
      * @var array
      */
-    public static $typDokladu = [
+ static public $typDokladu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6764,7 +6764,7 @@ class Actions
      *
      * @var array
      */
-    public static $typInternihoDokladu = [
+ static public $typInternihoDokladu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6803,7 +6803,7 @@ class Actions
      *
      * @var array
      */
-    public static $typLeasingu = [
+ static public $typLeasingu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6842,7 +6842,7 @@ class Actions
      *
      * @var array
      */
-    public static $typMajetku = [
+ static public $typMajetku = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6881,7 +6881,7 @@ class Actions
      *
      * @var array
      */
-    public static $typNakladu = [
+ static public $typNakladu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6920,7 +6920,7 @@ class Actions
      *
      * @var array
      */
-    public static $typSmlouvy = [
+ static public $typSmlouvy = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6959,7 +6959,7 @@ class Actions
      *
      * @var array
      */
-    public static $typPohledavky = [
+ static public $typPohledavky = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -6998,7 +6998,7 @@ class Actions
      *
      * @var array
      */
-    public static $typZavazku = [
+ static public $typZavazku = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7037,7 +7037,7 @@ class Actions
      *
      * @var array
      */
-    public static $typPokladniPohyb = [
+ static public $typPokladniPohyb = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7076,7 +7076,7 @@ class Actions
      *
      * @var array
      */
-    public static $typFakturyPrijate = [
+ static public $typFakturyPrijate = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7115,7 +7115,7 @@ class Actions
      *
      * @var array
      */
-    public static $typNabidkyPrijate = [
+ static public $typNabidkyPrijate = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7154,7 +7154,7 @@ class Actions
      *
      * @var array
      */
-    public static $typObjednavkyPrijate = [
+ static public $typObjednavkyPrijate = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7193,7 +7193,7 @@ class Actions
      *
      * @var array
      */
-    public static $typPoptavkyPrijate = [
+ static public $typPoptavkyPrijate = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7232,7 +7232,7 @@ class Actions
      *
      * @var array
      */
-    public static $typSkladovyPohyb = [
+ static public $typSkladovyPohyb = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7271,7 +7271,7 @@ class Actions
      *
      * @var array
      */
-    public static $typAktivity = [
+ static public $typAktivity = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7310,7 +7310,7 @@ class Actions
      *
      * @var array
      */
-    public static $typUzivatelskeVazby = [
+ static public $typUzivatelskeVazby = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7349,7 +7349,7 @@ class Actions
      *
      * @var array
      */
-    public static $typFakturyVydane = [
+ static public $typFakturyVydane = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7388,7 +7388,7 @@ class Actions
      *
      * @var array
      */
-    public static $typNabidkyVydane = [
+ static public $typNabidkyVydane = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7427,7 +7427,7 @@ class Actions
      *
      * @var array
      */
-    public static $typObjednavkyVydane = [
+ static public $typObjednavkyVydane = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7466,7 +7466,7 @@ class Actions
      *
      * @var array
      */
-    public static $typPoptavkyVydane = [
+ static public $typPoptavkyVydane = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7505,7 +7505,7 @@ class Actions
      *
      * @var array
      */
-    public static $typZakazky = [
+ static public $typZakazky = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7544,7 +7544,7 @@ class Actions
      *
      * @var array
      */
-    public static $typVzajemnychZapoctu = [
+ static public $typVzajemnychZapoctu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7583,7 +7583,7 @@ class Actions
      *
      * @var array
      */
-    public static $majetekUdalost = [
+ static public $majetekUdalost = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7622,7 +7622,7 @@ class Actions
      *
      * @var array
      */
-    public static $udalost = [
+ static public $udalost = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7661,7 +7661,7 @@ class Actions
      *
      * @var array
      */
-    public static $ulozenePriznaniDph = [
+ static public $ulozenePriznaniDph = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7700,7 +7700,7 @@ class Actions
      *
      * @var array
      */
-    public static $radekPriznaniDph = [
+ static public $radekPriznaniDph = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7739,7 +7739,7 @@ class Actions
      *
      * @var array
      */
-    public static $umisteni = [
+ static public $umisteni = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7778,7 +7778,7 @@ class Actions
      *
      * @var array
      */
-    public static $umisteniVeSkladu = [
+ static public $umisteniVeSkladu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7817,7 +7817,7 @@ class Actions
      *
      * @var array
      */
-    public static $umisteniVeSkladuRegal = [
+ static public $umisteniVeSkladuRegal = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7856,7 +7856,7 @@ class Actions
      *
      * @var array
      */
-    public static $umisteniVeSkladuPolice = [
+ static public $umisteniVeSkladuPolice = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7895,7 +7895,7 @@ class Actions
      *
      * @var array
      */
-    public static $umisteniVeSkladuMistnost = [
+ static public $umisteniVeSkladuMistnost = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7934,7 +7934,7 @@ class Actions
      *
      * @var array
      */
-    public static $sablonaUpominky = [
+ static public $sablonaUpominky = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -7973,7 +7973,7 @@ class Actions
      *
      * @var array
      */
-    public static $umisteniUctu = [
+ static public $umisteniUctu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8012,7 +8012,7 @@ class Actions
      *
      * @var array
      */
-    public static $strom = [
+ static public $strom = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8051,7 +8051,7 @@ class Actions
      *
      * @var array
      */
-    public static $uzivatelskyDotaz = [
+ static public $uzivatelskyDotaz = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8090,7 +8090,7 @@ class Actions
      *
      * @var array
      */
-    public static $sablonaMail = [
+ static public $sablonaMail = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8129,7 +8129,7 @@ class Actions
      *
      * @var array
      */
-    public static $filtr = [
+ static public $filtr = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8168,7 +8168,7 @@ class Actions
      *
      * @var array
      */
-    public static $customButton = [
+ static public $customButton = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8207,7 +8207,7 @@ class Actions
      *
      * @var array
      */
-    public static $xslt = [
+ static public $xslt = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8246,7 +8246,7 @@ class Actions
      *
      * @var array
      */
-    public static $uzivatelskaVazba = [
+ static public $uzivatelskaVazba = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8285,7 +8285,7 @@ class Actions
      *
      * @var array
      */
-    public static $stromCenik = [
+ static public $stromCenik = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8324,7 +8324,7 @@ class Actions
      *
      * @var array
      */
-    public static $vazba = [
+ static public $vazba = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8363,7 +8363,7 @@ class Actions
      *
      * @var array
      */
-    public static $uzivatelskyDotazVlastnost = [
+ static public $uzivatelskyDotazVlastnost = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8402,7 +8402,7 @@ class Actions
      *
      * @var array
      */
-    public static $fakturaVydana = [
+ static public $fakturaVydana = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -8513,7 +8513,7 @@ class Actions
      *
      * @var array
      */
-    public static $nabidkaVydana = [
+ static public $nabidkaVydana = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -8592,7 +8592,7 @@ class Actions
      *
      * @var array
      */
-    public static $objednavkaVydana = [
+ static public $objednavkaVydana = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -8671,7 +8671,7 @@ class Actions
      *
      * @var array
      */
-    public static $poptavkaVydana = [
+ static public $poptavkaVydana = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -8750,7 +8750,7 @@ class Actions
      *
      * @var array
      */
-    public static $hodnoceniZakazky = [
+ static public $hodnoceniZakazky = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8789,7 +8789,7 @@ class Actions
      *
      * @var array
      */
-    public static $vzajemnyZapocet = [
+ static public $vzajemnyZapocet = [
   'lock' => [
     'actionId' => 'lock',
     'actionName' => 'Zamknout',
@@ -8868,7 +8868,7 @@ class Actions
      *
      * @var array
      */
-    public static $vykazHospodareni = [
+ static public $vykazHospodareni = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8907,7 +8907,7 @@ class Actions
      *
      * @var array
      */
-    public static $vyrobniCislo = [
+ static public $vyrobniCislo = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8946,7 +8946,7 @@ class Actions
      *
      * @var array
      */
-    public static $zakazka = [
+ static public $zakazka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -8985,7 +8985,7 @@ class Actions
      *
      * @var array
      */
-    public static $formaUhradyZauctovani = [
+ static public $formaUhradyZauctovani = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9024,7 +9024,7 @@ class Actions
      *
      * @var array
      */
-    public static $intrastatZvlastniPohyb = [
+ static public $intrastatZvlastniPohyb = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9063,7 +9063,7 @@ class Actions
      *
      * @var array
      */
-    public static $zalohaKOdpoctu = [
+ static public $zalohaKOdpoctu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9102,7 +9102,7 @@ class Actions
      *
      * @var array
      */
-    public static $zapujcka = [
+ static public $zapujcka = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9141,7 +9141,7 @@ class Actions
      *
      * @var array
      */
-    public static $rada = [
+ static public $rada = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9180,7 +9180,7 @@ class Actions
      *
      * @var array
      */
-    public static $prodejkaPlatba = [
+ static public $prodejkaPlatba = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9219,7 +9219,7 @@ class Actions
      *
      * @var array
      */
-    public static $globalStore = [
+ static public $globalStore = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9258,7 +9258,7 @@ class Actions
      *
      * @var array
      */
-    public static $settingStore = [
+ static public $settingStore = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9297,7 +9297,7 @@ class Actions
      *
      * @var array
      */
-    public static $analyzaZakazky = [
+ static public $analyzaZakazky = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9336,7 +9336,7 @@ class Actions
      *
      * @var array
      */
-    public static $ucetniDenik = [
+ static public $ucetniDenik = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9375,7 +9375,7 @@ class Actions
      *
      * @var array
      */
-    public static $ucetniObdobi = [
+ static public $ucetniObdobi = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9414,7 +9414,7 @@ class Actions
      *
      * @var array
      */
-    public static $ucetniOdpis = [
+ static public $ucetniOdpis = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9453,7 +9453,7 @@ class Actions
      *
      * @var array
      */
-    public static $ucet = [
+ static public $ucet = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9492,7 +9492,7 @@ class Actions
      *
      * @var array
      */
-    public static $cinnost = [
+ static public $cinnost = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9531,7 +9531,7 @@ class Actions
      *
      * @var array
      */
-    public static $castkyKOdpoctu = [
+ static public $castkyKOdpoctu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9570,7 +9570,7 @@ class Actions
      *
      * @var array
      */
-    public static $typStavuCeniku = [
+ static public $typStavuCeniku = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9609,7 +9609,7 @@ class Actions
      *
      * @var array
      */
-    public static $stavCeniku = [
+ static public $stavCeniku = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9648,7 +9648,7 @@ class Actions
      *
      * @var array
      */
-    public static $cisloBaliku = [
+ static public $cisloBaliku = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9687,7 +9687,7 @@ class Actions
      *
      * @var array
      */
-    public static $radekSestavy = [
+ static public $radekSestavy = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9726,7 +9726,7 @@ class Actions
      *
      * @var array
      */
-    public static $cleneniKontrolniHlaseni = [
+ static public $cleneniKontrolniHlaseni = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9765,7 +9765,7 @@ class Actions
      *
      * @var array
      */
-    public static $pricteniRozdilu = [
+ static public $pricteniRozdilu = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9804,7 +9804,7 @@ class Actions
      *
      * @var array
      */
-    public static $sarzeExpirace = [
+ static public $sarzeExpirace = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9843,7 +9843,7 @@ class Actions
      *
      * @var array
      */
-    public static $stitek = [
+ static public $stitek = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9882,7 +9882,7 @@ class Actions
      *
      * @var array
      */
-    public static $zurnal = [
+ static public $zurnal = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',
@@ -9921,7 +9921,7 @@ class Actions
      *
      * @var array
      */
-    public static $smlouvaZurnal = [
+ static public $smlouvaZurnal = [
   'new' => [
     'actionId' => 'new',
     'actionName' => 'Přidat',

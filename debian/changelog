@@ -1,8 +1,9 @@
-php-spojenet-abraflexi (2.25.4) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (2.25.4.187~jammy) UNRELEASED; urgency=medium
 
   * Events handling object introduced
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-187
 
- -- vitex <info@vitexsoftware.cz>  Tue, 13 Aug 2024 19:58:14 +0200
+ -- vitex <jenkins@vyvojar.spoje.net>  Tue, 20 Aug 2024 15:52:05 +0000
 
 php-spojenet-abraflexi (2.25.3.161) experimental; urgency=medium
 

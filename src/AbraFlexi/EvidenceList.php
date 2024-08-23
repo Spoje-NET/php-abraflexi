@@ -2,9 +2,9 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Tue, 13 Aug 2024 17:58:56 +0000
+ * Generated: Fri, 23 Aug 2024 21:49:36 +0000 
  * From:      https://demo.flexibee.eu
- *
+ *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2016-2024 Spoje.Net
  */
@@ -46,14 +46,14 @@ class EvidenceList extends RO
      *
      * @var string
      */
-    public static $version = '2024.5.3';
+ static public $version = '2024.5.4';
 
     /**
      * Evidences Path/Name listing.
      *
      * @var array
      */
-    public static $name = [
+ static public $name = [
   'adresar' => 'Adresy firem',
   'atribut' => 'Atributy',
   'autotisk' => 'Automatický tisk',
@@ -297,7 +297,7 @@ class EvidenceList extends RO
      *
      * @var array
      */
-    public static $evidences = [
+ static public $evidences = [
   'nastaveni' => [
     'evidenceType' => 'NASTAVENI',
     'evidenceName' => 'Nastavení',
@@ -2976,21 +2976,19 @@ class EvidenceList extends RO
 
     /**
      * There is not ID
-     *
+     * 
      * @deprecated since version 1.24 - use getRecordCode() instead
      *
      * @return null company database name
      */
-    public function getRecordID()
-    {
+    public function getRecordID() {
         return null;
     }
 
     /**
      * @inheritDoc
      */
-    public function getRecordCode()
-    {
+    public function getRecordCode() {
         return $this->getDataValue('evidencePath');
     }
-}
+    }
