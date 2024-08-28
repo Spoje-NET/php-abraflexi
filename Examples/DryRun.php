@@ -1,10 +1,15 @@
 #!/usr/bin/php -f
 <?php
+
+declare(strict_types=1);
+
 /**
- * AbraFlexi - Example how to dry-run request
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <info@vitexsofware.cz>
- * @copyright  (G) 2018-2023 Vitex Software
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Example\AbraFlexi;
@@ -12,27 +17,26 @@ namespace Example\AbraFlexi;
 include_once './config.php';
 
 /**
- * Instance of AbraFlexi Invoice in dry-run mode with random code
+ * Instance of AbraFlexi Invoice in dry-run mode with random code.
  */
-
 $invoice = new \AbraFlexi\FakturaVydana([
-    'kod'=>'DRY_RUN_TEST', 
+    'kod' => 'DRY_RUN_TEST',
     'typDokl' => 'code:FAKTURA',
-    'poznam' => 'Test ' . time(), 
+    'poznam' => 'Test '.time(),
     'varSym' => time()], ['dry-run' => true]);
 
 /**
- * Save invoice to AbraFlexi
+ * Save invoice to AbraFlexi.
  */
- try {
-     $resultInsert = $invoice->insertToAbraFlexi();
- } catch (\AbraFlexi\Exception $exc) {
-     echo $exc->getMessage();
-    //For example we can get here: "AbraFlexi\FakturaVydana: Pole 'Variabilní symbol' musí být vyplněno. [DRY_RUN_TEST]"
- }
+try {
+    $resultInsert = $invoice->insertToAbraFlexi();
+} catch (\AbraFlexi\Exception $exc) {
+    echo $exc->getMessage();
+    // For example we can get here: "AbraFlexi\FakturaVydana: Pole 'Variabilní symbol' musí být vyplněno. [DRY_RUN_TEST]"
+}
 
 /**
- * Save to AbraFlexi and load result
+ * Save to AbraFlexi and load result.
  */
 $resultSync = $invoice->sync();
 

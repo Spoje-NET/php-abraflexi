@@ -3,39 +3,36 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Objekt štítku.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
-use AbraFlexi\RO;
-use AbraFlexi\RW;
-
 /**
- * Štítek
+ * Štítek.
  *
- * @link https://demo.flexibee.eu/c/demo/stitek/properties Vlastnosti evidence
+ * @see https://demo.flexibee.eu/c/demo/stitek/properties Vlastnosti evidence
  */
 class Stitek extends RW
 {
     /**
-     * Evidence Path for vsb supported by label
-     *
-     * @var array
+     * Evidence Path for vsb supported by label.
      */
-    public static $vsbToEvidencePath = [
+    public static array $vsbToEvidencePath = [
         'vsbAdr' => 'adresar', // Adresář
         'vsbBan' => 'banka', // Banka
-//      'vsbCis' => 'ciselnik', // Číselníky
+        //      'vsbCis' => 'ciselnik', // Číselníky
         'vsbFap' => 'faktura-prijata', // Přijaté faktury
         'vsbFav' => 'faktura-vydana', // Vydané faktury
-//      'vsbInt' => '' // Interní doklady
+        //      'vsbInt' => '' // Interní doklady
         'vsbKatalog' => 'cenik', // Adresář
-//      'vsbMaj' => '', // Majetek
-//      'vsbMzd' => 'mzda', // Mzdy
+        //      'vsbMaj' => '', // Majetek
+        //      'vsbMzd' => 'mzda', // Mzdy
         'vsbNap' => 'nabidka-prijata', // Nabídky přijaté
         'vsbNav' => 'nabidka-vydana', // Nabídky vydané
         'vsbObp' => 'objednavka-prijata', // Objednávky přijaté
@@ -50,17 +47,16 @@ class Stitek extends RW
 
     /**
      * Evidence užitá objektem.
-     *
-     * @var string
      */
-    public $evidence = 'stitek';
+    public string $evidence = 'stitek';
 
     /**
-     * Obtain labels for current record
+     * Obtain labels for current record.
      *
      * @deprecated since version 1.21
      *
      * @param RO $object data source
+     *
      * @return array labels
      */
     public static function getLabels($object)
@@ -68,22 +64,23 @@ class Stitek extends RW
         $labels = null;
         $labelsRaw = $object->getDataValue('stitky');
 
-        if (strlen($labelsRaw)) {
-            $labels = is_array($labelsRaw) ? $labelsRaw : self::listToArray($labelsRaw);
+        if (\strlen($labelsRaw)) {
+            $labels = \is_array($labelsRaw) ? $labelsRaw : self::listToArray($labelsRaw);
         }
+
         return $labels;
     }
 
     /**
-     * Convert coma-separated list to array
+     * Convert coma-separated list to array.
      *
-     * @param string|array $listRaw
+     * @param array|string $listRaw
      *
      * @return array
      */
     public static function listToArray($listRaw)
     {
-        if (is_array($listRaw)) {
+        if (\is_array($listRaw)) {
             $list = array_combine(array_values($listRaw), array_values($listRaw));
         } else {
             if (strstr($listRaw, ',')) {
@@ -91,13 +88,15 @@ class Stitek extends RW
             } else {
                 $list = [$listRaw];
             }
+
             $list = array_combine($list, $list);
         }
+
         return empty($listRaw) ? [] : $list;
     }
 
     /**
-     * Obtain list of availble labels for given object
+     * Obtain list of availble labels for given object.
      *
      * @param RO $object
      *
@@ -110,13 +109,14 @@ class Stitek extends RW
         $object->setEvidence('stitek');
         $pathToVsb = array_flip(self::$vsbToEvidencePath);
 
-        if (array_key_exists($evidenceBackup, $pathToVsb)) {
+        if (\array_key_exists($evidenceBackup, $pathToVsb)) {
             $labelsRaw = $object->getColumnsFromAbraFlexi(
                 ['kod', 'nazev'],
                 [$pathToVsb[$evidenceBackup] => true, 'limit' => 0],
-                'nazev'
+                'nazev',
             );
-            if (count($labelsRaw)) {
+
+            if (\count($labelsRaw)) {
                 foreach ($labelsRaw as $labelInfo) {
                     $labels[$labelInfo['kod']] = $labelInfo['nazev'];
                 }
@@ -124,70 +124,76 @@ class Stitek extends RW
         }
 
         $object->setEvidence($evidenceBackup);
+
         return $labels;
     }
 
     /**
-     * Set Label for Current Object record
+     * Set Label for Current Object record.
      *
      * @deprecated since version 1.21
      *
-     * @param string     $label
-     * @param RW $object
+     * @param string $label
+     * @param RW     $object
      *
-     * @return boolean   success result ?
+     * @return bool success result ?
      */
     public static function setLabel($label, $object)
     {
-        return boolval($object->insertToAbraFlexi(['id' => $object->getMyKey(), 'stitky' => $label]));
+        return (bool) $object->insertToAbraFlexi(['id' => $object->getMyKey(), 'stitky' => $label]);
     }
 
     /**
-     * UnSet Label for Current Object record
+     * UnSet Label for Current Object record.
      *
      * @deprecated since version 1.21
      *
-     * @param string     $label
-     * @param RW $object
+     * @param string $label
+     * @param RW     $object
      *
-     * @return boolean   success result ?
+     * @return bool success result ?
      */
     public static function unsetLabel($label, $object)
     {
         $result = true;
         $labels = self::getLabels($object);
-        if (array_key_exists($label, $labels)) {
+
+        if (\array_key_exists($label, $labels)) {
             unset($labels[$label]);
             $object->insertToAbraFlexi(['id' => $object->getMyKey(), 'stitky@removeAll' => 'true',
                 'stitky' => $labels]);
-            $result = ($object->lastResponseCode == 201);
+            $result = ($object->lastResponseCode === 201);
         }
+
         return $result;
     }
 
     /**
-     * Create New Label for given evidencies
+     * Create New Label for given evidencies.
      *
-     * @param string $name       Label Name
-     * @param array  $evidences  Evidence code list ex: ['faktura-vydana','faktura-prijata']
-     * @param array  $options    Additional Label properties ex: ['kod'=>'EXAMPLE','skupVybKlic'=>'SKUPINA_STITKU']
+     * @param string $name      Label Name
+     * @param array  $evidences Evidence code list ex: ['faktura-vydana','faktura-prijata']
+     * @param array  $options   Additional Label properties ex: ['kod'=>'EXAMPLE','skupVybKlic'=>'SKUPINA_STITKU']
      *
-     * @return boolean success
+     * @return bool success
      */
     public function createNew($name, $evidences, $options = [])
     {
         $this->setData($options, true);
         $evidence2code = array_flip(self::$vsbToEvidencePath);
+
         foreach ($evidences as $evidence) {
-            if (array_key_exists($evidence, $evidence2code)) {
+            if (\array_key_exists($evidence, $evidence2code)) {
                 $this->setDataValue($evidence2code[$evidence], true);
             }
         }
 
-        if (!array_key_exists('kod', $options)) {
+        if (!\array_key_exists('kod', $options)) {
             $this->setDataValue('kod', self::code($name));
         }
+
         $this->setDataValue('nazev', $name);
+
         return $this->sync();
     }
 }

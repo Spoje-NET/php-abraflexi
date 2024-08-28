@@ -3,16 +3,19 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Code support
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2024 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Add for evidencies with code: identifier
+ * Add for evidencies with code: identifier.
+ *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
 trait kod
@@ -21,7 +24,7 @@ trait kod
      * Obtain record/object identificator code:
      * Vrací identifikátor objektu code:
      *
-     * @link https://demo.flexibee.eu/devdoc/identifiers Identifikátory záznamů
+     * @see https://demo.flexibee.eu/devdoc/identifiers Identifikátory záznamů
      *
      * @return string record code identifier
      */

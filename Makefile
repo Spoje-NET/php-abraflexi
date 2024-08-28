@@ -61,3 +61,5 @@ dimage:
 
 .PHONY: all pretest clean static release verup deb
 
+.PHONY: cs
+	vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --diff --verbose

@@ -1,9 +1,14 @@
 <?php
+
+declare(strict_types=1);
+
 /**
- * AbraFlexi - Example how to configure Connection
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <info@vitexsofware.cz>
- * @copyright  (G) 2017 Vitex Software
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 require_once '../test/bootstrap.php';

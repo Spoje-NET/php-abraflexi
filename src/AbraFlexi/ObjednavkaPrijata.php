@@ -3,18 +3,20 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Incoming order class.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2023 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Incoming order
+ * Incoming order.
  *
- * @link https://demo.flexibee.eu/c/demo/objednavka-prijata/properties
+ * @see https://demo.flexibee.eu/c/demo/objednavka-prijata/properties
  */
 class ObjednavkaPrijata extends RW implements \AbraFlexi\Document
 {
@@ -27,8 +29,6 @@ class ObjednavkaPrijata extends RW implements \AbraFlexi\Document
 
     /**
      * Evidence použitá třídou.
-     *
-     * @var string
      */
-    public $evidence = 'objednavka-prijata';
+    public string $evidence = 'objednavka-prijata';
 }

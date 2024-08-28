@@ -3,32 +3,30 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Objekt stromu.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Obecný Strom
+ * Obecný Strom.
  *
- * @link https://demo.flexibee.eu/c/demo/strom/properties vlastnosti evidence
+ * @see https://demo.flexibee.eu/c/demo/strom/properties vlastnosti evidence
  */
 class Strom extends RW
 {
     /**
      * Evidence užitá objektem.
-     *
-     * @var string
      */
-    public $evidence = 'strom';
+    public string $evidence = 'strom';
 
     /**
-     * Sloupeček se jménem záznamu
-     *
-     * @var string
+     * Sloupeček se jménem záznamu.
      */
-    public $nameColumn = 'nazev';
+    public string $nameColumn = 'nazev';
 }

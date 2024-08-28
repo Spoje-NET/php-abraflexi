@@ -1,22 +1,25 @@
 #!/usr/bin/php -f
 <?php
+
+declare(strict_types=1);
+
 /**
- * AbraFlexi - Example how to read columns
+ * This file is part of the EaseCore package.
  *
- *              Z evidence Adresáře odběratelů vytáhni 3 sloupečky
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
  *
- * @author     Vítězslav Dvořák <info@vitexsofware.cz>
- * @copyright  (G) 2017 Vitex Software
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Example\AbraFlexi;
 
 include_once './config.php';
+
 include_once '../vendor/autoload.php';
 
 $banker = new \AbraFlexi\Banka();
-$first  = $banker->getColumnsFromFlexibee(['id'], ['limit' => 1]);
-
+$first = $banker->getColumnsFromFlexibee(['id'], ['limit' => 1]);
 
 $banker->ignore404(true);
 $response404 = $banker->performRequest('error.json');

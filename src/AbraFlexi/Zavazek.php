@@ -3,16 +3,18 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Objekt závazky.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2019 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Description of Zavazek
+ * Description of Zavazek.
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
@@ -22,6 +24,5 @@ class Zavazek extends \AbraFlexi\RW
     use firma;
     use sum;
     use email;
-
     public $evidence = 'zavazek';
 }

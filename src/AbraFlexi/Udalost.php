@@ -3,16 +3,18 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Event Object.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2024 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * @link https://demo.abraflexi.eu/c/demo/udalost/properties api udalost evidence
+ * @see https://demo.abraflexi.eu/c/demo/udalost/properties api udalost evidence
  */
 class Udalost extends RW
 {
@@ -21,8 +23,6 @@ class Udalost extends RW
 
     /**
      * Evidence užitá objektem.
-     *
-     * @var string
      */
-    public $evidence = 'udalost';
+    public string $evidence = 'udalost';
 }

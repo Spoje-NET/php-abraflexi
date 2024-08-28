@@ -3,17 +3,18 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - WebHooks.
+ * This file is part of the EaseCore package.
  *
- * @link https://www.abraflexi.eu/api/dokumentace/ref/web-hooks WebHooks Reference
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Hooky pro ChangesAPI
+ * Hooky pro ChangesAPI.
  *
  * @note Tato položka nemá dostupné položky evidence
  */
@@ -21,18 +22,16 @@ class Hooks extends RW
 {
     /**
      * Evidence užitá objektem.
-     *
-     * @var string
      */
-    public $evidence = 'hooks';
+    public string $evidence = 'hooks';
 
     /**
-     * Zaregistruje WebHook
+     * Zaregistruje WebHook.
      *
-     * @param string $url URL skript přímající WebHook
+     * @param string $url    URL skript přímající WebHook
      * @param string $format json|xml formát přenášených dat
      *
-     * @return boolean výsledek požadavku
+     * @return bool výsledek požadavku
      */
     public function register($url, $format = 'json')
     {
@@ -40,34 +39,38 @@ class Hooks extends RW
         $this->setDataValue('format', strtoupper($format));
 
         $hooks = $this->getAllFromAbraFlexi();
-        if (is_array($hooks) && count($hooks)) {
+
+        if (\is_array($hooks) && \count($hooks)) {
             foreach ($hooks as $hook) {
-                if (is_array($hook) && array_key_exists('url', $hook)) {
-                    if ($hook['url'] == $url) {
+                if (\is_array($hook) && \array_key_exists('url', $hook)) {
+                    if ($hook['url'] === $url) {
                         $this->addStatusMessage(sprintf(_('Url %s allready registered'), $url), 'debug');
+
                         return false;
                     }
                 }
             }
         }
-        $this->performRequest('?' . http_build_query($this->getData()), 'PUT');
+
+        $this->performRequest('?'.http_build_query($this->getData()), 'PUT');
 
         return $this->lastResponseCode === 200;
     }
 
     /**
-     * Aktualizuje WebHook (penalty = 0)
+     * Aktualizuje WebHook (penalty = 0).
      *
      * @param int $id
      */
     public function refreshWebHook($id)
     {
-        $this->performRequest($id . '/retry', 'PUT');
+        $this->performRequest($id.'/retry', 'PUT');
+
         return $this->lastResponseCode === 200;
     }
 
     /**
-     * Odregistruje webhook
+     * Odregistruje webhook.
      *
      * @param int $id číslo záznamu
      */

@@ -3,16 +3,18 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Objekt nastavení.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Nastavení firmy
+ * Nastavení firmy.
  *
  * @note Tato položka nemá dostupné položky evidence
  * @note Tato evidence není veřejně dostupná na demo.abraflexi.eu
@@ -21,8 +23,6 @@ class Nastaveni extends RO
 {
     /**
      * Evidence užitá objektem.
-     *
-     * @var string
      */
-    public $evidence = 'nastaveni';
+    public string $evidence = 'nastaveni';
 }

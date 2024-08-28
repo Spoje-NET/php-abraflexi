@@ -10,17 +10,21 @@
 
 declare(strict_types=1);
 
+/**
+ * This file is part of the EaseCore package.
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AbraFlexi;
 
-use AbraFlexi\firma;
-use AbraFlexi\RW;
-use AbraFlexi\stitky;
-use AbraFlexi\subItems;
-
 /**
- * Banka
+ * Banka.
  *
- * @link https://demo.flexibee.eu/c/demo/banka/properties Vlastnosti evidence
+ * @see https://demo.flexibee.eu/c/demo/banka/properties Vlastnosti evidence
  */
 class Banka extends RW implements \AbraFlexi\Document
 {
@@ -34,37 +38,37 @@ class Banka extends RW implements \AbraFlexi\Document
 
     /**
      * Evidence užitá objektem.
-     *
-     * @var string
      */
-    public $evidence = 'banka';
+    public string $evidence = 'banka';
 
     /**
-     * Stáhne bankovní výpisy  ( trvá delší dobu )
+     * Stáhne bankovní výpisy  ( trvá delší dobu ).
      *
-     * @return boolean
+     * @return bool
      */
     public function stahnoutVypisyOnline()
     {
         $this->performRequest('nacteni-vypisu-online.json', 'PUT', 'txt');
-        return ($this->lastResponseCode == 200);
+
+        return $this->lastResponseCode === 200;
     }
 
     /**
      * Start invoice automatic matching process ( it takes longer time )
-     * Spustí proces automatického párování plateb. ( trvá delší dobu )
+     * Spustí proces automatického párování plateb. ( trvá delší dobu ).
      *
-     * @link https://demo.flexibee.eu/devdoc/parovani-plateb Interní dokumentace
+     * @see https://demo.flexibee.eu/devdoc/parovani-plateb Interní dokumentace
      *
-     * @param boolean $advanced Use Advanced matching method ?
-     * @param string  $filter   Filter bank records before pairing ?
+     * @param bool   $advanced Use Advanced matching method ?
+     * @param string $filter   Filter bank records before pairing ?
      *
-     * @return boolean
+     * @return bool
      */
     public function automatickeParovani($advanced = false, $filter = null)
     {
-        $filterUrl = $filter === null ? "" : rtrim($filter, '/') . '/';
-        $this->performRequest($filterUrl . 'automaticke-parovani' . ($advanced ? '-pokrocile' : ''), 'PUT');
-        return $this->lastResponseCode == 200;
+        $filterUrl = $filter === null ? '' : rtrim($filter, '/').'/';
+        $this->performRequest($filterUrl.'automaticke-parovani'.($advanced ? '-pokrocile' : ''), 'PUT');
+
+        return $this->lastResponseCode === 200;
     }
 }

@@ -1,51 +1,50 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * AbraFlexi - Somenthing goes wrong.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2021-2023 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Description of Exception
+ * Description of Exception.
  *
  * @author vitex
  */
 class Exception extends \Ease\Exception
 {
     /**
-     * Original server response
-     * @var string
+     * Original server response.
      */
-    private $serverResponse = '';
+    private string $serverResponse = '';
 
     /**
-     * Error messages sit here
-     * @var array
+     * Error messages sit here.
      */
-    private $errorMessages = [];
+    private array $errorMessages = [];
 
     /**
-     * AbraFlexi response as Exception
+     * AbraFlexi response as Exception.
      *
      * @param string $message good to know
-     *
-     * @param RO $caller AbraFlexi Object
-     *
-     * @param \Ease\Exception $previous
+     * @param RO     $caller  AbraFlexi Object
      */
-    public function __construct($message, RO $caller, \Ease\Exception $previous = null)
+    public function __construct($message, RO $caller, ?\Ease\Exception $previous = null)
     {
         $this->errorMessages = $caller->getErrors();
         $this->serverResponse = $caller->lastCurlResponse;
-        parent::__construct(get_class($caller) . ': ' . $message, $caller->lastResponseCode, $previous);
+        parent::__construct(\get_class($caller).': '.$message, $caller->lastResponseCode, $previous);
     }
 
     /**
-     * Get (first) error message
+     * Get (first) error message.
      *
      * @param int $index which message
      *
@@ -57,7 +56,7 @@ class Exception extends \Ease\Exception
     }
 
     /**
-     * All stored Error messages
+     * All stored Error messages.
      *
      * @return array
      */
@@ -67,7 +66,7 @@ class Exception extends \Ease\Exception
     }
 
     /**
-     * Raw API Response
+     * Raw API Response.
      *
      * @return string
      */

@@ -3,18 +3,20 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Objekt Pokladního pohybu.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2023 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Pokladní pohyb
+ * Pokladní pohyb.
  *
- * @link https://demo.flexibee.eu/c/demo/pokladni-pohyb/properties položky evidence
+ * @see https://demo.flexibee.eu/c/demo/pokladni-pohyb/properties položky evidence
  */
 class PokladniPohyb extends RW implements \AbraFlexi\Document
 {
@@ -27,8 +29,6 @@ class PokladniPohyb extends RW implements \AbraFlexi\Document
 
     /**
      * Evidence AbraFlexi.
-     *
-     * @var string
      */
-    public $evidence = 'pokladni-pohyb';
+    public string $evidence = 'pokladni-pohyb';
 }

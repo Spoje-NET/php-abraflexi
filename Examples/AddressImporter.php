@@ -1,8 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * This file is part of the EaseCore package.
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Example\AbraFlexi;
 
 include_once './config.php';
+
 include_once '../vendor/autoload.php';
 
 $options = [];
@@ -16,10 +28,8 @@ $customerData = [
     'mobil1' => '6021231564',
     'ico' => '1212633',
     'dic' => 'SK123133',
-    'bankAccount' => 'CZ9520100000002800677051'
+    'bankAccount' => 'CZ9520100000002800677051',
 ];
-
-
 
 $data = [
     'id' => 'ext:test:'.time(),
@@ -32,30 +42,35 @@ $data = [
     'ic' => $customerData['ico'],
     'dic' => $customerData['dic'],
 ];
+
 if ($customerData['icDph'] ?? null) {
-    $data['vatId']     = $customerData['icDph'];
+    $data['vatId'] = $customerData['icDph'];
     $data['platceDph'] = true;
 }
+
 if ($customerData['phone'] ?? null) {
     $data['tel'] = $customerData['phone'];
 }
 
-echo (sprintf("Inserting: %s", $data['nazev']));
-
+echo sprintf('Inserting: %s', $data['nazev']);
 
 $adresar = new \AbraFlexi\Adresar($data);
 
 if ($customerData['bankAccount'] ?? null) {
     $kodBanky = substr($customerData['bankAccount'], 4, 4);
 
-    $adresarBankovniUcet = new \AbraFlexi\Adresar([
-        'iban' => $customerData['bankAccount'],
-//                'bic' => 'XXXX',
-        'smerKod' => 'code:0300',
-        'firma' => $data['id'],
+    $adresarBankovniUcet = new \AbraFlexi\Adresar(
+        [
+            'iban' => $customerData['bankAccount'],
+            //                'bic' => 'XXXX',
+            'smerKod' => 'code:0300',
+            'firma' => $data['id'],
         ],
-        array_merge($options,
-            ['evidence' => 'adresar-bankovni-ucet', 'offline' => true]));
+        array_merge(
+            $options,
+            ['evidence' => 'adresar-bankovni-ucet', 'offline' => true],
+        ),
+    );
     $adresar->join($adresarBankovniUcet);
 }
 

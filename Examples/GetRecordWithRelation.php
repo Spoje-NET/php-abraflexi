@@ -1,15 +1,21 @@
 #!/usr/bin/php -f
 <?php
+
+declare(strict_types=1);
+
 /**
- * AbraFlexi - Example how to get relation data
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <info@vitexsofware.cz>
- * @copyright  (G) 2017 Vitex Software
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Example\AbraFlexi;
 
 include_once './config.php';
+
 include_once '../vendor/autoload.php';
 
 include_once './common.php';
@@ -23,10 +29,13 @@ $contact_id = askForFlexiBeeID('Contact');
  * (string) ext:ESHOP:oi1978
  * (array) ['varSym'=>'20080015']
  */
-$contact = new \AbraFlexi\Kontakt($contact_id,
-    ['defaultUrlParams' => ['relations' => 'adresar']]);
-$adresy  = $contact->getDataValue('adresy');
-if (count($adresy)) {
+$contact = new \AbraFlexi\Kontakt(
+    $contact_id,
+    ['defaultUrlParams' => ['relations' => 'adresar']],
+);
+$adresy = $contact->getDataValue('adresy');
+
+if (\count($adresy)) {
     foreach ($adresy as $adresa) {
         echo $adresa['nazev']."\n";
     }

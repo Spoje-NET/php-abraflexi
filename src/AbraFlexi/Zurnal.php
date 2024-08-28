@@ -3,53 +3,49 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Objekt Žurnálu.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2017 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
  * Žurnál změn
- * Journal of Changes
+ * Journal of Changes.
  *
- * @link https://demo.flexibee.eu/c/demo/adresar/properties položky evidence
+ * @see https://demo.flexibee.eu/c/demo/adresar/properties položky evidence
  */
 class Zurnal extends RO
 {
     /**
      * Evidence užitá objektem.
-     *
-     * @var string
      */
-    public $evidence = 'zurnal';
-
-    /**
-     *
-     * @var array
-     */
-    public static $evidenceToDb = ['faktura-vydana' => 'ddoklfak'];
+    public string $evidence = 'zurnal';
+    public static array $evidenceToDb = ['faktura-vydana' => 'ddoklfak'];
 
     /**
      * Class for read only interaction with AbraFlexi.
      *
-     * @param mixed $init default record id or initial data
+     * @param mixed $init    default record id or initial data
      * @param array $options Connection settings and other options override
      */
     public function __construct($init = null, $options = [])
     {
         parent::__construct($init, $options);
+
         foreach (EvidenceList::$evidences as $evidenceName => $evidenceProperties) {
-            if (array_key_exists('dbName', $evidenceProperties)) {
+            if (\array_key_exists('dbName', $evidenceProperties)) {
                 self::$evidenceToDb[$evidenceName] = $evidenceProperties['dbName'];
             }
         }
     }
 
     /**
-     * obtain all record changes array
+     * obtain all record changes array.
      *
      * Note: Do not use this method in production environment!
      *
@@ -60,6 +56,7 @@ class Zurnal extends RO
      *       CREATE INDEX CONCURRENTLY rid_index ON wzurnal (idZaznamu);
      *
      * @param RO $object
+     *
      * @return array changes history
      */
     public function getAllChanges($object)
@@ -67,33 +64,38 @@ class Zurnal extends RO
         $changesArray = [];
 
         $evidence = $object->getEvidence();
-        if (array_key_exists($evidence, self::$evidenceToDb)) {
+
+        if (\array_key_exists($evidence, self::$evidenceToDb)) {
             $dbTable = self::$evidenceToDb[$evidence];
             $changes = $this->getColumnsFromAbraFlexi(
                 '*',
-                ['tabulka' => $dbTable, 'idZaznamu' => $object->getMyKey()]
+                ['tabulka' => $dbTable, 'idZaznamu' => $object->getMyKey()],
             );
 
             foreach ($changes as $change) {
                 $changesArray[$change['datCas']][$change['sloupec']] = $change;
             }
         }
+
         return $changesArray;
     }
 
     /**
-     * obtain last change array
+     * obtain last change array.
      *
      * @param RO $object
+     *
      * @return array Old/New values pairs
      */
     public function getLastChange($object)
     {
         $lastChange = null;
         $allChanges = $this->getAllChanges($object);
-        if (count($allChanges)) {
+
+        if (\count($allChanges)) {
             $lastChange = end($allChanges);
         }
+
         return $lastChange;
     }
 }

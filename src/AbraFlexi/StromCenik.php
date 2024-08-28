@@ -3,25 +3,25 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Objekt přiřazení položek ceníku ku stromu.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Strom Položek ceníku
+ * Strom Položek ceníku.
  *
- * @link https://demo.flexibee.eu/c/demo/strom-cenik/properties Vlastnosti evidence
+ * @see https://demo.flexibee.eu/c/demo/strom-cenik/properties Vlastnosti evidence
  */
 class StromCenik extends RW
 {
     /**
      * Evidence užitá objektem.
-     *
-     * @var string
      */
-    public $evidence = 'strom-cenik';
+    public string $evidence = 'strom-cenik';
 }

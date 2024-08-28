@@ -1,13 +1,19 @@
 #!/usr/bin/php -f
 <?php
 
+declare(strict_types=1);
+
 /**
- * PHPAbraFlexi - Example how to establish an WebHook
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <info@vitexsofware.cz>
- * @copyright  (G) 2021 Vitex Software
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
+
 include_once './config.php';
+
 include_once '../vendor/autoload.php';
 
 /**
@@ -17,43 +23,56 @@ include_once '../vendor/autoload.php';
  *
  * @return string the current URL or NULL for php-cli
  */
-function phpSelf($dropqs = true) {
+function phpSelf($dropqs = true)
+{
     $url = null;
-    if (php_sapi_name() != 'cli') {
 
+    if (\PHP_SAPI !== 'cli') {
         $schema = 'http';
-        if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on')) {
+
+        if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] === 'on')) {
             $schema .= 's';
         }
-        $url = sprintf('%s://%s%s', $schema, $_SERVER['SERVER_NAME'],
-                $_SERVER['REQUEST_URI']);
+
+        $url = sprintf(
+            '%s://%s%s',
+            $schema,
+            $_SERVER['SERVER_NAME'],
+            $_SERVER['REQUEST_URI'],
+        );
 
         $parts = parse_url($url);
 
         $port = $_SERVER['SERVER_PORT'];
         $scheme = $parts['scheme'];
         $host = $parts['host'];
+
         if (isset($parts['path'])) {
             $path = $parts['path'];
         } else {
             $path = null;
         }
+
         if (isset($parts['query'])) {
             $qs = $parts['query'];
         } else {
             $qs = null;
         }
-        $port || $port = ($scheme == 'https') ? '443' : '80';
 
-        if (($scheme == 'https' && $port != '443') || ($scheme == 'http' && $port != '80')
+        $port || $port = ($scheme === 'https') ? '443' : '80';
+
+        if (($scheme === 'https' && $port !== '443') || ($scheme === 'http' && $port !== '80')
         ) {
-            $host = "$host:$port";
+            $host = "{$host}:{$port}";
         }
-        $url = "$scheme://$host$path";
+
+        $url = "{$scheme}://{$host}{$path}";
+
         if (!$dropqs) {
             $url = "{$url}?{$qs}";
         }
     }
+
     return $url;
 }
 

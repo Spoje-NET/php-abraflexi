@@ -3,16 +3,18 @@
 declare(strict_types=1);
 
 /**
- * Shopping prices
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2023 Vitex Software
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Description of Dodavatel
+ * Description of Dodavatel.
  *
  * @author vitex
  */
@@ -23,8 +25,6 @@ class Dodavatel extends RW
 
     /**
      * The agenda used by the object.
-     *
-     * @var string
      */
-    public $evidence = 'dodavatel';
+    public string $evidence = 'dodavatel';
 }

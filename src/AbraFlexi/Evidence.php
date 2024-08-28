@@ -3,42 +3,28 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Evidence Full actions.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  (C) 2019 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 use Ease\Sand;
-use AbraFlexi\RO;
 
 /**
- * Helper class for work with multiplete documents
+ * Helper class for work with multiplete documents.
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
 class Evidence extends Sand
 {
-    /**
-     *
-     * @var RO
-     */
-    public $engine = null;
+    public RO $engine = null;
+    public array $conditions = [];
 
-    /**
-     *
-     * @var array
-     */
-    public $conditions = [];
-
-    /**
-     *
-     * @param RO $engine
-     *
-     * @param array $conditions
-     */
     public function __construct(RO $engine, array $conditions = [])
     {
         $this->engine = $engine;
@@ -46,43 +32,45 @@ class Evidence extends Sand
     }
 
     /**
-     * Array of objects in eveidence
+     * Array of objects in eveidence.
      *
      * @return array
      */
     public function getEvidenceData()
     {
-        return $this->engine->getColumnsFromAbraFlexi(array_key_exists(
+        return $this->engine->getColumnsFromAbraFlexi(\array_key_exists(
             'detail',
-            $this->conditions
+            $this->conditions,
         ) ? $this->conditions['detail'] : 'full', $this->conditions);
     }
 
     /**
-     * Array of objects in eveidence
+     * Array of objects in eveidence.
      *
      * @return RO[]
      */
     public function getEvidenceObjects()
     {
         $contents = [];
+
         foreach (
             $this->engine->getColumnsFromAbraFlexi(
-                array_key_exists(
+                \array_key_exists(
                     'detail',
-                    $this->conditions
+                    $this->conditions,
                 ) ? $this->conditions['detail'] : 'full',
-                $this->conditions
+                $this->conditions,
             ) as $pos => $recordData
         ) {
             $contents[$pos] = clone $this->engine;
             $contents[$pos]->setData($recordData, true);
         }
+
         return $contents;
     }
 
     /**
-     * get used evidence name
+     * get used evidence name.
      *
      * @return string
      */

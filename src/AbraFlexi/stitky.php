@@ -3,22 +3,25 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Document Default Address support
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2018 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Add for Objects use with "firma" data column
+ * Add for Objects use with "firma" data column.
+ *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
 trait stitky
 {
     /**
-     * Get all labels for current record
+     * Get all labels for current record.
      *
      * @return array
      */
@@ -28,43 +31,46 @@ trait stitky
     }
 
     /**
-     * Set one of availble Labels for current record
+     * Set one of availble Labels for current record.
      *
      * @param string $label
      *
-     * @return boolean Operation success
+     * @return bool Operation success
      */
     public function setLabel($label)
     {
         $this->insertToAbraFlexi(['id' => $this->getRecordIdent(), 'stitky' => $label]);
-        return $this->lastResponseCode == 201;
+
+        return $this->lastResponseCode === 201;
     }
 
     /**
-     * UnSet Label for Current Object record
+     * UnSet Label for Current Object record.
      *
-     * @param string|array $labelsToRemove Label/Labels
+     * @param array|string $labelsToRemove Label/Labels
      *
-     * @return boolean   success result ?
+     * @return bool success result ?
      */
     public function unsetLabel($labelsToRemove)
     {
         $this->insertToAbraFlexi(['id' => $this->getRecordIdent(), 'stitky@removeAll' => 'true',
             'stitky' => array_diff_key(
                 $this->getLabels(),
-                Stitek::listToArray($labelsToRemove)
+                Stitek::listToArray($labelsToRemove),
             )]);
-        return $this->lastResponseCode == 201;
+
+        return $this->lastResponseCode === 201;
     }
 
     /**
-     * UnSet all Labels for Current Object record
+     * UnSet all Labels for Current Object record.
      *
-     * @return boolean   success result ?
+     * @return bool success result ?
      */
     public function unsetLabels()
     {
         $this->insertToAbraFlexi(['id' => $this->getRecordIdent(), 'stitky@removeAll' => 'true']);
-        return $this->lastResponseCode == 201;
+
+        return $this->lastResponseCode === 201;
     }
 }

@@ -3,28 +3,30 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Document Default Address support
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2018-2021 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Add for Objects use with "firma" data column
+ * Add for Objects use with "firma" data column.
+ *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
 trait firma
 {
     /**
-     * Here Customer's or Provider's comany object live
-     * @var \AbraFlexi\Adresar|null
+     * Here Customer's or Provider's comany object live.
      */
-    public $firma = null;
+    public ?\AbraFlexi\Adresar $firma = null;
 
     /**
-     * Instance of Adresar( $this->getDataValue('firma') )
+     * Instance of Adresar( $this->getDataValue('firma') ).
      *
      * @param array $options for new Object
      *
@@ -32,9 +34,10 @@ trait firma
      */
     public function getFirmaObject($options = ['details' => 'id'])
     {
-        if (is_null($this->firma)) {
+        if (null === $this->firma) {
             $this->firma = new Adresar($this->getDataValue('firma'), $options);
         }
+
         return $this->firma;
     }
 }
