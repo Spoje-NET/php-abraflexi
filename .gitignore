@@ -33,5 +33,6 @@ composer.lock
 /.env
 /dist/
 /.php-cs-fixer.cache
+/.build/
 
 

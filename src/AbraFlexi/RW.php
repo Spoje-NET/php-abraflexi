@@ -38,14 +38,14 @@ class RW extends RO
     /**
      * Array of fields for next curl POST operation.
      */
-    public string $postFields = null;
+    public ?string $postFields = null;
 
     /**
      * Transaction processing mode.
      *
      * @see https://www.abraflexi.eu/api/dokumentace/ref/tx/ Transakční zpracování
      */
-    public bool $atomic = null;
+    public bool $atomic = false;
 
     /**
      * Dry Run mode indicator.
@@ -57,7 +57,7 @@ class RW extends RO
     /**
      * Record Copy helper.
      */
-    private int $sourceId = null;
+    private ?int $sourceId;
 
     /**
      * SetUp Object to be ready for work.
@@ -67,7 +67,7 @@ class RW extends RO
      *                       prefix,defaultUrlParams,debug,ver,dry-run
      *                       detail,offline,atomic,filter,ignore404
      */
-    public function setUp($options = [])
+    public function setUp($options = []): bool
     {
         if (\array_key_exists('atomic', $options)) {
             $this->atomic = (bool) $options['atomic'];

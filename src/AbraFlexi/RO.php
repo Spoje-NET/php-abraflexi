@@ -22,10 +22,6 @@ class RO extends \Ease\Sand
 {
     use \Ease\RecordKey;
 
-    /**
-     * Object Name used for logging.
-     */
-    public string $objectName = null;
 
     /**
      * Where to get JSON files with evidence structure etc.
@@ -49,7 +45,7 @@ class RO extends \Ease\Sand
      *
      * @var string url
      */
-    public string $apiURL = null;
+    public ?string $apiURL = null;
 
     /**
      * Data block in response field.
@@ -68,7 +64,7 @@ class RO extends \Ease\Sand
      *
      * @see https://demo.flexibee.eu/c/demo/evidence-list Přehled evidencí
      */
-    public string $evidence = null;
+    public ?string $evidence = null;
 
     /**
      * Detaily evidence užité objektem.
@@ -103,22 +99,22 @@ class RO extends \Ease\Sand
     /**
      * @see https://demo.flexibee.eu/devdoc/company-identifier Identifikátor firmy
      */
-    public string $company = null;
+    public ?string $company = null;
 
     /**
      * [protocol://]Server[:port].
      */
-    public string $url = null;
+    public ?string $url = null;
 
     /**
      * REST API Username.
      */
-    public string $user = null;
+    public ?string $user = null;
 
     /**
      * REST API Password.
      */
-    public string $password = null;
+    public ?string $password = null;
 
     /**
      * @var array Pole HTTP hlaviček odesílaných s každým požadavkem
@@ -136,7 +132,7 @@ class RO extends \Ease\Sand
     /**
      * Identifikační řetězec.
      */
-    public string $init = null;
+    public ?string $init = null;
 
     /**
      * Sloupeček s názvem.
@@ -149,14 +145,9 @@ class RO extends \Ease\Sand
     public string $myCreateColumn = 'false';
 
     /**
-     * Slopecek obsahujici datum poslení modifikace záznamu do shopu.
+     * Sloupeček obsahujici datum poslení modifikace záznamu do shopu.
      */
     public string $myLastModifiedColumn = 'lastUpdate';
-
-    /**
-     * Klíčový idendifikátor záznamu.
-     */
-    public string $keyColumn = 'id';
 
     /**
      * Informace o posledním HTTP requestu.
@@ -166,17 +157,17 @@ class RO extends \Ease\Sand
     /**
      * Informace o poslední HTTP chybě.
      */
-    public string $lastCurlError = null;
+    public ?string $lastCurlError = null;
 
     /**
      * Used codes storage.
      */
-    public array $codes = null;
+    public ?array $codes = null;
 
     /**
      * Last Inserted ID.
      */
-    public int $lastInsertedID = null;
+    public ?int $lastInsertedID = null;
 
     /**
      * Default Line Prefix.
@@ -191,27 +182,27 @@ class RO extends \Ease\Sand
     /**
      * HTTP Response code of last request.
      */
-    public int $lastResponseCode = null;
+    public ?int $lastResponseCode = null;
 
     /**
      * Body data  for next curl POST operation.
      */
-    public string $postFields = null;
+    public ?string $postFields = null;
 
     /**
      * Last operation result data or message(s).
      */
-    public array $lastResult = null;
+    public ?array $lastResult = null;
 
     /**
      * Number from  @rowCount in response.
      */
-    public int $rowCount = null;
+    public ?int $rowCount = null;
 
     /**
      * Number from  @globalVersion.
      */
-    public int $globalVersion = null;
+    public ?int $globalVersion = null;
 
     /**
      * @see https://www.abraflexi.eu/api/dokumentace/ref/zamykani-odemykani/
@@ -225,7 +216,7 @@ class RO extends \Ease\Sand
      *
      * @see https://demo.flexibee.eu/c/demo/faktura-vydana/actions.json Např. Akce faktury
      */
-    public array $actionsAvailable = null;
+    public ?array $actionsAvailable = null;
 
     /**
      * The List of known parameters was renamed to $urlParamsKnown.
@@ -288,12 +279,12 @@ class RO extends \Ease\Sand
     /**
      * Session ID.
      */
-    public string $authSessionId = null;
+    public ?string $authSessionId = null;
 
     /**
      * Token obtained during login procedure.
      */
-    public string $refreshToken = null;
+    public ?string $refreshToken = null;
 
     /**
      * Send Error500 Report to.
@@ -328,7 +319,7 @@ class RO extends \Ease\Sand
      *
      * @var int seconds
      */
-    public int $timeout = null;
+    public ?int $timeout = null;
 
     /**
      * Throw Exception in case of AbraFlexi error.
@@ -353,7 +344,7 @@ class RO extends \Ease\Sand
     /**
      * Last Request response stats.
      */
-    protected array $responseStats = null;
+    protected ?array $responseStats = null;
 
     /**
      * List of Error500 reports sent.
@@ -468,7 +459,7 @@ class RO extends \Ease\Sand
      *                       detail,offline,filter,ignore404,nativeTypes
      *                       timeout,companyUrl,ver,throwException
      */
-    public function setUp(array $options = []): void
+    public function setUp(array $options = []): bool
     {
         if (\array_key_exists('ver', $options)) {
             $this->protoVersion = $options['ver'];
@@ -525,6 +516,7 @@ class RO extends \Ease\Sand
         } else {
             $this->updateApiURL();
         }
+        return true;
     }
 
     /**

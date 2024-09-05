@@ -36,5 +36,5 @@ class Cenik extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'cenik';
+    public ?string $evidence = 'cenik';
 }
