@@ -32,7 +32,7 @@ class Relation
      */
     public string $target;
     public ?string $ref;
-    public string $showAs;
+    public ?string $showAs;
 
     /**
      * Relation.
