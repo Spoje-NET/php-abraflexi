@@ -130,11 +130,6 @@ class RO extends \Ease\Sand
     public array $defaultUrlParams = [];
 
     /**
-     * Identifikační řetězec.
-     */
-    public ?string $init = null;
-
-    /**
      * Sloupeček s názvem.
      */
     public string $nameColumn = 'nazev';
@@ -365,7 +360,6 @@ class RO extends \Ease\Sand
     public function __construct($init = null, $options = [])
     {
         $this->urlParams = &$this->urlParamsKnown; // Sync deprecated variable with current TODO: Remove in 2024
-        $this->init = $init;
         parent::setObjectName();
         $this->setUp($options);
         $this->curlInit();
@@ -378,7 +372,7 @@ class RO extends \Ease\Sand
     }
 
     /**
-     * Disconnect CURL befere pass away.
+     * Disconnect CURL before pass away.
      */
     public function __destruct()
     {
