@@ -28,10 +28,10 @@ class Relation
     public $value;
 
     /**
-     * Taget evidence name.
+     * Target evidence name.
      */
     public string $target;
-    public string $ref;
+    public ?string $ref;
     public string $showAs;
 
     /**

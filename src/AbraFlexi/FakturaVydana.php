@@ -38,7 +38,7 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'faktura-vydana';
+    public ?string $evidence = 'faktura-vydana';
 
     /**
      * Provede spárování platby s dokladem.

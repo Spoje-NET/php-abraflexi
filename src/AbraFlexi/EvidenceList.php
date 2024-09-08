@@ -24,7 +24,7 @@ class EvidenceList extends RO
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'evidence-list';
+    public ?string $evidence = 'evidence-list';
 
     /**
      * Základní namespace pro komunikaci s FlexiBee.

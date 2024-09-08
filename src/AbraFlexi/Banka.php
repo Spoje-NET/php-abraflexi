@@ -39,7 +39,7 @@ class Banka extends RW implements \AbraFlexi\Document
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'banka';
+    public ?string $evidence = 'banka';
 
     /**
      * Stáhne bankovní výpisy  ( trvá delší dobu ).
