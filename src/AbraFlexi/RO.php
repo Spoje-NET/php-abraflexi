@@ -204,7 +204,7 @@ class RO extends \Ease\Sand
      *
      * @var string filter query
      */
-    public string $filter;
+    public ?string $filter = null;
 
     /**
      * Pole akcí které podporuje ta která evidence.
@@ -324,7 +324,7 @@ class RO extends \Ease\Sand
     /**
      * @see https://demo.flexibee.eu/devdoc/actions Provádění akcí
      */
-    protected string $action;
+    protected ?string $action = null;
 
     /**
      * Save 404 results to log ?
