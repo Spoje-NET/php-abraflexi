@@ -23,5 +23,5 @@ class SkupinaFirem extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'skupina-firem';
+    public ?string $evidence = 'skupina-firem';
 }

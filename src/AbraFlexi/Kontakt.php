@@ -26,7 +26,7 @@ class Kontakt extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'kontakt';
+    public ?string $evidence = 'kontakt';
 
     /**
      * Authenticate by contact.

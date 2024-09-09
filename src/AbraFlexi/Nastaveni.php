@@ -24,5 +24,5 @@ class Nastaveni extends RO
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'nastaveni';
+    public ?string $evidence = 'nastaveni';
 }

@@ -23,7 +23,7 @@ class Changes extends RO
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'changes';
+    public ?string $evidence = 'changes';
 
     /**
      * Povolí oznamování změn

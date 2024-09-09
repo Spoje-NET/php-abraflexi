@@ -25,5 +25,5 @@ class ObjednavkaPrijataPolozka extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'objednavka-prijata-polozka';
+    public ?string $evidence = 'objednavka-prijata-polozka';
 }

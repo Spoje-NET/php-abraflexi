@@ -25,5 +25,5 @@ class UcetniObdobi extends RW
     /**
      * Evidence AbraFlexi.
      */
-    public string $evidence = 'ucetni-obdobi';
+    public ?string $evidence = 'ucetni-obdobi';
 }

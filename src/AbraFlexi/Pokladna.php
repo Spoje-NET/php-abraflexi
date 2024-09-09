@@ -27,7 +27,7 @@ class Pokladna extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'pokladna';
+    public ?string $evidence = 'pokladna';
 
     /**
      * Add Data to invoice subItem.

@@ -37,5 +37,5 @@ class InterniDoklad extends RW implements \AbraFlexi\Document
     /**
      * Evidence použitá třídou.
      */
-    public string $evidence = 'interni-doklad';
+    public ?string $evidence = 'interni-doklad';
 }

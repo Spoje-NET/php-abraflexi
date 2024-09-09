@@ -77,7 +77,7 @@ class FakturaVydanaTest extends RWTest
 
         if ($invoice->sync()) {
             $invoice->addStatusMessage(
-                $invoice->getApiURL().' '.\AbraFlexi\RO::uncode($invoice->getDataValue('typDokl')).' '.\AbraFlexi\RO::uncode($invoice->getRecordIdent()).' '.\AbraFlexi\RO::uncode($invoice->getDataValue('sumCelkem')).' '.\AbraFlexi\RO::uncode($invoice->getDataValue('mena')),
+                $invoice->getApiURL().' '.\AbraFlexi\Functions::uncode((string)$invoice->getDataValue('typDokl')).' '.\AbraFlexi\Functions::uncode((string)$invoice->getRecordIdent()).' '.\AbraFlexi\Functions::uncode((string)$invoice->getDataValue('sumCelkem')).' '.\AbraFlexi\Functions::uncode((string)$invoice->getDataValue('mena')),
                 'success',
             );
         } else {

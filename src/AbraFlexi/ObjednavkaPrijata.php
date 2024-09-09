@@ -30,5 +30,5 @@ class ObjednavkaPrijata extends RW implements \AbraFlexi\Document
     /**
      * Evidence použitá třídou.
      */
-    public string $evidence = 'objednavka-prijata';
+    public ?string $evidence = 'objednavka-prijata';
 }

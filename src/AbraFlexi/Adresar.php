@@ -36,7 +36,7 @@ class Adresar extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'adresar';
+    public ?string $evidence = 'adresar';
 
     /**
      * get Email address for Customer with primary contact prefered.

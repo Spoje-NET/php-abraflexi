@@ -57,7 +57,7 @@ class KontaktTest extends \PHPUnit\Framework\TestCase
         ], $initialData));
 
         if ($contact->sync()) {
-            $contact->addStatusMessage($contact->getApiURL().' '.\AbraFlexi\RO::uncode($contact->getDataValue('jmeno').' '.$contact->getDataValue('email')), 'success');
+            $contact->addStatusMessage($contact->getApiURL().' '.\AbraFlexi\Functions::uncode((string)$contact->getDataValue('jmeno').' '.$contact->getDataValue('email')), 'success');
         } else {
             $contact->addStatusMessage(json_encode($contact->getData()), 'debug');
         }

@@ -24,7 +24,7 @@ class Priloha extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'priloha';
+    public ?string $evidence = 'priloha';
 
     /**
      * Evidence s přílohami.

@@ -23,7 +23,7 @@ class Hooks extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'hooks';
+    public ?string $evidence = 'hooks';
 
     /**
      * Zaregistruje WebHook.

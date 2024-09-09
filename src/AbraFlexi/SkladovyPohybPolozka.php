@@ -25,7 +25,7 @@ class SkladovyPohybPolozka extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'skladovy-pohyb-polozka';
+    public ?string $evidence = 'skladovy-pohyb-polozka';
 
     /**
      * Add Items Serial Number.

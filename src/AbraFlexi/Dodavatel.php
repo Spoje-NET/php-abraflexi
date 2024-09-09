@@ -26,5 +26,5 @@ class Dodavatel extends RW
     /**
      * The agenda used by the object.
      */
-    public string $evidence = 'dodavatel';
+    public ?string $evidence = 'dodavatel';
 }

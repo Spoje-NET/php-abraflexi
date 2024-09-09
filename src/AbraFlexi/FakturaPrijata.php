@@ -38,5 +38,5 @@ class FakturaPrijata extends RW implements Document
     /**
      * Evidence použitá třídou.
      */
-    public string $evidence = 'faktura-prijata';
+    public ?string $evidence = 'faktura-prijata';
 }

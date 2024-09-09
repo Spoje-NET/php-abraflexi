@@ -30,5 +30,5 @@ class PokladniPohyb extends RW implements \AbraFlexi\Document
     /**
      * Evidence AbraFlexi.
      */
-    public string $evidence = 'pokladni-pohyb';
+    public ?string $evidence = 'pokladni-pohyb';
 }

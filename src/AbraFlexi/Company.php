@@ -42,7 +42,7 @@ class Company extends RW
     /**
      * Company.
      */
-    public string $evidence = '';
+    public ?string $evidence = '';
 
     /**
      * Tato třída nepracuje sezvolenou firmou.

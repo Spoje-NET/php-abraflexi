@@ -26,7 +26,7 @@ class Smlouva extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'smlouva';
+    public ?string $evidence = 'smlouva';
 
     /**
      * Generuje faktury ze smluv. Pokud je nastaven sloupec <strong>id</strong> generují se pouze z této smlouvy.

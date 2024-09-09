@@ -26,7 +26,7 @@ class Status extends RO
      *
      * @see https://demo.flexibee.eu/c/demo/evidence-list Přehled evidencí
      */
-    public string $evidence = 'status';
+    public ?string $evidence = 'status';
 
     /**
      * @see https://demo.flexibee.eu/devdoc/company-identifier Identifikátor firmy

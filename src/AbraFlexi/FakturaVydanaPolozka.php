@@ -25,5 +25,5 @@ class FakturaVydanaPolozka extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'faktura-vydana-polozka';
+    public ?string $evidence = 'faktura-vydana-polozka';
 }

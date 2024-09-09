@@ -23,7 +23,7 @@ class Strom extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'strom';
+    public ?string $evidence = 'strom';
 
     /**
      * Sloupeček se jménem záznamu.

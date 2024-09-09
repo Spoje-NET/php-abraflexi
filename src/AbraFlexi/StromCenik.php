@@ -23,5 +23,5 @@ class StromCenik extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'strom-cenik';
+    public ?string $evidence = 'strom-cenik';
 }

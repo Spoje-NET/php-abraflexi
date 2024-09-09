@@ -57,7 +57,7 @@ class AdresarTest extends RWTest
         ], $initialData));
 
         if ($address->sync()) {
-            $address->addStatusMessage($address->getApiURL().' '.\AbraFlexi\RO::uncode($address->getRecordIdent().' '.$address->getDataValue('mail')), 'success');
+            $address->addStatusMessage($address->getApiURL().' '.\AbraFlexi\Functions::uncode((string)$address->getRecordIdent().' '.$address->getDataValue('mail')), 'success');
         } else {
             $address->addStatusMessage(json_encode($address->getData()), 'debug');
         }

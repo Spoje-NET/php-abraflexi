@@ -23,5 +23,5 @@ class VyrobniCislo extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'vyrobni-cislo';
+    public ?string $evidence = 'vyrobni-cislo';
 }

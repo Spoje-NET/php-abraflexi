@@ -24,7 +24,7 @@ class Zurnal extends RO
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'zurnal';
+    public ?string $evidence = 'zurnal';
     public static array $evidenceToDb = ['faktura-vydana' => 'ddoklfak'];
 
     /**

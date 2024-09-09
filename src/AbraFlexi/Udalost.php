@@ -24,5 +24,5 @@ class Udalost extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'udalost';
+    public ?string $evidence = 'udalost';
 }

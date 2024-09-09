@@ -28,5 +28,5 @@ class SkladovyPohyb extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'skladovy-pohyb';
+    public ?string $evidence = 'skladovy-pohyb';
 }

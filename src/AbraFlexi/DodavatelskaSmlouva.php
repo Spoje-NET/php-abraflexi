@@ -34,7 +34,7 @@ class DodavatelskaSmlouva extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'dodavatelska-smlouva';
+    public ?string $evidence = 'dodavatelska-smlouva';
 
     /**
      * Generate invoices from contracts.

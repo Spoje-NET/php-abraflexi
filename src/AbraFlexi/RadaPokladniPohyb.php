@@ -21,7 +21,7 @@ class RadaPokladniPohyb extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'rada-pokladni-pohyb';
+    public ?string $evidence = 'rada-pokladni-pohyb';
 
     /**
      * Obtain code for new Record.

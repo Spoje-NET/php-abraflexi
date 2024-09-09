@@ -48,7 +48,7 @@ class Stitek extends RW
     /**
      * Evidence užitá objektem.
      */
-    public string $evidence = 'stitek';
+    public ?string $evidence = 'stitek';
 
     /**
      * Obtain labels for current record.
