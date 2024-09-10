@@ -28,23 +28,6 @@ namespace AbraFlexi;
 class Company extends RW
 {
     /**
-     * Základní namespace pro komunikaci s AbraFlexi.
-     *
-     * @var string Jmený prostor datového bloku odpovědi
-     */
-    public string $nameSpace = 'companies';
-
-    /**
-     * Default Line Prefix.
-     */
-    public string $prefix = '/c';
-
-    /**
-     * Key Column for this evidence.
-     */
-    public string $keyColumn = 'dbNazev';
-
-    /**
      * AbraFlexi Company Class .
      *
      * @param array|string $init    company dbNazev or initial data
@@ -53,6 +36,10 @@ class Company extends RW
     public function __construct($init = null, $options = [])
     {
         $this->evidence = '';
+        $this->nameSpace = 'companies';
+        $this->prefix = '/c';
+        $this->keyColumn = 'dbNazev';
+
         if (\is_string($init)) {
             $init = ['dbNazev' => $init];
         }
