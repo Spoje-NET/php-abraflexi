@@ -65,7 +65,7 @@ class Adresar extends RW
 
                 foreach ($emails['kontakty'] as $kontakt) {
                     if (\strlen($purpose)) {
-                        if ($kontakt['odesilat'.ucfirst($purpose)] === 'true') {
+                        if ($kontakt['odesilat' . ucfirst($purpose)] === 'true') {
                             $candidates[] = $kontakt['email'];
                         }
                     } else {
@@ -113,7 +113,7 @@ class Adresar extends RW
 
                 foreach ($mobils['kontakty'] as $kontakt) {
                     if (\strlen($purpose)) {
-                        if ($kontakt['odesilat'.ucfirst($purpose)] === 'true') {
+                        if ($kontakt['odesilat' . ucfirst($purpose)] === 'true') {
                             $candidates[] = $kontakt['mobil'];
                         }
                     } else {

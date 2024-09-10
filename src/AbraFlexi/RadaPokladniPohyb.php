@@ -39,7 +39,7 @@ class RadaPokladniPohyb extends RW
         $crID = null;
 
         if (\is_string($code)) {
-            $sro = $this->performRequest($this->evidence.'/(kod=\''.$code.'\').json');
+            $sro = $this->performRequest($this->evidence . '/(kod=\'' . $code . '\').json');
 
             if (\count($sro[$this->evidence])) {
                 $crID = current(current($sro[$this->evidence]));
@@ -48,20 +48,20 @@ class RadaPokladniPohyb extends RW
             $crID = $code;
         }
 
-        $cr = $this->performRequest($this->evidence.'/'.$crID.'.json');
+        $cr = $this->performRequest($this->evidence . '/' . $crID . '.json');
         $radaPokladniPohyb = current($cr[$this->evidence]);
         $crInfo = end($radaPokladniPohyb['polozkyRady']);
 
         $cislo = $crInfo['cisAkt'] + 1;
 
         if ($crInfo['zobrazNuly'] === 'true') {
-            return $crInfo['prefix'].sprintf(
-                '%\'.0'.$crInfo['cisDelka'].'d',
+            return $crInfo['prefix'] . sprintf(
+                '%\'.0' . $crInfo['cisDelka'] . 'd',
                 $cislo,
-            ).'/'.date('y');
+            ) . '/' . date('y');
         }
 
-        return $crInfo['prefix'].$cislo.'/'.date('y');
+        return $crInfo['prefix'] . $cislo . '/' . date('y');
     }
 
     /**
@@ -78,13 +78,13 @@ class RadaPokladniPohyb extends RW
         }
 
         if (\is_string($code)) {
-            $sro = $this->performRequest($this->evidence.'/(kod=\''.$code.'\').json');
+            $sro = $this->performRequest($this->evidence . '/(kod=\'' . $code . '\').json');
             $crID = current(current($sro[$this->evidence]));
         } else {
             $crID = $code;
         }
 
-        $cr = $this->performRequest($this->evidence.'/'.$crID.'.json');
+        $cr = $this->performRequest($this->evidence . '/' . $crID . '.json');
         $radaPokladniPohyb = current($cr[$this->evidence]);
         $crInfo = end($radaPokladniPohyb['polozkyRady']);
 

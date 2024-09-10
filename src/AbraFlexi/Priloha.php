@@ -79,7 +79,7 @@ class Priloha extends RW
         $urlParts = parse_url($object->apiURL);
         $pathParts = pathinfo($urlParts['path']);
 
-        return $urlParts['scheme'].'://'.$urlParts['host'].(\array_key_exists('port', $urlParts) ? ':'.$urlParts['port'] : '').$pathParts['dirname'].'/'.$pathParts['filename'].'/content';
+        return $urlParts['scheme'] . '://' . $urlParts['host'] . (\array_key_exists('port', $urlParts) ? ':' . $urlParts['port'] : '') . $pathParts['dirname'] . '/' . $pathParts['filename'] . '/content';
     }
 
     /**
@@ -149,8 +149,8 @@ class Priloha extends RW
         header('Expires: 0');
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
         header('Pragma: public');
-        header('Content-Disposition: attachment; filename='.$object->getEvidence().'_'.$object.'.'.$format);
-        header('Content-Length: '.\strlen($attachmentBody));
+        header('Content-Disposition: attachment; filename=' . $object->getEvidence() . '_' . $object . '.' . $format);
+        header('Content-Length: ' . \strlen($attachmentBody));
         echo $attachmentBody;
     }
 
@@ -168,7 +168,7 @@ class Priloha extends RW
 
         if ($downloader->lastResponseCode === 200) {
             if (is_dir($destination)) {
-                $destination .= '/'.$downloader->getDataValue('nazSoub');
+                $destination .= '/' . $downloader->getDataValue('nazSoub');
             }
 
             $result = file_put_contents($destination, base64_decode($downloader->getDataValue('content'), true));
@@ -214,7 +214,7 @@ class Priloha extends RW
         $attached = new self(null, $object->getConnectionOptions());
         $attached->postFields = $attachment;
         $attached->defaultHttpHeaders['Content-Type'] = $contentType;
-        $url = $object->getEvidenceURL().'/'.$object->getRecordID().'/prilohy/new/'.$filename;
+        $url = $object->getEvidenceURL() . '/' . $object->getRecordID() . '/prilohy/new/' . $filename;
         $response = $attached->performRequest($url, 'PUT');
         $attached->setMyKey($response[0]['id']);
 
@@ -234,13 +234,13 @@ class Priloha extends RW
         $attachments = [];
         $oFormat = $object->format;
         $object->setFormat('json');
-        $atch = $object->getFlexiData($fburl.'/prilohy'.(\count($object->defaultUrlParams) ? '?'.http_build_query($object->defaultUrlParams) : ''));
+        $atch = $object->getFlexiData($fburl . '/prilohy' . (\count($object->defaultUrlParams) ? '?' . http_build_query($object->defaultUrlParams) : ''));
         $object->setFormat($oFormat);
 
         if (!empty($atch) && ($object->lastResponseCode === 200)) {
             foreach ($atch as $attachmentData) {
                 $attachments[$attachmentData['id']] = $attachmentData;
-                $attachments[$attachmentData['id']]['url'] = $object->url.'/c/'.$object->company.'/priloha/'.$attachmentData['id'];
+                $attachments[$attachmentData['id']]['url'] = $object->url . '/c/' . $object->company . '/priloha/' . $attachmentData['id'];
             }
         }
 

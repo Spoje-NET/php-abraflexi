@@ -3,7 +3,7 @@
   "description": "Library for easy interaction with czech accounting system AbraFlexi.",
   "homepage": "https://github.com/Spoje-NET/php-abraflexi",
   "license": "GPL-2.0+",
-  "version": "2.24.1.81",
+  "version": "2.25.3",
   "type": "library",
   "authors": [
     {

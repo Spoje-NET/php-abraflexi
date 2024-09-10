@@ -38,7 +38,7 @@ class Smlouva extends RW
     public function generovaniFaktur()
     {
         $this->performRequest(
-            ($this->getMyKey() ? $this->getMyKey().'/' : '').'generovani-faktur',
+            ($this->getMyKey() ? $this->getMyKey() . '/' : '') . 'generovani-faktur',
             'PUT',
         );
 

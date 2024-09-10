@@ -57,7 +57,7 @@ trait subItems
      */
     public function getSubObjects()
     {
-        $subEvidence = $this->getEvidence().'-polozka';
+        $subEvidence = $this->getEvidence() . '-polozka';
         $subClass = str_replace(
             ' ',
             '',

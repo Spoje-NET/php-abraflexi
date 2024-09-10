@@ -35,17 +35,18 @@ class EvidenceList extends RO
     public string $nameSpace = 'evidences';
 
     #[\Override]
-    public function __construct($init = null, $options = []) {
+    public function __construct($init = null, $options = [])
+    {
         $this->keyColumn = 'evidencePath';
         parent::__construct($init, $options);
     }
 
-    
+
     /**
      * Source FlexiBee server version.
      */
     public static string $version = '2024.5.3';
-    
+
     /**
      * Evidences Path/Name listing.
      */

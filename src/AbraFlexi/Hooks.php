@@ -52,7 +52,7 @@ class Hooks extends RW
             }
         }
 
-        $this->performRequest('?'.http_build_query($this->getData()), 'PUT');
+        $this->performRequest('?' . http_build_query($this->getData()), 'PUT');
 
         return $this->lastResponseCode === 200;
     }
@@ -64,7 +64,7 @@ class Hooks extends RW
      */
     public function refreshWebHook($id)
     {
-        $this->performRequest($id.'/retry', 'PUT');
+        $this->performRequest($id . '/retry', 'PUT');
 
         return $this->lastResponseCode === 200;
     }

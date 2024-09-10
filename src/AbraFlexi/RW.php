@@ -278,7 +278,7 @@ class RW extends RO
         }
 
         $this->performRequest(
-            $this->getEvidenceUrl().'/'.self::urlizeId($id),
+            $this->getEvidenceUrl() . '/' . self::urlizeId($id),
             'DELETE',
         );
 
@@ -459,7 +459,7 @@ class RW extends RO
         }
 
         if ($removeAll === true) {
-            $this->setDataValue($relationPath.'@removeAll', true);
+            $this->setDataValue($relationPath . '@removeAll', true);
         }
 
         return $this->setDataValue($relationPath, $branchData);
@@ -637,12 +637,12 @@ class RW extends RO
             switch ($actionsAvailble[$action]['actionMakesSense']) {
                 case 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT':
                 case 'ONLY_WITH_INSTANCE': // Add instance
-                    $urlSuffix = '/'.$this->__toString().'/'.$action;
+                    $urlSuffix = '/' . $this->__toString() . '/' . $action;
 
                     break;
 
                 default:
-                    $urlSuffix = '/'.$action;
+                    $urlSuffix = '/' . $action;
 
                     break;
             }
@@ -691,7 +691,7 @@ class RW extends RO
     {
         return $this->insertToAbraFlexi([
             'id' => [
-                $this->getRecordID(), 'ext:'.preg_replace(
+                $this->getRecordID(), 'ext:' . preg_replace(
                     '/^ext:/',
                     '',
                     $extId,
@@ -711,10 +711,10 @@ class RW extends RO
      */
     public function changeExternalID($selector, $newValue, $forID = null)
     {
-        $change['@removeExternalIds'] = 'ext:'.$selector.':';
+        $change['@removeExternalIds'] = 'ext:' . $selector . ':';
         $change['id'] = [
             null === $forID ? $this->getRecordID() : $forID,
-            'ext:'.$selector.':'.$newValue,
+            'ext:' . $selector . ':' . $newValue,
         ];
 
         return $this->insertToAbraFlexi($change);
@@ -744,7 +744,7 @@ class RW extends RO
 
             if ($columnInfo) {
                 if (\array_key_exists('maxLength', $columnInfo) && (mb_strlen((string) $value) > $columnInfo['maxLength'])) {
-                    $this->addStatusMessage($value.' is too long. Shorting to '.$columnInfo['maxLength'].' characters', 'warning');
+                    $this->addStatusMessage($value . ' is too long. Shorting to ' . $columnInfo['maxLength'] . ' characters', 'warning');
                     $value = substr($value, 0, (int) $columnInfo['maxLength']);
                 }
             }
@@ -768,6 +768,6 @@ class RW extends RO
             $recId = $helper->getRecordID();
         }
 
-        return empty($recId) ? '' : $this->url.'/flexi/'.$this->getCompany().'/'.$this->getEvidence().'/'.$recId.'/edit';
+        return empty($recId) ? '' : $this->url . '/flexi/' . $this->getCompany() . '/' . $this->getEvidence() . '/' . $recId . '/edit';
     }
 }

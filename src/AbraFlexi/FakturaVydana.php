@@ -223,7 +223,7 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
     public function getQrCodeImage($size = 140)
     {
         $this->performRequest(
-            $this->getRecordID().'/qrcode.png?size='.$size,
+            $this->getRecordID() . '/qrcode.png?size=' . $size,
             'GET',
             'png',
         );
@@ -240,7 +240,7 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
      */
     public function getQrCodeBase64($size = 140)
     {
-        return 'data: image/png;base64,'.base64_encode($this->getQrCodeImage($size));
+        return 'data: image/png;base64,' . base64_encode($this->getQrCodeImage($size));
     }
 
     /**
