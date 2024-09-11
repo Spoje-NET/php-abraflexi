@@ -13,7 +13,7 @@
         "FlexiBee",
         "API-Client",
         "FinTech"
-    ],    
+    ],
     "require": {
         "ext-json": "*",
         "ext-curl": "*",
@@ -33,9 +33,14 @@
         }
     },
     "require-dev": {
-	"ext-iconv": "*",
+        "ext-iconv": "*",
+        "phing/phing": "*",
+        "roave/security-advisories": "dev-latest",
         "phpunit/phpunit": "*",
-	"phing/phing": "*"
+        "phpstan/phpstan": "*",
+        "friendsofphp/php-cs-fixer": "^3.61",
+        "ergebnis/composer-normalize": "^2.43",
+        "ergebnis/php-cs-fixer-config": "^6.34"
     },
     "scripts": {
         "post-install-cmd": [
@@ -44,6 +49,10 @@
         "post-update-cmd": [
             "cd tools/ ; ./update_all.sh ; cd .."
         ]
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        }
     }
-    
 }

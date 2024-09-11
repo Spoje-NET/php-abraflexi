@@ -5,13 +5,10 @@ PHP7.1+ Based Library for easy interaction with Czech accounting system AbraFlex
 
 CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [AbraFlexi](https://www.abraflexi.eu/)
 
-[![Source Code](https://img.shields.io/github/source/Spoje-NET/php-abraflexi)](https://github.com/Spoje-NET/php-abraflexi)
 [![Latest Version](https://img.shields.io/github/release/Spoje-NET/php-abraflexi.svg?style=flat-square)](https://github.com/Spoje-NET/php-abraflexi/releases)
 [![Software License](https://img.shields.io/badge/license-GNU-brightgreen.svg?style=flat-square)](https://github.com/Spoje-NET/php-abraflexi/blob/master/LICENSE)
 [![GitHub forks](https://img.shields.io/github/forks/Spoje-NET/php-abraflexi)](https://github.com/Spoje-NET/php-abraflexi/network)
 [![wakatime](https://wakatime.com/badge/user/5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/project/48520b87-4e9a-4eca-861a-a5dd85b11374.svg)](https://wakatime.com/badge/user/5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/project/48520b87-4e9a-4eca-861a-a5dd85b11374)
-[![Build Status](https://img.shields.io/travis/Spoje-NET/php-abraflexi/master.svg?style=flat-square)](https://travis-ci.org/Spoje-NET/php-abraflexi)
-[![Code Coverage](https://scrutinizer-ci.com/g/Spoje-NET/php-abraflexi/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Spoje-NET/php-abraflexi/?branch=master)
 [![Docker pulls](https://img.shields.io/docker/pulls/vitexsoftware/flexipeehp.svg)](https://hub.docker.com/r/vitexsoftware/flexipeehp/)
 [![Latest stable](https://img.shields.io/packagist/v/spojenet/php-abraflexi.svg?style=flat-square)](https://packagist.org/packages/spojenet/php-abraflexi)
 
@@ -22,9 +19,6 @@ CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [AbraFlexi
 [![License](https://poser.pugx.org/spojenet/flexibee/license)](https://packagist.org/packages/spojenet/flexibee)
 [![Monthly Downloads](https://poser.pugx.org/spojenet/flexibee/d/monthly)](https://packagist.org/packages/spojenet/flexibee)
 [![Daily Downloads](https://poser.pugx.org/spojenet/flexibee/d/daily)](https://packagist.org/packages/spojenet/flexibee)
-
- :exclamation:  Byly odstraněny zastaralé větve  **2.0** a **master**  :exclamation:
-
 
 # Poděkování 
 Vznik této knihovny by nebyl možný bez laskavé podpory společnosti [Spoje.Net](http://www.spoje.net), 
@@ -399,84 +393,6 @@ Reference:
 
   * [Import dat z FAPI do AbraFlexi](https://abraflexi.info/fapi2abraflexi/)  - blahasoft.cz
   * [Import dat z iDokladu do AbraFlexi](https://abraflexi.info/idoklad2abraflexi/) - blahasoft.cz
-
-Debian/Ubuntu
--------------
-
-Pro Linux jsou k dispozici .deb balíčky. Prosím použijte repo:
-
-```shell
-sudo apt install lsb-release wget
-echo "deb http://repo.vitexsoftware.cz $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/vitexsoftware.list
-sudo wget -O /etc/apt/trusted.gpg.d/vitexsoftware.gpg http://repo.vitexsoftware.cz/keyring.gpg
-sudo apt update
-sudo apt install php-spojenet-abraflexi
-```
-
-V tomto případě je potřeba do souboru composer.json vaší aplikace přidat:
-
-```json
-    "require": {
-        "deb/ease-core": "*",
-        "deb/abraflexi": "*"
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "/usr/share/php/AbraFlexi",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/usr/share/php/EaseCore",
-            "options": {
-                "symlink": true
-            }
-        }
-    ]
-```
-
-Takže při instalaci závislostí bude vypadat nějak takto:
-
-    Loading composer repositories with package information
-    Installing dependencies from lock file
-      - Installing ease-core (2.0)
-        Symlinked from /usr/share/php/Ease
-
-      - Installing abraflexi (2.3)
-        Symlinked from /usr/share/php/AbraFlexi
-
-A aktualizaci bude možné dělat globálně pro celý systém prostřednictvím apt-get.
-
-Generujeme také balíček **php-spojenet-abraflexi-doc**, obsahující vývojářskou dokumentaci
-generovanou pomcí programu ApiGen. Dokumnentace je online k nahlédnutí na adrese
-http://abraflexi-dev.spoje.net/php-abraflexi/
-
-Testování:
-
-     cd /usr/share/doc/AbraFlexi/
-     composer install
-     php -f abraflexiping.php
-
-
-![Debian Test](Examples/flexipeehp-debian-test.png?raw=true "Test")
-    
-Soubory tříd jsou v Debianu instalovány do složky /usr/share/php/AbraFlexi a
-měl by se spouštět občerstvovací skript pokaždé když je AbaraFlexi server
-aktualizován na novou verzi:
-
-```shell
-cd /usr/share/php/AbraFlexi/tools && sudo ./update_all.sh
-```
-
-Server ze kterého se struktura získává se nastavuje v souboru /etc/abraflexi/client.json 
-nebo proměnnými prostředí definovanými zpravidla v /etc/profile.d/abraflexi-client.sh
-
-Nainstalujte balíček abraflexi-client-config pro snadnou změnu těchto nastavení 
-
-
 
 AbraFlexi knihovny pro další jazky:
 ----------------------------------

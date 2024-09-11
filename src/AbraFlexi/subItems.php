@@ -3,23 +3,25 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Subitems.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Document SubItems functions
+ * Document SubItems functions.
  *
  * @author vitex
  */
 trait subItems
 {
     /**
-     * Subitems - ex. items of invoice
+     * Subitems - ex. items of invoice.
      *
      * @return array of document items or null
      */
@@ -29,9 +31,6 @@ trait subItems
     }
 
     /**
-     *
-     * @param array $subitems
-     *
      * @return bool
      */
     public function setSubitems(array $subitems)
@@ -40,19 +39,19 @@ trait subItems
     }
 
     /**
-     * Name for SubItem branch
+     * Name for SubItem branch.
      *
      * @return string
      */
     public function getSubMenuName()
     {
-        return array_key_exists('polozkyFaktury', $this->getData()) ? 'polozkyFaktury'
-                : (array_key_exists('polozkyDokladu', $this->getData()) ? 'polozkyDokladu'
+        return \array_key_exists('polozkyFaktury', $this->getData()) ? 'polozkyFaktury'
+                : (\array_key_exists('polozkyDokladu', $this->getData()) ? 'polozkyDokladu'
                 : null);
     }
 
     /**
-     * SubItem object
+     * SubItem object.
      *
      * @return array
      */
@@ -62,19 +61,22 @@ trait subItems
         $subClass = str_replace(
             ' ',
             '',
-            ucwords(str_replace('-', ' ', $subEvidence))
+            ucwords(str_replace('-', ' ', $subEvidence)),
         );
+
         if (class_exists($subClass) === false) {
             $subClass = 'RW';
         }
 
         $subObjects = [];
+
         foreach ($this->getSubItems() as $subItemData) {
             $subObjects[$subItemData['id']] = new $subClass(
                 $subItemData,
-                ['evidence' => $subEvidence]
+                ['evidence' => $subEvidence],
             );
         }
+
         return $subObjects;
     }
 }

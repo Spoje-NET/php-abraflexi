@@ -3,27 +3,27 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Objekt Skladové karty.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
  * Skladová Karta
- * Storage Card
+ * Storage Card.
  *
- * @link https://demo.flexibee.eu/c/demo/skladova-karta/properties položky evidence
+ * @see https://demo.flexibee.eu/c/demo/skladova-karta/properties položky evidence
  */
 class SkladovaKarta extends RW
 {
     /**
      * Evidence užitá objektem.
      * Evidence used by object.
-     *
-     * @var string
      */
-    public $evidence = 'skladova-karta';
+    public ?string $evidence = 'skladova-karta';
 }

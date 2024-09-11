@@ -1,18 +1,25 @@
 #!/usr/bin/php -f
 <?php
+
+declare(strict_types=1);
+
 /**
- * php-abraflexi - Example how to create Invoice
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <info@vitexsofware.cz>
- * @copyright  (G) 2020 Vitex Software
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Example\AbraFlexi;
 
-use \AbraFlexi\FakturaVydana;
+use AbraFlexi\FakturaVydana;
 
-define('EASE_LOGGER', 'syslog|console');
+\define('EASE_LOGGER', 'syslog|console');
+
 include_once './config.php';
+
 include_once '../vendor/autoload.php';
 
 $invoicer = new FakturaVydana(['typDokl' => 'FAKTURA']); // "code:" is missing
@@ -32,9 +39,8 @@ if ($invoicer->sync() === false) {
     //         )
 }
 
-
-
-/* EASE_LOGGER: "console" print red/yellow lines: 
+/*
+ * EASE_LOGGER: "console" print red/yellow lines:
 
   php -f Examples/ErrorHandling.php
   03/21/20 03:29:47 ``  ☠ Je očekáváno číselné ID, ale 'FAKTURA' není číslo
@@ -45,7 +51,8 @@ if ($invoicer->sync() === false) {
   Done.
  */
 
-/* EASE_LOGGER "syslog" add this to /var/log/syslog
+/*
+ * EASE_LOGGER "syslog" add this to /var/log/syslog
 
   Mar 21 03:29:47 exiv AbraFlexitest: ` `  400: https://vitexsoftware.flexibee.eu:5434/c/flexipeehp/faktura-vydana
   Mar 21 03:29:47 exiv AbraFlexitest:
@@ -61,10 +68,10 @@ if ($invoicer->sync() === false) {
  */
 
 $invoicer = new FakturaVydana(['typDokl' => 'FAKTURA'], ['throwException' => true]); // "code:" is missing
-//Or define('FLEXIBEE_EXCEPTIONS',true); 
+// Or define('FLEXIBEE_EXCEPTIONS',true);
 
 try {
     $invoicer->sync();
 } catch (\Ease\Exception $exc) {
-    echo $exc->getCode() . ': ' . $exc->getMessage();
+    echo $exc->getCode().': '.$exc->getMessage();
 }

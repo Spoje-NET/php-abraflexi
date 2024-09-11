@@ -3,22 +3,20 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Objekt kontaktu.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2023 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
-use AbraFlexi\firma;
-use AbraFlexi\RW;
-use AbraFlexi\stitky;
-
 /**
- * Kontakt adresáře
+ * Kontakt adresáře.
  *
- * @link https://demo.flexibee.eu/c/demo/kontakt/properties
+ * @see https://demo.flexibee.eu/c/demo/kontakt/properties
  */
 class Kontakt extends RW
 {
@@ -27,19 +25,18 @@ class Kontakt extends RW
 
     /**
      * Evidence užitá objektem.
-     *
-     * @var string
      */
-    public $evidence = 'kontakt';
+    public ?string $evidence = 'kontakt';
 
     /**
-     * Authenticate by contact
+     * Authenticate by contact.
      *
-     * @link https://www.abraflexi.eu/api/dokumentace/ref/autentizace-kontaktu/ Contact Auth
+     * @see https://www.abraflexi.eu/api/dokumentace/ref/autentizace-kontaktu/ Contact Auth
+     *
      * @param string $login
      * @param string $password
      *
-     * @return boolean
+     * @return bool
      */
     public function authenticate($login, $password)
     {
@@ -49,15 +46,18 @@ class Kontakt extends RW
         $result = $this->performRequest(
             'authenticate',
             'POST',
-            'xml'
+            'xml',
         );
         $this->defaultHttpHeaders = $defaultHttpHeaders;
+
         if (!empty($result['message'])) {
-            $this->addStatusMessage($result['message'], $result['success'] == 'true' ? 'success' : 'warning');
-            if ($this->throwException == true && $result['success'] != 'true') {
+            $this->addStatusMessage($result['message'], $result['success'] === 'true' ? 'success' : 'warning');
+
+            if ($this->throwException === true && $result['success'] !== 'true') {
                 throw new Exception($result['message'], $this);
             }
         }
-        return array_key_exists('success', $result) && $result['success'] == 'true';
+
+        return \array_key_exists('success', $result) && $result['success'] === 'true';
     }
 }

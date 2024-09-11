@@ -3,16 +3,18 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - AbraFlexi Server Status class.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2016-2017 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Description of Status
+ * Description of Status.
  *
  * @author vitex
  */
@@ -20,31 +22,27 @@ class Status extends RO
 {
     /**
      * Evidence užitá objektem.
-     * Evidence used by object
+     * Evidence used by object.
      *
-     * @link https://demo.flexibee.eu/c/demo/evidence-list Přehled evidencí
-     * @var string
+     * @see https://demo.flexibee.eu/c/demo/evidence-list Přehled evidencí
      */
-    public $evidence = 'status';
+    public ?string $evidence = 'status';
 
     /**
-     * @link https://demo.flexibee.eu/devdoc/company-identifier Identifikátor firmy
-     * @var string
+     * @see https://demo.flexibee.eu/devdoc/company-identifier Identifikátor firmy
      */
-    public $company = '';
+    public string $company = '';
 
     /**
      * Default Line Prefix.
-     *
-     * @var string
      */
-    public $prefix = '';
+    public string $prefix = '';
 
     /**
-     * AbraFlexi status
+     * AbraFlexi status.
      *
-     * @param mixed $init       mostly ignored
-     * @param array $options    not used at all
+     * @param mixed $init    mostly ignored
+     * @param array $options not used at all
      */
     public function __construct($init = null, $options = [])
     {
@@ -53,27 +51,29 @@ class Status extends RO
     }
 
     /**
-     * Return the same response format for one and multiplete results
+     * Return the same response format for one and multiplete results.
      *
      * @param array $responseRaw
+     *
      * @return array
      */
     public function unifyResponseFormat($responseRaw)
     {
-        if (array_key_exists('status', $responseRaw)) {
+        if (\array_key_exists('status', $responseRaw)) {
             $response = $responseRaw['status'];
         } else {
             $response = $responseRaw;
         }
+
         return $response;
     }
 
     /**
-     * Status has no relations
+     * Status has no relations.
      *
-     * @return null
+     * @param null|mixed $id
      */
-    public function getVazby($id = null)
+    public function getVazby($id = null): void
     {
         throw new \Exception(_('Status has no relations'));
     }

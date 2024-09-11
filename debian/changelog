@@ -1,4 +1,17 @@
-php-spojenet-abraflexi (2.25.3.161~jammy.162~jammy.163~jammy.166~jammy.167~jammy.168~jammy.169~jammy.170~jammy.171~jammy) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.0.0) UNRELEASED; urgency=medium
+
+  * Cleaner Code
+
+ -- vitex <info@vitexsoftware.cz>  Thu, 29 Aug 2024 00:01:31 +0200
+
+php-spojenet-abraflexi (2.25.4) experimental; urgency=medium
+
+  * Events handling object introduced
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-187
+
+ -- vitex <info@vitexsoftware.cz>  Thu, 29 Aug 2024 00:01:22 +0200
+
+php-spojenet-abraflexi (2.25.3.161) experimental; urgency=medium
 
   [ Vítězslav Dvořák ]
   * ease-core based
@@ -73,8 +86,11 @@ php-spojenet-abraflexi (2.25.3.161~jammy.162~jammy.163~jammy.166~jammy.167~jammy
   * jenkins-Spoje.Net-php-spojenet-abraflexi-169
   * jenkins-Spoje.Net-php-spojenet-abraflexi-170
   * jenkins-Spoje.Net-php-spojenet-abraflexi-171
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-173
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-174
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-177
 
- -- vitex <jenkins@vyvojar.spoje.net>  Thu, 04 Jul 2024 08:01:55 +0000
+ -- vitex <info@vitexsoftware.cz>  Tue, 13 Aug 2024 19:57:52 +0200
 
 flexipeehp (1.12) experimental; urgency=medium
 

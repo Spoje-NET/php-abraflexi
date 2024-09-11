@@ -1,49 +1,43 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * AbraFlexi - Relation class.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2021 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Description of Relation
+ * Description of Relation.
  *
  * @author vitex
  */
 class Relation
 {
     /**
-     * Item in target evidence
-     * @var string|array
+     * Item in target evidence.
+     *
+     * @var array|string
      */
     public $value;
 
     /**
-     * Taget evidence name
-     * @var string
+     * Target evidence name.
      */
-    public $target;
+    public string $target;
+    public ?string $ref;
+    public ?string $showAs;
 
     /**
+     * Relation.
      *
-     * @var string
-     */
-    public $ref;
-
-    /**
-     *
-     * @var string
-     */
-    public $showAs;
-
-    /**
-     * Relation
-     *
-     * @param string|array $item     Record identifier
+     * @param array|string $item     Record identifier
      * @param string       $evidence Record's evidence
      * @param string       $ref      Reference path
      * @param string       $showAs   Item caption
@@ -57,32 +51,34 @@ class Relation
     }
 
     /**
-     * Render value as string
+     * Render value as string.
      *
      * @return string
      */
     public function __toString()
     {
-        return (is_array($this->value) ? ( is_array(current($this->value)) ? current($this->value)['kod'] : current($this->value) ) : $this->value);
+        return \is_array($this->value) ? (\is_array(current($this->value)) ? current($this->value)['kod'] : current($this->value)) : $this->value;
     }
 
     /**
-     * Obtain Relation target as Object
+     * Obtain Relation target as Object.
      *
      * @return \AbraFlexi\RO
      */
     public function getRelationTarget()
     {
         $engineClass = Functions::evidenceToClassName($this->target);
+
         if (class_exists($engineClass)) {
             $relation = new $engineClass($this->value);
         } else {
-            if (EvidenceList::$evidences[$this->target]['importStatus'] == 'SUPPORTED') {
+            if (EvidenceList::$evidences[$this->target]['importStatus'] === 'SUPPORTED') {
                 $relation = new RW($this->value);
             } else {
                 $relation = new RO($this->value);
             }
         }
+
         return $relation;
     }
 }

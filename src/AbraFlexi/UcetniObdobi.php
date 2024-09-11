@@ -3,10 +3,12 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Objekt účetního období.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
@@ -14,14 +16,14 @@ namespace AbraFlexi;
 /**
  * Class for Accounting period handling.
  *
- * @link https://demo.flexibee.eu/c/demo/ucetni-obdobi/properties Položky evidence
+ * @see https://demo.flexibee.eu/c/demo/ucetni-obdobi/properties Položky evidence
+ *
  * @author vitex
  */
 class UcetniObdobi extends RW
 {
     /**
-     * Evidence AbraFlexi
-     * @var string
+     * Evidence AbraFlexi.
      */
-    public $evidence = 'ucetni-obdobi';
+    public ?string $evidence = 'ucetni-obdobi';
 }

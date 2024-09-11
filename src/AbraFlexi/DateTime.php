@@ -1,50 +1,54 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * AbraFlexi - DateTime object.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  (C) 2021-2023 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Description of DateTime
+ * Description of DateTime.
  *
  * @author vitex
  */
 class DateTime extends \DateTime
 {
     /**
-     * Support for Null values
-     * @var bool
+     * Support for Null values.
      */
-    public /*bool*/ $isNull = false;
+    /* bool */
+    public bool $isNull = false;
 
     /**
-     * Default output format
-     * @var string
+     * Default output format.
      */
-
-    public static $format = 'Y-m-d\TH:i:s.u+P';
+    public static string $format = 'Y-m-d\TH:i:s.u+P';
 
     /**
-     * AbraFlexi dateTime to PHP DateTime conversion
+     * AbraFlexi dateTime to PHP DateTime conversion.
      *
      * @param string $flexidatetime 2017-09-26T10:00:53.755+02:00 or older 2017-05-19T00:00:00+02:00
      *
-     * @return \DateTime | false
+     * @return \DateTime|false
      */
     public function __construct(string $flexidatetime = 'NOW')
     {
         $this->isNull = empty($flexidatetime);
         $format = '';
-        if (strchr($flexidatetime, '.')) { //NewFormat
+
+        if (strstr($flexidatetime, '.')) { // NewFormat
             $format = self::$format;
-        } elseif (!empty($flexidatetime) && ($flexidatetime != 'NOW')) { // Old format
+        } elseif (!empty($flexidatetime) && ($flexidatetime !== 'NOW')) { // Old format
             $format = 'Y-m-d\TH:i:s+P';
         }
+
         if (empty($format)) {
             parent::__construct();
         } else {
@@ -53,25 +57,26 @@ class DateTime extends \DateTime
     }
 
     /**
-     * Easy way how to force format DateTime used
-     *
-     * @param string
-     *
-     * @return \DateTime | false
-     */
-    public function setFormat(string $format)
-    {
-        self::$format = $format;
-        return $this;
-    }
-
-    /**
-     * Render Object as AbraFlexi::$DateTimeFormat
+     * Render Object as AbraFlexi::$DateTimeFormat.
      *
      * @return string
      */
     public function __toString()
     {
         return $this->isNull ? '' : $this->format(self::$format);
+    }
+
+    /**
+     * Easy way how to force format DateTime used.
+     *
+     * @param string
+     *
+     * @return \DateTime|false
+     */
+    public function setFormat(string $format)
+    {
+        self::$format = $format;
+
+        return $this;
     }
 }

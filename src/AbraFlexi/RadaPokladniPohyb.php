@@ -3,41 +3,45 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Objekt řady pokladního pohybu.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Číselná řada pokladního pohybu
+ * Číselná řada pokladního pohybu.
  */
 class RadaPokladniPohyb extends RW
 {
     /**
      * Evidence užitá objektem.
-     *
-     * @var string
      */
-    public $evidence = 'rada-pokladni-pohyb';
+    public ?string $evidence = 'rada-pokladni-pohyb';
 
     /**
-     * Obtain code for new Record
+     * Obtain code for new Record.
      *
      * @param string $code
+     *
      * @return string
      */
     public function getNextRecordCode($code = null)
     {
-        if (is_null($code)) {
+        if (null === $code) {
             $code = $this->getMyKey();
         }
+
         $crID = null;
-        if (is_string($code)) {
+
+        if (\is_string($code)) {
             $sro = $this->performRequest($this->evidence . '/(kod=\'' . $code . '\').json');
-            if (count($sro[$this->evidence])) {
+
+            if (\count($sro[$this->evidence])) {
                 $crID = current(current($sro[$this->evidence]));
             }
         } else {
@@ -49,29 +53,31 @@ class RadaPokladniPohyb extends RW
         $crInfo = end($radaPokladniPohyb['polozkyRady']);
 
         $cislo = $crInfo['cisAkt'] + 1;
-        if ($crInfo['zobrazNuly'] == 'true') {
+
+        if ($crInfo['zobrazNuly'] === 'true') {
             return $crInfo['prefix'] . sprintf(
                 '%\'.0' . $crInfo['cisDelka'] . 'd',
-                $cislo
+                $cislo,
             ) . '/' . date('y');
-        } else {
-            return $crInfo['prefix'] . $cislo . '/' . date('y');
         }
+
+        return $crInfo['prefix'] . $cislo . '/' . date('y');
     }
 
     /**
-     * Zvedne číslo dokladu
+     * Zvedne číslo dokladu.
      *
      * @param string $code
+     *
      * @return int číslo nového dokladu
      */
     public function incrementNextRecordCode($code = null)
     {
-        if (is_null($code)) {
+        if (null === $code) {
             $code = $this->getMyKey();
         }
 
-        if (is_string($code)) {
+        if (\is_string($code)) {
             $sro = $this->performRequest($this->evidence . '/(kod=\'' . $code . '\').json');
             $crID = current(current($sro[$this->evidence]));
         } else {
@@ -82,7 +88,6 @@ class RadaPokladniPohyb extends RW
         $radaPokladniPohyb = current($cr[$this->evidence]);
         $crInfo = end($radaPokladniPohyb['polozkyRady']);
 
-        $cislo = $crInfo['cisAkt'] + 1;
-        return $cislo;
+        return $crInfo['cisAkt'] + 1;
     }
 }

@@ -1,15 +1,21 @@
 #!/usr/bin/php -f
 <?php
+
+declare(strict_types=1);
+
 /**
- * AbraFlexi - Example how to copy Invoice
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <info@vitexsofware.cz>
- * @copyright  (G) 2017 Vitex Software
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Example\AbraFlexi;
 
 include_once './config.php';
+
 include_once '../vendor/autoload.php';
 
 include_once './common.php';
@@ -25,31 +31,40 @@ $invoiceID = askForFlexiBeeID();
  */
 
 $invoice = new \AbraFlexi\FakturaVydana($invoiceID);
-$id      = $invoice->getMyKey();
-$zamekK  = $invoice->getDataValue('zamekK');
-$kod     = $invoice->getDataValue('kod');
+$id = $invoice->getMyKey();
+$zamekK = $invoice->getDataValue('zamekK');
+$kod = $invoice->getDataValue('kod');
+
 if ($id) {
-    $invoice->dataReset(); //Do not send back all data
+    $invoice->dataReset(); // Do not send back all data
     $invoice->setMyKey($id);
     $invoice->setDataValue('kod', $kod);
 
     switch ($zamekK) {
         case 'zamek.zamceno':
             $result = $invoice->performAction('unlock', 'int');
+
             break;
         case 'zamek.otevreno':
             $result = $invoice->performAction('lock', 'int');
+
             break;
     }
 
-    if ($result['success'] == 'true') {
-        $invoice->addStatusMessage(sprintf(_('Invoice %s lock switched'),
-                $invoice), 'success');
+    if ($result['success'] === 'true') {
+        $invoice->addStatusMessage(sprintf(
+            _('Invoice %s lock switched'),
+            $invoice,
+        ), 'success');
     } else {
-        $invoice->addStatusMessage(sprintf(_('Invoice %s lock switch failed'),
-                $invoice), 'error');
+        $invoice->addStatusMessage(sprintf(
+            _('Invoice %s lock switch failed'),
+            $invoice,
+        ), 'error');
     }
 } else {
-    $invoice->addStatusMessage('Invoice '.$invoiceID.' does not exists',
-        'warning');
+    $invoice->addStatusMessage(
+        'Invoice '.$invoiceID.' does not exists',
+        'warning',
+    );
 }

@@ -9,12 +9,21 @@
 
 declare(strict_types=1);
 
+/**
+ * This file is part of the EaseCore package.
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AbraFlexi;
 
 /**
- * Incoming invoice
+ * Incoming invoice.
  *
- * @link https://demo.flexibee.eu/c/demo/faktura-prijata/properties
+ * @see https://demo.flexibee.eu/c/demo/faktura-prijata/properties
  */
 class FakturaPrijata extends RW implements Document
 {
@@ -28,8 +37,6 @@ class FakturaPrijata extends RW implements Document
 
     /**
      * Evidence použitá třídou.
-     *
-     * @var string
      */
-    public $evidence = 'faktura-prijata';
+    public ?string $evidence = 'faktura-prijata';
 }

@@ -9,16 +9,21 @@
 
 declare(strict_types=1);
 
+/**
+ * This file is part of the EaseCore package.
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AbraFlexi;
 
-use AbraFlexi\firma;
-use AbraFlexi\RW;
-use AbraFlexi\stitky;
-
 /**
- * Dodavatelská smlouva
+ * Dodavatelská smlouva.
  *
- * @link https://demo.flexibee.eu/c/demo/dodavatelska-smlouva/properties
+ * @see https://demo.flexibee.eu/c/demo/dodavatelska-smlouva/properties
  */
 class DodavatelskaSmlouva extends RW
 {
@@ -28,20 +33,19 @@ class DodavatelskaSmlouva extends RW
 
     /**
      * Evidence užitá objektem.
-     *
-     * @var string
      */
-    public $evidence = 'dodavatelska-smlouva';
+    public ?string $evidence = 'dodavatelska-smlouva';
 
     /**
      * Generate invoices from contracts.
      * Vygeneruje faktury ze smluv.
      *
-     * @return boolean operation success
+     * @return bool operation success
      */
     public function generateInvoices()
     {
         $this->performRequest('dodavatelska-smlouva/generovani-faktur.xml', 'PUT', 'xml');
-        return $this->lastResponseCode == 200;
+
+        return $this->lastResponseCode === 200;
     }
 }

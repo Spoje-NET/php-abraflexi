@@ -1,16 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * AbraFlexi - Document Email support
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2018-2019 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Add functions to use with "email" data column
+ * Add functions to use with "email" data column.
  *
  * Please use with:
  *
@@ -50,6 +54,7 @@ trait email
     {
         if (empty($this->getDataValue('kontaktEmail'))) {
             $addresser = new Adresar($this->getDataValue('firma'), array_merge(['detail' => 'custom:email'], $this->getConnectionOptions()));
+
             if (empty($addresser->getDataValue('email'))) {
                 $email = $addresser->getNotificationEmailAddress();
             } else {
@@ -78,28 +83,33 @@ trait email
     public function getRecipients(string $purpose = '')
     {
         $recipients = [];
+
         if (empty($this->getDataValue('kontaktEmail')) === false) {
             $recipients[] = $this->getDataValue('kontaktEmail');
         }
+
         if (empty($this->getDataValue('email')) === false) {
             $recipients[] = $this->getDataValue('email');
         }
+
         if (empty($this->getDataValue('firma')) === false) {
             $addresser = new Adresar($this->getDataValue('firma'), array_merge(['detail' => 'custom:email'], $this->getConnectionOptions()));
             $contacts = $addresser->getNotificationEmailAddress(empty($purpose) ? self::docTypeToPurpose($this) : $purpose);
+
             if (empty($contacts) === false) {
-                if (strchr($contacts, ',') === false) {
+                if (strstr($contacts, ',') === false) {
                     $recipients[] = $contacts;
                 } else {
                     $recipients = array_merge($recipients, explode(',', $contacts));
                 }
             }
         }
+
         return implode(',', array_unique($recipients));
     }
 
     /**
-     * Document type To Purpose
+     * Document type To Purpose.
      *
      * @param \AbraFlexi\RO $document
      *
@@ -107,7 +117,8 @@ trait email
      */
     public static function docTypeToPurpose($document)
     {
-        $purposeRaw = substr(str_replace('AbraFlexi\\', '', str_replace('Poptavka', 'Pptavka', get_class($document))), 0, 3);
-        return array_search($purposeRaw, ['Fak', 'Obj', 'Nab', 'Ppt', 'Skl', 'Pok']) === false ? '' : $purposeRaw;
+        $purposeRaw = substr(str_replace('AbraFlexi\\', '', str_replace('Poptavka', 'Pptavka', \get_class($document))), 0, 3);
+
+        return array_search($purposeRaw, ['Fak', 'Obj', 'Nab', 'Ppt', 'Skl', 'Pok'], true) === false ? '' : $purposeRaw;
     }
 }

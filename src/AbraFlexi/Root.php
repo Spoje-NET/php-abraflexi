@@ -3,37 +3,40 @@
 declare(strict_types=1);
 
 /**
- * Abra Flexi - Read Only Access to AbraFlexi class.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2017 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Description of Common
+ * Description of Common.
  *
  * @author vitex
  */
 class Root extends RW
 {
     /**
-     * Update HTTPS certificate
+     * Update HTTPS certificate.
      *
      * @param string $pem
      *
-     * @return boolean
+     * @return bool
      */
     public function uploadCertificate($pem)
     {
         $this->postFields = $pem;
         $this->performRequest('/certificate', 'PUT');
-        return $this->lastResponseCode == 201;
+
+        return $this->lastResponseCode === 201;
     }
 
     /**
-     * Get availble companies listing
+     * Get availble companies listing.
      *
      * @param array $conditions applay to listing
      *

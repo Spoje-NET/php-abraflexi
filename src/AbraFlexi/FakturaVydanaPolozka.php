@@ -3,18 +3,20 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Objekt položky vydané faktury.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2016-2017 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Polozka Faktury vydané
+ * Polozka Faktury vydané.
  *
- * @link https://demo.flexibee.eu/c/demo/faktura-vydana-polozka/properties položky evidence
+ * @see https://demo.flexibee.eu/c/demo/faktura-vydana-polozka/properties položky evidence
  */
 class FakturaVydanaPolozka extends RW
 {
@@ -22,8 +24,6 @@ class FakturaVydanaPolozka extends RW
 
     /**
      * Evidence užitá objektem.
-     *
-     * @var string
      */
-    public $evidence = 'faktura-vydana-polozka';
+    public ?string $evidence = 'faktura-vydana-polozka';
 }

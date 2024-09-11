@@ -14,5 +14,82 @@ default specified by in /etc/profile.d/abraflexi-client.sh
 Install abraflexi-client-config package to modify connection settings 
 
 
+Debian/Ubuntu
+-------------
+
+Pro Linux jsou k dispozici .deb balíčky. Prosím použijte repo:
+
+```shell
+sudo apt install lsb-release wget
+echo "deb http://repo.vitexsoftware.cz $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/vitexsoftware.list
+sudo wget -O /etc/apt/trusted.gpg.d/vitexsoftware.gpg http://repo.vitexsoftware.cz/keyring.gpg
+sudo apt update
+sudo apt install php-spojenet-abraflexi
+```
+
+V tomto případě je potřeba do souboru composer.json vaší aplikace přidat:
+
+```json
+    "require": {
+        "deb/ease-core": "*",
+        "deb/abraflexi": "*"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/usr/share/php/AbraFlexi",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "/usr/share/php/EaseCore",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
+```
+
+Takže při instalaci závislostí bude vypadat nějak takto:
+
+    Loading composer repositories with package information
+    Installing dependencies from lock file
+      - Installing ease-core (2.0)
+        Symlinked from /usr/share/php/Ease
+
+      - Installing abraflexi (2.3)
+        Symlinked from /usr/share/php/AbraFlexi
+
+A aktualizaci bude možné dělat globálně pro celý systém prostřednictvím apt-get.
+
+Generujeme také balíček **php-spojenet-abraflexi-doc**, obsahující vývojářskou dokumentaci
+generovanou pomcí programu ApiGen. Dokumnentace je online k nahlédnutí na adrese
+http://abraflexi-dev.spoje.net/php-abraflexi/
+
+Testování:
+
+     cd /usr/share/doc/AbraFlexi/
+     composer install
+     php -f abraflexiping.php
+
+
+![Debian Test](Examples/flexipeehp-debian-test.png?raw=true "Test")
+    
+Soubory tříd jsou v Debianu instalovány do složky /usr/share/php/AbraFlexi a
+měl by se spouštět občerstvovací skript pokaždé když je AbaraFlexi server
+aktualizován na novou verzi:
+
+```shell
+cd /usr/share/php/AbraFlexi/tools && sudo ./update_all.sh
+```
+
+Server ze kterého se struktura získává se nastavuje v souboru /etc/abraflexi/client.json 
+nebo proměnnými prostředí definovanými zpravidla v /etc/profile.d/abraflexi-client.sh
+
+Nainstalujte balíček abraflexi-client-config pro snadnou změnu těchto nastavení 
+
+
  -- Vítězslav Dvořák <info@vitexsoftware.cz>  Ne říj 21 15:17:56 CEST 2021
 

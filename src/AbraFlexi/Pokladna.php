@@ -3,18 +3,20 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Objekt pokladny.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2024 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Pokladna
+ * Pokladna.
  *
- * @link https://demo.flexibee.eu/c/demo/pokladna/properties
+ * @see https://demo.flexibee.eu/c/demo/pokladna/properties
  */
 class Pokladna extends RW
 {
@@ -24,21 +26,19 @@ class Pokladna extends RW
 
     /**
      * Evidence užitá objektem.
-     *
-     * @var string
      */
-    public $evidence = 'pokladna';
+    public ?string $evidence = 'pokladna';
 
     /**
-     * Add Data to invoice subItem
+     * Add Data to invoice subItem.
      *
      * @see Relations
      *
-     * @param array   $data pole dat
-     * @param string  $relationPath path evidence (relation) pro vkládaná data
-     * @param boolean $removeAll
+     * @param array  $data         pole dat
+     * @param string $relationPath path evidence (relation) pro vkládaná data
+     * @param bool   $removeAll
      *
-     * @return boolean Operation success
+     * @return bool Operation success
      */
     public function addArrayToBranch(
         $data,

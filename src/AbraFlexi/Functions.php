@@ -3,43 +3,39 @@
 declare(strict_types=1);
 
 /**
- * Several Static Functions
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2023 Vitex Software
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Description of Functions
+ * Description of Functions.
  *
  * @author vitex
  */
 class Functions
 {
     /**
-     * Formating string for \DateTime::format() for datetime columns
+     * Formating string for \DateTime::format() for datetime columns.
      *
      * @deprecated since version 2.17
-     *
-     * @var string
      */
-    public static $DateTimeFormat = 'Y-m-d\TH:i:s.u+P';
+    public static string $DateTimeFormat = 'Y-m-d\TH:i:s.u+P';
 
     /**
-     * Formating string for \DateTime::format() for date columns
+     * Formating string for \DateTime::format() for date columns.
      *
      * @deprecated since version 2.17
-     *
-     * @var string
      */
-    public static $DateFormat = 'Y-m-d';
+    public static string $DateFormat = 'Y-m-d';
 
     /**
-     * convert unicode to entities for use with AbraFlexi queries
-     *
-     * @param string $urlRaw
+     * convert unicode to entities for use with AbraFlexi queries.
      *
      * @return string
      */
@@ -49,7 +45,7 @@ class Functions
     }
 
     /**
-     * Gives you AbraFlexi class name for Given Evidence
+     * Gives you AbraFlexi class name for Given Evidence.
      *
      * @param string $evidence
      *
@@ -61,22 +57,17 @@ class Functions
     }
 
     /**
-     * Returns code:CODE
-     *
-     * @param string $code
+     * Returns code:CODE.
      *
      * @return string
      */
     public static function code(string $code)
     {
-        return ((substr($code, 0, 4) == 'ext:') ? $code : 'code:' . strtoupper(self::uncode($code)));
+        return (substr($code, 0, 4) === 'ext:') ? $code : 'code:' . strtoupper(self::uncode($code));
     }
 
-
     /**
-     * Convert companyUrl provided by CustomButton to options array
-     *
-     * @param string $companyUrl
+     * Convert companyUrl provided by CustomButton to options array.
      *
      * @return array Options
      */
@@ -84,24 +75,26 @@ class Functions
     {
         $urlParts = parse_url($companyUrl);
         $scheme = isset($urlParts['scheme']) ? $urlParts['scheme'] . '://' : '';
-        $host = isset($urlParts['host']) ? $urlParts['host'] : '';
+        $host = $urlParts['host'] ?? '';
         $port = isset($urlParts['port']) ? ':' . $urlParts['port'] : '';
-        $path = isset($urlParts['path']) ? $urlParts['path'] : '';
-        if (array_key_exists('user', $urlParts)) {
+        $path = $urlParts['path'] ?? '';
+
+        if (\array_key_exists('user', $urlParts)) {
             $options['user'] = $urlParts['user'];
         }
-        if (array_key_exists('pass', $urlParts)) {
+
+        if (\array_key_exists('pass', $urlParts)) {
             $options['password'] = $urlParts['pass'];
         }
+
         $options['company'] = basename($path);
         $options['url'] = $scheme . $host . $port;
+
         return $options;
     }
 
     /**
-     * Returns CODE without code: prefix
-     *
-     * @param string $code
+     * Returns CODE without code: prefix.
      *
      * @return string
      */
@@ -111,20 +104,21 @@ class Functions
     }
 
     /**
-     * Prepare "IN" subselect
-     *
-     * @param array $items
-     * @param string $key
+     * Prepare "IN" subselect.
      *
      * @return string "in" fragment
      */
     public static function flexiIN(array $items, string $key)
     {
-        $slashed = array_map(function ($a, $column) {
-            return $column === 'stitky' ? "'" . self::code($a) . "'" : "'$a'";
-        }, $items,
-                array_fill(0, count($items), $key));
-        return $key . " in (" . implode(',', $slashed) . ")";
+        $slashed = array_map(
+            static function ($a, $column) {
+                return $column === 'stitky' ? "'" . self::code($a) . "'" : "'{$a}'";
+            },
+            $items,
+            array_fill(0, \count($items), $key),
+        );
+
+        return $key . ' in (' . implode(',', $slashed) . ')';
     }
 
     /**
@@ -141,41 +135,50 @@ class Functions
     public static function flexiUrl(array $data, $joiner = 'and', $defop = 'eq')
     {
         $parts = [];
+
         foreach ($data as $column => $value) {
             if (!is_numeric($column)) {
-                if (is_integer($data[$column]) || is_float($data[$column])) {
+                if (\is_int($data[$column]) || \is_float($data[$column])) {
                     $parts[$column] = $column . ' eq \'' . $data[$column] . '\'';
-                } elseif (is_bool($data[$column])) {
+                } elseif (\is_bool($data[$column])) {
                     $parts[$column] = $data[$column] ? $column . ' eq true' : $column . ' eq false';
-                } elseif (is_null($data[$column])) {
-                    $parts[$column] = $column . " is null";
-                } elseif (is_array($data[$column])) {
+                } elseif (null === $data[$column]) {
+                    $parts[$column] = $column . ' is null';
+                } elseif (\is_array($data[$column])) {
                     $parts[$column] = self::flexiIN($value, $column);
-                } elseif (is_object($data[$column])) {
-                    switch (get_class($data[$column])) {
+                } elseif (\is_object($data[$column])) {
+                    switch (\get_class($data[$column])) {
                         case 'DatePeriod':
                             $parts[$column] = $column . " between '" . $data[$column]->getStartDate()->format(self::$DateFormat) . "' '" . $data[$column]->getEndDate()->format(self::$DateFormat) . "'";
+
                             break;
                         case 'DateTime':
                             $parts[$column] = $column . " eq '" . $data[$column]->format(self::$DateFormat) . "'";
+
                             break;
+
                         default:
-                            $parts[$column] = $column . " $defop '" . $data[$column] . "'";
+                            $parts[$column] = $column . " {$defop} '" . $data[$column] . "'";
+
                             break;
                     }
                 } else {
                     switch ($value) {
                         case '!null':
-                            $parts[$column] = $column . " is not null";
+                            $parts[$column] = $column . ' is not null';
+
                             break;
                         case 'is empty':
                         case 'is not empty':
                         case 'is true':
                         case 'is false':
                             $parts[$column] = $column . ' ' . $value;
+
                             break;
+
                         default:
                             $condParts = explode(' ', trim($value));
+
                             switch ($condParts[0]) {
                                 case '<>':
                                 case '!=':
@@ -193,18 +196,21 @@ class Functions
                                 case 'begins':
                                 case 'between':
                                 case 'ends':
-                                    if (count($condParts) == 1) {
+                                    if (\count($condParts) === 1) {
                                         $parts[$column] = $column .= ' ' . $value;
                                     } else {
                                         $parts[$column] = $column .= ' ' . $condParts[0] . " '" . $condParts[1] . "'";
                                     }
+
                                     break;
+
                                 default:
-                                    if ($column == 'stitky') {
+                                    if ($column === 'stitky') {
                                         $parts[$column] = $column . "='" . self::code($data[$column]) . "'";
                                     } else {
-                                        $parts[$column] = $column . " $defop '" . $data[$column] . "'";
+                                        $parts[$column] = $column . " {$defop} '" . $data[$column] . "'";
                                     }
+
                                     break;
                             }
 
@@ -215,13 +221,12 @@ class Functions
                 $parts[] = $value;
             }
         }
+
         return implode(' ' . $joiner . ' ', $parts);
     }
 
     /**
-     * PHP Date object to AbraFlexi date format
-     *
-     * @param \DateTime $date
+     * PHP Date object to AbraFlexi date format.
      */
     public static function dateToFlexiDate(\DateTime $date)
     {
@@ -229,22 +234,19 @@ class Functions
     }
 
     /**
-     * PHP Date object to AbraFlexi date format
-     *
-     * @param \DateTime $dateTime
+     * PHP Date object to AbraFlexi date format.
      */
     public static function dateToFlexiDateTime(\DateTime $dateTime)
     {
         return $dateTime->format(self::$DateTimeFormat);
     }
 
-
     /**
-     * AbraFlexi date to PHP DateTime conversion
+     * AbraFlexi date to PHP DateTime conversion.
      *
      * @param string $flexidate 2017-05-26 or 2017-05-26Z or 2017-05-26+02:00
      *
-     * @return \DateTime | false
+     * @return \DateTime|false
      */
     public static function flexiDateToDateTime(string $flexidate)
     {
@@ -260,39 +262,42 @@ class Functions
     }
 
     /**
-     * AbraFlexi dateTime to PHP DateTime conversion
+     * AbraFlexi dateTime to PHP DateTime conversion.
      *
      * @param string $flexidatetime 2017-09-26T10:00:53.755+02:00 or older 2017-05-19T00:00:00+02:00
      *
-     * @return \DateTime | false
+     * @return \DateTime|false
      */
     public static function flexiDateTimeToDateTime(string $flexidatetime)
     {
-        if (strchr($flexidatetime, '.')) { //NewFormat
+        if (strstr($flexidatetime, '.')) { // NewFormat
             $format = self::$DateTimeFormat;
         } else { // Old format
             $format = 'Y-m-d\TH:i:s+P';
         }
+
         return \DateTime::createFromFormat($format, $flexidatetime);
     }
 
     /**
      * Převede rekurzivně Objekt na pole.
      *
-     * @param object|array $object
+     * @param array|object $object
      *
      * @return array
      */
     public static function object2array($object)
     {
         $result = null;
-        if (is_object($object)) {
+
+        if (\is_object($object)) {
             $objectData = get_object_vars($object);
-            if (is_array($objectData) && count($objectData)) {
+
+            if (\is_array($objectData) && \count($objectData)) {
                 $result = array_map('self::object2array', $objectData);
             }
         } else {
-            if (is_array($object)) {
+            if (\is_array($object)) {
                 foreach ($object as $item => $value) {
                     $result[$item] = self::object2array($value);
                 }
@@ -307,21 +312,22 @@ class Functions
     /**
      * Převede rekurzivně v poli všechny objekty na jejich identifikátory.
      *
-     * @param object|array $object
+     * @param array|object $object
      *
      * @return array
      */
     public static function objectToID($object)
     {
         $resultID = null;
-        if (is_object($object) && method_exists($object, '__toString')) {
+
+        if (\is_object($object) && method_exists($object, '__toString')) {
             $resultID = $object->__toString();
         } else {
-            if (is_array($object)) {
+            if (\is_array($object)) {
                 foreach ($object as $item => $value) {
                     $resultID[$item] = self::objectToID($value);
                 }
-            } else { //String
+            } else { // String
                 $resultID = $object;
             }
         }
@@ -330,7 +336,7 @@ class Functions
     }
 
     /**
-     * Prepare record ID to use in URL
+     * Prepare record ID to use in URL.
      *
      * @param mixed $id
      *
@@ -338,15 +344,16 @@ class Functions
      */
     public static function urlizeId($id)
     {
-        if (is_array($id)) {
+        if (\is_array($id)) {
             $id = rawurlencode('(' . self::flexiUrl($id) . ')');
         } elseif (is_numeric($id)) {
-            $id = strval($id);
-        } elseif (preg_match('/^ext:/', strval($id))) {
-            $id = self::urlEncode(strval($id));
-        } elseif (preg_match('/^code:/', strval($id))) {
-            $id = self::code(self::urlEncode(self::uncode(strval($id))));
+            $id = (string) $id;
+        } elseif (preg_match('/^ext:/', (string) $id)) {
+            $id = self::urlEncode((string) $id);
+        } elseif (preg_match('/^code:/', (string) $id)) {
+            $id = self::code(self::urlEncode(self::uncode((string) $id)));
         }
+
         return $id;
     }
 
@@ -360,21 +367,25 @@ class Functions
     public static function xml2array($xml)
     {
         $arr = [];
+
         if (!empty($xml)) {
-            if (is_string($xml)) {
+            if (\is_string($xml)) {
                 $xml = simplexml_load_string($xml);
             }
+
             foreach ($xml->attributes() as $a) {
-                $arr['@' . $a->getName()] = strval($a);
+                $arr['@' . $a->getName()] = (string) $a;
             }
+
             foreach ($xml->children() as $r) {
-                if (count($r->children()) == 0) {
-                    $arr[$r->getName()] = strval($r);
+                if (\count($r->children()) === 0) {
+                    $arr[$r->getName()] = (string) $r;
                 } else {
                     $arr[$r->getName()][] = self::xml2array($r);
                 }
             }
         }
+
         return $arr;
     }
 }

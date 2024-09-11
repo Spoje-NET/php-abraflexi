@@ -3,18 +3,20 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Objekt položky skladového pohybu.
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2018 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace AbraFlexi;
 
 /**
- * Položka skladového pohybu
+ * Položka skladového pohybu.
  *
- * @link https://demo.flexibee.eu/c/demo/skladovy-pohyb-polozka/properties
+ * @see https://demo.flexibee.eu/c/demo/skladovy-pohyb-polozka/properties
  */
 class SkladovyPohybPolozka extends RW
 {
@@ -22,32 +24,34 @@ class SkladovyPohybPolozka extends RW
 
     /**
      * Evidence užitá objektem.
-     *
-     * @var string
      */
-    public $evidence = 'skladovy-pohyb-polozka';
+    public ?string $evidence = 'skladovy-pohyb-polozka';
 
     /**
-     * Add Items Serial Number
+     * Add Items Serial Number.
      *
-     * @param string  $number serial number
-     * @param boolean $isMain main number
+     * @param string $number serial number
+     * @param bool   $isMain main number
      *
-     * @return boolean Success
+     * @return bool Success
      */
     public function addSerialNumber($number, $isMain = false)
     {
         $numberBranch['kod'] = $number;
         $crrentSerialNumbers = $this->getDataValue('vyrobniCislaPrijata');
+
         if ($isMain) {
             if (!empty($crrentSerialNumbers)) {
                 foreach (array_keys($crrentSerialNumbers) as $serialNumberID) {
                     unset($this->data['vyrobniCislaPrijata'][$serialNumberID]['vyrobnicislohlav']);
                 }
             }
+
             $numberBranch['vyrobnicislohlav'] = 1;
         }
-        $this->setDataValue('mnozMj', empty($crrentSerialNumbers) ? 0 : count($crrentSerialNumbers) + 1);
+
+        $this->setDataValue('mnozMj', empty($crrentSerialNumbers) ? 0 : \count($crrentSerialNumbers) + 1);
+
         return $this->addArrayToBranch($numberBranch, 'vyrobniCislaPrijata');
     }
 }

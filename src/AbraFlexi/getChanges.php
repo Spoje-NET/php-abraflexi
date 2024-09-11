@@ -3,14 +3,16 @@
 declare(strict_types=1);
 
 /**
- * AbraFlexi - Obtain record changes
+ * This file is part of the EaseCore package.
  *
- * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  (C) 2022 Spoje.Net
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
  *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
-/* Supported evidencies:
+/*
+ * Supported evidencies:
 
    ✔ Faktury vydané, faktury přijaté
    ✔ Banka, pokladna a interní doklady
@@ -25,28 +27,30 @@ declare(strict_types=1);
    ✘ Typy dokladů
  */
 
-
 namespace AbraFlexi;
 
 /**
- * Obtain record changes
+ * Obtain record changes.
  *
  * @author vitex
+ *
  * @see http://podpora.flexibee.eu/cs/articles/5784862-prehled-zmen-zaznamu-v-rest-api
  */
 trait getChanges
 {
     /**
-     * Obtain Chaneges from Journal
+     * Obtain Chaneges from Journal.
      *
      * @return array Changes obtained
      */
-    function getChanges()
+    public function getChanges()
     {
         $changesRaw = $this->performRequest($this->addDefaultUrlParams($this->getApiURL() . '/zmeny.json'));
+
         if ($changesRaw) {
             $changes = $changesRaw['zmeny'];
         }
-        return is_array($changesRaw) && array_key_exists('zmeny', $changesRaw) ?  $changesRaw['zmeny'] : [];
+
+        return \is_array($changesRaw) && \array_key_exists('zmeny', $changesRaw) ? $changesRaw['zmeny'] : [];
     }
 }
