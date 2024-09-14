@@ -5,7 +5,7 @@ namespace AbraFlexi;
 define('EASE_APPNAME', 'AbraFlexiStaticEvidenceListGenerator');
 define('EASE_LOGGER', 'console|syslog');
 
-require_once '../test/bootstrap.php';
+require_once '../tests/bootstrap.php';
 require_once __DIR__ . '/common.php';
 
 $outFile = 'EvidenceList.php';
