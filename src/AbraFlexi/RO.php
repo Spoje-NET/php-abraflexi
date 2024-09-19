@@ -350,6 +350,12 @@ class RO extends \Ease\Sand
      * Columns Info for serveral evidencies.
      */
     private array $columnsInfo = [];
+    
+    /**
+     * JSON Decode depth limit
+     * @var int
+     */
+    private int $jsonDepth = 20;
 
     /**
      * Class for read only interaction with AbraFlexi.
@@ -1191,7 +1197,7 @@ class RO extends \Ease\Sand
      */
     public function rawJsonToArray($rawJson)
     {
-        $responseDecoded = json_decode($rawJson, true, 10);
+        $responseDecoded = json_decode($rawJson, true, $this->jsonDepth);
         $decodeError = json_last_error_msg();
 
         if ($decodeError === 'No error') {
