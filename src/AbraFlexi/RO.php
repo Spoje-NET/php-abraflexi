@@ -1382,7 +1382,9 @@ class RO extends \Ease\Sand
         });
         curl_setopt($this->curl, \CURLOPT_HTTPHEADER, $httpHeaders);
         // Proveď samotnou operaci
-        $this->lastCurlResponse = curl_exec($this->curl);
+        
+        $curlResponse = curl_exec($this->curl);
+        $this->lastCurlResponse = is_string($curlResponse) ? $curlResponse : '';
         $this->curlInfo = curl_getinfo($this->curl);
         $this->curlInfo['when'] = microtime();
         $this->curlInfo['http_method'] = $method;
