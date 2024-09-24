@@ -350,7 +350,7 @@ class RO extends \Ease\Sand
      * Columns Info for serveral evidencies.
      */
     private array $columnsInfo = [];
-    
+
     /**
      * JSON Decode depth limit
      * @var int
@@ -1382,7 +1382,7 @@ class RO extends \Ease\Sand
         });
         curl_setopt($this->curl, \CURLOPT_HTTPHEADER, $httpHeaders);
         // Proveď samotnou operaci
-        
+
         $curlResponse = curl_exec($this->curl);
         $this->lastCurlResponse = is_string($curlResponse) ? $curlResponse : '';
         $this->curlInfo = curl_getinfo($this->curl);
