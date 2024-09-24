@@ -2578,11 +2578,11 @@ class RO extends \Ease\Sand
      *
      * @return array Evidence info
      */
-    public function getEvidenceInfo($evidence = null)
+    public function getEvidenceInfo(string $evidence = ''): array
     {
-        $evidencesInfo = null;
+        $evidencesInfo = [];
 
-        if (null === $evidence) {
+        if (empty($evidence)) {
             $evidence = $this->getEvidence();
         }
 
