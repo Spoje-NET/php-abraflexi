@@ -1425,7 +1425,7 @@ class RO extends \Ease\Sand
      *
      * @return string response format
      */
-    public function contentTypeToResponseFormat(string $contentType, $url = null)
+    public function contentTypeToResponseFormat(string $contentType, $url = null): string
     {
         if (!empty($url)) {
             $url = parse_url($url, \PHP_URL_PATH);

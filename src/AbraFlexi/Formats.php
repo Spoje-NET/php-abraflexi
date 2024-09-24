@@ -2805,10 +2805,10 @@ class Formats
      *
      * @return string
      */
-    public static function contentTypeToSuffix($contentType)
+    public static function contentTypeToSuffix($contentType): string
     {
         $types = self::byContentType();
 
-        return isset($types[$contentType]) ? $types[$contentType]['suffix'] : null;
+        return isset($types[$contentType]) ? $types[$contentType]['suffix'] : '';
     }
 }
