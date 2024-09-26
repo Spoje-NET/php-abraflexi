@@ -62,7 +62,7 @@ class EvidenceList extends RO
      *
      * @var string
      */
-    public ?$evidence = \'evidence-list\';
+    public ?string $evidence = \'evidence-list\';
 
     /**
      * Základní namespace pro komunikaci s FlexiBee.
@@ -70,7 +70,7 @@ class EvidenceList extends RO
      *
      * @var string Jmený prostor datového bloku odpovědi
      */
-    public $nameSpace = \'evidences\';
+    public string $nameSpace = \'evidences\';
 
     public function __construct($init = null, $options = []) {
         $this->keyColumn = \'evidencePath\';
