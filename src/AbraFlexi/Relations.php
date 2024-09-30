@@ -21,7 +21,7 @@ class Relations
      *
      * @var string
      */
- static public $version = '2024.5.4';
+ static public $version = '2024.6.1';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
@@ -2780,6 +2780,18 @@ class Relations
   ],
 ];
     /**
+     * Evidence ulozene-priznani-kon-vyk-dph (Uložené přiznání Kontrolního hlášení DPH) Relations.
+     *
+     * @var array
+     */
+ static public $ulozenePriznaniKonVykDph = [
+  'uzivatelske-vazby' => [
+    'url' => 'uzivatelske-vazby',
+    'evidenceType' => 'VAZBA',
+    'name' => 'Uživatelské vazby',
+  ],
+];
+    /**
      * Evidence radek-priznani-dph (Uložené řádky přiznání DPH) Relations.
      *
      * @var array
@@ -2797,18 +2809,6 @@ class Relations
      * @var array
      */
  static public $umisteni = [
-  'uzivatelske-vazby' => [
-    'url' => 'uzivatelske-vazby',
-    'evidenceType' => 'VAZBA',
-    'name' => 'Uživatelské vazby',
-  ],
-];
-    /**
-     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Relations.
-     *
-     * @var array
-     */
- static public $umisteniVeSkladuMistnost = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -2845,6 +2845,18 @@ class Relations
      * @var array
      */
  static public $umisteniVeSkladuPolice = [
+  'uzivatelske-vazby' => [
+    'url' => 'uzivatelske-vazby',
+    'evidenceType' => 'VAZBA',
+    'name' => 'Uživatelské vazby',
+  ],
+];
+    /**
+     * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Relations.
+     *
+     * @var array
+     */
+ static public $umisteniVeSkladuMistnost = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
