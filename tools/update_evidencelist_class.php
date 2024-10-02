@@ -5,7 +5,7 @@ namespace AbraFlexi;
 define('EASE_APPNAME', 'AbraFlexiStaticEvidenceListGenerator');
 define('EASE_LOGGER', 'console|syslog');
 
-require_once '../test/bootstrap.php';
+require_once '../tests/bootstrap.php';
 require_once __DIR__ . '/common.php';
 
 $outFile = 'EvidenceList.php';
@@ -62,7 +62,7 @@ class EvidenceList extends RO
      *
      * @var string
      */
-    public ?$evidence = \'evidence-list\';
+    public ?string $evidence = \'evidence-list\';
 
     /**
      * Základní namespace pro komunikaci s FlexiBee.
@@ -70,9 +70,8 @@ class EvidenceList extends RO
      *
      * @var string Jmený prostor datového bloku odpovědi
      */
-    public $nameSpace = \'evidences\';
+    public string $nameSpace = \'evidences\';
 
-    #[\Override]
     public function __construct($init = null, $options = []) {
         $this->keyColumn = \'evidencePath\';
         parent::__construct($init, $options);

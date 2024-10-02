@@ -352,6 +352,12 @@ class RO extends \Ease\Sand
     private array $columnsInfo = [];
 
     /**
+     * JSON Decode depth limit
+     * @var int
+     */
+    private int $jsonDepth = 20;
+
+    /**
      * Class for read only interaction with AbraFlexi.
      *
      * @param mixed $init    default record id or initial data. See processInit()
@@ -1191,7 +1197,7 @@ class RO extends \Ease\Sand
      */
     public function rawJsonToArray($rawJson)
     {
-        $responseDecoded = json_decode($rawJson, true, 10);
+        $responseDecoded = json_decode($rawJson, true, $this->jsonDepth);
         $decodeError = json_last_error_msg();
 
         if ($decodeError === 'No error') {
@@ -1278,7 +1284,7 @@ class RO extends \Ease\Sand
                     $mainResult = $responseDecoded;
                 }
 
-                $this->lastResult = $mainResult;
+                $this->lastResult = is_string($mainResult) ? [$mainResult] : $mainResult;
 
                 break;
             case 500: // Internal Server Error
@@ -1376,7 +1382,9 @@ class RO extends \Ease\Sand
         });
         curl_setopt($this->curl, \CURLOPT_HTTPHEADER, $httpHeaders);
         // Proveď samotnou operaci
-        $this->lastCurlResponse = curl_exec($this->curl);
+
+        $curlResponse = curl_exec($this->curl);
+        $this->lastCurlResponse = is_string($curlResponse) ? $curlResponse : '';
         $this->curlInfo = curl_getinfo($this->curl);
         $this->curlInfo['when'] = microtime();
         $this->curlInfo['http_method'] = $method;
@@ -1417,7 +1425,7 @@ class RO extends \Ease\Sand
      *
      * @return string response format
      */
-    public function contentTypeToResponseFormat(string $contentType, $url = null)
+    public function contentTypeToResponseFormat(string $contentType, $url = null): string
     {
         if (!empty($url)) {
             $url = parse_url($url, \PHP_URL_PATH);
@@ -2570,11 +2578,11 @@ class RO extends \Ease\Sand
      *
      * @return array Evidence info
      */
-    public function getEvidenceInfo($evidence = null)
+    public function getEvidenceInfo(string $evidence = ''): array
     {
-        $evidencesInfo = null;
+        $evidencesInfo = [];
 
-        if (null === $evidence) {
+        if (empty($evidence)) {
             $evidence = $this->getEvidence();
         }
 

@@ -31,7 +31,7 @@ class Status extends RO
     /**
      * @see https://demo.flexibee.eu/devdoc/company-identifier Identifikátor firmy
      */
-    public string $company = '';
+    public ?string $company = '';
 
     /**
      * Default Line Prefix.
