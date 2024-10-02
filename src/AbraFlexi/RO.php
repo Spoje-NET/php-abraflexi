@@ -1284,7 +1284,7 @@ class RO extends \Ease\Sand
                     $mainResult = $responseDecoded;
                 }
 
-                $this->lastResult = $mainResult;
+                $this->lastResult = is_string($mainResult) ? [$mainResult] : $mainResult;
 
                 break;
             case 500: // Internal Server Error
