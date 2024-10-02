@@ -35,11 +35,11 @@ distributions.each {
             stage('Checkout ' + distribution) {
                 buildImage = docker.image(vendor + '/' + distribution)
                 sh 'git checkout debian/changelog'
-                def version = sh (
+                def versionOriginal = sh (
                     script: 'dpkg-parsechangelog --show-field Version',
                     returnStdout: true
                 ).trim()
-                ver = version + '.' + env.BUILD_NUMBER  + '~' + distroCodename
+                ver = versionOriginal + '.' + env.BUILD_NUMBER  + '~' + distroCodename
                 println 'Computed version: ' + ver
             }
             stage('Build ' + distribution) {
