@@ -1,11 +1,17 @@
-php-spojenet-abraflexi (3.0.0) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.0.1) UNRELEASED; urgency=medium
+
+  * Vrsion Bump
+
+ -- vitex <info@vitexsoftware.cz>  Wed, 02 Oct 2024 16:30:13 +0200
+
+php-spojenet-abraflexi (3.0.0) experimental; urgency=medium
 
   * Cleaner Code
   * jenkins-Spoje.Net-php-spojenet-abraflexi-210
   * jenkins-Spoje.Net-php-spojenet-abraflexi-211
   * jenkins-Spoje.Net-php-spojenet-abraflexi-212
 
- -- vitex <jenkins@vyvojar.spoje.net>  Mon, 30 Sep 2024 12:02:00 +0000
+ -- vitex <info@vitexsoftware.cz>  Wed, 02 Oct 2024 16:29:50 +0200
 
 php-spojenet-abraflexi (2.25.4) experimental; urgency=medium
 
