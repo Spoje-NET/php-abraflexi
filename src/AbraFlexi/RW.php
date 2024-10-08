@@ -89,7 +89,7 @@ class RW extends RO
      *
      * @throws Exception Evidence does not support Import
      *
-     * @return array odpověď
+     * @return array|bool odpověď
      */
     public function insertToAbraFlexi($data = null)
     {
