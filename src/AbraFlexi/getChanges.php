@@ -45,7 +45,7 @@ trait getChanges
      */
     public function getChanges()
     {
-        $changesRaw = $this->performRequest($this->addDefaultUrlParams($this->getApiURL() . '/zmeny.json'));
+        $changesRaw = $this->performRequest($this->addDefaultUrlParams($this->getApiURL().'/zmeny.json'));
 
         if ($changesRaw) {
             $changes = $changesRaw['zmeny'];

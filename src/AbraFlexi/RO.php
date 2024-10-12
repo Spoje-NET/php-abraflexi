@@ -22,11 +22,10 @@ class RO extends \Ease\Sand
 {
     use \Ease\RecordKey;
 
-
     /**
      * Where to get JSON files with evidence structure etc.
      */
-    public static string $infoDir = __DIR__ . '/../../static';
+    public static string $infoDir = __DIR__.'/../../static';
 
     /**
      * Version of AbraFlexi library.
@@ -352,8 +351,7 @@ class RO extends \Ease\Sand
     private array $columnsInfo = [];
 
     /**
-     * JSON Decode depth limit
-     * @var int
+     * JSON Decode depth limit.
      */
     private int $jsonDepth = 20;
 
@@ -463,7 +461,7 @@ class RO extends \Ease\Sand
     {
         if (\array_key_exists('ver', $options)) {
             $this->protoVersion = $options['ver'];
-            $this->prefix = 'v' . round($this->protoVersion) . '/c/';
+            $this->prefix = 'v'.round($this->protoVersion).'/c/';
         }
 
         if (\array_key_exists('companyUrl', $options)) {
@@ -516,6 +514,7 @@ class RO extends \Ease\Sand
         } else {
             $this->updateApiURL();
         }
+
         return true;
     }
 
@@ -528,7 +527,7 @@ class RO extends \Ease\Sand
      */
     public function setObjectName($objectName = null)
     {
-        return parent::setObjectName(null === $objectName ? (empty($this->getRecordIdent()) ? $this->getObjectName() : $this->getRecordIdent() . '@' . $this->getObjectName()) : $objectName);
+        return parent::setObjectName(null === $objectName ? (empty($this->getRecordIdent()) ? $this->getObjectName() : $this->getRecordIdent().'@'.$this->getObjectName()) : $objectName);
     }
 
     /**
@@ -580,23 +579,23 @@ class RO extends \Ease\Sand
         $options = empty($opts) ? $this->getConnectionOptions() : $opts;
 
         if (\array_key_exists('url', $options)) {
-            putenv('ABRAFLEXI_URL=' . $options['URL']);
+            putenv('ABRAFLEXI_URL='.$options['URL']);
         }
 
         if (\array_key_exists('user', $options)) {
-            putenv('ABRAFLEXI_LOGIN=' . $options['user']);
+            putenv('ABRAFLEXI_LOGIN='.$options['user']);
         }
 
         if (\array_key_exists('password', $options)) {
-            putenv('ABRAFLEXI_PASSWORD=' . $options['password']);
+            putenv('ABRAFLEXI_PASSWORD='.$options['password']);
         }
 
         if (\array_key_exists('company', $options)) {
-            putenv('ABRAFLEXI_COMPANY=' . $options['company']);
+            putenv('ABRAFLEXI_COMPANY='.$options['company']);
         }
 
         if (\array_key_exists('authSessionId', $options)) {
-            putenv('ABRAFLEXI_AUTHSESSID=' . $options['authSessionId']);
+            putenv('ABRAFLEXI_AUTHSESSID='.$options['authSessionId']);
         }
     }
 
@@ -620,19 +619,19 @@ class RO extends \Ease\Sand
                 \curl_setopt(
                     $this->curl,
                     \CURLOPT_USERPWD,
-                    $this->user . ':' . $this->password,
+                    $this->user.':'.$this->password,
                 ); // set username and password
             }
 
             if (null !== $this->timeout) {
                 \curl_setopt($this->curl, \CURLOPT_HTTPHEADER, [
                     'Connection: Keep-Alive',
-                    'Keep-Alive: ' . $this->timeout,
+                    'Keep-Alive: '.$this->timeout,
                 ]);
                 \curl_setopt($this->curl, \CURLOPT_TIMEOUT, $this->timeout);
             }
 
-            \curl_setopt($this->curl, \CURLOPT_USERAGENT, 'phpAbraFlexi  v' . self::$libVersion . ' https://github.com/Spoje-NET/php-abraflexi');
+            \curl_setopt($this->curl, \CURLOPT_USERAGENT, 'phpAbraFlexi  v'.self::$libVersion.' https://github.com/Spoje-NET/php-abraflexi');
         }
 
         return !$this->offline;
@@ -778,7 +777,7 @@ class RO extends \Ease\Sand
             case 'admin':
             case 'status':
             case 'login-logout':
-                $this->prefix = '/' . $prefix . '/';
+                $this->prefix = '/'.$prefix.'/';
 
                 break;
             case null:
@@ -955,11 +954,11 @@ class RO extends \Ease\Sand
      */
     public function getEvidenceURL()
     {
-        $evidenceUrl = $this->url . $this->prefix . $this->company;
+        $evidenceUrl = $this->url.$this->prefix.$this->company;
         $evidence = $this->getEvidence();
 
         if (!empty($evidence)) {
-            $evidenceUrl .= '/' . $evidence;
+            $evidenceUrl .= '/'.$evidence;
         }
 
         return $evidenceUrl;
@@ -1004,10 +1003,10 @@ class RO extends \Ease\Sand
         }
 
         if (!empty($rowIdentifier)) {
-            $this->apiURL .= '/' . self::urlEncode((string) $rowIdentifier);
+            $this->apiURL .= '/'.self::urlEncode((string) $rowIdentifier);
         }
 
-        $this->apiURL .= '.' . $this->format;
+        $this->apiURL .= '.'.$this->format;
     }
 
     /**
@@ -1045,7 +1044,7 @@ class RO extends \Ease\Sand
         if (preg_match('/^http/', $urlSuffix)) {
             $url = $urlSuffix;
         } elseif (\strlen($urlSuffix) && ($urlSuffix[0] === '/')) {
-            $url = $this->url . $urlSuffix;
+            $url = $this->url.$urlSuffix;
         } else {
             $url = $this->evidenceUrlWithSuffix($urlSuffix);
         }
@@ -1132,7 +1131,7 @@ class RO extends \Ease\Sand
 
                 if (null === $columnInfo) {
                     if ($this->debug === true) {
-                        $this->addStatusMessage(sprintf(_('Unknown response field %s. (Please update library or static definitions)'), $column . '@' . $evidence), 'debug');
+                        $this->addStatusMessage(sprintf(_('Unknown response field %s. (Please update library or static definitions)'), $column.'@'.$evidence), 'debug');
                     }
                 } else {
                     switch ($columnInfo['type']) {
@@ -1144,10 +1143,10 @@ class RO extends \Ease\Sand
                             $record[$column] = new Relation(
                                 $value,
                                 \array_key_exists('fkEvidencePath', $columnInfo) && null !== $columnInfo['fkEvidencePath'] ? $columnInfo['fkEvidencePath'] : $column,
-                                \array_key_exists($column . '@ref', $record) ? $record[$column . '@ref'] : null,
-                                \array_key_exists($column . '@showAs', $record) ? $record[$column . '@showAs'] : null,
+                                \array_key_exists($column.'@ref', $record) ? $record[$column.'@ref'] : null,
+                                \array_key_exists($column.'@showAs', $record) ? $record[$column.'@showAs'] : null,
                             );
-                            unset($record[$column . '@ref'], $record[$column . '@showAs']);
+                            unset($record[$column.'@ref'], $record[$column.'@showAs']);
 
                             break;
                         case 'relations':
@@ -1179,7 +1178,7 @@ class RO extends \Ease\Sand
                             break;
 
                         default:
-                            throw new \Ease\Exception(sprintf(_('Unknown response field %s type: %s. (Please update library or static definitions)'), $column . '@' . $evidence, $columnInfo['type']));
+                            throw new \Ease\Exception(sprintf(_('Unknown response field %s type: %s. (Please update library or static definitions)'), $column.'@'.$evidence, $columnInfo['type']));
                     }
                 }
             }
@@ -1206,10 +1205,10 @@ class RO extends \Ease\Sand
             }
         } else {
             if ($this->throwException === true) {
-                throw new Exception('JSON Decoder: ' . $decodeError, $this);
+                throw new Exception('JSON Decoder: '.$decodeError, $this);
             }
 
-            $this->addStatusMessage('JSON Decoder: ' . $decodeError, 'error');
+            $this->addStatusMessage('JSON Decoder: '.$decodeError, 'error');
             $this->addStatusMessage($rawJson, 'debug');
         }
 
@@ -1284,7 +1283,7 @@ class RO extends \Ease\Sand
                     $mainResult = $responseDecoded;
                 }
 
-                $this->lastResult = is_string($mainResult) ? [$mainResult] : $mainResult;
+                $this->lastResult = \is_string($mainResult) ? [$mainResult] : $mainResult;
 
                 break;
             case 500: // Internal Server Error
@@ -1294,7 +1293,7 @@ class RO extends \Ease\Sand
 
                 // no break
             case 401:
-                $msg = (\array_key_exists('message', $responseDecoded) ? $responseDecoded['message'] : $responseDecoded[key($responseDecoded)]['message']) . ' for ' . $this->getApiURL();
+                $msg = (\array_key_exists('message', $responseDecoded) ? $responseDecoded['message'] : $responseDecoded[key($responseDecoded)]['message']).' for '.$this->getApiURL();
                 $this->addStatusMessage($msg, 'error');
 
                 if ($this->throwException) {
@@ -1320,7 +1319,7 @@ class RO extends \Ease\Sand
                     throw new Exception(empty($errors) ? 'Problem ' : (\is_array($errors[0]) ? $errors[0]['message'] : $errors[0]), $this);
                 }
 
-                $this->addStatusMessage($this->lastResponseCode . ': ' . $this->curlInfo['url'] . ' (' . $this->format . ') ' . json_encode($this->getErrors()), 'warning');
+                $this->addStatusMessage($this->lastResponseCode.': '.$this->curlInfo['url'].' ('.$this->format.') '.json_encode($this->getErrors()), 'warning');
 
                 break;
         }
@@ -1338,7 +1337,7 @@ class RO extends \Ease\Sand
         if (\array_key_exists('success', $responseDecoded)) {
             $this->errors = [['message' => \array_key_exists('message', $responseDecoded) ? $responseDecoded['message'] : '']];
         } else {
-            $this->addStatusMessage('Unparsed error: ' . $this->lastCurlResponse, 'error');
+            $this->addStatusMessage('Unparsed error: '.$this->lastCurlResponse, 'error');
         }
 
         return \count($this->errors);
@@ -1378,21 +1377,23 @@ class RO extends \Ease\Sand
         }
 
         array_walk($httpHeaders, static function (&$value, $header): void {
-            $value = $header . ': ' . $value;
+            $value = $header.': '.$value;
         });
         curl_setopt($this->curl, \CURLOPT_HTTPHEADER, $httpHeaders);
         // Proveď samotnou operaci
 
         $curlResponse = curl_exec($this->curl);
-        $this->lastCurlResponse = is_string($curlResponse) ? $curlResponse : '';
+        $this->lastCurlResponse = \is_string($curlResponse) ? $curlResponse : '';
         $this->curlInfo = curl_getinfo($this->curl);
         $this->curlInfo['when'] = microtime();
         $this->curlInfo['http_method'] = $method;
-        if( $this->curlInfo['content_type']){
+
+        if ($this->curlInfo['content_type']) {
             $this->responseFormat = $this->contentTypeToResponseFormat((string) $this->curlInfo['content_type'], $url);
         } else {
-            $this->responseFormat =  '';
-         } 
+            $this->responseFormat = '';
+        }
+
         $this->lastResponseCode = $this->curlInfo['http_code'];
         $this->lastCurlError = curl_error($this->curl);
 
@@ -1518,7 +1519,7 @@ class RO extends \Ease\Sand
     public function getFlexiRow($recordID)
     {
         $record = null;
-        $response = $this->performRequest($this->evidence . '/' . $recordID . '.json');
+        $response = $this->performRequest($this->evidence.'/'.$recordID.'.json');
 
         if (isset($response[$this->evidence])) {
             $record = $response[$this->evidence][0];
@@ -1584,7 +1585,7 @@ class RO extends \Ease\Sand
             }
 
             if (\strlen($conditions) && ($conditions[0] !== '/')) {
-                $conditions = '(' . Functions::urlEncode($conditions) . ')';
+                $conditions = '('.Functions::urlEncode($conditions).')';
             }
         }
 
@@ -1659,7 +1660,7 @@ class RO extends \Ease\Sand
             $id = $this->getMyKey();
         }
 
-        $flexidata = $this->getFlexiData($this->getEvidenceUrl() . '/' . (\is_array($id) ? '' : self::urlizeId($id)), \is_array($id) ? $id : '');
+        $flexidata = $this->getFlexiData($this->getEvidenceUrl().'/'.(\is_array($id) ? '' : self::urlizeId($id)), \is_array($id) ? $id : '');
 
         if ($this->lastResponseCode === 200) {
             $this->apiURL = $this->curlInfo['url'];
@@ -1756,12 +1757,12 @@ class RO extends \Ease\Sand
         $dataForJson = [$this->getEvidence() => $this->objectToID($data)];
 
         if (null !== $this->action) {
-            $dataForJson[$this->evidence . '@action'] = $this->action;
+            $dataForJson[$this->evidence.'@action'] = $this->action;
             $this->action = null;
         }
 
         if (null !== $this->filter) {
-            $dataForJson[$this->evidence . '@filter'] = $this->filter;
+            $dataForJson[$this->evidence.'@filter'] = $this->filter;
         }
 
         foreach ($this->chained as $chained) {
@@ -1845,7 +1846,7 @@ class RO extends \Ease\Sand
         $cands = $this->getFlexiData(
             '',
             [
-                'detail' => 'custom:' . $this->getKeyColumn(),
+                'detail' => 'custom:'.$this->getKeyColumn(),
                 $this->getKeyColumn() => $identifer,
             ],
         );
@@ -1947,7 +1948,7 @@ class RO extends \Ease\Sand
                 }
 
                 $columns = implode(',', array_unique($columnsList));
-                $detail = 'custom:' . $columns;
+                $detail = 'custom:'.$columns;
 
                 // no break
             default:
@@ -2061,16 +2062,16 @@ class RO extends \Ease\Sand
     public function saveDebugFiles(): void
     {
         $tmpdir = sys_get_temp_dir();
-        $fname = $this->evidence . '-' . $this->curlInfo['when'] . '.' . $this->format;
-        $reqname = $tmpdir . '/request-' . $fname;
-        $respname = $tmpdir . '/response-' . $fname;
-        $header = '# ' . (new \DateTime())->format('Y-m-d\TH:i:s.u') . ' ' . $this->curlInfo['url'] . ' (' . urldecode($this->curlInfo['url']) . ')';
+        $fname = $this->evidence.'-'.$this->curlInfo['when'].'.'.$this->format;
+        $reqname = $tmpdir.'/request-'.$fname;
+        $respname = $tmpdir.'/response-'.$fname;
+        $header = '# '.(new \DateTime())->format('Y-m-d\TH:i:s.u').' '.$this->curlInfo['url'].' ('.urldecode($this->curlInfo['url']).')';
 
-        if (file_put_contents($reqname, $header . "\n" . $this->postFields)) {
+        if (file_put_contents($reqname, $header."\n".$this->postFields)) {
             $this->addStatusMessage($reqname, 'debug');
         }
 
-        if (file_put_contents($respname, $header . "\n" . $this->lastCurlResponse)) {
+        if (file_put_contents($respname, $header."\n".$this->lastCurlResponse)) {
             $this->addStatusMessage($respname, 'debug');
         }
     }
@@ -2229,7 +2230,7 @@ class RO extends \Ease\Sand
     {
         $conditions['order'] = 'id@D';
         $conditions['limit'] = 1;
-        $conditions[] = 'id gt ' . $this->getRecordID();
+        $conditions[] = 'id gt '.$this->getRecordID();
         $next = $this->getColumnsFromAbraFlexi(['id'], $conditions);
 
         return (\is_array($next) && \array_key_exists(0, $next) && \array_key_exists(
@@ -2249,7 +2250,7 @@ class RO extends \Ease\Sand
     {
         $conditions['order'] = 'id@A';
         $conditions['limit'] = 1;
-        $conditions[] = 'id lt ' . $this->getRecordID();
+        $conditions[] = 'id lt '.$this->getRecordID();
         $prev = $this->getColumnsFromAbraFlexi(['id'], $conditions);
 
         return (\is_array($prev) && \array_key_exists(0, $prev) && \array_key_exists(
@@ -2277,15 +2278,15 @@ class RO extends \Ease\Sand
         } else {
             if (null !== $ids && \is_array($ids->value)) {
                 foreach ($ids->value as $id) {
-                    if (strstr($id, 'ext:' . $want)) {
+                    if (strstr($id, 'ext:'.$want)) {
                         if (null === $extid) {
-                            $extid = str_replace('ext:' . $want . ':', '', $id);
+                            $extid = str_replace('ext:'.$want.':', '', $id);
                         } else {
                             if (\is_array($extid)) {
-                                $extid[] = str_replace('ext:' . $want . ':', '', $id);
+                                $extid[] = str_replace('ext:'.$want.':', '', $id);
                             } else {
                                 $extid = [$extid, str_replace(
-                                    'ext:' . $want . ':',
+                                    'ext:'.$want.':',
                                     '',
                                     $id,
                                 )];
@@ -2333,9 +2334,9 @@ class RO extends \Ease\Sand
      */
     public function getApiURL($format = null)
     {
-        $apiUrl = str_replace(['.' . $this->format, '?limit=0'], '', $this->apiURL);
+        $apiUrl = str_replace(['.'.$this->format, '?limit=0'], '', $this->apiURL);
 
-        return $apiUrl . (empty($format) ? '' : '.' . $format);
+        return $apiUrl.(empty($format) ? '' : '.'.$format);
     }
 
     /**
@@ -2402,7 +2403,7 @@ class RO extends \Ease\Sand
     public function getOfflineColumnsInfo($evidence = null)
     {
         $columnsInfo = null;
-        $infoSource = self::$infoDir . '/Properties.' . (empty($evidence) ? $this->getEvidence() : $evidence) . '.json';
+        $infoSource = self::$infoDir.'/Properties.'.(empty($evidence) ? $this->getEvidence() : $evidence).'.json';
 
         if (file_exists($infoSource)) {
             $columnsInfo = json_decode(file_get_contents($infoSource), true);
@@ -2429,7 +2430,7 @@ class RO extends \Ease\Sand
     {
         $properties = [];
         $evidence = null === $evidence ? $this->getEvidence() : $evidence;
-        $flexinfo = $this->performRequest('/c/' . $this->company . '/' . $evidence . '/properties.json');
+        $flexinfo = $this->performRequest('/c/'.$this->company.'/'.$evidence.'/properties.json');
 
         if (!empty($flexinfo) && \array_key_exists('properties', $flexinfo) && \array_key_exists('property', $flexinfo['properties'])) {
             foreach ($flexinfo['properties']['property'] as $evidenceProperty) {
@@ -2560,8 +2561,6 @@ class RO extends \Ease\Sand
     /**
      * Obtain info for current (or given) evidence.
      *
-     * @param string $evidence
-     *
      * @return array Evidence info
      */
     public function getEvidenceInfo(string $evidence = ''): array
@@ -2653,16 +2652,16 @@ class RO extends \Ease\Sand
      */
     public function getAbraFlexiURL()
     {
-        $parsed_url = parse_url(str_replace('.' . $this->format, '', $this->apiURL));
-        $scheme = isset($parsed_url['scheme']) ? $parsed_url['scheme'] . '://' : '';
+        $parsed_url = parse_url(str_replace('.'.$this->format, '', $this->apiURL));
+        $scheme = isset($parsed_url['scheme']) ? $parsed_url['scheme'].'://' : '';
         $host = $parsed_url['host'] ?? '';
-        $port = isset($parsed_url['port']) ? ':' . $parsed_url['port'] : '';
+        $port = isset($parsed_url['port']) ? ':'.$parsed_url['port'] : '';
         $user = $parsed_url['user'] ?? '';
-        $pass = isset($parsed_url['pass']) ? ':' . $parsed_url['pass'] : '';
+        $pass = isset($parsed_url['pass']) ? ':'.$parsed_url['pass'] : '';
         $pass = ($user || $pass) ? "{$pass}@" : '';
         $path = $parsed_url['path'] ?? '';
 
-        return $scheme . $user . $pass . $host . $port . $path;
+        return $scheme.$user.$pass.$host.$port.$path;
     }
 
     /**
@@ -2742,7 +2741,7 @@ class RO extends \Ease\Sand
     {
         $this->setPostFields($body);
         $this->performRequest(
-            rawurlencode((string) $this->getRecordIdent()) . '/odeslani-dokladu?to=' . $to . '&subject=' . urlencode($subject) . '&cc=' . $cc,
+            rawurlencode((string) $this->getRecordIdent()).'/odeslani-dokladu?to='.$to.'&subject='.urlencode($subject).'&cc='.$cc,
             'PUT',
             'xml',
         );
@@ -2858,7 +2857,7 @@ class RO extends \Ease\Sand
         $lang = null,
         $sign = false
     ) {
-        $downloadTo = $destDir . $this->getEvidence() . '_' . str_replace(['/', ' ', ':'], '_', (string) $this->getRecordIdent()) . '.' . $format;
+        $downloadTo = $destDir.$this->getEvidence().'_'.str_replace(['/', ' ', ':'], '_', (string) $this->getRecordIdent()).'.'.$format;
         $downloaded = $this->getInFormat($format, $reportName, $lang, $sign);
 
         return file_put_contents($downloadTo, $downloaded) ? $downloadTo : null;
@@ -2907,7 +2906,7 @@ class RO extends \Ease\Sand
     public function getReportsInfo()
     {
         $reports = [];
-        $reportsRaw = $this->getFlexiData($this->getEvidenceURL() . '/reports');
+        $reportsRaw = $this->getFlexiData($this->getEvidenceURL().'/reports');
 
         if (
             !empty($reportsRaw) && \array_key_exists('reports', $reportsRaw) && !empty($reportsRaw['reports']) && \array_key_exists('report', $reportsRaw['reports'])
@@ -2981,7 +2980,7 @@ class RO extends \Ease\Sand
      */
     public function logout($username = null)
     {
-        return $this->performRequest('/status/user/' . (null === $username ? $this->user : $username) . '/logout', 'POST');
+        return $this->performRequest('/status/user/'.(null === $username ? $this->user : $username).'/logout', 'POST');
     }
 
     /**
@@ -2993,7 +2992,7 @@ class RO extends \Ease\Sand
     public function error500Reporter($errorResponse): void
     {
         $ur = str_replace(
-            '/c/' . $this->company,
+            '/c/'.$this->company,
             '',
             str_replace($this->url, '', $this->curlInfo['url']),
         );
@@ -3001,23 +3000,23 @@ class RO extends \Ease\Sand
         if (!\array_key_exists($ur, $this->reports)) {
             $tmpdir = sys_get_temp_dir();
             $myTime = $this->curlInfo['when'];
-            $curlname = $tmpdir . '/curl-' . $this->evidence . '-' . $myTime . '.json';
+            $curlname = $tmpdir.'/curl-'.$this->evidence.'-'.$myTime.'.json';
             file_put_contents(
                 $curlname,
                 json_encode($this->curlInfo, \JSON_PRETTY_PRINT),
             );
             $report = new \Ease\Mailer(
                 $this->reportRecipient,
-                'Error report 500 - ' . $ur,
+                'Error report 500 - '.$ur,
             );
             $d = dir($tmpdir);
 
             while (false !== ($entry = $d->read())) {
                 if (strstr($entry, $myTime)) {
-                    $ext = pathinfo($tmpdir . '/' . $entry, \PATHINFO_EXTENSION);
+                    $ext = pathinfo($tmpdir.'/'.$entry, \PATHINFO_EXTENSION);
                     $mime = Formats::suffixToContentType($ext);
                     $report->addFile(
-                        $tmpdir . '/' . $entry,
+                        $tmpdir.'/'.$entry,
                         empty($mime) ? 'text/plain' : $mime,
                     );
                 }
@@ -3057,21 +3056,21 @@ class RO extends \Ease\Sand
                             continue;
                         }
 
-                        $output[$ln] = $char . ((\array_key_exists($ln, $output)) ? $output[$ln] : '');
+                        $output[$ln] = $char.((\array_key_exists($ln, $output)) ? $output[$ln] : '');
                     }
 
                     $trace = implode("\n", array_reverse($tracelog));
-                    $tracefile = $tmpdir . '/trace-' . $this->evidence . '-' . $myTime . '.log';
+                    $tracefile = $tmpdir.'/trace-'.$this->evidence.'-'.$myTime.'.log';
                     file_put_contents($tracefile, $trace);
-                    $report->addText("\n\n" . $trace);
+                    $report->addText("\n\n".$trace);
                     fclose($fl);
                 }
             } else {
                 $report->addText($errorResponse['message']);
             }
 
-            $licenseInfo = $this->performRequest($this->url . '/default-license.json');
-            $report->addText("\n\n" . json_encode(
+            $licenseInfo = $this->performRequest($this->url.'/default-license.json');
+            $report->addText("\n\n".json_encode(
                 $licenseInfo['license'],
                 \JSON_PRETTY_PRINT,
             ));
@@ -3134,11 +3133,11 @@ class RO extends \Ease\Sand
     {
         parent::logBanner(
             $prefix,
-            'ServerURL ' . str_replace(
+            'ServerURL '.str_replace(
                 '://',
-                '://' . $this->user . '@',
+                '://'.$this->user.'@',
                 $this->getApiUrl(),
-            ) . ' php-abraflexi v' . self::$libVersion . ' (AbraFlexi ' . EvidenceList::$version . ')',
+            ).' php-abraflexi v'.self::$libVersion.' (AbraFlexi '.EvidenceList::$version.')',
         );
     }
 

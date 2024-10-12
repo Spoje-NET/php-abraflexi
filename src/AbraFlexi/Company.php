@@ -64,7 +64,7 @@ class Company extends RW
         parent::processInit($init);
 
         if (\is_array($init) && \array_key_exists('dbNazev', $init) && $this->autoload) {
-            $companyInfo = $this->getFlexiData('/c/' . $init['dbNazev']);
+            $companyInfo = $this->getFlexiData('/c/'.$init['dbNazev']);
 
             if (\is_array($companyInfo) && !\array_key_exists('message', $companyInfo)) {
                 $this->takeData(current($companyInfo));
@@ -85,10 +85,10 @@ class Company extends RW
             $urlSuffix = $this->evidence;
         }
 
-        $url = $this->url . $this->prefix . '/' . $this->company;
+        $url = $this->url.$this->prefix.'/'.$this->company;
 
         if (!empty($urlSuffix)) {
-            $url .= (($urlSuffix[0] === '.') ? '' : '/') . $urlSuffix;
+            $url .= (($urlSuffix[0] === '.') ? '' : '/').$urlSuffix;
         }
 
         return $url;
@@ -210,7 +210,7 @@ class Company extends RW
         $this->defaultHttpHeaders['Accept'] = '*/*';
         $this->defaultHttpHeaders['Content-Type'] = 'application/x-winstrom-backup';
         $this->setPostFields(file_get_contents($filename));
-        $this->performRequest('restore' . (empty($options) ? '' : '?' . http_build_query($options)), 'PUT');
+        $this->performRequest('restore'.(empty($options) ? '' : '?'.http_build_query($options)), 'PUT');
         $this->defaultHttpHeaders = $headersBackup;
 
         return $this->lastResponseCode === 200;
@@ -225,7 +225,7 @@ class Company extends RW
      */
     public function createNew($name)
     {
-        $this->performRequest('/admin/zalozeni-firmy?name=' . urlencode($name), 'PUT');
+        $this->performRequest('/admin/zalozeni-firmy?name='.urlencode($name), 'PUT');
 
         return $this->lastResponseCode === 201;
     }
@@ -249,7 +249,7 @@ class Company extends RW
      */
     public function getVazby($bid = null)
     {
-        throw new Exception(_('Company has no relations') . ' ' . (string) $bid, $this);
+        throw new Exception(_('Company has no relations').' '.(string) $bid, $this);
     }
 
     /**
@@ -266,7 +266,7 @@ class Company extends RW
             $company = $this->getDataValue('dbNazev');
         }
 
-        $this->performRequest('/c/' . $company . '.' . $this->format, 'DELETE');
+        $this->performRequest('/c/'.$company.'.'.$this->format, 'DELETE');
 
         return $this->lastResponseCode === 200;
     }

@@ -899,7 +899,6 @@ EOD;
         $this->assertNotEmpty($this->object->getLastInsertedId());
     }
 
-
     /**
      * @covers \AbraFlexi\RO::extractUrlParams
      */

@@ -24,6 +24,5 @@ class Zavazek extends \AbraFlexi\RW
     use firma;
     use sum;
     use email;
-
     public $evidence = 'zavazek';
 }

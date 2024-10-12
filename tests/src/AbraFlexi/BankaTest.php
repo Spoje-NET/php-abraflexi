@@ -70,7 +70,7 @@ class BankaTest extends RWTest
 
         if ($payment->sync()) {
             $payment->addStatusMessage(
-                $payment->getApiURL().' '.\AbraFlexi\Functions::uncode((string)$payment->getDataValue('typPohybuK')).' '.\AbraFlexi\Functions::uncode((string)$payment->getRecordIdent()).' '.\AbraFlexi\Functions::uncode((string)$payment->getDataValue('sumCelkem')).' '.\AbraFlexi\Functions::uncode((string)$payment->getDataValue('mena')),
+                $payment->getApiURL().' '.\AbraFlexi\Functions::uncode((string) $payment->getDataValue('typPohybuK')).' '.\AbraFlexi\Functions::uncode((string) $payment->getRecordIdent()).' '.\AbraFlexi\Functions::uncode((string) $payment->getDataValue('sumCelkem')).' '.\AbraFlexi\Functions::uncode((string) $payment->getDataValue('mena')),
                 'success',
             );
         } else {

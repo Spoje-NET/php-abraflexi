@@ -37,11 +37,11 @@ class Report extends RW
     public function loadFromAbraFlexi($id = null)
     {
         if (\is_string($id) && strstr($id, 'code:')) { // Dirty Hack ⚠ Error 400: Entita 'Report' neobsahuje kód nebo ho nelze použít jako ID (není unikátní)
-            $kod = \AbraFlexi\Functions::uncode((string)$id);
+            $kod = \AbraFlexi\Functions::uncode((string) $id);
             $candidates = $this->getColumnsFromAbraFlexi(['id', 'kod'], ['kod' => $kod], 'kod');
 
             if (\array_key_exists($kod, $candidates)) {
-                $id = (int) $candidates[\AbraFlexi\Functions::uncode((string)$id)]['id'];
+                $id = (int) $candidates[\AbraFlexi\Functions::uncode((string) $id)]['id'];
             } else {
                 $this->lastResponseCode = 404;
             }

@@ -38,9 +38,9 @@ class Date extends \DateTime
         $format = '';
 
         if (strstr($flexidate, '+')) {
-            $format = Functions::$DateFormat . 'T';
+            $format = Functions::$DateFormat.'T';
         } elseif (strstr($flexidate, 'Z')) {
-            $format = Functions::$DateFormat . 'Z';
+            $format = Functions::$DateFormat.'Z';
         } elseif (!empty($flexidate) && ($flexidate !== 'NOW')) {
             $format = Functions::$DateFormat;
 

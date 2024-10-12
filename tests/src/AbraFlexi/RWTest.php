@@ -84,7 +84,7 @@ class RWTest extends ROTest
             }
 
             if (\array_key_exists('kod', $structure)) {
-                $dataForInsert['kod'] = \AbraFlexi\Functions::uncode((string)$this->object->getKod($code));
+                $dataForInsert['kod'] = \AbraFlexi\Functions::uncode((string) $this->object->getKod($code));
             }
         }
 

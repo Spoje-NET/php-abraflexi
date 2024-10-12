@@ -52,8 +52,7 @@ class FunctionsTest extends \PHPUnit\Framework\TestCase
         $dater = new \DateTime();
         $this->assertEquals($dater->format(Functions::$DateTimeFormat), Functions::dateToFlexiDateTime($dater));
     }
-    
-    
+
     /**
      * @covers \AbraFlexi\Functions::xml2array
      */
@@ -76,6 +75,4 @@ class FunctionsTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals($arrayWeWant, $this->object->xml2array($this->xml));
     }
-    
-    
 }

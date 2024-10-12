@@ -47,7 +47,7 @@ class Status extends RO
     public function __construct($init = null, $options = [])
     {
         parent::__construct($init, $options);
-        $this->takeData($this->getFlexiData('/' . $this->evidence));
+        $this->takeData($this->getFlexiData('/'.$this->evidence));
     }
 
     /**

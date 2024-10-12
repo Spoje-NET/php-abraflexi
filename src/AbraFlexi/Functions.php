@@ -63,7 +63,7 @@ class Functions
      */
     public static function code(string $code)
     {
-        return (substr($code, 0, 4) === 'ext:') ? $code : 'code:' . strtoupper(self::uncode($code));
+        return (substr($code, 0, 4) === 'ext:') ? $code : 'code:'.strtoupper(self::uncode($code));
     }
 
     /**
@@ -74,9 +74,9 @@ class Functions
     public static function companyUrlToOptions(string $companyUrl)
     {
         $urlParts = parse_url($companyUrl);
-        $scheme = isset($urlParts['scheme']) ? $urlParts['scheme'] . '://' : '';
+        $scheme = isset($urlParts['scheme']) ? $urlParts['scheme'].'://' : '';
         $host = $urlParts['host'] ?? '';
-        $port = isset($urlParts['port']) ? ':' . $urlParts['port'] : '';
+        $port = isset($urlParts['port']) ? ':'.$urlParts['port'] : '';
         $path = $urlParts['path'] ?? '';
 
         if (\array_key_exists('user', $urlParts)) {
@@ -88,7 +88,7 @@ class Functions
         }
 
         $options['company'] = basename($path);
-        $options['url'] = $scheme . $host . $port;
+        $options['url'] = $scheme.$host.$port;
 
         return $options;
     }
@@ -112,13 +112,13 @@ class Functions
     {
         $slashed = array_map(
             static function ($a, $column) {
-                return $column === 'stitky' ? "'" . self::code($a) . "'" : "'{$a}'";
+                return $column === 'stitky' ? "'".self::code($a)."'" : "'{$a}'";
             },
             $items,
             array_fill(0, \count($items), $key),
         );
 
-        return $key . ' in (' . implode(',', $slashed) . ')';
+        return $key.' in ('.implode(',', $slashed).')';
     }
 
     /**
@@ -139,40 +139,40 @@ class Functions
         foreach ($data as $column => $value) {
             if (!is_numeric($column)) {
                 if (\is_int($data[$column]) || \is_float($data[$column])) {
-                    $parts[$column] = $column . ' eq \'' . $data[$column] . '\'';
+                    $parts[$column] = $column.' eq \''.$data[$column].'\'';
                 } elseif (\is_bool($data[$column])) {
-                    $parts[$column] = $data[$column] ? $column . ' eq true' : $column . ' eq false';
+                    $parts[$column] = $data[$column] ? $column.' eq true' : $column.' eq false';
                 } elseif (null === $data[$column]) {
-                    $parts[$column] = $column . ' is null';
+                    $parts[$column] = $column.' is null';
                 } elseif (\is_array($data[$column])) {
                     $parts[$column] = self::flexiIN($value, $column);
                 } elseif (\is_object($data[$column])) {
                     switch (\get_class($data[$column])) {
                         case 'DatePeriod':
-                            $parts[$column] = $column . " between '" . $data[$column]->getStartDate()->format(self::$DateFormat) . "' '" . $data[$column]->getEndDate()->format(self::$DateFormat) . "'";
+                            $parts[$column] = $column." between '".$data[$column]->getStartDate()->format(self::$DateFormat)."' '".$data[$column]->getEndDate()->format(self::$DateFormat)."'";
 
                             break;
                         case 'DateTime':
-                            $parts[$column] = $column . " eq '" . $data[$column]->format(self::$DateFormat) . "'";
+                            $parts[$column] = $column." eq '".$data[$column]->format(self::$DateFormat)."'";
 
                             break;
 
                         default:
-                            $parts[$column] = $column . " {$defop} '" . $data[$column] . "'";
+                            $parts[$column] = $column." {$defop} '".$data[$column]."'";
 
                             break;
                     }
                 } else {
                     switch ($value) {
                         case '!null':
-                            $parts[$column] = $column . ' is not null';
+                            $parts[$column] = $column.' is not null';
 
                             break;
                         case 'is empty':
                         case 'is not empty':
                         case 'is true':
                         case 'is false':
-                            $parts[$column] = $column . ' ' . $value;
+                            $parts[$column] = $column.' '.$value;
 
                             break;
 
@@ -197,18 +197,18 @@ class Functions
                                 case 'between':
                                 case 'ends':
                                     if (\count($condParts) === 1) {
-                                        $parts[$column] = $column .= ' ' . $value;
+                                        $parts[$column] = $column .= ' '.$value;
                                     } else {
-                                        $parts[$column] = $column .= ' ' . $condParts[0] . " '" . $condParts[1] . "'";
+                                        $parts[$column] = $column .= ' '.$condParts[0]." '".$condParts[1]."'";
                                     }
 
                                     break;
 
                                 default:
                                     if ($column === 'stitky') {
-                                        $parts[$column] = $column . "='" . self::code($data[$column]) . "'";
+                                        $parts[$column] = $column."='".self::code($data[$column])."'";
                                     } else {
-                                        $parts[$column] = $column . " {$defop} '" . $data[$column] . "'";
+                                        $parts[$column] = $column." {$defop} '".$data[$column]."'";
                                     }
 
                                     break;
@@ -222,7 +222,7 @@ class Functions
             }
         }
 
-        return implode(' ' . $joiner . ' ', $parts);
+        return implode(' '.$joiner.' ', $parts);
     }
 
     /**
@@ -251,9 +251,9 @@ class Functions
     public static function flexiDateToDateTime(string $flexidate)
     {
         if (strstr($flexidate, '+')) {
-            $format = self::$DateFormat . 'O';
+            $format = self::$DateFormat.'O';
         } elseif (strstr($flexidate, 'Z')) {
-            $format = self::$DateFormat . 'Z';
+            $format = self::$DateFormat.'Z';
         } else {
             $format = self::$DateFormat;
         }
@@ -345,7 +345,7 @@ class Functions
     public static function urlizeId($id)
     {
         if (\is_array($id)) {
-            $id = rawurlencode('(' . self::flexiUrl($id) . ')');
+            $id = rawurlencode('('.self::flexiUrl($id).')');
         } elseif (is_numeric($id)) {
             $id = (string) $id;
         } elseif (preg_match('/^ext:/', (string) $id)) {
@@ -374,7 +374,7 @@ class Functions
             }
 
             foreach ($xml->attributes() as $a) {
-                $arr['@' . $a->getName()] = (string) $a;
+                $arr['@'.$a->getName()] = (string) $a;
             }
 
             foreach ($xml->children() as $r) {
