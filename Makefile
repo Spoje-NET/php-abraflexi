@@ -23,6 +23,10 @@ vendor: composer.json composer.lock ## Installs composer dependencies
 cs: ## Update Coding Standards
 	vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --diff --verbose
 
+.PHONY: cssilent
+cssilent: ## Update Coding Standards silently
+	vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php -q
+
 fresh:
 	git pull
 	composer install
@@ -32,6 +36,7 @@ static:
 	echo rm -rf static/*
 	echo "STATIC  #######################"
 	cd tools/ ; ./update_all.sh ; cd ..
+	make cssilent
 
 clean:
 	rm -rf debian/php-abraflexi
