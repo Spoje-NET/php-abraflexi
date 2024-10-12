@@ -1225,7 +1225,7 @@ class RO extends \Ease\Sand
      */
     public function rawXmlToArray($rawXML)
     {
-        return $this->fixResponseTypes(self::xml2array($rawXML));
+        return $this->fixResponseTypes(Functions::xml2array($rawXML));
     }
 
     /**
@@ -1420,12 +1420,8 @@ class RO extends \Ease\Sand
 
     /**
      * Obtain json for application/json.
-     *
-     * @param string $url
-     *
-     * @return string response format
      */
-    public function contentTypeToResponseFormat(string $contentType, $url = null): string
+    public function contentTypeToResponseFormat(string $contentType, string $url = ''): ?string
     {
         if (!empty($url)) {
             $url = parse_url($url, \PHP_URL_PATH);
@@ -1485,20 +1481,6 @@ class RO extends \Ease\Sand
         }
 
         return $result;
-    }
-
-    /**
-     * Convert XML to array.
-     *
-     * @deprecated since version 2.24 - use Functions::xml2array instead
-     *
-     * @param string $xml
-     *
-     * @return array
-     */
-    public static function xml2array($xml)
-    {
-        return Functions::xml2array($xml);
     }
 
     /**

@@ -899,28 +899,6 @@ EOD;
         $this->assertNotEmpty($this->object->getLastInsertedId());
     }
 
-    /**
-     * @covers \AbraFlexi\RO::xml2array
-     */
-    public function testXml2array(): void
-    {
-        $arrayWeWant = [
-            '@version' => '1.0',
-            'adresar' => [
-                [
-                    'id' => '2574',
-                    'kontakty' => [
-                        ['kontakt' => [
-                            ['id' => '299'],
-                        ],
-                        ],
-                    ],
-                ],
-            ],
-        ];
-
-        $this->assertEquals($arrayWeWant, $this->object->xml2array($this->xml));
-    }
 
     /**
      * @covers \AbraFlexi\RO::extractUrlParams
