@@ -1,8 +1,14 @@
-php-spojenet-abraflexi (3.0.2) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.1.0) UNRELEASED; urgency=medium
+
+  * Adresar implement the Document interface
+
+ -- vitex <info@vitexsoftware.cz>  Sat, 12 Oct 2024 22:40:04 +0200
+
+php-spojenet-abraflexi (3.0.2) experimental; urgency=medium
 
   * Better Static files
 
- -- vitex <info@vitexsoftware.cz>  Sat, 12 Oct 2024 12:51:34 +0200
+ -- vitex <info@vitexsoftware.cz>  Sat, 12 Oct 2024 22:39:44 +0200
 
 php-spojenet-abraflexi (3.0.1.216~noble.218~noble) experimental; urgency=medium
 
