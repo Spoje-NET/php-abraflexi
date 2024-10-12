@@ -1388,7 +1388,11 @@ class RO extends \Ease\Sand
         $this->curlInfo = curl_getinfo($this->curl);
         $this->curlInfo['when'] = microtime();
         $this->curlInfo['http_method'] = $method;
-        $this->responseFormat = $this->contentTypeToResponseFormat((string) $this->curlInfo['content_type'], $url);
+        if( $this->curlInfo['content_type']){
+            $this->responseFormat = $this->contentTypeToResponseFormat((string) $this->curlInfo['content_type'], $url);
+        } else {
+            $this->responseFormat =  '';
+         } 
         $this->lastResponseCode = $this->curlInfo['http_code'];
         $this->lastCurlError = curl_error($this->curl);
 
@@ -1421,7 +1425,7 @@ class RO extends \Ease\Sand
     /**
      * Obtain json for application/json.
      */
-    public function contentTypeToResponseFormat(string $contentType, string $url = ''): ?string
+    public function contentTypeToResponseFormat(string $contentType, string $url = ''): string
     {
         if (!empty($url)) {
             $url = parse_url($url, \PHP_URL_PATH);
