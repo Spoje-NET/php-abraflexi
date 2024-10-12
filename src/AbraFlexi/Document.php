@@ -93,7 +93,7 @@ interface Document
     public function getSubObjects();
 
     /**
-     * Get recipient for documnet.
+     * Get recipient for document.
      *
      * 1. try Document's "kontaktEmail" field
      * 2. try Document's company email

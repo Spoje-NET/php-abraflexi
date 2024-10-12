@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AbraFlexi - Objekt adresáře.
+ * AbraFlexi - Addressbook Item.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2015-2024 Spoje.Net
@@ -25,7 +25,7 @@ namespace AbraFlexi;
  *
  * @see https://demo.flexibee.eu/c/demo/adresar/properties položky evidence
  */
-class Adresar extends RW
+class Adresar extends RW implements Document
 {
     use stitky;
     use subItems;
@@ -204,5 +204,15 @@ class Adresar extends RW
         $bucRaw = $this->getColumnsFromAbraFlexi(['buc', 'smerKod'], ['firma' => $address, 'evidence' => 'adresar-bankovni-ucet']);
 
         return (!empty($bucRaw) && \array_key_exists(0, $bucRaw)) ? $bucRaw : [];
+    }
+
+    #[\Override]
+    public function getEmail(): string {
+        return $this->getNotificationEmailAddress();
+    }
+
+    #[\Override]
+    public function getSumFromAbraFlexi($conditions = []): array {
+        return []; 
     }
 }
