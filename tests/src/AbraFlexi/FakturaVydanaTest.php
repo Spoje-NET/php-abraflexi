@@ -72,7 +72,7 @@ class FakturaVydanaTest extends RWTest
             'bezPolozek' => true,
             'popis' => 'AbraFlexi Test invoice',
             'datVyst' => \AbraFlexi\RO::dateToFlexiDate($yesterday),
-            'typDokl' => \AbraFlexi\RO::code('FAKTURA'),
+            'typDokl' => \AbraFlexi\Functions::code((string)'FAKTURA'),
         ], $initialData));
 
         if ($invoice->sync()) {

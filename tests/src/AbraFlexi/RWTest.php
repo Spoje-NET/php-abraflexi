@@ -71,7 +71,7 @@ class RWTest extends ROTest
                     );
                     $typDoklRaw = $loader->getColumnsFromAbraFlexi([
                         'kod'], ['limit' => 1]);
-                    $dataForInsert['typDokl'] = \AbraFlexi\RO::code($typDoklRaw[0]['kod']);
+                    $dataForInsert['typDokl'] = \AbraFlexi\Functions::code((string)$typDoklRaw[0]['kod']);
                 }
             }
 

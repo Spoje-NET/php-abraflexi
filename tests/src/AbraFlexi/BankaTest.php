@@ -65,7 +65,7 @@ class BankaTest extends RWTest
             'specSym' => \Ease\Functions::randomNumber(111, 999),
             'bezPolozek' => true,
             'datVyst' => \AbraFlexi\RO::dateToFlexiDate($yesterday),
-            'typDokl' => \AbraFlexi\RO::code('STANDARD'),
+            'typDokl' => \AbraFlexi\Functions::code((string)'STANDARD'),
         ], $initialData));
 
         if ($payment->sync()) {
@@ -96,7 +96,7 @@ class BankaTest extends RWTest
         );
         $bankCodeRaw = $loader->getColumnsFromAbraFlexi([
             'kod'], ['limit' => 1]);
-        $dataForInsert['banka'] = \AbraFlexi\RO::code($bankCodeRaw[0]['kod']);
+        $dataForInsert['banka'] = \AbraFlexi\Functions::code((string)$bankCodeRaw[0]['kod']);
         $dataForInsert['typPohybuK'] = 'typPohybu.prijem';
 
         return $dataForInsert;
