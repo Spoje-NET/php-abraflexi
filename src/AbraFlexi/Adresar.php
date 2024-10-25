@@ -207,12 +207,14 @@ class Adresar extends RW implements Document
     }
 
     #[\Override]
-    public function getEmail(): string {
+    public function getEmail(): string
+    {
         return $this->getNotificationEmailAddress();
     }
 
     #[\Override]
-    public function getSumFromAbraFlexi($conditions = []): array {
-        return []; 
+    public function getSumFromAbraFlexi($conditions = []): array
+    {
+        return [];
     }
 }
