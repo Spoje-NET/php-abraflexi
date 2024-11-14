@@ -20,7 +20,7 @@ namespace AbraFlexi;
  */
 class RO extends \Ease\Sand
 {
-    use \Ease\RecordKey;
+    use \Ease\recordkey;
 
     /**
      * Where to get JSON files with evidence structure etc.
@@ -332,11 +332,15 @@ class RO extends \Ease\Sand
 
     /**
      * Array of errors caused by last request.
+     *
+     * @var array<string>
      */
     protected array $errors = [];
 
     /**
      * Last Request response stats.
+     *
+     * @var array<string>
      */
     protected ?array $responseStats = null;
 
@@ -358,8 +362,8 @@ class RO extends \Ease\Sand
     /**
      * Class for read only interaction with AbraFlexi.
      *
-     * @param mixed $init    default record id or initial data. See processInit()
-     * @param array $options Connection settings and other options override
+     * @param mixed                 $init    default record id or initial data. See processInit()
+     * @param array<string, string> $options Connection settings and other options override
      */
     public function __construct($init = null, $options = [])
     {
@@ -673,11 +677,11 @@ class RO extends \Ease\Sand
      *
      * @return bool Success
      */
-    public function setDataValue(string $columnName, $value)
+    public function setDataValue(string $columnName, $value): bool
     {
         switch ($columnName) {
             case 'kod':
-                $value = $value ? self::uncode($value) : ''; // Alwyas uncode "kod" column
+                $value = $value ? Functions::uncode($value) : ''; // Alwyas uncode "kod" column
 
                 // no break
             default:
@@ -688,11 +692,11 @@ class RO extends \Ease\Sand
 
                             switch ($columnInfo['type']) {
                                 case 'date':
-                                    $value = self::dateToFlexiDate($value);
+                                    $value = Functions::dateToFlexiDate($value);
 
                                     break;
                                 case 'datetime':
-                                    $value = self::dateToFlexiDateTime($value);
+                                    $value = Functions::dateToFlexiDateTime($value);
 
                                     break;
                             }
@@ -1675,10 +1679,8 @@ class RO extends \Ease\Sand
 
     /**
      * Reload current record from AbraFlexi.
-     *
-     * @return bool
      */
-    public function reload()
+    public function reload(): bool
     {
         $id = $this->getRecordIdent();
         $this->dataReset();
@@ -1698,7 +1700,7 @@ class RO extends \Ease\Sand
      */
     public function setFilter($filter)
     {
-        return $this->filter = \is_array($filter) ? self::flexiUrl($filter) : $filter;
+        return $this->filter = \is_array($filter) ? Functions::flexiUrl($filter) : $filter;
     }
 
     /**
@@ -1708,12 +1710,12 @@ class RO extends \Ease\Sand
      * @url https://www.abraflexi.eu/api/dokumentace/ref/actions/
      * @url https://www.abraflexi.eu/api/dokumentace/ref/zamykani-odemykani/
      *
-     * @param array $data    object data
-     * @param int   $options json_encode options like JSON_PRETTY_PRINT etc
+     * @param array<mixed> $data    object data
+     * @param int          $options json_encode options like JSON_PRETTY_PRINT etc
      *
      * @return string
      */
-    public function getJsonizedData($data = null, $options = 0)
+    public function getJsonizedData(?array $data = null, int $options = 0)
     {
         if (null === $data) {
             $data = $this->getData();
@@ -1744,11 +1746,11 @@ class RO extends \Ease\Sand
     /**
      * Get Data Fragment specific for current object.
      *
-     * @param array $data
+     * @param array<mixed> $data
      *
-     * @return array
+     * @return array<mixed>
      */
-    public function getDataForJSON($data = null)
+    public function getDataForJSON(?array $data = null): array
     {
         if (null === $data) {
             $data = $this->getData();
@@ -2866,11 +2868,11 @@ class RO extends \Ease\Sand
     /**
      * Take data for object. separate external IDs.
      *
-     * @param array $data Data to keep
+     * @param array<string, mixed> $data Data to keep
      *
      * @return int number of records taken
      */
-    public function takeData($data)
+    public function takeData(array $data): int
     {
         $keyColumn = $this->getKeyColumn();
 

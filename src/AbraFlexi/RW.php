@@ -288,11 +288,11 @@ class RW extends RO
     /**
      * Control for existing column names in evidence and take data.
      *
-     * @param array $data Data to keep
+     * @param array<string, string> $data Data to keep
      *
      * @return int number of records taken
      */
-    public function takeData($data)
+    public function takeData(array $data): int
     {
         if ($this->debug === true) {
             $fbRelations = [];
@@ -540,11 +540,9 @@ class RW extends RO
     /**
      * Get Data Fragment specific for current object.
      *
-     * @param array $data
-     *
-     * @return array
+     * @param array<string, string> $data
      */
-    public function getDataForJSON($data = null)
+    public function getDataForJSON($data = null): array
     {
         if (null === $data) {
             $data = $this->getData();
@@ -737,7 +735,7 @@ class RW extends RO
     /**
      * {@inheritDoc}
      */
-    public function setDataValue(string $columnName, $value)
+    public function setDataValue(string $columnName, $value): bool
     {
         if ($this->debug === true) {
             $columnInfo = $this->getColumnInfo($columnName);
