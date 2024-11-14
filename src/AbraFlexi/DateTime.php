@@ -69,7 +69,7 @@ class DateTime extends \DateTime
     /**
      * Easy way how to force format DateTime used.
      *
-     * @param string
+     * @param string $format
      *
      * @return \DateTime|false
      */

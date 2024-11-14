@@ -133,7 +133,7 @@ foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
         $evidenceActions .= '    /**
      * Evidence ' . $evidencePath . ' (' . $evidenceName . ') Actions.
      *
-     * @var array
+     * @var array<string,array<string,string>>
      */
 ';
         $evidenceActions .= ' static public $' . lcfirst(RO::evidenceToClassName($evidencePath)) . ' = ' . varexport($structure,

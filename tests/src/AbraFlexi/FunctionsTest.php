@@ -73,6 +73,6 @@ class FunctionsTest extends \PHPUnit\Framework\TestCase
             ],
         ];
 
-        $this->assertEquals($arrayWeWant, $this->object->xml2array($this->xml));
+        $this->assertEquals($arrayWeWant, Functions::xml2array($this->xml));
     }
 }

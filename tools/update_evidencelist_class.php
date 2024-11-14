@@ -143,7 +143,7 @@ asort($fullList);
 $evidenceList .= '    /**
      * Evidences Path/Name listing.
      *
-     * @var array
+     * @var array<string,string>
      */
 ';
 $evidenceList .= ' static public $name = ' . varexport($evlist, true) . ';
@@ -152,7 +152,7 @@ $evidenceList .= ' static public $name = ' . varexport($evlist, true) . ';
 $evidenceList .= '    /**
      * All Evidence\'s all properties listing.
      *
-     * @var array
+     * @var array<string,array<string,string>>
      */
 ';
 $evidenceList .= ' static public $evidences = ' . varexport($fullList, true) . ';

@@ -27,6 +27,7 @@ class Exception extends \Ease\Exception
 
     /**
      * Error messages sit here.
+     * @var array<string>
      */
     private array $errorMessages = [];
 
@@ -58,7 +59,7 @@ class Exception extends \Ease\Exception
     /**
      * All stored Error messages.
      *
-     * @return array
+     * @return array<string>
      */
     public function getErrorMessages()
     {

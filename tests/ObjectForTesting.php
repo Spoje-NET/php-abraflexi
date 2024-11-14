@@ -25,6 +25,7 @@ class ObjectForTesting extends \stdClass
 
     /**
      * Array item.
+     * @var array<string>
      */
     public array $arrItem = ['a', 'b' => 'c'];
 

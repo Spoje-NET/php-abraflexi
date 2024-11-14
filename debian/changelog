@@ -1,9 +1,15 @@
-php-spojenet-abraflexi (3.2.0.225~noble) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.3.0) UNRELEASED; urgency=medium
+
+  * Even more strict types
+
+ -- vitex <info@vitexsoftware.cz>  Thu, 14 Nov 2024 16:59:56 +0100
+
+php-spojenet-abraflexi (3.2.0.225) experimental; urgency=medium
 
   * Strict types
   * jenkins-Spoje.Net-php-spojenet-abraflexi-225
 
- -- vitex <jenkins@vyvojar.spoje.net>  Tue, 22 Oct 2024 22:03:06 +0000
+ -- vitex <info@vitexsoftware.cz>  Thu, 14 Nov 2024 16:59:43 +0100
 
 php-spojenet-abraflexi (3.1.0) experimental; urgency=medium
 
