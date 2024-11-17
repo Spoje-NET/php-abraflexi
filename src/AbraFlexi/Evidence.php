@@ -22,8 +22,20 @@ use Ease\Sand;
  */
 class Evidence extends Sand
 {
-    public RO $engine = null;
+    public RO $engine;
+    /**
+     * Conditions for data selection.
+     *
+     * @var array<string,string>
+     */
     public array $conditions = [];
+
+    /**
+     * Evidence helper.
+     *
+     * @param RO    $engine
+     * @param array<string,string> $conditions
+     */
 
     public function __construct(RO $engine, array $conditions = [])
     {
@@ -34,7 +46,7 @@ class Evidence extends Sand
     /**
      * Array of objects in eveidence.
      *
-     * @return array
+     * @return array<string,string>
      */
     public function getEvidenceData()
     {
@@ -45,9 +57,9 @@ class Evidence extends Sand
     }
 
     /**
-     * Array of objects in eveidence.
+     * Array of objects in evidence.
      *
-     * @return RO[]
+     * @return array<int,RO>
      */
     public function getEvidenceObjects()
     {
