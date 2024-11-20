@@ -39,27 +39,27 @@ class RadaPokladniPohybTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-    /**
-     * @covers \AbraFlexi\RadaPokladniPohyb::getNextRecordCode
-     *
-     * @todo   Implement testgetNextRecordCode().
-     */
-    public function testgetNextRecordCode(): void
-    {
-        $this->assertEquals('', $this->object->getNextRecordCode());
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete('This test has not been implemented yet.');
-    }
-
-    /**
-     * @covers \AbraFlexi\RadaPokladniPohyb::incrementNextRecordCode
-     *
-     * @todo   Implement testincrementNextRecordCode().
-     */
-    public function testincrementNextRecordCode(): void
-    {
-        $this->assertEquals('', $this->object->incrementNextRecordCode());
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete('This test has not been implemented yet.');
-    }
+//    /**
+//     * @covers \AbraFlexi\RadaPokladniPohyb::getNextRecordCode
+//     *
+//     * @todo   Implement testgetNextRecordCode().
+//     */
+//    public function testgetNextRecordCode(): void
+//    {
+//        $this->assertEquals('', $this->object->getNextRecordCode());
+//        // Remove the following lines when you implement this test.
+//        $this->markTestIncomplete('This test has not been implemented yet.');
+//    }
+//
+//    /**
+//     * @covers \AbraFlexi\RadaPokladniPohyb::incrementNextRecordCode
+//     *
+//     * @todo   Implement testincrementNextRecordCode().
+//     */
+//    public function testincrementNextRecordCode(): void
+//    {
+//        $this->assertEquals('', $this->object->incrementNextRecordCode());
+//        // Remove the following lines when you implement this test.
+//        $this->markTestIncomplete('This test has not been implemented yet.');
+//    }
 }

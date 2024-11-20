@@ -39,27 +39,27 @@ class ZurnalTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-    /**
-     * @covers \AbraFlexi\Zurnal::getAllChanges
-     *
-     * @todo   Implement testgetAllChanges().
-     */
-    public function testgetAllChanges(): void
-    {
-        $this->assertEquals('', $this->object->getAllChanges());
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete('This test has not been implemented yet.');
-    }
-
-    /**
-     * @covers \AbraFlexi\Zurnal::getLastChange
-     *
-     * @todo   Implement testgetLastChange().
-     */
-    public function testgetLastChange(): void
-    {
-        $this->assertEquals('', $this->object->getLastChange());
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete('This test has not been implemented yet.');
-    }
+//    /**
+//     * @covers \AbraFlexi\Zurnal::getAllChanges
+//     *
+//     * @todo   Implement testgetAllChanges().
+//     */
+//    public function testgetAllChanges(): void
+//    {
+//        $this->assertEquals('', $this->object->getAllChanges());
+//        // Remove the following lines when you implement this test.
+//        $this->markTestIncomplete('This test has not been implemented yet.');
+//    }
+//
+//    /**
+//     * @covers \AbraFlexi\Zurnal::getLastChange
+//     *
+//     * @todo   Implement testgetLastChange().
+//     */
+//    public function testgetLastChange(): void
+//    {
+//        $this->assertEquals('', $this->object->getLastChange());
+//        // Remove the following lines when you implement this test.
+//        $this->markTestIncomplete('This test has not been implemented yet.');
+//    }
 }

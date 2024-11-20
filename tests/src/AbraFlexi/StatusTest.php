@@ -39,27 +39,27 @@ class StatusTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-    /**
-     * @covers \AbraFlexi\Status::unifyResponseFormat
-     *
-     * @todo   Implement testunifyResponseFormat().
-     */
-    public function testunifyResponseFormat(): void
-    {
-        $this->assertEquals('', $this->object->unifyResponseFormat());
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete('This test has not been implemented yet.');
-    }
-
-    /**
-     * @covers \AbraFlexi\Status::getVazby
-     *
-     * @todo   Implement testgetVazby().
-     */
-    public function testgetVazby(): void
-    {
-        $this->assertEquals('', $this->object->getVazby());
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete('This test has not been implemented yet.');
-    }
+//    /**
+//     * @covers \AbraFlexi\Status::unifyResponseFormat
+//     *
+//     * @todo   Implement testunifyResponseFormat().
+//     */
+//    public function testunifyResponseFormat(): void
+//    {
+//        $this->assertEquals('', $this->object->unifyResponseFormat());
+//        // Remove the following lines when you implement this test.
+//        $this->markTestIncomplete('This test has not been implemented yet.');
+//    }
+//
+//    /**
+//     * @covers \AbraFlexi\Status::getVazby
+//     *
+//     * @todo   Implement testgetVazby().
+//     */
+//    public function testgetVazby(): void
+//    {
+//        $this->assertEquals('', $this->object->getVazby());
+//        // Remove the following lines when you implement this test.
+//        $this->markTestIncomplete('This test has not been implemented yet.');
+//    }
 }

@@ -56,10 +56,6 @@ pretest:
 	composer --ansi --no-interaction update
 	php -f tests/PrepareForTest.php
 
-phpunit:
-	composer update
-	vendor/bin/phpunit --bootstrap testing/bootstrap.php
-
 deb:
 	dpkg-buildpackage -A -us -uc
 
@@ -67,18 +63,12 @@ rpm:
 	rpmdev-bumpspec --comment="Build" --userstring="Vítězslav Dvořák <info@vitexsoftware.cz>" flexipeehp.spec
 	rpmbuild -ba flexipeehp.spec 
 
-verup:
-	git commit debian/composer.json debian/version debian/revision  -m "`cat debian/version`-`cat debian/revision`"
-	git push origin master
-
 release:
 	echo Release v$(nextversion)
 	dch -v $(nextversion) `git log -1 --pretty=%B | head -n 1`
 	debuild -i -us -uc -b
 	git commit -a -m "Release v$(nextversion)"
 	git tag -a $(nextversion) -m "version $(nextversion)"
-
-
 
 dimage:
 	docker build -t vitexsoftware/flexipeehp .
