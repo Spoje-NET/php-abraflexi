@@ -53,7 +53,7 @@ trait subItems
     /**
      * SubItem object.
      *
-     * @return array
+     * @return array<int, string>
      */
     public function getSubObjects()
     {

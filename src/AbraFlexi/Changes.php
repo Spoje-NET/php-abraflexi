@@ -56,7 +56,7 @@ class Changes extends RO
      *
      * @return bool
      */
-    public function getStatus()
+    public function getStatus(): bool
     {
         $status = $this->performRequest('status.xml', 'GET', 'xml');
 
@@ -70,7 +70,7 @@ class Changes extends RO
      *
      * @return bool Method is disabled for Changes
      */
-    public function recordExists($data = null)
+    public function recordExists($data = null): bool
     {
         return false;
     }
@@ -95,9 +95,9 @@ class Changes extends RO
      *
      * @param string $rawXML
      *
-     * @return array
+     * @return array<mixed>
      */
-    public function rawXmlToArray($rawXML)
+    public function rawXmlToArray($rawXML): array
     {
         return [$this->getEvidence() => parent::rawXmlToArray($rawXML)];
     }

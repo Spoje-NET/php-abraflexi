@@ -193,7 +193,7 @@ class Adresar extends RW implements Document
      *
      * @param Adresar|int|string $address
      *
-     * @return array<string,string> bank account details
+     * @return array<string, string> bank account details
      */
     public function getBankAccountNumber($address = null)
     {
@@ -215,7 +215,7 @@ class Adresar extends RW implements Document
     /**
      * Get Addressbook Item ID.
      *
-     * @return array<string,string>
+     * @return array<string, string>
      */
     #[\Override]
     public function getSumFromAbraFlexi($conditions = []): array
