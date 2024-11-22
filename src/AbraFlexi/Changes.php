@@ -53,8 +53,6 @@ class Changes extends RO
 
     /**
      * Vrátí stav zapnutí ChangesAPI.
-     *
-     * @return bool
      */
     public function getStatus(): bool
     {
