@@ -23,7 +23,7 @@ class Formats
     /**
      * Source FlexiBee server version.
      */
-    public static string $version = '2024.6.8';
+    public static string $version = '2024.7.0';
 
     /**
      * Availble Formats.
@@ -198,6 +198,16 @@ class Formats
      * Evidence format-elektronickeho-bankovnictvi (Bankovní formáty) Formats.
      */
     public static array $formatElektronickehoBankovnictvi = [
+        'HTML' => 'html',
+        'XML' => 'xml',
+        'JSON' => 'json',
+        'CSV' => 'csv',
+    ];
+
+    /**
+     * Evidence format-elektronickeho-prikazu (Bankovní formáty) Formats.
+     */
+    public static array $formatElektronickehoPrikazu = [
         'HTML' => 'html',
         'XML' => 'xml',
         'JSON' => 'json',
@@ -1325,6 +1335,16 @@ class Formats
     ];
 
     /**
+     * Evidence region (Region) Formats.
+     */
+    public static array $region = [
+        'HTML' => 'html',
+        'XML' => 'xml',
+        'JSON' => 'json',
+        'CSV' => 'csv',
+    ];
+
+    /**
      * Evidence rezervace (Rezervace) Formats.
      */
     public static array $rezervace = [
@@ -1638,6 +1658,16 @@ class Formats
      * Evidence stat (Státy) Formats.
      */
     public static array $stat = [
+        'HTML' => 'html',
+        'XML' => 'xml',
+        'JSON' => 'json',
+        'CSV' => 'csv',
+    ];
+
+    /**
+     * Evidence stat-dph (Státy DPH) Formats.
+     */
+    public static array $statDph = [
         'HTML' => 'html',
         'XML' => 'xml',
         'JSON' => 'json',

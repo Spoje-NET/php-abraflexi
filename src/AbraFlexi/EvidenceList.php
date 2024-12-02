@@ -37,7 +37,7 @@ class EvidenceList extends RO
     /**
      * Source FlexiBee server version.
      */
-    public static string $version = '2024.6.8';
+    public static string $version = '2024.7.0';
 
     /**
      * Evidences Path/Name listing.
@@ -50,6 +50,7 @@ class EvidenceList extends RO
         'autotisk' => 'Automatický tisk',
         'banka' => 'Banka',
         'format-elektronickeho-bankovnictvi' => 'Bankovní formáty',
+        'format-elektronickeho-prikazu' => 'Bankovní formáty',
         'adresar-bankovni-ucet' => 'Bankovní spojení',
         'bankovni-ucet-pokladna' => 'Bankovní účty a pokladny',
         'bankovni-ucet-sklad-pokladna' => 'Banky/pokladny/sklady',
@@ -162,6 +163,7 @@ class EvidenceList extends RO
         'prikaz-k-uhrade' => 'Příkaz k úhradě',
         'priloha' => 'Příloha',
         'prislustenstvi' => 'Příslušenství',
+        'region' => 'Region',
         'rezervace' => 'Rezervace',
         'rocni-rada' => 'Roční položky dokladové řady',
         'sady-a-komplety' => 'Sady',
@@ -194,6 +196,7 @@ class EvidenceList extends RO
         'stav-zakazky' => 'Stavy zakázek',
         'stav-uctu' => 'Stavy účtů',
         'stat' => 'Státy',
+        'stat-dph' => 'Státy DPH',
         'stredisko' => 'Střediska',
         'subjekt' => 'Subjekt',
         'sumace-sestavy' => 'Sumace v sestavách',
@@ -1388,7 +1391,19 @@ class EvidenceList extends RO
             'className' => 'cz.winstrom.vo.dok.ElBanFormat',
             'extIdSupported' => 'false',
             'dbName' => 'dElbanFormat',
-            'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
+            'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND ((FormatVypis IS NOT NULL AND (FormatVypis <> \'\')) OR Kod = \'FINBRICKS\')',
+        ],
+        'format-elektronickeho-prikazu' => [
+            'evidenceName' => 'Bankovní formáty',
+            'evidencePath' => 'format-elektronickeho-prikazu',
+            'importStatus' => 'DISALLOWED',
+            'formCode' => 'cisElBanFormaty',
+            'evidenceType' => 'FORMAT_ELEKTRONICKEHO_PRIKAZU',
+            'beanKey' => 'cz.winstrom.vo.dok.ElBanFormat',
+            'className' => 'cz.winstrom.vo.dok.ElBanFormat',
+            'extIdSupported' => 'false',
+            'dbName' => 'dElbanFormat',
+            'evidenceFilter' => '(PlatiOd <= 2024 AND PlatiDo >= 2024) AND (FormatPrikaz IS NOT NULL AND (FormatPrikaz <> \'\'))',
         ],
         'bankovni-ucet-pokladna' => [
             'evidenceName' => 'Bankovní účty a pokladny',
@@ -2242,6 +2257,18 @@ class EvidenceList extends RO
             'dbName' => 'dPrikazUhr',
             'evidenceFilter' => 'TypPrikazK = \'typPrikazu.prikaz\'',
         ],
+        'region' => [
+            'evidenceName' => 'Region',
+            'evidencePath' => 'region',
+            'importStatus' => 'NOT_DOCUMENTED',
+            'formCode' => 'cisRegion',
+            'evidenceType' => 'REGION',
+            'beanKey' => 'cz.winstrom.vo.adr.Region',
+            'className' => 'cz.winstrom.vo.adr.Region',
+            'extIdSupported' => 'false',
+            'dbName' => 'aRegion',
+            'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
+        ],
         'bankovni-ucet' => [
             'evidenceName' => 'Seznam bankovních účtů',
             'evidencePath' => 'bankovni-ucet',
@@ -2416,6 +2443,18 @@ class EvidenceList extends RO
             'importStatus' => 'NOT_DOCUMENTED',
             'formCode' => 'cisStaty',
             'evidenceType' => 'STAT',
+            'beanKey' => 'cz.winstrom.vo.adr.Stat',
+            'className' => 'cz.winstrom.vo.adr.Stat',
+            'extIdSupported' => 'false',
+            'dbName' => 'aStaty',
+            'evidenceFilter' => 'PlatiOd <= 2024 AND PlatiDo >= 2024',
+        ],
+        'stat-dph' => [
+            'evidenceName' => 'Státy DPH',
+            'evidencePath' => 'stat-dph',
+            'importStatus' => 'DISALLOWED',
+            'formCode' => 'cisStatyDph',
+            'evidenceType' => 'STAT_DPH',
             'beanKey' => 'cz.winstrom.vo.adr.Stat',
             'className' => 'cz.winstrom.vo.adr.Stat',
             'extIdSupported' => 'false',
