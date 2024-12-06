@@ -37,7 +37,7 @@ class EvidenceList extends RO
     /**
      * Source FlexiBee server version.
      */
-    public static string $version = '2024.7.0';
+    public static string $version = '2024.7.1';
 
     /**
      * Evidences Path/Name listing.

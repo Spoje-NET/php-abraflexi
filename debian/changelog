@@ -1,9 +1,10 @@
-php-spojenet-abraflexi (3.3.0.235~noble.236~noble) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.3.0.235~noble.236~noble.237~jammy) UNRELEASED; urgency=medium
 
   * jenkins-Spoje.Net-php-spojenet-abraflexi-235
   * jenkins-Spoje.Net-php-spojenet-abraflexi-236
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-237
 
- -- vitex <jenkins@vyvojar.spoje.net>  Fri, 22 Nov 2024 10:07:07 +0000
+ -- vitex <jenkins@vyvojar.spoje.net>  Mon, 02 Dec 2024 22:04:26 +0000
 
 php-spojenet-abraflexi (3.3.0) experimental; urgency=medium
 
