@@ -24,6 +24,7 @@ class RO extends \Ease\Sand
 
     /**
      * Where to get JSON files with evidence structure etc.
+     * @deprecated since version 3.3.0 - use Functions::$infoDir instead
      */
     public static string $infoDir = __DIR__.'/../../static';
 
@@ -455,7 +456,7 @@ class RO extends \Ease\Sand
     /**
      * SetUp Object to be ready for work.
      *
-     * @param array $options Object Options ( user,password,authSessionId
+     * @param array<string,string> $options Object Options ( user,password,authSessionId
      *                       company,url,evidence,
      *                       prefix,defaultUrlParams,debug,autoload
      *                       detail,offline,filter,ignore404,nativeTypes
@@ -2402,23 +2403,9 @@ class RO extends \Ease\Sand
      *
      * @return array Evidence structure
      */
-    public function getOfflineColumnsInfo($evidence = null)
+    public function getOfflineColumnsInfo(?string $evidence = null): ?array
     {
-        $columnsInfo = null;
-        $infoSource = self::$infoDir.'/Properties.'.(empty($evidence) ? $this->getEvidence() : $evidence).'.json';
-
-        if (file_exists($infoSource)) {
-            $columnsInfo = json_decode(file_get_contents($infoSource), true);
-        }
-
-        if (property_exists('\AbraFlexi\Relations', $evidence)) {
-            foreach (Relations::${$evidence} as $url => $properties) {
-                $properties['type'] = 'relations';
-                $columnsInfo[$url] = $properties;
-            }
-        }
-
-        return $columnsInfo;
+        return Functions::getOfflineColumnsInfo(empty($evidence) ? $this->getEvidence() : $evidence);
     }
 
     /**

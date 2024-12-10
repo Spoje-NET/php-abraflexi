@@ -21,6 +21,12 @@ namespace AbraFlexi;
 class Functions
 {
     /**
+     * Where to get JSON files with evidence structure etc.
+     * @deprecated since version 3.3.0 - use Functions::$infoDir instead
+     */
+    public static string $infoDir = __DIR__.'/../../static';
+    
+    /**
      * Formating string for \DateTime::format() for datetime columns.
      *
      * @deprecated since version 2.17
@@ -388,4 +394,32 @@ class Functions
 
         return $arr;
     }
+    
+    /**
+     * Obtain structure for current (or given) evidence.
+     *
+     * @param string $evidence
+     *
+     * @return array Evidence structure
+     */
+    public static function getOfflineColumnsInfo(string $evidence): ?array
+    {
+        $columnsInfo = null;
+        $infoSource = self::$infoDir.'/Properties.'.$evidence.'.json';
+
+        if (file_exists($infoSource)) {
+            $columnsInfo = json_decode(file_get_contents($infoSource), true);
+        }
+
+        if (property_exists('\AbraFlexi\Relations', $evidence)) {
+            foreach (Relations::${$evidence} as $url => $properties) {
+                $properties['type'] = 'relations';
+                $columnsInfo[$url] = $properties;
+            }
+        }
+
+        return $columnsInfo;
+    }
+    
+    
 }
