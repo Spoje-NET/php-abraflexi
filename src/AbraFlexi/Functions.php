@@ -22,10 +22,11 @@ class Functions
 {
     /**
      * Where to get JSON files with evidence structure etc.
+     *
      * @deprecated since version 3.3.0 - use Functions::$infoDir instead
      */
     public static string $infoDir = __DIR__.'/../../static';
-    
+
     /**
      * Formating string for \DateTime::format() for datetime columns.
      *
@@ -394,11 +395,9 @@ class Functions
 
         return $arr;
     }
-    
+
     /**
      * Obtain structure for current (or given) evidence.
-     *
-     * @param string $evidence
      *
      * @return array Evidence structure
      */
@@ -420,6 +419,4 @@ class Functions
 
         return $columnsInfo;
     }
-    
-    
 }

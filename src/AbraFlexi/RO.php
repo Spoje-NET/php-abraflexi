@@ -24,6 +24,7 @@ class RO extends \Ease\Sand
 
     /**
      * Where to get JSON files with evidence structure etc.
+     *
      * @deprecated since version 3.3.0 - use Functions::$infoDir instead
      */
     public static string $infoDir = __DIR__.'/../../static';
@@ -456,11 +457,11 @@ class RO extends \Ease\Sand
     /**
      * SetUp Object to be ready for work.
      *
-     * @param array<string,string> $options Object Options ( user,password,authSessionId
-     *                       company,url,evidence,
-     *                       prefix,defaultUrlParams,debug,autoload
-     *                       detail,offline,filter,ignore404,nativeTypes
-     *                       timeout,companyUrl,ver,throwException
+     * @param array<string, string> $options Object Options ( user,password,authSessionId
+     *                                       company,url,evidence,
+     *                                       prefix,defaultUrlParams,debug,autoload
+     *                                       detail,offline,filter,ignore404,nativeTypes
+     *                                       timeout,companyUrl,ver,throwException
      */
     public function setUp(array $options = []): bool
     {
@@ -2398,8 +2399,6 @@ class RO extends \Ease\Sand
 
     /**
      * Obtain structure for current (or given) evidence.
-     *
-     * @param string $evidence
      *
      * @return array Evidence structure
      */
