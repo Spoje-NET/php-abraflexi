@@ -39,51 +39,51 @@ class ObjednavkaPrijataPolozkaTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-//    /**
-//     * @covers \AbraFlexi\ObjednavkaPrijataPolozka::getLabels
-//     *
-//     * @todo   Implement testgetLabels().
-//     */
-//    public function testgetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->getLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\ObjednavkaPrijataPolozka::setLabel
-//     *
-//     * @todo   Implement testsetLabel().
-//     */
-//    public function testsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->setLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\ObjednavkaPrijataPolozka::unsetLabel
-//     *
-//     * @todo   Implement testunsetLabel().
-//     */
-//    public function testunsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\ObjednavkaPrijataPolozka::unsetLabels
-//     *
-//     * @todo   Implement testunsetLabels().
-//     */
-//    public function testunsetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
+    //    /**
+    //     * @covers \AbraFlexi\ObjednavkaPrijataPolozka::getLabels
+    //     *
+    //     * @todo   Implement testgetLabels().
+    //     */
+    //    public function testgetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\ObjednavkaPrijataPolozka::setLabel
+    //     *
+    //     * @todo   Implement testsetLabel().
+    //     */
+    //    public function testsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->setLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\ObjednavkaPrijataPolozka::unsetLabel
+    //     *
+    //     * @todo   Implement testunsetLabel().
+    //     */
+    //    public function testunsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\ObjednavkaPrijataPolozka::unsetLabels
+    //     *
+    //     * @todo   Implement testunsetLabels().
+    //     */
+    //    public function testunsetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
 }

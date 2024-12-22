@@ -39,39 +39,39 @@ class ExceptionTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-//    /**
-//     * @covers \AbraFlexi\Exception::getErrorMessage
-//     *
-//     * @todo   Implement testgetErrorMessage().
-//     */
-//    public function testgetErrorMessage(): void
-//    {
-//        $this->assertEquals('', $this->object->getErrorMessage());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Exception::getErrorMessages
-//     *
-//     * @todo   Implement testgetErrorMessages().
-//     */
-//    public function testgetErrorMessages(): void
-//    {
-//        $this->assertEquals('', $this->object->getErrorMessages());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Exception::getServerResponse
-//     *
-//     * @todo   Implement testgetServerResponse().
-//     */
-//    public function testgetServerResponse(): void
-//    {
-//        $this->assertEquals('', $this->object->getServerResponse());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
+    //    /**
+    //     * @covers \AbraFlexi\Exception::getErrorMessage
+    //     *
+    //     * @todo   Implement testgetErrorMessage().
+    //     */
+    //    public function testgetErrorMessage(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getErrorMessage());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Exception::getErrorMessages
+    //     *
+    //     * @todo   Implement testgetErrorMessages().
+    //     */
+    //    public function testgetErrorMessages(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getErrorMessages());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Exception::getServerResponse
+    //     *
+    //     * @todo   Implement testgetServerResponse().
+    //     */
+    //    public function testgetServerResponse(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getServerResponse());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
 }

@@ -23,12 +23,12 @@ class RW extends RO
     /**
      * Sloupeček obsahující datum vložení záznamu do shopu.
      */
-    public string $myCreateColumn = 'false';
+    public ?string $myCreateColumn = '';
 
     /**
-     * Slopecek obsahujici datum poslení modifikace záznamu do shopu.
+     * Column with last modification datetime/stamp.
      */
-    public string $myLastModifiedColumn = 'lastUpdate';
+    public ?string $myLastModifiedColumn = 'lastUpdate';
 
     /**
      * Last Inserted ID.
@@ -278,7 +278,7 @@ class RW extends RO
         }
 
         $this->performRequest(
-            $this->getEvidenceUrl().'/'.self::urlizeId($id),
+            $this->getEvidenceUrl().'/'.Functions::urlizeId($id),
             'DELETE',
         );
 
@@ -434,9 +434,9 @@ class RW extends RO
      *
      * @see Relations
      *
-     * @param array  $data         pole dat
-     * @param string $relationPath path evidence (relation) pro vkládaná data
-     * @param bool   $removeAll
+     * @param array<string, string> $data         pole dat
+     * @param string                $relationPath path evidence (relation) pro vkládaná data
+     * @param bool                  $removeAll
      *
      * @return bool Operation success
      */
@@ -517,8 +517,8 @@ class RW extends RO
      * Convert data to AbraFlexi like Json format.
      * Array of Labels is converted to coma separated list.
      *
-     * @param array $data
-     * @param int   $options json_encode options like JSON_PRETTY_PRINT etc
+     * @param array<string, array<string, string>|string> $data
+     * @param int                                         $options json_encode options like JSON_PRETTY_PRINT etc
      *
      * @return string
      */

@@ -138,12 +138,12 @@ class RO extends \Ease\Sand
     /**
      * Sloupeček obsahující datum vložení záznamu do shopu.
      */
-    public string $myCreateColumn = 'false';
+    public ?string $myCreateColumn = 'false';
 
     /**
      * Sloupeček obsahujici datum poslení modifikace záznamu do shopu.
      */
-    public string $myLastModifiedColumn = 'lastUpdate';
+    public ?string $myLastModifiedColumn = 'lastUpdate';
 
     /**
      * Informace o posledním HTTP requestu.

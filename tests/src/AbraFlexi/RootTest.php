@@ -39,27 +39,27 @@ class RootTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-//    /**
-//     * @covers \AbraFlexi\Root::uploadCertificate
-//     *
-//     * @todo   Implement testuploadCertificate().
-//     */
-//    public function testuploadCertificate(): void
-//    {
-//        $this->assertEquals('', $this->object->uploadCertificate());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Root::companies
-//     *
-//     * @todo   Implement testcompanies().
-//     */
-//    public function testcompanies(): void
-//    {
-//        $this->assertEquals('', $this->object->companies());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
+    //    /**
+    //     * @covers \AbraFlexi\Root::uploadCertificate
+    //     *
+    //     * @todo   Implement testuploadCertificate().
+    //     */
+    //    public function testuploadCertificate(): void
+    //    {
+    //        $this->assertEquals('', $this->object->uploadCertificate());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Root::companies
+    //     *
+    //     * @todo   Implement testcompanies().
+    //     */
+    //    public function testcompanies(): void
+    //    {
+    //        $this->assertEquals('', $this->object->companies());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
 }

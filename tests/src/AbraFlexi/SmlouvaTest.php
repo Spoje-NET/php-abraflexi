@@ -39,75 +39,75 @@ class SmlouvaTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-//    /**
-//     * @covers \AbraFlexi\Smlouva::generovaniFaktur
-//     *
-//     * @todo   Implement testgenerovaniFaktur().
-//     */
-//    public function testgenerovaniFaktur(): void
-//    {
-//        $this->assertEquals('', $this->object->generovaniFaktur());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Smlouva::getLabels
-//     *
-//     * @todo   Implement testgetLabels().
-//     */
-//    public function testgetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->getLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Smlouva::setLabel
-//     *
-//     * @todo   Implement testsetLabel().
-//     */
-//    public function testsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->setLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Smlouva::unsetLabel
-//     *
-//     * @todo   Implement testunsetLabel().
-//     */
-//    public function testunsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Smlouva::unsetLabels
-//     *
-//     * @todo   Implement testunsetLabels().
-//     */
-//    public function testunsetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Smlouva::getFirmaObject
-//     *
-//     * @todo   Implement testgetFirmaObject().
-//     */
-//    public function testgetFirmaObject(): void
-//    {
-//        $this->assertEquals('', $this->object->getFirmaObject());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
+    //    /**
+    //     * @covers \AbraFlexi\Smlouva::generovaniFaktur
+    //     *
+    //     * @todo   Implement testgenerovaniFaktur().
+    //     */
+    //    public function testgenerovaniFaktur(): void
+    //    {
+    //        $this->assertEquals('', $this->object->generovaniFaktur());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Smlouva::getLabels
+    //     *
+    //     * @todo   Implement testgetLabels().
+    //     */
+    //    public function testgetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Smlouva::setLabel
+    //     *
+    //     * @todo   Implement testsetLabel().
+    //     */
+    //    public function testsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->setLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Smlouva::unsetLabel
+    //     *
+    //     * @todo   Implement testunsetLabel().
+    //     */
+    //    public function testunsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Smlouva::unsetLabels
+    //     *
+    //     * @todo   Implement testunsetLabels().
+    //     */
+    //    public function testunsetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Smlouva::getFirmaObject
+    //     *
+    //     * @todo   Implement testgetFirmaObject().
+    //     */
+    //    public function testgetFirmaObject(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getFirmaObject());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
 }

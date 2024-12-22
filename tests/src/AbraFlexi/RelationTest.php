@@ -39,27 +39,27 @@ class RelationTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-//    /**
-//     * @covers \AbraFlexi\Relation::__toString
-//     *
-//     * @todo   Implement test__toString().
-//     */
-//    public function testToString(): void
-//    {
-//        $this->assertEquals('', $this->object->__toString());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Relation::getRelationTarget
-//     *
-//     * @todo   Implement testgetRelationTarget().
-//     */
-//    public function testgetRelationTarget(): void
-//    {
-//        $this->assertEquals('', $this->object->getRelationTarget());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
+    //    /**
+    //     * @covers \AbraFlexi\Relation::__toString
+    //     *
+    //     * @todo   Implement test__toString().
+    //     */
+    //    public function testToString(): void
+    //    {
+    //        $this->assertEquals('', $this->object->__toString());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Relation::getRelationTarget
+    //     *
+    //     * @todo   Implement testgetRelationTarget().
+    //     */
+    //    public function testgetRelationTarget(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getRelationTarget());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
 }

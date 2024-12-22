@@ -39,51 +39,51 @@ class FormatsTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-//    /**
-//     * @covers \AbraFlexi\Formats::byContentType
-//     *
-//     * @todo   Implement testbyContentType().
-//     */
-//    public function testbyContentType(): void
-//    {
-//        $this->assertEquals('', $this->object->byContentType());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Formats::bySuffix
-//     *
-//     * @todo   Implement testbySuffix().
-//     */
-//    public function testbySuffix(): void
-//    {
-//        $this->assertEquals('', $this->object->bySuffix());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Formats::suffixToContentType
-//     *
-//     * @todo   Implement testsuffixToContentType().
-//     */
-//    public function testsuffixToContentType(): void
-//    {
-//        $this->assertEquals('', $this->object->suffixToContentType());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Formats::contentTypeToSuffix
-//     *
-//     * @todo   Implement testcontentTypeToSuffix().
-//     */
-//    public function testcontentTypeToSuffix(): void
-//    {
-//        $this->assertEquals('', $this->object->contentTypeToSuffix());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
+    //    /**
+    //     * @covers \AbraFlexi\Formats::byContentType
+    //     *
+    //     * @todo   Implement testbyContentType().
+    //     */
+    //    public function testbyContentType(): void
+    //    {
+    //        $this->assertEquals('', $this->object->byContentType());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Formats::bySuffix
+    //     *
+    //     * @todo   Implement testbySuffix().
+    //     */
+    //    public function testbySuffix(): void
+    //    {
+    //        $this->assertEquals('', $this->object->bySuffix());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Formats::suffixToContentType
+    //     *
+    //     * @todo   Implement testsuffixToContentType().
+    //     */
+    //    public function testsuffixToContentType(): void
+    //    {
+    //        $this->assertEquals('', $this->object->suffixToContentType());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Formats::contentTypeToSuffix
+    //     *
+    //     * @todo   Implement testcontentTypeToSuffix().
+    //     */
+    //    public function testcontentTypeToSuffix(): void
+    //    {
+    //        $this->assertEquals('', $this->object->contentTypeToSuffix());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
 }

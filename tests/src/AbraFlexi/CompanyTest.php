@@ -39,136 +39,136 @@ class CompanyTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-//    /**
-//     * @covers \AbraFlexi\Company::processInit
-//     *
-//     * @todo   Implement testprocessInit().
-//     */
-//    public function testprocessInit(): void
-//    {
-//        $this->assertEquals('', $this->object->processInit());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Company::getEvidenceURL
-//     *
-//     * @todo   Implement testgetEvidenceURL().
-//     */
-//    public function testgetEvidenceURL(): void
-//    {
-//        $this->assertEquals('', $this->object->getEvidenceURL());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Company::getApiURL
-//     *
-//     * @todo   Implement testgetApiURL().
-//     */
-//    public function testgetApiURL(): void
-//    {
-//        $this->assertEquals('', $this->object->getApiURL());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Company::getResponseEvidence
-//     *
-//     * @todo   Implement testgetResponseEvidence().
-//     */
-//    public function testgetResponseEvidence(): void
-//    {
-//        $this->assertEquals('', $this->object->getResponseEvidence());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Company::rawResponseToArray
-//     *
-//     * @todo   Implement testrawResponseToArray().
-//     */
-//    public function testrawResponseToArray(): void
-//    {
-//        $this->assertEquals('', $this->object->rawResponseToArray());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Company::saveBackupTo
-//     *
-//     * @todo   Implement testsaveBackupTo().
-//     */
-//    public function testsaveBackupTo(): void
-//    {
-//        $this->assertEquals('', $this->object->saveBackupTo());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Company::restoreBackupFrom
-//     *
-//     * @todo   Implement testrestoreBackupFrom().
-//     */
-//    public function testrestoreBackupFrom(): void
-//    {
-//        $this->assertEquals('', $this->object->restoreBackupFrom());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Company::createNew
-//     *
-//     * @todo   Implement testcreateNew().
-//     */
-//    public function testcreateNew(): void
-//    {
-//        $this->assertEquals('', $this->object->createNew());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Company::getRecordID
-//     *
-//     * @todo   Implement testgetRecordID().
-//     */
-//    public function testgetRecordID(): void
-//    {
-//        $this->assertEquals('', $this->object->getRecordID());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Company::getVazby
-//     *
-//     * @todo   Implement testgetVazby().
-//     */
-//    public function testgetVazby(): void
-//    {
-//        $this->assertEquals('', $this->object->getVazby());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Company::deleteFromAbraFlexi
-//     *
-//     * @todo   Implement testdeleteFromAbraFlexi().
-//     */
-//    public function testdeleteFromAbraFlexi(): void
-//    {
-//       //TODO: Run this test as very last  
-//       //$this->assertEquals('', $this->object->deleteFromAbraFlexi());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
+    //    /**
+    //     * @covers \AbraFlexi\Company::processInit
+    //     *
+    //     * @todo   Implement testprocessInit().
+    //     */
+    //    public function testprocessInit(): void
+    //    {
+    //        $this->assertEquals('', $this->object->processInit());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Company::getEvidenceURL
+    //     *
+    //     * @todo   Implement testgetEvidenceURL().
+    //     */
+    //    public function testgetEvidenceURL(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getEvidenceURL());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Company::getApiURL
+    //     *
+    //     * @todo   Implement testgetApiURL().
+    //     */
+    //    public function testgetApiURL(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getApiURL());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Company::getResponseEvidence
+    //     *
+    //     * @todo   Implement testgetResponseEvidence().
+    //     */
+    //    public function testgetResponseEvidence(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getResponseEvidence());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Company::rawResponseToArray
+    //     *
+    //     * @todo   Implement testrawResponseToArray().
+    //     */
+    //    public function testrawResponseToArray(): void
+    //    {
+    //        $this->assertEquals('', $this->object->rawResponseToArray());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Company::saveBackupTo
+    //     *
+    //     * @todo   Implement testsaveBackupTo().
+    //     */
+    //    public function testsaveBackupTo(): void
+    //    {
+    //        $this->assertEquals('', $this->object->saveBackupTo());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Company::restoreBackupFrom
+    //     *
+    //     * @todo   Implement testrestoreBackupFrom().
+    //     */
+    //    public function testrestoreBackupFrom(): void
+    //    {
+    //        $this->assertEquals('', $this->object->restoreBackupFrom());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Company::createNew
+    //     *
+    //     * @todo   Implement testcreateNew().
+    //     */
+    //    public function testcreateNew(): void
+    //    {
+    //        $this->assertEquals('', $this->object->createNew());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Company::getRecordID
+    //     *
+    //     * @todo   Implement testgetRecordID().
+    //     */
+    //    public function testgetRecordID(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getRecordID());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Company::getVazby
+    //     *
+    //     * @todo   Implement testgetVazby().
+    //     */
+    //    public function testgetVazby(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getVazby());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Company::deleteFromAbraFlexi
+    //     *
+    //     * @todo   Implement testdeleteFromAbraFlexi().
+    //     */
+    //    public function testdeleteFromAbraFlexi(): void
+    //    {
+    //       //TODO: Run this test as very last
+    //       //$this->assertEquals('', $this->object->deleteFromAbraFlexi());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
 }

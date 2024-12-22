@@ -39,63 +39,63 @@ class SkladovyPohybPolozkaTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-//    /**
-//     * @covers \AbraFlexi\SkladovyPohybPolozka::addSerialNumber
-//     *
-//     * @todo   Implement testaddSerialNumber().
-//     */
-//    public function testaddSerialNumber(): void
-//    {
-//        $this->assertEquals('', $this->object->addSerialNumber());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\SkladovyPohybPolozka::getLabels
-//     *
-//     * @todo   Implement testgetLabels().
-//     */
-//    public function testgetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->getLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\SkladovyPohybPolozka::setLabel
-//     *
-//     * @todo   Implement testsetLabel().
-//     */
-//    public function testsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->setLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\SkladovyPohybPolozka::unsetLabel
-//     *
-//     * @todo   Implement testunsetLabel().
-//     */
-//    public function testunsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\SkladovyPohybPolozka::unsetLabels
-//     *
-//     * @todo   Implement testunsetLabels().
-//     */
-//    public function testunsetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
+    //    /**
+    //     * @covers \AbraFlexi\SkladovyPohybPolozka::addSerialNumber
+    //     *
+    //     * @todo   Implement testaddSerialNumber().
+    //     */
+    //    public function testaddSerialNumber(): void
+    //    {
+    //        $this->assertEquals('', $this->object->addSerialNumber());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\SkladovyPohybPolozka::getLabels
+    //     *
+    //     * @todo   Implement testgetLabels().
+    //     */
+    //    public function testgetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\SkladovyPohybPolozka::setLabel
+    //     *
+    //     * @todo   Implement testsetLabel().
+    //     */
+    //    public function testsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->setLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\SkladovyPohybPolozka::unsetLabel
+    //     *
+    //     * @todo   Implement testunsetLabel().
+    //     */
+    //    public function testunsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\SkladovyPohybPolozka::unsetLabels
+    //     *
+    //     * @todo   Implement testunsetLabels().
+    //     */
+    //    public function testunsetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
 }

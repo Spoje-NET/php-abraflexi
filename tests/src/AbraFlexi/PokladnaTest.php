@@ -39,87 +39,87 @@ class PokladnaTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-//    /**
-//     * @covers \AbraFlexi\Pokladna::addArrayToBranch
-//     *
-//     * @todo   Implement testaddArrayToBranch().
-//     */
-//    public function testaddArrayToBranch(): void
-//    {
-//        $this->assertEquals('', $this->object->addArrayToBranch());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Pokladna::getLabels
-//     *
-//     * @todo   Implement testgetLabels().
-//     */
-//    public function testgetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->getLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Pokladna::setLabel
-//     *
-//     * @todo   Implement testsetLabel().
-//     */
-//    public function testsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->setLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Pokladna::unsetLabel
-//     *
-//     * @todo   Implement testunsetLabel().
-//     */
-//    public function testunsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Pokladna::unsetLabels
-//     *
-//     * @todo   Implement testunsetLabels().
-//     */
-//    public function testunsetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Pokladna::getChanges
-//     *
-//     * @todo   Implement testgetChanges().
-//     */
-//    public function testgetChanges(): void
-//    {
-//        $this->assertEquals('', $this->object->getChanges());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Pokladna::_getRecordCode
-//     *
-//     * @todo   Implement test_getRecordCode().
-//     */
-//    public function testGetRecordCode(): void
-//    {
-//        $this->assertEquals('', $this->object->_getRecordCode());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
+    //    /**
+    //     * @covers \AbraFlexi\Pokladna::addArrayToBranch
+    //     *
+    //     * @todo   Implement testaddArrayToBranch().
+    //     */
+    //    public function testaddArrayToBranch(): void
+    //    {
+    //        $this->assertEquals('', $this->object->addArrayToBranch());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Pokladna::getLabels
+    //     *
+    //     * @todo   Implement testgetLabels().
+    //     */
+    //    public function testgetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Pokladna::setLabel
+    //     *
+    //     * @todo   Implement testsetLabel().
+    //     */
+    //    public function testsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->setLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Pokladna::unsetLabel
+    //     *
+    //     * @todo   Implement testunsetLabel().
+    //     */
+    //    public function testunsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Pokladna::unsetLabels
+    //     *
+    //     * @todo   Implement testunsetLabels().
+    //     */
+    //    public function testunsetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Pokladna::getChanges
+    //     *
+    //     * @todo   Implement testgetChanges().
+    //     */
+    //    public function testgetChanges(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getChanges());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Pokladna::_getRecordCode
+    //     *
+    //     * @todo   Implement test_getRecordCode().
+    //     */
+    //    public function testGetRecordCode(): void
+    //    {
+    //        $this->assertEquals('', $this->object->_getRecordCode());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
 }

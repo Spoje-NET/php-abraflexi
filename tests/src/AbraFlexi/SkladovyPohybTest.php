@@ -39,111 +39,111 @@ class SkladovyPohybTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-//    /**
-//     * @covers \AbraFlexi\SkladovyPohyb::getLabels
-//     *
-//     * @todo   Implement testgetLabels().
-//     */
-//    public function testgetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->getLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\SkladovyPohyb::setLabel
-//     *
-//     * @todo   Implement testsetLabel().
-//     */
-//    public function testsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->setLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\SkladovyPohyb::unsetLabel
-//     *
-//     * @todo   Implement testunsetLabel().
-//     */
-//    public function testunsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\SkladovyPohyb::unsetLabels
-//     *
-//     * @todo   Implement testunsetLabels().
-//     */
-//    public function testunsetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\SkladovyPohyb::getFirmaObject
-//     *
-//     * @todo   Implement testgetFirmaObject().
-//     */
-//    public function testgetFirmaObject(): void
-//    {
-//        $this->assertEquals('', $this->object->getFirmaObject());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\SkladovyPohyb::getSumFromAbraFlexi
-//     *
-//     * @todo   Implement testgetSumFromAbraFlexi().
-//     */
-//    public function testgetSumFromAbraFlexi(): void
-//    {
-//        $this->assertEquals('', $this->object->getSumFromAbraFlexi());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\SkladovyPohyb::getEmail
-//     *
-//     * @todo   Implement testgetEmail().
-//     */
-//    public function testgetEmail(): void
-//    {
-//        $this->assertEquals('', $this->object->getEmail());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\SkladovyPohyb::getRecipients
-//     *
-//     * @todo   Implement testgetRecipients().
-//     */
-//    public function testgetRecipients(): void
-//    {
-//        $this->assertEquals('', $this->object->getRecipients());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\SkladovyPohyb::docTypeToPurpose
-//     *
-//     * @todo   Implement testdocTypeToPurpose().
-//     */
-//    public function testdocTypeToPurpose(): void
-//    {
-//        $this->assertEquals('', $this->object->docTypeToPurpose());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
+    //    /**
+    //     * @covers \AbraFlexi\SkladovyPohyb::getLabels
+    //     *
+    //     * @todo   Implement testgetLabels().
+    //     */
+    //    public function testgetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\SkladovyPohyb::setLabel
+    //     *
+    //     * @todo   Implement testsetLabel().
+    //     */
+    //    public function testsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->setLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\SkladovyPohyb::unsetLabel
+    //     *
+    //     * @todo   Implement testunsetLabel().
+    //     */
+    //    public function testunsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\SkladovyPohyb::unsetLabels
+    //     *
+    //     * @todo   Implement testunsetLabels().
+    //     */
+    //    public function testunsetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\SkladovyPohyb::getFirmaObject
+    //     *
+    //     * @todo   Implement testgetFirmaObject().
+    //     */
+    //    public function testgetFirmaObject(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getFirmaObject());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\SkladovyPohyb::getSumFromAbraFlexi
+    //     *
+    //     * @todo   Implement testgetSumFromAbraFlexi().
+    //     */
+    //    public function testgetSumFromAbraFlexi(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getSumFromAbraFlexi());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\SkladovyPohyb::getEmail
+    //     *
+    //     * @todo   Implement testgetEmail().
+    //     */
+    //    public function testgetEmail(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getEmail());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\SkladovyPohyb::getRecipients
+    //     *
+    //     * @todo   Implement testgetRecipients().
+    //     */
+    //    public function testgetRecipients(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getRecipients());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\SkladovyPohyb::docTypeToPurpose
+    //     *
+    //     * @todo   Implement testdocTypeToPurpose().
+    //     */
+    //    public function testdocTypeToPurpose(): void
+    //    {
+    //        $this->assertEquals('', $this->object->docTypeToPurpose());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
 }

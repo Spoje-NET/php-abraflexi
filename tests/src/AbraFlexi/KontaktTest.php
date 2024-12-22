@@ -39,101 +39,101 @@ class KontaktTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-//    /**
-//     * @covers \AbraFlexi\Kontakt::authenticate
-//     *
-//     * @todo   Implement testauthenticate().
-//     */
-//    public function testauthenticate(): void
-//    {
-//        $this->assertEquals('', $this->object->authenticate());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Kontakt::getLabels
-//     *
-//     * @todo   Implement testgetLabels().
-//     */
-//    public function testgetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->getLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Kontakt::setLabel
-//     *
-//     * @todo   Implement testsetLabel().
-//     */
-//    public function testsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->setLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Kontakt::unsetLabel
-//     *
-//     * @todo   Implement testunsetLabel().
-//     */
-//    public function testunsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Kontakt::unsetLabels
-//     *
-//     * @todo   Implement testunsetLabels().
-//     */
-//    public function testunsetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Kontakt::getFirmaObject
-//     *
-//     * @todo   Implement testgetFirmaObject().
-//     */
-//    public function testgetFirmaObject(): void
-//    {
-//        $this->assertEquals('', $this->object->getFirmaObject());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//    
-//    /**
-//     * Prepare Contact entry.
-//     *
-//     * @param array $initialData
-//     *
-//     * @return \AbraFlexi\Kontakt
-//     */
-//    public static function makeTestContact($initialData = [])
-//    {
-//        $contact = new \AbraFlexi\Kontakt();
-//        $address = new \AbraFlexi\Adresar();
-//        $contact->takeData(array_merge([
-//            'jmeno' => \Ease\Functions::randomString(8),
-//            'poznam' => 'AbraFlexi Test Contact',
-//            'firma' => $address->getLastInsertedId(),
-//        ], $initialData));
-//
-//        if ($contact->sync()) {
-//            $contact->addStatusMessage($contact->getApiURL().' '.\AbraFlexi\Functions::uncode((string) $contact->getDataValue('jmeno').' '.$contact->getDataValue('email')), 'success');
-//        } else {
-//            $contact->addStatusMessage(json_encode($contact->getData()), 'debug');
-//        }
-//
-//        return $contact;
-//    }
+    //    /**
+    //     * @covers \AbraFlexi\Kontakt::authenticate
+    //     *
+    //     * @todo   Implement testauthenticate().
+    //     */
+    //    public function testauthenticate(): void
+    //    {
+    //        $this->assertEquals('', $this->object->authenticate());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Kontakt::getLabels
+    //     *
+    //     * @todo   Implement testgetLabels().
+    //     */
+    //    public function testgetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Kontakt::setLabel
+    //     *
+    //     * @todo   Implement testsetLabel().
+    //     */
+    //    public function testsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->setLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Kontakt::unsetLabel
+    //     *
+    //     * @todo   Implement testunsetLabel().
+    //     */
+    //    public function testunsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Kontakt::unsetLabels
+    //     *
+    //     * @todo   Implement testunsetLabels().
+    //     */
+    //    public function testunsetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Kontakt::getFirmaObject
+    //     *
+    //     * @todo   Implement testgetFirmaObject().
+    //     */
+    //    public function testgetFirmaObject(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getFirmaObject());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * Prepare Contact entry.
+    //     *
+    //     * @param array $initialData
+    //     *
+    //     * @return \AbraFlexi\Kontakt
+    //     */
+    //    public static function makeTestContact($initialData = [])
+    //    {
+    //        $contact = new \AbraFlexi\Kontakt();
+    //        $address = new \AbraFlexi\Adresar();
+    //        $contact->takeData(array_merge([
+    //            'jmeno' => \Ease\Functions::randomString(8),
+    //            'poznam' => 'AbraFlexi Test Contact',
+    //            'firma' => $address->getLastInsertedId(),
+    //        ], $initialData));
+    //
+    //        if ($contact->sync()) {
+    //            $contact->addStatusMessage($contact->getApiURL().' '.\AbraFlexi\Functions::uncode((string) $contact->getDataValue('jmeno').' '.$contact->getDataValue('email')), 'success');
+    //        } else {
+    //            $contact->addStatusMessage(json_encode($contact->getData()), 'debug');
+    //        }
+    //
+    //        return $contact;
+    //    }
 }

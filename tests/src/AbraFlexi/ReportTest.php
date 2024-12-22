@@ -39,15 +39,15 @@ class ReportTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-//    /**
-//     * @covers \AbraFlexi\Report::loadFromAbraFlexi
-//     *
-//     * @todo   Implement testloadFromAbraFlexi().
-//     */
-//    public function testloadFromAbraFlexi(): void
-//    {
-//        $this->assertEquals('', $this->object->loadFromAbraFlexi());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
+    //    /**
+    //     * @covers \AbraFlexi\Report::loadFromAbraFlexi
+    //     *
+    //     * @todo   Implement testloadFromAbraFlexi().
+    //     */
+    //    public function testloadFromAbraFlexi(): void
+    //    {
+    //        $this->assertEquals('', $this->object->loadFromAbraFlexi());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
 }

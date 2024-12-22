@@ -39,123 +39,123 @@ class CenikTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-//    /**
-//     * @covers \AbraFlexi\Cenik::getLabels
-//     *
-//     * @todo   Implement testgetLabels().
-//     */
-//    public function testgetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->getLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Cenik::setLabel
-//     *
-//     * @todo   Implement testsetLabel().
-//     */
-//    public function testsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->setLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Cenik::unsetLabel
-//     *
-//     * @todo   Implement testunsetLabel().
-//     */
-//    public function testunsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Cenik::unsetLabels
-//     *
-//     * @todo   Implement testunsetLabels().
-//     */
-//    public function testunsetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Cenik::getSubItems
-//     *
-//     * @todo   Implement testgetSubItems().
-//     */
-//    public function testgetSubItems(): void
-//    {
-//        $this->assertEquals('', $this->object->getSubItems());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Cenik::setSubitems
-//     *
-//     * @todo   Implement testsetSubitems().
-//     */
-//    public function testsetSubitems(): void
-//    {
-//        $this->assertEquals('', $this->object->setSubitems());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Cenik::getSubMenuName
-//     *
-//     * @todo   Implement testgetSubMenuName().
-//     */
-//    public function testgetSubMenuName(): void
-//    {
-//        $this->assertEquals('', $this->object->getSubMenuName());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Cenik::getSubObjects
-//     *
-//     * @todo   Implement testgetSubObjects().
-//     */
-//    public function testgetSubObjects(): void
-//    {
-//        $this->assertEquals('', $this->object->getSubObjects());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Cenik::getChanges
-//     *
-//     * @todo   Implement testgetChanges().
-//     */
-//    public function testgetChanges(): void
-//    {
-//        $this->assertEquals('', $this->object->getChanges());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Cenik::_getRecordCode
-//     *
-//     * @todo   Implement test_getRecordCode().
-//     */
-//    public function testGetRecordCode(): void
-//    {
-//        $this->assertEquals('', $this->object->_getRecordCode());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
+    //    /**
+    //     * @covers \AbraFlexi\Cenik::getLabels
+    //     *
+    //     * @todo   Implement testgetLabels().
+    //     */
+    //    public function testgetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Cenik::setLabel
+    //     *
+    //     * @todo   Implement testsetLabel().
+    //     */
+    //    public function testsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->setLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Cenik::unsetLabel
+    //     *
+    //     * @todo   Implement testunsetLabel().
+    //     */
+    //    public function testunsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Cenik::unsetLabels
+    //     *
+    //     * @todo   Implement testunsetLabels().
+    //     */
+    //    public function testunsetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Cenik::getSubItems
+    //     *
+    //     * @todo   Implement testgetSubItems().
+    //     */
+    //    public function testgetSubItems(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getSubItems());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Cenik::setSubitems
+    //     *
+    //     * @todo   Implement testsetSubitems().
+    //     */
+    //    public function testsetSubitems(): void
+    //    {
+    //        $this->assertEquals('', $this->object->setSubitems());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Cenik::getSubMenuName
+    //     *
+    //     * @todo   Implement testgetSubMenuName().
+    //     */
+    //    public function testgetSubMenuName(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getSubMenuName());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Cenik::getSubObjects
+    //     *
+    //     * @todo   Implement testgetSubObjects().
+    //     */
+    //    public function testgetSubObjects(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getSubObjects());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Cenik::getChanges
+    //     *
+    //     * @todo   Implement testgetChanges().
+    //     */
+    //    public function testgetChanges(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getChanges());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Cenik::_getRecordCode
+    //     *
+    //     * @todo   Implement test_getRecordCode().
+    //     */
+    //    public function testGetRecordCode(): void
+    //    {
+    //        $this->assertEquals('', $this->object->_getRecordCode());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
 }

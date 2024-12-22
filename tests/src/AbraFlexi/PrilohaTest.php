@@ -39,111 +39,111 @@ class PrilohaTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-//    /**
-//     * @covers \AbraFlexi\Priloha::attachFile
-//     *
-//     * @todo   Implement testattachFile().
-//     */
-//    public function testattachFile(): void
-//    {
-//        $this->assertEquals('', $this->object->attachFile());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Priloha::getDownloadUrl
-//     *
-//     * @todo   Implement testgetDownloadUrl().
-//     */
-//    public function testgetDownloadUrl(): void
-//    {
-//        $this->assertEquals('', $this->object->getDownloadUrl());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Priloha::getFirstAttachment
-//     *
-//     * @todo   Implement testgetFirstAttachment().
-//     */
-//    public function testgetFirstAttachment(): void
-//    {
-//        $this->assertEquals('', $this->object->getFirstAttachment());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Priloha::getAttachment
-//     *
-//     * @todo   Implement testgetAttachment().
-//     */
-//    public function testgetAttachment(): void
-//    {
-//        $this->assertEquals('', $this->object->getAttachment());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Priloha::download
-//     *
-//     * @todo   Implement testdownload().
-//     */
-//    public function testdownload(): void
-//    {
-//        $this->assertEquals('', $this->object->download());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Priloha::saveToFile
-//     *
-//     * @todo   Implement testsaveToFile().
-//     */
-//    public function testsaveToFile(): void
-//    {
-//        $this->assertEquals('', $this->object->saveToFile());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Priloha::addAttachmentFromFile
-//     *
-//     * @todo   Implement testaddAttachmentFromFile().
-//     */
-//    public function testaddAttachmentFromFile(): void
-//    {
-//        $this->assertEquals('', $this->object->addAttachmentFromFile());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Priloha::addAttachment
-//     *
-//     * @todo   Implement testaddAttachment().
-//     */
-//    public function testaddAttachment(): void
-//    {
-//        $this->assertEquals('', $this->object->addAttachment());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Priloha::getAttachmentsList
-//     *
-//     * @todo   Implement testgetAttachmentsList().
-//     */
-//    public function testgetAttachmentsList(): void
-//    {
-//        $this->assertEquals('', $this->object->getAttachmentsList());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
+    //    /**
+    //     * @covers \AbraFlexi\Priloha::attachFile
+    //     *
+    //     * @todo   Implement testattachFile().
+    //     */
+    //    public function testattachFile(): void
+    //    {
+    //        $this->assertEquals('', $this->object->attachFile());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Priloha::getDownloadUrl
+    //     *
+    //     * @todo   Implement testgetDownloadUrl().
+    //     */
+    //    public function testgetDownloadUrl(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getDownloadUrl());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Priloha::getFirstAttachment
+    //     *
+    //     * @todo   Implement testgetFirstAttachment().
+    //     */
+    //    public function testgetFirstAttachment(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getFirstAttachment());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Priloha::getAttachment
+    //     *
+    //     * @todo   Implement testgetAttachment().
+    //     */
+    //    public function testgetAttachment(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getAttachment());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Priloha::download
+    //     *
+    //     * @todo   Implement testdownload().
+    //     */
+    //    public function testdownload(): void
+    //    {
+    //        $this->assertEquals('', $this->object->download());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Priloha::saveToFile
+    //     *
+    //     * @todo   Implement testsaveToFile().
+    //     */
+    //    public function testsaveToFile(): void
+    //    {
+    //        $this->assertEquals('', $this->object->saveToFile());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Priloha::addAttachmentFromFile
+    //     *
+    //     * @todo   Implement testaddAttachmentFromFile().
+    //     */
+    //    public function testaddAttachmentFromFile(): void
+    //    {
+    //        $this->assertEquals('', $this->object->addAttachmentFromFile());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Priloha::addAttachment
+    //     *
+    //     * @todo   Implement testaddAttachment().
+    //     */
+    //    public function testaddAttachment(): void
+    //    {
+    //        $this->assertEquals('', $this->object->addAttachment());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Priloha::getAttachmentsList
+    //     *
+    //     * @todo   Implement testgetAttachmentsList().
+    //     */
+    //    public function testgetAttachmentsList(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getAttachmentsList());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
 }

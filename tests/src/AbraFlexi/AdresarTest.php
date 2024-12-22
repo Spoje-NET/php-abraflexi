@@ -39,186 +39,186 @@ class AdresarTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-//    /**
-//     * @covers \AbraFlexi\Adresar::getNotificationEmailAddress
-//     *
-//     * @todo   Implement testgetNotificationEmailAddress().
-//     */
-//    public function testgetNotificationEmailAddress(): void
-//    {
-//        $this->assertEquals('', $this->object->getNotificationEmailAddress());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Adresar::getCellPhoneNumber
-//     *
-//     * @todo   Implement testgetCellPhoneNumber().
-//     */
-//    public function testgetCellPhoneNumber(): void
-//    {
-//        $this->assertEquals('', $this->object->getCellPhoneNumber());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Adresar::getAnyPhoneNumber
-//     *
-//     * @todo   Implement testgetAnyPhoneNumber().
-//     */
-//    public function testgetAnyPhoneNumber(): void
-//    {
-//        $this->assertEquals('', $this->object->getAnyPhoneNumber());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Adresar::getBankAccountNumber
-//     *
-//     * @todo   Implement testgetBankAccountNumber().
-//     */
-//    public function testgetBankAccountNumber(): void
-//    {
-//        $this->assertEquals('', $this->object->getBankAccountNumber());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Adresar::getLabels
-//     *
-//     * @todo   Implement testgetLabels().
-//     */
-//    public function testgetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->getLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Adresar::setLabel
-//     *
-//     * @todo   Implement testsetLabel().
-//     */
-//    public function testsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->setLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Adresar::unsetLabel
-//     *
-//     * @todo   Implement testunsetLabel().
-//     */
-//    public function testunsetLabel(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabel());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Adresar::unsetLabels
-//     *
-//     * @todo   Implement testunsetLabels().
-//     */
-//    public function testunsetLabels(): void
-//    {
-//        $this->assertEquals('', $this->object->unsetLabels());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Adresar::getSubItems
-//     *
-//     * @todo   Implement testgetSubItems().
-//     */
-//    public function testgetSubItems(): void
-//    {
-//        $this->assertEquals('', $this->object->getSubItems());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Adresar::setSubitems
-//     *
-//     * @todo   Implement testsetSubitems().
-//     */
-//    public function testsetSubitems(): void
-//    {
-//        $this->assertEquals('', $this->object->setSubitems());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Adresar::getSubMenuName
-//     *
-//     * @todo   Implement testgetSubMenuName().
-//     */
-//    public function testgetSubMenuName(): void
-//    {
-//        $this->assertEquals('', $this->object->getSubMenuName());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Adresar::getSubObjects
-//     *
-//     * @todo   Implement testgetSubObjects().
-//     */
-//    public function testgetSubObjects(): void
-//    {
-//        $this->assertEquals('', $this->object->getSubObjects());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Adresar::getFirmaObject
-//     *
-//     * @todo   Implement testgetFirmaObject().
-//     */
-//    public function testgetFirmaObject(): void
-//    {
-//        $this->assertEquals('', $this->object->getFirmaObject());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Adresar::getChanges
-//     *
-//     * @todo   Implement testgetChanges().
-//     */
-//    public function testgetChanges(): void
-//    {
-//        $this->assertEquals('', $this->object->getChanges());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-//
-//    /**
-//     * @covers \AbraFlexi\Adresar::_getRecordCode
-//     *
-//     * @todo   Implement test_getRecordCode().
-//     */
-//    public function testGetRecordCode(): void
-//    {
-//        $this->assertEquals('', $this->object->_getRecordCode());
-//        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete('This test has not been implemented yet.');
-//    }
-    
+    //    /**
+    //     * @covers \AbraFlexi\Adresar::getNotificationEmailAddress
+    //     *
+    //     * @todo   Implement testgetNotificationEmailAddress().
+    //     */
+    //    public function testgetNotificationEmailAddress(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getNotificationEmailAddress());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Adresar::getCellPhoneNumber
+    //     *
+    //     * @todo   Implement testgetCellPhoneNumber().
+    //     */
+    //    public function testgetCellPhoneNumber(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getCellPhoneNumber());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Adresar::getAnyPhoneNumber
+    //     *
+    //     * @todo   Implement testgetAnyPhoneNumber().
+    //     */
+    //    public function testgetAnyPhoneNumber(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getAnyPhoneNumber());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Adresar::getBankAccountNumber
+    //     *
+    //     * @todo   Implement testgetBankAccountNumber().
+    //     */
+    //    public function testgetBankAccountNumber(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getBankAccountNumber());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Adresar::getLabels
+    //     *
+    //     * @todo   Implement testgetLabels().
+    //     */
+    //    public function testgetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Adresar::setLabel
+    //     *
+    //     * @todo   Implement testsetLabel().
+    //     */
+    //    public function testsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->setLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Adresar::unsetLabel
+    //     *
+    //     * @todo   Implement testunsetLabel().
+    //     */
+    //    public function testunsetLabel(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabel());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Adresar::unsetLabels
+    //     *
+    //     * @todo   Implement testunsetLabels().
+    //     */
+    //    public function testunsetLabels(): void
+    //    {
+    //        $this->assertEquals('', $this->object->unsetLabels());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Adresar::getSubItems
+    //     *
+    //     * @todo   Implement testgetSubItems().
+    //     */
+    //    public function testgetSubItems(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getSubItems());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Adresar::setSubitems
+    //     *
+    //     * @todo   Implement testsetSubitems().
+    //     */
+    //    public function testsetSubitems(): void
+    //    {
+    //        $this->assertEquals('', $this->object->setSubitems());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Adresar::getSubMenuName
+    //     *
+    //     * @todo   Implement testgetSubMenuName().
+    //     */
+    //    public function testgetSubMenuName(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getSubMenuName());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Adresar::getSubObjects
+    //     *
+    //     * @todo   Implement testgetSubObjects().
+    //     */
+    //    public function testgetSubObjects(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getSubObjects());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Adresar::getFirmaObject
+    //     *
+    //     * @todo   Implement testgetFirmaObject().
+    //     */
+    //    public function testgetFirmaObject(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getFirmaObject());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Adresar::getChanges
+    //     *
+    //     * @todo   Implement testgetChanges().
+    //     */
+    //    public function testgetChanges(): void
+    //    {
+    //        $this->assertEquals('', $this->object->getChanges());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+    //
+    //    /**
+    //     * @covers \AbraFlexi\Adresar::_getRecordCode
+    //     *
+    //     * @todo   Implement test_getRecordCode().
+    //     */
+    //    public function testGetRecordCode(): void
+    //    {
+    //        $this->assertEquals('', $this->object->_getRecordCode());
+    //        // Remove the following lines when you implement this test.
+    //        $this->markTestIncomplete('This test has not been implemented yet.');
+    //    }
+
     /**
      * Prepare Addresbook entry.
      *
@@ -244,6 +244,4 @@ class AdresarTest extends \PHPUnit\Framework\TestCase
 
         return $address;
     }
-    
-    
 }
