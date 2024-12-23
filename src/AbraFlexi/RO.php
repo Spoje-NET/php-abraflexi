@@ -1866,7 +1866,7 @@ class RO extends \Ease\Sand
      *
      * @return bool Record presence status
      */
-    public function recordExists($data = [])
+    public function recordExists($data): bool
     {
         if (empty($data)) {
             $data = $this->getData();
