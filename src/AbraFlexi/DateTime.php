@@ -67,6 +67,26 @@ class DateTime extends \DateTime
     }
 
     /**
+     * Convert Timestamp to Flexi DateTime format.
+     *
+     * @param int $timpestamp
+     *
+     * @return string AbraFlexi DateTime or NULL
+     */
+    public static function timestampToFlexiDateTime($timpestamp = null)
+    {
+        $flexiDateTime = null;
+
+        if (null !== $timpestamp) {
+            $date = new \DateTime();
+            $date->setTimestamp($timpestamp);
+            $flexiDateTime = $date->format('Y-m-dTH:i:s');
+        }
+
+        return $flexiDateTime;
+    }
+    
+    /**
      * Easy way how to force format DateTime used.
      *
      * @return \DateTime|false

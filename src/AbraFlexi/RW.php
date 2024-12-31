@@ -397,33 +397,21 @@ class RW extends RO
      */
     public static function timestampToFlexiDate($timpestamp = null)
     {
-        $flexiDate = new Date();
-
-        if (null !== $timpestamp) {
-            $flexiDate->setTimestamp($timpestamp);
-        }
-
-        return $flexiDate;
+        return Date::timestampToFlexiDate($timpestamp);
     }
 
     /**
      * Convert Timestamp to Flexi DateTime format.
      *
+     * @deprecated since version 3.3 - please use \AbraFlexi\DateTime() object instead
+     * 
      * @param int $timpestamp
      *
      * @return string AbraFlexi DateTime or NULL
      */
     public static function timestampToFlexiDateTime($timpestamp = null)
     {
-        $flexiDateTime = null;
-
-        if (null !== $timpestamp) {
-            $date = new \DateTime();
-            $date->setTimestamp($timpestamp);
-            $flexiDateTime = $date->format('Y-m-dTH:i:s');
-        }
-
-        return $flexiDateTime;
+        return DateTime::timestampToFlexiDateTime($timpestamp);
     }
 
     /**

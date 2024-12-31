@@ -58,6 +58,25 @@ class Date extends \DateTime
     }
 
     /**
+     * Convert Timestamp to AbraFlexi Date format.
+     *
+     * @param int $timpestamp
+     *
+     * @return \AbraFlexi\Date or NULL
+     */
+    public static function timestampToFlexiDate($timpestamp = null)
+    {
+        $flexiDate = new Date();
+
+        if (null !== $timpestamp) {
+            $flexiDate->setTimestamp($timpestamp);
+        }
+
+        return $flexiDate;
+    }
+    
+    
+    /**
      * Render Object as AbraFlexi::$DateFormat.
      *
      * @return string
