@@ -85,7 +85,7 @@ class DateTime extends \DateTime
 
         return $flexiDateTime;
     }
-    
+
     /**
      * Easy way how to force format DateTime used.
      *

@@ -404,7 +404,7 @@ class RW extends RO
      * Convert Timestamp to Flexi DateTime format.
      *
      * @deprecated since version 3.3 - please use \AbraFlexi\DateTime() object instead
-     * 
+     *
      * @param int $timpestamp
      *
      * @return string AbraFlexi DateTime or NULL
