@@ -32,8 +32,6 @@ class Smlouva extends RW
      * Generuje faktury ze smluv. Pokud je nastaven sloupec <strong>id</strong> generují se pouze z této smlouvy.
      *
      * @see https://www.abraflexi.eu/api/dokumentace/ref/generovani-faktur/ Interní dokumentace
-     *
-     * @return bool
      */
     public function generovaniFaktur(): bool
     {
