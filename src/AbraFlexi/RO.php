@@ -2426,7 +2426,7 @@ class RO extends \Ease\Sand
                 $properties[$key] = $evidenceProperty;
 
                 if (\array_key_exists('name', $evidenceProperty)) {
-                    $proerties[$key]['name'] = $evidenceProperty['name'];
+                    $properties[$key]['name'] = $evidenceProperty['name'];
                 }
 
                 $properties[$key]['type'] = $evidenceProperty['type'];
