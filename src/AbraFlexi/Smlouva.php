@@ -35,7 +35,7 @@ class Smlouva extends RW
      *
      * @return bool
      */
-    public function generovaniFaktur()
+    public function generovaniFaktur(): bool
     {
         $this->performRequest(
             ($this->getMyKey() ? $this->getMyKey().'/' : '').'generovani-faktur',
