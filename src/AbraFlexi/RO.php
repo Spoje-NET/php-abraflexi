@@ -2574,11 +2574,9 @@ class RO extends \Ease\Sand
     /**
      * Obtain name for current (or given) evidence path.
      *
-     * @param string $evidence Evidence Path
-     *
-     * @return array Evidence info
+     * @param string $evidence Evidence name
      */
-    public function getEvidenceName($evidence = null)
+    public function getEvidenceName($evidence = null): string
     {
         $evidenceName = null;
 
@@ -2638,7 +2636,7 @@ class RO extends \Ease\Sand
      *
      * @return string url
      */
-    public function getAbraFlexiURL()
+    public function getAbraFlexiURL(): string
     {
         $parsed_url = parse_url(str_replace('.'.$this->format, '', $this->apiURL));
         $scheme = isset($parsed_url['scheme']) ? $parsed_url['scheme'].'://' : '';
@@ -2704,7 +2702,7 @@ class RO extends \Ease\Sand
      *
      * @return bool get flag state
      */
-    public function ignore404($ignore = null)
+    public function ignore404($ignore = null): bool
     {
         if (null !== $ignore) {
             $this->ignoreNotFound = $ignore;
@@ -2721,15 +2719,15 @@ class RO extends \Ease\Sand
      * @param string     $to      Email ecipient
      * @param string     $subject Email Subject
      * @param string     $body    Email Text
-     * @param null|mixed $cc
+     * @param string     $cc
      *
      * @return bool mail sent status
      */
-    public function sendByMail($to, $subject, $body, $cc = null)
+    public function sendByMail($to, $subject, $body, $cc = ''): bool
     {
         $this->setPostFields($body);
         $this->performRequest(
-            rawurlencode((string) $this->getRecordIdent()).'/odeslani-dokladu?to='.$to.'&subject='.urlencode($subject).'&cc='.$cc,
+            rawurlencode((string) $this->getRecordIdent()).'/odeslani-dokladu?to='.$to.'&subject='.urlencode($subject).($cc ?? '&cc='.$cc) ,
             'PUT',
             'xml',
         );
@@ -2891,7 +2889,7 @@ class RO extends \Ease\Sand
      *
      * @return array
      */
-    public function getReportsInfo()
+    public function getReportsInfo(): array
     {
         $reports = [];
         $reportsRaw = $this->getFlexiData($this->getEvidenceURL().'/reports');
@@ -2947,7 +2945,7 @@ class RO extends \Ease\Sand
      *
      * @return bool sign in success
      */
-    public function login()
+    public function login(): bool
     {
         $this->authSessionId = $this->requestAuthSessionID(
             $this->user,
@@ -2973,7 +2971,7 @@ class RO extends \Ease\Sand
 
     /**
      * Compile and send Report about Error500 to AbraFlexi developers
-     * If AbraFlexi is running on localost try also include java backtrace.
+     * If AbraFlexi is running on localhost try also include java backtrace.
      *
      * @param array $errorResponse result of parseError();
      */
@@ -3134,7 +3132,7 @@ class RO extends \Ease\Sand
      *
      * @return string create|read|update|delete or update,insert for some inserted and updated in one transaction
      */
-    public function getLastOperationType()
+    public function getLastOperationType(): string
     {
         return implode(',', array_keys(array_filter($this->responseStats)));
     }
