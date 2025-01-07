@@ -64,13 +64,13 @@ class StitekTest extends \PHPUnit\Framework\TestCase
     //    }
     //
     //    /**
-    //     * @covers \AbraFlexi\Stitek::getAvailbleLabels
+    //     * @covers \AbraFlexi\Stitek::getAvailableLabels
     //     *
-    //     * @todo   Implement testgetAvailbleLabels().
+    //     * @todo   Implement testgetAvailableLabels().
     //     */
-    //    public function testgetAvailbleLabels(): void
+    //    public function testgetAvailableLabels(): void
     //    {
-    //        $this->assertEquals('', $this->object->getAvailbleLabels());
+    //        $this->assertEquals('', $this->object->getAvailableLabels());
     //        // Remove the following lines when you implement this test.
     //        $this->markTestIncomplete('This test has not been implemented yet.');
     //    }

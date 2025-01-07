@@ -38,7 +38,7 @@ class Kontakt extends RW
      *
      * @return bool
      */
-    public function authenticate($login, $password)
+    public function authenticate($login, $password): bool
     {
         $defaultHttpHeaders = $this->defaultHttpHeaders;
         $this->defaultHttpHeaders['Content-Type'] = 'application/x-www-form-urlencoded';

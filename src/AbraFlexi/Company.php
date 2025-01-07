@@ -79,7 +79,7 @@ class Company extends RW
      *
      * @param string $urlSuffix
      */
-    public function getEvidenceURL($urlSuffix = null)
+    public function getEvidenceURL($urlSuffix = null): string
     {
         if (null === $urlSuffix) {
             $urlSuffix = $this->evidence;
@@ -101,7 +101,7 @@ class Company extends RW
      *
      * @return string API URL for current record or object/evidence
      */
-    public function getApiURL($format = null)
+    public function getApiURL($format = null): string
     {
         return \dirname(parent::getApiURL($format));
     }
@@ -111,7 +111,7 @@ class Company extends RW
      *
      * @return string
      */
-    public function getResponseEvidence()
+    public function getResponseEvidence(): string
     {
         return 'company';
     }
@@ -147,7 +147,7 @@ class Company extends RW
      *
      * @return bool was backup saved to file ?
      */
-    public function saveBackupTo($filename)
+    public function saveBackupTo($filename): bool
     {
         $backupFile = fopen($filename, 'w+b');
         $headersBackup = $this->defaultHttpHeaders;
@@ -223,7 +223,7 @@ class Company extends RW
      *
      * @return bool
      */
-    public function createNew($name)
+    public function createNew($name): bool
     {
         $this->performRequest('/admin/zalozeni-firmy?name='.urlencode($name), 'PUT');
 

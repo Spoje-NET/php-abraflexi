@@ -26,7 +26,7 @@ class Formats
     public static string $version = '2025.1.1';
 
     /**
-     * Availble Formats.
+     * Available Formats.
      *
      * @see https://www.flexibee.eu/api/dokumentace/ref/format-types/
      *

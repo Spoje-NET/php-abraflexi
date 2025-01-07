@@ -31,7 +31,7 @@ class Changes extends RO
      *
      * @return bool
      */
-    public function enable()
+    public function enable(): true
     {
         $this->performRequest('enable.xml', 'POST', 'xml');
 

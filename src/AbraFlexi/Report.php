@@ -34,7 +34,7 @@ class Report extends RW
      *
      * @return int počet načtených položek
      */
-    public function loadFromAbraFlexi($id = null)
+    public function loadFromAbraFlexi($id = null): int
     {
         if (\is_string($id) && strstr($id, 'code:')) { // Dirty Hack ⚠ Error 400: Entita 'Report' neobsahuje kód nebo ho nelze použít jako ID (není unikátní)
             $kod = \AbraFlexi\Functions::uncode((string) $id);

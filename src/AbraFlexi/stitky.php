@@ -31,7 +31,7 @@ trait stitky
     }
 
     /**
-     * Set one of availble Labels for current record.
+     * Set one of available Labels for current record.
      *
      * @param string $label
      *

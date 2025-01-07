@@ -78,7 +78,7 @@ class Stitek extends RW
      *
      * @return array
      */
-    public static function listToArray($listRaw)
+    public static function listToArray($listRaw): array
     {
         if (\is_array($listRaw)) {
             $list = array_combine(array_values($listRaw), array_values($listRaw));
@@ -96,13 +96,13 @@ class Stitek extends RW
     }
 
     /**
-     * Obtain list of availble labels for given object.
+     * Obtain list of available labels for given object.
      *
      * @param RO $object
      *
      * @return array
      */
-    public static function getAvailbleLabels($object)
+    public static function getAvailableLabels($object)
     {
         $labels = [];
         $evidenceBackup = $object->getEvidence();
@@ -177,7 +177,7 @@ class Stitek extends RW
      *
      * @return bool success
      */
-    public function createNew($name, $evidences, $options = [])
+    public function createNew($name, $evidences, $options = []): bool
     {
         $this->setData($options, true);
         $evidence2code = array_flip(self::$vsbToEvidencePath);

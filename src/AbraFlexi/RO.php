@@ -802,7 +802,7 @@ class RO extends \Ease\Sand
      * Set communication format.
      * One of html|xml|json|csv|dbf|xls|isdoc|isdocx|edi|pdf|pdf|vcf|ical.
      *
-     * @return bool format is availble
+     * @return bool format is available
      */
     public function setFormat(string $format)
     {

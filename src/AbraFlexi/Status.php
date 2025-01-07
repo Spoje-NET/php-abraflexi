@@ -57,7 +57,7 @@ class Status extends RO
      *
      * @return array
      */
-    public function unifyResponseFormat($responseRaw)
+    public function unifyResponseFormat($responseRaw): array
     {
         if (\array_key_exists('status', $responseRaw)) {
             $response = $responseRaw['status'];

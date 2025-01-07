@@ -599,7 +599,7 @@ class RW extends RO
     }
 
     /**
-     * Perform given action (if availble) on current evidence/record.
+     * Perform given action (if available) on current evidence/record.
      *
      * @url https://demo.flexibee.eu/devdoc/actions
      *
@@ -611,16 +611,16 @@ class RW extends RO
      */
     public function performAction(string $action, $method = 'int')
     {
-        $actionsAvailble = $this->getActionsInfo();
+        $actionsAvailable = $this->getActionsInfo();
         $result = false;
 
         if (
-            \is_array($actionsAvailble) && \array_key_exists(
+            \is_array($actionsAvailable) && \array_key_exists(
                 $action,
-                $actionsAvailble,
+                $actionsAvailable,
             )
         ) {
-            switch ($actionsAvailble[$action]['actionMakesSense']) {
+            switch ($actionsAvailable[$action]['actionMakesSense']) {
                 case 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT':
                 case 'ONLY_WITH_INSTANCE': // Add instance
                     $urlSuffix = '/'.$this->__toString().'/'.$action;

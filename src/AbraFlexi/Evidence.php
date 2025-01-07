@@ -43,7 +43,7 @@ class Evidence extends Sand
     }
 
     /**
-     * Array of objects in eveidence.
+     * Array of objects in evidence.
      *
      * @return array<string, string>
      */

@@ -62,7 +62,7 @@ class Date extends \DateTime
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->isNull ? '' : $this->format(Functions::$DateFormat);
     }
@@ -74,7 +74,7 @@ class Date extends \DateTime
      *
      * @return \AbraFlexi\Date or NULL
      */
-    public static function timestampToFlexiDate($timpestamp = null)
+    public static function timestampToFlexiDate($timpestamp = null): Date
     {
         $flexiDate = new self();
 

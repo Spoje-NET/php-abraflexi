@@ -27,7 +27,7 @@ class Root extends RW
      *
      * @return bool
      */
-    public function uploadCertificate($pem)
+    public function uploadCertificate($pem): bool
     {
         $this->postFields = $pem;
         $this->performRequest('/certificate', 'PUT');
@@ -36,7 +36,7 @@ class Root extends RW
     }
 
     /**
-     * Get availble companies listing.
+     * Get available companies listing.
      *
      * @param array $conditions applay to listing
      *

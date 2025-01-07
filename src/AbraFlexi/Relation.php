@@ -55,7 +55,7 @@ class Relation
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return \is_array($this->value) ? (\is_array(current($this->value)) ? current($this->value)['kod'] : current($this->value)) : $this->value;
     }

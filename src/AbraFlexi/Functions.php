@@ -58,7 +58,7 @@ class Functions
      *
      * @return string Class name
      */
-    public static function evidenceToClassName($evidence)
+    public static function evidenceToClassName($evidence): string
     {
         return str_replace(' ', '', ucwords(str_replace('-', ' ', $evidence)));
     }
@@ -68,7 +68,7 @@ class Functions
      *
      * @return string
      */
-    public static function code(string $code)
+    public static function code(string $code): string
     {
         return (substr($code, 0, 4) === 'ext:') ? $code : 'code:'.strtoupper(self::uncode($code));
     }
@@ -78,7 +78,7 @@ class Functions
      *
      * @return array Options
      */
-    public static function companyUrlToOptions(string $companyUrl)
+    public static function companyUrlToOptions(string $companyUrl): array
     {
         $urlParts = parse_url($companyUrl);
         $scheme = isset($urlParts['scheme']) ? $urlParts['scheme'].'://' : '';
@@ -105,7 +105,7 @@ class Functions
      *
      * @return string
      */
-    public static function uncode(string $code)
+    public static function uncode(string $code): string
     {
         return str_replace(['code:', 'code%3A'], '', $code);
     }
@@ -139,7 +139,7 @@ class Functions
      *
      * @return string
      */
-    public static function flexiUrl(array $data, $joiner = 'and', $defop = 'eq')
+    public static function flexiUrl(array $data, $joiner = 'and', $defop = 'eq'): string
     {
         $parts = [];
 
