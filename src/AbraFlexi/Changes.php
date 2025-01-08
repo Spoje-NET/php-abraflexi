@@ -31,7 +31,7 @@ class Changes extends RO
      *
      * @return bool
      */
-    public function enable(): true
+    public function enable(): bool
     {
         $this->performRequest('enable.xml', 'POST', 'xml');
 
@@ -44,7 +44,7 @@ class Changes extends RO
      *
      * @return bool
      */
-    public function disable()
+    public function disable(): bool
     {
         $this->performRequest('disable.xml', 'POST', 'xml');
 
@@ -68,7 +68,7 @@ class Changes extends RO
      *
      * @return bool Method is disabled for Changes
      */
-    public function recordExists($data = null): bool
+    public function recordExists($data): bool
     {
         return false;
     }
