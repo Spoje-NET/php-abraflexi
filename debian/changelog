@@ -1,3 +1,9 @@
+php-spojenet-abraflexi (3.3.2) UNRELEASED; urgency=medium
+
+  * more strict types
+
+ -- vitex <info@vitexsoftware.cz>  Wed, 08 Jan 2025 12:35:55 +0100
+
 php-spojenet-abraflexi (3.3.1) experimental; urgency=medium
 
   * build fix
@@ -5,7 +11,7 @@ php-spojenet-abraflexi (3.3.1) experimental; urgency=medium
   * jenkins-Spoje.Net-php-spojenet-abraflexi-247
   * jenkins-Spoje.Net-php-spojenet-abraflexi-249
 
- -- vitex <info@vitexsoftware.cz>  Tue, 07 Jan 2025 01:19:35 +0100
+ -- vitex <info@vitexsoftware.cz>  Wed, 08 Jan 2025 12:35:38 +0100
 
 php-spojenet-abraflexi (3.3.0.235~noble.236~noble.237~jammy.239~noble.240~noble.241~noble) experimental; urgency=medium
 
