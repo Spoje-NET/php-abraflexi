@@ -113,7 +113,7 @@ class Stitek extends RW
             $labelsRaw = $object->getColumnsFromAbraFlexi(
                 ['kod', 'nazev'],
                 [$pathToVsb[$evidenceBackup] => true, 'limit' => 0],
-                'nazev',
+                'nazev'
             );
 
             if (\count($labelsRaw)) {

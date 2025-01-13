@@ -43,11 +43,11 @@ class Adresar extends RW implements Document
      *
      * @param string $purpose Purpose - one of Fak|Obj|Nab|Ppt|Skl|Pok
      *
-     * @return null|string email of primary contact or address email or null
+     * @return null|string email of primary contact or address email or empty string
      */
-    public function getNotificationEmailAddress(string $purpose = '')
+    public function getNotificationEmailAddress(string $purpose = ''): string
     {
-        $email = null;
+        $email = '';
         $emailsRaw = $this->getFlexiData(
             $this->getApiURL(),
             ['detail' => 'custom:id,email,kontakty(primarni,email,odesilatFak,odesilatObj,odesilatNab,odesilatPpt,odesilatSkl,odesilatPok)', 'relations' => 'kontakty'],
@@ -213,7 +213,7 @@ class Adresar extends RW implements Document
     }
 
     /**
-     * Get Addressbook Item ID.
+     * Get AddressBook Item ID.
      *
      * @return array<string, string>
      */

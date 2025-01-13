@@ -48,9 +48,9 @@ trait email
      * 3. try Document's primary contact mail
      * 4. try Document's any contact mail
      *
-     * @return string
+     * @return string - empty when no usable email address was found
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         if (empty($this->getDataValue('kontaktEmail'))) {
             $addresser = new Adresar($this->getDataValue('firma'), array_merge(['detail' => 'custom:email'], $this->getConnectionOptions()));
@@ -80,7 +80,7 @@ trait email
      *
      * @return string column divided list of email addresses
      */
-    public function getRecipients(string $purpose = '')
+    public function getRecipients(string $purpose = ''): string
     {
         $recipients = [];
 
