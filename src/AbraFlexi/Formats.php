@@ -19,7 +19,7 @@ class Formats
  *
  * @var string
  */
- static public $version = '2024.6.8';
+ static public $version = '2024.7.1';
 
 
     /**
@@ -189,7 +189,6 @@ class Formats
         return isset($types[$contentType]) ? $types[$contentType]['suffix'] : null;
     }
 
-    
     /**
      * Obtain json for application/json.
      */
@@ -199,39 +198,7 @@ class Formats
             $url = parse_url($url, \PHP_URL_PATH);
         }
 
-        $contentTypeClean = strstr($contentType, ';') ? substr(
-            $contentType,
-            0,
-            strpos($contentType, ';'),
-        ) : $contentType;
-
-        switch ($url) {
-            case '/login-logout/login':
-                $responseFormat = 'json';
-
-                break;
-
-            default:
-                switch ($contentTypeClean) {
-                    case 'text/javascript':
-                        $responseFormat = 'js';
-
-                        break;
-
-                    default:
-                        $responseFormat = self::contentTypeToSuffix($contentTypeClean);
-
-                        break;
-                }
-
-                break;
-        }
-
-        return (string)$responseFormat;
-    }
-    
-    
-        /**
+        $contentTypeClean = strstr($contentType,     /**
      * Evidence adresar (Adresy firem) Formats.
      *
      * @var array
@@ -320,6 +287,17 @@ class Formats
      * @var array
      */
  static public $formatElektronickehoBankovnictvi = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
+     * Evidence format-elektronickeho-prikazu (Bankovní formáty) Formats.
+     *
+     * @var array
+     */
+ static public $formatElektronickehoPrikazu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -452,6 +430,17 @@ class Formats
      * @var array
      */
  static public $danovyOdpis = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
+     * Evidence definice-ucelu (Definice účelu) Formats.
+     *
+     * @var array
+     */
+ static public $definiceUcelu = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1690,6 +1679,17 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
+     * Evidence region (Region) Formats.
+     *
+     * @var array
+     */
+ static public $region = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
      * Evidence rezervace (Rezervace) Formats.
      *
      * @var array
@@ -2080,6 +2080,17 @@ class Formats
      * @var array
      */
  static public $stat = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
+     * Evidence stat-dph (Státy DPH) Formats.
+     *
+     * @var array
+     */
+ static public $statDph = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -2894,6 +2905,17 @@ class Formats
      * @var array
      */
  static public $settingStore = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
+     * Evidence ucel (Účely) Formats.
+     *
+     * @var array
+     */
+ static public $ucel = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
