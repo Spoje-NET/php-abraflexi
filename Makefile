@@ -53,6 +53,10 @@ apigen:
 	VERSION=`cat debian/composer.json | grep version | awk -F'"' '{print $4}'`; \
 	apigen generate --destination=docs -- src
 
+.PHONY: phpdoc
+phpdoc: ## Generate dev docs
+	phpdoc -d src
+
 pretest:
 	composer --ansi --no-interaction update
 	php -f tests/PrepareForTest.php
