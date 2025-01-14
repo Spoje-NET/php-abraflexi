@@ -189,6 +189,48 @@ class Formats
         return isset($types[$contentType]) ? $types[$contentType]['suffix'] : null;
     }
 
+    
+    /**
+     * Obtain json for application/json.
+     */
+    public static function contentTypeToResponseFormat(string $contentType, string $url = ''): string
+    {
+        if (!empty($url)) {
+            $url = parse_url($url, \PHP_URL_PATH);
+        }
+
+        $contentTypeClean = strstr($contentType, ';') ? substr(
+            $contentType,
+            0,
+            strpos($contentType, ';'),
+        ) : $contentType;
+
+        switch ($url) {
+            case '/login-logout/login':
+                $responseFormat = 'json';
+
+                break;
+
+            default:
+                switch ($contentTypeClean) {
+                    case 'text/javascript':
+                        $responseFormat = 'js';
+
+                        break;
+
+                    default:
+                        $responseFormat = self::contentTypeToSuffix($contentTypeClean);
+
+                        break;
+                }
+
+                break;
+        }
+
+        return (string)$responseFormat;
+    }
+    
+    
         /**
      * Evidence adresar (Adresy firem) Formats.
      *
