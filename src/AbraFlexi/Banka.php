@@ -61,8 +61,6 @@ class Banka extends RW implements \AbraFlexi\Document
      *
      * @param bool   $advanced Use Advanced matching method ?
      * @param string $filter   Filter bank records before pairing ?
-     *
-     * @return bool
      */
     public function automatickeParovani($advanced = false, $filter = null): bool
     {

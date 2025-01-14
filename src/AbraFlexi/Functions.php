@@ -65,8 +65,6 @@ class Functions
 
     /**
      * Returns code:CODE.
-     *
-     * @return string
      */
     public static function code(string $code): string
     {
@@ -102,8 +100,6 @@ class Functions
 
     /**
      * Returns CODE without code: prefix.
-     *
-     * @return string
      */
     public static function uncode(string $code): string
     {
@@ -136,8 +132,6 @@ class Functions
      * @param array  $data   key=>values; value can bee class DatePeriod, DateTime or Array
      * @param string $joiner default and/or
      * @param string $defop  default operator
-     *
-     * @return string
      */
     public static function flexiUrl(array $data, $joiner = 'and', $defop = 'eq'): string
     {

@@ -31,7 +31,8 @@ fresh:
 	git pull
 	composer install
 
-static:
+.PHONY: static
+static: ## Generate Static files by api structure
 	composer update
 	echo rm -rf static/*
 	echo "STATIC  #######################"

@@ -54,8 +54,6 @@ class Status extends RO
      * Return the same response format for one and multiplete results.
      *
      * @param array $responseRaw
-     *
-     * @return array
      */
     public function unifyResponseFormat($responseRaw): array
     {

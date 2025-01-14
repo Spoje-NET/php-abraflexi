@@ -35,8 +35,6 @@ class Kontakt extends RW
      *
      * @param string $login
      * @param string $password
-     *
-     * @return bool
      */
     public function authenticate($login, $password): bool
     {

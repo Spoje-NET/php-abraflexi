@@ -59,8 +59,6 @@ class Date extends \DateTime
 
     /**
      * Render Object as AbraFlexi::$DateFormat.
-     *
-     * @return string
      */
     public function __toString(): string
     {
@@ -74,7 +72,7 @@ class Date extends \DateTime
      *
      * @return \AbraFlexi\Date or NULL
      */
-    public static function timestampToFlexiDate($timpestamp = null): Date
+    public static function timestampToFlexiDate($timpestamp = null): self
     {
         $flexiDate = new self();
 

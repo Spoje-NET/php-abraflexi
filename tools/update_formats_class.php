@@ -246,7 +246,7 @@ $evidenceFormats .= '
             $url = parse_url($url, \PHP_URL_PATH);
         }
 
-        $contentTypeClean = strstr($contentType, ';') ? substr(
+        $contentTypeClean = strstr($contentType, \';\') ? substr(
             $contentType,
             0,
             strpos($contentType, \';\'),

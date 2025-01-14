@@ -28,8 +28,6 @@ class Changes extends RO
     /**
      * Povolí oznamování změn
      * Allow changes notification.
-     *
-     * @return bool
      */
     public function enable(): bool
     {
@@ -41,8 +39,6 @@ class Changes extends RO
     /**
      * Zakáže oznamování změn
      * Disallow changes notification.
-     *
-     * @return bool
      */
     public function disable(): bool
     {
