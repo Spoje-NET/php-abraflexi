@@ -31,7 +31,8 @@ fresh:
 	git pull
 	composer install
 
-static:
+.PHONY: static
+static: ## Generate Static files by api structure
 	composer update
 	echo rm -rf static/*
 	echo "STATIC  #######################"
@@ -51,6 +52,10 @@ clean:
 apigen:
 	VERSION=`cat debian/composer.json | grep version | awk -F'"' '{print $4}'`; \
 	apigen generate --destination=docs -- src
+
+.PHONY: phpdoc
+phpdoc: ## Generate dev docs
+	phpdoc -d src
 
 pretest:
 	composer --ansi --no-interaction update

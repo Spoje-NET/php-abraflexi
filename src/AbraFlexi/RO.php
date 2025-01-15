@@ -1395,7 +1395,7 @@ class RO extends \Ease\Sand
         $this->curlInfo['http_method'] = $method;
 
         if ($this->curlInfo['content_type']) {
-            $this->responseFormat = $this->contentTypeToResponseFormat((string) $this->curlInfo['content_type'], $url);
+            $this->responseFormat = Formats::contentTypeToResponseFormat((string) $this->curlInfo['content_type'], $url);
         } else {
             $this->responseFormat = '';
         }
@@ -1431,42 +1431,12 @@ class RO extends \Ease\Sand
 
     /**
      * Obtain json for application/json.
+     *
+     * @deprecated since version 1.45 - use the Formats::contentTypeToResponseFormat instead
      */
     public function contentTypeToResponseFormat(string $contentType, string $url = ''): string
     {
-        if (!empty($url)) {
-            $url = parse_url($url, \PHP_URL_PATH);
-        }
-
-        $contentTypeClean = strstr($contentType, ';') ? substr(
-            $contentType,
-            0,
-            strpos($contentType, ';'),
-        ) : $contentType;
-
-        switch ($url) {
-            case '/login-logout/login':
-                $responseFormat = 'json';
-
-                break;
-
-            default:
-                switch ($contentTypeClean) {
-                    case 'text/javascript':
-                        $responseFormat = 'js';
-
-                        break;
-
-                    default:
-                        $responseFormat = Formats::contentTypeToSuffix($contentTypeClean);
-
-                        break;
-                }
-
-                break;
-        }
-
-        return $responseFormat;
+        return Formats::contentTypeToResponseFormat($contentType, $url);
     }
 
     /**
@@ -2716,10 +2686,10 @@ class RO extends \Ease\Sand
      *
      * @url https://www.abraflexi.eu/api/dokumentace/ref/odesilani-mailem/
      *
-     * @param string     $to      Email ecipient
-     * @param string     $subject Email Subject
-     * @param string     $body    Email Text
-     * @param string     $cc
+     * @param string $to      Email ecipient
+     * @param string $subject Email Subject
+     * @param string $body    Email Text
+     * @param string $cc
      *
      * @return bool mail sent status
      */
@@ -2727,7 +2697,7 @@ class RO extends \Ease\Sand
     {
         $this->setPostFields($body);
         $this->performRequest(
-            rawurlencode((string) $this->getRecordIdent()).'/odeslani-dokladu?to='.$to.'&subject='.urlencode($subject).($cc ?? '&cc='.$cc) ,
+            rawurlencode((string) $this->getRecordIdent()).'/odeslani-dokladu?to='.$to.'&subject='.urlencode($subject).($cc ?? '&cc='.$cc),
             'PUT',
             'xml',
         );
@@ -2886,8 +2856,6 @@ class RO extends \Ease\Sand
      * Get Current Evidence reports listing.
      *
      * @see https://www.abraflexi.eu/api/dokumentace/casto-kladene-dotazy-pro-api/vyber-reportu-do-pdf/ Výběr reportu do PDF
-     *
-     * @return array
      */
     public function getReportsInfo(): array
     {

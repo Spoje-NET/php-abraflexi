@@ -11,5 +11,6 @@ mv Relations.php ../src/AbraFlexi/Relations.php
 php -qf update_formats_class.php 
 mv Formats.php ../src/AbraFlexi/Formats.php
 mv -f Actions.json  EvidenceFullList.json  EvidenceList.json  Formats.json  Properties*.json  Relations.json  ../static/
+git add ../static
 echo git commit ../src ../static -m \"Update for AbraFlexi ${CURRENT}\"
 echo git commit ./src ./static -m \"Update for AbraFlexi ${CURRENT}\"

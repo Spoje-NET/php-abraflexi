@@ -24,8 +24,6 @@ class Root extends RW
      * Update HTTPS certificate.
      *
      * @param string $pem
-     *
-     * @return bool
      */
     public function uploadCertificate($pem): bool
     {

@@ -29,7 +29,7 @@ function getEvidenceRelations($evidence, RO $syncer)
     }
 
     $flexinfo = $syncer->performRequest($evidence . '/relations.json');
-    if (count($flexinfo) && array_key_exists('relations', $flexinfo)) {
+    if ($flexinfo && count($flexinfo) && array_key_exists('relations', $flexinfo)) {
 
         if (array_key_exists('relations', $flexinfo)) {
             foreach ($flexinfo['relations'] as $evidenceRelations) {

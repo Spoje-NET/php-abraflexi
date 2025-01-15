@@ -6,12 +6,12 @@
 override_dh_auto_test:
 	echo tests temporarly skipped for now in rules file
 
-override_dh_prep:
-	composer install --no-dev
-	cd tools; ./update_all.sh ; cd ..
-	phpdoc -d src
-	mkdir -p docs ; mv .phpdoc/build/* docs
-	dh_prep
+#override_dh_prep:
+#	composer install --no-dev
+#	cd tools; ./update_all.sh ; cd ..
+#	phpdoc run -d src
+#	mkdir -p docs ; mv .phpdoc/build/* docs
+#	dh_prep
 
 #override_dh_auto_test:
 #	composer update --no-ansi --no-interaction --no-progress --no-scripts --optimize-autoloader

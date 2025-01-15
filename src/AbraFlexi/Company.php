@@ -108,8 +108,6 @@ class Company extends RW
 
     /**
      * Vrací název evidence použité v odpovědích z AbraFlexi.
-     *
-     * @return string
      */
     public function getResponseEvidence(): string
     {
@@ -220,8 +218,6 @@ class Company extends RW
      * Create new company.
      *
      * @param string $name
-     *
-     * @return bool
      */
     public function createNew($name): bool
     {

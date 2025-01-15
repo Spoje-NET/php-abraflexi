@@ -52,8 +52,6 @@ class Relation
 
     /**
      * Render value as string.
-     *
-     * @return string
      */
     public function __toString(): string
     {

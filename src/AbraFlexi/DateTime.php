@@ -58,8 +58,6 @@ class DateTime extends \DateTime
 
     /**
      * Render Object as AbraFlexi::$DateTimeFormat.
-     *
-     * @return string
      */
     public function __toString(): string
     {
