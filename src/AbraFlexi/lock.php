@@ -21,29 +21,54 @@ namespace AbraFlexi;
  */
 trait lock
 {
+    /**
+     * Check if record is locked.
+     *
+     * @throws \InvalidArgumentException if zamekK is not set
+     */
     public function locked(): bool
     {
         $lockValue = $this->getDataValue('zamekK');
-        if(is_null($lockValue)){
-            throw new \InvalidArgumentException('unset zamekK',1);
+
+        if (null === $lockValue) {
+            throw new \InvalidArgumentException('unset zamekK', 1);
         }
-        return $lockValue === 'zamek.otevreno';
+
+        return $lockValue !== 'zamek.otevreno';
     }
 
+    /**
+     * Get lock type. Value of zamekK without "zamek."
+     * Most common values are "otevreno" and "uzamceno".
+     *
+     * @throws \InvalidArgumentException if zamekK is not set
+     */
     public function getLockType(): string
     {
         $lockValue = $this->getDataValue('zamekK');
-        if(is_null($lockValue)){
-            throw new \InvalidArgumentException('unset zamekK',1);
+
+        if (null === $lockValue) {
+            throw new \InvalidArgumentException('unset zamekK', 1);
         }
+
         return str_replace('zamek.', '', $lockValue);
     }
 
+    /**
+     * Locks the current record.
+     *
+     * @return bool true on success, false on failure
+     */
     public function lock(): bool
     {
-        return $this->performAction('unlock');
+        return $this->performAction('lock');
     }
 
+    /**
+     * Unlocks the current record.
+     *
+     * @return bool true on success, false on failure
+     */
     public function unlock(): bool
     {
         return $this->performAction('unlock');
