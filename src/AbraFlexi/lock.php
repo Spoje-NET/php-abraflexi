@@ -23,12 +23,20 @@ trait lock
 {
     public function locked(): bool
     {
-        return $this->getDataValue('zamekK') === 'zamek.otevreno';
+        $lockValue = $this->getDataValue('zamekK');
+        if(is_null($lockValue)){
+            throw new \InvalidArgumentException('unset zamekK',1);
+        }
+        return $lockValue === 'zamek.otevreno';
     }
 
     public function getLockType(): string
     {
-        return str_replace('zamek.', '', (string) $this->getDataValue('zamekK'));
+        $lockValue = $this->getDataValue('zamekK');
+        if(is_null($lockValue)){
+            throw new \InvalidArgumentException('unset zamekK',1);
+        }
+        return str_replace('zamek.', '', $lockValue);
     }
 
     public function lock(): bool
