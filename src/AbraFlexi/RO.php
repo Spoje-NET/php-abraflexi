@@ -501,9 +501,7 @@ class RO extends \Ease\Sand
 
         $this->setupProperty($options, 'filter');
 
-        if (\array_key_exists('offline', $options)) {
-            $this->offline = (bool) $options['offline'];
-        }
+        $this->setupBoolProperty($options, 'offline');
 
         if (\array_key_exists('ignore404', $options)) {
             $this->ignore404($options['ignore404']);
@@ -511,7 +509,7 @@ class RO extends \Ease\Sand
 
         $this->setupProperty($options, 'throwException', 'ABRAFLEXI_EXCEPTIONS');
         $this->setupBoolProperty($options, 'debug');
-        $this->setupProperty($options, 'autoload');
+        $this->setupBoolProperty($options, 'autoload');
 
         if (isset($options['evidence'])) {
             $this->setEvidence($options['evidence']);
