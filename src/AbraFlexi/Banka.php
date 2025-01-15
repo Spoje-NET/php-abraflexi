@@ -2,18 +2,18 @@
 
 /**
  * AbraFlexi - Bank Class.
- *              Objekt Banky.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  (C) 2015-2024 Spoje.Net
+ * @copyright  (C) 2015-2025 Spoje.Net
  */
 
 declare(strict_types=1);
 
 /**
- * This file is part of the EaseCore package.
+ * This file is part of the SpojeNet\AbraFlexi package.
  *
- * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ * (c) 2019-2024 SpojeNet s.r.o. <http://spoje.net/>
+ * (c) 2025 SpojeNetIT s.r.o. <http://spojenet.cz/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -35,6 +35,7 @@ class Banka extends RW implements \AbraFlexi\Document
     use getChanges;
     use sum;
     use kod;
+    use lock;
 
     /**
      * Evidence užitá objektem.

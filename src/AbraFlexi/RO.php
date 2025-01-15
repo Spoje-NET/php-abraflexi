@@ -3,9 +3,10 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the EaseCore package.
+ * This file is part of the SpojeNet\AbraFlexi package.
  *
- * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ * (c) 2019-2024 SpojeNet s.r.o. <http://spoje.net/>
+ * (c) 2025 SpojeNetIT s.r.o. <http://spojenet.cz/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -254,7 +255,7 @@ class RO extends \Ease\Sand
         'no-ext-ids' => ['type' => 'boolean', 'description' => 'The answer will not contain external identifiers (performance optimization)'],
         'no-http-errors' => ['type' => 'boolean', 'description' => 'If a 4xx error occurs while processing a request, the server sends 200 OK anyway'],
         'no-ids' => ['type' => 'boolean', 'description' => 'The response will not contain any primary identifiers (performance optimization). It only affects the main records.'],
-        'only-ext-ids' => ['type' => 'boolean', 'description' => 'The primary key will not be exported, the <id> elements will only contain the external ID. Similar no-ids, but also affects subevidencies.'],
+        'only-ext-ids' => ['type' => 'boolean', 'description' => 'The primary key will not be exported, the <id> elements will only contain the external ID. Similar no-ids, but also affects subevidences.'],
         'order' => ['type' => 'string', 'description' => 'Sorting records', 'example' => 'nazev@A'],
         'relations' => ['type' => 'string', 'description' => 'Adding session data (see detail levels) A session overview can be obtained for each record (/ relations).'],
         'report-lang' => ['type' => 'string', 'description' => 'The language in which to print the output when exporting to PDF',
@@ -352,7 +353,7 @@ class RO extends \Ease\Sand
     private array $reports = [];
 
     /**
-     * Columns Info for serveral evidencies.
+     * Columns Info for serveral evidences.
      */
     private array $columnsInfo = [];
 

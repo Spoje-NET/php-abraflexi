@@ -15,14 +15,14 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Strom Položek ceníku.
+ * Description of Zamek.
  *
- * @see https://demo.flexibee.eu/c/demo/strom-cenik/properties Vlastnosti evidence
+ * @author Vitex <info@vitexsoftware.cz>
  */
-class StromCenik extends RW
+class Zamek extends RW
 {
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
-    public ?string $evidence = 'strom-cenik';
+    public ?string $evidence = 'skladova-karta';
 }

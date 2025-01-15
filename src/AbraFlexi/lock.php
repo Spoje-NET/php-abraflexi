@@ -19,19 +19,25 @@ namespace AbraFlexi;
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-trait sum
+trait lock
 {
-    /**
-     * Vrací z AbraFlexi sumaci i podle podmínek.
-     *
-     * @param array $conditions pole podmínek nebo ID záznamu
-     *
-     * @return array
-     */
-    public function getSumFromAbraFlexi($conditions = [])
+    public function locked(): bool
     {
-        $flexiData = $this->getFlexiData('$sum', $conditions);
+        return $this->getDataValue('zamekK') === 'zamek.otevreno';
+    }
 
-        return empty($flexiData) ? null : $flexiData['sum'];
+    public function getLockType(): string
+    {
+        return str_replace('zamek.', '', (string) $this->getDataValue('zamekK'));
+    }
+
+    public function lock(): bool
+    {
+        return $this->performAction('unlock');
+    }
+
+    public function unlock(): bool
+    {
+        return $this->performAction('unlock');
     }
 }

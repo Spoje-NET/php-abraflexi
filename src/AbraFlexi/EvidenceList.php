@@ -3,9 +3,10 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the EaseCore package.
+ * This file is part of the SpojeNet\AbraFlexi package.
  *
- * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ * (c) 2019-2024 SpojeNet s.r.o. <http://spoje.net/>
+ * (c) 2025 SpojeNetIT s.r.o. <http://spojenet.cz/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,7 +15,7 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Evidencies listing and its properties
+ * evidences listing and its properties
  * Seznam Evidencí a jejich vlastnosti.
  *
  * @see https://demo.flexibee.eu/c/demo/evidence-list Přehled evidencí
