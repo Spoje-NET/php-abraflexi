@@ -510,7 +510,7 @@ class RO extends \Ease\Sand
         }
 
         $this->setupProperty($options, 'throwException', 'ABRAFLEXI_EXCEPTIONS');
-        $this->setupProperty($options, 'debug');
+        $this->setupBoolProperty($options, 'debug');
         $this->setupProperty($options, 'autoload');
 
         if (isset($options['evidence'])) {
