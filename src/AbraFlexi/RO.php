@@ -507,7 +507,7 @@ class RO extends \Ease\Sand
             $this->ignore404($options['ignore404']);
         }
 
-        $this->setupProperty($options, 'throwException', 'ABRAFLEXI_EXCEPTIONS');
+        $this->setupBoolProperty($options, 'throwException', 'ABRAFLEXI_EXCEPTIONS');
         $this->setupBoolProperty($options, 'debug');
         $this->setupBoolProperty($options, 'autoload');
 
