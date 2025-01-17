@@ -1,8 +1,9 @@
-php-spojenet-abraflexi (3.4.0) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.4.0.273~noble) UNRELEASED; urgency=medium
 
   * (un)locking trait added
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-273
 
- -- vitex <info@vitexsoftware.cz>  Thu, 16 Jan 2025 00:58:33 +0100
+ -- vitex <jenkins@vyvojar.spoje.net>  Thu, 16 Jan 2025 00:44:37 +0000
 
 php-spojenet-abraflexi (3.3.2) experimental; urgency=medium
 
