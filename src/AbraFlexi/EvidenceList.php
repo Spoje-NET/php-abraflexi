@@ -38,7 +38,7 @@ class EvidenceList extends RO
     /**
      * Source FlexiBee server version.
      */
-    public static string $version = '2025.2.0';
+    public static string $version = '2025.2.3';
 
     /**
      * Evidences Path/Name listing.
@@ -94,6 +94,7 @@ class EvidenceList extends RO
         'certifikat-finbricks' => 'Klíče Finbricks',
         'konst-symbol' => 'Konstantní symboly',
         'kontakt' => 'Kontakty',
+        'region' => 'Kraj',
         'intrastat-kraj-urceni' => 'Kraje určení',
         'kurz' => 'Kurzy',
         'intrastat-kurz' => 'Kurzy pro Intrastat',
@@ -164,7 +165,6 @@ class EvidenceList extends RO
         'prikaz-k-uhrade' => 'Příkaz k úhradě',
         'priloha' => 'Příloha',
         'prislustenstvi' => 'Příslušenství',
-        'region' => 'Region',
         'rezervace' => 'Rezervace',
         'rocni-rada' => 'Roční položky dokladové řady',
         'sady-a-komplety' => 'Sady',
@@ -1754,6 +1754,18 @@ class EvidenceList extends RO
             'dbName' => 'dKonSym',
             'evidenceFilter' => 'PlatiOd <= 2025 AND PlatiDo >= 2025',
         ],
+        'region' => [
+            'evidenceName' => 'Kraj',
+            'evidencePath' => 'region',
+            'importStatus' => 'NOT_DOCUMENTED',
+            'formCode' => 'cisRegion',
+            'evidenceType' => 'REGION',
+            'beanKey' => 'cz.winstrom.vo.adr.Region',
+            'className' => 'cz.winstrom.vo.adr.Region',
+            'extIdSupported' => 'false',
+            'dbName' => 'aRegion',
+            'evidenceFilter' => 'PlatiOd <= 2025 AND PlatiDo >= 2025',
+        ],
         'intrastat-kraj-urceni' => [
             'evidenceName' => 'Kraje určení',
             'evidencePath' => 'intrastat-kraj-urceni',
@@ -2257,18 +2269,6 @@ class EvidenceList extends RO
             'extIdSupported' => 'false',
             'dbName' => 'dPrikazUhr',
             'evidenceFilter' => 'TypPrikazK = \'typPrikazu.prikaz\'',
-        ],
-        'region' => [
-            'evidenceName' => 'Region',
-            'evidencePath' => 'region',
-            'importStatus' => 'NOT_DOCUMENTED',
-            'formCode' => 'cisRegion',
-            'evidenceType' => 'REGION',
-            'beanKey' => 'cz.winstrom.vo.adr.Region',
-            'className' => 'cz.winstrom.vo.adr.Region',
-            'extIdSupported' => 'false',
-            'dbName' => 'aRegion',
-            'evidenceFilter' => 'PlatiOd <= 2025 AND PlatiDo >= 2025',
         ],
         'bankovni-ucet' => [
             'evidenceName' => 'Seznam bankovních účtů',

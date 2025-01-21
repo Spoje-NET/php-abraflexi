@@ -24,7 +24,7 @@ class Actions
     /**
      * Source AbraFlexi server version.
      */
-    public static string $version = '2025.2.0';
+    public static string $version = '2025.2.3';
 
     /**
      * Evidence adresar (Adresy firem) Actions.
@@ -2056,6 +2056,46 @@ class Actions
      * @var array<string, array<string, string>>
      */
     public static array $kontakt = [
+        'new' => [
+            'actionId' => 'new',
+            'actionName' => 'Přidat',
+            'needInstance' => 'false',
+            'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+            'isRealAction' => 'false',
+            'isService' => 'NO',
+        ],
+        'copy' => [
+            'actionId' => 'copy',
+            'actionName' => 'Vytvořit kopii',
+            'needInstance' => 'true',
+            'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+            'isRealAction' => 'false',
+            'isService' => 'ON_MOBILE',
+        ],
+        'edit' => [
+            'actionId' => 'edit',
+            'actionName' => 'Změnit',
+            'needInstance' => 'true',
+            'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+            'isRealAction' => 'false',
+            'isService' => 'NO',
+        ],
+        'delete' => [
+            'actionId' => 'delete',
+            'actionName' => 'Smazat',
+            'needInstance' => 'true',
+            'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+            'isRealAction' => 'false',
+            'isService' => 'NO',
+        ],
+    ];
+
+    /**
+     * Evidence region (Kraj) Actions.
+     *
+     * @var array<string, array<string, string>>
+     */
+    public static array $region = [
         'new' => [
             'actionId' => 'new',
             'actionName' => 'Přidat',
@@ -5336,46 +5376,6 @@ class Actions
      * @var array<string, array<string, string>>
      */
     public static array $prislustenstvi = [
-        'new' => [
-            'actionId' => 'new',
-            'actionName' => 'Přidat',
-            'needInstance' => 'false',
-            'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
-            'isRealAction' => 'false',
-            'isService' => 'NO',
-        ],
-        'copy' => [
-            'actionId' => 'copy',
-            'actionName' => 'Vytvořit kopii',
-            'needInstance' => 'true',
-            'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-            'isRealAction' => 'false',
-            'isService' => 'ON_MOBILE',
-        ],
-        'edit' => [
-            'actionId' => 'edit',
-            'actionName' => 'Změnit',
-            'needInstance' => 'true',
-            'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-            'isRealAction' => 'false',
-            'isService' => 'NO',
-        ],
-        'delete' => [
-            'actionId' => 'delete',
-            'actionName' => 'Smazat',
-            'needInstance' => 'true',
-            'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-            'isRealAction' => 'false',
-            'isService' => 'NO',
-        ],
-    ];
-
-    /**
-     * Evidence region (Region) Actions.
-     *
-     * @var array<string, array<string, string>>
-     */
-    public static array $region = [
         'new' => [
             'actionId' => 'new',
             'actionName' => 'Přidat',

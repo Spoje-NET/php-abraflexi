@@ -24,7 +24,7 @@ class Relations
     /**
      * Source FlexiBee server version.
      */
-    public static string $version = '2025.2.0';
+    public static string $version = '2025.2.3';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
@@ -837,6 +837,17 @@ class Relations
             'evidenceType' => 'ADR_UDALOST',
             'name' => 'Události',
         ],
+        'uzivatelske-vazby' => [
+            'url' => 'uzivatelske-vazby',
+            'evidenceType' => 'VAZBA',
+            'name' => 'Uživatelské vazby',
+        ],
+    ];
+
+    /**
+     * Evidence region (Kraj) Relations.
+     */
+    public static array $region = [
         'uzivatelske-vazby' => [
             'url' => 'uzivatelske-vazby',
             'evidenceType' => 'VAZBA',
@@ -1870,17 +1881,6 @@ class Relations
      * Evidence prislustenstvi (Příslušenství) Relations.
      */
     public static array $prislustenstvi = [
-        'uzivatelske-vazby' => [
-            'url' => 'uzivatelske-vazby',
-            'evidenceType' => 'VAZBA',
-            'name' => 'Uživatelské vazby',
-        ],
-    ];
-
-    /**
-     * Evidence region (Region) Relations.
-     */
-    public static array $region = [
         'uzivatelske-vazby' => [
             'url' => 'uzivatelske-vazby',
             'evidenceType' => 'VAZBA',

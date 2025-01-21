@@ -24,7 +24,7 @@ class Formats
     /**
      * Source FlexiBee server version.
      */
-    public static string $version = '2025.2.0';
+    public static string $version = '2025.2.3';
 
     /**
      * Availble Formats.
@@ -629,6 +629,16 @@ class Formats
      * Evidence kontakt (Kontakty) Formats.
      */
     public static array $kontakt = [
+        'HTML' => 'html',
+        'XML' => 'xml',
+        'JSON' => 'json',
+        'CSV' => 'csv',
+    ];
+
+    /**
+     * Evidence region (Kraj) Formats.
+     */
+    public static array $region = [
         'HTML' => 'html',
         'XML' => 'xml',
         'JSON' => 'json',
@@ -1329,16 +1339,6 @@ class Formats
      * Evidence prislustenstvi (Příslušenství) Formats.
      */
     public static array $prislustenstvi = [
-        'HTML' => 'html',
-        'XML' => 'xml',
-        'JSON' => 'json',
-        'CSV' => 'csv',
-    ];
-
-    /**
-     * Evidence region (Region) Formats.
-     */
-    public static array $region = [
         'HTML' => 'html',
         'XML' => 'xml',
         'JSON' => 'json',
