@@ -24,7 +24,7 @@ class Actions
     /**
      * Source AbraFlexi server version.
      */
-    public static string $version = '2025.2.3';
+    public static string $version = '2025.3.2';
 
     /**
      * Evidence adresar (Adresy firem) Actions.
