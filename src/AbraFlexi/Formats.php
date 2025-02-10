@@ -24,7 +24,7 @@ class Formats
     /**
      * Source FlexiBee server version.
      */
-    public static string $version = '2025.3.3';
+    public static string $version = '2025.3.4';
 
     /**
      * Availble Formats.
