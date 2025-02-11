@@ -1,4 +1,4 @@
-php-spojenet-abraflexi (3.4.0.273~noble.274~trixie.275~trixie.276~trixie.277~trixie) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.4.0.273~noble.274~trixie.275~trixie.276~trixie.277~trixie.278~trixie) UNRELEASED; urgency=medium
 
   * (un)locking trait added
   * jenkins-Spoje.Net-php-spojenet-abraflexi-273
@@ -6,8 +6,9 @@ php-spojenet-abraflexi (3.4.0.273~noble.274~trixie.275~trixie.276~trixie.277~tri
   * jenkins-Spoje.Net-php-spojenet-abraflexi-275
   * jenkins-Spoje.Net-php-spojenet-abraflexi-276
   * jenkins-Spoje.Net-php-spojenet-abraflexi-277
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-278
 
- -- vitex <jenkins@vyvojar.spoje.net>  Wed, 05 Feb 2025 18:53:51 +0000
+ -- vitex <jenkins@vyvojar.spoje.net>  Mon, 10 Feb 2025 11:53:49 +0000
 
 php-spojenet-abraflexi (3.3.2) experimental; urgency=medium
 
