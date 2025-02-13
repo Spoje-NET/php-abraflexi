@@ -1298,7 +1298,14 @@ class RO extends \Ease\Sand
 
                 // no break
             case 401:
-                $msg = (\array_key_exists('message', $responseDecoded) ? $responseDecoded['message'] : $responseDecoded[key($responseDecoded)]['message']).' for '.$this->getApiURL();
+                if (\array_key_exists('message', $responseDecoded)) {
+                    $msg = $responseDecoded['message'];
+                } elseif (isset($responseDecoded[key($responseDecoded)]['message'])) {
+                    $msg = $responseDecoded[key($responseDecoded)]['message'];
+                } else {
+                    $msg = sprintf("Unexpected response data [%s]: %s", $responseCode, json_encode($responseDecoded));
+                }
+                $msg .= ' for '.$this->getApiURL();
                 $this->addStatusMessage($msg, 'error');
 
                 if ($this->throwException) {
