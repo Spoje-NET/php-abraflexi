@@ -24,7 +24,7 @@ class Relations
     /**
      * Source FlexiBee server version.
      */
-    public static string $version = '2025.3.5';
+    public static string $version = '2025.3.6';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
