@@ -1899,6 +1899,31 @@ class RO extends \Ease\Sand
     }
 
     /**
+     * Get Summary.
+     *
+     * @param array<string>        $fields     with summary ability
+     * @param array<string|string> $conditions
+     *
+     * @throws \InvalidArgumentException - when requested field does not support summmarization
+     *
+     * @return array
+     */
+    public function getSumsFromAbraFlexi(
+        array $fields,
+        array $conditions = [],
+    ) {
+        foreach ($fields as $field) {
+            if ($this->getColumnInfo($field)['inSummary'] === 'false') {
+                throw new \InvalidArgumentException(_('Column %s do not support summarization'));
+            }
+        }
+
+        $conditions['fields'] = implode(',', array_unique($fields));
+
+        return $this->getFlexiData('$sum', $conditions);
+    }
+
+    /**
      * Vrací z AbraFlexi sloupečky podle podmínek.
      *
      * @param string|string[] $columnsList seznam položek nebo úrověň detailu: id|summary|full
