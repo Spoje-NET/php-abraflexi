@@ -1,5 +1,12 @@
-php-spojenet-abraflexi (3.4.0.273~noble.274~trixie.275~trixie.276~trixie.277~trixie.278~trixie.280~trixie) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.5.0) UNRELEASED; urgency=medium
 
+  * new method RO::getSumsFromAbraFlexi()
+
+ -- Vitex <vitezslav.dvorak@spojenet.cz>  Thu, 27 Feb 2025 21:44:52 +0100
+
+php-spojenet-abraflexi (3.4.0.273) experimental; urgency=medium
+
+  [ vitex ]
   * (un)locking trait added
   * jenkins-Spoje.Net-php-spojenet-abraflexi-273
   * jenkins-Spoje.Net-php-spojenet-abraflexi-274
@@ -9,7 +16,7 @@ php-spojenet-abraflexi (3.4.0.273~noble.274~trixie.275~trixie.276~trixie.277~tri
   * jenkins-Spoje.Net-php-spojenet-abraflexi-278
   * jenkins-Spoje.Net-php-spojenet-abraflexi-280
 
- -- vitex <jenkins@vyvojar.spoje.net>  Thu, 13 Feb 2025 10:02:43 +0000
+ -- Vitex <vitezslav.dvorak@spojenet.cz>  Thu, 27 Feb 2025 21:44:05 +0100
 
 php-spojenet-abraflexi (3.3.2) experimental; urgency=medium
 
