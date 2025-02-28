@@ -1,8 +1,9 @@
-php-spojenet-abraflexi (3.5.0) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.5.0.283~trixie) UNRELEASED; urgency=medium
 
   * new method RO::getSumsFromAbraFlexi()
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-283
 
- -- Vitex <vitezslav.dvorak@spojenet.cz>  Thu, 27 Feb 2025 21:44:52 +0100
+ -- Vitex <jenkins@vyvojar.spoje.net>  Thu, 27 Feb 2025 20:51:32 +0000
 
 php-spojenet-abraflexi (3.4.0.273) experimental; urgency=medium
 
