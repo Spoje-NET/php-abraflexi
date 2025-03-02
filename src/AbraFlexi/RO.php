@@ -1298,7 +1298,9 @@ class RO extends \Ease\Sand
 
                 // no break
             case 401:
-                if (\array_key_exists('message', $responseDecoded)) {
+                if (is_string($responseDecoded)){
+                    $msg = $responseDecoded;
+                } elseif (\array_key_exists('message', $responseDecoded)) {
                     $msg = $responseDecoded['message'];
                 } elseif (isset($responseDecoded[key($responseDecoded)]['message'])) {
                     $msg = $responseDecoded[key($responseDecoded)]['message'];
