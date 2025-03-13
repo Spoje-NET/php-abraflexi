@@ -87,7 +87,7 @@ class Hooks extends RW
      *
      * @return bool Unsupported evidence
      */
-    public function recordExists($data = null)
+    public function recordExists($data): bool
     {
         return false;
     }
