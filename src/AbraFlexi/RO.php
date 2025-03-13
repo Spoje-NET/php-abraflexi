@@ -1206,7 +1206,11 @@ class RO extends \Ease\Sand
 
         if ($decodeError === 'No error') {
             if (\array_key_exists($this->nameSpace, $responseDecoded)) {
-                $responseDecoded = $this->nativeTypes ? $this->fixResponseTypes($responseDecoded[$this->nameSpace]) : $responseDecoded[$this->nameSpace];
+                if (is_array($responseDecoded[$this->nameSpace])) {
+                    $responseDecoded = $this->nativeTypes ? $this->fixResponseTypes($responseDecoded[$this->nameSpace]) : $responseDecoded[$this->nameSpace];
+                } else {
+                    $responseDecoded = $responseDecoded[$this->nameSpace];
+                }
             }
         } else {
             if ($this->throwException === true) {
