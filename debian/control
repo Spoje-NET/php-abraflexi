@@ -1,5 +1,5 @@
 Source: php-spojenet-abraflexi
-Build-Depends: debhelper (>= 7.0.50~), composer, moreutils, jq, phpdocumentor, php-mbstring, php-curl, php-intl, php-codesniffer
+Build-Depends: debhelper (>= 7.0.50~), composer, moreutils, jq, phpdocumentor, php-mbstring, php-curl, php-intl
 Standards-Version: 3.9.8
 Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
 Uploaders: Vitex <vitex@hippy.cz>
