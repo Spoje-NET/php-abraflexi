@@ -289,7 +289,7 @@ class RW extends RO
     /**
      * Control for existing column names in evidence and take data.
      *
-     * @param array<string, string> $data Data to keep
+     * @param array<string, mixed> $data Data to keep
      *
      * @return int number of records taken
      */
