@@ -24,7 +24,7 @@ class Formats
     /**
      * Source FlexiBee server version.
      */
-    public static string $version = '2025.3.9';
+    public static string $version = '2025.4.0';
 
     /**
      * Availble Formats.
@@ -158,7 +158,6 @@ class Formats
         'JSON' => 'json',
         'CSV' => 'csv',
         'DBF' => 'dbf',
-        'XLS' => 'xls',
         'ISDOC' => 'isdoc',
         'ISDOCx' => 'isdocx',
         'PDF' => 'pdf',
