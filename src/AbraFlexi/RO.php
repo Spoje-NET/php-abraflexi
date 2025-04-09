@@ -1814,35 +1814,6 @@ class RO extends \Ease\Sand
     }
 
     /**
-     * Test if given record ID exists in AbraFlexi.
-     *
-     * @deprecated since version 2.25 - use recordExists() instead
-     *
-     * @param mixed $identifer presence state
-     *
-     * @return bool
-     */
-    public function idExists($identifer = null)
-    {
-        if (null === $identifer) {
-            $identifer = $this->getMyKey();
-        }
-
-        $ignorestate = $this->ignore404();
-        $this->ignore404(true);
-        $cands = $this->getFlexiData(
-            '',
-            [
-                'detail' => 'custom:'.$this->getKeyColumn(),
-                $this->getKeyColumn() => $identifer,
-            ],
-        );
-        $this->ignore404($ignorestate);
-
-        return ($this->lastResponseCode === 200) && !empty($cands);
-    }
-
-    /**
      * Test if given record exists in AbraFlexi.
      *
      * @param array|int|string $data ext:id:23|code:ITEM|['id'=>23]|23
