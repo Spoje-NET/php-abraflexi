@@ -235,8 +235,7 @@ class RO extends \Ease\Sand
         'authSessionId' => ['type' => 'string', 'description' => 'Authentification Session ID'],
         'code-as-id' => ['type' => 'boolean', 'description' => 'If an object has unique code, it is also exported (except for the <code> element) as <id> code: ... </id>'],
         'code-in-response' => ['type' => 'boolean', 'description' => 'The response will contain not only ID and URL for each object, but also code.'],
-        'delimeter' => ['type' => 'string', 'description' => 'Specifies the input / output file separator in CSV format.',
-            'example' => ';'],
+        'delimeter' => ['type' => 'string', 'description' => 'Specifies the input / output file separator in CSV format.', 'example' => ';'],
         'detail' => ['type' => 'string', 'description' => 'Definition of the level of detail'], // See: https://www.abraflexi.eu/api/dokumentace/ref/detail-levels
         'dir' => ['type' => 'string', 'description' => 'Sorting direction.', 'example' => 'desc'],
         'dry-run' => ['type' => 'boolean', 'description' => 'Test run (dry-run)'], // See: https://www.abraflexi.eu/api/dokumentace/ref/dry-run/
@@ -244,14 +243,13 @@ class RO extends \Ease\Sand
         'export-settings' => ['type' => 'boolean', 'description' => 'Export one extra entry with current settings at the beginning'],
         'fail-on-warning' => ['type' => 'boolean', 'description' => 'If a warning occurs, do not save a record (Data Validation)'],
         'filter' => ['type' => 'string', 'description' => 'filter results by this param'],
+        'fields' => ['type' => 'string', 'description' => 'sumation field list'],
         'format' => ['type' => 'string', 'description' => 'One of the compiled XSL transforms will be applied to the output XML.'],
         'idUcetniObdobi' => ['type' => 'string', 'description' => ''], // See: https://www.abraflexi.eu/api/dokumentace/ref/stavy-uctu/
-        'includes' => ['type' => 'string', 'description' => 'Include related detail level object ',
-            'example' => 'faktura-vydana/stredisko'],
+        'includes' => ['type' => 'string', 'description' => 'Include related detail level object ', 'example' => 'faktura-vydana/stredisko'],
         'inDesktopApp' => ['type' => 'boolean', 'description' => 'Hide menu and navigation in html format'], // Note: Undocumented function (html only)
         'limit' => ['type' => 'integer', 'description' => 'number of requested results'],
-        'mode' => ['type' => 'string', 'description' => 'Support for RubyOnRails',
-            'example' => 'ruby'],
+        'mode' => ['type' => 'string', 'description' => 'Support for RubyOnRails', 'example' => 'ruby'],
         'no-ext-ids' => ['type' => 'boolean', 'description' => 'The answer will not contain external identifiers (performance optimization)'],
         'no-http-errors' => ['type' => 'boolean', 'description' => 'If a 4xx error occurs while processing a request, the server sends 200 OK anyway'],
         'no-ids' => ['type' => 'boolean', 'description' => 'The response will not contain any primary identifiers (performance optimization). It only affects the main records.'],

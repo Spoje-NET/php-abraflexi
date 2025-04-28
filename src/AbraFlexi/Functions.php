@@ -207,10 +207,13 @@ class Functions
                                     break;
 
                                 default:
-                                    if ($column === 'stitky') {
-                                        $parts[$column] = $column."='".self::code($data[$column])."'";
-                                    } else {
-                                        $parts[$column] = $column." {$defop} '".$data[$column]."'";
+                                    switch ($column) {
+                                        case 'stitky':
+                                            $parts[$column] = $column."='".self::code($data[$column])."'";
+                                        break;
+                                        default:
+                                            $parts[$column] = $column." {$defop} '".$data[$column]."'";
+                                            break;
                                     }
 
                                     break;
