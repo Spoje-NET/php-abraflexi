@@ -391,8 +391,8 @@ Příklady použití:
 Reference:
 ----------
 
-  * [Import dat z FAPI do AbraFlexi](https://abraflexi.info/fapi2abraflexi/)  - blahasoft.cz
-  * [Import dat z iDokladu do AbraFlexi](https://abraflexi.info/idoklad2abraflexi/) - blahasoft.cz
+  * [Import dat z FAPI do AbraFlexi](https://flexibee.info/fapi2abraflexi/)  - blahasoft.cz
+  * [Import dat z iDokladu do AbraFlexi](https://flexibee.info/idoklad2abraflexi/) - blahasoft.cz
 
 AbraFlexi knihovny pro další jazky:
 ----------------------------------
