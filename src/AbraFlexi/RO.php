@@ -1886,7 +1886,7 @@ class RO extends \Ease\Sand
     public function getSumsFromAbraFlexi(
         array $fields,
         array $conditions = [],
-    ) {
+    ): array {
         foreach ($fields as $field) {
             if ($this->getColumnInfo($field)['inSummary'] === 'false') {
                 throw new \InvalidArgumentException(_('Column %s do not support summarization'));
@@ -1895,7 +1895,9 @@ class RO extends \Ease\Sand
 
         $conditions['fields'] = implode(',', array_unique($fields));
 
-        return $this->getFlexiData('$sum', $conditions);
+        $summaryRaw = $this->getFlexiData('$sum', $conditions);
+        
+        return array_key_exists('sum', $summaryRaw) ? $summaryRaw['sum'] : [];
     }
 
     /**
