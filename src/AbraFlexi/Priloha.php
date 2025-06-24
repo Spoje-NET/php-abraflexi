@@ -131,7 +131,7 @@ class Priloha extends RW
     public static function download(
         $object,
         $format = 'pdf',
-        $attachmentID = null
+        $attachmentID = null,
     ): void {
         $attachments = self::getAttachmentsList($object);
 
@@ -210,7 +210,7 @@ class Priloha extends RW
         $object,
         $filename,
         $attachment,
-        $contentType
+        $contentType,
     ) {
         $attached = new self(null, $object->getConnectionOptions());
         $attached->postFields = $attachment;

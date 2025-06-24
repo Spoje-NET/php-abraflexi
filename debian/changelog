@@ -1,5 +1,12 @@
-php-spojenet-abraflexi (3.5.2.295~noble.296~trixie) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.5.3) UNRELEASED; urgency=medium
 
+  * Refactor code style and improve consistency across multiple files
+
+ -- vitex <info@vitexsoftware.cz>  Tue, 24 Jun 2025 14:48:46 +0200
+
+php-spojenet-abraflexi (3.5.2.295~noble.296~trixie) experimental; urgency=medium
+
+  [ Vitex ]
   * new method RO::getSumsFromAbraFlexi()
   * jenkins-Spoje.Net-php-spojenet-abraflexi-283
   * jenkins-Spoje.Net-php-spojenet-abraflexi-284
@@ -8,7 +15,7 @@ php-spojenet-abraflexi (3.5.2.295~noble.296~trixie) UNRELEASED; urgency=medium
   * jenkins-Spoje.Net-php-spojenet-abraflexi-295
   * jenkins-Spoje.Net-php-spojenet-abraflexi-296
 
- -- Vitex <jenkins@vyvojar.spoje.net>  Thu, 17 Apr 2025 12:54:30 +0000
+ -- vitex <info@vitexsoftware.cz>  Tue, 24 Jun 2025 14:48:26 +0200
 
 php-spojenet-abraflexi (3.4.0.273) experimental; urgency=medium
 

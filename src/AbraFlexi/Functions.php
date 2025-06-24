@@ -210,9 +210,12 @@ class Functions
                                     switch ($column) {
                                         case 'stitky':
                                             $parts[$column] = $column."='".self::code($data[$column])."'";
-                                        break;
+
+                                            break;
+
                                         default:
                                             $parts[$column] = $column." {$defop} '".$data[$column]."'";
+
                                             break;
                                     }
 
@@ -402,13 +405,13 @@ class Functions
     public static function getOfflineColumnsInfo(string $evidence): ?array
     {
         $columnsInfo = null;
-        $infoSource = self::$infoDir.'/Properties.'.$evidence.'.json';
+        $infoSource = self::$infoDir.'/Properties.'.$evidence.'.php';
 
         if (file_exists($infoSource)) {
-            $columnsInfo = json_decode(file_get_contents($infoSource), true);
+            $columnsInfo = require $infoSource;
         }
 
-        if (property_exists('\AbraFlexi\Relations', $evidence)) {
+        if (property_exists('\\AbraFlexi\\Relations', $evidence)) {
             foreach (Relations::${$evidence} as $url => $properties) {
                 $properties['type'] = 'relations';
                 $columnsInfo[$url] = $properties;

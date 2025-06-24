@@ -36,7 +36,7 @@ class Pokladna extends RW
      * @see Relations
      *
      * @param array  $data         pole dat
-     * @param string $relationPath path evidence (relation) pro vkládaná data
+     * @param string $relationPath path evidence (relation) for inserted data
      * @param bool   $removeAll
      *
      * @return bool Operation success
@@ -44,7 +44,7 @@ class Pokladna extends RW
     public function addArrayToBranch(
         $data,
         $relationPath = 'polozkyIntDokladu',
-        $removeAll = false
+        $removeAll = false,
     ) {
         return parent::addArrayToBranch($data, $relationPath, $removeAll);
     }

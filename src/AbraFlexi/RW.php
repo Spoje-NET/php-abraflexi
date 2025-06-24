@@ -206,7 +206,7 @@ class RW extends RO
 
             if (\is_array($chainedExtid)) { // if there are more IDs
                 foreach ($chainedExtid as $extId) { // find external ID in format ext:.....
-                    if (stripos($extId, 'ext:') === 0) {
+                    if (str_starts_with(strtolower($extId), strtolower('ext:'))) {
                         $chainedExtid = $extId;
 
                         break;
@@ -432,7 +432,7 @@ class RW extends RO
     public function addArrayToBranch(
         $data,
         $relationPath = 'polozkyDokladu',
-        $removeAll = false
+        $removeAll = false,
     ) {
         $currentBranchData = $this->getDataValue($relationPath);
         $branchData = $currentBranchData;

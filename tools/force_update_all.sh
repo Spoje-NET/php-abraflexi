@@ -1,6 +1,6 @@
 #!/bin/sh
 mkdir -p ../static
-CURRENT=`php -qf current_version.php`
+CURRENT=$(php -qf current_version.php)
 php  -qf update_evidencelist_class.php
 mv -f EvidenceList.php ../src/AbraFlexi/EvidenceList.php
 php -qf update_properties_class.php 

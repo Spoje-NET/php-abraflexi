@@ -65,7 +65,7 @@ class Stitek extends RW
         $labels = null;
         $labelsRaw = $object->getDataValue('stitky');
 
-        if (\strlen($labelsRaw)) {
+        if (\is_string($labelsRaw) && \strlen($labelsRaw)) {
             $labels = \is_array($labelsRaw) ? $labelsRaw : self::listToArray($labelsRaw);
         }
 

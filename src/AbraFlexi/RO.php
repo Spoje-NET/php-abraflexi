@@ -685,7 +685,7 @@ class RO extends \Ease\Sand
                 // no break
             default:
                 if (\is_object($value)) {
-                    switch (\get_class($value)) {
+                    switch ($value::class) {
                         case 'DateTime':
                             $columnInfo = $this->getColumnInfo($columnName);
 
@@ -1038,7 +1038,7 @@ class RO extends \Ease\Sand
     public function performRequest(
         string $urlSuffix = '',
         string $method = 'GET',
-        $format = null
+        $format = null,
     ) {
         $this->rowCount = null;
         $this->responseStats = [];
@@ -1880,8 +1880,6 @@ class RO extends \Ease\Sand
      * @param array<string|string> $conditions
      *
      * @throws \InvalidArgumentException - when requested field does not support summmarization
-     *
-     * @return array
      */
     public function getSumsFromAbraFlexi(
         array $fields,
@@ -1896,8 +1894,8 @@ class RO extends \Ease\Sand
         $conditions['fields'] = implode(',', array_unique($fields));
 
         $summaryRaw = $this->getFlexiData('$sum', $conditions);
-        
-        return array_key_exists('sum', $summaryRaw) ? $summaryRaw['sum'] : [];
+
+        return \array_key_exists('sum', $summaryRaw) ? $summaryRaw['sum'] : [];
     }
 
     /**
@@ -1912,7 +1910,7 @@ class RO extends \Ease\Sand
     public function getColumnsFromAbraFlexi(
         $columnsList,
         $conditions = [],
-        $indexBy = null
+        $indexBy = null,
     ) {
         $detail = 'full';
 
@@ -2759,7 +2757,7 @@ class RO extends \Ease\Sand
         string $format,
         $reportName = null,
         $lang = null,
-        $sign = false
+        $sign = false,
     ) {
         $response = null;
         $formatBackup = $this->format;
@@ -2820,7 +2818,7 @@ class RO extends \Ease\Sand
         $destDir = './',
         $reportName = null,
         $lang = null,
-        $sign = false
+        $sign = false,
     ) {
         $downloadTo = $destDir.$this->getEvidence().'_'.str_replace(['/', ' ', ':'], '_', (string) $this->getRecordIdent()).'.'.$format;
         $downloaded = $this->getInFormat($format, $reportName, $lang, $sign);

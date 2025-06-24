@@ -185,7 +185,7 @@ class Company extends RW
         $name = null,
         $disableEet = false,
         $disableAutoSendMail = false,
-        $disableWebHooks = false
+        $disableWebHooks = false,
     ) {
         $options = [];
 
