@@ -1,8 +1,14 @@
-php-spojenet-abraflexi (3.5.3) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.5.4) UNRELEASED; urgency=medium
+
+  * better relations values
+
+ -- vitex <info@vitexsoftware.cz>  Thu, 26 Jun 2025 23:46:49 +0200
+
+php-spojenet-abraflexi (3.5.3) experimental; urgency=medium
 
   * Refactor code style and improve consistency across multiple files
 
- -- vitex <info@vitexsoftware.cz>  Tue, 24 Jun 2025 14:48:46 +0200
+ -- vitex <info@vitexsoftware.cz>  Thu, 26 Jun 2025 23:46:29 +0200
 
 php-spojenet-abraflexi (3.5.2.295~noble.296~trixie) experimental; urgency=medium
 

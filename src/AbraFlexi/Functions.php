@@ -405,10 +405,10 @@ class Functions
     public static function getOfflineColumnsInfo(string $evidence): ?array
     {
         $columnsInfo = null;
-        $infoSource = self::$infoDir.'/Properties.'.$evidence.'.php';
+        $infoSource = self::$infoDir.'/Properties.'.$evidence.'.json';
 
         if (file_exists($infoSource)) {
-            $columnsInfo = require $infoSource;
+            $columnsInfo = json_decode(file_get_contents($infoSource), true);
         }
 
         if (property_exists('\\AbraFlexi\\Relations', $evidence)) {

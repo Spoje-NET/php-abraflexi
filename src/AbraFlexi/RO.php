@@ -1144,7 +1144,7 @@ class RO extends \Ease\Sand
                             break;
                         case 'relation':
                             $record[$column] = new Relation(
-                                $value,
+                                \is_array($value) ? $value[0] : $value,
                                 \array_key_exists('fkEvidencePath', $columnInfo) && null !== $columnInfo['fkEvidencePath'] ? $columnInfo['fkEvidencePath'] : $column,
                                 \array_key_exists($column.'@ref', $record) ? $record[$column.'@ref'] : null,
                                 \array_key_exists($column.'@showAs', $record) ? $record[$column.'@showAs'] : null,
