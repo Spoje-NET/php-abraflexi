@@ -47,16 +47,22 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
      *
      * @see https://demo.flexibee.eu/devdoc/parovani-plateb Párování plateb
      *
-     * @param $doklad Banka|PokladniPohyb|InterniDoklad S jakým dokladem spárovat ?
-     * @param $zbytek string ne|zauctovat|ignorovat|castecnaUhrada|castecnaUhradaNeboZauctovat|castecnaUhradaNeboIgnorovat
+     * @param $doklad    Banka|PokladniPohyb|InterniDoklad S jakým dokladem spárovat ?
+     * @param $zbytek    string ne|zauctovat|ignorovat|castecnaUhrada|castecnaUhradaNeboZauctovat|castecnaUhradaNeboIgnorovat
+     * @param $overpayTo string  code of document type for overpayment - https://podpora.flexibee.eu/cs/articles/6091847-vytvoreni-preplatku-pomoci-rest-api
      *
      * @return bool success
      */
-    public function sparujPlatbu($doklad, $zbytek = 'ignorovat')
+    public function sparujPlatbu($doklad, $zbytek = 'ignorovat', string $overpayTo = '')
     {
         $sparovani = ['uhrazovanaFak' => $this];
         $sparovani['uhrazovanaFak@type'] = $this->evidence;
         $sparovani['zbytek'] = $zbytek;
+
+        if ($overpayTo){
+            $sparovani['preplatek']['typDokl'] = $overpayTo;
+        }
+
         $doklad->insertToAbraFlexi(['id' => $doklad, 'sparovani' => $sparovani]);
 
         return $doklad->lastResponseCode === 201;
