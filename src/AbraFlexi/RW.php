@@ -323,42 +323,9 @@ class RW extends RO
         return parent::takeData($data);
     }
 
-    /**
-     * Control data for mandatory columns presence.
-     *
-     * @deprecated since version 1.8.7
-     *
-     * @param array $data
-     *
-     * @return array List of missing columns. Empty if all is ok
-     */
-    public function controlMandatoryColumns($data = null)
-    {
-        if (null === $data) {
-            $data = $this->getData();
-        }
-
-        $missingMandatoryColumns = [];
-
-        if (!empty($data) && \count($data)) {
-            $fbColumns = $this->getColumnsInfo();
-
-            if (\count($fbColumns)) {
-                foreach ($fbColumns as $columnName => $columnInfo) {
-                    $mandatory = ($columnInfo['mandatory'] === 'true');
-
-                    if ($mandatory && !\array_key_exists($columnName, $data)) {
-                        $missingMandatoryColumns[$columnName] = $columnInfo['name'];
-                    }
-                }
-            }
-        }
-
-        return $missingMandatoryColumns;
-    }
 
     /**
-     * Control data for readonly columns presence.
+     * Control data for ReadOnly columns presence.
      *
      * @param array $data
      *
@@ -385,34 +352,6 @@ class RW extends RO
         }
 
         return $readonlyColumns;
-    }
-
-    /**
-     * Convert Timestamp to AbraFlexi Date format.
-     *
-     * @deprecated since version 2.19 - please use \AbraFlexi\Date() object instead
-     *
-     * @param int $timpestamp
-     *
-     * @return \AbraFlexi\Date or NULL
-     */
-    public static function timestampToFlexiDate($timpestamp = null)
-    {
-        return Date::timestampToFlexiDate($timpestamp);
-    }
-
-    /**
-     * Convert Timestamp to Flexi DateTime format.
-     *
-     * @deprecated since version 3.3 - please use \AbraFlexi\DateTime() object instead
-     *
-     * @param int $timpestamp
-     *
-     * @return string AbraFlexi DateTime or NULL
-     */
-    public static function timestampToFlexiDateTime($timpestamp = null)
-    {
-        return DateTime::timestampToFlexiDateTime($timpestamp);
     }
 
     /**

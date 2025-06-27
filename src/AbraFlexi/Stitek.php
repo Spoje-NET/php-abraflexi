@@ -52,27 +52,6 @@ class Stitek extends RW
     public ?string $evidence = 'stitek';
 
     /**
-     * Obtain labels for current record.
-     *
-     * @deprecated since version 1.21
-     *
-     * @param RO $object data source
-     *
-     * @return array labels
-     */
-    public static function getLabels($object)
-    {
-        $labels = null;
-        $labelsRaw = $object->getDataValue('stitky');
-
-        if (\is_string($labelsRaw) && \strlen($labelsRaw)) {
-            $labels = \is_array($labelsRaw) ? $labelsRaw : self::listToArray($labelsRaw);
-        }
-
-        return $labels;
-    }
-
-    /**
      * Convert coma-separated list to array.
      *
      * @param array|string $listRaw
@@ -125,46 +104,6 @@ class Stitek extends RW
         $object->setEvidence($evidenceBackup);
 
         return $labels;
-    }
-
-    /**
-     * Set Label for Current Object record.
-     *
-     * @deprecated since version 1.21
-     *
-     * @param string $label
-     * @param RW     $object
-     *
-     * @return bool success result ?
-     */
-    public static function setLabel($label, $object)
-    {
-        return (bool) $object->insertToAbraFlexi(['id' => $object->getMyKey(), 'stitky' => $label]);
-    }
-
-    /**
-     * UnSet Label for Current Object record.
-     *
-     * @deprecated since version 1.21
-     *
-     * @param string $label
-     * @param RW     $object
-     *
-     * @return bool success result ?
-     */
-    public static function unsetLabel($label, $object)
-    {
-        $result = true;
-        $labels = self::getLabels($object);
-
-        if (\array_key_exists($label, $labels)) {
-            unset($labels[$label]);
-            $object->insertToAbraFlexi(['id' => $object->getMyKey(), 'stitky@removeAll' => 'true',
-                'stitky' => $labels]);
-            $result = ($object->lastResponseCode === 201);
-        }
-
-        return $result;
     }
 
     /**

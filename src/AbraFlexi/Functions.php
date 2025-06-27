@@ -23,24 +23,8 @@ class Functions
 {
     /**
      * Where to get JSON files with evidence structure etc.
-     *
-     * @deprecated since version 3.3.0 - use Functions::$infoDir instead
      */
     public static string $infoDir = __DIR__.'/../../static';
-
-    /**
-     * Formating string for \DateTime::format() for datetime columns.
-     *
-     * @deprecated since version 2.17
-     */
-    public static string $DateTimeFormat = 'Y-m-d\TH:i:s.u+P';
-
-    /**
-     * Formating string for \DateTime::format() for date columns.
-     *
-     * @deprecated since version 2.17
-     */
-    public static string $DateFormat = 'Y-m-d';
 
     /**
      * convert unicode to entities for use with AbraFlexi queries.
@@ -238,7 +222,7 @@ class Functions
      */
     public static function dateToFlexiDate(\DateTime $date)
     {
-        return $date->format(self::$DateFormat);
+        return $date->format(Date::$format);
     }
 
     /**
@@ -246,7 +230,7 @@ class Functions
      */
     public static function dateToFlexiDateTime(\DateTime $dateTime)
     {
-        return $dateTime->format(self::$DateTimeFormat);
+        return $dateTime->format(DateTime::$format);
     }
 
     /**
@@ -259,11 +243,11 @@ class Functions
     public static function flexiDateToDateTime(string $flexidate)
     {
         if (strstr($flexidate, '+')) {
-            $format = self::$DateFormat.'O';
+            $format = Date::$format.'O';
         } elseif (strstr($flexidate, 'Z')) {
-            $format = self::$DateFormat.'Z';
+            $format = Date::$format.'Z';
         } else {
-            $format = self::$DateFormat;
+            $format = Date::$format;
         }
 
         return \DateTime::createFromFormat($format, $flexidate)->setTime(0, 0);
@@ -279,7 +263,7 @@ class Functions
     public static function flexiDateTimeToDateTime(string $flexidatetime)
     {
         if (strstr($flexidatetime, '.')) { // NewFormat
-            $format = self::$DateTimeFormat;
+            $format = DateTime::$format;
         } else { // Old format
             $format = 'Y-m-d\TH:i:s+P';
         }

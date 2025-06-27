@@ -27,6 +27,11 @@ class Date extends \DateTime
     public bool $isNull = false;
 
     /**
+     * Formating string for \DateTime::format() for date columns.
+     */
+    public static string $format = 'Y-m-d';
+
+    /**
      * AbraFlexi date to PHP DateTime conversion.
      *
      * @param string $flexidate 2017-05-26 or 2017-05-26Z or 2017-05-26+02:00 or "NOW"
@@ -39,11 +44,11 @@ class Date extends \DateTime
         $format = '';
 
         if (strstr($flexidate, '+')) {
-            $format = Functions::$DateFormat.'T';
+            $format = self::$format.'T';
         } elseif (strstr($flexidate, 'Z')) {
-            $format = Functions::$DateFormat.'Z';
+            $format = self::$format.'Z';
         } elseif (!empty($flexidate) && ($flexidate !== 'NOW')) {
-            $format = Functions::$DateFormat;
+            $format = self::$format;
 
             if (strstr($flexidate, ':')) {
                 $format .= '-i:s';
@@ -63,7 +68,7 @@ class Date extends \DateTime
      */
     public function __toString(): string
     {
-        return $this->isNull ? '' : $this->format(Functions::$DateFormat);
+        return $this->isNull ? '' : $this->format(self::$format);
     }
 
     /**

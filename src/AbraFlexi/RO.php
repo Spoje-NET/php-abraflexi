@@ -24,16 +24,9 @@ class RO extends \Ease\Sand
     use \Ease\recordkey;
 
     /**
-     * Where to get JSON files with evidence structure etc.
-     *
-     * @deprecated since version 3.3.0 - use Functions::$infoDir instead
-     */
-    public static string $infoDir = __DIR__.'/../../static';
-
-    /**
      * Version of AbraFlexi library.
      */
-    public static string $libVersion = '2.20';
+    public static string $libVersion = '3.6';
 
     /**
      * Basic namespace for communication with AbraFlexi.
@@ -216,13 +209,6 @@ class RO extends \Ease\Sand
     public ?array $actionsAvailable = null;
 
     /**
-     * The List of known parameters was renamed to $urlParamsKnown.
-     *
-     * @deprecated since version 2.23
-     */
-    public array $urlParams;
-
-    /**
      * Parmetry pro URL.
      *
      * @see https://www.abraflexi.eu/api/dokumentace/ref/urls/ Všechny podporované parametry
@@ -368,7 +354,6 @@ class RO extends \Ease\Sand
      */
     public function __construct($init = null, $options = [])
     {
-        $this->urlParams = &$this->urlParamsKnown; // Sync deprecated variable with current TODO: Remove in 2024
         parent::setObjectName();
         $this->setUp($options);
         $this->curlInit();
@@ -531,18 +516,6 @@ class RO extends \Ease\Sand
     public function setObjectName($objectName = null)
     {
         return parent::setObjectName(null === $objectName ? (empty($this->getRecordIdent()) ? $this->getObjectName() : $this->getRecordIdent().'@'.$this->getObjectName()) : $objectName);
-    }
-
-    /**
-     * Convert companyUrl provided by CustomButton to options array.
-     *
-     * @deprecated since version 2.24 - use Functions::companyUrlToOptions instead
-     *
-     * @return array Options
-     */
-    public static function companyUrlToOptions(string $companyUrl)
-    {
-        return Functions::companyUrlToOptions($companyUrl);
     }
 
     /**
@@ -748,26 +721,6 @@ class RO extends \Ease\Sand
     }
 
     /**
-     * PHP Date object to AbraFlexi date format.
-     *
-     * @deprecated since version 2.24 - use Functions::dateToFlexiDate instead
-     */
-    public static function dateToFlexiDate(\DateTime $date)
-    {
-        return Functions::dateToFlexiDate($date);
-    }
-
-    /**
-     * PHP Date object to AbraFlexi date format.
-     *
-     * @deprecated since version 2.24 - use Functions::dateToFlexiDateTime instead
-     */
-    public static function dateToFlexiDateTime(\DateTime $dateTime)
-    {
-        return Functions::dateToFlexiDateTime($dateTime);
-    }
-
-    /**
      * Set URL prefix.
      */
     public function setPrefix(string $prefix): void
@@ -918,34 +871,6 @@ class RO extends \Ease\Sand
         }
 
         return $evidence;
-    }
-
-    /**
-     * Převede rekurzivně Objekt na pole.
-     *
-     * @deprecated since version 2.24 - use Functions::object2array instead
-     *
-     * @param array|object $object
-     *
-     * @return array
-     */
-    public static function object2array($object)
-    {
-        return Functions::object2array($object);
-    }
-
-    /**
-     * Převede rekurzivně v poli všechny objekty na jejich identifikátory.
-     *
-     * @deprecated since version 2.24 - use Functions::objectToID instead
-     *
-     * @param array|object $object
-     *
-     * @return array
-     */
-    public static function objectToID($object)
-    {
-        return Functions::objectToID($object);
     }
 
     /**
@@ -1441,16 +1366,6 @@ class RO extends \Ease\Sand
     }
 
     /**
-     * Obtain json for application/json.
-     *
-     * @deprecated since version 1.45 - use the Formats::contentTypeToResponseFormat instead
-     */
-    public function contentTypeToResponseFormat(string $contentType, string $url = ''): string
-    {
-        return Formats::contentTypeToResponseFormat($contentType, $url);
-    }
-
-    /**
      * Nastaví druh prováděné akce.
      *
      * @see https://demo.flexibee.eu/devdoc/actions Provádění akcí
@@ -1476,7 +1391,7 @@ class RO extends \Ease\Sand
     }
 
     /**
-     * Odpojení od AbraFlexi.
+     * Disconnect from AbraFlexi.
      */
     public function disconnect(): void
     {
@@ -1533,19 +1448,7 @@ class RO extends \Ease\Sand
     }
 
     /**
-     * convert unicode to entities for use with AbraFlexi queries.
-     *
-     * @deprecated since version 2.24 - use Functions::urlEncode instead
-     *
-     * @return string
-     */
-    public static function urlEncode(string $urlRaw)
-    {
-        return Functions::urlEncode($urlRaw);
-    }
-
-    /**
-     * Načte data z AbraFlexi.
+     * Read data from AbraFlexi.
      *
      * @param string       $suffix     dotaz
      * @param array|string $conditions Custom filters or modifiers
@@ -1798,20 +1701,6 @@ class RO extends \Ease\Sand
     }
 
     /**
-     * Prepare record ID to use in URL.
-     *
-     * @deprecated since version 2.24 - use Functions::urlizeId instead
-     *
-     * @param mixed $id
-     *
-     * @return string id ready for use in URL
-     */
-    public static function urlizeId($id)
-    {
-        return Functions::urlizeId($id);
-    }
-
-    /**
      * Test if given record exists in AbraFlexi.
      *
      * @param array|int|string $data ext:id:23|code:ITEM|['id'=>23]|23
@@ -1966,78 +1855,6 @@ class RO extends \Ease\Sand
     }
 
     /**
-     * Vrací kód záznamu.
-     * Obtain record CODE.
-     *
-     * @deprecated since version 2.25 - do not use at all
-     *
-     * @param mixed $data
-     * @param mixed $unique
-     *
-     * @return string
-     */
-    public function getKod($data = null, $unique = true)
-    {
-        $kod = null;
-
-        if (null === $data) {
-            $data = $this->getData();
-        }
-
-        if (\is_string($data)) {
-            $data = [$this->nameColumn => $data];
-        }
-
-        if (isset($data['kod'])) {
-            $kod = $data['kod'];
-        } else {
-            if (isset($data[$this->nameColumn])) {
-                $kod = preg_replace(
-                    '/[^a-zA-Z0-9]/',
-                    '',
-                    \Ease\Functions::rip($data[$this->nameColumn]),
-                );
-            } else {
-                if (isset($data[$this->keyColumn])) {
-                    $kod = \Ease\Functions::rip($data[$this->keyColumn]);
-                }
-            }
-
-            $kod = substr($kod, 0, 20);
-        }
-
-        if (!\strlen($kod)) {
-            $kod = 'NOTSET';
-        }
-
-        if (\strlen($kod) > 18) {
-            $kodfinal = strtoupper(substr($kod, 0, 18));
-        } else {
-            $kodfinal = strtoupper($kod);
-        }
-
-        if ($unique) {
-            $counter = 0;
-
-            if (!empty($this->codes) && \count($this->codes)) {
-                foreach ($this->codes as $codesearch => $keystring) {
-                    if (strstr($codesearch, $kodfinal)) {
-                        ++$counter;
-                    }
-                }
-            }
-
-            if ($counter) {
-                $kodfinal .= $counter;
-            }
-
-            $this->codes[$kodfinal] = $kod;
-        }
-
-        return self::code($kodfinal);
-    }
-
-    /**
      * Save RAW Curl Request & Response to files in Temp directory.
      */
     public function saveDebugFiles(): void
@@ -2075,36 +1892,6 @@ class RO extends \Ease\Sand
     public function getPostFields()
     {
         return $this->postFields;
-    }
-
-    /**
-     * Prepare "IN" subselect.
-     *
-     * @deprecated since version 2.24 - use Functions::flexiIN instead
-     *
-     * @return string "in" fragment
-     */
-    public static function flexiIN(array $items, string $key)
-    {
-        return Functions::flexiIN($items, $key);
-    }
-
-    /**
-     * Generuje fragment url pro filtrování.
-     *
-     * @see https://www.abraflexi.eu/api/dokumentace/ref/filters
-     *
-     * @deprecated since version 2.24 - use Functions::flexiUrl instead
-     *
-     * @param array  $data   key=>values; value can bee class DatePeriod, DateTime or Array
-     * @param string $joiner default and/or
-     * @param string $defop  default operator
-     *
-     * @return string
-     */
-    public static function flexiUrl(array $data, $joiner = 'and', $defop = 'eq')
-    {
-        return Functions::flexiUrl($data, $joiner, $defop);
     }
 
     /**
@@ -2162,20 +1949,6 @@ class RO extends \Ease\Sand
         }
 
         return $ident;
-    }
-
-    /**
-     * Gives you AbraFlexi class name for Given Evidence.
-     *
-     * @deprecated since version 2.24 - use Functions::evidenceToClassName instead
-     *
-     * @param string $evidence
-     *
-     * @return string Class name
-     */
-    public static function evidenceToClassName($evidence)
-    {
-        return Functions::evidenceToClassName($evidence);
     }
 
     /**
@@ -2712,33 +2485,6 @@ class RO extends \Ease\Sand
         return $this->lastResponseCode === 200;
     }
 
-    /**
-     * AbraFlexi date to PHP DateTime conversion.
-     *
-     * @deprecated since version 2.24 - use Functions::flexiDateToDateTime instead
-     *
-     * @param string $flexidate 2017-05-26 or 2017-05-26Z or 2017-05-26+02:00
-     *
-     * @return \DateTime|false
-     */
-    public static function flexiDateToDateTime(string $flexidate)
-    {
-        return Functions::flexiDateToDateTime($flexidate);
-    }
-
-    /**
-     * AbraFlexi dateTime to PHP DateTime conversion.
-     *
-     * @deprecated since version 2.24 - use Functions::flexiDateTimeToDateTime instead
-     *
-     * @param string $flexidatetime 2017-09-26T10:00:53.755+02:00 or older 2017-05-19T00:00:00+02:00
-     *
-     * @return \DateTime|false
-     */
-    public static function flexiDateTimeToDateTime(string $flexidatetime)
-    {
-        return Functions::flexiDateTimeToDateTime($flexidatetime);
-    }
 
     /**
      * Získá dokument v daném formátu
@@ -3040,30 +2786,6 @@ class RO extends \Ease\Sand
                 $this->reports[$ur] = $myTime;
             }
         }
-    }
-
-    /**
-     * Returns code:CODE.
-     *
-     * @deprecated since version 2.24 - use Functions::code instead
-     *
-     * @return string
-     */
-    public static function code(string $code)
-    {
-        return Functions::code($code);
-    }
-
-    /**
-     * Returns CODE without code: prefix.
-     *
-     * @deprecated since version 2.24 - Use Functions::uncode instead
-     *
-     * @return string
-     */
-    public static function uncode(string $code)
-    {
-        return Functions::uncode($code);
     }
 
     /**

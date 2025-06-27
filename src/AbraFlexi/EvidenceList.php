@@ -3023,16 +3023,6 @@ class EvidenceList extends RO
     }
 
     /**
-     * There is not ID.
-     *
-     * @deprecated since version 1.24 - use getRecordCode() instead
-     */
-    public function getRecordID()
-    {
-        return null;
-    }
-
-    /**
      * {@inheritDoc}
      */
     public function getRecordCode()
