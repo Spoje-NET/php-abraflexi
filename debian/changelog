@@ -1,8 +1,14 @@
-php-spojenet-abraflexi (3.5.4) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.6.0) UNRELEASED; urgency=medium
+
+  * Overpayment handling added
+
+ -- vitex <info@vitexsoftware.cz>  Fri, 27 Jun 2025 14:58:18 +0200
+
+php-spojenet-abraflexi (3.5.4) experimental; urgency=medium
 
   * better relations values
 
- -- vitex <info@vitexsoftware.cz>  Thu, 26 Jun 2025 23:46:49 +0200
+ -- vitex <info@vitexsoftware.cz>  Fri, 27 Jun 2025 14:57:35 +0200
 
 php-spojenet-abraflexi (3.5.3) experimental; urgency=medium
 

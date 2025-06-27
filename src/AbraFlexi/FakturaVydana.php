@@ -60,7 +60,7 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
         $sparovani['zbytek'] = $zbytek;
 
         if ($overpayTo){
-            $sparovani['preplatek']['typDokl'] = $overpayTo;
+            $sparovani['preplatek']['typDokl'] = \AbraFlexi\Functions::code($overpayTo);
         }
 
         $doklad->insertToAbraFlexi(['id' => $doklad, 'sparovani' => $sparovani]);
