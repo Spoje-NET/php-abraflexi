@@ -43,7 +43,7 @@ class Exception extends \Ease\Exception
     {
         $this->errorMessages = $caller->getErrors();
         $this->serverResponse = $caller->lastCurlResponse;
-        parent::__construct(\get_class($caller).': '.$message, $caller->lastResponseCode, $previous);
+        parent::__construct($caller::class.': '.$message, $caller->lastResponseCode, $previous);
     }
 
     /**

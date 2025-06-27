@@ -191,7 +191,7 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
      */
     public function vytvorVazbuZDD($income)
     {
-        $classHelper = explode('\\', \get_class($income));
+        $classHelper = explode('\\', $income::class);
         $bondRequest = [
             'id' => $this->getRecordIdent(),
             'vytvor-vazbu-zdd' => [
@@ -262,7 +262,7 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
      */
     public static function overdueDays($dueDate)
     {
-        if (\is_object($dueDate) && \array_key_exists('isNull', get_class_vars(\get_class($dueDate))) && ($dueDate->isNull === true)) {
+        if (\is_object($dueDate) && \array_key_exists('isNull', get_class_vars($dueDate::class)) && ($dueDate->isNull === true)) {
             throw new Exception('$dueDate->isNull is true', new self());
         }
 

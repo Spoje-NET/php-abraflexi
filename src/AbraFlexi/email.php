@@ -118,7 +118,7 @@ trait email
      */
     public static function docTypeToPurpose($document)
     {
-        $purposeRaw = substr(str_replace('AbraFlexi\\', '', str_replace('Poptavka', 'Pptavka', \get_class($document))), 0, 3);
+        $purposeRaw = substr(str_replace('AbraFlexi\\', '', str_replace('Poptavka', 'Pptavka', $document::class)), 0, 3);
 
         return array_search($purposeRaw, ['Fak', 'Obj', 'Nab', 'Ppt', 'Skl', 'Pok'], true) === false ? '' : $purposeRaw;
     }

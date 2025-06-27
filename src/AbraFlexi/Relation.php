@@ -23,10 +23,8 @@ class Relation
 {
     /**
      * Item in target evidence.
-     *
-     * @var array|string
      */
-    public $value;
+    public array|string $value;
 
     /**
      * Target evidence name.
