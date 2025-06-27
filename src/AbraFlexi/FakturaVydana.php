@@ -59,11 +59,13 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
         $sparovani['uhrazovanaFak@type'] = $this->evidence;
         $sparovani['zbytek'] = $zbytek;
 
-        if ($overpayTo){
-            $sparovani['preplatek']['typDokl'] = \AbraFlexi\Functions::code($overpayTo);
+        $match = ['id' => $doklad, 'sparovani' => $sparovani];
+
+        if ($overpayTo) {
+            $match['preplatek']['typDokl'] = \AbraFlexi\Functions::code($overpayTo);
         }
 
-        $doklad->insertToAbraFlexi(['id' => $doklad, 'sparovani' => $sparovani]);
+        $doklad->insertToAbraFlexi($match);
 
         return $doklad->lastResponseCode === 201;
     }
