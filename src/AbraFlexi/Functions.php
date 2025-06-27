@@ -135,11 +135,11 @@ class Functions
                 } elseif (\is_object($data[$column])) {
                     switch (\get_class($data[$column])) {
                         case 'DatePeriod':
-                            $parts[$column] = $column." between '".$data[$column]->getStartDate()->format(self::$DateFormat)."' '".$data[$column]->getEndDate()->format(self::$DateFormat)."'";
+                            $parts[$column] = $column." between '".$data[$column]->getStartDate()->format(Date::$format)."' '".$data[$column]->getEndDate()->format(Date::$format)."'";
 
                             break;
                         case 'DateTime':
-                            $parts[$column] = $column." eq '".$data[$column]->format(self::$DateFormat)."'";
+                            $parts[$column] = $column." eq '".$data[$column]->format(Date::$format)."'";
 
                             break;
 
