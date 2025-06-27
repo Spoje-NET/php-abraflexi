@@ -340,18 +340,6 @@ EOD;
     //    }
     //
     //    /**
-    //     * @covers \AbraFlexi\RO::objectToID
-    //     *
-    //     * @todo   Implement testobjectToID().
-    //     */
-    //    public function testobjectToID(): void
-    //    {
-    //        $this->assertEquals('', $this->object->objectToID());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
-    //
-    //    /**
     //     * @covers \AbraFlexi\RO::getEvidenceURL
     //     *
     //     * @todo   Implement testgetEvidenceURL().

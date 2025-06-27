@@ -14,8 +14,6 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
-use AbraFlexi\Functions;
-
 /**
  * Základní třída pro čtení z AbraFlexi.
  *
@@ -933,7 +931,7 @@ class RO extends \Ease\Sand
         }
 
         if (!empty($rowIdentifier)) {
-            $this->apiURL .= '/'. Functions::urlEncode((string) $rowIdentifier);
+            $this->apiURL .= '/'.Functions::urlEncode((string) $rowIdentifier);
         }
 
         $this->apiURL .= '.'.$this->format;
@@ -1644,7 +1642,7 @@ class RO extends \Ease\Sand
             $data = $this->getData();
         }
 
-        $dataForJson = [$this->getEvidence() => $this->objectToID($data)];
+        $dataForJson = [$this->getEvidence() => Functions::objectToID($data)];
 
         if (null !== $this->action) {
             $dataForJson[$this->evidence.'@action'] = $this->action;
@@ -2486,7 +2484,6 @@ class RO extends \Ease\Sand
 
         return $this->lastResponseCode === 200;
     }
-
 
     /**
      * Získá dokument v daném formátu

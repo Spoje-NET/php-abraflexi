@@ -323,7 +323,6 @@ class RW extends RO
         return parent::takeData($data);
     }
 
-
     /**
      * Control data for ReadOnly columns presence.
      *
