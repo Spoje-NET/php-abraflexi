@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
+use AbraFlexi\Functions;
+
 /**
  * Základní třída pro čtení z AbraFlexi.
  *
@@ -931,7 +933,7 @@ class RO extends \Ease\Sand
         }
 
         if (!empty($rowIdentifier)) {
-            $this->apiURL .= '/'.self::urlEncode((string) $rowIdentifier);
+            $this->apiURL .= '/'. Functions::urlEncode((string) $rowIdentifier);
         }
 
         $this->apiURL .= '.'.$this->format;
@@ -1550,7 +1552,7 @@ class RO extends \Ease\Sand
             $id = $this->getMyKey();
         }
 
-        $flexidata = $this->getFlexiData($this->getEvidenceUrl().'/'.(\is_array($id) ? '' : self::urlizeId($id)), \is_array($id) ? $id : '');
+        $flexidata = $this->getFlexiData($this->getEvidenceUrl().'/'.(\is_array($id) ? '' : Functions::urlizeId($id)), \is_array($id) ? $id : '');
 
         if ($this->lastResponseCode === 200) {
             $this->apiURL = $this->curlInfo['url'];
@@ -1921,7 +1923,7 @@ class RO extends \Ease\Sand
      */
     public function getRecordCode()
     {
-        return empty($this->getDataValue('kod')) ? null : self::code($this->getDataValue('kod'));
+        return empty($this->getDataValue('kod')) ? null : Functions::code($this->getDataValue('kod'));
     }
 
     /**
