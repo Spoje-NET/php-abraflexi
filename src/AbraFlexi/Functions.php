@@ -50,6 +50,8 @@ class Functions
 
     /**
      * Returns code:CODE.
+     *
+     * @deprecated since version 3.6 Use the Code::ensure() instead
      */
     public static function code(string $code): string
     {
@@ -85,6 +87,8 @@ class Functions
 
     /**
      * Returns CODE without code: prefix.
+     *
+     * @deprecated since version 3.6 Use the Code::strip() instead
      */
     public static function uncode(string $code): string
     {
