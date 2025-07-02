@@ -1,8 +1,9 @@
-php-spojenet-abraflexi (3.6.0) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.6.0.310~noble) UNRELEASED; urgency=medium
 
   * Overpayment handling added
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-310
 
- -- vitex <info@vitexsoftware.cz>  Fri, 27 Jun 2025 14:58:18 +0200
+ -- vitex <jenkins@vyvojar.spoje.net>  Sun, 29 Jun 2025 09:42:30 +0000
 
 php-spojenet-abraflexi (3.5.4) experimental; urgency=medium
 
