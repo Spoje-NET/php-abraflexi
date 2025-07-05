@@ -76,18 +76,37 @@ class Date extends \DateTime
     /**
      * Convert Timestamp to AbraFlexi Date format.
      *
+     * @deprecated message: Use Date::fromTimestamp() instead
+     *
      * @param int $timpestamp
      *
      * @return \AbraFlexi\Date or NULL
      */
     public static function timestampToFlexiDate($timpestamp = null): self
     {
+        return self::fromTimestamp($timpestamp);
+    }
+
+    public static function fromTimestamp(int $timpestamp): self
+    {
         $flexiDate = new self();
 
-        if (null !== $timpestamp) {
-            $flexiDate->setTimestamp($timpestamp);
-        }
+        $flexiDate->setTimestamp($timpestamp);
 
         return $flexiDate;
+    }
+
+    public static function fromDateTime(\DateTime $when): self
+    {
+        return new self($when->format(self::$format));
+    }
+
+    public function toDateTime(): \DateTime
+    {
+        $dateTime = new \DateTime();
+        $dateTime->setTimestamp($this->getTimestamp());
+        $dateTime->setTimezone(new \DateTimeZone(date_default_timezone_get()));
+
+        return $dateTime;
     }
 }

@@ -225,6 +225,8 @@ class Functions
 
     /**
      * PHP Date object to AbraFlexi date format.
+     *
+     * @deprecated Use Date::dateToFlexiDate() instead
      */
     public static function dateToFlexiDate(\DateTime $date)
     {
@@ -233,6 +235,8 @@ class Functions
 
     /**
      * PHP Date object to AbraFlexi date format.
+     *
+     * @abstracted Use DateTime::dateToFlexiDateTime() instead
      */
     public static function dateToFlexiDateTime(\DateTime $dateTime)
     {
@@ -241,6 +245,8 @@ class Functions
 
     /**
      * AbraFlexi date to PHP DateTime conversion.
+     *
+     * @deprecated Use Date::flexiDateToDateTime() instead
      *
      * @param string $flexidate 2017-05-26 or 2017-05-26Z or 2017-05-26+02:00
      *
@@ -261,6 +267,8 @@ class Functions
 
     /**
      * AbraFlexi dateTime to PHP DateTime conversion.
+     *
+     * @deprecated Use DateTime::flexiDateTimeToDateTime() instead
      *
      * @param string $flexidatetime 2017-09-26T10:00:53.755+02:00 or older 2017-05-19T00:00:00+02:00
      *

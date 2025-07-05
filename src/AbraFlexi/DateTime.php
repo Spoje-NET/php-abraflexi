@@ -70,6 +70,8 @@ class DateTime extends \DateTime
     /**
      * Convert Timestamp to Flexi DateTime format.
      *
+     * @deprecated message: Use DateTime::fromTimestamp() instead
+     *
      * @param int $timpestamp
      *
      * @return string AbraFlexi DateTime or NULL
@@ -97,5 +99,27 @@ class DateTime extends \DateTime
         self::$format = $format;
 
         return $this;
+    }
+
+    public static function fromDateTime(\DateTime $when): self
+    {
+        return new self($when->format(self::$format));
+    }
+
+    public static function fromTimestamp(int $timpestamp): self
+    {
+        $flexiDate = new self();
+
+        $flexiDate->setTimestamp($timpestamp);
+
+        return $flexiDate;
+    }
+    public function toDateTime(): \DateTime
+    {
+        $dateTime = new \DateTime();
+        $dateTime->setTimestamp($this->getTimestamp());
+        $dateTime->setTimezone(new \DateTimeZone(date_default_timezone_get()));
+
+        return $dateTime;
     }
 }
