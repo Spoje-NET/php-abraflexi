@@ -47,4 +47,16 @@ class DateTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertEquals(date('Y-m-d'), $this->object->__toString());
     }
+
+    /**
+     * @covers \AbraFlexi\Date::timestampToFlexiDate
+     *
+     * @todo   Implement testtimestampToFlexiDate().
+     */
+    public function testtimestampToFlexiDate(): void
+    {
+        $this->assertEquals('', $this->object->timestampToFlexiDate());
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
 }

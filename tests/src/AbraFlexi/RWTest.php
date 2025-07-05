@@ -172,20 +172,9 @@ class RWTest extends \PHPUnit\Framework\TestCase
     //        $this->markTestIncomplete('This test has not been implemented yet.');
     //    }
     //
-    //    /**
-    //     * @covers \AbraFlexi\RW::timestampToFlexiDate
-    //     *
-    //     * @todo   Implement testtimestampToFlexiDate().
-    //     */
-    //    public function testtimestampToFlexiDate(): void
-    //    {
-    //        $this->assertEquals('', $this->object->timestampToFlexiDate());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
     //
     //    /**
-    //     * @covers \AbraFlexi\RW::timestampToFlexiDateTime
+    //     * @covers \AbraFlexi\Date::timestampToFlexiDateTime
     //     *
     //     * @todo   Implement testtimestampToFlexiDateTime().
     //     */
