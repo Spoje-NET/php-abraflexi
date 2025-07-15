@@ -20,6 +20,8 @@ namespace AbraFlexi;
  * @see https://demo.flexibee.eu/c/demo/ucetni-obdobi/properties Položky evidence
  *
  * @author vitex
+ *
+ * @no-named-arguments
  */
 class UcetniObdobi extends RW
 {

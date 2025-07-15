@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Základní třída pro zápis do AbraFlexi.
  *
  * @url https://demo.flexibee.eu/devdoc/http-operations
+ *
+ * @no-named-arguments
  */
 class RW extends RO
 {

@@ -25,6 +25,8 @@ namespace AbraFlexi;
  * Faktura vydaná
  *
  * @see https://demo.flexibee.eu/c/demo/faktura-vydana/properties položky evidence
+ *
+ * @no-named-arguments
  */
 class FakturaVydana extends RW implements \AbraFlexi\Document
 {

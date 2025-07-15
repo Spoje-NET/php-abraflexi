@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Štítek.
  *
  * @see https://demo.flexibee.eu/c/demo/stitek/properties Vlastnosti evidence
+ *
+ * @no-named-arguments
  */
 class Stitek extends RW
 {

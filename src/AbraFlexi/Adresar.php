@@ -25,6 +25,8 @@ namespace AbraFlexi;
  * Adresář.
  *
  * @see https://demo.flexibee.eu/c/demo/adresar/properties položky evidence
+ *
+ * @no-named-arguments
  */
 class Adresar extends RW implements Document
 {

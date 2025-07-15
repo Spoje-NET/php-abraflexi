@@ -36,6 +36,8 @@ namespace AbraFlexi;
  * @author vitex
  *
  * @see http://podpora.flexibee.eu/cs/articles/5784862-prehled-zmen-zaznamu-v-rest-api
+ *
+ * @no-named-arguments
  */
 trait getChanges
 {

@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Položka skladového pohybu.
  *
  * @see https://demo.flexibee.eu/c/demo/objednavka-prijata-polozka/properties
+ *
+ * @no-named-arguments
  */
 class ObjednavkaPrijataPolozka extends RW
 {

@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Evidence Relations.
  *
  * @see https://demo.flexibee.eu/devdoc/relations Provádění akcí
+ *
+ * @no-named-arguments
  */
 class Relations
 {

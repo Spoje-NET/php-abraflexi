@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Pokladna.
  *
  * @see https://demo.flexibee.eu/c/demo/pokladna/properties
+ *
+ * @no-named-arguments
  */
 class Pokladna extends RW
 {

@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Description of Relation.
  *
  * @author vitex
+ *
+ * @no-named-arguments
  */
 class Relation
 {

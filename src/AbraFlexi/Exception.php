@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Description of Exception.
  *
  * @author vitex
+ *
+ * @no-named-arguments
  */
 class Exception extends \Ease\Exception
 {

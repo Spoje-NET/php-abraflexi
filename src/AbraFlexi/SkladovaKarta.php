@@ -19,6 +19,8 @@ namespace AbraFlexi;
  * Storage Card.
  *
  * @see https://demo.flexibee.eu/c/demo/skladova-karta/properties položky evidence
+ *
+ * @no-named-arguments
  */
 class SkladovaKarta extends RW
 {

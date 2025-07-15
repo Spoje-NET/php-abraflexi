@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Description of Status.
  *
  * @author vitex
+ *
+ * @no-named-arguments
  */
 class Status extends RO
 {

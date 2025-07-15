@@ -19,6 +19,8 @@ namespace AbraFlexi;
  *
  * @note Tato položka nemá dostupné položky evidence
  * @note Tato evidence není veřejně dostupná na demo.abraflexi.eu
+ *
+ * @no-named-arguments
  */
 class Nastaveni extends RO
 {

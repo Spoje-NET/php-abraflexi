@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Incoming order.
  *
  * @see https://demo.flexibee.eu/c/demo/objednavka-prijata/properties
+ *
+ * @no-named-arguments
  */
 class ObjednavkaPrijata extends RW implements \AbraFlexi\Document
 {

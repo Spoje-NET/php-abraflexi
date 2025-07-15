@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * EvidenceActions.
  *
  * @see https://demo.flexibee.eu/devdoc/actions Provádění akcí
+ *
+ * @no-named-arguments
  */
 class Actions
 {

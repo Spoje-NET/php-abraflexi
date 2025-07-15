@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Obecný Strom.
  *
  * @see https://demo.flexibee.eu/c/demo/strom/properties vlastnosti evidence
+ *
+ * @no-named-arguments
  */
 class Strom extends RW
 {

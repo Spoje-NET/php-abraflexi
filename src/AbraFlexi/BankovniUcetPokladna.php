@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
+/**
+ * @no-named-arguments
+ */
 class BankovniUcetPokladna extends RW
 {
     public ?string $evidence = 'bankovni-ucet-pokladna';

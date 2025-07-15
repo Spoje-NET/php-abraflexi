@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Description of Common.
  *
  * @author vitex
+ *
+ * @no-named-arguments
  */
 class Root extends RW
 {

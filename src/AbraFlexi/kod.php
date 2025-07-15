@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Add for evidences with code: identifier.
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
+ *
+ * @no-named-arguments
  */
 trait kod
 {

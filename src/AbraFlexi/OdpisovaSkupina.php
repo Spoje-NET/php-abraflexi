@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
+/**
+ * @no-named-arguments
+ */
 class OdpisovaSkupina extends RW
 {
     public ?string $evidence = 'odpisova-skupina';

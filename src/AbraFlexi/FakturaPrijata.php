@@ -25,6 +25,8 @@ namespace AbraFlexi;
  * Incoming invoice.
  *
  * @see https://demo.flexibee.eu/c/demo/faktura-prijata/properties
+ *
+ * @no-named-arguments
  */
 class FakturaPrijata extends RW implements Document
 {

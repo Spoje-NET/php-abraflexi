@@ -19,6 +19,8 @@ namespace AbraFlexi;
  * Seznam Evidencí a jejich vlastnosti.
  *
  * @see https://demo.flexibee.eu/c/demo/evidence-list Přehled evidencí
+ *
+ * @no-named-arguments
  */
 class EvidenceList extends RO
 {
@@ -38,7 +40,7 @@ class EvidenceList extends RO
     /**
      * Source FlexiBee server version.
      */
-    public static string $version = '2025.5.2';
+    public static string $version = '2025.6.2';
 
     /**
      * Evidences Path/Name listing.
@@ -3020,6 +3022,16 @@ class EvidenceList extends RO
     {
         $this->keyColumn = 'evidencePath';
         parent::__construct($init, $options);
+    }
+
+    /**
+     * There is not ID.
+     *
+     * @deprecated since version 1.24 - use getRecordCode() instead
+     */
+    public function getRecordID()
+    {
+        return null;
     }
 
     /**

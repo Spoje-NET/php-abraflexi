@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Description of Dodavatel.
  *
  * @author vitex
+ *
+ * @no-named-arguments
  */
 class Dodavatel extends RW
 {

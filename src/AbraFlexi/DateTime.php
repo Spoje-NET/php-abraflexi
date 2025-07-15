@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Description of DateTime.
  *
  * @author vitex
+ *
+ * @no-named-arguments
  */
 class DateTime extends \DateTime
 {

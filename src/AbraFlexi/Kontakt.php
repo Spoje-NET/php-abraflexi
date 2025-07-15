@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Kontakt adresáře.
  *
  * @see https://demo.flexibee.eu/c/demo/kontakt/properties
+ *
+ * @no-named-arguments
  */
 class Kontakt extends RW
 {

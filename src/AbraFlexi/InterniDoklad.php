@@ -25,6 +25,8 @@ namespace AbraFlexi;
  * Internal Document.
  *
  * @see https://demo.flexibee.eu/c/demo/interni-doklad/properties
+ *
+ * @no-named-arguments
  */
 class InterniDoklad extends RW implements \AbraFlexi\Document
 {

@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Description of Date.
  *
  * @author vitex
+ *
+ * @no-named-arguments
  */
 class Date extends \DateTime
 {

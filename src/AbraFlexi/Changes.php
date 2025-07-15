@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Log změn v evidencích.
  *
  * @see https://www.abraflexi.eu/api/dokumentace/ref/changes-api/ Dokumentace
+ *
+ * @no-named-arguments
  */
 class Changes extends RO
 {

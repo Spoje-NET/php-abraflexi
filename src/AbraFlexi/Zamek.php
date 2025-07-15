@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Description of Zamek.
  *
  * @author Vitex <info@vitexsoftware.cz>
+ *
+ * @no-named-arguments
  */
 class Zamek extends RW
 {

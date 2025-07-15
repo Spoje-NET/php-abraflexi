@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Evidence Formats.
  *
  * @see https://demo.flexibee.eu/devdoc/formats Provádění akcí
+ *
+ * @no-named-arguments
  */
 class Formats
 {

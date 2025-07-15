@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Základní třída pro čtení z AbraFlexi.
  *
  * @url https://demo.flexibee.eu/devdoc/
+ *
+ * @no-named-arguments
  */
 class RO extends \Ease\Sand
 {

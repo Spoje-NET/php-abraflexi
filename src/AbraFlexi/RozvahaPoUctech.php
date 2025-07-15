@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
+/**
+ * @no-named-arguments
+ */
 class RozvahaPoUctech extends RW
 {
     public ?string $evidence = 'rozvaha-po-uctech';

@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Smlouva.
  *
  * @see https://demo.flexibee.eu/c/demo/smlouva/properties Vlastnosti evidence
+ *
+ * @no-named-arguments
  */
 class Smlouva extends RW
 {

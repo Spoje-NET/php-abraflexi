@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Hooky pro ChangesAPI.
  *
  * @note Tato položka nemá dostupné položky evidence
+ *
+ * @no-named-arguments
  */
 class Hooks extends RW
 {

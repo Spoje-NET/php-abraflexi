@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Description of Report.
  *
  * @author vitex
+ *
+ * @no-named-arguments
  */
 class Report extends RW
 {

@@ -16,6 +16,8 @@ namespace AbraFlexi;
 
 /**
  * @see https://demo.abraflexi.eu/c/demo/udalost/properties api udalost evidence
+ *
+ * @no-named-arguments
  */
 class Udalost extends RW
 {

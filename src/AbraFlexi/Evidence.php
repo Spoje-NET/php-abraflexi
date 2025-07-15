@@ -20,6 +20,8 @@ use Ease\Sand;
  * Helper class for work with multiplete documents.
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
+ *
+ * @no-named-arguments
  */
 class Evidence extends Sand
 {

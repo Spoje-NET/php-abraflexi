@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Skupina Firem.
  *
  * @see https://demo.flexibee.eu/c/demo/skupina-firem/properties
+ *
+ * @no-named-arguments
  */
 class SkupinaFirem extends RW
 {

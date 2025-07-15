@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Document SubItems functions.
  *
  * @author vitex
+ *
+ * @no-named-arguments
  */
 trait subItems
 {

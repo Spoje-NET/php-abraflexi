@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Polozka Faktury vydané.
  *
  * @see https://demo.flexibee.eu/c/demo/faktura-vydana-polozka/properties položky evidence
+ *
+ * @no-named-arguments
  */
 class FakturaVydanaPolozka extends RW
 {

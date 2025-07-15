@@ -25,6 +25,8 @@ namespace AbraFlexi;
  * Banka.
  *
  * @see https://demo.flexibee.eu/c/demo/banka/properties Vlastnosti evidence
+ *
+ * @no-named-arguments
  */
 class Banka extends RW implements \AbraFlexi\Document
 {

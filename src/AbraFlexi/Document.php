@@ -16,6 +16,8 @@ namespace AbraFlexi;
 
 /**
  * @author vitex
+ *
+ * @no-named-arguments
  */
 interface Document
 {

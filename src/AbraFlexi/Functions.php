@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Description of Functions.
  *
  * @author vitex
+ *
+ * @no-named-arguments
  */
 class Functions
 {

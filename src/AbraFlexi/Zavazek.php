@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Description of Zavazek.
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
+ *
+ * @no-named-arguments
  */
 class Zavazek extends \AbraFlexi\RW
 {

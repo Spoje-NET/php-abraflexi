@@ -26,6 +26,8 @@ namespace AbraFlexi;
  * Ceník - Pricelist.
  *
  * @see https://demo.flexibee.eu/c/demo/cenik/properties Vlastnosti evidence
+ *
+ * @no-named-arguments
  */
 class Cenik extends RW
 {

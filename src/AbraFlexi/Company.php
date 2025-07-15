@@ -25,6 +25,8 @@ namespace AbraFlexi;
  * Firmy/účetní jednotky.
  *
  * @note Tato položka nemá dostupné položky evidence
+ *
+ * @no-named-arguments
  */
 class Company extends RW
 {

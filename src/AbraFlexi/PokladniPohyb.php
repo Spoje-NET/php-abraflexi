@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Pokladní pohyb.
  *
  * @see https://demo.flexibee.eu/c/demo/pokladni-pohyb/properties položky evidence
+ *
+ * @no-named-arguments
  */
 class PokladniPohyb extends RW implements \AbraFlexi\Document
 {

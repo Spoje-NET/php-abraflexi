@@ -19,6 +19,8 @@ namespace AbraFlexi;
  * Journal of Changes.
  *
  * @see https://demo.flexibee.eu/c/demo/adresar/properties položky evidence
+ *
+ * @no-named-arguments
  */
 class Zurnal extends RO
 {

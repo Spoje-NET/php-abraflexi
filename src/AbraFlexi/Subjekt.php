@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
+/**
+ * @no-named-arguments
+ */
 class Subjekt extends RW
 {
     public ?string $evidence = 'subjekt';

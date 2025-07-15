@@ -38,6 +38,8 @@ namespace AbraFlexi;
  * objednavka-prijata
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
+ *
+ * @no-named-arguments
  */
 trait email
 {

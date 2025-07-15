@@ -19,6 +19,8 @@ namespace AbraFlexi;
  *
  * @see https://www.abraflexi.eu/api/dokumentace/ref/attachments/
  * @see https://demo.flexibee.eu/c/demo/priloha/properties
+ *
+ * @no-named-arguments
  */
 class Priloha extends RW
 {

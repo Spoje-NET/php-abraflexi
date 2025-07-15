@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
+/**
+ * @no-named-arguments
+ */
 class StromKoren extends RW
 {
     public ?string $evidence = 'strom-koren';

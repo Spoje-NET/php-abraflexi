@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Description of Code.
  *
  * @author Vitex <info@vitexsoftware.cz>
+ *
+ * @no-named-arguments
  */
 class Code
 {

@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
+/**
+ * @no-named-arguments
+ */
 class PrikazKUhradePolozka extends RW
 {
     public ?string $evidence = 'prikaz-k-uhrade-polozka';

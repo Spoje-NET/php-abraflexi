@@ -16,6 +16,8 @@ namespace AbraFlexi;
 
 /**
  * Číselná řada pokladního pohybu.
+ *
+ * @no-named-arguments
  */
 class RadaPokladniPohyb extends RW
 {

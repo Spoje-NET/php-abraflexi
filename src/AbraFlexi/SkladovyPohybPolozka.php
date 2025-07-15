@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Položka skladového pohybu.
  *
  * @see https://demo.flexibee.eu/c/demo/skladovy-pohyb-polozka/properties
+ *
+ * @no-named-arguments
  */
 class SkladovyPohybPolozka extends RW
 {

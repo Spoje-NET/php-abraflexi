@@ -25,6 +25,8 @@ namespace AbraFlexi;
  * Dodavatelská smlouva.
  *
  * @see https://demo.flexibee.eu/c/demo/dodavatelska-smlouva/properties
+ *
+ * @no-named-arguments
  */
 class DodavatelskaSmlouva extends RW
 {

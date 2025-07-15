@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Výrobní číslo.
  *
  * @see https://demo.flexibee.eu/c/demo/vyrobni-cislo/properties položky evidence
+ *
+ * @no-named-arguments
  */
 class VyrobniCislo extends RW
 {

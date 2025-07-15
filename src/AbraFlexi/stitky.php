@@ -18,6 +18,8 @@ namespace AbraFlexi;
  * Add for Objects use with "firma" data column.
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
+ *
+ * @no-named-arguments
  */
 trait stitky
 {

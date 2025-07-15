@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
+/**
+ * @no-named-arguments
+ */
 class IntrastatDruhDopravy extends RW
 {
     public ?string $evidence = 'intrastat-druh-dopravy';

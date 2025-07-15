@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
+/**
+ * @no-named-arguments
+ */
 class RadaNabidkyPrijate extends RW
 {
     public ?string $evidence = 'rada-nabidky-prijate';

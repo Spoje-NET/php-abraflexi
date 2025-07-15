@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
+/**
+ * @no-named-arguments
+ */
 class FormatElektronickehoPrikazu extends RW
 {
     public ?string $evidence = 'format-elektronickeho-prikazu';
