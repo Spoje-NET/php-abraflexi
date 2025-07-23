@@ -1,10 +1,11 @@
-php-spojenet-abraflexi (3.6.0.310~noble.311~trixie) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.6.0.310~noble.311~trixie.312~trixie) UNRELEASED; urgency=medium
 
   * Overpayment handling added
   * jenkins-Spoje.Net-php-spojenet-abraflexi-310
   * jenkins-Spoje.Net-php-spojenet-abraflexi-311
+  * jenkins-Spoje.Net-php-spojenet-abraflexi-312
 
- -- vitex <jenkins@vyvojar.spoje.net>  Wed, 02 Jul 2025 12:53:21 +0000
+ -- vitex <jenkins@vyvojar.spoje.net>  Tue, 15 Jul 2025 08:54:36 +0000
 
 php-spojenet-abraflexi (3.5.4) experimental; urgency=medium
 
