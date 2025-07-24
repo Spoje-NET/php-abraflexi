@@ -136,7 +136,7 @@ foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
      * @var array<string,array<string,string>>
      */
 ';
-        $evidenceActions .= ' static public $' . lcfirst(RO::evidenceToClassName($evidencePath)) . ' = ' . varexport($structure,
+        $evidenceActions .= ' static public $' . lcfirst(Functions::evidenceToClassName($evidencePath)) . ' = ' . varexport($structure,
                         true) . ';
 ';
 

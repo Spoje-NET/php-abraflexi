@@ -299,7 +299,7 @@ foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
      * @var array
      */
 ';
-        $evidenceFormats .= ' static public $' . lcfirst(RO::evidenceToClassName($evidencePath)) . ' = ' . varexport($structure,
+        $evidenceFormats .= ' static public $' . lcfirst(Functions::evidenceToClassName($evidencePath)) . ' = ' . varexport($structure,
                         true) . ';
 ';
         $syncer->addStatusMessage($pos . ' of ' . count(EvidenceList::$name) . ' ' . $evidencePath . ': formats: ' . implode(',', $structure), 'success');

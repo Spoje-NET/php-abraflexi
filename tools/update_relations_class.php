@@ -98,7 +98,7 @@ foreach (EvidenceList::$name as $evidencePath => $evidenceName) {
      * @var array
      */
 ';
-        $evidenceRels .= ' static public $' . lcfirst(RO::evidenceToClassName($evidencePath)) . ' = ' . varexport($structure,
+        $evidenceRels .= ' static public $' . lcfirst(Functions::evidenceToClassName($evidencePath)) . ' = ' . varexport($structure,
                         true) . ';
 ';
 
