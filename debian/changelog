@@ -1,8 +1,15 @@
-php-spojenet-abraflexi (3.5.4) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.5.6) UNRELEASED; urgency=medium
 
+  * exi-ids Relations fix
+
+ -- Vitex <vitezslav.dvorak@spojenet.cz>  Thu, 24 Jul 2025 16:27:32 +0200
+
+php-spojenet-abraflexi (3.5.4) experimental; urgency=medium
+
+  [ vitex ]
   * better relations values
 
- -- vitex <info@vitexsoftware.cz>  Thu, 26 Jun 2025 23:46:49 +0200
+ -- Vitex <vitezslav.dvorak@spojenet.cz>  Thu, 24 Jul 2025 16:26:51 +0200
 
 php-spojenet-abraflexi (3.5.3) experimental; urgency=medium
 
