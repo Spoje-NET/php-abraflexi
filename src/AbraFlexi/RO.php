@@ -1143,12 +1143,24 @@ class RO extends \Ease\Sand
 
                             break;
                         case 'relation':
-                            $record[$column] = new Relation(
-                                \is_array($value) ? $value[0] : $value,
-                                \array_key_exists('fkEvidencePath', $columnInfo) && null !== $columnInfo['fkEvidencePath'] ? $columnInfo['fkEvidencePath'] : $column,
-                                \array_key_exists($column.'@ref', $record) ? $record[$column.'@ref'] : null,
-                                \array_key_exists($column.'@showAs', $record) ? $record[$column.'@showAs'] : null,
-                            );
+                            if (\is_array($record[$column])) {
+                                foreach ($record[$column] as $pos => $value) {
+                                    $record[$column][$pos] = new Relation(
+                                        \is_array($value) ? $value[0] : $value,
+                                        \array_key_exists('fkEvidencePath', $columnInfo) && null !== $columnInfo['fkEvidencePath'] ? $columnInfo['fkEvidencePath'] : $column,
+                                        \array_key_exists($column.'@ref', $record) ? $record[$column.'@ref'] : null,
+                                        \array_key_exists($column.'@showAs', $record) ? $record[$column.'@showAs'] : null,
+                                    );
+                                }
+                            } else {
+                                $record[$column] = new Relation(
+                                    \is_array($value) ? $value[0] : $value,
+                                    \array_key_exists('fkEvidencePath', $columnInfo) && null !== $columnInfo['fkEvidencePath'] ? $columnInfo['fkEvidencePath'] : $column,
+                                    \array_key_exists($column.'@ref', $record) ? $record[$column.'@ref'] : null,
+                                    \array_key_exists($column.'@showAs', $record) ? $record[$column.'@showAs'] : null,
+                                );
+                            }
+
                             unset($record[$column.'@ref'], $record[$column.'@showAs']);
 
                             break;
