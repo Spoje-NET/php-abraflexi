@@ -1,4 +1,4 @@
-php-spojenet-abraflexi (3.6.0.310~noble.311~trixie.312~trixie.313~trixie) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.6.0) UNRELEASED; urgency=medium
 
   * Overpayment handling added
   * jenkins-Spoje.Net-php-spojenet-abraflexi-310
