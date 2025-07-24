@@ -2029,37 +2029,42 @@ class RO extends \Ease\Sand
     }
 
     /**
-     * Vrací hodnotu daného externího ID.
+     * Returns the value of the given external ID.
      *
-     * @param string $want Namespace Selector. If empty,you obtain the first one.
+     * @param string $want Namespace selector. If empty, returns the first one.
      *
-     * @return array|string one id or array if multiplete
+     * @return array|string One ID or array if multiple
      */
     public function getExternalID($want = null)
     {
         $extid = null;
         $ids = $this->getExternalIDs();
 
+        // If $ids is an array of Relation objects, extract their 'value' property
+        if (is_array($ids) && isset($ids[0]) && is_object($ids[0]) && property_exists($ids[0], 'value')) {
+            $values = array_map(function($relation) {
+                return $relation->value;
+            }, $ids);
+        } elseif (is_object($ids) && property_exists($ids, 'value')) {
+            $values = is_array($ids->value) ? $ids->value : [$ids->value];
+        } else {
+            $values = is_array($ids) ? $ids : [$ids];
+        }
+
         if (null === $want) {
-            if (!empty($ids)) {
-                $extid = \is_object($ids) ? (\is_array($ids->value) ? current($ids->value) : $ids) : current($ids);
+            if (!empty($values)) {
+                $extid = current($values);
             }
         } else {
-            if (null !== $ids && \is_array($ids->value)) {
-                foreach ($ids->value as $id) {
-                    if (strstr($id, 'ext:'.$want)) {
-                        if (null === $extid) {
-                            $extid = str_replace('ext:'.$want.':', '', $id);
+            foreach ($values as $id) {
+                if (strstr($id, 'ext:'.$want)) {
+                    if (null === $extid) {
+                        $extid = str_replace('ext:'.$want.':', '', $id);
+                    } else {
+                        if (is_array($extid)) {
+                            $extid[] = str_replace('ext:'.$want.':', '', $id);
                         } else {
-                            if (\is_array($extid)) {
-                                $extid[] = str_replace('ext:'.$want.':', '', $id);
-                            } else {
-                                $extid = [$extid, str_replace(
-                                    'ext:'.$want.':',
-                                    '',
-                                    $id,
-                                )];
-                            }
+                            $extid = [$extid, str_replace('ext:'.$want.':', '', $id)];
                         }
                     }
                 }
@@ -2070,7 +2075,7 @@ class RO extends \Ease\Sand
     }
 
     /**
-     * gives you currently loaded extermal IDs.
+     * Gives you currently loaded external IDs.
      *
      * @return array
      */
