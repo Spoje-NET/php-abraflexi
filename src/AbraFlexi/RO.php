@@ -1118,13 +1118,14 @@ class RO extends \Ease\Sand
     }
 
     /**
-     * Fix AbraFlexi record field types.
+     * Converts the fields of an AbraFlexi record array to appropriate native PHP types based on column metadata.
      *
-     * @param string $evidence force other than current
+     * Fields are cast or transformed according to their defined types, including booleans, numbers, strings, dates, and relations. Relation fields are converted to `Relation` objects, supporting both single and multiple values. Unknown field types result in an exception.
      *
-     * @throws \Ease\Exception
-     *
-     * @return array with items typed
+     * @param array $record The record data to typecast.
+     * @param string|null $evidence Optional evidence name to override the current one.
+     * @return array The record with fields converted to native types or objects.
+     * @throws \Ease\Exception If an unknown field type is encountered.
      */
     public function fixRecordTypes(array $record, $evidence = null)
     {
