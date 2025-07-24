@@ -1045,13 +1045,14 @@ class RO extends \Ease\Sand
     }
 
     /**
-     * Fix AbraFlexi record field types.
+     * Converts the fields of an AbraFlexi record array to appropriate native PHP types based on column metadata.
      *
-     * @param string $evidence force other than current
+     * Fields are cast or transformed according to their defined types, including booleans, numbers, strings, dates, and relations. Relation fields are converted to `Relation` objects, supporting both single and multiple values. Unknown field types result in an exception.
      *
-     * @throws \Ease\Exception
-     *
-     * @return array with items typed
+     * @param array $record The record data to typecast.
+     * @param string|null $evidence Optional evidence name to override the current one.
+     * @return array The record with fields converted to native types or objects.
+     * @throws \Ease\Exception If an unknown field type is encountered.
      */
     public function fixRecordTypes(array $record, $evidence = null)
     {
@@ -1070,12 +1071,24 @@ class RO extends \Ease\Sand
 
                             break;
                         case 'relation':
-                            $record[$column] = new Relation(
-                                \is_array($value) ? $value[0] : $value,
-                                \array_key_exists('fkEvidencePath', $columnInfo) && null !== $columnInfo['fkEvidencePath'] ? $columnInfo['fkEvidencePath'] : $column,
-                                \array_key_exists($column.'@ref', $record) ? $record[$column.'@ref'] : null,
-                                \array_key_exists($column.'@showAs', $record) ? $record[$column.'@showAs'] : null,
-                            );
+                            if (\is_array($record[$column])) {
+                                foreach ($record[$column] as $pos => $value) {
+                                    $record[$column][$pos] = new Relation(
+                                        \is_array($value) ? $value[0] : $value,
+                                        \array_key_exists('fkEvidencePath', $columnInfo) && null !== $columnInfo['fkEvidencePath'] ? $columnInfo['fkEvidencePath'] : $column,
+                                        \array_key_exists($column.'@ref', $record) ? $record[$column.'@ref'] : null,
+                                        \array_key_exists($column.'@showAs', $record) ? $record[$column.'@showAs'] : null,
+                                    );
+                                }
+                            } else {
+                                $record[$column] = new Relation(
+                                    \is_array($value) ? $value[0] : $value,
+                                    \array_key_exists('fkEvidencePath', $columnInfo) && null !== $columnInfo['fkEvidencePath'] ? $columnInfo['fkEvidencePath'] : $column,
+                                    \array_key_exists($column.'@ref', $record) ? $record[$column.'@ref'] : null,
+                                    \array_key_exists($column.'@showAs', $record) ? $record[$column.'@showAs'] : null,
+                                );
+                            }
+
                             unset($record[$column.'@ref'], $record[$column.'@showAs']);
 
                             break;
