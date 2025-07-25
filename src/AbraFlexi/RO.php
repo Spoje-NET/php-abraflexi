@@ -89,7 +89,7 @@ class RO extends \Ease\Sand
     /**
      * Curl Handle.
      *
-     * @var null|resource
+     * @var null|\CurlHandle
      */
     public $curl;
 
@@ -302,7 +302,7 @@ class RO extends \Ease\Sand
      *
      * @var int seconds
      */
-    public ?int $timeout = null;
+    public ?int $timeout = 300;
 
     /**
      * Throw Exception in case of AbraFlexi error.
@@ -453,12 +453,12 @@ class RO extends \Ease\Sand
     {
         if (\array_key_exists('ver', $options)) {
             $this->protoVersion = $options['ver'];
-            $this->prefix = 'v'.round($this->protoVersion).'/c/';
+            $this->prefix = 'v'.round(floatval($this->protoVersion)).'/c/';
         }
 
         if (\array_key_exists('companyUrl', $options)) {
             $options = array_merge(
-                self::companyUrlToOptions($options['companyUrl']),
+                Functions::companyUrlToOptions($options['companyUrl']),
                 $options,
             );
         }
@@ -1765,13 +1765,13 @@ class RO extends \Ease\Sand
     public function getAllFromAbraFlexi($conditions = null, $indexBy = null)
     {
         if (\is_int($conditions)) {
-            $conditions = [$this->getmyKeyColumn() => $conditions];
+            $conditions = [$this->getKeyColumn() => $conditions];
         }
 
         $flexiData = $this->getFlexiData('', $conditions);
 
         if (null !== $indexBy) {
-            $flexiData = \Ease\Functions::reindexArrayBy($flexiData);
+            $flexiData = \Ease\Functions::reindexArrayBy($flexiData, $indexBy);
         }
 
         return $flexiData;
@@ -1820,7 +1820,7 @@ class RO extends \Ease\Sand
 
         switch (\gettype($columnsList)) {
             case 'integer': // Record ID
-                $conditions = [$this->getmyKeyColumn() => $conditions];
+                $conditions = [$this->getKeyColumn() => $conditions];
                 // no break
             case 'array': // Few Conditions
                 if (

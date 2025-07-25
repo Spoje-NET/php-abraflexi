@@ -38,24 +38,13 @@ Instalace
     composer require spojenet/flexibee
 ```
 
-pokud váš výsledný composer.json bude vypadat  zhruba takto: 
+aby váš výsledný composer.json obsahoval: 
 
 ```json
 {
-    "name": "vendor/projectname",
-    "description": "Test",
-    "type": "project",
     "require": {
-        "spojenet/flexibee": "*"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Vítězslav Dvořák",
-            "email": "info@vitexsoftware.cz"
-        }
-    ],
-    "minimum-stability": "stable"
+        "spojenet/flexibee": "^3.6"
+    }
 }
 ```
 
@@ -240,25 +229,24 @@ Jako přílohy jsou také připojeny soubory obsahující tělo dotazu na server
 
 Během života objektu se chyby evidují a odesílá se pouze první každého druhu. 
 
-Aktualizace na verzi 2.0
-------------------------
+Změny ve verzi 3.6
+------------------
 
-Oproti 1.x se změnilo následující:
+* nastaven výchozí curl timeout na 300
+* Maximalizace využití objektu Relation
+* Nová třída AbraFlexi\Code nahrazující Functions::code a Functions::uncode
+* Dostupné jsou třídy pro všechny evidence ( ne jenom pro ty často používané )
 
- * Zmizely Třídy FlexiBeeRO a FlexiBeeRW (nově RO a RW) 
- * Data z AbraFlexi jsou typovaná (už ne jenom strig)
- * Všechno FlexiBee bylo přejmenováno na AbraFlexi
- * Při chybě ze serveru se vyhodí Exeption (předtím se pouze zalogovalo)
- * Požadavky nespecifikují počet výsledků, (je třeba explicitně požadovat limit 0 pro všechny výsledky požadavku na api)
- * již se nepužívá starý zápis polí array()
 
- 
+Příkad vytvoření instance třídy FakturaVydana
+--------------------------------------------- 
+
 Výchozí **Nativní typy** se projevují tak že ze serveru ve chlívečku obsahující datum obdržíte php objekt DateTime. ve sloupečku 'id' integer a pod. 
 Toto chování je možné vypnout pomocí parametru konstruktoru ```['nativeTypes' = false]```
 
 
 ```php
-    new \AbraFlexi\FakturaVydaná( 'code:VF2-12345', ['nativeTypes'=>false,'debug'=>true,'ignore404'=>false] );
+    new \AbraFlexi\FakturaVydana( 'code:VF2-12345', ['nativeTypes'=>false,'debug'=>true,'ignore404'=>false] );
 ```
 Viz.: [constructor RO](https://github.com/Spoje-NET/php-abraflexi/blob/cd829fcb05939ab54ed99aaa63d01b63700cbb83/src/AbraFlexi/RO.php#L450)
 
