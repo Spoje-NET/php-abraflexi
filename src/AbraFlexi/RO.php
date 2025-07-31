@@ -88,10 +88,8 @@ class RO extends \Ease\Sand
 
     /**
      * Curl Handle.
-     *
-     * @var null|\CurlHandle
      */
-    public $curl;
+    public ?\CurlHandle $curl;
 
     /**
      * @see https://demo.flexibee.eu/devdoc/company-identifier Identifikátor firmy
@@ -453,7 +451,7 @@ class RO extends \Ease\Sand
     {
         if (\array_key_exists('ver', $options)) {
             $this->protoVersion = $options['ver'];
-            $this->prefix = 'v'.round(floatval($this->protoVersion)).'/c/';
+            $this->prefix = 'v'.round((float) $this->protoVersion).'/c/';
         }
 
         if (\array_key_exists('companyUrl', $options)) {
@@ -1049,10 +1047,12 @@ class RO extends \Ease\Sand
      *
      * Fields are cast or transformed according to their defined types, including booleans, numbers, strings, dates, and relations. Relation fields are converted to `Relation` objects, supporting both single and multiple values. Unknown field types result in an exception.
      *
-     * @param array $record The record data to typecast.
-     * @param string|null $evidence Optional evidence name to override the current one.
-     * @return array The record with fields converted to native types or objects.
-     * @throws \Ease\Exception If an unknown field type is encountered.
+     * @param array       $record   the record data to typecast
+     * @param null|string $evidence optional evidence name to override the current one
+     *
+     * @throws \Ease\Exception if an unknown field type is encountered
+     *
+     * @return array the record with fields converted to native types or objects
      */
     public function fixRecordTypes(array $record, $evidence = null)
     {
@@ -2041,14 +2041,14 @@ class RO extends \Ease\Sand
         $ids = $this->getExternalIDs();
 
         // If $ids is an array of Relation objects, extract their 'value' property
-        if (is_array($ids) && isset($ids[0]) && is_object($ids[0]) && property_exists($ids[0], 'value')) {
-            $values = array_map(function($relation) {
+        if (\is_array($ids) && isset($ids[0]) && \is_object($ids[0]) && property_exists($ids[0], 'value')) {
+            $values = array_map(static function ($relation) {
                 return $relation->value;
             }, $ids);
-        } elseif (is_object($ids) && property_exists($ids, 'value')) {
-            $values = is_array($ids->value) ? $ids->value : [$ids->value];
+        } elseif (\is_object($ids) && property_exists($ids, 'value')) {
+            $values = \is_array($ids->value) ? $ids->value : [$ids->value];
         } else {
-            $values = is_array($ids) ? $ids : [$ids];
+            $values = \is_array($ids) ? $ids : [$ids];
         }
 
         if (null === $want) {
@@ -2061,7 +2061,7 @@ class RO extends \Ease\Sand
                     if (null === $extid) {
                         $extid = str_replace('ext:'.$want.':', '', $id);
                     } else {
-                        if (is_array($extid)) {
+                        if (\is_array($extid)) {
                             $extid[] = str_replace('ext:'.$want.':', '', $id);
                         } else {
                             $extid = [$extid, str_replace('ext:'.$want.':', '', $id)];

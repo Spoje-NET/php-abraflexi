@@ -26,7 +26,7 @@ class Relation
     /**
      * Item in target evidence.
      */
-    public array|string|null $value;
+    public null|array|string $value;
 
     /**
      * Target evidence name.
