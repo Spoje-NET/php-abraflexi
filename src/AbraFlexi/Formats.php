@@ -24,7 +24,7 @@ class Formats
     /**
      * Source FlexiBee server version.
      */
-    public static string $version = '2025.6.4';
+    public static string $version = '2025.7.0';
 
     /**
      * Availble Formats.
@@ -425,6 +425,16 @@ class Formats
     ];
 
     /**
+     * Evidence rada-uplatneni-dane-zavazku (Dokladové řady - uplatnění daně - závazky) Formats.
+     */
+    public static array $radaUplatneniDaneZavazku = [
+        'HTML' => 'html',
+        'XML' => 'xml',
+        'JSON' => 'json',
+        'CSV' => 'csv',
+    ];
+
+    /**
      * Evidence rada-faktury-vydane (Dokladové řady - vydané faktury) Formats.
      */
     public static array $radaFakturyVydane = [
@@ -615,7 +625,7 @@ class Formats
     ];
 
     /**
-     * Evidence region (Kraj) Formats.
+     * Evidence region (Kraje) Formats.
      */
     public static array $region = [
         'HTML' => 'html',
@@ -778,6 +788,26 @@ class Formats
      * Evidence vazebni-doklad (Navázané doklady) Formats.
      */
     public static array $vazebniDoklad = [
+        'HTML' => 'html',
+        'XML' => 'xml',
+        'JSON' => 'json',
+        'CSV' => 'csv',
+    ];
+
+    /**
+     * Evidence neuhrazene-po-splatnosti (Neuhrazené po splatnosti) Formats.
+     */
+    public static array $neuhrazenePoSplatnosti = [
+        'HTML' => 'html',
+        'XML' => 'xml',
+        'JSON' => 'json',
+        'CSV' => 'csv',
+    ];
+
+    /**
+     * Evidence neuhrazene-po-splatnosti-2 (Neuhrazené po splatnosti - uhrazené) Formats.
+     */
+    public static array $neuhrazenePoSplatnosti2 = [
         'HTML' => 'html',
         'XML' => 'xml',
         'JSON' => 'json',
@@ -1118,6 +1148,16 @@ class Formats
      * Evidence smlouva-polozka (Položky smluv) Formats.
      */
     public static array $smlouvaPolozka = [
+        'HTML' => 'html',
+        'XML' => 'xml',
+        'JSON' => 'json',
+        'CSV' => 'csv',
+    ];
+
+    /**
+     * Evidence uplatneni-dane-zavazku-polozka (Položky uplatnění daně - závazky) Formats.
+     */
+    public static array $uplatneniDaneZavazkuPolozka = [
         'HTML' => 'html',
         'XML' => 'xml',
         'JSON' => 'json',
@@ -1625,6 +1665,26 @@ class Formats
     ];
 
     /**
+     * Evidence typ-stavu-ceniku (Stavy položek ceníku) Formats.
+     */
+    public static array $typStavuCeniku = [
+        'HTML' => 'html',
+        'XML' => 'xml',
+        'JSON' => 'json',
+        'CSV' => 'csv',
+    ];
+
+    /**
+     * Evidence stav-ceniku (Stavy položek ceníku) Formats.
+     */
+    public static array $stavCeniku = [
+        'HTML' => 'html',
+        'XML' => 'xml',
+        'JSON' => 'json',
+        'CSV' => 'csv',
+    ];
+
+    /**
      * Evidence stav-smlouvy (Stavy smluv) Formats.
      */
     public static array $stavSmlouvy = [
@@ -1905,6 +1965,16 @@ class Formats
     ];
 
     /**
+     * Evidence typ-uplatneni-dane-zavazku (Typy uplatnění daně - závazky) Formats.
+     */
+    public static array $typUplatneniDaneZavazku = [
+        'HTML' => 'html',
+        'XML' => 'xml',
+        'JSON' => 'json',
+        'CSV' => 'csv',
+    ];
+
+    /**
      * Evidence typ-uzivatelske-vazby (Typy uživatelských vazeb) Formats.
      */
     public static array $typUzivatelskeVazby = [
@@ -2058,6 +2128,16 @@ class Formats
      * Evidence umisteni-ve-skladu-mistnost (Umístění ve skladu) Formats.
      */
     public static array $umisteniVeSkladuMistnost = [
+        'HTML' => 'html',
+        'XML' => 'xml',
+        'JSON' => 'json',
+        'CSV' => 'csv',
+    ];
+
+    /**
+     * Evidence uplatneni-dane-zavazku (Uplatnění daně - závazky) Formats.
+     */
+    public static array $uplatneniDaneZavazku = [
         'HTML' => 'html',
         'XML' => 'xml',
         'JSON' => 'json',
@@ -2428,26 +2508,6 @@ class Formats
      * Evidence castky-k-odpoctu (Částky k odpočtu) Formats.
      */
     public static array $castkyKOdpoctu = [
-        'HTML' => 'html',
-        'XML' => 'xml',
-        'JSON' => 'json',
-        'CSV' => 'csv',
-    ];
-
-    /**
-     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Formats.
-     */
-    public static array $typStavuCeniku = [
-        'HTML' => 'html',
-        'XML' => 'xml',
-        'JSON' => 'json',
-        'CSV' => 'csv',
-    ];
-
-    /**
-     * Evidence stav-ceniku (Číselník stavů položek ceníku) Formats.
-     */
-    public static array $stavCeniku = [
         'HTML' => 'html',
         'XML' => 'xml',
         'JSON' => 'json',

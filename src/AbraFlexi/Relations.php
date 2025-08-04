@@ -24,7 +24,7 @@ class Relations
     /**
      * Source FlexiBee server version.
      */
-    public static string $version = '2025.6.4';
+    public static string $version = '2025.7.0';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
@@ -557,6 +557,22 @@ class Relations
     ];
 
     /**
+     * Evidence rada-uplatneni-dane-zavazku (Dokladové řady - uplatnění daně - závazky) Relations.
+     */
+    public static array $radaUplatneniDaneZavazku = [
+        'uzivatelske-vazby' => [
+            'url' => 'uzivatelske-vazby',
+            'evidenceType' => 'VAZBA',
+            'name' => 'Uživatelské vazby',
+        ],
+        'polozkyRady' => [
+            'url' => 'polozkyRady',
+            'evidenceType' => 'ROCNI_RADA',
+            'name' => 'Roční položky číselné řady',
+        ],
+    ];
+
+    /**
      * Evidence rada-faktury-vydane (Dokladové řady - vydané faktury) Relations.
      */
     public static array $radaFakturyVydane = [
@@ -823,7 +839,7 @@ class Relations
     ];
 
     /**
-     * Evidence region (Kraj) Relations.
+     * Evidence region (Kraje) Relations.
      */
     public static array $region = [
         'uzivatelske-vazby' => [
@@ -1466,6 +1482,17 @@ class Relations
             'evidenceType' => 'ADR_UDALOST',
             'name' => 'Události',
         ],
+        'uzivatelske-vazby' => [
+            'url' => 'uzivatelske-vazby',
+            'evidenceType' => 'VAZBA',
+            'name' => 'Uživatelské vazby',
+        ],
+    ];
+
+    /**
+     * Evidence uplatneni-dane-zavazku-polozka (Položky uplatnění daně - závazky) Relations.
+     */
+    public static array $uplatneniDaneZavazkuPolozka = [
         'uzivatelske-vazby' => [
             'url' => 'uzivatelske-vazby',
             'evidenceType' => 'VAZBA',
@@ -2156,6 +2183,38 @@ class Relations
     ];
 
     /**
+     * Evidence typ-stavu-ceniku (Stavy položek ceníku) Relations.
+     */
+    public static array $typStavuCeniku = [
+        'uzivatelske-vazby' => [
+            'url' => 'uzivatelske-vazby',
+            'evidenceType' => 'VAZBA',
+            'name' => 'Uživatelské vazby',
+        ],
+        'ceniky' => [
+            'url' => 'ceniky',
+            'evidenceType' => 'CENIK',
+            'name' => 'Ceníky',
+        ],
+    ];
+
+    /**
+     * Evidence stav-ceniku (Stavy položek ceníku) Relations.
+     */
+    public static array $stavCeniku = [
+        'uzivatelske-vazby' => [
+            'url' => 'uzivatelske-vazby',
+            'evidenceType' => 'VAZBA',
+            'name' => 'Uživatelské vazby',
+        ],
+        'ceniky' => [
+            'url' => 'ceniky',
+            'evidenceType' => 'CENIK',
+            'name' => 'Ceníky',
+        ],
+    ];
+
+    /**
      * Evidence stav-smlouvy (Stavy smluv) Relations.
      */
     public static array $stavSmlouvy = [
@@ -2497,6 +2556,22 @@ class Relations
     ];
 
     /**
+     * Evidence typ-uplatneni-dane-zavazku (Typy uplatnění daně - závazky) Relations.
+     */
+    public static array $typUplatneniDaneZavazku = [
+        'autoTisky' => [
+            'url' => 'autoTisky',
+            'evidenceType' => 'AUTOTISK',
+            'name' => 'Automatický tisk',
+        ],
+        'uzivatelske-vazby' => [
+            'url' => 'uzivatelske-vazby',
+            'evidenceType' => 'VAZBA',
+            'name' => 'Uživatelské vazby',
+        ],
+    ];
+
+    /**
      * Evidence typ-uzivatelske-vazby (Typy uživatelských vazeb) Relations.
      */
     public static array $typUzivatelskeVazby = [
@@ -2709,6 +2784,42 @@ class Relations
             'url' => 'uzivatelske-vazby',
             'evidenceType' => 'VAZBA',
             'name' => 'Uživatelské vazby',
+        ],
+    ];
+
+    /**
+     * Evidence uplatneni-dane-zavazku (Uplatnění daně - závazky) Relations.
+     */
+    public static array $uplatneniDaneZavazku = [
+        'vazebni-doklady' => [
+            'url' => 'vazebni-doklady',
+            'evidenceType' => 'VAZEBNI_DOKLAD',
+            'name' => 'Navázané doklady',
+        ],
+        'polozkyDokladu' => [
+            'url' => 'polozkyDokladu',
+            'evidenceType' => 'UPLATNENI_DANE_ZAV_POLOZKA',
+            'name' => 'Položky faktur',
+        ],
+        'prilohy' => [
+            'url' => 'prilohy',
+            'evidenceType' => 'PRILOHA',
+            'name' => 'Přílohy',
+        ],
+        'udalosti' => [
+            'url' => 'udalosti',
+            'evidenceType' => 'ADR_UDALOST',
+            'name' => 'Události',
+        ],
+        'uzivatelske-vazby' => [
+            'url' => 'uzivatelske-vazby',
+            'evidenceType' => 'VAZBA',
+            'name' => 'Uživatelské vazby',
+        ],
+        'vazby' => [
+            'url' => 'vazby',
+            'evidenceType' => 'VAZBA_MEZI_DOKLADY',
+            'name' => 'Vazby mezi doklady',
         ],
     ];
 
@@ -3122,38 +3233,6 @@ class Relations
             'url' => 'uzivatelske-vazby',
             'evidenceType' => 'VAZBA',
             'name' => 'Uživatelské vazby',
-        ],
-    ];
-
-    /**
-     * Evidence typ-stavu-ceniku (Číselník stavů položek ceníku) Relations.
-     */
-    public static array $typStavuCeniku = [
-        'uzivatelske-vazby' => [
-            'url' => 'uzivatelske-vazby',
-            'evidenceType' => 'VAZBA',
-            'name' => 'Uživatelské vazby',
-        ],
-        'ceniky' => [
-            'url' => 'ceniky',
-            'evidenceType' => 'CENIK',
-            'name' => 'Ceníky',
-        ],
-    ];
-
-    /**
-     * Evidence stav-ceniku (Číselník stavů položek ceníku) Relations.
-     */
-    public static array $stavCeniku = [
-        'uzivatelske-vazby' => [
-            'url' => 'uzivatelske-vazby',
-            'evidenceType' => 'VAZBA',
-            'name' => 'Uživatelské vazby',
-        ],
-        'ceniky' => [
-            'url' => 'ceniky',
-            'evidenceType' => 'CENIK',
-            'name' => 'Ceníky',
         ],
     ];
 
