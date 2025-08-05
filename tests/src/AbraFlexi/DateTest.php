@@ -55,8 +55,7 @@ class DateTest extends \PHPUnit\Framework\TestCase
      */
     public function testtimestampToFlexiDate(): void
     {
-        $this->assertEquals('', $this->object->timestampToFlexiDate());
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $result = $this->object->timestampToFlexiDate(time());
+        $this->assertInstanceOf(\AbraFlexi\Date::class, $result);
     }
 }

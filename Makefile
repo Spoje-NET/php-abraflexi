@@ -39,7 +39,8 @@ static: ## Generate Static files by api structure
 	cd tools/ ; ./update_all.sh ; cd ..
 	make cssilent
 
-clean:
+.PHONY: clean
+clean: ## Clean up build artifacts
 	rm -rf debian/php-abraflexi
 	rm -rf debian/flexipeehp .phpunit.result.cache debian/flexipeehp.debhelper.log
 	rm -rf debian/flexipeehp-doc
@@ -49,7 +50,8 @@ clean:
 	rm -f  debianTest/composer.lock
 	rm -rf vendor/* composer.lock
 
-apigen:
+.PHONY: apigen
+apigen: ## Generate API documentation
 	VERSION=`cat debian/composer.json | grep version | awk -F'"' '{print $4}'`; \
 	apigen generate --destination=docs -- src
 
@@ -57,28 +59,35 @@ apigen:
 phpdoc: ## Generate dev docs
 	phpdoc -d src
 
-pretest:
+.PHONY: pretest
+pretest: ## Prepare for tests
 	composer --ansi --no-interaction update
 	php -f tests/PrepareForTest.php
 
-deb:
+.PHONY: deb
+deb: ## Build Debian package
 	dpkg-buildpackage -A -us -uc
 
-rpm:
+.PHONY: rpm
+rpm: ## Build RPM package
 	rpmdev-bumpspec --comment="Build" --userstring="Vítězslav Dvořák <info@vitexsoftware.cz>" flexipeehp.spec
-	rpmbuild -ba flexipeehp.spec 
+	rpmbuild -ba flexipeehp.spec
 
-release:
+.PHONY: release
+release: ## Release a new version
 	echo Release v$(nextversion)
 	dch -v $(nextversion) `git log -1 --pretty=%B | head -n 1`
 	debuild -i -us -uc -b
 	git commit -a -m "Release v$(nextversion)"
 	git tag -a $(nextversion) -m "version $(nextversion)"
 
-dimage:
+.PHONY: dimage
+dimage: ## Build Docker image
 	docker build -t vitexsoftware/flexipeehp .
 
 .PHONY: all pretest clean static release verup deb
 
+
 .PHONY: cs
+cs: ## Update Coding Standards
 	vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --diff --verbose

@@ -2057,7 +2057,7 @@ class RO extends \Ease\Sand
             }
         } else {
             foreach ($values as $id) {
-                if (strstr($id, 'ext:'.$want)) {
+                if ($id && strstr($id, 'ext:'.$want)) {
                     if (null === $extid) {
                         $extid = str_replace('ext:'.$want.':', '', $id);
                     } else {
