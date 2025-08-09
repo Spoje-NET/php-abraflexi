@@ -89,7 +89,7 @@ class RO extends \Ease\Sand
     /**
      * Curl Handle.
      */
-    public ?\CurlHandle $curl;
+    public ?\CurlHandle $curl = null;
 
     /**
      * @see https://demo.flexibee.eu/devdoc/company-identifier Identifikátor firmy
@@ -132,7 +132,7 @@ class RO extends \Ease\Sand
     /**
      * Sloupeček obsahující datum vložení záznamu do shopu.
      */
-    public ?string $myCreateColumn = 'false';
+    public ?string $myCreateColumn = null;
 
     /**
      * Sloupeček obsahujici datum poslení modifikace záznamu do shopu.
@@ -141,8 +141,10 @@ class RO extends \Ease\Sand
 
     /**
      * Informace o posledním HTTP requestu.
+     *
+     * @var null|array<string, mixed>
      */
-    public ?array $curlInfo;
+    public null|array $curlInfo;
 
     /**
      * Informace o poslední HTTP chybě.
@@ -181,6 +183,8 @@ class RO extends \Ease\Sand
 
     /**
      * Last operation result data or message(s).
+     *
+     * @var array<mixed>|null
      */
     public ?array $lastResult = null;
 
@@ -212,6 +216,8 @@ class RO extends \Ease\Sand
      * Parmetry pro URL.
      *
      * @see https://www.abraflexi.eu/api/dokumentace/ref/urls/ Všechny podporované parametry
+     *
+     * @var array<string, array<string, mixed>> List of known URL parameters and their metadata
      */
     public array $urlParamsKnown = [
         'add-global-version' => ['type' => 'boolean', 'description' => 'The response will contain the global version number of the current export'],
@@ -333,11 +339,15 @@ class RO extends \Ease\Sand
 
     /**
      * List of Error500 reports sent.
+     *
+     * @var array<string, mixed>
      */
     private array $reports = [];
 
     /**
-     * Columns Info for serveral evidences.
+     * Columns Info for several evidences.
+     *
+     * @var array<string, mixed> Array of evidence names to their column info arrays
      */
     private array $columnsInfo = [];
 
@@ -521,9 +531,9 @@ class RO extends \Ease\Sand
     /**
      * Get Current connection options for use in another object.
      *
-     * @return array usable as second constructor parameter
+     * @return array<string, int|string|null> Usable as second constructor parameter
      */
-    public function getConnectionOptions()
+    public function getConnectionOptions(): array
     {
         $conOpts = ['url' => $this->url];
 
@@ -548,7 +558,9 @@ class RO extends \Ease\Sand
     }
 
     /**
-     * Export current/given configutation into Environment.
+     * Export current/given configuration into Environment.
+     *
+     * @param array<string, int|string|null> $opts Configuration options to export to environment variables
      */
     public function configToEnv(array $opts = []): void
     {
@@ -688,7 +700,7 @@ class RO extends \Ease\Sand
     /**
      * Strip all non-identifier data.
      *
-     * @param array $keep extra columns to be preserved
+     * @param array<string> $keep extra columns to be preserved
      *
      * @return RO Current object state
      */
@@ -1936,7 +1948,7 @@ class RO extends \Ease\Sand
      */
     public function getRecordCode()
     {
-        return empty($this->getDataValue('kod')) ? null : Functions::code($this->getDataValue('kod'));
+        return empty($this->getDataValue('kod')) ? null : Code::ensure($this->getDataValue('kod'));
     }
 
     /**
