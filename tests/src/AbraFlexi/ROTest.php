@@ -844,7 +844,7 @@ EOD;
     //    }
     //
     //    /**
-    //     * @covers \AbraFlexi\RO::evidenceToClassName
+    //     * @covers \AbraFlexi\Functions::evidenceToClassName
     //     *
     //     * @todo   Implement testevidenceToClassName().
     //     */

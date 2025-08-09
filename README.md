@@ -1,44 +1,39 @@
 # PHP AbraFlexi
+
 ![PHP AbraFlexi Logo](project-logo.png?raw=true "Project Logo")
 
-PHP7.1+ Based Library for easy interaction with Czech accounting system AbraFlexi.
-
-CZ: PHP Knihovna pro snadnou práci s českým ekonomickým systémem [AbraFlexi](https://www.abraflexi.eu/)
+PHP 8.1+ based library for easy interaction with the Czech accounting system AbraFlexi.
 
 [![Latest Version](https://img.shields.io/github/release/Spoje-NET/php-abraflexi.svg?style=flat-square)](https://github.com/Spoje-NET/php-abraflexi/releases)
 [![Software License](https://img.shields.io/badge/license-GNU-brightgreen.svg?style=flat-square)](https://github.com/Spoje-NET/php-abraflexi/blob/master/LICENSE)
 [![GitHub forks](https://img.shields.io/github/forks/Spoje-NET/php-abraflexi)](https://github.com/Spoje-NET/php-abraflexi/network)
 [![wakatime](https://wakatime.com/badge/user/5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/project/48520b87-4e9a-4eca-861a-a5dd85b11374.svg)](https://wakatime.com/badge/user/5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/project/48520b87-4e9a-4eca-861a-a5dd85b11374)
-[![Docker pulls](https://img.shields.io/docker/pulls/vitexsoftware/flexipeehp.svg)](https://hub.docker.com/r/vitexsoftware/flexipeehp/)
-[![Latest stable](https://img.shields.io/packagist/v/spojenet/php-abraflexi.svg?style=flat-square)](https://packagist.org/packages/spojenet/php-abraflexi)
+![Packagist Version](https://img.shields.io/packagist/v/Spoje-NET/php-abraflexi)
 
 [![Latest Stable Version](https://poser.pugx.org/spojenet/flexibee/v/stable)](https://packagist.org/packages/spojenet/flexibee)
 [![Total Downloads](https://poser.pugx.org/spojenet/flexibee/downloads)](https://packagist.org/packages/spojenet/flexibee)
-[![Total Downloads](https://img.shields.io/packagist/dt/spojenet/flexibe.svg?style=flat-square)](https://packagist.org/packages/spojenet/flexibee)
 [![Latest Unstable Version](https://poser.pugx.org/spojenet/flexibee/v/unstable)](https://packagist.org/packages/spojenet/flexibee)
 [![License](https://poser.pugx.org/spojenet/flexibee/license)](https://packagist.org/packages/spojenet/flexibee)
 [![Monthly Downloads](https://poser.pugx.org/spojenet/flexibee/d/monthly)](https://packagist.org/packages/spojenet/flexibee)
 [![Daily Downloads](https://poser.pugx.org/spojenet/flexibee/d/daily)](https://packagist.org/packages/spojenet/flexibee)
 
-# Poděkování 
-Vznik této knihovny by nebyl možný bez laskavé podpory společnosti [Spoje.Net](http://www.spoje.net), 
-která hradila vývoj řešení pro propojení LMS / AbraFlexi a importu skladu. :+1:
+# Acknowledgements
+
+The creation of this library would not have been possible without the kind support of [Spoje.Net](http://www.spoje.net), which funded the development of the solution for connecting LMS / AbraFlexi and warehouse import. :+1:
 
 ![Spoje.Net](spoje-net_logo.gif?raw=true "Spoje.Net")
 
-**Dále chci poděkovat technické podpoře společnosti [ABRA Flexi s.r.o.](https://www.abraflexi.eu/podpora/) za jejich svatou trpělivost
-při reakcích na mé ne vždy bystré otázky a bugreporty.**
+**Special thanks to the technical support of [ABRA Flexi s.r.o.](https://www.abraflexi.eu/podpora/) for their patience in responding to all questions and bug reports.**
 
-Parsování výsledků pro účely GDPR logování bylo dopracováno za laskavé podpory [&lt;PureHTML&gt;](https://purehtml.cz/) 
+GDPR logging support was completed with the kind help of [&lt;PureHTML&gt;](https://purehtml.cz/)
 
-Instalace
----------
+## Installation
 
 ```shell
-    composer require spojenet/flexibee
+composer require spojenet/flexibee
 ```
 
-aby váš výsledný composer.json obsahoval: 
+so that your resulting composer.json contains:
 
 ```json
 {
@@ -48,50 +43,34 @@ aby váš výsledný composer.json obsahoval:
 }
 ```
 
-spustí se příkazem **composer install** instalace:
+Run the installation with the command **composer install**:
 
 ![Compser Install](flexipeehp-composer-install.png?raw=true "Installation")
 
+## Configuration
 
-Konfigurace
------------
-
-Konfigurace se provádí nastavením následujících konstant:
+Configuration is done by setting the following constants:
 
 ```php
-   /*
-    * URL AbraFlexi API
-    */
-    define('ABRAFLEXI_URL', 'https://abraflexi-dev.spoje.net:5434');
-   /*
-    * Uživatel AbraFlexi API
-    */
-    define('ABRAFLEXI_LOGIN', 'apiuser');
-   /*
-    * Heslo AbraFlexi API
-    */
-    define('ABRAFLEXI_PASSWORD', 'apipass');
-   /*
-    * Společnost v AbraFlexi
-    */
-    define('ABRAFLEXI_COMPANY', 'test_s_r_o_');
-   /*
-    * Nebo pokud nechceme používat jméno a heslo 
-    */
-    define('ABRAFLEXI_AUTHSESSID', '6QuifebMits'); //Volitelné
-   /*
-    * Pomalý server, velká databáze a přes modem k tomu
-    */
-    define('ABRAFLEXI_TIMEOUT', 60); //Volitelné
-   /*
-    * Pomalý server, velká databáze a přes modem k tomu
-    */
-    define('ABRAFLEXI_EXCEPTIONS', true); //Vracet PHP vyjímku v případě že AbraFlexi vrátí chybu
+   // AbraFlexi API URL
+   define('ABRAFLEXI_URL', 'https://abraflexi-dev.spoje.net:5434');
+   // AbraFlexi API User
+   define('ABRAFLEXI_LOGIN', 'apiuser');
+   // AbraFlexi API Password
+   define('ABRAFLEXI_PASSWORD', 'apipass');
+   // Company in AbraFlexi
+   define('ABRAFLEXI_COMPANY', 'test_s_r_o_');
+   // Or if you do not want to use username and password
+   define('ABRAFLEXI_AUTHSESSID', '6QuifebMits'); // Optional
+   // Slow server, large database, and over a modem
+   define('ABRAFLEXI_TIMEOUT', 60); // Optional
+   // Return PHP exception if AbraFlexi returns an error
+   define('ABRAFLEXI_EXCEPTIONS', true); // Optional
 ```
 
-Pokud nejsou konstanty nastaveny, pouší se třídy také o konfiguraci ze stejnojmených proměnných prostředí. např getenv('ABRAFLEXI_URL')
+If the constants are not set, the classes will also try to configure themselves from environment variables of the same name, e.g. getenv('ABRAFLEXI_URL')
 
-Taktéž je možné přihlašovací údaje zadávat při vytváření instance třídy.
+It is also possible to provide login credentials when creating an instance of the class.
 
 ```php
     $invoicer = new \AbraFlexi\FakturaVydana(null,[
@@ -102,25 +81,21 @@ Taktéž je možné přihlašovací údaje zadávat při vytváření instance t
             ]);
 ```
 
-Tento způsob nastavení má vyšší prioritu než výše uvedené definovaní konstant.
+This method of setting has a higher priority than the above constant definitions.
 
 ```php
     $order = new \AbraFlexi\ObjednavkaPrijata('code:OBP0034/2019',['companyUrl'=> $_GET['companyUrl'], 'authSessionId'=>$_GET['authSessionId'] ])
-
 ```
-Takto se ke abraflexi a konrétní objednávce může připojit aplikace vyvolaná uživatelským tlačítkem předávajícím hodnoty **companyUrl** a **authSessionId**
 
-Jak to celé funguje ?
----------------------
+In this way, an application triggered by a user button passing the values **companyUrl** and **authSessionId** can connect to abraflexi and a specific order.
 
-Ústřední komponentou celé knihovny je Třída RO, která je schopna pomocí 
-PHP rozšíření curl komunikovat s REST Api AbraFlexi.
+## How does it all work?
 
-Z ní jsou pak odvozeny třídy pro jednotlivé evidence, obsahující metody pro 
-často používané operace, například "Zaplať" v případě přijatých faktur.
+The central component of the entire library is the RO class, which is able to communicate with the AbraFlexi REST API using the PHP curl extension.
 
-Nová odvozená třída vzniká tak, že jméno třídy je název evidence avšak bez 
-pomlček. Ty jsou ve jméně nahrazeny velkým písmenem. 
+From it, classes for individual records are derived, containing methods for frequently used operations, for example "Pay" in the case of received invoices.
+
+A new derived class is created so that the class name is the name of the record but without hyphens. These are replaced by capital letters in the name.
 
 ```php
     function evidenceToClass($evidence)
@@ -129,18 +104,17 @@ pomlček. Ty jsou ve jméně nahrazeny velkým písmenem.
     }
 ```
 
-Tzn. Pokud chceme odvodit 
-novou třídu pro evidenci "Měrné jednotky" bude vypadat takto:
+So, if we want to derive a new class for the record "Měrné jednotky" (Units of Measure), it will look like this:
 
 ```php
     <?php
     /**
-     * @link https://demo.abraflexi.eu/c/demo/merna-jednotka/properties Vlastnosti evidence
+     * @link https://demo.abraflexi.eu/c/demo/merna-jednotka/properties Properties of the record
      */
     class MernaJednotka extends /AbraFlexi/RW
     {
         /**
-         * Evidence užitá objektem.
+         * Record used by the object.
          *
          * @var string
          */
@@ -148,175 +122,136 @@ novou třídu pro evidenci "Měrné jednotky" bude vypadat takto:
     }
 ```
 
-A poté je již snadné si vypsat měrné jednotky na 2 řádky:
-    
+And then it is easy to list the units of measure in 2 lines:
+
 ```php
     $jednotky = new MernaJednotka();
     print_r( $jednotky->getAllFromAbraFlexi() );
 ```
 
-Pokud chceme aby nově vytvořená třída uměla do abraflexi i zapisovat, je třeba jí 
-odvodit od předka AbraFlexiRW.
+If we want the newly created class to be able to write to abraflexi, it must be derived from the AbraFlexiRW parent.
 
+More usage examples can be found [in a separate project](https://github.com/VitexSoftware/AbraFlexi-Examples/tree/master/Examples)
 
-Více příkladů použití je možné najít [v samostatném projektu](https://github.com/VitexSoftware/AbraFlexi-Examples/tree/master/Examples)
+## Structure of Records, Actions, and Relations
 
-Struktura Evidencí, Akcí a vztahů
----------------------------------
+In some cases, it is good to know what actions can be performed or what the structure of a record is. This information can be obtained by calling <https://demo.abraflexi.eu/c/demo/*/properties.json> or <https://demo.abraflexi.eu/c/demo/*/actions.json>. However, these are relatively time-consuming operations. Since the structure of records and actions or relations between records in AbraFlexi does not change often, AbraFlexi has a mechanism that allows you to work with this data without having to query the server.
 
-V některých případech je dobré znát jaké můžeme provádět akce, či jáká je 
-struktura evidence. Tyto informace je možno získat voláním 
-https://demo.abraflexi.eu/c/demo/*/properties.json 
-respektive https://demo.abraflexi.eu/c/demo/*/actions.json 
-avšak jedná se o relativně časově náročné operace. Jelikož se struktura 
-evidencí a Akce či vztahy mezi evidencemi AbraFlexi často nemění AbraFlexi 
-disponuje mechanizmem který umožní pracovat s těmito údaji bez nutnosti 
-dotazovat se na ně serveru. 
+The structure is stored in the Structure class (Actions, Relations), which contains a statically defined array with information that would otherwise have to be obtained from AbraFlexi.
 
-Struktura je uložena ve třídě Structure (Actions,Relations) která obsahuje 
-staticky definované pole obsahující informace které by jinak bylo nutné získat
-z AbraFlexi.
-
-Položku v seznamu evidencí https://demo.abraflexi.eu/c/demo/evidence-list je pak 
-možné kdykoliv snadno ukázat:
+An item in the list of records <https://demo.abraflexi.eu/c/demo/evidence-list> can then be easily displayed at any time:
 
 ```php
     echo \AbraFlexi\Structure::$evidence['faktura-vydana'];
 ```
 
-Sturktury jednotlivých evidencí jsou pak uloženy ve statických proměnných.
-Jejich jméno se řídí stejnými pravidly jako jsou pro vytváření jména nové třídy
-jen s tím rozdílem, že první písmeno je malé. Tzn.:
+The structures of individual records are then stored in static variables. Their name follows the same rules as for creating a new class name, except that the first letter is lowercase.
 
 ```php
-    lcfirst(\AbraFlexi\RO::evidenceToClassName($evidence))
+    lcfirst(\AbraFlexi\Functions::evidenceToClassName($evidence))
 ```
 
-V případě potřeby je možné tyto třídy pak možné vygenerovat s aktuálním obsahem 
-následujícím příkazem:
+If necessary, these classes can then be generated with the current content using the following command:
 
-  ```
-  cd tools/ 
-  ./update_all.sh
-  ```
+```shell
+cd tools/
+./update_all.sh
+```
 
-Operace trvá několik minut. Zobrazit průběh můžeme takto:
+The operation takes several minutes. You can view the progress as follows:
 
-  ```
-  tail -f /var/log/syslog | grep  AbraFlexitest
-  ```
-Ladicí režim
-------------
+```shell
+tail -f /var/log/syslog | grep  AbraFlexitest
+```
 
-Pokud v objektech AbraFlexi nastavíte $this->debug na true, budou se před odesláním
-dat do AbraFlexi provedeny dodatečné testy. Kontrolují se tyto možné chyby:
+## Debug mode
 
- * Existuje vkládané políčko definované pro evidenci ?
- * Je vkládané políčko Pouze pro čtení ?
- * Pokud je vkládané políčko vazbou, je i polem ?
+If you set $this->debug to true in AbraFlexi objects, additional tests will be performed before sending data to AbraFlexi. The following possible errors are checked:
 
-V ladícím režimu se také ukládají do složky /tmp všechny požadavky na abraflexi a jejich odpovědi
+* Does the inserted field exist for the record?
+* Is the inserted field read-only?
+* If the inserted field is a relation, is it also a field?
 
-Knihovna obsahuje mechanizmus pro odesílání zaznamenaných chyb při běhu AbraFlexi vývojářům:
+In debug mode, all requests to abraflexi and their responses are also saved to the /tmp folder
 
-Pokud AbraFlexi vrátí Internal Server Error 500, je odeslán vývojářům email obsahující chybovou zprávu.
+The library includes a mechanism for sending recorded errors during AbraFlexi runtime to developers:
 
-V případě že je použito AbraFlexi běžící na stejném serveru a je možné číst chybové logy je z nich vypreparován patřičný fragment a i ten je přidán do těla mailu.
+If AbraFlexi returns Internal Server Error 500, an email containing the error message is sent to the developers.
 
-Email obsahuje také dodatečné informace o licenci a povolených modulech.
+If AbraFlexi is running on the same server and it is possible to read the error logs, the appropriate fragment is extracted from them and added to the body of the email.
 
-Jako přílohy jsou také připojeny soubory obsahující tělo dotazu na server, tělo jeho odpovědi a soubor obsahující informace o curl.
+The email also contains additional information about the license and enabled modules.
 
-Během života objektu se chyby evidují a odesílá se pouze první každého druhu. 
+Attachments also include files containing the body of the request to the server, the body of its response, and a file containing information about curl.
 
-Změny ve verzi 3.6
-------------------
+During the life of the object, errors are recorded and only the first of each kind is sent.
 
-* nastaven výchozí curl timeout na 300
-* Maximalizace využití objektu Relation
-* Nová třída AbraFlexi\Code nahrazující Functions::code a Functions::uncode
-* Dostupné jsou třídy pro všechny evidence ( ne jenom pro ty často používané )
+## Changes in version 3.6
 
+* Default curl timeout set to 300
+* Maximized use of the Relation object
+* New class AbraFlexi\Code replacing Functions::code and Functions::uncode
+* Classes are available for all records (not just the frequently used ones)
 
-Příkad vytvoření instance třídy FakturaVydana
---------------------------------------------- 
+## Example of creating an instance of the FakturaVydana class
 
-Výchozí **Nativní typy** se projevují tak že ze serveru ve chlívečku obsahující datum obdržíte php objekt DateTime. ve sloupečku 'id' integer a pod. 
-Toto chování je možné vypnout pomocí parametru konstruktoru ```['nativeTypes' = false]```
-
+The default **Native types** mean that from the server, in a field containing a date, you get a PHP DateTime object. In the 'id' column, an integer, etc. This behavior can be disabled using the constructor parameter `['nativeTypes' = false]`
 
 ```php
     new \AbraFlexi\FakturaVydana( 'code:VF2-12345', ['nativeTypes'=>false,'debug'=>true,'ignore404'=>false] );
 ```
-Viz.: [constructor RO](https://github.com/Spoje-NET/php-abraflexi/blob/cd829fcb05939ab54ed99aaa63d01b63700cbb83/src/AbraFlexi/RO.php#L450)
 
-Je možno zadat některé z těchto parametrů:
+See: [constructor RO](https://github.com/Spoje-NET/php-abraflexi/blob/cd829fcb05939ab54ed99aaa63d01b63700cbb83/src/AbraFlexi/RO.php#L450)
 
-     * user,password,authSessionId - autentifikace
-     * company,url,evidence - vynucení parametrů přístupu
-     * prefix - pro url začínající jinak než  '/c/' pro  company
-     * defaultUrlParams - pole vlastností pak automaticky přidávané
-     * debug - pro zapnutí ladícího režimu
-     * detail - pro specifikaci požadované [úrovně detailů](https://www.flexibee.eu/api/dokumentace/ref/detail-levels/). 
-     * offline - nevykonávají se žádné síťové operace ( nepřiřipojit se při instancování objektu ) 
-     * filter - viz [Filtrování](https://www.flexibee.eu/api/dokumentace/ref/filters}
-     * ignore404 - v případě že nevím zdali požadovaný záznam existuje nastavte na true aby to nevyhodilo chybu
-     * nativeTypes - pokud chci všecho ze serveru vracet jako stringy 
-     * timeout - trpělivost než se vyhodí chyba síťové komunikace (předáváno do cURL)
-     * companyUrl - načte si z řetězce všechny náležitosti k připojení (heslo pro API atd..)
-     * ver - vynucení verze api (pokud chcete volat funkce určené pro nové webové rozhraní)
-     * throwException - vyhodit vyjímku při každé vhodné příležitosti
+You can specify some of these parameters:
 
+     * user, password, authSessionId - authentication
+     * company, url, evidence - force access parameters
+     * prefix - for URLs starting differently than '/c/' for company
+     * defaultUrlParams - array of properties then automatically added
+     * debug - to enable debug mode
+     * detail - to specify the required [level of detail](https://www.flexibee.eu/api/dokumentace/ref/detail-levels/).
+     * offline - no network operations are performed (do not connect when instantiating the object)
+     * filter - see [Filtering](https://www.flexibee.eu/api/dokumentace/ref/filters}
+     * ignore404 - if you do not know whether the requested record exists, set to true so it does not throw an error
+     * nativeTypes - if you want everything from the server to be returned as strings
+     * timeout - patience before a network communication error is thrown (passed to cURL)
+     * companyUrl - loads all connection details from the string (API password, etc.)
+     * ver - force API version (if you want to call functions intended for the new web interface)
+     * throwException - throw an exception at every suitable opportunity
 
+## Autoloading data
 
-Autoloading dat
----------------
+If the constructor of the object is given an ID of type int or a code (code:..) of the record, it calls the function loadFromAbraFlexi(id). Then it is possible to access the loaded values using the methods $this->getData() and RO::getDataValue('name')
 
-Pokud se konstruktoru objektu předá ID typu int nebo kódem  (code:..) záznamu zavolá tento funkci loadFromAbraFlexi(id) 
-Poté je možné k načteným hodnotám se dostat za použití metod $this->getData() a RO::getDataValue('nazev')
+## Data types
 
-
-Datové typy
------------
-
-Jelikož API vrací vše víceméně jako řetězec, knihovna provádí automatické konverze datových typů:
-
-| Strojový název | Název           | Poznámka    | Ukázka       | PHP Typ  |
+| Machine Name   | Name            | Note        | Example     | PHP Type  |
 | -------------- | :-------------- | ----------- | :----------: | :------- |
-| string         | Řetězec         | Kódování je unicode. Lze tedy použít libovolný znak. | šílený koníček こちらは田中さんです | string |
-| integer        | Celé číslo      | Musí být bez mezer. Jde o znaménkový 4bajtový integer, ovšem rozsah může být omezený (viz přehled položek dané evidence) | 12 | integer |
-| numeric        | Desetinné číslo | Musí být bez mezer, oddělovačem desetinných míst je tečka. Jde o 8bajtový double, ovšem rozsah může být omezený (viz přehled položek dané evidence) | 12.5 | float |
-| date           | Datum           | Datum ve formátu YYYY-MM-DD; lze zadat i časovou zónu (YYYY-MM-DDZZZ), ale ta bude ignorována. ZZZ je označení časové zóny (Z nebo +HH:MM nebo -HH:MM). | 1980‑05‑06 2015‑01‑30Z 2008‑09‑01+02:00 | \Date() |
-| datetime       | Datum + čas     | Datum a čas ve formátu YYYY-MM-DD'T'HH:MM:SS.SSS; lze zadat i časovou zónu (YYYY-MM-DD'T'HH:MM:SS.SSSZZZ), ale ta bude ignorována. | 1980‑05‑06 1980‑05‑06T12:30:12 2015‑01‑30T22:55:33Z 2008‑09‑01T17:18:14+02:00  2008‑09‑01T17:18:14.075+02:00 | \DateTime() |
-| logic          | Logická hod.    | boolean     | true false | boolean |
-| select         | Výběr jedné z hodnot | Výběr jedné z hodnot. Je reprezentován jako řetězec.  | typVztahu.odberDodav | string |
-| relation       | Vazba mezi daty | Vstupem je záznam z jiné evidence (přehled typů identifikátorů)  | 123 code:CZK ext:DB:232 | \AbraFlexi\Relation |
+| string         | String          | Encoding is unicode. Any character can be used. | crazy pony こちらは田中さんです | string |
+| integer        | Integer         | Must be without spaces. It is a signed 4-byte integer, but the range may be limited (see the overview of items for the given record) | 12 | integer |
+| numeric        | Decimal number  | Must be without spaces, the decimal separator is a dot. It is an 8-byte double, but the range may be limited (see the overview of items for the given record) | 12.5 | float |
+| date           | Date            | Date in the format YYYY-MM-DD; you can also specify a time zone (YYYY-MM-DDZZZ), but it will be ignored. ZZZ is the time zone designation (Z or +HH:MM or -HH:MM). | 1980‑05‑06 2015‑01‑30Z 2008‑09‑01+02:00 | \Date() |
+| datetime       | Date + time     | Date and time in the format YYYY-MM-DD'T'HH:MM:SS.SSS; you can also specify a time zone (YYYY-MM-DD'T'HH:MM:SS.SSSZZZ), but it will be ignored. | 1980‑05‑06 1980‑05‑06T12:30:12 2015‑01‑30T22:55:33Z 2008‑09‑01T17:18:14+02:00  2008‑09‑01T17:18:14.075+02:00 | \DateTime() |
+| logic          | Boolean value   | boolean     | true false | boolean |
+| select         | Select one value | Select one value. It is represented as a string.  | typVztahu.odberDodav | string |
+| relation       | Data relation   | The input is a record from another evidence (overview of identifier types)  | 123 code:CZK ext:DB:232 | \AbraFlexi\Relation |
 
+## Testing
 
-Testování
----------
+PHPUnit tests are located in the **testing** folder. If you want to test against a different server than the official <http://demo.abraflexi.eu/>, you need to change the settings in the **bootstrap.php** file.
 
-PHPUnit testy se nachází ve složce **testing**. Pokud chcete testovat proti jinému
-serveru než je oficální http://demo.abraflexi.eu/ , je třeba změnit nastavení v 
-souboru **bootstrap.php**. 
+The contents of the $testServer variable determine which of the preset settings will be used. And of course, you can define your own. As an example, the test server spoje.net is given here.
 
-Obsah proměnné $testServer určuje která z předvolených nastavení budou použita.
-A samozřejmě si můžete nadefinovat i vlastní. Jako příklad je zde uveden testovací
-server spoje.net.
+For testing, please first create a test company TESTING s.r.o. and set the access data for a user authorized to use the REST API. (Which is the administrator user specified during the installation of AbraFlexi.)
 
-Pro testování vytvořte prosím nejprve testovací firmu TESTING s.r.o. a nastavte
-přístupové údaje uživatele s oprávněním používat REST API. (Což je uživatel 
-administrátora zadaný při instalaci AbraFlexi.)
+Warning: testing against a company with many invoices and a connected bank may take some time, as automatic document matching is also tested.
 
-Upozornění: testování proti firmě s množstvím faktur a připojenou bankou může 
-trvat nějakou dobu, jelikož se testuje i zavolání automatického párování dokladů.
-
-Pokud se ve vašem projektu rozhodnete podědit AbraFlexi a k těmto třídám napíšete 
-testy také  poděděné z AbraFlexi např:
+If you decide to inherit AbraFlexi in your project and write tests for these classes also inherited from AbraFlexi, e.g.:
 
 class HookRecieverTest extends \Test\AbraFlexi\ChangesTest
 
-Přidejte do vašeho composer.json i cesty k původním testům:
+Add the paths to the original tests to your composer.json:
 
 ```json
     "autoload-dev": {
@@ -328,72 +263,63 @@ Přidejte do vašeho composer.json i cesty k původním testům:
     }
 ```
 
+## Examples
 
-Ukázka
-------
+In the Examples folder, you can find these usage examples:
 
-Ve složce Examples jsou tyto ukázky použití:
+| File                                                        | Description                                 |
+| ----------------------------------------------------------- | --------------------------------------------|
+| [AttachmentSaveToFile.php](Examples/AttachmentSaveToFile.php) | save attachment to file
+| [AttachmentUpload.php](Examples/AttachmentUpload.php)         | upload attachment
+| [AuthSessionIdUsage.php](Examples/AuthSessionIdUsage.php)     | Example of AuthSessionId authentication
+| [AuthentizeContact.php](Examples/AuthentizeContact.php)       | contact authentication
+| [BatchOperation.php](Examples/BatchOperation.php)             | Using filter in batch operations
+| [CreateLabel.php](Examples/CreateLabel.php)                   | working with labels
+| [DryRun.php](Examples/DryRun.php)                             | Test save (dry-run)
+| [DownloadInvoicePDF.php](Examples/DownloadInvoicePDF.php)     | download invoice PDF
+| [Error404.php](Examples/Error404.php)                         | working with non-existent records
+| [FindOverdueInvoices.php](Examples/FindOverdueInvoices.php)   | find overdue invoices
+| [GetRecordWithRelation.php](Examples/GetRecordWithRelation.php) | Get record including data from sub-record
+| [GetBankAccountForCompany.php](Examples/GetBankAccountForCompany.php) | Get bank account for company from directory
+| [InvoiceLockUnlock.php](Examples/InvoiceLockUnlock.php)       | Locking and unlocking record
+| [InvoiceCopy.php](Examples/InvoiceCopy.php)                   | create tax document from advance
+| [LoginLogout](Examples/LoginLogout.php)                       | user login and logout
+| [NajdiDanovyDokladKzalohovemu.php](Examples/NajdiDanovyDokladKzalohovemu.php) | find document
+| [Naskladnění.php](Examples/Naskladneni.php)                   | Stock product with serial numbers
+| [NewInvoice.php](Examples/NewInvoice.php)                     | New invoice with due date printed as json
+| [ObjectChaining.php](Examples/ObjectChaining.php)             | Chaining objects for multiple operations in one request
+| [ObjectCooperation.php](Examples/ObjectsCooperation.php)      | Sharing data and connection parameters between objects
+| [PerformingActions.php](Examples/PerformingActions.php)       | How to perform actions on a document, e.g. cancellation
+| [ReadAddressColumns.php](Examples/ReadAddressColumns.php)     | return specific columns
+| [sendInvoiceByMail.php](Examples/sendInvoiceByMail.php)       | send invoice by email
+| [SendReminders.php](Examples/SendReminders.php)               | send reminders
+| [SetContactAuth.php](Examples/SetContactAuth.php)             | set authentication
+| [TestConnection.php](Examples/TestConnection.php)             | connection check
 
-| Soubor                                                        | Popis                                 |
-| ------------------------------------------------------------- | --------------------------------------|
-| [AttachmentSaveToFile.php](Examples/AttachmentSaveToFile.php) | uložení přílohy do souboru
-| [AttachmentUpload.php](Examples/AttachmentUpload.php)         | nahrání přílohy
-| [AuthSessionIdUsage.php](Examples/AuthSessionIdUsage.php)     | Ukázka autentizace AuthSessionId
-| [AuthentizeContact.php](Examples/AuthentizeContact.php)       | autentizace kontaktu
-| [BatchOperation.php](Examples/BatchOperation.php)             | Použití filtru při dávkových operacích
-| [CreateLabel.php](Examples/CreateLabel.php)                   | práce se štítky
-| [DryRun.php](Examples/DryRun.php)                             | Testovací uložení (dry-run)
-| [DownloadInvoicePDF.php](Examples/DownloadInvoicePDF.php)     | stažení PDF faktury
-| [Error404.php](Examples/Error404.php)                         | práce s neexistujícími záznamy
-| [FindOverdueInvoices.php](Examples/FindOverdueInvoices.php)   | najdi faktury po splatnosti
-| [GetRecordWithRelation.php](Examples/GetRecordWithRelation.php) | Získání záznamu včetně dat z podevidence
-| [GetBankAccountForCompany.php](Examples/GetBankAccountForCompany.php) | Získání bankovního účtu k firmě z adresáře
-| [InvoiceLockUnlock.php](Examples/InvoiceLockUnlock.php)       | Zamykání a odemykání záznamu
-| [InvoiceCopy.php](Examples/InvoiceCopy.php)                   | vytvoření daňového dokladu ze zálohy
-| [LoginLogout](Examples/LoginLogout.php)                       | přihlášení uživatele a jeho odhlášení
-| [NajdiDanovyDokladKzalohovemu.php](Examples/NajdiDanovyDokladKzalohovemu.php) | dohledání dokladu
-| [Naskladnění.php](Examples/Naskladneni.php)                   | Naskladní produkt se sériovými čísly
-| [NewInvoice.php](Examples/NewInvoice.php)                     | Nová faktura se splatností vypsaná jako json
-| [ObjectChaining.php](Examples/ObjectChaining.php)             | Řetězení objektů pro více operací v jenom pořadavku
-| [ObjectCooperation.php](Examples/ObjectsCooperation.php)      | Sdílení data a parametrů připojení mezi objekty
-| [PerformingActions.php](Examples/PerformingActions.php)       | Jak vykonávat akce nad dokladem akce. např. storno
-| [ReadAddressColumns.php](Examples/ReadAddressColumns.php)     | vrať konkrétní sloupečky
-| [sendInvoiceByMail.php](Examples/sendInvoiceByMail.php)       | odeslání faktury mailem
-| [SendReminders.php](Examples/SendReminders.php)               | odeslání upomínek
-| [SetContactAuth.php](Examples/SetContactAuth.php)             | nastavení autentizace
-| [TestConnection.php](Examples/TestConnection.php)             | kontrola spojení 
+## Usage examples
 
+* [Flexplorer](https://github.com/VitexSoftware/Flexplorer) Developer tool and record editor
+* [FlexiProXY](https://github.com/VitexSoftware/FlexiProxy) Modifier of the AbraFlexi web interface
+* [Upomínač](https://github.com/VitexSoftware/php-abraflexi-reminder) Reminder sender
+* [Matcher](https://github.com/VitexSoftware/php-abraflexi-matcher) Invoice matcher
+* [Redmine2AbraFlexi](https://github.com/VitexSoftware/Redmine2AbraFlexi) Generates invoices from time worked in Redmine
+* [FlexiPeeHP-Bricks](https://github.com/VitexSoftware/FlexiPeeHP-Bricks) Examples and frequently used classes when working with AbraFlexi
+* [AbraFlexi Tools](https://github.com/VitexSoftware/AbraFlexi-Tools) Tools for scripting AbraFlexi from the command line
 
-Příklady použití:
------------------
+## References
 
-  * [Flexplorer](https://github.com/VitexSoftware/Flexplorer) Vývojářský nástoj a editor záznamů
-  * [FlexiProXY](https://github.com/VitexSoftware/FlexiProxy) Modifikátor webového rozhraní AbraFlexi
-  * [Upomínač](https://github.com/VitexSoftware/php-abraflexi-reminder) Odesílač upomínek
-  * [Matcher](https://github.com/VitexSoftware/php-abraflexi-matcher) Párovač fakur
-  * [Redmine2AbraFlexi](https://github.com/VitexSoftware/Redmine2AbraFlexi) Generuje faktury z odpracovaného času v Redmine
-  * [FlexiPeeHP-Bricks](https://github.com/VitexSoftware/FlexiPeeHP-Bricks) Příklady a často požívaní třídy při práci s AbraFlexi
-  * [AbraFlexi Tools](https://github.com/VitexSoftware/AbraFlexi-Tools) Nástroje pro skriptování AbraFlexi z příkazové řádky
+* [Import data from FAPI to AbraFlexi](https://flexibee.info/fapi2abraflexi/)  - blahasoft.cz
+* [Import data from iDoklad to AbraFlexi](https://flexibee.info/idoklad2abraflexi/) - blahasoft.cz
 
+## AbraFlexi libraries for other languages
 
-Reference:
-----------
+* [Flexipy](https://github.com/JakubJecminek/flexipy)  (Python) [Documentation](http://pythonhosted.org/flexipy/index.html)
+* [Flexibee.rb](https://github.com/danpecher/flexibee.rb) (Ruby)
+* [UniMapper Flexibee extension](https://github.com/unimapper/flexibee) (PHP)
+* [Flexibee client](https://github.com/ricco24/flexibee-client) (PHP)
+* [flexibee-client](https://github.com/Ecomailcz/flexibee-client) (PHP)
+* [flexibee-client](https://github.com/klemen/flexibee-client) (PHP)
+* [Flexibee](https://github.com/adleritech/flexibee) (Java)
 
-  * [Import dat z FAPI do AbraFlexi](https://flexibee.info/fapi2abraflexi/)  - blahasoft.cz
-  * [Import dat z iDokladu do AbraFlexi](https://flexibee.info/idoklad2abraflexi/) - blahasoft.cz
-
-AbraFlexi knihovny pro další jazky:
-----------------------------------
-
- * [Flexipy](https://github.com/JakubJecminek/flexipy)  (Python) [Dokumentace](http://pythonhosted.org/flexipy/index.html)
- * [Flexibee.rb](https://github.com/danpecher/flexibee.rb) (Ruby)
- * [UniMapper Flexibee extension](https://github.com/unimapper/flexibee) (PHP)
- * [Flexibee client](https://github.com/ricco24/flexibee-client) (PHP)
- * [flexibee-client](https://github.com/Ecomailcz/flexibee-client) (PHP)
- * [flexibee-client](https://github.com/klemen/flexibee-client) (PHP)
- * [Flexibee](https://github.com/adleritech/flexibee) (Java)
- 
- 
-[Statistiky práce na projektu WakaTime](https://wakatime.com/@Vitex/projects/eftagqirep?start=2022-10-09&end=2022-10-15)
-[Statistiky práce na projektu před přejmenováním](https://wakatime.com/@5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/projects/ypdqvdcmsg) (cca 250h)
-
+[WakaTime project statistics](https://wakatime.com/@Vitex/projects/eftagqirep?start=2022-10-09&end=2022-10-15)
+[Project statistics before renaming](https://wakatime.com/@5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/projects/ypdqvdcmsg) (approx. 250h)
