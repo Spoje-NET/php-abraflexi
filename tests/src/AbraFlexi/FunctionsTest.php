@@ -40,6 +40,19 @@ class FunctionsTest extends \PHPUnit\Framework\TestCase
     {
     }
 
+       /**
+        * @covers \AbraFlexi\Functions::evidenceToClassName
+        *
+        * @todo   Implement testevidenceToClassName().
+        */
+       public function testevidenceToClassName(): void
+       {
+           $this->assertEquals('', $this->object->evidenceToClassName());
+           // Remove the following lines when you implement this test.
+           $this->markTestIncomplete('This test has not been implemented yet.');
+       }
+
+
     //    /**
     //     * @covers \AbraFlexi\Functions::urlEncode
     //     *

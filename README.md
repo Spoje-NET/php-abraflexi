@@ -8,7 +8,8 @@ PHP 8.1+ based library for easy interaction with the Czech accounting system Abr
 [![Software License](https://img.shields.io/badge/license-GNU-brightgreen.svg?style=flat-square)](https://github.com/Spoje-NET/php-abraflexi/blob/master/LICENSE)
 [![GitHub forks](https://img.shields.io/github/forks/Spoje-NET/php-abraflexi)](https://github.com/Spoje-NET/php-abraflexi/network)
 [![wakatime](https://wakatime.com/badge/user/5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/project/48520b87-4e9a-4eca-861a-a5dd85b11374.svg)](https://wakatime.com/badge/user/5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/project/48520b87-4e9a-4eca-861a-a5dd85b11374)
-![Packagist Version](https://img.shields.io/packagist/v/Spoje-NET/php-abraflexi)
+![Packagist Version](https://img.shields.io/packagist/v/spojenet/flexibee)
+
 
 [![Latest Stable Version](https://poser.pugx.org/spojenet/flexibee/v/stable)](https://packagist.org/packages/spojenet/flexibee)
 [![Total Downloads](https://poser.pugx.org/spojenet/flexibee/downloads)](https://packagist.org/packages/spojenet/flexibee)
