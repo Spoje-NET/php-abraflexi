@@ -9,7 +9,7 @@ static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan
 
 .PHONY: static-code-analysis-baseline
 static-code-analysis-baseline: check-symfony vendor ## Generates a baseline for static code analysis with phpstan/phpstan
-	vendor/bin/phpstan analyze --configuration=phpstan-default.neon.dist --generate-baseline=phpstan-default-baseline.neon --memory-limit=-1
+	vendor/bin/phpstan analyse --configuration=phpstan-default.neon.dist --generate-baseline=phpstan-default-baseline.neon --memory-limit=-1
 
 .PHONY: tests
 tests: vendor
@@ -38,7 +38,7 @@ static: ## Generate Static files by api structure
 	echo "STATIC  #######################"
 	cd tools/ ; ./update_all.sh ; cd ..
 	make cssilent
-	[ -f tools/online-version.php ] && php tools/online-version.php | xargs -I{} git tag -a {} -m "Tagging version {} after static update"
+	[ -f tools/online-version.php ] && php tools/online-version.php | xargs -I{} sh -c 'git tag -a {} -m "Tagging version {} after static update" || exit 0'
 
 .PHONY: reset
 reset: ## Reset git to be read for NextWork
@@ -80,13 +80,18 @@ rpm: ## Build RPM package
 	rpmdev-bumpspec --comment="Build" --userstring="Vítězslav Dvořák <info@vitexsoftware.cz>" flexipeehp.spec
 	rpmbuild -ba flexipeehp.spec
 
+
 .PHONY: release
-release: ## Release a new version
-	echo Release v$(nextversion)
-	dch -v $(nextversion) `git log -1 --pretty=%B | head -n 1`
-	debuild -i -us -uc -b
-	git commit -a -m "Release v$(nextversion)"
-	git tag -a $(nextversion) -m "version $(nextversion)"
+release: static ## Update static files, commit, and push with tags
+	VERSION=$(shell php tools/online-version.php)
+	@if ! git tag --list | grep -q "^$${VERSION}$$"; then \
+		git add .; \
+		git commit -m "Update static definitions for version $${VERSION} and release new version $${VERSION}"; \
+		git push; \
+		git push --tags; \
+	else \
+		echo "Tag $${VERSION} already exists. Release skipped."; \
+	fi
 
 .PHONY: dimage
 dimage: ## Build Docker image
