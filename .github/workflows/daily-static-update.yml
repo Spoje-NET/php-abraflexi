@@ -1,0 +1,51 @@
+# This GitHub Action checks daily for a new AbraFlexi version and updates static definitions if needed.
+# It runs `make static` and pushes the new git tag if a new version is detected.
+
+name: Daily AbraFlexi Version Check & Static Update
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # Runs every day at 03:00 UTC
+  workflow_dispatch:
+
+jobs:
+  check-and-update-static:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Ensure all tags are fetched
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+
+      - name: Install dependencies
+        run: |
+          composer install --ansi --no-interaction
+
+      - name: Get online version
+        id: online_version
+        run: |
+          ONLINE_VERSION=$(php tools/online-version.php)
+          echo "online_version=$ONLINE_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Get latest git tag
+        id: latest_tag
+        run: |
+          LATEST_TAG=$(git tag --list | sort -V | tail -n 1)
+          echo "latest_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
+
+      - name: Compare versions and update static if needed
+        if: steps.online_version.outputs.online_version != steps.latest_tag.outputs.latest_tag
+        run: |
+          make static
+          git push --tags
+        env:
+          GIT_AUTHOR_NAME: GitHub Action
+          GIT_AUTHOR_EMAIL: actions@github.com
+          GIT_COMMITTER_NAME: GitHub Action
+          GIT_COMMITTER_EMAIL: actions@github.com
