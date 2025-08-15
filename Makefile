@@ -38,6 +38,7 @@ static: ## Generate Static files by api structure
 	echo "STATIC  #######################"
 	cd tools/ ; ./update_all.sh ; cd ..
 	make cssilent
+	[ -f tools/online-version.php ] && php tools/online-version.php | xargs -I{} git tag -a {} -m "Tagging version {} after static update"
 
 .PHONY: clean
 clean: ## Clean up build artifacts

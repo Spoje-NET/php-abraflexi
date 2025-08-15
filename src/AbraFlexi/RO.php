@@ -144,7 +144,7 @@ class RO extends \Ease\Sand
      *
      * @var null|array<string, mixed>
      */
-    public null|array $curlInfo;
+    public ?array $curlInfo;
 
     /**
      * Informace o poslední HTTP chybě.
@@ -184,7 +184,7 @@ class RO extends \Ease\Sand
     /**
      * Last operation result data or message(s).
      *
-     * @var array<mixed>|null
+     * @var null|array<mixed>
      */
     public ?array $lastResult = null;
 
@@ -531,7 +531,7 @@ class RO extends \Ease\Sand
     /**
      * Get Current connection options for use in another object.
      *
-     * @return array<string, int|string|null> Usable as second constructor parameter
+     * @return array<string, null|int|string> Usable as second constructor parameter
      */
     public function getConnectionOptions(): array
     {
@@ -560,7 +560,7 @@ class RO extends \Ease\Sand
     /**
      * Export current/given configuration into Environment.
      *
-     * @param array<string, int|string|null> $opts Configuration options to export to environment variables
+     * @param array<string, null|int|string> $opts Configuration options to export to environment variables
      */
     public function configToEnv(array $opts = []): void
     {
