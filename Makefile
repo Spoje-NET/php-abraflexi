@@ -40,6 +40,12 @@ static: ## Generate Static files by api structure
 	make cssilent
 	[ -f tools/online-version.php ] && php tools/online-version.php | xargs -I{} git tag -a {} -m "Tagging version {} after static update"
 
+.PHONY: reset
+reset: ## Reset git to be read for NextWork
+	git fetch origin
+	git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)
+
+
 .PHONY: clean
 clean: ## Clean up build artifacts
 	rm -rf debian/php-abraflexi
@@ -87,8 +93,3 @@ dimage: ## Build Docker image
 	docker build -t vitexsoftware/flexipeehp .
 
 .PHONY: all pretest clean static release verup deb
-
-
-.PHONY: cs
-cs: ## Update Coding Standards
-	vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --diff --verbose
