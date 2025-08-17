@@ -1086,14 +1086,23 @@ class RO extends \Ease\Sand
                             if (\is_array($record[$column])) {
                                 $value = $record[$column][0];
 
-                                $valueFields = array_keys($value);
-                                $subject = next($valueFields);
-                                $record[$column] = new Relation(
-                                    \is_array($value) ? ($value['kod'] ?: $value['id']) : $value,
-                                    \array_key_exists('fkEvidencePath', $columnInfo) && null !== $columnInfo['fkEvidencePath'] ? $columnInfo['fkEvidencePath'] : $column,
-                                    \array_key_exists($subject.'@ref', $value) ? $record[$subject.'@ref'] : $value['id'],
-                                    \array_key_exists($subject.'@showAs', $value) ? $value[$subject.'@showAs'] : null,
-                                );
+                                if (\is_array($value)) {
+                                    $valueFields = array_keys($value);
+                                    $subject = next($valueFields);
+                                    $record[$column] = new Relation(
+                                        \is_array($value) ? ($value['kod'] ?: $value['id']) : $value,
+                                        \array_key_exists('fkEvidencePath', $columnInfo) && null !== $columnInfo['fkEvidencePath'] ? $columnInfo['fkEvidencePath'] : $column,
+                                        \array_key_exists($subject.'@ref', $value) ? $record[$subject.'@ref'] : $value['id'],
+                                        \array_key_exists($subject.'@showAs', $value) ? $value[$subject.'@showAs'] : null,
+                                    );
+                                } else {
+                                    $record[$column] = new Relation(
+                                        $value,
+                                        $column,
+                                        str_replace('ext:', '', $value),
+                                        $value,
+                                    );
+                                }
                             } else {
                                 $record[$column] = new Relation(
                                     \is_array($value) ? $value[0] : $value,
