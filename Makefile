@@ -38,7 +38,7 @@ static: ## Generate Static files by api structure
 	echo "STATIC  #######################"
 	cd tools/ ; ./update_all.sh ; cd ..
 	make cssilent
-	[ -f tools/online-version.php ] && php tools/online-version.php | xargs -I{} sh -c 'git tag -a {} -m "Tagging version {} after static update" || exit 0'
+	[ -f tools/online-version.php ] && php tools/online-version.php | xargs -I{} sh -c 'git tag -a abraflexi-{} -m "Tagging version abraflexi-{} after static update" || exit 0'
 
 .PHONY: reset
 reset: ## Reset git to be read for NextWork

@@ -2,7 +2,7 @@
 
 ![PHP AbraFlexi Logo](project-logo.png?raw=true "Project Logo")
 
-PHP 8.1+ based library for easy interaction with the Czech accounting system AbraFlexi.
+PHP 8.1+ based library for easy interaction with the Czech economic system AbraFlexi.
 
 [![Latest Version](https://img.shields.io/github/release/Spoje-NET/php-abraflexi.svg?style=flat-square)](https://github.com/Spoje-NET/php-abraflexi/releases)
 [![Software License](https://img.shields.io/badge/license-GNU-brightgreen.svg?style=flat-square)](https://github.com/Spoje-NET/php-abraflexi/blob/master/LICENSE)
@@ -20,13 +20,11 @@ PHP 8.1+ based library for easy interaction with the Czech accounting system Abr
 
 # Acknowledgements
 
-The creation of this library would not have been possible without the kind support of [Spoje.Net](http://www.spoje.net), which funded the development of the solution for connecting LMS / AbraFlexi and warehouse import. :+1:
+The creation of this library would not have been possible without the kind support of [Spoje.Net](http://www.spoje.net) :+1:
 
 ![Spoje.Net](spoje-net_logo.gif?raw=true "Spoje.Net")
 
 **Special thanks to the technical support of [ABRA Flexi s.r.o.](https://www.abraflexi.eu/podpora/) for their patience in responding to all questions and bug reports.**
-
-GDPR logging support was completed with the kind help of [&lt;PureHTML&gt;](https://purehtml.cz/)
 
 ## Installation
 
@@ -45,8 +43,6 @@ so that your resulting composer.json contains:
 ```
 
 Run the installation with the command **composer install**:
-
-![Compser Install](flexipeehp-composer-install.png?raw=true "Installation")
 
 ## Configuration
 
@@ -323,4 +319,3 @@ In the Examples folder, you can find these usage examples:
 * [Flexibee](https://github.com/adleritech/flexibee) (Java)
 
 [WakaTime project statistics](https://wakatime.com/@Vitex/projects/eftagqirep?start=2022-10-09&end=2022-10-15)
-[Project statistics before renaming](https://wakatime.com/@5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/projects/ypdqvdcmsg) (approx. 250h)
