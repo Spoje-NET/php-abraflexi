@@ -27,9 +27,14 @@ class RelationTest extends \PHPUnit\Framework\TestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
+    /**
+     * Sets up the fixture, for example, opens a network connection.
+     * This method is called before a test is executed.
+     */
     protected function setUp(): void
     {
-        $this->object = new Relation();
+        // Create a Relation object with required arguments for testing.
+        $this->object = new Relation('TEST_CODE', 'faktura-vydana');
     }
 
     /**
@@ -40,27 +45,27 @@ class RelationTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-    //    /**
-    //     * @covers \AbraFlexi\Relation::__toString
-    //     *
-    //     * @todo   Implement test__toString().
-    //     */
-    //    public function testToString(): void
-    //    {
-    //        $this->assertEquals('', $this->object->__toString());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
-    //
-    //    /**
-    //     * @covers \AbraFlexi\Relation::getRelationTarget
-    //     *
-    //     * @todo   Implement testgetRelationTarget().
-    //     */
-    //    public function testgetRelationTarget(): void
-    //    {
-    //        $this->assertEquals('', $this->object->getRelationTarget());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
+    /**
+     * @covers \AbraFlexi\Relation::__toString
+     */
+    public function testToString(): void
+    {
+        $relation = new Relation('CODE123', 'faktura-vydana');
+        $this->assertSame('CODE123', (string) $relation);
+
+        $relationArr = new Relation(['kod' => 'KOD456'], 'faktura-vydana');
+        $this->assertSame('KOD456', (string) $relationArr);
+    }
+
+    /**
+     * @covers \AbraFlexi\Relation::getRelationTarget
+     */
+    public function testgetRelationTarget(): void
+    {
+        $relation = new Relation('CODE123', 'faktura-vydana');
+        $target = $relation->getRelationTarget();
+        $this->assertInstanceOf(\AbraFlexi\RO::class, $target);
+        // Assert that the record code matches the expected value.
+        $this->assertEquals('CODE123', $target->getRecordCode());
+    }
 }

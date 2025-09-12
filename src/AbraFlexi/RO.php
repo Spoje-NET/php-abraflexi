@@ -1095,6 +1095,10 @@ class RO extends \Ease\Sand
                                         \array_key_exists($subject.'@ref', $value) ? $record[$subject.'@ref'] : $value['id'],
                                         \array_key_exists($subject.'@showAs', $value) ? $value[$subject.'@showAs'] : null,
                                     );
+
+                                    foreach ($value as $a => $b) {
+                                        $record[$column][$a] = $b;
+                                    }
                                 } else {
                                     $record[$column] = new Relation(
                                         $value,
