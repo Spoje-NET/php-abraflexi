@@ -21,7 +21,7 @@ namespace AbraFlexi;
  *
  * @no-named-arguments
  */
-class Relation
+class Relation implements \ArrayAccess
 {
     /**
      * Item in target evidence.
@@ -34,6 +34,7 @@ class Relation
     public string $target;
     public ?string $ref;
     public ?string $showAs;
+    protected array $data = [];
 
     /**
      * Relation.
@@ -79,5 +80,25 @@ class Relation
         }
 
         return $relation;
+    }
+
+    public function offsetExists(mixed $offset): bool
+    {
+        return \array_key_exists($offset, $this->data);
+    }
+
+    public function offsetGet(mixed $offset): mixed
+    {
+        return $this->offsetExists($offset) ? $this->data[$offset] : null;
+    }
+
+    public function offsetSet(mixed $offset, mixed $value): void
+    {
+        $this->data[$offset] = $value;
+    }
+
+    public function offsetUnset(mixed $offset): void
+    {
+        unset($this->data[$offset]);
     }
 }
