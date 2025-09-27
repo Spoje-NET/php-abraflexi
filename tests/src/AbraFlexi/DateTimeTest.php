@@ -41,19 +41,52 @@ class DateTimeTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @covers \AbraFlexi\DateTime::__construct
+     */
+    public function testConstruct(): void
+    {
+        $dateTime = new DateTime('2017-09-26T10:00:53.755+02:00');
+        $this->assertEquals('2017-09-26T10:00:53.755000+02:00', (string) $dateTime);
+
+        $dateTimeOld = new DateTime('2017-05-19T00:00:00+02:00');
+        $this->assertEquals('2017-05-19T00:00:00.000000+02:00', (string) $dateTimeOld);
+
+        $now = new DateTime('NOW');
+        $this->assertMatchesRegularExpression('/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{6}\+\d{2}:\d{2}$/', (string) $now);
+
+        $empty = new DateTime('');
+        $this->assertTrue($empty->isNull);
+    }
+
+
+    /**
      * @covers \AbraFlexi\DateTime::__toString
      */
     public function testToString(): void
     {
-        $this->assertIsString($this->object->__toString());
+        $this->assertMatchesRegularExpression('/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{6}\+\d{2}:\d{2}$/', $this->object->__toString());
     }
+
+    /**
+     * @covers \AbraFlexi\DateTime::fromTimestamp
+     */
+    public function testFromTimestamp(): void
+    {
+        $timestamp = strtotime('2024-10-02 10:30:00');
+        $result = DateTime::fromTimestamp($timestamp);
+        $this->assertInstanceOf(\AbraFlexi\DateTime::class, $result);
+        $this->assertStringStartsWith('2024-10-02T10:30:00', (string) $result);
+    }
+
 
     /**
      * @covers \AbraFlexi\DateTime::setFormat
      */
-    public function testsetFormat(): void
+    public function testSetFormat(): void
     {
-        $this->object->setDate(2323, 2, 3)->setTime(2, 3, 2, 3);
-        $this->assertEquals('2323-02-03T02:03:02.000003++00:00', $this->object->__toString());
+        $this->object->setFormat('Y-m-d H:i:s');
+        $this->assertMatchesRegularExpression('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/', $this->object->__toString());
+        // Restore default format for other tests
+        $this->object->setFormat('Y-m-d\TH:i:s.u+P');
     }
 }
