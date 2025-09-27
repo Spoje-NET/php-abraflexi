@@ -40,87 +40,11 @@ class ChangesTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-    //    /**
-    //     * @covers \AbraFlexi\Changes::enable
-    //     *
-    //     * @todo   Implement testenable().
-    //     */
-    //    public function testenable(): void
-    //    {
-    //        $this->assertEquals('', $this->object->enable());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
-    //
-    //    /**
-    //     * @covers \AbraFlexi\Changes::disable
-    //     *
-    //     * @todo   Implement testdisable().
-    //     */
-    //    public function testdisable(): void
-    //    {
-    //        $this->assertEquals('', $this->object->disable());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
-    //
-    //    /**
-    //     * @covers \AbraFlexi\Changes::getStatus
-    //     *
-    //     * @todo   Implement testgetStatus().
-    //     */
-    //    public function testgetStatus(): void
-    //    {
-    //        $this->assertEquals('', $this->object->getStatus());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
-    //
-    //    /**
-    //     * @covers \AbraFlexi\Changes::recordExists
-    //     *
-    //     * @todo   Implement testrecordExists().
-    //     */
-    //    public function testrecordExists(): void
-    //    {
-    //        $this->assertEquals('', $this->object->recordExists());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
-    //
-    //    /**
-    //     * @covers \AbraFlexi\Changes::getGlobalVersion
-    //     *
-    //     * @todo   Implement testgetGlobalVersion().
-    //     */
-    //    public function testgetGlobalVersion(): void
-    //    {
-    //        $this->assertEquals('', $this->object->getGlobalVersion());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
-    //
-    //    /**
-    //     * @covers \AbraFlexi\Changes::rawXmlToArray
-    //     *
-    //     * @todo   Implement testrawXmlToArray().
-    //     */
-    //    public function testrawXmlToArray(): void
-    //    {
-    //        $this->assertEquals('', $this->object->rawXmlToArray());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
-    //
-    //    /**
-    //     * @covers \AbraFlexi\Changes::getVazby
-    //     *
-    //     * @todo   Implement testgetVazby().
-    //     */
-    //    public function testgetVazby(): void
-    //    {
-    //        $this->assertEquals('', $this->object->getVazby());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
+    /**
+     * @covers \AbraFlexi\Changes
+     */
+    public function testEvidence(): void
+    {
+        $this->assertEquals('changes', $this->object->evidence);
+    }
 }

@@ -68,14 +68,15 @@ class Relation implements \ArrayAccess
     public function getRelationTarget()
     {
         $engineClass = Functions::evidenceToClassName($this->target);
+        $options = ['evidence' => $this->target];
 
         if (class_exists($engineClass)) {
-            $relation = new $engineClass($this->value);
+            $relation = new $engineClass($this->value, $options);
         } else {
             if (EvidenceList::$evidences[$this->target]['importStatus'] === 'SUPPORTED') {
-                $relation = new RW($this->value);
+                $relation = new RW($this->value, $options);
             } else {
-                $relation = new RO($this->value);
+                $relation = new RO($this->value, $options);
             }
         }
 

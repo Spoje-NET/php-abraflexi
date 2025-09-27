@@ -32,7 +32,7 @@ class DateTime extends \DateTime
     /**
      * Default output format.
      */
-    public static string $format = 'Y-m-d\TH:i:s.u+P';
+    public static string $format = 'Y-m-d\TH:i:s.uP';
 
     /**
      * AbraFlexi dateTime to PHP DateTime conversion.
@@ -44,18 +44,29 @@ class DateTime extends \DateTime
     public function __construct(string $flexidatetime = 'NOW')
     {
         $this->isNull = empty($flexidatetime);
-        $format = '';
+        if ($this->isNull) {
+            parent::__construct();
+            $this->isNull = true;
+            return;
+        }
 
+        $format = '';
         if (strstr($flexidatetime, '.')) { // NewFormat
             $format = self::$format;
-        } elseif (!empty($flexidatetime) && ($flexidatetime !== 'NOW')) { // Old format
-            $format = 'Y-m-d\TH:i:s+P';
+        } elseif ($flexidatetime !== 'NOW') { // Old format
+            $format = 'Y-m-d\TH:i:sP';
         }
 
         if (empty($format)) {
-            parent::__construct();
+            parent::__construct($flexidatetime);
         } else {
-            parent::__construct(\DateTime::createFromFormat($format, $flexidatetime)->format(\DateTimeInterface::ATOM));
+            $sourceObject = \DateTime::createFromFormat($format, $flexidatetime);
+            if ($sourceObject) {
+                // Use a format that preserves microseconds for the parent constructor
+                parent::__construct($sourceObject->format('Y-m-d H:i:s.u'), $sourceObject->getTimezone());
+            } else {
+                parent::__construct($flexidatetime); // Fallback
+            }
         }
     }
 

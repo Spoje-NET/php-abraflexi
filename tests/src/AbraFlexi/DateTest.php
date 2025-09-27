@@ -46,16 +46,38 @@ class DateTest extends \PHPUnit\Framework\TestCase
     public function testToString(): void
     {
         $this->assertEquals(date('Y-m-d'), $this->object->__toString());
+        $this->assertEquals('2024-10-02', (new Date('2024-10-02'))->__toString());
     }
 
     /**
-     * @covers \AbraFlexi\Date::timestampToFlexiDate
-     *
-     * @todo   Implement testtimestampToFlexiDate().
+     * @covers \AbraFlexi\Date::fromTimestamp
      */
-    public function testtimestampToFlexiDate(): void
+    public function testFromTimestamp(): void
     {
-        $result = $this->object->timestampToFlexiDate(time());
+        $timestamp = strtotime('2024-10-02');
+        $result = Date::fromTimestamp($timestamp);
         $this->assertInstanceOf(\AbraFlexi\Date::class, $result);
+        $this->assertEquals('2024-10-02', (string) $result);
+    }
+
+    /**
+     * @covers \AbraFlexi\Date::__construct
+     */
+    public function testConstruct(): void
+    {
+        $date = new Date('2024-10-02');
+        $this->assertEquals('2024-10-02', (string) $date);
+
+        $dateWithTimezone = new Date('2024-10-02+02:00');
+        $this->assertEquals('2024-10-02', (string) $dateWithTimezone);
+
+        $dateWithZ = new Date('2024-10-02Z');
+        $this->assertEquals('2024-10-02', (string) $dateWithZ);
+
+        $now = new Date('NOW');
+        $this->assertEquals(date('Y-m-d'), (string) $now);
+
+        $empty = new Date('');
+        $this->assertTrue($empty->isNull);
     }
 }

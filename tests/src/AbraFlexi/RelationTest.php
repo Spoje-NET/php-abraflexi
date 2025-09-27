@@ -62,10 +62,10 @@ class RelationTest extends \PHPUnit\Framework\TestCase
      */
     public function testgetRelationTarget(): void
     {
-        $relation = new Relation('CODE123', 'faktura-vydana');
+        $relation = new Relation('code:CZ', 'stat');
         $target = $relation->getRelationTarget();
         $this->assertInstanceOf(\AbraFlexi\RO::class, $target);
         // Assert that the record code matches the expected value.
-        $this->assertEquals('CODE123', $target->getRecordCode());
+        $this->assertEquals('code:CZ', $target->getRecordCode());
     }
 }

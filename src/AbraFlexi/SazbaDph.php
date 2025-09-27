@@ -35,17 +35,16 @@ class SazbaDph extends RW
     {
         $today = date('Y-m-d');
         $queryParams = [
-            'platnostOd:lte' => $today,
-            'platnostDo:gte' => $today,
-            'aktivni' => true,
+            'platiOdData' => 'lte '.$today,
+            'platiDoData' => 'gte '.$today,
             'limit' => 1,
         ];
 
         try {
-            $result = $this->getColumns(['procento'], $queryParams);
+            $result = $this->getColumnsFromAbraFlexi(['szbDph'], $queryParams);
 
-            if (isset($result[0]['procento'])) {
-                return (float) $result[0]['procento'];
+            if (isset($result[0]['szbDph'])) {
+                return (float) $result[0]['szbDph'];
             }
         } catch (\Exception $exception) {
             throw new \RuntimeException(
