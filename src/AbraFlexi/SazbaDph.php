@@ -37,6 +37,7 @@ class SazbaDph extends RW
         $queryParams = [
             'platiOdData' => 'lte '.$today,
             'platiDoData' => 'gte '.$today,
+            'aktivni' => 1, // Only active VAT rates
             'limit' => 1,
         ];
 

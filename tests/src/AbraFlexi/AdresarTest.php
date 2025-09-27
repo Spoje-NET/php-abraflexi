@@ -56,7 +56,6 @@ class AdresarTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals([], $this->object->getSumFromAbraFlexi());
     }
 
-
     /**
      * Prepare Addresbook entry.
      *

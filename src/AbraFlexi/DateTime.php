@@ -44,13 +44,16 @@ class DateTime extends \DateTime
     public function __construct(string $flexidatetime = 'NOW')
     {
         $this->isNull = empty($flexidatetime);
+
         if ($this->isNull) {
             parent::__construct();
             $this->isNull = true;
+
             return;
         }
 
         $format = '';
+
         if (strstr($flexidatetime, '.')) { // NewFormat
             $format = self::$format;
         } elseif ($flexidatetime !== 'NOW') { // Old format
@@ -61,6 +64,7 @@ class DateTime extends \DateTime
             parent::__construct($flexidatetime);
         } else {
             $sourceObject = \DateTime::createFromFormat($format, $flexidatetime);
+
             if ($sourceObject) {
                 // Use a format that preserves microseconds for the parent constructor
                 parent::__construct($sourceObject->format('Y-m-d H:i:s.u'), $sourceObject->getTimezone());

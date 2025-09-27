@@ -58,7 +58,6 @@ class DateTimeTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($empty->isNull);
     }
 
-
     /**
      * @covers \AbraFlexi\DateTime::__toString
      */
@@ -77,7 +76,6 @@ class DateTimeTest extends \PHPUnit\Framework\TestCase
         $this->assertInstanceOf(\AbraFlexi\DateTime::class, $result);
         $this->assertStringStartsWith('2024-10-02T10:30:00', (string) $result);
     }
-
 
     /**
      * @covers \AbraFlexi\DateTime::setFormat

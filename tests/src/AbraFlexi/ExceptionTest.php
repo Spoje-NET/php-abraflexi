@@ -36,7 +36,6 @@ class ExceptionTest extends \PHPUnit\Framework\TestCase
         $caller->lastCurlResponse = 'Raw Server Response';
         $caller->lastResponseCode = 400;
 
-
         $exception = new Exception('Test Exception', $caller);
 
         $this->assertEquals('First Error', $exception->getErrorMessage());
