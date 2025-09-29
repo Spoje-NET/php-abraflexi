@@ -19,5 +19,12 @@ namespace AbraFlexi;
  */
 class ObjednavkaVydana extends RW
 {
+    use stitky;
+    use firma;
+    use sum;
+    use subItems;
+    use email;
+    use getChanges;
+    use lock;
     public ?string $evidence = 'objednavka-vydana';
 }

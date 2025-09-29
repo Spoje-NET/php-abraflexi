@@ -22,6 +22,7 @@ namespace AbraFlexi;
  * faktura-prijata
  * prodejka
  * doklad-k-uhrade
+ * objednavka-prijata
  * objednavka-vydana
  * vzajemny-zapocet
  * banka
