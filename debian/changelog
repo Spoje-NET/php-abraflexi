@@ -1,8 +1,15 @@
-php-spojenet-abraflexi (3.6.2) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.6.3) UNRELEASED; urgency=medium
 
+  * traits added into ObjednavkaVydana
+
+ -- Vitex <vitezslav.dvorak@spojenet.cz>  Mon, 29 Sep 2025 23:02:37 +0200
+
+php-spojenet-abraflexi (3.6.2) experimental; urgency=medium
+
+  [ vitex ]
   * Relation now can hold values
 
- -- vitex <info@vitexsoftware.cz>  Fri, 12 Sep 2025 20:41:32 +0200
+ -- Vitex <vitezslav.dvorak@spojenet.cz>  Mon, 29 Sep 2025 22:56:33 +0200
 
 php-spojenet-abraflexi (3.6.1) experimental; urgency=medium
 
