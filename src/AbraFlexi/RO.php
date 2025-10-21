@@ -1090,7 +1090,7 @@ class RO extends \Ease\Sand
                                     $valueFields = array_keys($value);
                                     $subject = next($valueFields);
                                     $record[$column] = new Relation(
-                                        \is_array($value) ? ($value['kod'] ?: $value['id']) : $value,
+                                        \is_array($value) ? (\array_key_exists('kod', $value) ? $value['kod'] : $value['id']) : $value,
                                         \array_key_exists('fkEvidencePath', $columnInfo) && null !== $columnInfo['fkEvidencePath'] ? $columnInfo['fkEvidencePath'] : $column,
                                         \array_key_exists($subject.'@ref', $value) ? $record[$subject.'@ref'] : $value['id'],
                                         \array_key_exists($subject.'@showAs', $value) ? $value[$subject.'@showAs'] : null,

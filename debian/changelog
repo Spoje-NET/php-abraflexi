@@ -1,8 +1,15 @@
-php-spojenet-abraflexi (3.6.3) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.6.4) UNRELEASED; urgency=medium
 
+  * fixRecordTypes now can handle relation without code
+
+ -- vitex <info@vitexsoftware.cz>  Tue, 21 Oct 2025 14:58:59 +0200
+
+php-spojenet-abraflexi (3.6.3) experimental; urgency=medium
+
+  [ Vitex ]
   * traits added into ObjednavkaVydana
 
- -- Vitex <vitezslav.dvorak@spojenet.cz>  Mon, 29 Sep 2025 23:02:37 +0200
+ -- vitex <info@vitexsoftware.cz>  Tue, 21 Oct 2025 14:56:34 +0200
 
 php-spojenet-abraflexi (3.6.2) experimental; urgency=medium
 
