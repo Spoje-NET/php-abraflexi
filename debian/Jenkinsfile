@@ -1,6 +1,6 @@
 #!groovy
 
-String[] distributions = ['debian:trixie', 'debian:forky', 'ubuntu:jammy', 'ubuntu:noble']
+String[] distributions = ['debian:bookworm', 'debian:trixie', 'debian:forky', 'ubuntu:jammy', 'ubuntu:noble']
 
 String vendor = 'vitexsoftware'
 String distribution = ''
