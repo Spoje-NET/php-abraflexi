@@ -1881,6 +1881,11 @@ class RO extends \Ease\Sand
                 break;
         }
 
+        // Ensure conditions is an array
+        if (\is_string($conditions)) {
+            $conditions = ['filter' => $conditions];
+        }
+
         $conditions['detail'] = $detail;
         $flexiData = $this->getFlexiData('', $conditions);
 
