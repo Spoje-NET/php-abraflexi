@@ -39,7 +39,7 @@
         "roave/security-advisories": "dev-latest",
         "phpunit/phpunit": "*",
         "phpstan/phpstan": "*",
-        "friendsofphp/php-cs-fixer": "^3.88",
+        "friendsofphp/php-cs-fixer": "^3.89",
         "ergebnis/composer-normalize": "^2.48",
         "ergebnis/php-cs-fixer-config": "^6.56"
     },
