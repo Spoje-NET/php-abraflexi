@@ -38,7 +38,7 @@ class EvidenceList extends RO
     /**
      * Source FlexiBee server version.
      */
-    public static string $version = '2025.8.2';
+    public static string $version = '2025.8.4';
 
     /**
      * Evidences Path/Name listing.
@@ -790,7 +790,7 @@ class EvidenceList extends RO
         'prikaz-k-inkasu-polozka' => [
             'evidenceName' => 'Položka inkasa',
             'evidencePath' => 'prikaz-k-inkasu-polozka',
-            'importStatus' => 'DISALLOWED',
+            'importStatus' => 'NOT_DIRECT',
             'formCode' => 'elInkasoPol',
             'evidenceType' => 'PRIKAZ_K_INKASU_POLOZKA',
             'beanKey' => 'cz.winstrom.vo.eban.PolozkaPrikazu$$BAN',
@@ -801,7 +801,7 @@ class EvidenceList extends RO
         'prikaz-k-uhrade-polozka' => [
             'evidenceName' => 'Položka příkazu k úhradě',
             'evidencePath' => 'prikaz-k-uhrade-polozka',
-            'importStatus' => 'DISALLOWED',
+            'importStatus' => 'NOT_DIRECT',
             'formCode' => 'elPrikazPol',
             'evidenceType' => 'PRIKAZ_K_UHRADE_POLOZKA',
             'beanKey' => 'cz.winstrom.vo.eban.PolozkaPrikazu$$BAN',

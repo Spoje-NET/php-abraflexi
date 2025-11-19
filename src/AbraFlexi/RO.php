@@ -1084,28 +1084,36 @@ class RO extends \Ease\Sand
                             break;
                         case 'relation':
                             if (\is_array($record[$column])) {
-                                $value = $record[$column][0];
+                                if (\Ease\Functions::isAssoc($record[$column])) {
+                                    $value = $record[$column][0];
 
-                                if (\is_array($value)) {
-                                    $valueFields = array_keys($value);
-                                    $subject = next($valueFields);
-                                    $record[$column] = new Relation(
-                                        \is_array($value) ? (\array_key_exists('kod', $value) ? $value['kod'] : $value['id']) : $value,
-                                        \array_key_exists('fkEvidencePath', $columnInfo) && null !== $columnInfo['fkEvidencePath'] ? $columnInfo['fkEvidencePath'] : $column,
-                                        \array_key_exists($subject.'@ref', $value) ? $record[$subject.'@ref'] : $value['id'],
-                                        \array_key_exists($subject.'@showAs', $value) ? $value[$subject.'@showAs'] : null,
-                                    );
+                                    if (\is_array($value)) {
+                                        $valueFields = array_keys($value);
+                                        $subject = next($valueFields);
+                                        $record[$column] = new Relation(
+                                            \is_array($value) ? (\array_key_exists('kod', $value) ? $value['kod'] : $value['id']) : $value,
+                                            \array_key_exists('fkEvidencePath', $columnInfo) && null !== $columnInfo['fkEvidencePath'] ? $columnInfo['fkEvidencePath'] : $column,
+                                            \array_key_exists($subject.'@ref', $value) ? $record[$subject.'@ref'] : $value['id'],
+                                            \array_key_exists($subject.'@showAs', $value) ? $value[$subject.'@showAs'] : null,
+                                        );
 
-                                    foreach ($value as $a => $b) {
-                                        $record[$column][$a] = $b;
+                                        foreach ($value as $a => $b) {
+                                            $record[$column][$a] = $b;
+                                        }
+                                    } else {
+                                        $record[$column] = new Relation(
+                                            $value,
+                                            $column,
+                                            str_replace('ext:', '', $value),
+                                            $value,
+                                        );
                                     }
                                 } else {
-                                    $record[$column] = new Relation(
-                                        $value,
-                                        $column,
-                                        str_replace('ext:', '', $value),
-                                        $value,
-                                    );
+                                    foreach ($record[$column] as $relPos => $rawRelation) {
+                                        [,$ext,$extId] = explode(':', $rawRelation);
+                                        $record[$column][$ext] = new Relation($extId, $column, $ext, $rawRelation);
+                                        unset($record[$column][$relPos]);
+                                    }
                                 }
                             } else {
                                 $record[$column] = new Relation(

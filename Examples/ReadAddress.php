@@ -1,3 +1,4 @@
+#!/usr/bin/php -f
 <?php
 
 declare(strict_types=1);
@@ -12,4 +13,12 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-require_once '../tests/bootstrap.php';
+namespace Example\AbraFlexi;
+
+include_once './config.php';
+
+include_once '../vendor/autoload.php';
+
+$adr = new \AbraFlexi\Adresar(666);
+
+print_r($adr->getData());
