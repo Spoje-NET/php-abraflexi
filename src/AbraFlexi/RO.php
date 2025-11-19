@@ -1108,10 +1108,10 @@ class RO extends \Ease\Sand
                                             $value,
                                         );
                                     }
-                                } else {
+                                } else { // ExtIDs
                                     foreach ($record[$column] as $relPos => $rawRelation) {
                                         [,$ext,$extId] = explode(':', $rawRelation);
-                                        $record[$column][$ext] = new Relation($extId, $column, $ext, $rawRelation);
+                                        $record[$column][$ext] = new Relation($rawRelation, $ext, $extId, $column.' '.$ext.':'.$extId );
                                         unset($record[$column][$relPos]);
                                     }
                                 }
@@ -2077,41 +2077,8 @@ class RO extends \Ease\Sand
      */
     public function getExternalID($want = null)
     {
-        $extid = null;
-        $ids = $this->getExternalIDs();
-
-        // If $ids is an array of Relation objects, extract their 'value' property
-        if (\is_array($ids) && isset($ids[0]) && \is_object($ids[0]) && property_exists($ids[0], 'value')) {
-            $values = array_map(static function ($relation) {
-                return $relation->value;
-            }, $ids);
-        } elseif (\is_object($ids) && property_exists($ids, 'value')) {
-            $values = \is_array($ids->value) ? $ids->value : [$ids->value];
-        } else {
-            $values = \is_array($ids) ? $ids : [$ids];
-        }
-
-        if (null === $want) {
-            if (!empty($values)) {
-                $extid = current($values);
-            }
-        } else {
-            foreach ($values as $id) {
-                if ($id && strstr($id, 'ext:'.$want)) {
-                    if (null === $extid) {
-                        $extid = str_replace('ext:'.$want.':', '', $id);
-                    } else {
-                        if (\is_array($extid)) {
-                            $extid[] = str_replace('ext:'.$want.':', '', $id);
-                        } else {
-                            $extid = [$extid, str_replace('ext:'.$want.':', '', $id)];
-                        }
-                    }
-                }
-            }
-        }
-
-        return $extid;
+        $ids = (array) $this->getExternalIDs();
+        return array_key_exists($want, $ids) ?  $ids[$want] : current($ids);
     }
 
     /**
