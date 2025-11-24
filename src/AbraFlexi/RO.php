@@ -1110,8 +1110,8 @@ class RO extends \Ease\Sand
                             break;
                         case 'relation':
                             if (\is_array($record[$column])) {
+                                $value = $record[$column][0];
                                 if (\Ease\Functions::isAssoc($record[$column])) {
-                                    $value = $record[$column][0];
 
                                     if (\is_array($value)) {
                                         $valueFields = array_keys($value);
@@ -1135,10 +1135,19 @@ class RO extends \Ease\Sand
                                         );
                                     }
                                 } else { // ExtIDs
-                                    foreach ($record[$column] as $relPos => $rawRelation) {
-                                        [,$ext,$extId] = explode(':', $rawRelation);
-                                        $record[$column][$ext] = new Relation($rawRelation, $ext, $extId, $column.' '.$ext.':'.$extId );
-                                        unset($record[$column][$relPos]);
+                                    if(count($record[$column]) == 1) {
+                                        $record[$column] = new Relation(
+                                                \array_key_exists('kod', $value) ? $value['kod'] : $value['id'],
+                                                $record[$column][0]['typDoklK'],
+                                                $record[$column][0]['id'],
+                                                $record[$column][0]['typDoklK@showAs']
+                                                );
+                                    } else {
+                                        foreach ($record[$column] as $relPos => $rawRelation) {
+                                            [,$ext,$extId] = explode(':', $rawRelation);
+                                            $record[$column][$ext] = new Relation($rawRelation, $ext, $extId, $column.' '.$ext.':'.$extId );
+                                            unset($record[$column][$relPos]);
+                                        }
                                     }
                                 }
                             } else {
