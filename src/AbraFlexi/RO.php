@@ -397,19 +397,33 @@ class RO extends \Ease\Sand
     }
 
     /**
+     * Summary of __unserialize.
+     */
+    public function __unserialize(array $data): void
+    {
+        foreach ($data as $key => $value) {
+            $this->setupProperty($data, $key);
+        }
+
+        $this->curlInit();
+    }
+
+    /**
      * Reconnect After unserialization.
+     *
+     * @deprecated soft deprecated in php 8.5
      */
     public function __wakeup(): void
     {
-        $this->curlInit();
+        $this->__unserialize([]);
     }
 
     /**
      * Only Variables to keep.
      *
-     * @return array
+     * @return string[]
      */
-    public function __sleep()
+    public function __serialize(): array
     {
         return [
             'data',
@@ -446,6 +460,18 @@ class RO extends \Ease\Sand
             'timeout',
             'throwException',
         ];
+    }
+
+    /**
+     * Only Variables to keep.
+     *
+     * @deprecated soft deprecated in php 8.5
+     *
+     * @return array
+     */
+    public function __sleep()
+    {
+        $this->__serialize();
     }
 
     /**

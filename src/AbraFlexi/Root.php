@@ -25,10 +25,8 @@ class Root extends RW
 {
     /**
      * Update HTTPS certificate.
-     *
-     * @param string $pem
      */
-    public function uploadCertificate($pem): bool
+    public function uploadCertificate(string $pem): bool
     {
         $this->postFields = $pem;
         $this->performRequest('/certificate', 'PUT');
@@ -39,11 +37,11 @@ class Root extends RW
     /**
      * Get available companies listing.
      *
-     * @param array $conditions applay to listing
+     * @param array<string, mixed> $conditions applay to listing
      *
-     * @return array
+     * @return null|array<string, mixed> of companies available
      */
-    public function companies($conditions = [])
+    public function companies(array $conditions = []): ?array
     {
         return $this->getFlexiData('/c', $conditions);
     }
