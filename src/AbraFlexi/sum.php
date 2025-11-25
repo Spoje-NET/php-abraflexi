@@ -26,9 +26,9 @@ trait sum
     /**
      * Vrací z AbraFlexi sumaci i podle podmínek.
      *
-     * @param array $conditions pole podmínek nebo ID záznamu
+ * @param array<mixed> $conditions
      *
-     * @return array
+ * @return array<mixed>
      */
     public function getSumFromAbraFlexi($conditions = [])
     {

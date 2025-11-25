@@ -26,7 +26,7 @@ trait subItems
     /**
      * Subitems - ex. items of invoice.
      *
-     * @return array of document items or null
+     * @return array<mixed> of document items or null
      */
     public function getSubItems()
     {
@@ -34,6 +34,7 @@ trait subItems
     }
 
     /**
+     * @param array<mixed> $subitems
      * @return bool
      */
     public function setSubitems(array $subitems)

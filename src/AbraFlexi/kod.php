@@ -33,6 +33,6 @@ trait kod
      */
     public function _getRecordCode()
     {
-        return empty($this->getDataValue('kod')) ? null : self::code($this->getDataValue('kod'));
+        return empty($this->getDataValue('kod')) ? null : \AbraFlexi\Functions::code($this->getDataValue('kod'));
     }
 }

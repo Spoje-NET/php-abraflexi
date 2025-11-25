@@ -25,6 +25,7 @@ class Stitek extends RW
 {
     /**
      * Evidence Path for vsb supported by label.
+     * @var array<string,string>
      */
     public static array $vsbToEvidencePath = [
         'vsbAdr' => 'adresar', // Adresář
@@ -56,7 +57,8 @@ class Stitek extends RW
     /**
      * Convert coma-separated list to array.
      *
-     * @param array|string $listRaw
+     * @param array<mixed>|string $listRaw
+     * @return array<mixed>
      */
     public static function listToArray($listRaw): array
     {
@@ -80,7 +82,7 @@ class Stitek extends RW
      *
      * @param RO $object
      *
-     * @return array
+     * @return array<mixed>
      */
     public static function getAvailableLabels($object)
     {
@@ -112,8 +114,8 @@ class Stitek extends RW
      * Create New Label for given evidences.
      *
      * @param string $name      Label Name
-     * @param array  $evidences Evidence code list ex: ['faktura-vydana','faktura-prijata']
-     * @param array  $options   Additional Label properties ex: ['kod'=>'EXAMPLE','skupVybKlic'=>'SKUPINA_STITKU']
+     * @param array<mixed>  $evidences Evidence code list ex: ['faktura-vydana','faktura-prijata']
+     * @param array<mixed>  $options   Additional Label properties ex: ['kod'=>'EXAMPLE','skupVybKlic'=>'SKUPINA_STITKU']
      *
      * @return bool success
      */
@@ -129,7 +131,7 @@ class Stitek extends RW
         }
 
         if (!\array_key_exists('kod', $options)) {
-            $this->setDataValue('kod', self::code($name));
+            $this->setDataValue('kod', \AbraFlexi\Functions::code($name));
         }
 
         $this->setDataValue('nazev', $name);

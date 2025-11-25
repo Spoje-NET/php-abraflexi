@@ -28,6 +28,8 @@ class Relations
 
     /**
      * Evidence adresar (Adresy firem) Relations.
+     *
+     * @var array<string,array<string,string>>
      */
     public static array $adresar = [
         'odberatele' => [
@@ -94,6 +96,8 @@ class Relations
 
     /**
      * Evidence atribut (Atributy) Relations.
+     *
+     * @var array<string,array<string,string>>
      */
     public static array $atribut = [
         'uzivatelske-vazby' => [
@@ -105,6 +109,8 @@ class Relations
 
     /**
      * Evidence autotisk (Automatický tisk) Relations.
+     *
+     * @var array<string,array<string,string>>
      */
     public static array $autotisk = [
         'uzivatelske-vazby' => [

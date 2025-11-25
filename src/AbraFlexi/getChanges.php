@@ -44,7 +44,7 @@ trait getChanges
     /**
      * Obtain Chaneges from Journal.
      *
-     * @return array Changes obtained
+     * @return array<mixed> Changes obtained
      */
     public function getChanges()
     {
