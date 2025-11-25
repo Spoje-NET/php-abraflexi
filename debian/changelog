@@ -1,8 +1,14 @@
-php-spojenet-abraflexi (3.6.4) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.6.5) UNRELEASED; urgency=medium
+
+  * ExtID parsing fix
+
+ -- vitex <info@vitexsoftware.cz>  Thu, 20 Nov 2025 00:15:49 +0100
+
+php-spojenet-abraflexi (3.6.4) experimental; urgency=medium
 
   * fixRecordTypes now can handle relation without code
 
- -- vitex <info@vitexsoftware.cz>  Tue, 21 Oct 2025 14:58:59 +0200
+ -- vitex <info@vitexsoftware.cz>  Thu, 20 Nov 2025 00:15:31 +0100
 
 php-spojenet-abraflexi (3.6.3) experimental; urgency=medium
 

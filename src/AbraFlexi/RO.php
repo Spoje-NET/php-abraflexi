@@ -1111,8 +1111,8 @@ class RO extends \Ease\Sand
                         case 'relation':
                             if (\is_array($record[$column])) {
                                 $value = $record[$column][0];
-                                if (\Ease\Functions::isAssoc($record[$column])) {
 
+                                if (\Ease\Functions::isAssoc($record[$column])) {
                                     if (\is_array($value)) {
                                         $valueFields = array_keys($value);
                                         $subject = next($valueFields);
@@ -1135,17 +1135,12 @@ class RO extends \Ease\Sand
                                         );
                                     }
                                 } else { // ExtIDs
-                                    if(count($record[$column]) == 1) {
-                                        $record[$column] = new Relation(
-                                                \array_key_exists('kod', $value) ? $value['kod'] : $value['id'],
-                                                $record[$column][0]['typDoklK'],
-                                                $record[$column][0]['id'],
-                                                $record[$column][0]['typDoklK@showAs']
-                                                );
+                                    if (\count($record[$column]) === 1) {
+                                        $record[$column] = new Relation(\array_key_exists('kod', $value[0]) ? $value[0]['kod'] : $value[0]['id'], $value[0]['typDoklK'], $value[0]['id'], $value[0]['typDoklK@showAs']);
                                     } else {
                                         foreach ($record[$column] as $relPos => $rawRelation) {
                                             [,$ext,$extId] = explode(':', $rawRelation);
-                                            $record[$column][$ext] = new Relation($rawRelation, $ext, $extId, $column.' '.$ext.':'.$extId );
+                                            $record[$column][$ext] = new Relation($rawRelation, $ext, $extId, $column.' '.$ext.':'.$extId);
                                             unset($record[$column][$relPos]);
                                         }
                                     }
@@ -2113,7 +2108,8 @@ class RO extends \Ease\Sand
     public function getExternalID($want = null)
     {
         $ids = (array) $this->getExternalIDs();
-        return array_key_exists($want, $ids) ?  $ids[$want] : current($ids);
+
+        return \array_key_exists($want, $ids) ? $ids[$want] : current($ids);
     }
 
     /**
