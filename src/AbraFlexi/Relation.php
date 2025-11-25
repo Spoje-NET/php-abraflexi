@@ -102,4 +102,19 @@ class Relation implements \ArrayAccess
     {
         unset($this->data[$offset]);
     }
+
+    /**
+     * Create Relation object from ExtID.
+     */
+    public static function fromExtId(string $extIdRaw, string $column): self
+    {
+        [,$ext,$extId] = explode(':', $extIdRaw);
+
+        return new self($extId, $ext, $extId, trim($column.' '.$ext).':'.$extId);
+    }
+
+    public static function fromTypDokl(array $typDokl): self
+    {
+        return new self(\array_key_exists('kod', $typDokl) ? $typDokl['kod'] : $typDokl['id'], $typDokl['typDoklK'], $typDokl['id'], $typDokl['typDoklK@showAs']);
+    }
 }

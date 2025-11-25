@@ -1127,20 +1127,21 @@ class RO extends \Ease\Sand
                                             $record[$column][$a] = $b;
                                         }
                                     } else {
-                                        $record[$column] = new Relation(
-                                            $value,
-                                            $column,
-                                            str_replace('ext:', '', $value),
-                                            $value,
-                                        );
+                                        $relation = Relation::fromExtId($value, $column);
+                                        $record[$column][$relation->target] = $relation;
                                     }
                                 } else { // ExtIDs
                                     if (\count($record[$column]) === 1) {
-                                        $record[$column] = new Relation(\array_key_exists('kod', $value) ? $value['kod'] : $value['id'], $value['typDoklK'], $value['id'], $value['typDoklK@showAs']);
+                                        if (\is_array($value)) {
+                                            $record[$column] = Relation::fromTypDokl($value);
+                                        } else {
+                                            $relation = Relation::fromExtId($value, $column);
+                                            $record[$column][$relation->target] = $relation;
+                                        }
                                     } else {
                                         foreach ($record[$column] as $relPos => $rawRelation) {
-                                            [,$ext,$extId] = explode(':', $rawRelation);
-                                            $record[$column][$ext] = new Relation($rawRelation, $ext, $extId, $column.' '.$ext.':'.$extId);
+                                            $relation = Relation::fromExtId($rawRelation, $column);
+                                            $record[$column][$relation->target] = $relation;
                                             unset($record[$column][$relPos]);
                                         }
                                     }
