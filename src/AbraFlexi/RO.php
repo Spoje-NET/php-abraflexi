@@ -1136,7 +1136,7 @@ class RO extends \Ease\Sand
                                     }
                                 } else { // ExtIDs
                                     if (\count($record[$column]) === 1) {
-                                        $record[$column] = new Relation(\array_key_exists('kod', $value[0]) ? $value[0]['kod'] : $value[0]['id'], $value[0]['typDoklK'], $value[0]['id'], $value[0]['typDoklK@showAs']);
+                                        $record[$column] = new Relation(\array_key_exists('kod', $value) ? $value['kod'] : $value['id'], $value['typDoklK'], $value['id'], $value['typDoklK@showAs']);
                                     } else {
                                         foreach ($record[$column] as $relPos => $rawRelation) {
                                             [,$ext,$extId] = explode(':', $rawRelation);
