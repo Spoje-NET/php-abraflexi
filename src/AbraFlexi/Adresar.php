@@ -147,10 +147,13 @@ class Adresar extends RW implements Document
     public function getAnyPhoneNumber(string $purpose = '')
     {
         $phoneNo = null;
+        $ignoreState = $this->ignoreNotFound();
+        $this->ignore404(true);
         $numbersRaw = $this->getFlexiData(
             $this->getApiURL(),
             ['detail' => 'custom:id,mobil,tel,kontakty(primarni,mobil,tel,odesilatFak,odesilatObj,odesilatNab,odesilatPpt,odesilatSkl,odesilatPok)', 'relations' => 'kontakty'],
         );
+        $this->ignoreNotFound($ignoreState);
 
         if (\is_array($numbersRaw) && !empty($numbersRaw[0])) {
             $numbers = $numbersRaw[0];

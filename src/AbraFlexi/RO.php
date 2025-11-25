@@ -1338,7 +1338,8 @@ class RO extends \Ease\Sand
 
                 if ($this->throwException) {
                     $errors = $this->getErrors();
-                    throw new Exception(empty($errors) ? 'Problem ' : ((\is_array($errors[0]) ? $errors[0]['message'] : $errors[0])).' '.$this->curlInfo['url'].' http error '.$this->lastResponseCode , $this);
+
+                    throw new Exception(empty($errors) ? 'Problem ' : (\is_array($errors[0]) ? $errors[0]['message'] : $errors[0]).' '.urldecode($this->curlInfo['url']).' http error '.$this->lastResponseCode, $this);
                 }
 
                 $this->addStatusMessage($this->lastResponseCode.': '.$this->curlInfo['url'].' ('.$this->format.') '.json_encode($this->getErrors()), 'warning');
@@ -2506,11 +2507,11 @@ class RO extends \Ease\Sand
     /**
      * Set or get ignore not found pages flag.
      *
-     * @param bool $ignore set flag to
+     * @param null|bool $ignore set flag to
      *
      * @return bool get flag state
      */
-    public function ignore404($ignore = null): bool
+    public function ignore404(?bool $ignore = null): bool
     {
         if (null !== $ignore) {
             $this->ignoreNotFound = $ignore;
