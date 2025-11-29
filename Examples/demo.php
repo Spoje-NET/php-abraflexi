@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace AbraFlexi;
 
-require_once '../test/bootstrap.php';
+require_once '../tests/bootstrap.php';
 
 echo _('FlexiBee Connection Test')."\n\n";
 
@@ -27,7 +27,7 @@ foreach ($statuser->getData() as $property => $value) {
 }
 
 $company = new Company();
-$info = $company->getAllFromFlexibee();
+$info = $company->getAllFromAbraFlexi();
 
 if (isset($info) && \count($info)) {
     foreach ($info as $companyInfo) {
