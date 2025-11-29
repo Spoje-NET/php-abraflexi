@@ -66,9 +66,9 @@ class RW extends RO
      * SetUp Object to be ready for work.
      *
      * @param array<mixed> $options Object Options (authSessionId,user,password,
-     *                       url,company,evidence,companyUrl
-     *                       prefix,defaultUrlParams,debug,ver,dry-run
-     *                       detail,offline,atomic,filter,ignore404
+     *                              url,company,evidence,companyUrl
+     *                              prefix,defaultUrlParams,debug,ver,dry-run
+     *                              detail,offline,atomic,filter,ignore404
      */
     public function setUp($options = []): bool
     {

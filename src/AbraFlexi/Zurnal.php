@@ -28,15 +28,16 @@ class Zurnal extends RO
      * Evidence užitá objektem.
      */
     public ?string $evidence = 'zurnal';
+
     /**
-     * @var array<string,string>
+     * @var array<string, string>
      */
     public static array $evidenceToDb = ['faktura-vydana' => 'ddoklfak'];
 
     /**
      * Class for read only interaction with AbraFlexi.
      *
-     * @param mixed $init    default record id or initial data
+     * @param mixed        $init    default record id or initial data
      * @param array<mixed> $options Connection settings and other options override
      */
     public function __construct($init = null, $options = [])

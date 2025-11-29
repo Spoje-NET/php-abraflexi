@@ -25,7 +25,8 @@ class Stitek extends RW
 {
     /**
      * Evidence Path for vsb supported by label.
-     * @var array<string,string>
+     *
+     * @var array<string, string>
      */
     public static array $vsbToEvidencePath = [
         'vsbAdr' => 'adresar', // Adresář
@@ -58,6 +59,7 @@ class Stitek extends RW
      * Convert coma-separated list to array.
      *
      * @param array<mixed>|string $listRaw
+     *
      * @return array<mixed>
      */
     public static function listToArray($listRaw): array
@@ -113,9 +115,9 @@ class Stitek extends RW
     /**
      * Create New Label for given evidences.
      *
-     * @param string $name      Label Name
-     * @param array<mixed>  $evidences Evidence code list ex: ['faktura-vydana','faktura-prijata']
-     * @param array<mixed>  $options   Additional Label properties ex: ['kod'=>'EXAMPLE','skupVybKlic'=>'SKUPINA_STITKU']
+     * @param string       $name      Label Name
+     * @param array<mixed> $evidences Evidence code list ex: ['faktura-vydana','faktura-prijata']
+     * @param array<mixed> $options   Additional Label properties ex: ['kod'=>'EXAMPLE','skupVybKlic'=>'SKUPINA_STITKU']
      *
      * @return bool success
      */

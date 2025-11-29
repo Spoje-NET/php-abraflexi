@@ -35,6 +35,7 @@ trait subItems
 
     /**
      * @param array<mixed> $subitems
+     *
      * @return bool
      */
     public function setSubitems(array $subitems)

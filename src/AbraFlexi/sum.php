@@ -26,9 +26,9 @@ trait sum
     /**
      * Vrací z AbraFlexi sumaci i podle podmínek.
      *
- * @param array<mixed> $conditions
+     * @param array<mixed> $conditions
      *
- * @return array<mixed>
+     * @return array<mixed>
      */
     public function getSumFromAbraFlexi($conditions = [])
     {
