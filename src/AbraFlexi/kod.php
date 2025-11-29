@@ -25,7 +25,6 @@ trait kod
 {
     /**
      * Obtain record/object identificator code:
-     * Vrací identifikátor objektu code:
      *
      * @see https://demo.flexibee.eu/devdoc/identifiers Identifikátory záznamů
      *
@@ -33,6 +32,6 @@ trait kod
      */
     public function _getRecordCode()
     {
-        return empty($this->getDataValue('kod')) ? null : \AbraFlexi\Functions::code($this->getDataValue('kod'));
+        return empty($this->getDataValue('kod')) ? null : \AbraFlexi\Code::ensure($this->getDataValue('kod'));
     }
 }
