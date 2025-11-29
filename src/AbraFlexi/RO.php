@@ -360,7 +360,7 @@ class RO extends \Ease\Sand
      * Class for read only interaction with AbraFlexi.
      *
      * @param mixed                          $init    default record id or initial data. See processInit()
-     * @param array<string, int|string|true> $options Connection settings and other options override
+     * @param array<string, mixed> $options Connection settings and other options override
      */
     public function __construct($init = null, $options = [])
     {

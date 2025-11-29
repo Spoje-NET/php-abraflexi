@@ -26,7 +26,7 @@ trait stitky
     /**
      * Get all labels for current record.
      *
-     * @return array
+     * @return array<mixed>
      */
     public function getLabels()
     {
@@ -50,7 +50,7 @@ trait stitky
     /**
      * UnSet Label for Current Object record.
      *
-     * @param array|string $labelsToRemove Label/Labels
+     * @param array<mixed>|string $labelsToRemove Label/Labels
      *
      * @return bool success result ?
      */

@@ -65,7 +65,7 @@ class RW extends RO
     /**
      * SetUp Object to be ready for work.
      *
-     * @param array $options Object Options (authSessionId,user,password,
+     * @param array<mixed> $options Object Options (authSessionId,user,password,
      *                       url,company,evidence,companyUrl
      *                       prefix,defaultUrlParams,debug,ver,dry-run
      *                       detail,offline,atomic,filter,ignore404

@@ -28,13 +28,16 @@ class Zurnal extends RO
      * Evidence užitá objektem.
      */
     public ?string $evidence = 'zurnal';
+    /**
+     * @var array<string,string>
+     */
     public static array $evidenceToDb = ['faktura-vydana' => 'ddoklfak'];
 
     /**
      * Class for read only interaction with AbraFlexi.
      *
      * @param mixed $init    default record id or initial data
-     * @param array $options Connection settings and other options override
+     * @param array<mixed> $options Connection settings and other options override
      */
     public function __construct($init = null, $options = [])
     {
@@ -60,7 +63,7 @@ class Zurnal extends RO
      *
      * @param RO $object
      *
-     * @return array changes history
+     * @return array<mixed> changes history
      */
     public function getAllChanges($object)
     {
@@ -88,7 +91,7 @@ class Zurnal extends RO
      *
      * @param RO $object
      *
-     * @return array Old/New values pairs
+     * @return array<mixed> Old/New values pairs
      */
     public function getLastChange($object)
     {

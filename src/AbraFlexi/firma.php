@@ -31,7 +31,7 @@ trait firma
     /**
      * Instance of Adresar( $this->getDataValue('firma') ).
      *
-     * @param array $options for new Object
+     * @param array<mixed> $options for new Object
      *
      * @return Adresar
      */
