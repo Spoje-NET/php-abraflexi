@@ -110,7 +110,7 @@ class Relation implements \ArrayAccess
     {
         [,$ext,$extId] = explode(':', $extIdRaw);
 
-        return new self($extId, $ext, $extId, trim($column.' '.$ext).':'.$extId);
+        return new self($extIdRaw, $ext, $extId, trim($column.' '.$ext).':'.$extId);
     }
 
     public static function fromTypDokl(array $typDokl): self
