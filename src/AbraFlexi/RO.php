@@ -21,7 +21,7 @@ namespace AbraFlexi;
  *
  * @no-named-arguments
  */
-class RO extends \Ease\Sand
+class RO extends \Ease\Sand implements \Stringable
 {
     use \Ease\recordkey;
 
