@@ -1,8 +1,8 @@
-php-spojenet-abraflexi (3.6.5) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.6.5) experimental; urgency=medium
 
   * ExtID parsing fix
 
- -- vitex <info@vitexsoftware.cz>  Thu, 20 Nov 2025 00:15:49 +0100
+ -- vitex <info@vitexsoftware.cz>  Tue, 09 Dec 2025 01:52:12 +0100
 
 php-spojenet-abraflexi (3.6.4) experimental; urgency=medium
 

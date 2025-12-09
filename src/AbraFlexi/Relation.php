@@ -21,7 +21,7 @@ namespace AbraFlexi;
  *
  * @no-named-arguments
  */
-class Relation implements \ArrayAccess
+class Relation implements \ArrayAccess, \Stringable
 {
     /**
      * Item in target evidence.
