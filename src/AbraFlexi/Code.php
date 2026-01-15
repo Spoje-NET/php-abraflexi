@@ -21,7 +21,7 @@ namespace AbraFlexi;
  *
  * @no-named-arguments
  */
-class Code
+class Code implements \Stringable
 {
     /**
      * Pure code string.

@@ -21,7 +21,7 @@ namespace AbraFlexi;
  *
  * @no-named-arguments
  */
-class DateTime extends \DateTime
+class DateTime extends \DateTime implements \Stringable
 {
     /**
      * Support for Null values.
