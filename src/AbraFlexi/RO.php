@@ -401,10 +401,6 @@ class RO extends \Ease\Sand implements \Stringable
      */
     public function __unserialize(array $data): void
     {
-        foreach ($data as $key => $value) {
-            $this->setupProperty((string) $key, $value);
-        }
-
         $this->curlInit();
     }
 

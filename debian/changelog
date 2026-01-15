@@ -1,3 +1,9 @@
+php-spojenet-abraflexi (3.6.7) UNRELEASED; urgency=medium
+
+  * unserialize fix
+
+ -- Vitex <vitezslav.dvorak@spojenet.cz>  Thu, 15 Jan 2026 17:35:17 +0100
+
 php-spojenet-abraflexi (3.6.6) experimental; urgency=medium
 
   [ vitex ]
