@@ -24,7 +24,7 @@ class Formats
     /**
      * Source FlexiBee server version.
      */
-    public static string $version = '2025.8.4';
+    public static string $version = '2025.9.1';
 
     /**
      * Availble Formats.
@@ -1055,6 +1055,16 @@ class Formats
     ];
 
     /**
+     * Evidence banka-polozka (Položky banky a vzájemných zápočtů) Formats.
+     */
+    public static array $bankaPolozka = [
+        'HTML' => 'html',
+        'XML' => 'xml',
+        'JSON' => 'json',
+        'CSV' => 'csv',
+    ];
+
+    /**
      * Evidence interni-doklad-polozka (Položky interních dokladů) Formats.
      */
     public static array $interniDokladPolozka = [
@@ -1208,16 +1218,6 @@ class Formats
      * Evidence faktura-vydana-polozka (Položky vydaných faktur a prodejek) Formats.
      */
     public static array $fakturaVydanaPolozka = [
-        'HTML' => 'html',
-        'XML' => 'xml',
-        'JSON' => 'json',
-        'CSV' => 'csv',
-    ];
-
-    /**
-     * Evidence banka-polozka (Položky vzájemných zápočtů) Formats.
-     */
-    public static array $bankaPolozka = [
         'HTML' => 'html',
         'XML' => 'xml',
         'JSON' => 'json',
@@ -2428,6 +2428,16 @@ class Formats
      * Evidence prodejka-platba (Úhrada) Formats.
      */
     public static array $prodejkaPlatba = [
+        'HTML' => 'html',
+        'XML' => 'xml',
+        'JSON' => 'json',
+        'CSV' => 'csv',
+    ];
+
+    /**
+     * Evidence def-store (Úložiště definic) Formats.
+     */
+    public static array $defStore = [
         'HTML' => 'html',
         'XML' => 'xml',
         'JSON' => 'json',

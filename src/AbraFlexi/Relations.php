@@ -24,12 +24,10 @@ class Relations
     /**
      * Source FlexiBee server version.
      */
-    public static string $version = '2025.8.4';
+    public static string $version = '2025.9.1';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
-     *
-     * @var array<string, array<string, string>>
      */
     public static array $adresar = [
         'odberatele' => [
@@ -96,8 +94,6 @@ class Relations
 
     /**
      * Evidence atribut (Atributy) Relations.
-     *
-     * @var array<string, array<string, string>>
      */
     public static array $atribut = [
         'uzivatelske-vazby' => [
@@ -109,8 +105,6 @@ class Relations
 
     /**
      * Evidence autotisk (Automatický tisk) Relations.
-     *
-     * @var array<string, array<string, string>>
      */
     public static array $autotisk = [
         'uzivatelske-vazby' => [
@@ -1335,6 +1329,17 @@ class Relations
     ];
 
     /**
+     * Evidence banka-polozka (Položky banky a vzájemných zápočtů) Relations.
+     */
+    public static array $bankaPolozka = [
+        'uzivatelske-vazby' => [
+            'url' => 'uzivatelske-vazby',
+            'evidenceType' => 'VAZBA',
+            'name' => 'Uživatelské vazby',
+        ],
+    ];
+
+    /**
      * Evidence interni-doklad-polozka (Položky interních dokladů) Relations.
      */
     public static array $interniDokladPolozka = [
@@ -1557,17 +1562,6 @@ class Relations
             'url' => 'vyrobniCislaPrijata',
             'evidenceType' => 'VYROBNI_CISLA',
             'name' => 'Výrobní čísla',
-        ],
-    ];
-
-    /**
-     * Evidence banka-polozka (Položky vzájemných zápočtů) Relations.
-     */
-    public static array $bankaPolozka = [
-        'uzivatelske-vazby' => [
-            'url' => 'uzivatelske-vazby',
-            'evidenceType' => 'VAZBA',
-            'name' => 'Uživatelské vazby',
         ],
     ];
 
@@ -3206,6 +3200,17 @@ class Relations
             'url' => 'polozkyRady',
             'evidenceType' => 'ROCNI_RADA',
             'name' => 'Roční položky číselné řady',
+        ],
+    ];
+
+    /**
+     * Evidence def-store (Úložiště definic) Relations.
+     */
+    public static array $defStore = [
+        'uzivatelske-vazby' => [
+            'url' => 'uzivatelske-vazby',
+            'evidenceType' => 'VAZBA',
+            'name' => 'Uživatelské vazby',
         ],
     ];
 

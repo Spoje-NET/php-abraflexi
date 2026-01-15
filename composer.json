@@ -14,6 +14,7 @@
         "API-Client",
         "FinTech"
     ],
+    "type": "library",
     "require": {
         "php": "^8.1",
         "ext-json": "*",
@@ -41,7 +42,7 @@
         "phpstan/phpstan": "*",
         "friendsofphp/php-cs-fixer": "^3.89",
         "ergebnis/composer-normalize": "^2.48",
-        "ergebnis/php-cs-fixer-config": "^6.57"
+        "ergebnis/php-cs-fixer-config": "^6.58"
     },
     "scripts": {
         "post-install-cmd": [

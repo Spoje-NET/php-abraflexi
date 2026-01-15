@@ -24,7 +24,7 @@ class Actions
     /**
      * Source AbraFlexi server version.
      */
-    public static string $version = '2025.8.4';
+    public static string $version = '2025.9.1';
 
     /**
      * Evidence adresar (Adresy firem) Actions.
@@ -3947,6 +3947,54 @@ class Actions
     ];
 
     /**
+     * Evidence banka-polozka (Položky banky a vzájemných zápočtů) Actions.
+     *
+     * @var array<string, array<string, string>>
+     */
+    public static array $bankaPolozka = [
+        'new' => [
+            'actionId' => 'new',
+            'actionName' => 'Přidat',
+            'needInstance' => 'false',
+            'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+            'isRealAction' => 'false',
+            'isService' => 'NO',
+        ],
+        'copy' => [
+            'actionId' => 'copy',
+            'actionName' => 'Vytvořit kopii',
+            'needInstance' => 'true',
+            'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+            'isRealAction' => 'false',
+            'isService' => 'ON_MOBILE',
+        ],
+        'edit' => [
+            'actionId' => 'edit',
+            'actionName' => 'Změnit',
+            'needInstance' => 'true',
+            'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+            'isRealAction' => 'false',
+            'isService' => 'NO',
+        ],
+        'delete' => [
+            'actionId' => 'delete',
+            'actionName' => 'Smazat',
+            'needInstance' => 'true',
+            'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+            'isRealAction' => 'false',
+            'isService' => 'NO',
+        ],
+        'storno' => [
+            'actionId' => 'storno',
+            'actionName' => 'Storno položky',
+            'needInstance' => 'true',
+            'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+            'isRealAction' => 'true',
+            'isService' => 'NO',
+        ],
+    ];
+
+    /**
      * Evidence interni-doklad-polozka (Položky interních dokladů) Actions.
      *
      * @var array<string, array<string, string>>
@@ -4656,54 +4704,6 @@ class Actions
      * @var array<string, array<string, string>>
      */
     public static array $fakturaVydanaPolozka = [
-        'new' => [
-            'actionId' => 'new',
-            'actionName' => 'Přidat',
-            'needInstance' => 'false',
-            'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
-            'isRealAction' => 'false',
-            'isService' => 'NO',
-        ],
-        'copy' => [
-            'actionId' => 'copy',
-            'actionName' => 'Vytvořit kopii',
-            'needInstance' => 'true',
-            'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-            'isRealAction' => 'false',
-            'isService' => 'ON_MOBILE',
-        ],
-        'edit' => [
-            'actionId' => 'edit',
-            'actionName' => 'Změnit',
-            'needInstance' => 'true',
-            'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
-            'isRealAction' => 'false',
-            'isService' => 'NO',
-        ],
-        'delete' => [
-            'actionId' => 'delete',
-            'actionName' => 'Smazat',
-            'needInstance' => 'true',
-            'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-            'isRealAction' => 'false',
-            'isService' => 'NO',
-        ],
-        'storno' => [
-            'actionId' => 'storno',
-            'actionName' => 'Storno položky',
-            'needInstance' => 'true',
-            'actionMakesSense' => 'ONLY_WITH_INSTANCE',
-            'isRealAction' => 'true',
-            'isService' => 'NO',
-        ],
-    ];
-
-    /**
-     * Evidence banka-polozka (Položky vzájemných zápočtů) Actions.
-     *
-     * @var array<string, array<string, string>>
-     */
-    public static array $bankaPolozka = [
         'new' => [
             'actionId' => 'new',
             'actionName' => 'Přidat',
@@ -9968,6 +9968,46 @@ class Actions
      * @var array<string, array<string, string>>
      */
     public static array $prodejkaPlatba = [
+        'new' => [
+            'actionId' => 'new',
+            'actionName' => 'Přidat',
+            'needInstance' => 'false',
+            'actionMakesSense' => 'ONLY_WITHOUT_INSTANCE_AND_NOT_IN_CREATE',
+            'isRealAction' => 'false',
+            'isService' => 'NO',
+        ],
+        'copy' => [
+            'actionId' => 'copy',
+            'actionName' => 'Vytvořit kopii',
+            'needInstance' => 'true',
+            'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+            'isRealAction' => 'false',
+            'isService' => 'ON_MOBILE',
+        ],
+        'edit' => [
+            'actionId' => 'edit',
+            'actionName' => 'Změnit',
+            'needInstance' => 'true',
+            'actionMakesSense' => 'ONLY_WITH_INSTANCE_AND_NOT_IN_EDIT',
+            'isRealAction' => 'false',
+            'isService' => 'NO',
+        ],
+        'delete' => [
+            'actionId' => 'delete',
+            'actionName' => 'Smazat',
+            'needInstance' => 'true',
+            'actionMakesSense' => 'ONLY_WITH_INSTANCE',
+            'isRealAction' => 'false',
+            'isService' => 'NO',
+        ],
+    ];
+
+    /**
+     * Evidence def-store (Úložiště definic) Actions.
+     *
+     * @var array<string, array<string, string>>
+     */
+    public static array $defStore = [
         'new' => [
             'actionId' => 'new',
             'actionName' => 'Přidat',
