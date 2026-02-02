@@ -26,7 +26,7 @@ class ObjednavkaPrijataPolozka extends RW
     use stitky;
 
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'objednavka-prijata-polozka';
 }

@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Description of DateTime.
+ * AbraFlexi DateTime class.
  *
  * @author vitex
  *
@@ -39,7 +39,7 @@ class DateTime extends \DateTime implements \Stringable
      *
      * @param string $flexidatetime 2017-09-26T10:00:53.755+02:00 or older 2017-05-19T00:00:00+02:00
      *
-     * @return \DateTime|false
+     * @throws \Exception Invalid date format
      */
     public function __construct(string $flexidatetime = 'NOW')
     {

@@ -30,7 +30,7 @@ class SkladovyPohyb extends RW
     use lock;
 
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'skladovy-pohyb';
 }

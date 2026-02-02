@@ -26,7 +26,7 @@ class FakturaVydanaPolozka extends RW
     use stitky;
 
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'faktura-vydana-polozka';
 }

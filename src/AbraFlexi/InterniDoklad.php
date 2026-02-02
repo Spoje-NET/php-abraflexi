@@ -39,7 +39,7 @@ class InterniDoklad extends RW implements \AbraFlexi\Document
     use lock;
 
     /**
-     * Evidence použitá třídou.
+     * Evidence used by class.
      */
     public ?string $evidence = 'interni-doklad';
 }

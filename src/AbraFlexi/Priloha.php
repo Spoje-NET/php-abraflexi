@@ -25,7 +25,7 @@ namespace AbraFlexi;
 class Priloha extends RW
 {
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'priloha';
 

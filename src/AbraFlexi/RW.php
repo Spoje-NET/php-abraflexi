@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Základní třída pro zápis do AbraFlexi.
+ * Basic class for writing to AbraFlexi.
  *
  * @url https://demo.flexibee.eu/devdoc/http-operations
  *
@@ -24,7 +24,7 @@ namespace AbraFlexi;
 class RW extends RO
 {
     /**
-     * Sloupeček obsahující datum vložení záznamu do shopu.
+     * Column containing record creation date in the system.
      */
     public ?string $myCreateColumn = '';
 
@@ -46,7 +46,7 @@ class RW extends RO
     /**
      * Transaction processing mode.
      *
-     * @see https://www.abraflexi.eu/api/dokumentace/ref/tx/ Transakční zpracování
+     * @see https://www.abraflexi.eu/api/dokumentace/ref/tx/ Transaction processing
      */
     public bool $atomic = false;
 
@@ -63,12 +63,14 @@ class RW extends RO
     private ?int $sourceId;
 
     /**
-     * SetUp Object to be ready for work.
+     * Set up object to be ready for work.
      *
-     * @param array<mixed> $options Object Options (authSessionId,user,password,
-     *                              url,company,evidence,companyUrl
-     *                              prefix,defaultUrlParams,debug,ver,dry-run
-     *                              detail,offline,atomic,filter,ignore404
+     * @param array<string, mixed> $options Object options (authSessionId, user, password,
+     *                                      url, company, evidence, companyUrl, prefix,
+     *                                      defaultUrlParams, debug, ver, dry-run, detail,
+     *                                      offline, atomic, filter, ignore404)
+     *
+     * @return bool Setup success status
      */
     public function setUp($options = []): bool
     {
@@ -85,14 +87,13 @@ class RW extends RO
     }
 
     /**
-     * Save record (if evidence allow to).
-     * Uloží záznam (pokud to evidence dovoluje).
+     * Save record (if evidence allows it).
      *
-     * @param array $data Data to save
+     * @param array<string, mixed>|null $data Data to save
      *
      * @throws Exception Evidence does not support Import
      *
-     * @return array|bool odpověď
+     * @return array<string, mixed>|bool Response data
      */
     public function insertToAbraFlexi($data = null)
     {
@@ -109,12 +110,12 @@ class RW extends RO
     }
 
     /**
-     * Parse Response array.
+     * Parse response array.
      *
-     * @param array $responseDecoded
-     * @param int   $responseCode    Request Response Code
+     * @param array<string, mixed> $responseDecoded Decoded response data
+     * @param int                  $responseCode    Request response code
      *
-     * @return array main data part of response
+     * @return array<string, mixed> Main data part of response
      */
     public function parseResponse($responseDecoded, $responseCode)
     {
@@ -155,7 +156,9 @@ class RW extends RO
     /**
      * Parse error message response.
      *
-     * @return int number of errors processed
+     * @param array<string, mixed> $responseDecoded Decoded response data
+     *
+     * @return int Number of errors processed
      */
     public function parseError(array $responseDecoded)
     {
@@ -271,10 +274,9 @@ class RW extends RO
     }
 
     /**
-     * Smaže záznam
      * Delete record in AbraFlexi.
      *
-     * @param int|string $id identifikátor záznamu
+     * @param int|string|null $id Record identifier
      *
      * @return bool Response code is 200 ?
      */
@@ -332,9 +334,9 @@ class RW extends RO
     /**
      * Control data for ReadOnly columns presence.
      *
-     * @param array $data
+     * @param array<string, mixed>|null $data Data to check
      *
-     * @return array List of ReadOnly columns. Empty if all is ok
+     * @return array<string, mixed> List of ReadOnly columns. Empty if all is ok
      */
     public function controlReadOnlyColumns($data = null)
     {
@@ -360,16 +362,15 @@ class RW extends RO
     }
 
     /**
-     * Add Data to evidence Branch
-     * Přidá data do větve.
+     * Add data to evidence branch.
      *
      * @thanksto Karel Běl
      *
      * @see Relations
      *
-     * @param array<string, string> $data         pole dat
-     * @param string                $relationPath path evidence (relation) pro vkládaná data
-     * @param bool                  $removeAll
+     * @param array<string, mixed> $data         Data array
+     * @param string               $relationPath Path evidence (relation) for inserted data
+     * @param bool                 $removeAll    Remove all existing items
      *
      * @return bool Operation success
      */
@@ -399,10 +400,10 @@ class RW extends RO
     }
 
     /**
-     * Vloží do větve data z objektu.
+     * Insert data from object into branch.
      *
-     * @param RO   $object    objekt evidence
-     * @param bool $removeAll flush older items
+     * @param RO   $object    Evidence object
+     * @param bool $removeAll Flush older items
      */
     public function addObjectToBranch($object, $removeAll = false): void
     {
@@ -414,11 +415,11 @@ class RW extends RO
     }
 
     /**
-     * Přidá uživatelskou vazbu.
+     * Add user relation.
      *
      * @see https://www.abraflexi.eu/api/dokumentace/ref/uzivatelske-vazby/
      *
-     * @param string $vazba
+     * @param string $vazba Relation name
      */
     public function vazbaAdd($vazba): void
     {
@@ -429,11 +430,11 @@ class RW extends RO
     }
 
     /**
-     * Smaže uživatelskou vazbu.
+     * Delete user relation.
      *
      * @see https://www.abraflexi.eu/api/dokumentace/ref/uzivatelske-vazby/
      *
-     * @param string $vazba
+     * @param string $vazba Relation name
      */
     public function vazbaDel($vazba): void
     {
@@ -445,15 +446,13 @@ class RW extends RO
     }
 
     /**
-     * Převede data do Json formátu pro AbraFlexi.
-     * Pokud jsou štítky pole, jsou převedeny na seznam oddělený čárkou.
-     * Convert data to AbraFlexi like Json format.
-     * Array of Labels is converted to coma separated list.
+     * Convert data to AbraFlexi like JSON format.
+     * Array of Labels is converted to comma separated list.
      *
-     * @param array<string, array<string, string>|string> $data
-     * @param int                                         $options json_encode options like JSON_PRETTY_PRINT etc
+     * @param array<string, array<string, string>|string>|null $data    Data to convert
+     * @param int                                              $options JSON_encode options like JSON_PRETTY_PRINT etc
      *
-     * @return string
+     * @return string JSON encoded data
      */
     public function getJsonizedData($data = null, $options = 0)
     {
@@ -525,14 +524,14 @@ class RW extends RO
     }
 
     /**
-     * Make Copy of given record with optional modifications.
+     * Make copy of given record with optional modifications.
      *
      * !!!Experimental Feature!!!
      *
-     * @param int   $source
-     * @param array $overrides
+     * @param int                       $source    Source record ID
+     * @param array<string, mixed>      $overrides Data overrides
      *
-     * @return null|RW copied record object or null in case of failure
+     * @return RW|null Copied record object or null in case of failure
      */
     public function copy($source, $overrides = [])
     {
@@ -546,11 +545,11 @@ class RW extends RO
      *
      * @url https://demo.flexibee.eu/devdoc/actions
      *
-     * @param string $action one of evidence actions
+     * @param string $action One of evidence actions
      * @param string $method ext|int External method call operation in URL.
      *                       Internal add the @action element to request body
      *
-     * @return bool operation success
+     * @return bool Operation success
      */
     public function performAction(string $action, $method = 'int'): bool
     {
@@ -610,11 +609,11 @@ class RW extends RO
     }
 
     /**
-     * Add External ID to Current Record.
+     * Add External ID to current record.
      *
-     * @param string $extId ext:whatever:123 or simplay whatever:123
+     * @param string $extId ext:whatever:123 or simply whatever:123
      *
-     * @return array Insert result
+     * @return array<string, mixed> Insert result
      */
     public function addExternalID($extId)
     {
@@ -630,13 +629,13 @@ class RW extends RO
     }
 
     /**
-     * Change Value of external id identified by selector. Add new if not exists.
+     * Change value of external id identified by selector. Add new if not exists.
      *
-     * @param string     $selector ext:$selector:$newValue
-     * @param int|string $newValue string or number
-     * @param int|string $forID    Other than current record id
+     * @param string     $selector  ext:$selector:$newValue
+     * @param int|string $newValue  String or number
+     * @param int|string|null $forID     Other than current record id
      *
-     * @return array operation result
+     * @return array<string, mixed> Operation result
      */
     public function changeExternalID($selector, $newValue, $forID = null)
     {
@@ -650,11 +649,11 @@ class RW extends RO
     }
 
     /**
-     * Send all unsent Documents by eMail.
+     * Send all unsent documents by eMail.
      *
      * @url https://www.abraflexi.eu/api/dokumentace/ref/odesilani-mailem/
      *
-     * @return bool http response code
+     * @return bool HTTP response success status
      */
     public function sendUnsent()
     {
@@ -664,7 +663,12 @@ class RW extends RO
     }
 
     /**
-     * {@inheritDoc}
+     * Set data field value with validation.
+     *
+     * @param string $columnName Field name
+     * @param mixed  $value      Field data value
+     *
+     * @return bool Success
      */
     public function setDataValue(string $columnName, $value): bool
     {
@@ -683,17 +687,17 @@ class RW extends RO
     }
 
     /**
-     * New Web Interface Item editor link. It use record ID. If record Id is not
+     * New Web Interface item editor link. It uses record ID. If record Id is not
      * available try to load record using its code to obtain current record Id.
      *
-     * @return string link to item editor or empty string
+     * @return string Link to item editor or empty string
      */
     public function flexiEditUrl()
     {
         $recId = $this->getRecordID();
 
         if (empty($recId)) {
-            $helper = new self(Functions::code($this->getRecordCode()), ['detail' => 'id']);
+            $helper = new self(Code::ensure($this->getRecordCode()), ['detail' => 'id']);
             $recId = $helper->getRecordID();
         }
 

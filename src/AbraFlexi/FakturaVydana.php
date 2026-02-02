@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AbraFlexi - Objekt vydané faktury.
+ * AbraFlexi - Issued Invoice Object.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2015-2024 Spoje.Net
@@ -22,9 +22,9 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Faktura vydaná
+ * Issued Invoice
  *
- * @see https://demo.flexibee.eu/c/demo/faktura-vydana/properties položky evidence
+ * @see https://demo.flexibee.eu/c/demo/faktura-vydana/properties Evidence properties
  *
  * @no-named-arguments
  */
@@ -40,20 +40,20 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
     use lock;
 
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'faktura-vydana';
 
     /**
-     * Provede spárování platby s dokladem.
+     * Perform payment matching with document.
      *
-     * @see https://demo.flexibee.eu/devdoc/parovani-plateb Párování plateb
+     * @see https://demo.flexibee.eu/devdoc/parovani-plateb Payment matching
      *
-     * @param $doklad    Banka|PokladniPohyb|InterniDoklad S jakým dokladem spárovat ?
-     * @param $zbytek    string ne|zauctovat|ignorovat|castecnaUhrada|castecnaUhradaNeboZauctovat|castecnaUhradaNeboIgnorovat
-     * @param $overpayTo string  code of document type for overpayment - https://podpora.flexibee.eu/cs/articles/6091847-vytvoreni-preplatku-pomoci-rest-api
+     * @param Banka|PokladniPohyb|InterniDoklad $doklad    Which document to match with?
+     * @param string                            $zbytek    ne|zauctovat|ignorovat|castecnaUhrada|castecnaUhradaNeboZauctovat|castecnaUhradaNeboIgnorovat
+     * @param string                            $overpayTo Code of document type for overpayment - https://podpora.flexibee.eu/cs/articles/6091847-vytvoreni-preplatku-pomoci-rest-api
      *
-     * @return bool success
+     * @return bool Success
      */
     public function sparujPlatbu($doklad, $zbytek = 'ignorovat', string $overpayTo = '')
     {
@@ -73,24 +73,22 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
     }
 
     /**
-     *  Hotovostní platba faktury.
+     * Cash payment of invoice.
      *
-     * @see https://demo.flexibee.eu/devdoc/hotovostni-uhrada/ Hotovostní úhrada
-     * @see https://demo.flexibee.eu/c/demo/pokladna Pokladny
-     * @see https://demo.flexibee.eu/c/demo/typ-pokladni-pohyb Typy dokladů
+     * @see https://demo.flexibee.eu/devdoc/hotovostni-uhrada/ Cash payment
+     * @see https://demo.flexibee.eu/c/demo/pokladna Cash registers
+     * @see https://demo.flexibee.eu/c/demo/typ-pokladni-pohyb Document types
      *
-     * @param float $value  částka k úhradě
-     * @param array $uhrada pole nepoviných vlastností úhrady s těmito možnými položkami:
-     *                      string|Pokladna  'pokladna' identifikátor pokladny
-     *                      string  'typDokl' kod typu pokladniho dokladu
-     *                      boolean 'kurzKDatuUhrady'
-     *                      string  'uhrazujiciDokl' Pokud uvedeno není, vždy se vytvoří nový
-     *                      pokladní doklad.
-     *                      string  'rada' dokladová řada pro vytvářený pokladní doklad.
-     *                      Např.:code:POKLADNA+
-     *                      string  'datumUhrady' sql formát. Výchozí: dnes
+     * @param float                $value  Amount to pay
+     * @param array<string, mixed> $uhrada Array of optional payment properties with these possible items:
+     *                                    string|Pokladna  'pokladna' cash register identifier
+     *                                    string  'typDokl' cash document type code
+     *                                    boolean 'kurzKDatuUhrady'
+     *                                    string  'uhrazujiciDokl' If not specified, new cash document is always created
+     *                                    string  'rada' document series for created cash document. E.g.:code:POKLADNA+
+     *                                    string  'datumUhrady' SQL format. Default: today
      *
-     * @return bool výsledek pokusu o provedení úhrady
+     * @return bool Result of payment attempt
      */
     public function hotovostniUhrada($value, $uhrada = [])
     {

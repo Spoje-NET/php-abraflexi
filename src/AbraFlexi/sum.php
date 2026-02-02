@@ -24,7 +24,7 @@ namespace AbraFlexi;
 trait sum
 {
     /**
-     * Vrací z AbraFlexi sumaci i podle podmínek.
+     * Returns summation from AbraFlexi also according to conditions.
      *
      * @param array<mixed> $conditions
      *

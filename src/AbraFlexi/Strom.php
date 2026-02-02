@@ -24,7 +24,7 @@ namespace AbraFlexi;
 class Strom extends RW
 {
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'strom';
 

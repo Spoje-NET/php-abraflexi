@@ -40,7 +40,7 @@ class Banka extends RW implements \AbraFlexi\Document
     use lock;
 
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'banka';
 

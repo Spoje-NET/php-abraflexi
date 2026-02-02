@@ -25,7 +25,7 @@ namespace AbraFlexi;
 class Zurnal extends RO
 {
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'zurnal';
 

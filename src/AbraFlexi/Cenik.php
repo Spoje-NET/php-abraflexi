@@ -2,7 +2,7 @@
 
 /**
  * AbraFlexi - Pricelist class.
- *              Objekt ceníku.
+ *              Pricelist object.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2016-2024 Spoje.Net
@@ -23,9 +23,9 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Ceník - Pricelist.
+ * Pricelist.
  *
- * @see https://demo.flexibee.eu/c/demo/cenik/properties Vlastnosti evidence
+ * @see https://demo.flexibee.eu/c/demo/cenik/properties Evidence properties
  *
  * @no-named-arguments
  */
@@ -37,7 +37,7 @@ class Cenik extends RW
     use kod;
 
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'cenik';
 }

@@ -28,7 +28,7 @@ class Pokladna extends RW
     use kod;
 
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'pokladna';
 

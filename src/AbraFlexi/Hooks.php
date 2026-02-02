@@ -24,7 +24,7 @@ namespace AbraFlexi;
 class Hooks extends RW
 {
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'hooks';
 

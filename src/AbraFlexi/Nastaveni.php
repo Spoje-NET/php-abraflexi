@@ -15,17 +15,17 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Nastavení firmy.
+ * Company settings.
  *
- * @note Tato položka nemá dostupné položky evidence
- * @note Tato evidence není veřejně dostupná na demo.abraflexi.eu
+ * @note This item has no available evidence items
+ * @note This evidence is not publicly available on demo.abraflexi.eu
  *
  * @no-named-arguments
  */
 class Nastaveni extends RO
 {
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'nastaveni';
 }

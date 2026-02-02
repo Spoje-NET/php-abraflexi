@@ -63,7 +63,7 @@ interface Document
     public function getFirmaObject($options = ['details' => 'id']);
 
     /**
-     * Vrací z AbraFlexi sumaci i podle podmínek.
+     * Returns summation from AbraFlexi also according to conditions.
      *
      * @param array $conditions pole podmínek nebo ID záznamu
      *

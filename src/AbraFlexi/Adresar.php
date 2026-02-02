@@ -37,7 +37,7 @@ class Adresar extends RW implements Document
     use kod;
 
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'adresar';
 

@@ -18,17 +18,17 @@ namespace AbraFlexi;
  * Evidencies listing and its properties
  * Seznam Evidencí a jejich vlastnosti.
  *
- * @see https://demo.flexibee.eu/c/demo/evidence-list Přehled evidencí
+ * @see https://demo.flexibee.eu/c/demo/evidence-list Evidence overview
  */
 class EvidenceList extends RO
 {
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'evidence-list';
 
     /**
-     * Základní namespace pro komunikaci s FlexiBee.
+     * Base namespace for communication with FlexiBee.
      * Basic namespace for communication with FlexiBee.
      *
      * @var string Jmený prostor datového bloku odpovědi

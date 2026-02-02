@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Položka skladového pohybu.
+ * Warehouse movement item.
  *
  * @see https://demo.flexibee.eu/c/demo/skladovy-pohyb-polozka/properties
  *
@@ -26,7 +26,7 @@ class SkladovyPohybPolozka extends RW
     use stitky;
 
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'skladovy-pohyb-polozka';
 

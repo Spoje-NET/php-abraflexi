@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AbraFlexi - Objekt Společnosti.
+ * AbraFlexi - Company Object.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2015-2023 Spoje.Net
@@ -22,19 +22,19 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Firmy/účetní jednotky.
+ * Companies/accounting units.
  *
- * @note Tato položka nemá dostupné položky evidence
+ * @note This item has no available evidence items
  *
  * @no-named-arguments
  */
 class Company extends RW
 {
     /**
-     * AbraFlexi Company Class .
+     * AbraFlexi Company Class.
      *
-     * @param array|string $init    company dbNazev or initial data
-     * @param array        $options Connection settings override
+     * @param array<string, mixed>|string|null $init    Company dbNazev or initial data
+     * @param array<string, mixed>             $options Connection settings override
      */
     public function __construct($init = null, $options = [])
     {
@@ -76,7 +76,7 @@ class Company extends RW
     }
 
     /**
-     * Vrací základní URL pro užitou evidenci.
+     * Returns base URL for used evidence.
      *
      * @see https://www.abraflexi.eu/api/dokumentace/ref/urls/ Sestavování URL
      *
@@ -110,7 +110,7 @@ class Company extends RW
     }
 
     /**
-     * Vrací název evidence použité v odpovědích z AbraFlexi.
+     * Returns name of evidence used in responses from AbraFlexi.
      */
     public function getResponseEvidence(): string
     {

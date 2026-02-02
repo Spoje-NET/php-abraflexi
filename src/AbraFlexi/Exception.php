@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Description of Exception.
+ * AbraFlexi Exception class.
  *
  * @author vitex
  *
@@ -38,8 +38,9 @@ class Exception extends \Ease\Exception
     /**
      * AbraFlexi response as Exception.
      *
-     * @param string $message good to know
-     * @param RO     $caller  AbraFlexi Object
+     * @param string            $message  Exception message
+     * @param RO                $caller   AbraFlexi Object
+     * @param \Ease\Exception|null $previous Previous exception
      */
     public function __construct($message, RO $caller, ?\Ease\Exception $previous = null)
     {

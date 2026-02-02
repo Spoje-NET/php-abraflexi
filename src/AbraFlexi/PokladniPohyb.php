@@ -15,9 +15,9 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Pokladní pohyb.
+ * Cash movement.
  *
- * @see https://demo.flexibee.eu/c/demo/pokladni-pohyb/properties položky evidence
+ * @see https://demo.flexibee.eu/c/demo/pokladni-pohyb/properties Evidence properties
  *
  * @no-named-arguments
  */

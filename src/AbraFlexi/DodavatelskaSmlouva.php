@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AbraFlexi - Objekt dodavatelské smlouvy.
+ * AbraFlexi - Supplier contract object.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  (C) 2015-2023 Spoje.Net
@@ -22,7 +22,7 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Dodavatelská smlouva.
+ * Supplier contract.
  *
  * @see https://demo.flexibee.eu/c/demo/dodavatelska-smlouva/properties
  *
@@ -35,7 +35,7 @@ class DodavatelskaSmlouva extends RW
     use firma;
 
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'dodavatelska-smlouva';
 

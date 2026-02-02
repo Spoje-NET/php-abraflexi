@@ -24,10 +24,9 @@ namespace AbraFlexi;
 class Status extends RO
 {
     /**
-     * Evidence užitá objektem.
      * Evidence used by object.
      *
-     * @see https://demo.flexibee.eu/c/demo/evidence-list Přehled evidencí
+     * @see https://demo.flexibee.eu/c/demo/evidence-list Evidence overview
      */
     public ?string $evidence = 'status';
 

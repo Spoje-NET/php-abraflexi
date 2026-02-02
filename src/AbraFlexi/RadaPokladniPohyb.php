@@ -22,7 +22,7 @@ namespace AbraFlexi;
 class RadaPokladniPohyb extends RW
 {
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'rada-pokladni-pohyb';
 

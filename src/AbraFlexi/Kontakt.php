@@ -27,7 +27,7 @@ class Kontakt extends RW
     use firma;
 
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'kontakt';
 

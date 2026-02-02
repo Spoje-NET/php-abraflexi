@@ -24,7 +24,7 @@ namespace AbraFlexi;
 class StromCenik extends RW
 {
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'strom-cenik';
 }

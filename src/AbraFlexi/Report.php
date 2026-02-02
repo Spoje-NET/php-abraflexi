@@ -24,7 +24,6 @@ namespace AbraFlexi;
 class Report extends RW
 {
     /**
-     * Evidence užitá objektem.
      * Evidence used by object.
      */
     public ?string $evidence = 'report';

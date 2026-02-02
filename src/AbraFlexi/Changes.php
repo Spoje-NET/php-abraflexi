@@ -15,22 +15,23 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Log změn v evidencích.
+ * Changes log in evidence.
  *
- * @see https://www.abraflexi.eu/api/dokumentace/ref/changes-api/ Dokumentace
+ * @see https://www.abraflexi.eu/api/dokumentace/ref/changes-api/ Documentation
  *
  * @no-named-arguments
  */
 class Changes extends RO
 {
     /**
-     * Evidence užitá objektem.
+     * Evidence used by object.
      */
     public ?string $evidence = 'changes';
 
     /**
-     * Povolí oznamování změn
      * Allow changes notification.
+     *
+     * @return bool Success status
      */
     public function enable(): bool
     {
@@ -40,8 +41,9 @@ class Changes extends RO
     }
 
     /**
-     * Zakáže oznamování změn
      * Disallow changes notification.
+     *
+     * @return bool Success status
      */
     public function disable(): bool
     {
@@ -74,7 +76,7 @@ class Changes extends RO
 
     /**
      * Obtain actual GlobalVersion
-     * Vrací aktuální globální verzi změn.
+     * Returns current global version of changes.
      *
      * @see https://www.abraflexi.eu/api/dokumentace/ref/changes-api#globalVersion Globální Verze
      *
