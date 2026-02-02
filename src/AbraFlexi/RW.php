@@ -159,7 +159,11 @@ class RW extends RO
      */
     public function parseError(array $responseDecoded)
     {
-        if (\array_key_exists('results', $responseDecoded)) {
+        if (\array_key_exists('errors', $responseDecoded) && \is_array($responseDecoded['errors'])) {
+            $this->errors = $responseDecoded['errors'];
+        }
+
+        if (\array_key_exists('results', $responseDecoded) && \is_array($responseDecoded['results'])) {
             if (\array_key_exists(0, $responseDecoded['results'])) {
                 foreach ($responseDecoded['results'] as $result) {
                     if (\array_key_exists('request-id', $result)) {
@@ -514,12 +518,10 @@ class RW extends RO
 
     /**
      * Last operation was successfull ?
-     *
-     * @return bool
      */
-    public function success()
+    public function success(): bool
     {
-        $this->curlInfo['http_method'] === 'POST' ? $this->lastResponseCode === 201 : parent::success();
+        return $this->curlInfo['http_method'] === 'POST' ? $this->lastResponseCode === 201 : parent::success();
     }
 
     /**

@@ -324,6 +324,14 @@ class RO extends \Ease\Sand implements \Stringable
     protected bool $ignoreNotFound = false;
 
     /**
+     * Action Messages.
+     *
+     * @var array<string>
+     */
+    protected array $messages = [];
+    protected ?bool $success = null;
+
+    /**
      * Array of errors caused by last request.
      *
      * @var array<string>
@@ -336,6 +344,11 @@ class RO extends \Ease\Sand implements \Stringable
      * @var array<string>
      */
     protected ?array $responseStats = null;
+
+    /**
+     * Performed Operation name.
+     */
+    protected ?string $operation = null;
 
     /**
      * List of Error500 reports sent.
@@ -401,6 +414,10 @@ class RO extends \Ease\Sand implements \Stringable
      */
     public function __unserialize(array $data): void
     {
+        foreach ($data as $key => $value) {
+            $this->setupProperty($data, $key);
+        }
+
         $this->curlInit();
     }
 
@@ -997,11 +1014,13 @@ class RO extends \Ease\Sand implements \Stringable
     public function performRequest(
         string $urlSuffix = '',
         string $method = 'GET',
-        $format = null,
+        string $format = '',
     ) {
+        $this->success = null;
         $this->rowCount = null;
         $this->responseStats = [];
         $this->errors = [];
+        $this->messages = [];
 
         if (preg_match('/^http/', $urlSuffix)) {
             $url = $urlSuffix;
@@ -1248,6 +1267,16 @@ class RO extends \Ease\Sand implements \Stringable
     {
         $mainResult = null;
 
+        if (!empty($responseDecoded) && \is_array($responseDecoded) && \array_key_exists('success', $responseDecoded)) {
+            $this->operation = \array_key_exists('operation', $responseDecoded) ? $responseDecoded['operation'] : 'get';
+
+            $this->success = $responseDecoded['success'] === 'ok';
+
+            $this->messages = \array_key_exists('messages', $responseDecoded) && \is_array($responseDecoded['messages']) ? $responseDecoded['messages'] : [];
+
+            $this->parseError($responseDecoded);
+        }
+
         switch ($responseCode) {
             case 201: // We do not care about Success Write here
             case 202: // Accept eg. unsent mails sent
@@ -1328,10 +1357,6 @@ class RO extends \Ease\Sand implements \Stringable
                 // no break
             case 400: // Bad Request parameters
             default: // Something goes wrong
-                if (!empty($responseDecoded) && \is_array($responseDecoded)) {
-                    $this->parseError($responseDecoded);
-                }
-
                 if ($this->throwException) {
                     $errors = $this->getErrors();
 
@@ -1354,7 +1379,9 @@ class RO extends \Ease\Sand implements \Stringable
     public function parseError(array $responseDecoded)
     {
         if (\array_key_exists('success', $responseDecoded)) {
-            $this->errors = [['message' => \array_key_exists('message', $responseDecoded) ? $responseDecoded['message'] : '']];
+            if (\array_key_exists('message', $responseDecoded) && \strlen($responseDecoded['message'])) {
+                $this->errors = [['message' => $responseDecoded['message']]];
+            }
         } else {
             $this->addStatusMessage('Unparsed error: '.$this->lastCurlResponse, 'error');
         }
@@ -1373,9 +1400,9 @@ class RO extends \Ease\Sand implements \Stringable
      *
      * @return int HTTP Response CODE
      */
-    public function doCurlRequest($url, $method, $format = null)
+    public function doCurlRequest(string $url, string $method, string $format = '')
     {
-        if (null === $format) {
+        if (empty($format)) {
             $format = $this->format;
         }
 
@@ -1434,12 +1461,10 @@ class RO extends \Ease\Sand implements \Stringable
 
     /**
      * Return last response success status.
-     *
-     * @return bool
      */
-    public function success()
+    public function success(): bool
     {
-        return $this->lastResponseCode === 200;
+        return ($this->lastResponseCode === 200) && $this->success;
     }
 
     /**
@@ -2886,6 +2911,19 @@ class RO extends \Ease\Sand implements \Stringable
     public function getLastOperationType(): string
     {
         return implode(',', array_keys(array_filter($this->responseStats)));
+    }
+
+    /**
+     * @return array<int, string> Description
+     */
+    public function getMessages(): array
+    {
+        return $this->messages;
+    }
+
+    public function getOperation(): string
+    {
+        return $this->operation;
     }
 
     /**
