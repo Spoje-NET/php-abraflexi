@@ -1867,8 +1867,8 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Get Summary.
      *
-     * @param array<string>        $fields     with summary ability
-     * @param array<string|string> $conditions
+     * @param array<string> $fields     with summary ability
+     * @param array<string> $conditions
      *
      * @throws \InvalidArgumentException - when requested field does not support summmarization
      */
