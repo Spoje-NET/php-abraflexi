@@ -40,27 +40,59 @@ class RootTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-    //    /**
-    //     * @covers \AbraFlexi\Root::uploadCertificate
-    //     *
-    //     * @todo   Implement testuploadCertificate().
-    //     */
-    //    public function testuploadCertificate(): void
-    //    {
-    //        $this->assertEquals('', $this->object->uploadCertificate());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
-    //
-    //    /**
-    //     * @covers \AbraFlexi\Root::companies
-    //     *
-    //     * @todo   Implement testcompanies().
-    //     */
-    //    public function testcompanies(): void
-    //    {
-    //        $this->assertEquals('', $this->object->companies());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
+    /**
+     * @covers \AbraFlexi\Root::getStatus
+     */
+    public function testGetStatus(): void
+    {
+        $mock = $this->getMockBuilder(Root::class)
+            ->onlyMethods(['performRequest'])
+            ->getMock();
+
+        $response = [
+            'status' => [
+                'version' => '2026.2.2',
+                'licenseName' => 'FlexiBee Systems s.r.o.',
+                'startupTime' => '2026-02-15T03:55:14.201+01:00',
+                'memoryUsed' => '5091655184',
+            ],
+        ];
+
+        $mock->expects($this->once())
+            ->method('performRequest')
+            ->with('/status.json', 'GET')
+            ->willReturn($response);
+
+        $result = $mock->getStatus();
+        $this->assertIsArray($result);
+        $this->assertArrayHasKey('version', $result);
+        $this->assertEquals('2026.2.2', $result['version']);
+    }
+
+    /**
+     * @covers \AbraFlexi\Root::getLicenseInfo
+     */
+    public function testGetLicenseInfo(): void
+    {
+        $mock = $this->getMockBuilder(Root::class)
+            ->onlyMethods(['performRequest'])
+            ->getMock();
+
+        $license = [
+            '@version' => '1.0',
+            'id' => 'advanced-786',
+            'name' => 'FlexiBee Systems s.r.o.',
+            'variant' => 'premium',
+        ];
+
+        $mock->expects($this->once())
+            ->method('performRequest')
+            ->with('/license.json', 'GET')
+            ->willReturn(['license' => $license]);
+
+        $result = $mock->getLicenseInfo();
+        $this->assertIsArray($result);
+        $this->assertArrayHasKey('id', $result);
+        $this->assertEquals('advanced-786', $result['id']);
+    }
 }

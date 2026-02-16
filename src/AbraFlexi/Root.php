@@ -35,6 +35,30 @@ class Root extends RW
     }
 
     /**
+     * Server Status data.
+     *
+     * @return array<string, string>
+     */
+    public function getStatus(): array
+    {
+        $statusRaw = $this->performRequest('/status.json', 'GET');
+
+        return $statusRaw['status'];
+    }
+
+    /**
+     * Server License data.
+     *
+     * @return array<string, string>
+     */
+    public function getLicenseInfo(): array
+    {
+        $statusRaw = $this->performRequest('/license.json', 'GET');
+
+        return $statusRaw['license'];
+    }
+
+    /**
      * Get available companies listing.
      *
      * @param array<string, mixed> $conditions applay to listing
