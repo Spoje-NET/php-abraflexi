@@ -1,8 +1,15 @@
-php-spojenet-abraflexi (3.6.7) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.7.0) UNRELEASED; urgency=medium
 
+  * All Commented (in Englis)
+
+ -- vitex <info@vitexsoftware.cz>  Wed, 04 Feb 2026 09:55:39 +0100
+
+php-spojenet-abraflexi (3.6.7) experimental; urgency=medium
+
+  [ Vitex ]
   * unserialize fix
 
- -- Vitex <vitezslav.dvorak@spojenet.cz>  Thu, 15 Jan 2026 17:35:17 +0100
+ -- vitex <info@vitexsoftware.cz>  Wed, 04 Feb 2026 09:55:18 +0100
 
 php-spojenet-abraflexi (3.6.6) experimental; urgency=medium
 
