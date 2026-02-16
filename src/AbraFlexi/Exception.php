@@ -38,9 +38,9 @@ class Exception extends \Ease\Exception
     /**
      * AbraFlexi response as Exception.
      *
-     * @param string            $message  Exception message
-     * @param RO                $caller   AbraFlexi Object
-     * @param \Ease\Exception|null $previous Previous exception
+     * @param string               $message  Exception message
+     * @param RO                   $caller   AbraFlexi Object
+     * @param null|\Ease\Exception $previous Previous exception
      */
     public function __construct($message, RO $caller, ?\Ease\Exception $previous = null)
     {

@@ -22,7 +22,7 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Issued Invoice
+ * Issued Invoice.
  *
  * @see https://demo.flexibee.eu/c/demo/faktura-vydana/properties Evidence properties
  *
@@ -49,7 +49,7 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
      *
      * @see https://demo.flexibee.eu/devdoc/parovani-plateb Payment matching
      *
-     * @param Banka|PokladniPohyb|InterniDoklad $doklad    Which document to match with?
+     * @param Banka|InterniDoklad|PokladniPohyb $doklad    Which document to match with?
      * @param string                            $zbytek    ne|zauctovat|ignorovat|castecnaUhrada|castecnaUhradaNeboZauctovat|castecnaUhradaNeboIgnorovat
      * @param string                            $overpayTo Code of document type for overpayment - https://podpora.flexibee.eu/cs/articles/6091847-vytvoreni-preplatku-pomoci-rest-api
      *
@@ -81,12 +81,12 @@ class FakturaVydana extends RW implements \AbraFlexi\Document
      *
      * @param float                $value  Amount to pay
      * @param array<string, mixed> $uhrada Array of optional payment properties with these possible items:
-     *                                    string|Pokladna  'pokladna' cash register identifier
-     *                                    string  'typDokl' cash document type code
-     *                                    boolean 'kurzKDatuUhrady'
-     *                                    string  'uhrazujiciDokl' If not specified, new cash document is always created
-     *                                    string  'rada' document series for created cash document. E.g.:code:POKLADNA+
-     *                                    string  'datumUhrady' SQL format. Default: today
+     *                                     string|Pokladna  'pokladna' cash register identifier
+     *                                     string  'typDokl' cash document type code
+     *                                     boolean 'kurzKDatuUhrady'
+     *                                     string  'uhrazujiciDokl' If not specified, new cash document is always created
+     *                                     string  'rada' document series for created cash document. E.g.:code:POKLADNA+
+     *                                     string  'datumUhrady' SQL format. Default: today
      *
      * @return bool Result of payment attempt
      */

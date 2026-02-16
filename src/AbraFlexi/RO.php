@@ -540,7 +540,7 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Set internal object name.
      *
-     * @param string|null $objectName Object name to set
+     * @param null|string $objectName Object name to set
      *
      * @return string Object name
      */
@@ -853,7 +853,7 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Return currently used evidence for communication.
      *
-     * @return string|null Current evidence
+     * @return null|string Current evidence
      */
     public function getEvidence()
     {
@@ -873,7 +873,7 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Obtain company now used.
      *
-     * @return string|null Currently used company
+     * @return null|string Currently used company
      */
     public function getCompany()
     {
@@ -1625,7 +1625,7 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Load record from AbraFlexi and store its data in the object.
      *
-     * @param array<string, mixed>|int|string|null $id ID or conditions
+     * @param null|array<string, mixed>|int|string $id ID or conditions
      *
      * @return int Number of loaded items
      */
@@ -1828,10 +1828,10 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Return columns from AbraFlexi according to conditions.
      *
-     * @param array<string, mixed>|int|string|null $conditions Array of conditions or record ID
-     * @param string|null           $indexBy    Column name to use for result keys
+     * @param null|array<string, mixed>|int|string $conditions Array of conditions or record ID
+     * @param null|string                          $indexBy    Column name to use for result keys
      *
-     * @return array<int|string, array<string, mixed>>|null Records
+     * @return null|array<int|string, array<string, mixed>> Records
      */
     public function getAllFromAbraFlexi($conditions = null, $indexBy = null)
     {
@@ -1876,11 +1876,11 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Return columns from AbraFlexi according to conditions.
      *
-     * @param string|array<string> $columnsList List of items or detail level: id|summary|full
-     * @param array<string, mixed>           $conditions  Array of conditions or record ID
-     * @param string|null          $indexBy     Column by which to index records
+     * @param array<string>|string $columnsList List of items or detail level: id|summary|full
+     * @param array<string, mixed> $conditions  Array of conditions or record ID
+     * @param null|string          $indexBy     Column by which to index records
      *
-     * @return array<int|string, array<string, mixed>>|null Records
+     * @return null|array<int|string, array<string, mixed>> Records
      */
     public function getColumnsFromAbraFlexi(
         $columnsList,
@@ -1978,7 +1978,7 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Get content ready to be sent as POST body.
      *
-     * @return string|null POST data
+     * @return null|string POST data
      */
     public function getPostFields()
     {
@@ -1990,7 +1990,7 @@ class RO extends \Ease\Sand implements \Stringable
      *
      * @see https://demo.flexibee.eu/devdoc/identifiers Record identifiers
      *
-     * @return int|null Record identifier represented by the object
+     * @return null|int Record identifier represented by the object
      */
     public function getRecordID()
     {
@@ -2006,7 +2006,7 @@ class RO extends \Ease\Sand implements \Stringable
      *
      * @see https://demo.flexibee.eu/devdoc/identifiers Record identifiers
      *
-     * @return string|null Record code identifier
+     * @return null|string Record code identifier
      */
     public function getRecordCode()
     {
@@ -2018,7 +2018,7 @@ class RO extends \Ease\Sand implements \Stringable
      *
      * @see https://demo.flexibee.eu/devdoc/identifiers Record identifiers
      *
-     * @return int|string|null Record code identifier
+     * @return null|int|string Record code identifier
      */
     public function getRecordIdent()
     {
@@ -2130,7 +2130,7 @@ class RO extends \Ease\Sand implements \Stringable
      *
      * @see https://www.abraflexi.eu/api/dokumentace/ref/changes-api#globalVersion Global Version
      *
-     * @return int|null Global version number
+     * @return null|int Global version number
      */
     public function getGlobalVersion()
     {
@@ -2142,7 +2142,7 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Gives you current ApiURL with given format suffix.
      *
-     * @param string|null $format json|html|xml|...
+     * @param null|string $format json|html|xml|...
      *
      * @return string API URL for current record or object/evidence
      */
@@ -2297,9 +2297,9 @@ class RO extends \Ease\Sand implements \Stringable
      * Gives you properties for (current) evidence column.
      *
      * @param string      $column   Name of column
-     * @param string|null $evidence Evidence name if different
+     * @param null|string $evidence Evidence name if different
      *
-     * @return array<string, mixed>|null Column properties or null if column does not exist
+     * @return null|array<string, mixed> Column properties or null if column does not exist
      */
     public function getColumnInfo($column, $evidence = null)
     {
@@ -2311,9 +2311,9 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Obtain actions for current (or given) evidence.
      *
-     * @param string|null $evidence Evidence name
+     * @param null|string $evidence Evidence name
      *
-     * @return array<string, mixed>|null Evidence actions structure
+     * @return null|array<string, mixed> Evidence actions structure
      */
     public function getActionsInfo($evidence = null)
     {
@@ -2335,9 +2335,9 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Obtain relations for current (or given) evidence.
      *
-     * @param string|null $evidence Evidence name
+     * @param null|string $evidence Evidence name
      *
-     * @return array<string, mixed>|null Evidence relations structure
+     * @return null|array<string, mixed> Evidence relations structure
      */
     public function getRelationsInfo($evidence = null)
     {
@@ -2386,7 +2386,7 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Obtain name for current (or given) evidence path.
      *
-     * @param string|null $evidence Evidence name
+     * @param null|string $evidence Evidence name
      *
      * @return string Evidence name
      */
@@ -2872,8 +2872,8 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Add info about used user, server and libraries.
      *
-     * @param string|null $prefix Banner prefix text
-     * @param string|null $suffix Banner suffix text
+     * @param null|string $prefix Banner prefix text
+     * @param null|string $suffix Banner suffix text
      */
     public function logBanner($prefix = null, $suffix = null): void
     {
@@ -2908,7 +2908,7 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Get current operation name.
      *
-     * @return string|null Current operation name
+     * @return null|string Current operation name
      */
     public function getOperation(): string
     {

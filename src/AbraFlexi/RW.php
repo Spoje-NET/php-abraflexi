@@ -89,7 +89,7 @@ class RW extends RO
     /**
      * Save record (if evidence allows it).
      *
-     * @param array<string, mixed>|null $data Data to save
+     * @param null|array<string, mixed> $data Data to save
      *
      * @throws Exception Evidence does not support Import
      *
@@ -276,7 +276,7 @@ class RW extends RO
     /**
      * Delete record in AbraFlexi.
      *
-     * @param int|string|null $id Record identifier
+     * @param null|int|string $id Record identifier
      *
      * @return bool Response code is 200 ?
      */
@@ -334,7 +334,7 @@ class RW extends RO
     /**
      * Control data for ReadOnly columns presence.
      *
-     * @param array<string, mixed>|null $data Data to check
+     * @param null|array<string, mixed> $data Data to check
      *
      * @return array<string, mixed> List of ReadOnly columns. Empty if all is ok
      */
@@ -449,7 +449,7 @@ class RW extends RO
      * Convert data to AbraFlexi like JSON format.
      * Array of Labels is converted to comma separated list.
      *
-     * @param array<string, array<string, string>|string>|null $data    Data to convert
+     * @param null|array<string, array<string, string>|string> $data    Data to convert
      * @param int                                              $options JSON_encode options like JSON_PRETTY_PRINT etc
      *
      * @return string JSON encoded data
@@ -528,10 +528,10 @@ class RW extends RO
      *
      * !!!Experimental Feature!!!
      *
-     * @param int                       $source    Source record ID
-     * @param array<string, mixed>      $overrides Data overrides
+     * @param int                  $source    Source record ID
+     * @param array<string, mixed> $overrides Data overrides
      *
-     * @return RW|null Copied record object or null in case of failure
+     * @return null|RW Copied record object or null in case of failure
      */
     public function copy($source, $overrides = [])
     {
@@ -631,9 +631,9 @@ class RW extends RO
     /**
      * Change value of external id identified by selector. Add new if not exists.
      *
-     * @param string     $selector  ext:$selector:$newValue
-     * @param int|string $newValue  String or number
-     * @param int|string|null $forID     Other than current record id
+     * @param string          $selector ext:$selector:$newValue
+     * @param int|string      $newValue String or number
+     * @param null|int|string $forID    Other than current record id
      *
      * @return array<string, mixed> Operation result
      */

@@ -33,7 +33,7 @@ class Company extends RW
     /**
      * AbraFlexi Company Class.
      *
-     * @param array<string, mixed>|string|null $init    Company dbNazev or initial data
+     * @param null|array<string, mixed>|string $init    Company dbNazev or initial data
      * @param array<string, mixed>             $options Connection settings override
      */
     public function __construct($init = null, $options = [])
