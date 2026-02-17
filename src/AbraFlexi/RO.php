@@ -1946,6 +1946,41 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
+     * Return One document as Object.
+     *
+     * @todo Experimental
+     *
+     * @since 3.7.1
+     *
+     * @return self Current Document instance
+     */
+    public function getDocument(string $identifier, array $conditions = []): ?self
+    {
+        $conditions['id'] = $this->getEvidenceUrl().'/'.Functions::urlizeId($identifier);
+        $flexiData = $this->getFlexiData('', $conditions);
+
+        return new self($flexiData);
+    }
+
+    /**
+     * Return Collection of Documents.
+     *
+     * @since 3.7.1
+     *
+     * @return \Ease\Collection<T> Collection of Documents
+     */
+    public function getDocuments(array $filter = []): \Ease\Collection
+    {
+        $documents = new \Ease\Collection('\\AbraFlexi\\'.Functions::evidenceToClassName($this->evidence));
+
+        foreach ($this->getFlexiData($this->getEvidenceUrl(), empty($filter) ? '' : $filter) as $record) {
+            $documents->addArray($record);
+        }
+
+        return $documents;
+    }
+
+    /**
      * Save RAW Curl Request & Response to files in Temp directory.
      */
     public function saveDebugFiles(): void
