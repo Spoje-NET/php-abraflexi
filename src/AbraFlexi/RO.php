@@ -396,7 +396,9 @@ class RO extends \Ease\Sand implements \Stringable
     public function __unserialize(array $data): void
     {
         foreach ($data as $key => $value) {
-            $this->setupProperty($data, $key);
+            if (\is_string($key) && property_exists($this, $key)) {
+                $this->{$key} = $value;
+            }
         }
 
         $this->curlInit();
@@ -419,7 +421,7 @@ class RO extends \Ease\Sand implements \Stringable
      */
     public function __serialize(): array
     {
-        return [
+        $properties = [
             'data',
             'objectName',
             'nameSpace',
@@ -436,7 +438,6 @@ class RO extends \Ease\Sand implements \Stringable
             'password',
             'defaultHttpHeaders',
             'defaultUrlParams',
-            'init',
             'nameColumn',
             'myCreateColumn',
             'myLastModifiedColumn',
@@ -454,6 +455,16 @@ class RO extends \Ease\Sand implements \Stringable
             'timeout',
             'throwException',
         ];
+
+        $result = [];
+
+        foreach ($properties as $property) {
+            if (property_exists($this, $property)) {
+                $result[$property] = $this->{$property};
+            }
+        }
+
+        return $result;
     }
 
     /**
@@ -461,11 +472,11 @@ class RO extends \Ease\Sand implements \Stringable
      *
      * @deprecated Soft deprecated in PHP 8.5
      *
-     * @return array<string, mixed>
+     * @return array<int, string>
      */
     public function __sleep()
     {
-        $this->__serialize();
+        return array_keys($this->__serialize());
     }
 
     /**
