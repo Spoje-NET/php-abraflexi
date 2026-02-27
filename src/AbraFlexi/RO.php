@@ -1967,7 +1967,7 @@ class RO extends \Ease\Sand implements \Stringable
      *
      * @since 3.7.1
      *
-     * @return \Ease\Collection<T> Collection of Documents
+     * @return \Ease\Collection<Document> Collection of Documents
      */
     public function getDocuments(array $filter = []): \Ease\Collection
     {
