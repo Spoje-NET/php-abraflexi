@@ -1,6 +1,7 @@
-php-spojenet-abraflexi (3.7.0) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.7.0) unstable; urgency=medium
 
   * All Commented (in Englis)
+  * Modernize Debian packaging: debhelper-compat 13, pkg-php-tools, phpab
 
  -- vitex <info@vitexsoftware.cz>  Wed, 04 Feb 2026 09:55:39 +0100
 
