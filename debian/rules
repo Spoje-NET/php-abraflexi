@@ -11,7 +11,8 @@ override_dh_install:
 	phpab --output src/AbraFlexi/autoload.php --basedir src/AbraFlexi src/AbraFlexi
 	dh_install
 	# Register with pkg-php-tools
-	pkg-php-tools-phpcomposer install deb abraflexi AbraFlexi/autoload.php
+	install -m0755 -d debian/php-spojenet-abraflexi/usr/share/pkg-php-tools/autoloaders
+	echo 'deb abraflexi AbraFlexi/autoload.php' > debian/php-spojenet-abraflexi/usr/share/pkg-php-tools/autoloaders/php-spojenet-abraflexi
 	# Version stamp
 	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//' `'"'  debian/composer.json |sponge debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/composer.json
 	sed -i -e  "s/\/\.\.\/\.\.\//\//g" debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/RO.php
