@@ -7,9 +7,9 @@ override_dh_auto_test:
 	echo tests temporarly skipped for now in rules file
 
 override_dh_install:
-	# Generate autoloader
-	phpab --output src/AbraFlexi/autoload.php --basedir src/AbraFlexi src/AbraFlexi
 	dh_install
+	# Generate autoloader
+	phpab --output debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/autoload.php --basedir src/AbraFlexi src/AbraFlexi
 	# Register with pkg-php-tools
 	install -m0755 -d debian/php-spojenet-abraflexi/usr/share/pkg-php-tools/autoloaders
 	echo 'deb abraflexi AbraFlexi/autoload.php' > debian/php-spojenet-abraflexi/usr/share/pkg-php-tools/autoloaders/php-spojenet-abraflexi
@@ -20,3 +20,5 @@ override_dh_install:
 	sed -i -e  "s/\.\.\/test\//\/usr\/share\/php\/AbraFlexi\/tools\//g" debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/tools/*.php
 	sed -i '/git/d' debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/tools/force_update_all.sh
 	sed -i -e  "s/src\/AbraFlexi\///g" debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/tools/force_update_all.sh
+	echo "require_once '/usr/share/php/Ease/autoload.php';"  >> debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/autoload.php
+
