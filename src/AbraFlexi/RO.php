@@ -369,14 +369,6 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Disconnect CURL before pass away.
-     */
-    public function __destruct()
-    {
-        $this->disconnect();
-    }
-
-    /**
      * Obtain record/object identificator code: or id:
      *
      * @see https://demo.flexibee.eu/devdoc/identifiers Record identifiers
@@ -1490,23 +1482,10 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Disconnect from AbraFlexi.
-     */
-    public function disconnect(): void
-    {
-        if ((null === $this->curl) === false) {
-            curl_close($this->curl);
-        }
-
-        $this->curl = null;
-    }
-
-    /**
      * Reset Curl Connection.
      */
     public function connectionReset(): void
     {
-        $this->disconnect();
         $this->curlInit();
     }
 
