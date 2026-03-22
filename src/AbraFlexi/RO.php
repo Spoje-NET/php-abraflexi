@@ -2137,7 +2137,7 @@ class RO extends \Ease\Sand implements \Stringable
     {
         $ids = (array) $this->getExternalIDs();
 
-        return \array_key_exists($want, $ids) ? $ids[$want] : current($ids);
+        return $want !== null && \array_key_exists($want, $ids) ? $ids[$want] : current($ids);
     }
 
     /**
