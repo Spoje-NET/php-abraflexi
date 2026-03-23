@@ -16,7 +16,7 @@
     ],
     "type": "library",
     "replace": {
-        "spojenet/abraflexi": "self.version"
+        "spojenet/flexibee": "self.version"
     },
     "require": {
         "php": ">=8.1",
