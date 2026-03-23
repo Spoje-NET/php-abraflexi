@@ -1,8 +1,14 @@
-php-spojenet-abraflexi (3.7.1) UNRELEASED; urgency=medium
+php-spojenet-abraflexi (3.7.2) UNRELEASED; urgency=medium
+
+  * change library composer name to spojenet/abraflexi
+
+ -- vitex <info@vitexsoftware.cz>  Mon, 23 Mar 2026 21:12:09 +0100
+
+php-spojenet-abraflexi (3.7.1) unstable; urgency=medium
 
   * debian autoloader fix
 
- -- vitex <info@vitexsoftware.cz>  Fri, 20 Mar 2026 10:38:51 +0100
+ -- vitex <info@vitexsoftware.cz>  Mon, 23 Mar 2026 21:10:48 +0100
 
 php-spojenet-abraflexi (3.7.0) unstable; urgency=medium
 
