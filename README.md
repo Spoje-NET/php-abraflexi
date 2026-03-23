@@ -36,7 +36,7 @@ so that your resulting composer.json contains:
 ```json
 {
     "require": {
-        "spojenete/abraflexi": "^3.7"
+        "spojenet/abraflexi": "^3.7"
     }
 }
 ```

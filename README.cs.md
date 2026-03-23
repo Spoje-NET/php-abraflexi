@@ -37,7 +37,7 @@ Instalace
 ---------
 
 ```shell
-    composer require spojenet/flexibee
+    composer require spojenet/abraflexi
 ```
 
 aby váš výsledný composer.json obsahoval:
@@ -45,7 +45,7 @@ aby váš výsledný composer.json obsahoval:
 ```json
 {
     "require": {
-        "spojenet/flexibee": "^3.6"
+        "spojenet/abraflexi": "^3.7"
     }
 }
 ```
