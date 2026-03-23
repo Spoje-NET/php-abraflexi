@@ -369,14 +369,6 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Disconnect CURL before pass away.
-     */
-    public function __destruct()
-    {
-        $this->disconnect();
-    }
-
-    /**
      * Obtain record/object identificator code: or id:
      *
      * @see https://demo.flexibee.eu/devdoc/identifiers Record identifiers
@@ -1490,23 +1482,10 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Disconnect from AbraFlexi.
-     */
-    public function disconnect(): void
-    {
-        if ((null === $this->curl) === false) {
-            curl_close($this->curl);
-        }
-
-        $this->curl = null;
-    }
-
-    /**
      * Reset Curl Connection.
      */
     public function connectionReset(): void
     {
-        $this->disconnect();
         $this->curlInit();
     }
 
@@ -1888,7 +1867,7 @@ class RO extends \Ease\Sand implements \Stringable
      * Return columns from AbraFlexi according to conditions.
      *
      * @param array<string>|string $columnsList List of items or detail level: id|summary|full
-     * @param array<string, mixed> $conditions  Array of conditions or record ID
+     * @param array<string|int, mixed> $conditions  Array of conditions or record ID
      * @param null|string          $indexBy     Column by which to index records
      *
      * @return null|array<int|string, array<string, mixed>> Records
@@ -2158,7 +2137,7 @@ class RO extends \Ease\Sand implements \Stringable
     {
         $ids = (array) $this->getExternalIDs();
 
-        return \array_key_exists($want, $ids) ? $ids[$want] : current($ids);
+        return $want !== null && \array_key_exists($want, $ids) ? $ids[$want] : current($ids);
     }
 
     /**

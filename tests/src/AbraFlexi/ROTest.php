@@ -532,18 +532,6 @@ EOD;
     //    }
     //
     //    /**
-    //     * @covers \AbraFlexi\RO::disconnect
-    //     *
-    //     * @todo   Implement testdisconnect().
-    //     */
-    //    public function testdisconnect(): void
-    //    {
-    //        $this->assertEquals('', $this->object->disconnect());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
-    //
-    //    /**
     //     * @covers \AbraFlexi\RO::connectionReset
     //     *
     //     * @todo   Implement testconnectionReset().
