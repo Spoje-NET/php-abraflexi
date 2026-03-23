@@ -10,7 +10,6 @@ PHP 8.1+ based library for easy interaction with the Czech economic system AbraF
 [![wakatime](https://wakatime.com/badge/user/5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/project/48520b87-4e9a-4eca-861a-a5dd85b11374.svg)](https://wakatime.com/badge/user/5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/project/48520b87-4e9a-4eca-861a-a5dd85b11374)
 ![Packagist Version](https://img.shields.io/packagist/v/spojenet/flexibee)
 
-
 [![Latest Stable Version](https://poser.pugx.org/spojenet/flexibee/v/stable)](https://packagist.org/packages/spojenet/flexibee)
 [![Total Downloads](https://poser.pugx.org/spojenet/flexibee/downloads)](https://packagist.org/packages/spojenet/flexibee)
 [![Latest Unstable Version](https://poser.pugx.org/spojenet/flexibee/v/unstable)](https://packagist.org/packages/spojenet/flexibee)
@@ -29,7 +28,7 @@ The creation of this library would not have been possible without the kind suppo
 ## Installation
 
 ```shell
-composer require spojenet/flexibee
+composer require spojenete/abraflexi
 ```
 
 so that your resulting composer.json contains:
@@ -37,7 +36,7 @@ so that your resulting composer.json contains:
 ```json
 {
     "require": {
-        "spojenet/flexibee": "^3.6"
+        "spojenete/abraflexi": "^3.7"
     }
 }
 ```
@@ -189,6 +188,13 @@ During the life of the object, errors are recorded and only the first of each ki
 * Maximized use of the Relation object
 * New class AbraFlexi\Code replacing Functions::code and Functions::uncode
 * Classes are available for all records (not just the frequently used ones)
+
+## Changes in version 3.7
+
+* Enhanced code generation tools for evidence classes
+* Improved error handling and exception management
+* Added comprehensive PHPUnit test coverage for new classes
+* Enhanced internationalization support with English translations
 
 ## Example of creating an instance of the FakturaVydana class
 
