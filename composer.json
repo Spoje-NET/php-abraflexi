@@ -15,6 +15,9 @@
         "FinTech"
     ],
     "type": "library",
+    "replace": {
+        "spojenet/abraflexi": "self.version"
+    },
     "require": {
         "php": ">=8.1",
         "ext-json": "*",
