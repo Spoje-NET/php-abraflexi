@@ -1,5 +1,5 @@
 {
-    "name": "spojenet/flexibee",
+    "name": "spojenet/abraflexi",
     "description": "Library for easy interaction with czech economic system AbraFlexi.",
     "license": "MIT",
     "authors": [
@@ -16,7 +16,7 @@
     ],
     "type": "library",
     "require": {
-        "php": "^8.1",
+        "php": ">=8.1",
         "ext-json": "*",
         "ext-curl": "*",
         "ext-gettext": "*",
@@ -40,9 +40,9 @@
         "roave/security-advisories": "dev-latest",
         "phpunit/phpunit": "*",
         "phpstan/phpstan": "*",
-        "friendsofphp/php-cs-fixer": "^3.89",
+        "friendsofphp/php-cs-fixer": "^3.94",
         "ergebnis/composer-normalize": "^2.50",
-        "ergebnis/php-cs-fixer-config": "^6.59"
+        "ergebnis/php-cs-fixer-config": "^6.60"
     },
     "scripts": {
         "post-install-cmd": [
