@@ -166,7 +166,7 @@ class RW extends RO
             $this->errors = $responseDecoded['errors'];
         }
 
-        if (\array_key_exists('results', $responseDecoded) && \is_array($responseDecoded['results'])) {
+        if (\array_key_exists('results', $responseDecoded) && \is_array($responseDecoded['results']) && \count($responseDecoded['results']) > 0) {
             if (\array_key_exists(0, $responseDecoded['results'])) {
                 foreach ($responseDecoded['results'] as $result) {
                     if (\array_key_exists('request-id', $result)) {
