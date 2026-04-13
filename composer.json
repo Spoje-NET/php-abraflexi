@@ -45,7 +45,7 @@
         "phpstan/phpstan": "*",
         "friendsofphp/php-cs-fixer": "^3.94",
         "ergebnis/composer-normalize": "^2.50",
-        "ergebnis/php-cs-fixer-config": "^6.60"
+        "ergebnis/php-cs-fixer-config": "^6.61"
     },
     "scripts": {
         "post-install-cmd": [
