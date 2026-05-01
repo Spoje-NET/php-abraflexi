@@ -1,5 +1,10 @@
 #!/usr/bin/make -f
 
+PKG_VERSION := $(shell dpkg-parsechangelog -S Version | sed 's/~.*//')
+PKG_SOURCE  := $(shell jq -r '.name' composer.json)
+
+
+
 %:
 	dh $@ --with phpcomposer
 
@@ -21,4 +26,7 @@ override_dh_install:
 	sed -i '/git/d' debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/tools/force_update_all.sh
 	sed -i -e  "s/src\/AbraFlexi\///g" debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/tools/force_update_all.sh
 	echo "require_once '/usr/share/php/Ease/autoload.php';"  >> debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/autoload.php
+	cat debian/libversion.php >> debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/autoload.php
+	sed -i "s|'unknown'|'$(PKG_SOURCE)'|" debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/autoload.php
+	sed -i "s|'0.0.0'|'$(PKG_VERSION)'|" debian/php-spojenet-abraflexi/usr/share/php/AbraFlexi/autoload.php
 
