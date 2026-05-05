@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>io.github.spoje_net.php_spojenet_abraflexi</id>
+  <icon type="stock">php-spojenet-abraflexi</icon>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <name>php-spojenet-abraflexi</name>
+  <summary>PHP library for AbraFlexi REST API</summary>
+  <description>
+    <p>
+      Allows read and write operations on the Czech accounting system AbraFlexi. Provides a PHP library for the AbraFlexi REST API and JSON interface.
+    </p>
+  </description>
+  <url type="homepage">https://github.com/Spoje-NET/php-abraflexi</url>
+  <url type="bugtracker">https://github.com/Spoje-NET/php-abraflexi/issues</url>
+  <developer id="io.github.spoje_net">
+    <name>Spoje.Net</name>
+  </developer>
+  <content_rating type="oars-1.1"/>
+</component>
