@@ -19,7 +19,7 @@ class Formats
  *
  * @var string
  */
- static public $version = '2026.1.1';
+ static public $version = '2026.3.10';
 
 
     /**
@@ -609,6 +609,17 @@ class Formats
   'CSV' => 'csv',
 ];
     /**
+     * Evidence doplnek (Doplněk) Formats.
+     *
+     * @var array
+     */
+ static public $doplnek = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
      * Evidence doporuceni (Doporučení) Formats.
      *
      * @var array
@@ -691,6 +702,17 @@ class Formats
      * @var array
      */
  static public $insight = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
+     * Evidence integrace (Integrace) Formats.
+     *
+     * @var array
+     */
+ static public $integrace = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',
@@ -1043,6 +1065,17 @@ class Formats
      * @var array
      */
  static public $stromKoren = [
+  'HTML' => 'html',
+  'XML' => 'xml',
+  'JSON' => 'json',
+  'CSV' => 'csv',
+];
+    /**
+     * Evidence objekt-doplnku (Objekt doplňku) Formats.
+     *
+     * @var array
+     */
+ static public $objektDoplnku = [
   'HTML' => 'html',
   'XML' => 'xml',
   'JSON' => 'json',

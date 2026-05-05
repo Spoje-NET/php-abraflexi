@@ -6,7 +6,7 @@ declare(strict_types=1);
  * This file is part of the SpojeNet\AbraFlexi package.
  *
  * (c) 2019-2024 SpojeNet s.r.o. <http://spoje.net/>
- * (c) 2025 SpojeNetIT s.r.o. <http://spojenet.cz/>
+ * (c) 2025-2026 SpojeNetIT s.r.o. <http://spojenet.cz/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -527,18 +527,6 @@ EOD;
     //    public function testsetAction(): void
     //    {
     //        $this->assertEquals('', $this->object->setAction());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
-    //
-    //    /**
-    //     * @covers \AbraFlexi\RO::disconnect
-    //     *
-    //     * @todo   Implement testdisconnect().
-    //     */
-    //    public function testdisconnect(): void
-    //    {
-    //        $this->assertEquals('', $this->object->disconnect());
     //        // Remove the following lines when you implement this test.
     //        $this->markTestIncomplete('This test has not been implemented yet.');
     //    }

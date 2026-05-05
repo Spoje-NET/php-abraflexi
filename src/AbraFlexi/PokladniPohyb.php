@@ -6,7 +6,7 @@ declare(strict_types=1);
  * This file is part of the SpojeNet\AbraFlexi package.
  *
  * (c) 2019-2024 SpojeNet s.r.o. <http://spoje.net/>
- * (c) 2025 SpojeNetIT s.r.o. <http://spojenet.cz/>
+ * (c) 2025-2026 SpojeNetIT s.r.o. <http://spojenet.cz/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,9 +15,9 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Pokladní pohyb.
+ * Cash movement.
  *
- * @see https://demo.flexibee.eu/c/demo/pokladni-pohyb/properties položky evidence
+ * @see https://demo.flexibee.eu/c/demo/pokladni-pohyb/properties Evidence properties
  *
  * @no-named-arguments
  */

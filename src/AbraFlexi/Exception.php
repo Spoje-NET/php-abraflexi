@@ -6,7 +6,7 @@ declare(strict_types=1);
  * This file is part of the SpojeNet\AbraFlexi package.
  *
  * (c) 2019-2024 SpojeNet s.r.o. <http://spoje.net/>
- * (c) 2025 SpojeNetIT s.r.o. <http://spojenet.cz/>
+ * (c) 2025-2026 SpojeNetIT s.r.o. <http://spojenet.cz/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Description of Exception.
+ * AbraFlexi Exception class.
  *
  * @author vitex
  *
@@ -38,8 +38,9 @@ class Exception extends \Ease\Exception
     /**
      * AbraFlexi response as Exception.
      *
-     * @param string $message good to know
-     * @param RO     $caller  AbraFlexi Object
+     * @param string               $message  Exception message
+     * @param RO                   $caller   AbraFlexi Object
+     * @param null|\Ease\Exception $previous Previous exception
      */
     public function __construct($message, RO $caller, ?\Ease\Exception $previous = null)
     {

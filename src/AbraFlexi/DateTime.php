@@ -6,7 +6,7 @@ declare(strict_types=1);
  * This file is part of the SpojeNet\AbraFlexi package.
  *
  * (c) 2019-2024 SpojeNet s.r.o. <http://spoje.net/>
- * (c) 2025 SpojeNetIT s.r.o. <http://spojenet.cz/>
+ * (c) 2025-2026 SpojeNetIT s.r.o. <http://spojenet.cz/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Description of DateTime.
+ * AbraFlexi DateTime class.
  *
  * @author vitex
  *
@@ -39,7 +39,7 @@ class DateTime extends \DateTime implements \Stringable
      *
      * @param string $flexidatetime 2017-09-26T10:00:53.755+02:00 or older 2017-05-19T00:00:00+02:00
      *
-     * @return \DateTime|false
+     * @throws \Exception Invalid date format
      */
     public function __construct(string $flexidatetime = 'NOW')
     {

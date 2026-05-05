@@ -6,7 +6,7 @@ declare(strict_types=1);
  * This file is part of the SpojeNet\AbraFlexi package.
  *
  * (c) 2019-2024 SpojeNet s.r.o. <http://spoje.net/>
- * (c) 2025 SpojeNetIT s.r.o. <http://spojenet.cz/>
+ * (c) 2025-2026 SpojeNetIT s.r.o. <http://spojenet.cz/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -50,6 +50,12 @@ class RelationTest extends \PHPUnit\Framework\TestCase
      */
     public function testToString(): void
     {
+        $relationExt = new Relation('ext:e810294f-ab67-4cb0-89bf-aeadd0fb94d2', 'banka');
+        $this->assertSame('ext:e810294f-ab67-4cb0-89bf-aeadd0fb94d2', (string) $relationExt);
+
+        $relationExt2 = new Relation('ext:test:123', 'faktura-prijata');
+        $this->assertSame('ext:test:123', (string) $relationExt2);
+
         $relation = new Relation('CODE123', 'faktura-vydana');
         $this->assertSame('CODE123', (string) $relation);
 
@@ -67,5 +73,90 @@ class RelationTest extends \PHPUnit\Framework\TestCase
         $this->assertInstanceOf(\AbraFlexi\RO::class, $target);
         // Assert that the record code matches the expected value.
         $this->assertEquals('code:CZ', $target->getRecordCode());
+    }
+
+    /**
+     * @covers \AbraFlexi\Relation::offsetExists
+     */
+    public function testoffsetExists(): void
+    {
+        // Initially, no data is set, so any offset should not exist
+        $this->assertFalse($this->object->offsetExists('foo'));
+        // Set a value and check existence
+        $this->object->offsetSet('foo', 'bar');
+        $this->assertTrue($this->object->offsetExists('foo'));
+    }
+
+    /**
+     * @covers \AbraFlexi\Relation::offsetGet
+     */
+    public function testoffsetGet(): void
+    {
+        // No value set, should return null
+        $this->assertNull($this->object->offsetGet('foo'));
+        // Set a value and get it
+        $this->object->offsetSet('foo', 'bar');
+        $this->assertSame('bar', $this->object->offsetGet('foo'));
+    }
+
+    /**
+     * @covers \AbraFlexi\Relation::offsetSet
+     */
+    public function testoffsetSet(): void
+    {
+        // Set a value and verify it is set
+        $this->object->offsetSet('foo', 'bar');
+        $this->assertSame('bar', $this->object->offsetGet('foo'));
+    }
+
+    /**
+     * @covers \AbraFlexi\Relation::offsetUnset
+     */
+    public function testoffsetUnset(): void
+    {
+        // Set a value, then unset it and check
+        $this->object->offsetSet('foo', 'bar');
+        $this->assertTrue($this->object->offsetExists('foo'));
+        $this->object->offsetUnset('foo');
+        $this->assertFalse($this->object->offsetExists('foo'));
+    }
+
+    /**
+     * @covers \AbraFlexi\Relation::fromExtId
+     */
+    public function testfromExtId(): void
+    {
+        $extIdRaw = 'ext:bank:12345';
+        $column = 'id';
+        $relation = Relation::fromExtId($extIdRaw, $column);
+        $this->assertInstanceOf(Relation::class, $relation);
+        $this->assertSame($extIdRaw, $relation->value);
+        $this->assertSame('bank', $relation->target);
+        $this->assertSame('12345', $relation->ref);
+        $this->assertSame('id bank:12345', $relation->showAs);
+
+        $extUuid = 'ext:e810294f-ab67-4cb0-89bf-aeadd0fb94d2';
+
+        $relation2 = Relation::fromExtId($extUuid, $column);
+        $this->assertSame($extUuid, $relation2->value);
+    }
+
+    /**
+     * @covers \AbraFlexi\Relation::fromTypDokl
+     */
+    public function testfromTypDokl(): void
+    {
+        $typDokl = [
+            'kod' => 'FV',
+            'typDoklK' => 'faktura-vydana',
+            'id' => '789',
+            'typDoklK@showAs' => 'Faktura vydaná',
+        ];
+        $relation = Relation::fromTypDokl($typDokl);
+        $this->assertInstanceOf(Relation::class, $relation);
+        $this->assertSame('FV', $relation->value);
+        $this->assertSame('faktura-vydana', $relation->target);
+        $this->assertSame('789', $relation->ref);
+        $this->assertSame('Faktura vydaná', $relation->showAs);
     }
 }

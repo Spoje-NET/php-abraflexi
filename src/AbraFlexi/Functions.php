@@ -6,7 +6,7 @@ declare(strict_types=1);
  * This file is part of the SpojeNet\AbraFlexi package.
  *
  * (c) 2019-2024 SpojeNet s.r.o. <http://spoje.net/>
- * (c) 2025 SpojeNetIT s.r.o. <http://spojenet.cz/>
+ * (c) 2025-2026 SpojeNetIT s.r.o. <http://spojenet.cz/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Description of Functions.
+ * Utility functions for AbraFlexi operations.
  *
  * @author vitex
  *
@@ -29,9 +29,11 @@ class Functions
     public static string $infoDir = __DIR__.'/../../static';
 
     /**
-     * convert unicode to entities for use with AbraFlexi queries.
+     * Convert unicode to entities for use with AbraFlexi queries.
      *
-     * @return string
+     * @param string $urlRaw Raw URL to encode
+     *
+     * @return string Encoded URL
      */
     public static function urlEncode(string $urlRaw)
     {
@@ -39,9 +41,9 @@ class Functions
     }
 
     /**
-     * Gives you AbraFlexi class name for Given Evidence.
+     * Gives you AbraFlexi class name for given evidence.
      *
-     * @param string $evidence
+     * @param string $evidence Evidence name
      *
      * @return string Class name
      */

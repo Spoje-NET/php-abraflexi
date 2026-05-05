@@ -6,7 +6,7 @@ declare(strict_types=1);
  * This file is part of the SpojeNet\AbraFlexi package.
  *
  * (c) 2019-2024 SpojeNet s.r.o. <http://spoje.net/>
- * (c) 2025 SpojeNetIT s.r.o. <http://spojenet.cz/>
+ * (c) 2025-2026 SpojeNetIT s.r.o. <http://spojenet.cz/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -108,7 +108,11 @@ class Relation implements \ArrayAccess, \Stringable
      */
     public static function fromExtId(string $extIdRaw, string $column): self
     {
-        [,$ext,$extId] = explode(':', $extIdRaw);
+        if (substr_count($extIdRaw, ':') > 1) {
+            [,$ext,$extId] = explode(':', $extIdRaw);
+        } else {
+            [$ext,$extId] = explode(':', $extIdRaw);
+        }
 
         return new self($extIdRaw, $ext, $extId, trim($column.' '.$ext).':'.$extId);
     }

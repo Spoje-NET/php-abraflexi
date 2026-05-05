@@ -6,7 +6,7 @@ declare(strict_types=1);
  * This file is part of the SpojeNet\AbraFlexi package.
  *
  * (c) 2019-2024 SpojeNet s.r.o. <http://spoje.net/>
- * (c) 2025 SpojeNetIT s.r.o. <http://spojenet.cz/>
+ * (c) 2025-2026 SpojeNetIT s.r.o. <http://spojenet.cz/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace AbraFlexi;
 
 /**
- * Základní třída pro čtení z AbraFlexi.
+ * Basic class for reading from AbraFlexi.
  *
  * @url https://demo.flexibee.eu/devdoc/
  *
@@ -33,14 +33,12 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Basic namespace for communication with AbraFlexi.
      *
-     * @var string Jmený prostor datového bloku odpovědi
+     * @var string Data block namespace in response
      */
     public string $nameSpace = 'winstrom';
 
     /**
      * URL of object data in AbraFlexi.
-     *
-     * @var string url
      */
     public ?string $apiURL = null;
 
@@ -51,38 +49,32 @@ class RO extends \Ease\Sand implements \Stringable
 
     /**
      * Communication protocol version used.
-     *
-     * @var string Verze použitého API
      */
     public string $protoVersion = '1.0';
 
     /**
      * Evidence used by object.
      *
-     * @see https://demo.flexibee.eu/c/demo/evidence-list Přehled evidencí
+     * @see https://demo.flexibee.eu/c/demo/evidence-list Evidence overview
      */
     public ?string $evidence = null;
 
     /**
-     * Detaily evidence užité objektem.
+     * Details of evidence used by object.
      */
     public array $evidenceInfo = [];
 
     /**
      * Default communication format.
      *
-     * @see https://www.abraflexi.eu/api/dokumentace/ref/format-types Přehled možných formátů
-     *
-     * @var string json|xml|...
+     * @see https://www.abraflexi.eu/api/dokumentace/ref/format-types Available format types
      */
     public string $format = 'json';
 
     /**
-     * requested response format.
+     * Requested response format.
      *
-     * @see https://www.abraflexi.eu/api/dokumentace/ref/format-types Přehled možných formátů
-     *
-     * @var string json|xml|...
+     * @see https://www.abraflexi.eu/api/dokumentace/ref/format-types Available format types
      */
     public string $responseFormat = 'json';
 
@@ -92,7 +84,9 @@ class RO extends \Ease\Sand implements \Stringable
     public ?\CurlHandle $curl = null;
 
     /**
-     * @see https://demo.flexibee.eu/devdoc/company-identifier Identifikátor firmy
+     * Company identifier.
+     *
+     * @see https://demo.flexibee.eu/devdoc/company-identifier Company identifier
      */
     public ?string $company = null;
 
@@ -112,12 +106,12 @@ class RO extends \Ease\Sand implements \Stringable
     public ?string $password = null;
 
     /**
-     * @var array Pole HTTP hlaviček odesílaných s každým požadavkem
+     * Array of HTTP headers sent with each request.
      */
     public array $defaultHttpHeaders = [];
 
     /**
-     * Default additional request url parameters after question mark.
+     * Default additional request URL parameters after question mark.
      *
      * @see https://www.abraflexi.eu/api/dokumentace/ref/urls   Common params
      * @see https://www.abraflexi.eu/api/dokumentace/ref/paging Paging params
@@ -125,29 +119,27 @@ class RO extends \Ease\Sand implements \Stringable
     public array $defaultUrlParams = [];
 
     /**
-     * Sloupeček s názvem.
+     * Column with name.
      */
     public string $nameColumn = 'nazev';
 
     /**
-     * Sloupeček obsahující datum vložení záznamu do shopu.
+     * Column containing record creation date in the system.
      */
     public ?string $myCreateColumn = null;
 
     /**
-     * Sloupeček obsahujici datum poslení modifikace záznamu do shopu.
+     * Column containing date of last record modification in the system.
      */
     public ?string $myLastModifiedColumn = 'lastUpdate';
 
     /**
-     * Informace o posledním HTTP requestu.
-     *
-     * @var null|array<string, mixed>
+     * Information about the last HTTP request.
      */
     public ?array $curlInfo;
 
     /**
-     * Informace o poslední HTTP chybě.
+     * Information about the last HTTP error.
      */
     public ?string $lastCurlError = null;
 
@@ -199,23 +191,23 @@ class RO extends \Ease\Sand implements \Stringable
     public ?int $globalVersion = null;
 
     /**
-     * @see https://www.abraflexi.eu/api/dokumentace/ref/zamykani-odemykani/
+     * Filter query for record selection.
      *
-     * @var string filter query
+     * @see https://www.abraflexi.eu/api/dokumentace/ref/zamykani-odemykani/
      */
     public ?string $filter = null;
 
     /**
-     * Pole akcí které podporuje ta která evidence.
+     * Array of actions that evidence supports.
      *
-     * @see https://demo.flexibee.eu/c/demo/faktura-vydana/actions.json Např. Akce faktury
+     * @see https://demo.flexibee.eu/c/demo/faktura-vydana/actions.json E.g. Invoice actions
      */
     public ?array $actionsAvailable = null;
 
     /**
-     * Parmetry pro URL.
+     * Parameters for URL.
      *
-     * @see https://www.abraflexi.eu/api/dokumentace/ref/urls/ Všechny podporované parametry
+     * @see https://www.abraflexi.eu/api/dokumentace/ref/urls/ All supported parameters
      *
      * @var array<string, array<string, mixed>> List of known URL parameters and their metadata
      */
@@ -275,8 +267,6 @@ class RO extends \Ease\Sand implements \Stringable
 
     /**
      * Send Error500 Report to.
-     *
-     * @var string email address
      */
     public string $reportRecipient = 'podpora@abraflexi.eu';
 
@@ -302,9 +292,7 @@ class RO extends \Ease\Sand implements \Stringable
     public bool $nativeTypes = true;
 
     /**
-     * Override cURL timeout.
-     *
-     * @var int seconds
+     * Override cURL timeout in seconds.
      */
     public ?int $timeout = 300;
 
@@ -314,7 +302,9 @@ class RO extends \Ease\Sand implements \Stringable
     public bool $throwException = true;
 
     /**
-     * @see https://demo.flexibee.eu/devdoc/actions Provádění akcí
+     * Action to be performed.
+     *
+     * @see https://demo.flexibee.eu/devdoc/actions Action execution
      */
     protected ?string $action = null;
 
@@ -324,30 +314,33 @@ class RO extends \Ease\Sand implements \Stringable
     protected bool $ignoreNotFound = false;
 
     /**
+     * Action messages.
+     */
+    protected array $messages = [];
+    protected ?bool $success = null;
+
+    /**
      * Array of errors caused by last request.
-     *
-     * @var array<string>
      */
     protected array $errors = [];
 
     /**
-     * Last Request response stats.
-     *
-     * @var array<string>
+     * Last request response statistics.
      */
     protected ?array $responseStats = null;
 
     /**
+     * Performed Operation name.
+     */
+    protected ?string $operation = null;
+
+    /**
      * List of Error500 reports sent.
-     *
-     * @var array<string, mixed>
      */
     private array $reports = [];
 
     /**
-     * Columns Info for several evidences.
-     *
-     * @var array<string, mixed> Array of evidence names to their column info arrays
+     * Columns information for several evidences.
      */
     private array $columnsInfo = [];
 
@@ -359,7 +352,7 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Class for read only interaction with AbraFlexi.
      *
-     * @param mixed                $init    default record id or initial data. See processInit()
+     * @param mixed                $init    Default record ID or initial data. See processInit()
      * @param array<string, mixed> $options Connection settings and other options override
      */
     public function __construct($init = null, $options = [])
@@ -376,20 +369,11 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Disconnect CURL before pass away.
-     */
-    public function __destruct()
-    {
-        $this->disconnect();
-    }
-
-    /**
      * Obtain record/object identificator code: or id:
-     * Vrací identifikátor objektu code: nebo id:
      *
-     * @see https://demo.flexibee.eu/devdoc/identifiers Identifikátory záznamů
+     * @see https://demo.flexibee.eu/devdoc/identifiers Record identifiers
      *
-     * @return string indentifikátor záznamu reprezentovaného objektem
+     * @return string Record identifier represented by the object
      */
     public function __toString()
     {
@@ -397,17 +381,25 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Summary of __unserialize.
+     * Unserialize data and restore object state.
+     *
+     * @param array<string, mixed> $data Serialized data
      */
     public function __unserialize(array $data): void
     {
+        foreach ($data as $key => $value) {
+            if (\is_string($key) && property_exists($this, $key)) {
+                $this->{$key} = $value;
+            }
+        }
+
         $this->curlInit();
     }
 
     /**
-     * Reconnect After unserialization.
+     * Reconnect after unserialization.
      *
-     * @deprecated soft deprecated in php 8.5
+     * @deprecated Soft deprecated in PHP 8.5
      */
     public function __wakeup(): void
     {
@@ -415,13 +407,13 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Only Variables to keep.
+     * Variables to keep during serialization.
      *
-     * @return string[]
+     * @return array<string, mixed>
      */
     public function __serialize(): array
     {
-        return [
+        $properties = [
             'data',
             'objectName',
             'nameSpace',
@@ -438,7 +430,6 @@ class RO extends \Ease\Sand implements \Stringable
             'password',
             'defaultHttpHeaders',
             'defaultUrlParams',
-            'init',
             'nameColumn',
             'myCreateColumn',
             'myLastModifiedColumn',
@@ -456,28 +447,39 @@ class RO extends \Ease\Sand implements \Stringable
             'timeout',
             'throwException',
         ];
+
+        $result = [];
+
+        foreach ($properties as $property) {
+            if (property_exists($this, $property)) {
+                $result[$property] = $this->{$property};
+            }
+        }
+
+        return $result;
     }
 
     /**
-     * Only Variables to keep.
+     * Variables to keep during serialization.
      *
-     * @deprecated soft deprecated in php 8.5
+     * @deprecated Soft deprecated in PHP 8.5
      *
-     * @return array
+     * @return array<int, string>
      */
     public function __sleep()
     {
-        $this->__serialize();
+        return array_keys($this->__serialize());
     }
 
     /**
-     * SetUp Object to be ready for work.
+     * Set up object to be ready for work.
      *
-     * @param array<string, string> $options Object Options ( user,password,authSessionId
-     *                                       company,url,evidence,
-     *                                       prefix,defaultUrlParams,debug,autoload
-     *                                       detail,offline,filter,ignore404,nativeTypes
-     *                                       timeout,companyUrl,ver,throwException
+     * @param array<string, string> $options Object options (user, password, authSessionId,
+     *                                       company, url, evidence, prefix, defaultUrlParams,
+     *                                       debug, autoload, detail, offline, filter, ignore404,
+     *                                       nativeTypes, timeout, companyUrl, ver, throwException)
+     *
+     * @return bool Setup success status
      */
     public function setUp(array $options = []): bool
     {
@@ -539,11 +541,11 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Set internal Object name.
+     * Set internal object name.
      *
-     * @param string $objectName
+     * @param null|string $objectName Object name to set
      *
-     * @return string Jméno objektu
+     * @return string Object name
      */
     public function setObjectName($objectName = null)
     {
@@ -580,7 +582,7 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Export current/given configuration into Environment.
+     * Export current/given configuration into environment variables.
      *
      * @param array<string, null|int|string> $opts Configuration options to export to environment variables
      */
@@ -610,9 +612,9 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Inicializace CURL.
+     * Initialize CURL.
      *
-     * @return bool Online Status
+     * @return bool Online status
      */
     public function curlInit()
     {
@@ -676,10 +678,10 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Set Data Field value.
+     * Set data field value.
      *
-     * @param string $columnName field name
-     * @param mixed  $value      field data value
+     * @param string $columnName Field name
+     * @param mixed  $value      Field data value
      *
      * @return bool Success
      */
@@ -722,7 +724,7 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Strip all non-identifier data.
      *
-     * @param array<string> $keep extra columns to be preserved
+     * @param array<string> $keep Extra columns to be preserved
      *
      * @return RO Current object state
      */
@@ -756,6 +758,8 @@ class RO extends \Ease\Sand implements \Stringable
 
     /**
      * Set URL prefix.
+     *
+     * @param string $prefix URL prefix to set
      */
     public function setPrefix(string $prefix): void
     {
@@ -784,9 +788,11 @@ class RO extends \Ease\Sand implements \Stringable
 
     /**
      * Set communication format.
-     * One of html|xml|json|csv|dbf|xls|isdoc|isdocx|edi|pdf|pdf|vcf|ical.
+     * One of html|xml|json|csv|dbf|xls|isdoc|isdocx|edi|pdf|vcf|ical.
      *
-     * @return bool format is available
+     * @param string $format Format to set
+     *
+     * @return bool Format is available
      */
     public function setFormat(string $format)
     {
@@ -807,12 +813,11 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Nastaví Evidenci pro Komunikaci.
      * Set evidence for communication.
      *
-     * @param string $evidence evidence pathName to use
+     * @param string $evidence Evidence pathName to use
      *
-     * @return bool evidence switching status
+     * @return bool Evidence switching status
      */
     public function setEvidence(string $evidence)
     {
@@ -849,10 +854,9 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Vrací právě používanou evidenci pro komunikaci
-     * Obtain current used evidence.
+     * Return currently used evidence for communication.
      *
-     * @return string
+     * @return null|string Current evidence
      */
     public function getEvidence()
     {
@@ -861,9 +865,8 @@ class RO extends \Ease\Sand implements \Stringable
 
     /**
      * Set used company.
-     * Nastaví Firmu.
      *
-     * @param string $company
+     * @param string $company Company identifier
      */
     public function setCompany($company): void
     {
@@ -871,10 +874,9 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Obtain company now used
-     * Vrací právě používanou firmu.
+     * Obtain company now used.
      *
-     * @return string
+     * @return null|string Currently used company
      */
     public function getCompany()
     {
@@ -882,9 +884,9 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Vrací název evidence použité v odpovědích z AbraFlexi.
+     * Return evidence name used in responses from AbraFlexi.
      *
-     * @return string
+     * @return string Evidence name
      */
     public function getResponseEvidence()
     {
@@ -908,9 +910,9 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Return basic URL for used Evidence.
+     * Return basic URL for used evidence.
      *
-     * @see https://www.abraflexi.eu/api/dokumentace/ref/urls/ Sestavování URL
+     * @see https://www.abraflexi.eu/api/dokumentace/ref/urls/ URL composition
      *
      * @return string Evidence URL
      */
@@ -927,11 +929,11 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Add suffix to Evidence URL.
+     * Add suffix to evidence URL.
      *
-     * @param string $urlSuffix
+     * @param string $urlSuffix URL suffix to append
      *
-     * @return string
+     * @return string Complete evidence URL with suffix
      */
     public function evidenceUrlWithSuffix($urlSuffix)
     {
@@ -972,9 +974,11 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Add Default Url params to given url if not overrided.
+     * Add default URL params to given URL if not overridden.
      *
-     * @return string url with default params added
+     * @param string $urlRaw Raw URL to add parameters to
+     *
+     * @return string URL with default params added
      */
     public function addDefaultUrlParams(string $urlRaw)
     {
@@ -997,11 +1001,13 @@ class RO extends \Ease\Sand implements \Stringable
     public function performRequest(
         string $urlSuffix = '',
         string $method = 'GET',
-        $format = null,
+        string $format = '',
     ) {
+        $this->success = null;
         $this->rowCount = null;
         $this->responseStats = [];
         $this->errors = [];
+        $this->messages = [];
 
         if (preg_match('/^http/', $urlSuffix)) {
             $url = $urlSuffix;
@@ -1248,6 +1254,16 @@ class RO extends \Ease\Sand implements \Stringable
     {
         $mainResult = null;
 
+        if (!empty($responseDecoded) && \is_array($responseDecoded) && \array_key_exists('success', $responseDecoded)) {
+            $this->operation = \array_key_exists('operation', $responseDecoded) ? $responseDecoded['operation'] : 'get';
+
+            $this->success = $responseDecoded['success'] === 'ok';
+
+            $this->messages = \array_key_exists('messages', $responseDecoded) && \is_array($responseDecoded['messages']) ? $responseDecoded['messages'] : [];
+
+            $this->parseError($responseDecoded);
+        }
+
         switch ($responseCode) {
             case 201: // We do not care about Success Write here
             case 202: // Accept eg. unsent mails sent
@@ -1328,10 +1344,6 @@ class RO extends \Ease\Sand implements \Stringable
                 // no break
             case 400: // Bad Request parameters
             default: // Something goes wrong
-                if (!empty($responseDecoded) && \is_array($responseDecoded)) {
-                    $this->parseError($responseDecoded);
-                }
-
                 if ($this->throwException) {
                     $errors = $this->getErrors();
 
@@ -1354,7 +1366,9 @@ class RO extends \Ease\Sand implements \Stringable
     public function parseError(array $responseDecoded)
     {
         if (\array_key_exists('success', $responseDecoded)) {
-            $this->errors = [['message' => \array_key_exists('message', $responseDecoded) ? $responseDecoded['message'] : '']];
+            if (\array_key_exists('message', $responseDecoded) && \strlen($responseDecoded['message'])) {
+                $this->errors = [['message' => $responseDecoded['message']]];
+            }
         } else {
             $this->addStatusMessage('Unparsed error: '.$this->lastCurlResponse, 'error');
         }
@@ -1363,26 +1377,26 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Vykonej HTTP požadavek.
+     * Execute HTTP request.
      *
-     * @see https://www.abraflexi.eu/api/dokumentace/ref/urls/ Sestavování URL
+     * @see https://www.abraflexi.eu/api/dokumentace/ref/urls/ URL composition
      *
-     * @param string $url    URL požadavku
+     * @param string $url    Request URL
      * @param string $method HTTP Method GET|POST|PUT|OPTIONS|DELETE
-     * @param string $format požadovaný formát komunikace
+     * @param string $format Required communication format
      *
      * @return int HTTP Response CODE
      */
-    public function doCurlRequest($url, $method, $format = null)
+    public function doCurlRequest(string $url, string $method, string $format = '')
     {
-        if (null === $format) {
+        if (empty($format)) {
             $format = $this->format;
         }
 
         curl_setopt($this->curl, \CURLOPT_URL, $url);
-        // Nastavení samotné operace
+        // Set the operation itself
         curl_setopt($this->curl, \CURLOPT_CUSTOMREQUEST, strtoupper($method));
-        // Vždy nastavíme byť i prázná postdata jako ochranu před chybou 411
+        // Always set even empty postdata as protection against error 411
         curl_setopt($this->curl, \CURLOPT_POSTFIELDS, $this->postFields);
         $httpHeaders = $this->defaultHttpHeaders;
         $formats = Formats::bySuffix();
@@ -1434,20 +1448,20 @@ class RO extends \Ease\Sand implements \Stringable
 
     /**
      * Return last response success status.
-     *
-     * @return bool
      */
-    public function success()
+    public function success(): bool
     {
-        return $this->lastResponseCode === 200;
+        return ($this->lastResponseCode === 200) && $this->success;
     }
 
     /**
-     * Nastaví druh prováděné akce.
+     * Set the type of action to be performed.
      *
-     * @see https://demo.flexibee.eu/devdoc/actions Provádění akcí
+     * @see https://demo.flexibee.eu/devdoc/actions Action execution
      *
-     * @return bool
+     * @param string $action Action name to set
+     *
+     * @return bool Success status
      */
     public function setAction(string $action)
     {
@@ -1468,32 +1482,19 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Disconnect from AbraFlexi.
-     */
-    public function disconnect(): void
-    {
-        if ((null === $this->curl) === false) {
-            curl_close($this->curl);
-        }
-
-        $this->curl = null;
-    }
-
-    /**
      * Reset Curl Connection.
      */
     public function connectionReset(): void
     {
-        $this->disconnect();
         $this->curlInit();
     }
 
     /**
-     * Načte řádek dat z AbraFlexi.
+     * Load data row from AbraFlexi.
      *
-     * @param int $recordID id požadovaného záznamu
+     * @param int $recordID ID of required record
      *
-     * @return array
+     * @return array<string, mixed> Record data
      */
     public function getFlexiRow($recordID)
     {
@@ -1612,12 +1613,11 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Načte záznam z AbraFlexi a uloží v sobě jeho data
-     * Read AbraFlexi record and store it inside od object.
+     * Load record from AbraFlexi and store its data in the object.
      *
-     * @param array|int|string $id ID or conditions
+     * @param null|array<string, mixed>|int|string $id ID or conditions
      *
-     * @return int počet načtených položek
+     * @return int Number of loaded items
      */
     public function loadFromAbraFlexi($id = null)
     {
@@ -1816,13 +1816,12 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Vrací z AbraFlexi sloupečky podle podmínek.
+     * Return columns from AbraFlexi according to conditions.
      *
-     * @param array|int|string $conditions pole podmínek nebo ID záznamu
-     * @param string           $indexBy    klice vysledku naplnit hodnotou ze
-     *                                     sloupečku
+     * @param null|array<string, mixed>|int|string $conditions Array of conditions or record ID
+     * @param null|string                          $indexBy    Column name to use for result keys
      *
-     * @return array
+     * @return null|array<int|string, array<string, mixed>> Records
      */
     public function getAllFromAbraFlexi($conditions = null, $indexBy = null)
     {
@@ -1842,8 +1841,8 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Get Summary.
      *
-     * @param array<string>        $fields     with summary ability
-     * @param array<string|string> $conditions
+     * @param array<string> $fields     with summary ability
+     * @param array<string> $conditions
      *
      * @throws \InvalidArgumentException - when requested field does not support summmarization
      */
@@ -1865,13 +1864,13 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Vrací z AbraFlexi sloupečky podle podmínek.
+     * Return columns from AbraFlexi according to conditions.
      *
-     * @param string|string[] $columnsList seznam položek nebo úrověň detailu: id|summary|full
-     * @param array           $conditions  pole podmínek nebo ID záznamu
-     * @param string          $indexBy     Sloupeček podle kterého indexovat záznamy
+     * @param array<string>|string $columnsList List of items or detail level: id|summary|full
+     * @param array<string|int, mixed> $conditions  Array of conditions or record ID
+     * @param null|string          $indexBy     Column by which to index records
      *
-     * @return array
+     * @return null|array<int|string, array<string, mixed>> Records
      */
     public function getColumnsFromAbraFlexi(
         $columnsList,
@@ -1937,6 +1936,41 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
+     * Return One document as Object.
+     *
+     * @todo Experimental
+     *
+     * @since 3.7.1
+     *
+     * @return self Current Document instance
+     */
+    public function getDocument(string $identifier, array $conditions = []): ?self
+    {
+        $conditions['id'] = $this->getEvidenceUrl().'/'.Functions::urlizeId($identifier);
+        $flexiData = $this->getFlexiData('', $conditions);
+
+        return new self($flexiData);
+    }
+
+    /**
+     * Return Collection of Documents.
+     *
+     * @since 3.7.1
+     *
+     * @return \Ease\Collection<Document> Collection of Documents
+     */
+    public function getDocuments(array $filter = []): \Ease\Collection
+    {
+        $documents = new \Ease\Collection('\\AbraFlexi\\'.Functions::evidenceToClassName($this->evidence));
+
+        foreach ($this->getFlexiData($this->getEvidenceUrl(), empty($filter) ? '' : $filter) as $record) {
+            $documents->addArray($record);
+        }
+
+        return $documents;
+    }
+
+    /**
      * Save RAW Curl Request & Response to files in Temp directory.
      */
     public function saveDebugFiles(): void
@@ -1957,9 +1991,9 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Připraví data pro odeslání do AbraFlexi.
+     * Prepare data for sending to AbraFlexi.
      *
-     * @param string $data
+     * @param string $data Data to be sent
      */
     public function setPostFields($data): void
     {
@@ -1967,9 +2001,9 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Get Content ready to be send as POST body.
+     * Get content ready to be sent as POST body.
      *
-     * @return string
+     * @return null|string POST data
      */
     public function getPostFields()
     {
@@ -1978,11 +2012,10 @@ class RO extends \Ease\Sand implements \Stringable
 
     /**
      * Obtain record/object numeric identificator id:
-     * Vrací číselný identifikátor objektu id:
      *
-     * @see https://demo.flexibee.eu/devdoc/identifiers Identifikátory záznamů
+     * @see https://demo.flexibee.eu/devdoc/identifiers Record identifiers
      *
-     * @return null|int indentifikátor záznamu reprezentovaného objektem
+     * @return null|int Record identifier represented by the object
      */
     public function getRecordID()
     {
@@ -1993,13 +2026,12 @@ class RO extends \Ease\Sand implements \Stringable
 
     /**
      * Obtain record/object identificator code:
-     * Vrací identifikátor objektu code:
      *
      * @todo move to "kod" trait
      *
-     * @see https://demo.flexibee.eu/devdoc/identifiers Identifikátory záznamů
+     * @see https://demo.flexibee.eu/devdoc/identifiers Record identifiers
      *
-     * @return string record code identifier
+     * @return null|string Record code identifier
      */
     public function getRecordCode()
     {
@@ -2008,11 +2040,10 @@ class RO extends \Ease\Sand implements \Stringable
 
     /**
      * Obtain record/object identificator extId: code: or id:
-     * Vrací identifikátor objektu extId: code: nebo id:
      *
-     * @see https://demo.flexibee.eu/devdoc/identifiers Identifikátory záznamů
+     * @see https://demo.flexibee.eu/devdoc/identifiers Record identifiers
      *
-     * @return null|int|string record code identifier
+     * @return null|int|string Record code identifier
      */
     public function getRecordIdent()
     {
@@ -2106,7 +2137,7 @@ class RO extends \Ease\Sand implements \Stringable
     {
         $ids = (array) $this->getExternalIDs();
 
-        return \array_key_exists($want, $ids) ? $ids[$want] : current($ids);
+        return $want !== null && \array_key_exists($want, $ids) ? $ids[$want] : current($ids);
     }
 
     /**
@@ -2120,12 +2151,11 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Obtain actual GlobalVersion
-     * Vrací aktuální globální verzi změn.
+     * Obtain actual GlobalVersion.
      *
-     * @see https://www.abraflexi.eu/api/dokumentace/ref/changes-api#globalVersion Globální Verze
+     * @see https://www.abraflexi.eu/api/dokumentace/ref/changes-api#globalVersion Global Version
      *
-     * @return int
+     * @return null|int Global version number
      */
     public function getGlobalVersion()
     {
@@ -2137,7 +2167,7 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Gives you current ApiURL with given format suffix.
      *
-     * @param string $format json|html|xml|...
+     * @param null|string $format json|html|xml|...
      *
      * @return string API URL for current record or object/evidence
      */
@@ -2151,7 +2181,7 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Obtain content type of last response.
      *
-     * @return string
+     * @return string Response content type
      */
     public function getResponseFormat()
     {
@@ -2159,11 +2189,11 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Return the same response format for one and multiplete results.
+     * Return the same response format for one and multiple results.
      *
-     * @param array $responseBody
+     * @param array<string, mixed> $responseBody Response body to unify
      *
-     * @return array
+     * @return array<string, mixed> Unified response format
      */
     public function unifyResponseFormat($responseBody)
     {
@@ -2291,10 +2321,10 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Gives you properties for (current) evidence column.
      *
-     * @param string $column   name of column
-     * @param string $evidence evidence name if different
+     * @param string      $column   Name of column
+     * @param null|string $evidence Evidence name if different
      *
-     * @return array column properties or null if column not exits
+     * @return null|array<string, mixed> Column properties or null if column does not exist
      */
     public function getColumnInfo($column, $evidence = null)
     {
@@ -2306,9 +2336,9 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Obtain actions for current (or given) evidence.
      *
-     * @param string $evidence
+     * @param null|string $evidence Evidence name
      *
-     * @return array Evidence structure
+     * @return null|array<string, mixed> Evidence actions structure
      */
     public function getActionsInfo($evidence = null)
     {
@@ -2330,9 +2360,9 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Obtain relations for current (or given) evidence.
      *
-     * @param string $evidence
+     * @param null|string $evidence Evidence name
      *
-     * @return array Evidence structure
+     * @return null|array<string, mixed> Evidence relations structure
      */
     public function getRelationsInfo($evidence = null)
     {
@@ -2354,7 +2384,9 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Obtain info for current (or given) evidence.
      *
-     * @return array Evidence info
+     * @param string $evidence Evidence name
+     *
+     * @return array<string, mixed> Evidence info
      */
     public function getEvidenceInfo(string $evidence = ''): array
     {
@@ -2379,7 +2411,9 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Obtain name for current (or given) evidence path.
      *
-     * @param string $evidence Evidence name
+     * @param null|string $evidence Evidence name
+     *
+     * @return string Evidence name
      */
     public function getEvidenceName($evidence = null): string
     {
@@ -2845,9 +2879,9 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Remove all @ items from array.
      *
-     * @param array $data original data
+     * @param array<string, mixed> $data Original data
      *
-     * @return array data without @ columns
+     * @return array<string, mixed> Data without @ columns
      */
     public static function arrayCleanUP(array $data)
     {
@@ -2861,10 +2895,10 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
-     * Add Info about used user, server and libraries.
+     * Add info about used user, server and libraries.
      *
-     * @param string $prefix banner prefix text
-     * @param string $suffix banner suffix text
+     * @param null|string $prefix Banner prefix text
+     * @param null|string $suffix Banner suffix text
      */
     public function logBanner($prefix = null, $suffix = null): void
     {
@@ -2889,9 +2923,27 @@ class RO extends \Ease\Sand implements \Stringable
     }
 
     /**
+     * @return array<int, string> Description
+     */
+    public function getMessages(): array
+    {
+        return $this->messages;
+    }
+
+    /**
+     * Get current operation name.
+     *
+     * @return null|string Current operation name
+     */
+    public function getOperation(): string
+    {
+        return $this->operation;
+    }
+
+    /**
      * Last operation errors.
      *
-     * @return array AbraFlexi error meassages
+     * @return array<string, mixed> AbraFlexi error messages
      */
     public function getErrors()
     {

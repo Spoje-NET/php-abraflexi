@@ -6,7 +6,7 @@ declare(strict_types=1);
  * This file is part of the SpojeNet\AbraFlexi package.
  *
  * (c) 2019-2024 SpojeNet s.r.o. <http://spoje.net/>
- * (c) 2025 SpojeNetIT s.r.o. <http://spojenet.cz/>
+ * (c) 2025-2026 SpojeNetIT s.r.o. <http://spojenet.cz/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -32,7 +32,7 @@ class ObjednavkaPrijata extends RW implements \AbraFlexi\Document
     use lock;
 
     /**
-     * Evidence použitá třídou.
+     * Evidence used by class.
      */
     public ?string $evidence = 'objednavka-prijata';
 }

@@ -21,7 +21,7 @@ class Relations
      *
      * @var string
      */
- static public $version = '2026.1.1';
+ static public $version = '2026.3.10';
 
     /**
      * Evidence adresar (Adresy firem) Relations.
@@ -713,6 +713,18 @@ class Relations
   ],
 ];
     /**
+     * Evidence doplnek (Doplněk) Relations.
+     *
+     * @var array
+     */
+ static public $doplnek = [
+  'uzivatelske-vazby' => [
+    'url' => 'uzivatelske-vazby',
+    'evidenceType' => 'VAZBA',
+    'name' => 'Uživatelské vazby',
+  ],
+];
+    /**
      * Evidence intrastat-druh-dopravy (Druh dopravy) Relations.
      *
      * @var array
@@ -771,6 +783,18 @@ class Relations
      * @var array
      */
  static public $insight = [
+  'uzivatelske-vazby' => [
+    'url' => 'uzivatelske-vazby',
+    'evidenceType' => 'VAZBA',
+    'name' => 'Uživatelské vazby',
+  ],
+];
+    /**
+     * Evidence integrace (Integrace) Relations.
+     *
+     * @var array
+     */
+ static public $integrace = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',
@@ -1137,6 +1161,18 @@ class Relations
      * @var array
      */
  static public $intrastatObchodniTransakce = [
+  'uzivatelske-vazby' => [
+    'url' => 'uzivatelske-vazby',
+    'evidenceType' => 'VAZBA',
+    'name' => 'Uživatelské vazby',
+  ],
+];
+    /**
+     * Evidence objekt-doplnku (Objekt doplňku) Relations.
+     *
+     * @var array
+     */
+ static public $objektDoplnku = [
   'uzivatelske-vazby' => [
     'url' => 'uzivatelske-vazby',
     'evidenceType' => 'VAZBA',

@@ -2,7 +2,7 @@
 /**
  * AbraFlexi - List of Evidencies.
  *
- * Generated: Mon, 26 Jan 2026 12:00:29 +0000 
+ * Generated: Tue, 28 Apr 2026 16:10:04 +0000 
  * From:      https://demo.flexibee.eu
  *    
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
@@ -44,7 +44,7 @@ class EvidenceList extends RO
      *
      * @var string
      */
- static public $version = '2026.1.1';
+ static public $version = '2026.3.10';
 
     /**
      * Evidences Path/Name listing.
@@ -86,6 +86,7 @@ class EvidenceList extends RO
   'rada-poptavky-vydane' => 'Dokladové řady - vydané poptávky',
   'rada-zavazku' => 'Dokladové řady - závazky',
   'doklad-k-uhrade' => 'Doklady k úhradě',
+  'doplnek' => 'Doplněk',
   'doporuceni' => 'Doporučení',
   'intrastat-druh-dopravy' => 'Druh dopravy',
   'cenik-obal' => 'Evidence obalů EkoKom',
@@ -94,6 +95,7 @@ class EvidenceList extends RO
   'hlavni-kniha' => 'Hlavní kniha',
   'individualni-cenik' => 'Individuální ceník',
   'insight' => 'Insight',
+  'integrace' => 'Integrace',
   'interni-doklad' => 'Interní doklady',
   'inventura' => 'Inventury',
   'certifikat-finbricks' => 'Klíče Finbricks',
@@ -126,6 +128,7 @@ class EvidenceList extends RO
   'cenikovy-pohyb-prodej' => 'Nákupní, prodejní a skladové pohyby',
   'intrastat-obchodni-transakce' => 'Obchodní transakce',
   'strom-koren' => 'Obecný strom',
+  'objekt-doplnku' => 'Objekt doplňku',
   'obratova-predvaha' => 'Obratová předvaha',
   'obrat' => 'Obraty',
   'smlouva' => 'Odběratelské smlouvy',
@@ -597,6 +600,18 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.vyk.CenikovePohyby',
     'extIdSupported' => 'false',
     'dbName' => 'CenikovePohyby',
+  ],
+  'objekt-doplnku' => [
+    'evidenceName' => 'Objekt doplňku',
+    'evidencePath' => 'objekt-doplnku',
+    'importStatus' => 'DISALLOWED',
+    'formCode' => 'objektDoplnku',
+    'evidenceAccess' => 'true',
+    'evidenceType' => 'OBJEKT_DOPLNKU',
+    'beanKey' => 'cz.winstrom.vo.w.ObjektDoplnku',
+    'className' => 'cz.winstrom.vo.w.ObjektDoplnku',
+    'extIdSupported' => 'false',
+    'dbName' => 'waddonobject',
   ],
   'obratova-predvaha' => [
     'evidenceName' => 'Obratová předvaha',
@@ -1343,6 +1358,19 @@ class EvidenceList extends RO
     'dbName' => 'wOsCert',
     'evidenceFilter' => 'IdUzivatel = 7 AND UcelCertK NOT IN (\'ucelCertK.eet\',\'ucelCertK.finbricks\')',
   ],
+  'doplnek' => [
+    'evidenceName' => 'Doplněk',
+    'evidencePath' => 'doplnek',
+    'importStatus' => 'DISALLOWED',
+    'formCode' => 'doplnek',
+    'evidenceAccess' => 'true',
+    'evidenceType' => 'DOPLNEK',
+    'beanKey' => 'cz.winstrom.vo.w.Doplnek',
+    'className' => 'cz.winstrom.vo.w.Doplnek',
+    'extIdSupported' => 'true',
+    'dbName' => 'waddon',
+    'findByCodeProperties' => 'kod',
+  ],
   'insight' => [
     'evidenceName' => 'Insight',
     'evidencePath' => 'insight',
@@ -1354,6 +1382,19 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.w.Insight',
     'extIdSupported' => 'false',
     'dbName' => 'wInsight',
+    'findByCodeProperties' => 'kod',
+  ],
+  'integrace' => [
+    'evidenceName' => 'Integrace',
+    'evidencePath' => 'integrace',
+    'importStatus' => 'DISALLOWED',
+    'formCode' => 'integrace',
+    'evidenceAccess' => 'true',
+    'evidenceType' => 'INTEGRACE',
+    'beanKey' => 'cz.winstrom.vo.w.Integrace',
+    'className' => 'cz.winstrom.vo.w.Integrace',
+    'extIdSupported' => 'true',
+    'dbName' => 'wintegrace',
     'findByCodeProperties' => 'kod',
   ],
   'certifikat-finbricks' => [
@@ -1389,7 +1430,7 @@ class EvidenceList extends RO
     'formCode' => 'cisKurzyIntr',
     'evidenceAccess' => 'true',
     'evidenceType' => 'INTRASTAT_KURZ',
-    'beanKey' => 'cz.winstrom.vo.ucto.Kurz',
+    'beanKey' => 'cz.winstrom.vo.ucto.Kurz$$cisKurzyIntr',
     'className' => 'cz.winstrom.vo.ucto.Kurz',
     'extIdSupported' => 'true',
     'dbName' => 'uKurzy',
@@ -1402,7 +1443,7 @@ class EvidenceList extends RO
     'formCode' => 'cisKurzyCen',
     'evidenceAccess' => 'true',
     'evidenceType' => 'KURZ_PRO_CENOTVORBU',
-    'beanKey' => 'cz.winstrom.vo.ucto.Kurz',
+    'beanKey' => 'cz.winstrom.vo.ucto.Kurz$$cisKurzyCen',
     'className' => 'cz.winstrom.vo.ucto.Kurz',
     'extIdSupported' => 'true',
     'dbName' => 'uKurzy',
@@ -1415,7 +1456,7 @@ class EvidenceList extends RO
     'formCode' => 'cisKurzyPreceneni',
     'evidenceAccess' => 'true',
     'evidenceType' => 'KURZ_PRO_PRECENENI',
-    'beanKey' => 'cz.winstrom.vo.ucto.Kurz',
+    'beanKey' => 'cz.winstrom.vo.ucto.Kurz$$cisKurzyPreceneni',
     'className' => 'cz.winstrom.vo.ucto.Kurz',
     'extIdSupported' => 'true',
     'dbName' => 'uKurzy',
@@ -2008,7 +2049,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.Bsp',
     'extIdSupported' => 'true',
     'dbName' => 'dBsp',
-    'evidenceFilter' => 'Modul IN (\'POK\',\'BAN\') AND ((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND IdTypOrg = 1',
+    'evidenceFilter' => 'Modul IN (\'POK\',\'BAN\') AND ((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND IdTypOrg = 1',
     'findByCodeProperties' => 'kod',
   ],
   'bankovni-ucet-sklad-pokladna' => [
@@ -2022,7 +2063,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.Bsp',
     'extIdSupported' => 'true',
     'dbName' => 'dBsp',
-    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND IdTypOrg = 1',
+    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND IdTypOrg = 1',
     'findByCodeProperties' => 'kod',
   ],
   'cenova-uroven' => [
@@ -2638,7 +2679,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.ucto.TypUcOp',
     'extIdSupported' => 'true',
     'dbName' => 'uTypUcOp',
-    'evidenceFilter' => 'ModulTxp = false AND ((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8)))',
+    'evidenceFilter' => 'ModulTxp = false AND ((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8)))',
     'findByCodeProperties' => 'kod',
   ],
   'faktura-prijata' => [
@@ -2722,7 +2763,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.Bsp',
     'extIdSupported' => 'true',
     'dbName' => 'dBsp',
-    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND IdTypOrg = 1 AND Modul = \'BAN\'',
+    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND IdTypOrg = 1 AND Modul = \'BAN\'',
     'findByCodeProperties' => 'kod',
   ],
   'pokladna' => [
@@ -2736,7 +2777,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.Bsp',
     'extIdSupported' => 'true',
     'dbName' => 'dBsp',
-    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND IdTypOrg = 1 AND Modul = \'POK\'',
+    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND IdTypOrg = 1 AND Modul = \'POK\'',
     'findByCodeProperties' => 'kod',
   ],
   'typ-prodejky' => [
@@ -2750,7 +2791,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = true AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'FAV\'',
+    'evidenceFilter' => 'Prodejka = true AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'FAV\'',
     'findByCodeProperties' => 'kod',
   ],
   'sestava' => [
@@ -2778,7 +2819,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.Bsp',
     'extIdSupported' => 'true',
     'dbName' => 'dBsp',
-    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND IdTypOrg = 1 AND Modul = \'SKL\'',
+    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND IdTypOrg = 1 AND Modul = \'SKL\'',
     'findByCodeProperties' => 'kod',
   ],
   'preneseni-dph' => [
@@ -2988,7 +3029,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'BAN\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'BAN\'',
     'findByCodeProperties' => 'kod',
   ],
   'dodavatelsky-typ-smlouvy' => [
@@ -3016,7 +3057,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => '(((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1',
+    'evidenceFilter' => '(((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1',
     'findByCodeProperties' => 'kod',
   ],
   'typ-interniho-dokladu' => [
@@ -3030,7 +3071,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'INT\' AND TypDoklK NOT IN (\'typDokladu.skontoZtrata\',\'typDokladu.skontoZisk\')',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'INT\' AND TypDoklK NOT IN (\'typDokladu.skontoZtrata\',\'typDokladu.skontoZisk\')',
     'findByCodeProperties' => 'kod',
   ],
   'typ-leasingu' => [
@@ -3044,7 +3085,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.maj.TypLeas',
     'extIdSupported' => 'true',
     'dbName' => 'mTypLeas',
-    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND IdTypOrg = 1',
+    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND IdTypOrg = 1',
     'findByCodeProperties' => 'kod',
   ],
   'typ-majetku' => [
@@ -3058,7 +3099,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.maj.TypMaj',
     'extIdSupported' => 'true',
     'dbName' => 'mTypMaj',
-    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND IdTypOrg = 1',
+    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND IdTypOrg = 1',
     'findByCodeProperties' => 'kod',
   ],
   'typ-smlouvy' => [
@@ -3086,7 +3127,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'PHL\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'PHL\'',
     'findByCodeProperties' => 'kod',
   ],
   'typ-zavazku' => [
@@ -3100,7 +3141,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'ZAV\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'ZAV\'',
     'findByCodeProperties' => 'kod',
   ],
   'typ-pokladni-pohyb' => [
@@ -3114,7 +3155,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'POK\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'POK\'',
     'findByCodeProperties' => 'kod',
   ],
   'typ-faktury-prijate' => [
@@ -3128,7 +3169,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'FAP\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'FAP\'',
     'findByCodeProperties' => 'kod',
   ],
   'typ-nabidky-prijate' => [
@@ -3142,7 +3183,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'NAP\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'NAP\'',
     'findByCodeProperties' => 'kod',
   ],
   'typ-objednavky-prijate' => [
@@ -3156,7 +3197,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'OBP\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'OBP\'',
     'findByCodeProperties' => 'kod',
   ],
   'typ-poptavky-prijate' => [
@@ -3170,7 +3211,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'PPP\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'PPP\'',
     'findByCodeProperties' => 'kod',
   ],
   'typ-skladovy-pohyb' => [
@@ -3184,7 +3225,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'SKL\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'SKL\'',
     'findByCodeProperties' => 'kod',
   ],
   'typ-uplatneni-dane-zavazku' => [
@@ -3198,7 +3239,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'TXZ\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'TXZ\'',
     'findByCodeProperties' => 'kod',
   ],
   'typ-uzivatelske-vazby' => [
@@ -3226,7 +3267,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'FAV\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'FAV\'',
     'findByCodeProperties' => 'kod',
   ],
   'typ-nabidky-vydane' => [
@@ -3240,7 +3281,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'NAV\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'NAV\'',
     'findByCodeProperties' => 'kod',
   ],
   'typ-objednavky-vydane' => [
@@ -3254,7 +3295,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'OBV\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'OBV\'',
     'findByCodeProperties' => 'kod',
   ],
   'typ-poptavky-vydane' => [
@@ -3268,7 +3309,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'PPV\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = false AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'PPV\'',
     'findByCodeProperties' => 'kod',
   ],
   'typ-zakazky' => [
@@ -3296,7 +3337,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.dok.TypDokl',
     'extIdSupported' => 'true',
     'dbName' => 'dTypDokl',
-    'evidenceFilter' => 'Prodejka = false AND Zapocet = true AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'BAN\'',
+    'evidenceFilter' => 'Prodejka = false AND Zapocet = true AND (((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND PlatiOd <= 2026 AND PlatiDo >= 2026) AND IdTypOrg = 1 AND Modul = \'BAN\'',
     'findByCodeProperties' => 'kod',
   ],
   'umisteni' => [
@@ -3506,7 +3547,7 @@ class EvidenceList extends RO
     'className' => 'cz.winstrom.vo.ucto.Ucet',
     'extIdSupported' => 'true',
     'dbName' => 'uUcty',
-    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (21,8))) AND IdTypOrg = 1',
+    'evidenceFilter' => '((IdUcetObdobiOd IS NULL OR IdUcetObdobiOd IN (24,3,1,2,4,5,19,23,8)) AND (IdUcetObdobiDo IS NULL OR IdUcetObdobiDo IN (63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,21,8))) AND IdTypOrg = 1',
     'findByCodeProperties' => 'kod',
   ],
   'cinnost' => [
