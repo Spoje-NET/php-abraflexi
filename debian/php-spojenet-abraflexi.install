@@ -4,4 +4,4 @@ static/*                        /usr/share/php/AbraFlexi/static
 tools/*                         /usr/share/php/AbraFlexi/tools
 debian/bootstrap.php            /usr/share/php/AbraFlexi/tools
 php-spojenet-abraflexi.svg	usr/share/icons/hicolor/scalable/apps/
-io.github.spoje_net.php_spojenet_abraflexi.metainfo.xml	usr/share/metainfo/
+debian/io.github.spoje_net.php_spojenet_abraflexi.metainfo.xml	usr/share/metainfo/
