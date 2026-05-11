@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="addon">
+<component type="generic">
   <id>io.github.spoje_net.php_spojenet_abraflexi</id>
   <icon type="stock">php-spojenet-abraflexi</icon>
   <metadata_license>MIT</metadata_license>
