@@ -1866,9 +1866,9 @@ class RO extends \Ease\Sand implements \Stringable
     /**
      * Return columns from AbraFlexi according to conditions.
      *
-     * @param array<string>|string $columnsList List of items or detail level: id|summary|full
-     * @param array<string|int, mixed> $conditions  Array of conditions or record ID
-     * @param null|string          $indexBy     Column by which to index records
+     * @param array<string>|string     $columnsList List of items or detail level: id|summary|full
+     * @param array<int|string, mixed> $conditions  Array of conditions or record ID
+     * @param null|string              $indexBy     Column by which to index records
      *
      * @return null|array<int|string, array<string, mixed>> Records
      */
