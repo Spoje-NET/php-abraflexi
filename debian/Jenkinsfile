@@ -14,13 +14,7 @@ String vendor = 'vitexsoftware'
 String imagePrefix = 'multiflexi-'
 
 properties([
-    copyArtifactPermission('*'),
-    buildBlocker(
-        useBuildBlocker: true,
-        blockLevel: 'GLOBAL',
-        scanQueueFor: 'ALL',
-        blockingJobs: 'RebulidDEBRepoByAnsible'
-    )
+    copyArtifactPermission('*')
 ])
 
 node {
@@ -75,6 +69,10 @@ distributions.each { distro ->
                 }
 
                 stage("Test ${distro}") {
+                    waitUntil(initialRecurrencePeriod: 30000) {
+                        def color = sh(script: "curl -sf 'https://jenkins.proxy.spojenet.cz/job/RebulidDEBRepoByAnsible/api/json?tree=color' 2>/dev/null | grep -o '"color":"[^"]*"' | cut -d'"' -f4 || echo 'blue'", returnStdout: true).trim()
+                        return !color.endsWith('_anime')
+                    }
                     buildImage.inside('--ipc=host') {
                         def debconf_debug = 0
                         sh """
