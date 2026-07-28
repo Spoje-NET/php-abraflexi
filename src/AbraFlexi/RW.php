@@ -211,7 +211,7 @@ class RW extends RO
     {
         foreach ($this->chained as $chid => $chained) {
             $chainedEvidence = $chained->getEvidence();
-            $chainedExtid = $chained->getRecordID();
+            $chainedExtid = $chained->getRecordID() ?? '';
 
             if (\is_array($chainedExtid)) { // if there are more IDs
                 foreach ($chainedExtid as $extId) { // find external ID in format ext:.....
@@ -253,7 +253,7 @@ class RW extends RO
             if (\array_key_exists('request-id', $insertResult)) {
                 $extid = $insertResult['request-id'];
             } else {
-                $extid = null;
+                $extid = '';
             }
 
             $evidence = explode('/', $insertResult['ref'])[3];

@@ -100,17 +100,29 @@ class RWTest extends \PHPUnit\Framework\TestCase
     //        $this->markTestIncomplete('This test has not been implemented yet.');
     //    }
     //
-    //    /**
-    //     * @covers \AbraFlexi\RW::extractResultIDs
-    //     *
-    //     * @todo   Implement testextractResultIDs().
-    //     */
-    //    public function testextractResultIDs(): void
-    //    {
-    //        $this->assertEquals('', $this->object->extractResultIDs());
-    //        // Remove the following lines when you implement this test.
-    //        $this->markTestIncomplete('This test has not been implemented yet.');
-    //    }
+    /**
+     * @covers \AbraFlexi\RW::extractResultIDs
+     */
+    public function testextractResultIDs(): void
+    {
+        $resultInfo = [
+            [
+                'id' => 123,
+                'request-id' => 'ext:originalId:1',
+                'ref' => '/c/demo/faktura-vydana/123.json',
+            ],
+            [
+                'id' => 124,
+                'ref' => '/c/demo/faktura-vydana/124.json',
+            ],
+        ];
+
+        $this->assertSame(
+            ['faktura-vydana' => ['ext:originalId:1' => 123, '' => 124]],
+            $this->object->extractResultIDs($resultInfo),
+        );
+    }
+
     //
     //    /**
     //     * @covers \AbraFlexi\RW::getLastInsertedId
