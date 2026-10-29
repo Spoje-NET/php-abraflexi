@@ -53,6 +53,10 @@ distributions.each { distro ->
             ansiColor('xterm') {
                 stage('Checkout ' + distroName) {
                     sh 'sudo chown -R jenkins:jenkins . 2>/dev/null || true'
+                    // The first branch shares the SCM Checkout workspace and its read-only
+                    // .git packs cannot be overwritten by unstash. Empty the directory in
+                    // place (deleteDir() races with delayed unlink on NFS workspaces).
+                    sh 'find . -mindepth 1 -delete 2>/dev/null || true'
                     unstash 'src'
                     def imageName = vendor + '/' + distro
                     buildImage = docker.image(imageName)
