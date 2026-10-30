@@ -58,7 +58,7 @@ function getEvidenceActions($evidence, RO $syncer) {
         $actions = [];
     }
     $flexinfo = $syncer->performRequest($evidence . '/actions.json');
-    if (count($flexinfo) && array_key_exists('actions', $flexinfo)) {
+    if (!empty($flexinfo) && is_array($flexinfo) && array_key_exists('actions', $flexinfo)) {
         if (isset($flexinfo['actions']['action'])) {
             if (\Ease\Functions::isAssoc($flexinfo['actions']['action'])) {
                 $key = $flexinfo['actions']['action']['actionId'];

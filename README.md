@@ -1,6 +1,7 @@
 # PHP AbraFlexi
 
 ![PHP AbraFlexi Logo](project-logo.png?raw=true "Project Logo")
+![Packaging: deb](https://img.shields.io/badge/packaging-.deb-red?logo=debian&logoColor=white)
 
 PHP 8.1+ based library for easy interaction with the Czech economic system AbraFlexi.
 

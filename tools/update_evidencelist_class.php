@@ -23,7 +23,7 @@ function getColumnsInfo($evidence, RO $syncer)
 {
     $useKeywords = [];
     $flexinfo = $syncer->performRequest($evidence . '/properties.json');
-    if (count($flexinfo) && array_key_exists('properties', $flexinfo)) {
+    if (!empty($flexinfo) && is_array($flexinfo) && array_key_exists('properties', $flexinfo)) {
         foreach ($flexinfo['properties']['property'] as $evidenceProperty) {
             $key = $evidenceProperty['propertyName'];
             $useKeywords[$key] = $evidenceProperty;
