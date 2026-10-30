@@ -1851,14 +1851,23 @@ class RO extends \Ease\Sand implements \Stringable
         array $conditions = [],
     ): array {
         foreach ($fields as $field) {
-            if ($this->getColumnInfo($field)['inSummary'] === 'false') {
-                throw new \InvalidArgumentException(_('Column %s do not support summarization'));
+            $info = $this->getColumnInfo($field);
+
+            if ($info === null || ($info['inSummary'] ?? 'false') === 'false') {
+                throw new \InvalidArgumentException(sprintf(
+                    _('Column %s does not support summarization'),
+                    $field,
+                ));
             }
         }
 
         $conditions['fields'] = implode(',', array_unique($fields));
 
         $summaryRaw = $this->getFlexiData('$sum', $conditions);
+
+        if (!\is_array($summaryRaw)) {
+            return [];
+        }
 
         return \array_key_exists('sum', $summaryRaw) ? $summaryRaw['sum'] : [];
     }
@@ -2760,6 +2769,30 @@ class RO extends \Ease\Sand implements \Stringable
             $this->user,
             $this->password,
         );
+
+        return $this->lastResponseCode === 200;
+    }
+
+    /**
+     * Refresh the TTL of the current authSessionId.
+     *
+     * AbraFlexi sessions expire unless kept alive; call this roughly once a
+     * minute (every 30 minutes is usually enough). Uses the dedicated
+     * keep-alive endpoint which returns JavaScript, so the HTTP status is
+     * checked via doCurlRequest rather than JSON parse of performRequest.
+     *
+     * @see https://podpora.flexibee.eu/en/articles/4713880-authentication
+     *
+     * @return bool true when the server acknowledged the ping (HTTP 200)
+     */
+    public function keepAlive(): bool
+    {
+        if (empty($this->authSessionId)) {
+            return false;
+        }
+
+        $url = rtrim((string) $this->url, '/').'/login-logout/session-keep-alive.js';
+        $this->doCurlRequest($url, 'GET');
 
         return $this->lastResponseCode === 200;
     }
